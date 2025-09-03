@@ -17,7 +17,7 @@ import Voice, {
   SpeechErrorEvent 
 } from '@react-native-voice/voice';
 import { Colors } from '../constants/Colors';
-import { Typography } from '../constants/Typography';
+import { TextStyles } from '../constants/Typography';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { useAnimations } from '../hooks/useAnimations';
 
