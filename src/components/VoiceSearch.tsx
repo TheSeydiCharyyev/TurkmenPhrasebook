@@ -1,4 +1,4 @@
-// src/components/VoiceSearch.tsx - Voice Search Component for Day 18
+// src/components/VoiceSearch.tsx - Voice Search Component for Day 18 - ИСПРАВЛЕНО
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
@@ -44,7 +44,7 @@ export default function VoiceSearch({
   const { scaleAnim, pressAnimation, pulseAnimation } = useAnimations();
   
   // Animation refs for voice recording
-  const pulseAnimation = useRef(new Animated.Value(1)).current;
+  const pulseAnimationRef = useRef(new Animated.Value(1)).current;
   const rippleAnimation = useRef(new Animated.Value(0)).current;
 
   /**
@@ -89,7 +89,7 @@ export default function VoiceSearch({
     };
 
     const lang = config.mode === 'tk' ? 'tk' : config.mode === 'zh' ? 'zh' : 'ru';
-    return texts[lang][key] || key;
+    return texts[lang][key as keyof typeof texts['ru']] || key;
   }, [config.mode]);
 
   /**
@@ -237,12 +237,12 @@ export default function VoiceSearch({
   const startPulseAnimation = () => {
     const pulse = Animated.loop(
       Animated.sequence([
-        Animated.timing(pulseAnimation, {
+        Animated.timing(pulseAnimationRef, {
           toValue: 1.3,
           duration: 1000,
           useNativeDriver: true,
         }),
-        Animated.timing(pulseAnimation, {
+        Animated.timing(pulseAnimationRef, {
           toValue: 1,
           duration: 1000,
           useNativeDriver: true,
@@ -263,11 +263,11 @@ export default function VoiceSearch({
   };
 
   const stopPulseAnimation = () => {
-    pulseAnimation.stopAnimation();
+    pulseAnimationRef.stopAnimation();
     rippleAnimation.stopAnimation();
     
     Animated.parallel([
-      Animated.timing(pulseAnimation, {
+      Animated.timing(pulseAnimationRef, {
         toValue: 1,
         duration: 200,
         useNativeDriver: true,
@@ -335,7 +335,7 @@ export default function VoiceSearch({
         style={[
           styles.microphoneContainer,
           {
-            transform: [{ scale: pulseAnimation }],
+            transform: [{ scale: pulseAnimationRef }],
           },
         ]}
       >
@@ -352,7 +352,7 @@ export default function VoiceSearch({
           <Ionicons
             name={isListening ? 'mic' : 'mic-outline'}
             size={24}
-            color={isListening ? Colors.textWhite : Colors.primary}
+            color={isListening ? Colors.background : Colors.primary}
           />
         </TouchableOpacity>
       </Animated.View>
@@ -403,7 +403,7 @@ export function VoiceSearchButton({
   style?: any;
 }) {
   const [isListening, setIsListening] = useState(false);
-  const { scaleAnimation, createScaleAnimation } = useAnimations();
+  const { scaleAnim, pressAnimation } = useAnimations();
 
   const sizeConfig = {
     small: { buttonSize: 32, iconSize: 16 },
@@ -416,7 +416,7 @@ export function VoiceSearchButton({
   const handlePress = useCallback(async () => {
     if (disabled) return;
 
-    createScaleAnimation(0.9, 100);
+    pressAnimation();
     
     try {
       if (isListening) {
@@ -429,7 +429,7 @@ export function VoiceSearchButton({
       console.error('Voice search error:', error);
       setIsListening(false);
     }
-  }, [disabled, isListening, createScaleAnimation]);
+  }, [disabled, isListening, pressAnimation]);
 
   useEffect(() => {
     Voice.onSpeechStart = () => setIsListening(true);
@@ -448,7 +448,7 @@ export function VoiceSearchButton({
   }, [onVoiceResult]);
 
   return (
-    <Animated.View style={[{ transform: [{ scale: scaleAnimation }] }, style]}>
+    <Animated.View style={[{ transform: [{ scale: scaleAnim }] }, style]}>
       <TouchableOpacity
         style={[
           styles.compactButton,
@@ -463,7 +463,7 @@ export function VoiceSearchButton({
         <Ionicons
           name={isListening ? 'mic' : 'mic-outline'}
           size={iconSize}
-          color={isListening ? Colors.textWhite : Colors.primary}
+          color={isListening ? Colors.background : Colors.primary}
         />
       </TouchableOpacity>
     </Animated.View>
@@ -507,7 +507,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
   },
   microphoneButtonDisabled: {
-    backgroundColor: Colors.cardBackground,
+    backgroundColor: Colors.backgroundLight,
     borderColor: Colors.textLight,
     opacity: 0.5,
   },
@@ -516,13 +516,13 @@ const styles = StyleSheet.create({
     minHeight: 40,
   },
   statusText: {
-    fontSize: TextStyles.body.fontSize
-    color: Colors.textSecondary,
+    fontSize: TextStyles.body.fontSize,
+    color: Colors.textLight,
     textAlign: 'center',
     marginBottom: 4,
   },
   recognizedText: {
-    fontSize: TextStyles.bodySmall.fontSize
+    fontSize: TextStyles.bodySmall.fontSize,
     color: Colors.primary,
     textAlign: 'center',
     fontStyle: 'italic',
@@ -534,11 +534,11 @@ const styles = StyleSheet.create({
     marginTop: 8,
     paddingHorizontal: 8,
     paddingVertical: 4,
-    backgroundColor: Colors.cardBackground,
+    backgroundColor: Colors.backgroundLight,
     borderRadius: 12,
   },
   languageText: {
-    fontSize: Typography.small.fontSize,
+    fontSize: TextStyles.bodySmall.fontSize,
     color: Colors.textLight,
     marginLeft: 4,
     fontWeight: 'bold',
@@ -565,7 +565,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
   },
   compactButtonDisabled: {
-    backgroundColor: Colors.cardBackground,
+    backgroundColor: Colors.backgroundLight,
     borderColor: Colors.textLight,
     opacity: 0.5,
   },
