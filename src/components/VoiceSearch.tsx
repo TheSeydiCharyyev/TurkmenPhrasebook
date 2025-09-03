@@ -41,7 +41,7 @@ export default function VoiceSearch({
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
   
   const { config } = useAppLanguage();
-  const { scaleAnimation, createScaleAnimation, createPulseAnimation } = useAnimations();
+  const { scaleAnim, pressAnimation, pulseAnimation } = useAnimations();
   
   // Animation refs for voice recording
   const pulseAnimation = useRef(new Animated.Value(1)).current;
@@ -516,13 +516,13 @@ const styles = StyleSheet.create({
     minHeight: 40,
   },
   statusText: {
-    fontSize: Typography.body.fontSize,
+    fontSize: TextStyles.body.fontSize
     color: Colors.textSecondary,
     textAlign: 'center',
     marginBottom: 4,
   },
   recognizedText: {
-    fontSize: Typography.small.fontSize,
+    fontSize: TextStyles.bodySmall.fontSize
     color: Colors.primary,
     textAlign: 'center',
     fontStyle: 'italic',
