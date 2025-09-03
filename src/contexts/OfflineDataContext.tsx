@@ -1,10 +1,9 @@
-// src/contexts/OfflineDataContext.tsx - Новый файл дня 17
+// src/contexts/OfflineDataContext.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ
 import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
 import { View, Text, ActivityIndicator, Alert } from 'react-native';
 import { phrases as defaultPhrases } from '../data/phrases';
 import { categories as defaultCategories } from '../data/categories';
 import { useOffline } from '../hooks/useOffline';
-import { useErrorHandler } from '../hooks/useErrorHandler';
 import { Phrase, Category } from '../types';
 import { Colors } from '../constants/Colors';
 
@@ -44,16 +43,17 @@ export function OfflineDataProvider({ children }: OfflineDataProviderProps) {
   const [dataSource, setDataSource] = useState<'cache' | 'local' | 'hybrid'>('local');
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
   
-  const { 
-    isOnline, 
-    isDataCached, 
-    cacheStatus, 
-    getCachedData, 
-    refreshCache,
-    getCacheInfo 
-  } = useOffline();
+  const offlineHook = useOffline();
   
-  const { handleError, showErrorAlert } = useErrorHandler();
+  // Безопасная деструктуризация с fallback значениями
+  const {
+    isOnline = true,
+    isDataCached = false,
+    cacheStatus = 'initializing',
+    getCachedData,
+    refreshCache,
+    getCacheInfo
+  } = offlineHook || {};
 
   // Инициализация данных при запуске
   useEffect(() => {
@@ -71,6 +71,15 @@ export function OfflineDataProvider({ children }: OfflineDataProviderProps) {
     try {
       setIsLoading(true);
       
+      if (!getCachedData) {
+        // Если хук недоступен, используем локальные данные
+        setPhrases(defaultPhrases);
+        setCategories(defaultCategories);
+        setDataSource('local');
+        setLastUpdate(new Date());
+        return;
+      }
+      
       // Пытаемся загрузить кэшированные данные
       const cachedData = await getCachedData();
       
@@ -80,9 +89,11 @@ export function OfflineDataProvider({ children }: OfflineDataProviderProps) {
         setCategories(cachedData.categories);
         setDataSource('cache');
         
-        const cacheInfo = await getCacheInfo();
-        if (cacheInfo) {
-          setLastUpdate(cacheInfo.lastUpdated);
+        if (getCacheInfo) {
+          const cacheInfo = await getCacheInfo();
+          if (cacheInfo) {
+            setLastUpdate(cacheInfo.lastUpdated);
+          }
         }
         
         console.log('✅ Loaded data from cache:', {
@@ -100,12 +111,13 @@ export function OfflineDataProvider({ children }: OfflineDataProviderProps) {
       }
       
     } catch (error) {
-      handleError(error, 'data initialization');
+      console.warn('Data initialization failed:', error);
       
       // В случае ошибки используем локальные данные
       setPhrases(defaultPhrases);
       setCategories(defaultCategories);
       setDataSource('local');
+      setLastUpdate(new Date());
     } finally {
       setIsLoading(false);
     }
@@ -113,7 +125,7 @@ export function OfflineDataProvider({ children }: OfflineDataProviderProps) {
 
   // Проверка обновлений
   const checkForUpdates = async () => {
-    if (!isOnline) return;
+    if (!isOnline || !getCacheInfo) return;
 
     try {
       const cacheInfo = await getCacheInfo();
@@ -130,82 +142,103 @@ export function OfflineDataProvider({ children }: OfflineDataProviderProps) {
               { text: 'Позже', style: 'cancel' },
               { 
                 text: 'Обновить', 
-                onPress: () => refreshData() 
+                onPress: () => refreshData(),
+                style: 'default'
               }
             ]
           );
         }
       }
     } catch (error) {
-      handleError(error, 'checking updates');
+      console.warn('Check for updates failed:', error);
     }
   };
 
   // Обновление данных
   const refreshData = useCallback(async (): Promise<boolean> => {
     try {
-      setIsLoading(true);
-      
+      if (!refreshCache) {
+        console.warn('Refresh cache not available');
+        return false;
+      }
+
       const success = await refreshCache();
       
       if (success) {
-        // Перезагружаем данные после обновления кэша
-        const refreshedData = await getCachedData();
+        // Перезагружаем данные после успешного обновления
+        await initializeData();
         
-        if (refreshedData.fromCache) {
-          setPhrases(refreshedData.phrases);
-          setCategories(refreshedData.categories);
-          setDataSource('cache');
-          setLastUpdate(new Date());
-          
-          console.log('✅ Data refreshed from updated cache');
-          return true;
-        }
+        Alert.alert(
+          '✅ Данные обновлены',
+          'Фразы и категории были успешно обновлены'
+        );
+        
+        return true;
       }
       
       return false;
-      
     } catch (error) {
-      handleError(error, 'data refresh');
-      showErrorAlert('Ошибка обновления', 'Не удалось обновить данные');
+      console.warn('Refresh data failed:', error);
+      Alert.alert(
+        '❌ Ошибка обновления',
+        'Не удалось обновить данные. Попробуйте позже.'
+      );
       return false;
-    } finally {
-      setIsLoading(false);
     }
-  }, [refreshCache, getCachedData, handleError, showErrorAlert]);
+  }, [refreshCache]);
 
   // Поиск фразы по ID
   const getPhrase = useCallback((id: string): Phrase | undefined => {
-    return phrases.find(phrase => phrase.id === id);
+    try {
+      return phrases.find(phrase => phrase.id === id);
+    } catch (error) {
+      console.warn('Get phrase failed:', error);
+      return undefined;
+    }
   }, [phrases]);
 
   // Поиск категории по ID
   const getCategory = useCallback((id: string): Category | undefined => {
-    return categories.find(category => category.id === id);
+    try {
+      return categories.find(category => category.id === id);
+    } catch (error) {
+      console.warn('Get category failed:', error);
+      return undefined;
+    }
   }, [categories]);
 
   // Получение фраз по категории
   const getPhrasesByCategory = useCallback((categoryId: string): Phrase[] => {
-    return phrases.filter(phrase => phrase.categoryId === categoryId);
+    try {
+      return phrases.filter(phrase => phrase.categoryId === categoryId);
+    } catch (error) {
+      console.warn('Get phrases by category failed:', error);
+      return [];
+    }
   }, [phrases]);
 
   // Поиск фраз
   const searchPhrases = useCallback((query: string, categoryId?: string): Phrase[] => {
-    if (!query.trim()) return [];
+    try {
+      if (!query.trim()) return [];
 
-    let searchPool = phrases;
-    
-    if (categoryId) {
-      searchPool = searchPool.filter(phrase => phrase.categoryId === categoryId);
+      let searchPool = phrases;
+      
+      if (categoryId) {
+        searchPool = searchPool.filter(phrase => phrase.categoryId === categoryId);
+      }
+
+      const lowerQuery = query.toLowerCase();
+      return searchPool.filter(phrase => 
+        phrase.chinese?.toLowerCase().includes(lowerQuery) ||
+        phrase.pinyin?.toLowerCase().includes(lowerQuery) ||
+        phrase.russian?.toLowerCase().includes(lowerQuery) ||
+        phrase.turkmen?.toLowerCase().includes(lowerQuery)
+      );
+    } catch (error) {
+      console.warn('Search phrases failed:', error);
+      return [];
     }
-
-    const lowerQuery = query.toLowerCase();
-    return searchPool.filter(phrase => 
-      phrase.chinese.toLowerCase().includes(lowerQuery) ||
-      phrase.pinyin.toLowerCase().includes(lowerQuery) ||
-      phrase.russian.toLowerCase().includes(lowerQuery) ||
-      phrase.turkmen.toLowerCase().includes(lowerQuery)
-    );
   }, [phrases]);
 
   const value: OfflineDataContextType = {
@@ -252,13 +285,13 @@ export function withOfflineData<P extends object>(
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: Colors.background,
+          backgroundColor: Colors.background || '#FFFFFF',
         }}>
-          <ActivityIndicator size="large" color={Colors.primary} />
+          <ActivityIndicator size="large" color={Colors.primary || '#DC2626'} />
           <Text style={{
             marginTop: 16,
             fontSize: 16,
-            color: Colors.textLight,
+            color: Colors.textLight || '#666666',
             textAlign: 'center',
           }}>
             Загрузка данных...
@@ -273,14 +306,14 @@ export function withOfflineData<P extends object>(
           flex: 1,
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: Colors.background,
+          backgroundColor: Colors.background || '#FFFFFF',
           padding: 40,
         }}>
           <Text style={{ fontSize: 64, marginBottom: 20 }}>📡</Text>
           <Text style={{
             fontSize: 20,
             fontWeight: '600',
-            color: Colors.text,
+            color: Colors.text || '#000000',
             marginBottom: 12,
             textAlign: 'center',
           }}>
@@ -288,7 +321,7 @@ export function withOfflineData<P extends object>(
           </Text>
           <Text style={{
             fontSize: 16,
-            color: Colors.textLight,
+            color: Colors.textLight || '#666666',
             textAlign: 'center',
             lineHeight: 24,
           }}>
