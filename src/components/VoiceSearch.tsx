@@ -129,7 +129,7 @@ export default function VoiceSearch({
   const checkPermissions = async () => {
     try {
       const isAvailable = await Voice.isAvailable();
-      setHasPermission(isAvailable);
+      setHasPermission(Boolean(isAvailable)); // Преобразуем 0|1 в boolean
     } catch (error) {
       console.warn('Voice recognition not available:', error);
       setHasPermission(false);
