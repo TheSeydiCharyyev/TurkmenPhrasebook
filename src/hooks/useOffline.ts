@@ -117,13 +117,14 @@ export function useOffline() {
       const result = await SafeStorage.getItem<OfflineData>(OFFLINE_DATA_KEY);
       
       if (result.success && result.data && validateCacheData(result.data)) {
-        setStatus(prev => ({
-          ...prev,
-          isDataCached: true,
-          cacheStatus: 'cached',
-          cacheSize: JSON.stringify(result.data).length,
-          lastSync: result.data.lastUpdated,
-        }));
+  const cacheData = result.data; // ✅ Безопасное присвоение
+  setStatus(prev => ({
+    ...prev,
+    isDataCached: true,
+    cacheStatus: 'cached',
+    cacheSize: JSON.stringify(cacheData).length,
+    lastSync: cacheData.lastUpdated, // ✅ Исправлено
+  }));
       } else {
         // Создаем начальный кэш
         await createInitialCache();
@@ -269,14 +270,15 @@ export function useOffline() {
       const result = await SafeStorage.getItem<OfflineData>(OFFLINE_DATA_KEY);
       
       if (result.success && result.data) {
+        const cacheData = result.data; // Безопасное присвоение
         return {
-          version: result.data.version,
-          cachedAt: new Date(result.data.cachedAt),
-          lastUpdated: new Date(result.data.lastUpdated),
-          phrasesCount: result.data.phrases.length,
-          categoriesCount: result.data.categories.length,
-          checksum: result.data.checksum,
-          sizeBytes: JSON.stringify(result.data).length,
+          version: cacheData.version,
+          cachedAt: new Date(cacheData.cachedAt),
+          lastUpdated: new Date(cacheData.lastUpdated),
+          phrasesCount: cacheData.phrases.length,
+          categoriesCount: cacheData.categories.length,
+          checksum: cacheData.checksum,
+          sizeBytes: JSON.stringify(cacheData).length,
         };
       }
     } catch (error) {
