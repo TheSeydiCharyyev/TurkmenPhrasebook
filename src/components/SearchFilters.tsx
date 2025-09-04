@@ -1,4 +1,4 @@
-// src/components/SearchFilters.tsx - Advanced Search Filters for Day 18
+// src/components/SearchFilters.tsx - Advanced Search Filters for Day 18 - ИСПРАВЛЕНО
 
 import React, { useState, useCallback, useMemo } from 'react';
 import {
@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../constants/Colors';
-import { Typography } from '../constants/Typography';
+import { TextStyles } from '../constants/Typography';
 import { SearchDifficulty } from '../utils/SearchEngine';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { useAnimations } from '../hooks/useAnimations';
@@ -41,7 +41,7 @@ export default function SearchFilters({
 }: SearchFiltersProps) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const { config } = useAppLanguage();
-  const { scaleAnimation, fadeAnimation, createScaleAnimation, createFadeAnimation } = useAnimations();
+  const { scaleAnim, fadeAnim, springScale, fadeIn } = useAnimations();
 
   // Memoized filter counts
   const activeFilterCount = useMemo(() => {
@@ -112,7 +112,7 @@ export default function SearchFilters({
       }
     };
 
-    return texts[config.mode === 'tk' ? 'tk' : config.mode === 'zh' ? 'zh' : 'ru'][key] || key;
+    return texts[config.mode === 'tk' ? 'tk' : config.mode === 'zh' ? 'zh' : 'ru'][key as keyof typeof texts['ru']] || key;
   }, [config.mode]);
 
   // Filter button press handlers
@@ -135,15 +135,15 @@ export default function SearchFilters({
   }, [filters, onFiltersChange]);
 
   // Modal handlers
-  const openModal = useCallback(() => {
+  const openModal = useCallback(async () => {
     setIsModalVisible(true);
-    createScaleAnimation(1, 300);
-  }, [createScaleAnimation]);
+    await springScale(1);
+  }, [springScale]);
 
-  const closeModal = useCallback(() => {
-    createFadeAnimation(0, 200);
+  const closeModal = useCallback(async () => {
+    await fadeIn();
     setTimeout(() => setIsModalVisible(false), 200);
-  }, [createFadeAnimation]);
+  }, [fadeIn]);
 
   // Render filter chip
   const renderFilterChip = useCallback((
@@ -165,7 +165,7 @@ export default function SearchFilters({
         <Ionicons 
           name={icon as any} 
           size={14} 
-          color={isActive ? Colors.textWhite : Colors.textLight}
+          color={isActive ? Colors.background : Colors.textLight}
           style={styles.filterChipIcon}
         />
       )}
@@ -209,7 +209,7 @@ export default function SearchFilters({
           filters.difficulty === SearchDifficulty.ADVANCED,
           () => handleDifficultyPress(SearchDifficulty.ADVANCED),
           'star',
-          Colors.danger
+          Colors.error
         )}
 
         {/* Sort options */}
@@ -275,8 +275,8 @@ export default function SearchFilters({
             style={[
               styles.modalContent,
               { 
-                transform: [{ scale: scaleAnimation }],
-                opacity: fadeAnimation 
+                transform: [{ scale: scaleAnim }],
+                opacity: fadeAnim 
               }
             ]}
           >
@@ -391,7 +391,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     marginRight: 8,
     borderWidth: 1,
-    borderColor: Colors.cardBorder,
+    borderColor: Colors.borderLight,
   },
   filterChipActive: {
     backgroundColor: Colors.primary,
@@ -406,7 +406,7 @@ const styles = StyleSheet.create({
     color: Colors.text,
   },
   filterChipTextActive: {
-    color: Colors.textWhite,
+    color: Colors.background,
   },
   advancedButton: {
     borderColor: Colors.primary,
@@ -420,7 +420,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     backgroundColor: Colors.backgroundLight,
     borderTopWidth: 1,
-    borderTopColor: Colors.cardBorder,
+    borderTopColor: Colors.border,
   },
   resultsText: {
     fontSize: 14,
@@ -450,7 +450,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalContent: {
-    backgroundColor: Colors.cardBackground,
+    backgroundColor: Colors.card,
     borderRadius: 16,
     padding: 20,
     width: '85%',
@@ -487,7 +487,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 8,
     borderWidth: 1,
-    borderColor: Colors.cardBorder,
+    borderColor: Colors.border,
   },
   optionButtonActive: {
     backgroundColor: Colors.primary,
@@ -499,7 +499,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   optionButtonTextActive: {
-    color: Colors.textWhite,
+    color: Colors.background,
   },
   toggleOption: {
     flexDirection: 'row',
@@ -526,8 +526,8 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     borderRadius: 10,
-    backgroundColor: Colors.textWhite,
-    shadowColor: Colors.cardShadow,
+    backgroundColor: Colors.background,
+    shadowColor: '#000000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 2,
@@ -562,7 +562,7 @@ const styles = StyleSheet.create({
     height: 16,
     borderRadius: 8,
     backgroundColor: Colors.primary,
-    shadowColor: Colors.cardShadow,
+    shadowColor: '#000000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 2,
@@ -578,7 +578,7 @@ const styles = StyleSheet.create({
   applyButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: Colors.textWhite,
+    color: Colors.background,
   },
 });
 
@@ -612,7 +612,7 @@ export function DifficultyBadge({
         textRu: 'Средний',
       },
       [SearchDifficulty.ADVANCED]: {
-        color: Colors.danger,
+        color: Colors.error,
         icon: 'star',
         textTk: 'Ösen',
         textZh: '高级',
@@ -629,7 +629,7 @@ export function DifficultyBadge({
 
   return (
     <View style={[styles.difficultyBadge, { backgroundColor: diffConfig.color }, style]}>
-      <Ionicons name={diffConfig.icon as any} size={10} color={Colors.textWhite} />
+      <Ionicons name={diffConfig.icon as any} size={10} color={Colors.background} />
       <Text style={styles.difficultyBadgeText}>{text}</Text>
     </View>
   );
@@ -647,7 +647,7 @@ const difficultyBadgeStyles = StyleSheet.create({
   difficultyBadgeText: {
     fontSize: 10,
     fontWeight: '600',
-    color: Colors.textWhite,
+    color: Colors.background,
   },
 });
 
