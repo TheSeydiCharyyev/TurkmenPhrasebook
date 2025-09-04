@@ -1,4 +1,4 @@
-// src/components/SearchSuggestions.tsx - Intelligent Search Suggestions for Day 18
+// src/components/SearchSuggestions.tsx - Intelligent Search Suggestions for Day 18 - ИСПРАВЛЕНО
 
 import React, { useCallback, useMemo } from 'react';
 import {
@@ -328,7 +328,8 @@ export function QuickActionSuggestions({
     };
 
     const lang = config.mode === 'tk' ? 'tk' : config.mode === 'zh' ? 'zh' : 'ru';
-    return texts[lang][key] || key;
+    // Безопасное обращение к объекту с fallback
+    return texts[lang][key as keyof typeof texts['ru']] || key;
   }, [config.mode]);
 
   const quickActions = [
