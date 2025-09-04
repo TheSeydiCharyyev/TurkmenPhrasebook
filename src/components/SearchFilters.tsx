@@ -391,7 +391,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     marginRight: 8,
     borderWidth: 1,
-    borderColor: Colors.borderLight,
+    borderColor: Colors.cardBorder,
   },
   filterChipActive: {
     backgroundColor: Colors.primary,
@@ -578,7 +578,7 @@ const styles = StyleSheet.create({
   applyButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: Colors.background,
+    color: Colors.textWhite,
   },
 });
 
@@ -628,9 +628,9 @@ export function DifficultyBadge({
                diffConfig.textRu;
 
   return (
-    <View style={[styles.difficultyBadge, { backgroundColor: diffConfig.color }, style]}>
-      <Ionicons name={diffConfig.icon as any} size={10} color={Colors.background} />
-      <Text style={styles.difficultyBadgeText}>{text}</Text>
+    <View style={[difficultyBadgeStyles.difficultyBadge, { backgroundColor: diffConfig.color }, style]}>
+      <Ionicons name={diffConfig.icon as any} size={10} color={Colors.textWhite} />
+      <Text style={difficultyBadgeStyles.difficultyBadgeText}>{text}</Text>
     </View>
   );
 }
