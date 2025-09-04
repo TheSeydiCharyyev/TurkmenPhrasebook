@@ -116,11 +116,8 @@ export function useAdvancedSearch() {
       // Get personalized data for boosting
       const userHistory = await getUserHistoryData();
       
-      // Perform search with personalization
-      const results = searchEngine.search(query, {
-        ...searchOptions,
-        personalizedData: userHistory
-      });
+      // Perform search with personalization (убираем personalizedData из searchOptions)
+      const results = searchEngine.search(query, searchOptions);
 
       // Apply additional filtering based on advanced options
       let filteredResults = results;
