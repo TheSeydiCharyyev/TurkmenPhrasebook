@@ -20,8 +20,8 @@ import { useOfflineDataManager } from '../hooks/useOfflineDataManager';
 import { useOfflineData } from '../contexts/OfflineDataContext';
 import { useAnimations } from '../hooks/useAnimations';
 import { useAppLanguage } from '../contexts/LanguageContext';
-import { AnimatedButton } from '../components/AnimatedButton';
-import LoadingStates from '../components/LoadingStates';
+import AnimatedButton from '../components/AnimatedButton';
+import { LoadingSpinner, LoadingWithProgress } from '../components/LoadingStates';
 
 const { width } = Dimensions.get('window');
 
@@ -248,7 +248,7 @@ export default function OfflineSettingsScreen() {
   );
 
   if (isLoading) {
-    return <LoadingStates.FullScreenLoader message="Обработка..." />;
+    return <LoadingSpinner message="Обработка..." />;
   }
 
   return (

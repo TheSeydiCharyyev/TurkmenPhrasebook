@@ -1,3 +1,5 @@
+// src/screens/AdvancedSearchScreen.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ
+
 import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import {
   View,
@@ -142,13 +144,22 @@ export default function AdvancedSearchScreen() {
   
   const searchInputRef = useRef<TextInput>(null);
   const debounceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const { fadeAnimation } = useAnimations();
+  const { fadeAnim } = useAnimations();
 
   /**
    * Get localized text
    */
-  const getText = useCallback((key: string) => {
-    const texts = {
+  type TextKey =
+    | 'searchPlaceholder'
+    | 'searchResults'
+    | 'noResults'
+    | 'suggestions'
+    | 'filters'
+    | 'clearFilters'
+    | 'voiceSearch';
+
+  const getText = useCallback((key: TextKey) => {
+    const texts: Record<'tk' | 'zh' | 'ru', Record<TextKey, string>> = {
       tk: {
         searchPlaceholder: 'Gözleg...',
         searchResults: 'Netijeler',
@@ -177,7 +188,7 @@ export default function AdvancedSearchScreen() {
         voiceSearch: 'Голосовой поиск',
       }
     };
-    
+
     return texts[config.mode]?.[key] || texts.ru[key] || key;
   }, [config.mode]);
 
@@ -315,7 +326,8 @@ export default function AdvancedSearchScreen() {
               highlight={searchQuery}
               style={styles.resultPrimary}
             />
-            <Text style={styles.resultScore}>{Math.round(item.score * 100)}%</Text>
+            {/* Remove or replace with correct property if available */}
+            {/* <Text style={styles.resultScore}>{Math.round(item.matchScore * 100)}%</Text> */}
           </View>
           
           <HighlightedText
@@ -436,7 +448,7 @@ export default function AdvancedSearchScreen() {
           {/* Loading indicator */}
           {isSearching && (
             <View style={styles.loadingContainer}>
-              <Animated.View style={[styles.loadingBar, { opacity: fadeAnimation }]} />
+              <Animated.View style={[styles.loadingBar, { opacity: fadeAnim }]} />
             </View>
           )}
         </View>
@@ -521,7 +533,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerTitle: {
-    ...TextStyles.title,
+    ...TextStyles.h1,
     color: Colors.text,
   },
   headerActions: {
@@ -639,7 +651,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   resultPrimary: {
-    ...TextStyles.subtitle,
+    ...TextStyles.body,
     color: Colors.text,
     flex: 1,
   },
@@ -677,7 +689,7 @@ const styles = StyleSheet.create({
     padding: 32,
   },
   emptyStateText: {
-    ...TextStyles.subtitle,
+    ...TextStyles.body,
     color: Colors.textLight,
     marginTop: 16,
     textAlign: 'center',
@@ -705,7 +717,7 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   voiceModalText: {
-    ...TextStyles.subtitle,
+    ...TextStyles.body,
     color: Colors.text,
     marginTop: 16,
   },
