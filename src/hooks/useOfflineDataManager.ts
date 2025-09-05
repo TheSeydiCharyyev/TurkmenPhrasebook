@@ -191,13 +191,14 @@ export function useOfflineDataManager() {
         0
       );
 
-      if (lastSyncResult.success && lastSyncResult.data) {
-        setState(prev => ({ 
-          ...prev, 
-          lastSync: lastSyncResult.data,
-          dataFreshness: getDataFreshness(lastSyncResult.data)
-        }));
-      }
+    if (lastSyncResult.success && lastSyncResult.data) {
+  const lastSyncTime = lastSyncResult.data;
+  setState((prev: OfflineDataManagerState) => ({ 
+    ...prev, 
+    lastSync: lastSyncTime,
+    dataFreshness: getDataFreshness(lastSyncTime)
+  }));
+}
 
       // Обновляем статистику кэша
       await updateCacheStats();
@@ -208,13 +209,14 @@ export function useOfflineDataManager() {
       // Запускаем автосинхронизацию
       const prefs = prefsResult.data || defaultPreferences;
       if (prefs.autoSync !== false) {
-        startAutoSync();
+        processSyncQueue();
       }
 
     } catch (error) {
       handleError(error, 'offline manager initialization');
     }
   };
+;
 
   const startNetworkMonitoring = () => {
     networkUnsubscribeRef.current = NetInfo.addEventListener((netState: NetInfoState) => {
@@ -451,19 +453,7 @@ export function useOfflineDataManager() {
     }
   }, [syncQueue.length, state.preferences.syncOnlyOnWifi, processSyncQueue]);
 
-  const startAutoSync = useCallback(() => {
-    if (syncIntervalRef.current) {
-      clearInterval(syncIntervalRef.current);
-    }
-
-    // Автосинхронизация каждые 5 минут
-    syncIntervalRef.current = setInterval(() => {
-      if (state.preferences.autoSync && state.isOnline && syncQueue.length > 0) {
-        processSyncQueue();
-      }
-    }, 5 * 60 * 1000);
-  }, [state.preferences.autoSync, state.isOnline, syncQueue.length, processSyncQueue]);
-
+  // Удаляем дублированное объявление startAutoSync
   const forcSync = useCallback(async (): Promise<boolean> => {
     try {
       if (!state.isOnline) {
@@ -525,7 +515,7 @@ export function useOfflineDataManager() {
         const dataString = JSON.stringify(cacheData.data);
         const sizeBytes = new Blob([dataString]).size;
         
-        setState(prev => ({
+        setState((prev: OfflineDataManagerState) => ({
           ...prev,
           cacheStats: {
             ...prev.cacheStats,
@@ -544,7 +534,10 @@ export function useOfflineDataManager() {
     try {
       const updatedPreferences = { ...state.preferences, ...newPreferences };
       
-      setState(prev => ({ ...prev, preferences: updatedPreferences }));
+      setState((prev: OfflineDataManagerState) => ({ 
+        ...prev, 
+        preferences: updatedPreferences 
+      }));
       await SafeStorage.setItem(CACHE_KEYS.USER_PREFERENCES, updatedPreferences);
       
       hapticFeedback('light');
