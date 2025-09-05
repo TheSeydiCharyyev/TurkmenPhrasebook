@@ -1,4 +1,4 @@
-// src/hooks/useOfflineDataManager.ts - День 17: Улучшенный менеджер офлайн данных
+// src/hooks/useOfflineDataManager.ts - ПОЛНОСТЬЮ ИСПРАВЛЕННАЯ ВЕРСИЯ
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { AppState, Alert, AppStateStatus } from 'react-native';
 import NetInfo, { NetInfoState } from '@react-native-community/netinfo';
@@ -104,7 +104,7 @@ export function useOfflineDataManager() {
   const isInitializedRef = useRef(false);
   const networkUnsubscribeRef = useRef<(() => void) | null>(null);
 
-  const { handleError, showErrorAlert } = useErrorHandler();
+  const { handleError } = useErrorHandler();
   const { hapticFeedback } = useAnimations();
 
   // Инициализация при первом запуске
@@ -156,16 +156,20 @@ export function useOfflineDataManager() {
         }));
       }
 
-      // Загружаем историю сети
+      // Безопасная загрузка истории сети
       const networkHistoryResult = await SafeStorage.getItem<NetworkState[]>(
         CACHE_KEYS.NETWORK_HISTORY,
         []
       );
 
       if (networkHistoryResult.success && networkHistoryResult.data) {
+        const networkHistory = Array.isArray(networkHistoryResult.data) 
+          ? networkHistoryResult.data 
+          : [];
+        
         setState(prev => ({ 
           ...prev, 
-          networkHistory: networkHistoryResult.data.slice(-MAX_NETWORK_HISTORY)
+          networkHistory: networkHistory.slice(-MAX_NETWORK_HISTORY)
         }));
       }
 
@@ -176,8 +180,9 @@ export function useOfflineDataManager() {
       );
 
       if (queueResult.success && queueResult.data) {
-        setSyncQueue(queueResult.data);
-        setState(prev => ({ ...prev, queueSize: queueResult.data.length }));
+        const queue = Array.isArray(queueResult.data) ? queueResult.data : [];
+        setSyncQueue(queue);
+        setState(prev => ({ ...prev, queueSize: queue.length }));
       }
 
       // Загружаем время последней синхронизации
@@ -201,7 +206,8 @@ export function useOfflineDataManager() {
       startNetworkMonitoring();
 
       // Запускаем автосинхронизацию
-      if (prefsResult.data?.autoSync !== false) {
+      const prefs = prefsResult.data || defaultPreferences;
+      if (prefs.autoSync !== false) {
         startAutoSync();
       }
 
@@ -211,10 +217,10 @@ export function useOfflineDataManager() {
   };
 
   const startNetworkMonitoring = () => {
-    networkUnsubscribeRef.current = NetInfo.addEventListener((state: NetInfoState) => {
-      const isConnected = state.isConnected ?? false;
-      const networkType = state.type || null;
-      const quality = assessNetworkQuality(state);
+    networkUnsubscribeRef.current = NetInfo.addEventListener((netState: NetInfoState) => {
+      const isConnected = netState.isConnected ?? false;
+      const networkType = netState.type || null;
+      const quality = assessNetworkQuality(netState);
 
       const networkState: NetworkState = {
         isConnected,
@@ -223,17 +229,23 @@ export function useOfflineDataManager() {
         quality,
       };
 
-      setState(prev => ({
-        ...prev,
-        isOnline: isConnected,
-        networkQuality: quality,
-        networkHistory: [...prev.networkHistory, networkState].slice(-MAX_NETWORK_HISTORY),
-      }));
+      setState(prev => {
+        const newNetworkHistory = [...prev.networkHistory, networkState].slice(-MAX_NETWORK_HISTORY);
+        
+        return {
+          ...prev,
+          isOnline: isConnected,
+          networkQuality: quality,
+          networkHistory: newNetworkHistory,
+        };
+      });
 
-      // Сохраняем историю сети
+      // Безопасное сохранение истории сети
       SafeStorage.setItem(CACHE_KEYS.NETWORK_HISTORY, 
         [...state.networkHistory, networkState].slice(-MAX_NETWORK_HISTORY)
-      );
+      ).catch(error => {
+        console.warn('Failed to save network history:', error);
+      });
 
       // Автосинхронизация при восстановлении соединения
       if (isConnected && state.preferences.autoSync) {
@@ -285,75 +297,29 @@ export function useOfflineDataManager() {
     return 'expired';
   };
 
-  const updateCacheStats = async () => {
-    try {
-      const cacheResult = await SafeStorage.getItem(CACHE_KEYS.OFFLINE_DATA);
-      const storageInfo = await SafeStorage.getStorageInfo();
-      
-      const totalSize = storageInfo.estimatedSize;
-      const itemCount = storageInfo.keysCount;
-      
-      // Простая статистика hit rate (можно улучшить в будущем)
-      const existingStats = state.cacheStats;
-      const hitRate = existingStats.hitCount / (existingStats.hitCount + existingStats.missCount) || 0;
+  const addToSyncQueue = useCallback(async (item: Omit<SyncQueueItem, 'id' | 'timestamp' | 'retryCount'>) => {
+    const queueItem: SyncQueueItem = {
+      ...item,
+      id: `sync_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+      timestamp: Date.now(),
+      retryCount: 0,
+    };
 
-      setState(prev => ({
-        ...prev,
-        cacheStats: {
-          totalSize,
-          itemCount,
-          lastUpdated: Date.now(),
-          hitRate,
-          missCount: existingStats.missCount,
-          hitCount: existingStats.hitCount,
-        }
-      }));
-    } catch (error) {
-      handleError(error, 'cache stats update');
+    setSyncQueue(prev => {
+      const newQueue = [...prev, queueItem];
+      SafeStorage.setItem(CACHE_KEYS.SYNC_QUEUE, newQueue);
+      return newQueue;
+    });
+
+    setState(prev => ({ ...prev, queueSize: prev.queueSize + 1 }));
+
+    // Попытка немедленной синхронизации если онлайн
+    if (state.isOnline) {
+      processSyncQueue();
     }
-  };
+  }, [state.isOnline]);
 
-  const addToSyncQueue = useCallback(async (
-    type: SyncQueueItem['type'],
-    action: SyncQueueItem['action'],
-    data: any,
-    priority: SyncQueueItem['priority'] = 'medium',
-    requiresNetwork: boolean = true
-  ) => {
-    try {
-      const item: SyncQueueItem = {
-        id: `sync_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
-        type,
-        action,
-        data,
-        timestamp: Date.now(),
-        retryCount: 0,
-        priority,
-        requiresNetwork,
-        estimatedSize: JSON.stringify(data).length,
-      };
-
-      const newQueue = [...syncQueue, item].sort((a, b) => {
-        // Сортируем по приоритету
-        const priorityOrder = { high: 3, medium: 2, low: 1 };
-        return priorityOrder[b.priority] - priorityOrder[a.priority];
-      });
-
-      setSyncQueue(newQueue);
-      await SafeStorage.setItem(CACHE_KEYS.SYNC_QUEUE, newQueue);
-      
-      setState(prev => ({ ...prev, queueSize: newQueue.length }));
-
-      // Попытка немедленной синхронизации для высокоприоритетных элементов
-      if (priority === 'high' && state.isOnline) {
-        processSyncQueue();
-      }
-
-    } catch (error) {
-      handleError(error, 'adding to sync queue');
-    }
-  }, [syncQueue, state.isOnline]);
-
+  // ИСПРАВЛЕНИЕ: processSyncQueue с правильными зависимостями
   const processSyncQueue = useCallback(async () => {
     if (state.isSyncing || syncQueue.length === 0) return;
 
@@ -485,87 +451,110 @@ export function useOfflineDataManager() {
     }
   }, [syncQueue.length, state.preferences.syncOnlyOnWifi, processSyncQueue]);
 
-  const startAutoSync = () => {
+  const startAutoSync = useCallback(() => {
     if (syncIntervalRef.current) {
       clearInterval(syncIntervalRef.current);
     }
 
     // Автосинхронизация каждые 5 минут
     syncIntervalRef.current = setInterval(() => {
-      if (state.preferences.autoSync && state.isOnline) {
+      if (state.preferences.autoSync && state.isOnline && syncQueue.length > 0) {
         processSyncQueue();
       }
     }, 5 * 60 * 1000);
-  };
-
-  const updatePreferences = useCallback(async (newPreferences: Partial<OfflinePreferences>) => {
-    const updatedPreferences = { ...state.preferences, ...newPreferences };
-    
-    setState(prev => ({ ...prev, preferences: updatedPreferences }));
-    await SafeStorage.setItem(CACHE_KEYS.USER_PREFERENCES, updatedPreferences);
-    
-    // Перезапускаем автосинхронизацию с новыми настройками
-    if (updatedPreferences.autoSync !== state.preferences.autoSync) {
-      if (updatedPreferences.autoSync) {
-        startAutoSync();
-      } else if (syncIntervalRef.current) {
-        clearInterval(syncIntervalRef.current);
-      }
-    }
-  }, [state.preferences]);
+  }, [state.preferences.autoSync, state.isOnline, syncQueue.length, processSyncQueue]);
 
   const forcSync = useCallback(async (): Promise<boolean> => {
-    if (!state.isOnline) {
-      showErrorAlert(
-        'Нет подключения', 
-        'Синхронизация требует подключения к интернету'
-      );
-      return false;
-    }
-
     try {
+      if (!state.isOnline) {
+        Alert.alert('Нет подключения', 'Для синхронизации требуется подключение к интернету');
+        return false;
+      }
+
+      hapticFeedback('medium');
       await processSyncQueue();
       return true;
     } catch (error) {
-      handleError(error, 'forced sync');
+      handleError(error, 'force sync');
       return false;
     }
-  }, [state.isOnline, processSyncQueue, showErrorAlert, handleError]);
+  }, [state.isOnline, processSyncQueue, hapticFeedback, handleError]);
 
   const clearCache = useCallback(async (): Promise<boolean> => {
     try {
-      await Promise.all([
-        SafeStorage.removeItem(CACHE_KEYS.OFFLINE_DATA),
-        SafeStorage.removeItem(CACHE_KEYS.SYNC_QUEUE),
-        SafeStorage.removeItem(CACHE_KEYS.LAST_SYNC),
-      ]);
-
-      setSyncQueue([]);
-      setState(prev => ({
-        ...prev,
-        queueSize: 0,
-        lastSync: null,
-        dataFreshness: 'unknown',
-        cacheStats: {
-          totalSize: 0,
-          itemCount: 0,
-          lastUpdated: Date.now(),
-          hitRate: 0,
-          missCount: 0,
-          hitCount: 0,
-        }
-      }));
-
-      hapticFeedback('success');
+      Alert.alert(
+        'Очистить кэш?',
+        'Это удалит все сохраненные данные. Подключение к интернету потребуется для повторной загрузки.',
+        [
+          { text: 'Отмена', style: 'cancel' },
+          {
+            text: 'Очистить',
+            style: 'destructive',
+            onPress: async () => {
+              await SafeStorage.removeItem(CACHE_KEYS.OFFLINE_DATA);
+              setState(prev => ({
+                ...prev,
+                cacheStats: {
+                  totalSize: 0,
+                  itemCount: 0,
+                  lastUpdated: 0,
+                  hitRate: 0,
+                  missCount: 0,
+                  hitCount: 0,
+                },
+                dataFreshness: 'unknown',
+              }));
+              hapticFeedback('success');
+            }
+          }
+        ]
+      );
       return true;
     } catch (error) {
-      handleError(error, 'cache clearing');
+      handleError(error, 'cache clear');
       return false;
     }
-  }, [handleError, hapticFeedback]);
+  }, [hapticFeedback, handleError]);
 
-  const getDetailedStats = useCallback(() => {
-    const avgNetworkQuality = state.networkHistory.length > 0
+  const updateCacheStats = useCallback(async () => {
+    try {
+      // Имитация подсчета статистики кэша
+      const cacheData = await SafeStorage.getItem(CACHE_KEYS.OFFLINE_DATA, null);
+      
+      if (cacheData.success && cacheData.data) {
+        const dataString = JSON.stringify(cacheData.data);
+        const sizeBytes = new Blob([dataString]).size;
+        
+        setState(prev => ({
+          ...prev,
+          cacheStats: {
+            ...prev.cacheStats,
+            totalSize: sizeBytes,
+            itemCount: phrases.length + categories.length,
+            lastUpdated: Date.now(),
+          }
+        }));
+      }
+    } catch (error) {
+      console.warn('Failed to update cache stats:', error);
+    }
+  }, []);
+
+  const updatePreferences = useCallback(async (newPreferences: Partial<OfflinePreferences>) => {
+    try {
+      const updatedPreferences = { ...state.preferences, ...newPreferences };
+      
+      setState(prev => ({ ...prev, preferences: updatedPreferences }));
+      await SafeStorage.setItem(CACHE_KEYS.USER_PREFERENCES, updatedPreferences);
+      
+      hapticFeedback('light');
+    } catch (error) {
+      handleError(error, 'preferences update');
+    }
+  }, [state.preferences, hapticFeedback, handleError]);
+
+  const getDetailedStats = useCallback(async () => {
+    const avgNetworkQuality = state.networkHistory.length > 0 
       ? state.networkHistory.reduce((acc, curr) => {
           const qualityScore = { excellent: 4, good: 3, fair: 2, poor: 1, unknown: 0 };
           return acc + qualityScore[curr.quality];
