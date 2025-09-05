@@ -322,7 +322,6 @@ export default function OfflineSettingsScreen() {
                 title="Экспорт статистики"
                 variant="outline"
                 size="small"
-                icon="share-outline"
                 onPress={handleExportStats}
                 style={styles.actionButton}
               />
