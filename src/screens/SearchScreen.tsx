@@ -1,4 +1,4 @@
-// src/screens/SearchScreen.tsx - Day 18 Advanced Search with Voice Recognition
+// src/screens/SearchScreen.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ
 
 import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import {
@@ -20,15 +20,12 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../constants/Colors';
-import { Typography } from '../constants/Typography';
+import { TextStyles } from '../constants/Typography'; // ИСПРАВЛЕНО: заменен Typography на TextStyles
 import { Phrase, RootStackParamList, Category } from '../types';
 import { useAppLanguage } from '../contexts/LanguageContext';
-import { useAdvancedSearch, AdvancedSearchOptions, SearchSuggestion } from '../hooks/useAdvancedSearch';
-import { useSearchFilters } from '../hooks/useAdvancedSearch';
-import HighlightedText from '../components/HighlightedText';
-import VoiceSearch, { VoiceSearchButton } from '../components/VoiceSearch';
-import SearchFilters, { FilterOptions } from '../components/SearchFilters';
-import SearchSuggestions from '../components/SearchSuggestions';
+import { useAdvancedSearch } from '../hooks/useAdvancedSearch'; // ИСПРАВЛЕНО: убраны несуществующие импорты
+import { categories } from '../data/categories'; // ИСПРАВЛЕНО: добавлен импорт categories
+import { phrases } from '../data/phrases'; // ИСПРАВЛЕНО: добавлен импорт phrases
 
 type SearchScreenNavigationProp = StackNavigationProp<RootStackParamList, 'PhraseDetail'>;
 
@@ -37,6 +34,35 @@ const SEARCH_ITEM_HEIGHT = 120;
 const SEARCH_SEPARATOR_HEIGHT = 12;
 const TOTAL_SEARCH_ITEM_HEIGHT = SEARCH_ITEM_HEIGHT + SEARCH_SEPARATOR_HEIGHT;
 const SEARCH_DEBOUNCE_MS = 300;
+
+// Простой компонент для подсветки текста
+const HighlightedText: React.FC<{
+  text: string;
+  searchQuery: string;
+  style?: any;
+  language?: string;
+}> = ({ text, searchQuery, style, language }) => {
+  if (!searchQuery.trim()) {
+    return <Text style={style}>{text}</Text>;
+  }
+
+  const regex = new RegExp(`(${searchQuery})`, 'gi');
+  const parts = text.split(regex);
+
+  return (
+    <Text style={style}>
+      {parts.map((part, index) => 
+        regex.test(part) ? (
+          <Text key={index} style={[style, { backgroundColor: Colors.accent, fontWeight: 'bold' }]}>
+            {part}
+          </Text>
+        ) : (
+          <Text key={index}>{part}</Text>
+        )
+      )}
+    </Text>
+  );
+};
 
 // Мемоизированный компонент результата поиска
 const SearchResultItem = React.memo<{
@@ -203,7 +229,7 @@ export default function SearchScreen() {
   const navigation = useNavigation<SearchScreenNavigationProp>();
   const { getTexts, config, getPhraseTexts } = useAppLanguage();
   
-  // Advanced search integration
+  // ИСПРАВЛЕНО: используем только существующие методы из useAdvancedSearch
   const {
     searchQuery,
     setSearchQuery,
@@ -212,29 +238,41 @@ export default function SearchScreen() {
     isSearching,
     performSearch,
     clearSearch,
-    updateSearchOptions,
-    getPersonalizedRecommendations,
-    searchAnalytics,
   } = useAdvancedSearch();
   
-  // Filter management
-  const {
-    activeFilters,
-    applyFilter,
-    removeFilter,
-    clearAllFilters,
-    hasActiveFilters,
-  } = useSearchFilters();
-  
   // UI state
-  const [showVoiceSearch, setShowVoiceSearch] = useState(false);
-  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [debouncedQuery, setDebouncedQuery] = useState('');
   const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
   
   const searchInputRef = useRef<TextInput>(null);
   const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   
   const texts = getTexts();
+
+  // Простые заглушки для истории поиска
+  const [searchHistory, setSearchHistory] = useState<Array<{query: string; resultsCount: number}>>([]);
+
+  const addToSearchHistory = useCallback((query: string, resultsCount: number) => {
+    setSearchHistory(prev => {
+      const filtered = prev.filter(item => item.query !== query);
+      return [{ query, resultsCount }, ...filtered].slice(0, 5);
+    });
+  }, []);
+
+  const removeFromSearchHistory = useCallback((query: string) => {
+    setSearchHistory(prev => prev.filter(item => item.query !== query));
+  }, []);
+
+  const getRecentSearches = useCallback((limit: number) => {
+    return searchHistory.slice(0, limit);
+  }, [searchHistory]);
+
+  const getPopularSearches = useCallback((limit: number) => {
+    return searchHistory
+      .sort((a, b) => b.resultsCount - a.resultsCount)
+      .slice(0, limit);
+  }, [searchHistory]);
 
   // Дебаунсированный поиск
   const handleSearchChange = useCallback((text: string) => {
@@ -283,7 +321,7 @@ export default function SearchScreen() {
   }, []);
 
   // Мемоизация результатов поиска
-  const searchResults = useMemo(() => {
+  const localSearchResults = useMemo(() => {
     return getSearchResults(debouncedQuery, selectedCategory);
   }, [debouncedQuery, selectedCategory, getSearchResults]);
 
@@ -292,7 +330,7 @@ export default function SearchScreen() {
     navigation.navigate('PhraseDetail', { phrase });
   }, [navigation]);
 
-  const clearSearch = useCallback(() => {
+  const clearSearchLocal = useCallback(() => {
     setSearchQuery('');
     setDebouncedQuery('');
     setSelectedCategory(null);
@@ -334,6 +372,15 @@ export default function SearchScreen() {
   const recentSearches = useMemo(() => getRecentSearches(5), [getRecentSearches]);
   const popularSearches = useMemo(() => getPopularSearches(3), [getPopularSearches]);
 
+  // Очистка при размонтировании
+  useEffect(() => {
+    return () => {
+      if (searchTimeoutRef.current) {
+        clearTimeout(searchTimeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
     <SafeAreaView style={styles.container}>
       {/* Заголовок поиска */}
@@ -355,6 +402,7 @@ export default function SearchScreen() {
         <View style={styles.searchInputContainer}>
           <Ionicons name="search" size={20} color={Colors.textLight} style={styles.searchIcon} />
           <TextInput
+            ref={searchInputRef}
             style={styles.searchInput}
             placeholder={
               config.mode === 'tk' ? 'Islendik dilde sözlem giriziň...' :
@@ -368,7 +416,7 @@ export default function SearchScreen() {
             autoCapitalize="none"
           />
           {searchQuery.length > 0 && (
-            <TouchableOpacity onPress={clearSearch} style={styles.clearButton}>
+            <TouchableOpacity onPress={clearSearchLocal} style={styles.clearButton}>
               <Ionicons name="close-circle" size={20} color={Colors.textLight} />
             </TouchableOpacity>
           )}
@@ -452,7 +500,7 @@ export default function SearchScreen() {
               </View>
             )}
           </View>
-        ) : searchResults.length === 0 ? (
+        ) : localSearchResults.length === 0 ? (
           // Нет результатов
           <View style={styles.emptyContainer}>
             <Ionicons name="sad-outline" size={64} color={Colors.textLight} />
@@ -474,10 +522,10 @@ export default function SearchScreen() {
               <Text style={styles.resultsCount}>
                 {config.mode === 'tk' ? 'Tapylan:' :
                  config.mode === 'zh' ? '找到:' :
-                 'Найдено:'} {searchResults.length} {
+                 'Найдено:'} {localSearchResults.length} {
                 config.mode === 'tk' ? 'sözlem' :
                 config.mode === 'zh' ? '个短语' :
-                searchResults.length === 1 ? 'фраза' : 'фраз'
+                localSearchResults.length === 1 ? 'фраза' : 'фраз'
                 }
                 {selectedCategory && (
                   <Text style={styles.filterInfo}>
@@ -488,7 +536,7 @@ export default function SearchScreen() {
             </View>
 
             <FlatList
-              data={searchResults}
+              data={localSearchResults}
               renderItem={renderSearchResult}
               keyExtractor={keyExtractor}
               getItemLayout={getItemLayout}
