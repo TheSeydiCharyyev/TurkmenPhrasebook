@@ -227,7 +227,7 @@ export default function CategoryScreen() {
     return (
       <SafeAreaView style={styles.container}>
         <StatusBar barStyle="light-content" backgroundColor={category.color} />
-        <LoadingSpinner text="Загрузка фраз..." />
+        <LoadingSpinner message="Загрузка фраз..." />
       </SafeAreaView>
     );
   }
