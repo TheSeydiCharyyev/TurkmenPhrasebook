@@ -954,5 +954,510 @@ export const phrases: Phrase[] = [
     russian: 'Скорая помощь',
     turkmen: 'Gyssagly kömek',
     audioFile: 'audio/phrase_104.mp3'
-  }
-]; 
+  },
+  // === Связь и коммуникации (добавляем еще 4 фразы) ===
+  {
+    id: 'phrase_105',
+    categoryId: 'communication',
+    chinese: '手机',
+    pinyin: 'shǒu jī',
+    russian: 'Мобильный телефон',
+    turkmen: 'Jübi telefon',
+    audioFile: 'audio/phrase_105.mp3'
+  },
+  {
+    id: 'phrase_106',
+    categoryId: 'communication',
+    chinese: '无线网络',
+    pinyin: 'wú xiàn wǎng luò',
+    russian: 'Wi-Fi',
+    turkmen: 'Wi-Fi',
+    audioFile: 'audio/phrase_106.mp3'
+  },
+  {
+    id: 'phrase_107',
+    categoryId: 'communication',
+    chinese: '密码是什么？',
+    pinyin: 'mì mǎ shì shén me?',
+    russian: 'Какой пароль?',
+    turkmen: 'Parol näme?',
+    audioFile: 'audio/phrase_107.mp3'
+  },
+  {
+    id: 'phrase_108',
+    categoryId: 'communication',
+    chinese: '发短信',
+    pinyin: 'fā duǎn xìn',
+    russian: 'Отправить SMS',
+    turkmen: 'SMS ibermek',
+    audioFile: 'audio/phrase_108.mp3'
+  },
+
+  // === Развлечения (10 фраз) ===
+  {
+    id: 'phrase_109',
+    categoryId: 'entertainment',
+    chinese: '电影院',
+    pinyin: 'diàn yǐng yuán',
+    russian: 'Кинотеатр',
+    turkmen: 'Kinoteatr',
+    audioFile: 'audio/phrase_109.mp3'
+  },
+  {
+    id: 'phrase_110',
+    categoryId: 'entertainment',
+    chinese: '博物馆',
+    pinyin: 'bó wù guǎn',
+    russian: 'Музей',
+    turkmen: 'Muzeý',
+    audioFile: 'audio/phrase_110.mp3'
+  },
+  {
+    id: 'phrase_111',
+    categoryId: 'entertainment',
+    chinese: '公园',
+    pinyin: 'gōng yuán',
+    russian: 'Парк',
+    turkmen: 'Seýilgäh',
+    audioFile: 'audio/phrase_111.mp3'
+  },
+  {
+    id: 'phrase_112',
+    categoryId: 'entertainment',
+    chinese: '音乐会',
+    pinyin: 'yīn yuè huì',
+    russian: 'Концерт',
+    turkmen: 'Konsert',
+    audioFile: 'audio/phrase_112.mp3'
+  },
+  {
+    id: 'phrase_113',
+    categoryId: 'entertainment',
+    chinese: '购物中心',
+    pinyin: 'gòu wù zhōng xīn',
+    russian: 'Торговый центр',
+    turkmen: 'Söwda merkezi',
+    audioFile: 'audio/phrase_113.mp3'
+  },
+  {
+    id: 'phrase_114',
+    categoryId: 'entertainment',
+    chinese: '游泳池',
+    pinyin: 'yóu yǒng chí',
+    russian: 'Бассейн',
+    turkmen: 'Howuz',
+    audioFile: 'audio/phrase_114.mp3'
+  },
+  {
+    id: 'phrase_115',
+    categoryId: 'entertainment',
+    chinese: '健身房',
+    pinyin: 'jiàn shēn fáng',
+    russian: 'Спортзал',
+    turkmen: 'Sport zaly',
+    audioFile: 'audio/phrase_115.mp3'
+  },
+  {
+    id: 'phrase_116',
+    categoryId: 'entertainment',
+    chinese: '图书馆',
+    pinyin: 'tú shū guǎn',
+    russian: 'Библиотека',
+    turkmen: 'Kitaphana',
+    audioFile: 'audio/phrase_116.mp3'
+  },
+  {
+    id: 'phrase_117',
+    categoryId: 'entertainment',
+    chinese: '夜市',
+    pinyin: 'yè shì',
+    russian: 'Ночной рынок',
+    turkmen: 'Gijeki bazar',
+    audioFile: 'audio/phrase_117.mp3'
+  },
+  {
+    id: 'phrase_118',
+    categoryId: 'entertainment',
+    chinese: '门票多少钱？',
+    pinyin: 'mén piào duō shǎo qián?',
+    russian: 'Сколько стоит билет?',
+    turkmen: 'Bilet näçe pul?',
+    audioFile: 'audio/phrase_118.mp3'
+  },
+
+  // === Время и даты (12 фраз) ===
+  {
+    id: 'phrase_119',
+    categoryId: 'time',
+    chinese: '现在几点？',
+    pinyin: 'xiàn zài jǐ diǎn?',
+    russian: 'Который час?',
+    turkmen: 'Sagat näçe?',
+    audioFile: 'audio/phrase_119.mp3'
+  },
+  {
+    id: 'phrase_120',
+    categoryId: 'time',
+    chinese: '今天',
+    pinyin: 'jīn tiān',
+    russian: 'Сегодня',
+    turkmen: 'Şu gün',
+    audioFile: 'audio/phrase_120.mp3'
+  },
+  {
+    id: 'phrase_121',
+    categoryId: 'time',
+    chinese: '明天',
+    pinyin: 'míng tiān',
+    russian: 'Завтра',
+    turkmen: 'Ertir',
+    audioFile: 'audio/phrase_121.mp3'
+  },
+  {
+    id: 'phrase_122',
+    categoryId: 'time',
+    chinese: '昨天',
+    pinyin: 'zuó tiān',
+    russian: 'Вчера',
+    turkmen: 'Düýn',
+    audioFile: 'audio/phrase_122.mp3'
+  },
+  {
+    id: 'phrase_123',
+    categoryId: 'time',
+    chinese: '星期一',
+    pinyin: 'xīng qī yī',
+    russian: 'Понедельник',
+    turkmen: 'Duşenbe',
+    audioFile: 'audio/phrase_123.mp3'
+  },
+  {
+    id: 'phrase_124',
+    categoryId: 'time',
+    chinese: '星期天',
+    pinyin: 'xīng qī tiān',
+    russian: 'Воскресенье',
+    turkmen: 'Ýekşenbe',
+    audioFile: 'audio/phrase_124.mp3'
+  },
+  {
+    id: 'phrase_125',
+    categoryId: 'time',
+    chinese: '早上',
+    pinyin: 'zǎo shàng',
+    russian: 'Утром',
+    turkmen: 'Ertir',
+    audioFile: 'audio/phrase_125.mp3'
+  },
+  {
+    id: 'phrase_126',
+    categoryId: 'time',
+    chinese: '下午',
+    pinyin: 'xià wǔ',
+    russian: 'После полудня',
+    turkmen: 'Günortadan soň',
+    audioFile: 'audio/phrase_126.mp3'
+  },
+  {
+    id: 'phrase_127',
+    categoryId: 'time',
+    chinese: '晚上',
+    pinyin: 'wǎn shàng',
+    russian: 'Вечером',
+    turkmen: 'Agşam',
+    audioFile: 'audio/phrase_127.mp3'
+  },
+  {
+    id: 'phrase_128',
+    categoryId: 'time',
+    chinese: '几月？',
+    pinyin: 'jǐ yuè?',
+    russian: 'Какой месяц?',
+    turkmen: 'Haýsy aý?',
+    audioFile: 'audio/phrase_128.mp3'
+  },
+  {
+    id: 'phrase_129',
+    categoryId: 'time',
+    chinese: '一月',
+    pinyin: 'yī yuè',
+    russian: 'Январь',
+    turkmen: 'Ýanwar',
+    audioFile: 'audio/phrase_129.mp3'
+  },
+  {
+    id: 'phrase_130',
+    categoryId: 'time',
+    chinese: '十二月',
+    pinyin: 'shí èr yuè',
+    russian: 'Декабрь',
+    turkmen: 'Dekabr',
+    audioFile: 'audio/phrase_130.mp3'
+  },
+
+  // === Числа (15 фраз) ===
+  {
+    id: 'phrase_131',
+    categoryId: 'numbers',
+    chinese: '一',
+    pinyin: 'yī',
+    russian: 'Один',
+    turkmen: 'Bir',
+    audioFile: 'audio/phrase_131.mp3'
+  },
+  {
+    id: 'phrase_132',
+    categoryId: 'numbers',
+    chinese: '二',
+    pinyin: 'èr',
+    russian: 'Два',
+    turkmen: 'Iki',
+    audioFile: 'audio/phrase_132.mp3'
+  },
+  {
+    id: 'phrase_133',
+    categoryId: 'numbers',
+    chinese: '三',
+    pinyin: 'sān',
+    russian: 'Три',
+    turkmen: 'Üç',
+    audioFile: 'audio/phrase_133.mp3'
+  },
+  {
+    id: 'phrase_134',
+    categoryId: 'numbers',
+    chinese: '四',
+    pinyin: 'sì',
+    russian: 'Четыре',
+    turkmen: 'Dört',
+    audioFile: 'audio/phrase_134.mp3'
+  },
+  {
+    id: 'phrase_135',
+    categoryId: 'numbers',
+    chinese: '五',
+    pinyin: 'wǔ',
+    russian: 'Пять',
+    turkmen: 'Bäş',
+    audioFile: 'audio/phrase_135.mp3'
+  },
+  {
+    id: 'phrase_136',
+    categoryId: 'numbers',
+    chinese: '六',
+    pinyin: 'liù',
+    russian: 'Шесть',
+    turkmen: 'Alty',
+    audioFile: 'audio/phrase_136.mp3'
+  },
+  {
+    id: 'phrase_137',
+    categoryId: 'numbers',
+    chinese: '七',
+    pinyin: 'qī',
+    russian: 'Семь',
+    turkmen: 'Ýedi',
+    audioFile: 'audio/phrase_137.mp3'
+  },
+  {
+    id: 'phrase_138',
+    categoryId: 'numbers',
+    chinese: '八',
+    pinyin: 'bā',
+    russian: 'Восемь',
+    turkmen: 'Sekiz',
+    audioFile: 'audio/phrase_138.mp3'
+  },
+  {
+    id: 'phrase_139',
+    categoryId: 'numbers',
+    chinese: '九',
+    pinyin: 'jiǔ',
+    russian: 'Девять',
+    turkmen: 'Dokuz',
+    audioFile: 'audio/phrase_139.mp3'
+  },
+  {
+    id: 'phrase_140',
+    categoryId: 'numbers',
+    chinese: '十',
+    pinyin: 'shí',
+    russian: 'Десять',
+    turkmen: 'On',
+    audioFile: 'audio/phrase_140.mp3'
+  },
+  {
+    id: 'phrase_141',
+    categoryId: 'numbers',
+    chinese: '二十',
+    pinyin: 'èr shí',
+    russian: 'Двадцать',
+    turkmen: 'Ýigrimi',
+    audioFile: 'audio/phrase_141.mp3'
+  },
+  {
+    id: 'phrase_142',
+    categoryId: 'numbers',
+    chinese: '一百',
+    pinyin: 'yī bǎi',
+    russian: 'Сто',
+    turkmen: 'Ýüz',
+    audioFile: 'audio/phrase_142.mp3'
+  },
+  {
+    id: 'phrase_143',
+    categoryId: 'numbers',
+    chinese: '一千',
+    pinyin: 'yī qiān',
+    russian: 'Тысяча',
+    turkmen: 'Müň',
+    audioFile: 'audio/phrase_143.mp3'
+  },
+  {
+    id: 'phrase_144',
+    categoryId: 'numbers',
+    chinese: '一万',
+    pinyin: 'yī wàn',
+    russian: 'Десять тысяч',
+    turkmen: 'On müň',
+    audioFile: 'audio/phrase_144.mp3'
+  },
+  {
+    id: 'phrase_145',
+    categoryId: 'numbers',
+    chinese: '第一',
+    pinyin: 'dì yī',
+    russian: 'Первый',
+    turkmen: 'Birinji',
+    audioFile: 'audio/phrase_145.mp3'
+  },
+
+  // === Погода (8 фраз) ===
+  {
+    id: 'phrase_146',
+    categoryId: 'weather',
+    chinese: '今天天气怎么样？',
+    pinyin: 'jīn tiān tiān qì zěn me yàng?',
+    russian: 'Какая сегодня погода?',
+    turkmen: 'Şu gün howa nähili?',
+    audioFile: 'audio/phrase_146.mp3'
+  },
+  {
+    id: 'phrase_147',
+    categoryId: 'weather',
+    chinese: '下雨',
+    pinyin: 'xià yǔ',
+    russian: 'Дождь',
+    turkmen: 'Ýagyş',
+    audioFile: 'audio/phrase_147.mp3'
+  },
+  {
+    id: 'phrase_148',
+    categoryId: 'weather',
+    chinese: '晴天',
+    pinyin: 'qíng tiān',
+    russian: 'Солнечно',
+    turkmen: 'Güneşli',
+    audioFile: 'audio/phrase_148.mp3'
+  },
+  {
+    id: 'phrase_149',
+    categoryId: 'weather',
+    chinese: '多云',
+    pinyin: 'duō yún',
+    russian: 'Облачно',
+    turkmen: 'Bulutly',
+    audioFile: 'audio/phrase_149.mp3'
+  },
+  {
+    id: 'phrase_150',
+    categoryId: 'weather',
+    chinese: '刮风',
+    pinyin: 'guā fēng',
+    russian: 'Ветрено',
+    turkmen: 'Şemally',
+    audioFile: 'audio/phrase_150.mp3'
+  },
+  {
+    id: 'phrase_151',
+    categoryId: 'weather',
+    chinese: '下雪',
+    pinyin: 'xià xuě',
+    russian: 'Снег',
+    turkmen: 'Gar',
+    audioFile: 'audio/phrase_151.mp3'
+  },
+  {
+    id: 'phrase_152',
+    categoryId: 'weather',
+    chinese: '热',
+    pinyin: 'rè',
+    russian: 'Жарко',
+    turkmen: 'Yssy',
+    audioFile: 'audio/phrase_152.mp3'
+  },
+  {
+    id: 'phrase_153',
+    categoryId: 'weather',
+    chinese: '冷',
+    pinyin: 'lěng',
+    russian: 'Холодно',
+    turkmen: 'Sowuk',
+    audioFile: 'audio/phrase_153.mp3'
+  },
+
+  // === Дополнительные полезные фразы (4 фразы для итого 157) ===
+  {
+    id: 'phrase_154',
+    categoryId: 'emergency',
+    chinese: '我迷路了',
+    pinyin: 'wǒ mí lù le',
+    russian: 'Я заблудился',
+    turkmen: 'Men ýoldan azdym',
+    audioFile: 'audio/phrase_154.mp3'
+  },
+  {
+    id: 'phrase_155',
+    categoryId: 'food',
+    chinese: '很好吃',
+    pinyin: 'hěn hǎo chī',
+    russian: 'Очень вкусно',
+    turkmen: 'Örän tagamly',
+    audioFile: 'audio/phrase_155.mp3'
+  },
+  {
+    id: 'phrase_156',
+    categoryId: 'shopping',
+    chinese: '有折扣吗？',
+    pinyin: 'yǒu zhé kòu ma?',
+    russian: 'Есть скидка?',
+    turkmen: 'Arzanladyş barmy?',
+    audioFile: 'audio/phrase_156.mp3'
+  },
+  {
+    id: 'phrase_157',
+    categoryId: 'greetings',
+    chinese: '祝你好运',
+    pinyin: 'zhù nǐ hǎo yùn',
+    russian: 'Удачи!',
+    turkmen: 'Şowly bolsun!',
+    audioFile: 'audio/phrase_157.mp3'
+  },
+];
+
+// Итого: 157 фраз (104 существующих + 53 новых)
+// Распределение по категориям:
+// - Приветствие: 16 фраз (+1)
+// - Экстренные ситуации: 11 фраз (+1) 
+// - Отель: 12 фраз
+// - Еда: 16 фраз (+1)
+// - Покупки: 13 фраз (+1)
+// - Транспорт: 12 фраз  
+// - Направления: 10 фраз
+// - Здоровье: 10 фраз
+// - Деньги: 8 фраз
+// - Связь: 8 фраз (+4)
+// - Развлечения: 10 фраз (+10) 
+// - Время: 12 фраз (+12)
+// - Числа: 15 фраз (+15)
+// - Погода: 8 фраз (+8)
