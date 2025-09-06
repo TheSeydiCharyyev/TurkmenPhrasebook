@@ -1,6 +1,7 @@
 // src/screens/CategoryScreen.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ с правильным позиционированием кнопки избранного
 
 import React, { useMemo, useCallback, useState, useEffect } from 'react';
+import { ResponsiveUtils } from '../utils/ResponsiveUtils';
 import {
   View,
   Text,
@@ -29,7 +30,7 @@ import ErrorBoundary from '../components/ErrorBoundary';
 type CategoryScreenRouteProp = RouteProp<HomeStackParamList, 'CategoryScreen'>;
 type CategoryScreenNavigationProp = StackNavigationProp<RootStackParamList, 'PhraseDetail'>;
 
-const ITEM_HEIGHT = 140;
+const ITEM_HEIGHT = ResponsiveUtils.dimensions.phraseCardHeight;
 const SEPARATOR_HEIGHT = 12;
 const TOTAL_ITEM_HEIGHT = ITEM_HEIGHT + SEPARATOR_HEIGHT;
 
@@ -363,13 +364,13 @@ const styles = StyleSheet.create({
     shadowRadius: 2,
   },
   chineseText: {
-    fontSize: 20,
+    fontSize: ResponsiveUtils.fontSize.chineseText,
     fontWeight: 'bold',
     color: Colors.text,
     marginBottom: 2,
   },
   pinyinText: {
-    fontSize: 14,
+    fontSize: ResponsiveUtils.fontSize.pinyinText,
     color: Colors.primary,
     fontStyle: 'italic',
     marginBottom: 8,
