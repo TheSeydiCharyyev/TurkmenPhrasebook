@@ -1,3 +1,5 @@
+// src/screens/CategoryScreen.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ с правильным позиционированием кнопки избранного
+
 import React, { useMemo, useCallback, useState, useEffect } from 'react';
 import {
   View,
@@ -8,7 +10,7 @@ import {
   SafeAreaView,
   StatusBar,
   ListRenderItem,
-  ActivityIndicator, // Добавляем недостающий импорт
+  ActivityIndicator,
 } from 'react-native';
 import { RouteProp, useRoute, useNavigation, useFocusEffect } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -31,6 +33,7 @@ const ITEM_HEIGHT = 140;
 const SEPARATOR_HEIGHT = 12;
 const TOTAL_ITEM_HEIGHT = ITEM_HEIGHT + SEPARATOR_HEIGHT;
 
+// ИСПРАВЛЕННЫЙ компонент PhraseItem с правильным layout
 const PhraseItem = React.memo<{
   phrase: Phrase;
   onPress: (phrase: Phrase) => void;
@@ -85,8 +88,10 @@ const PhraseItem = React.memo<{
       onPress={handlePress}
       activeOpacity={0.7}
     >
-      <View style={styles.phraseContent}>
-        <View style={styles.phraseTextContainer}>
+      {/* ИСПРАВЛЕНО: Используем правильную структуру с flex */}
+      <View style={styles.phraseContainer}>
+        {/* Основной контент фразы */}
+        <View style={styles.phraseContent}>
           <Text style={styles.chineseText}>{phrase.chinese}</Text>
           <Text style={styles.pinyinText}>{phrase.pinyin}</Text>
           
@@ -98,48 +103,53 @@ const PhraseItem = React.memo<{
           </Text>
         </View>
         
-        <View style={styles.phraseActions}>
-          <TouchableOpacity
-            style={styles.playButton}
-            onPress={handlePlayChinese}
-            disabled={isPlaying || isLoading}
-          >
-            {isLoading ? (
-              <ActivityIndicator size={24} color={Colors.primary} />
-            ) : (
-              <Ionicons
-                name={isPlaying ? "pause-circle" : "play-circle"}
-                size={28}
-                color={isPlaying ? Colors.primary : Colors.primary}
-              />
-            )}
-            <Text style={styles.playLabel}>中文</Text>
-          </TouchableOpacity>
+        {/* ИСПРАВЛЕНО: Правильное позиционирование кнопок */}
+        <View style={styles.actionsContainer}>
+          {/* Кнопки воспроизведения */}
+          <View style={styles.playButtons}>
+            <TouchableOpacity
+              style={styles.playButton}
+              onPress={handlePlayChinese}
+              disabled={isPlaying || isLoading}
+            >
+              {isLoading ? (
+                <ActivityIndicator size={20} color={Colors.primary} />
+              ) : (
+                <Ionicons
+                  name={isPlaying ? "pause-circle" : "play-circle"}
+                  size={24}
+                  color={isPlaying ? Colors.primary : Colors.primary}
+                />
+              )}
+              <Text style={styles.playLabel}>中文</Text>
+            </TouchableOpacity>
+            
+            <TouchableOpacity
+              style={styles.playButton}
+              onPress={handlePlayTurkmen}
+              disabled={isPlaying || isLoading}
+            >
+              {isLoading ? (
+                <ActivityIndicator size={20} color={Colors.accent} />
+              ) : (
+                <Ionicons
+                  name={isPlaying ? "pause-circle" : "play-circle"}
+                  size={24}
+                  color={isPlaying ? Colors.accent : Colors.accent}
+                />
+              )}
+              <Text style={styles.playLabel}>TM</Text>
+            </TouchableOpacity>
+          </View>
           
-          <TouchableOpacity
-            style={styles.playButton}
-            onPress={handlePlayTurkmen}
-            disabled={isPlaying || isLoading}
-          >
-            {isLoading ? (
-              <ActivityIndicator size={24} color={Colors.accent} />
-            ) : (
-              <Ionicons
-                name={isPlaying ? "pause-circle" : "play-circle"}
-                size={28}
-                color={isPlaying ? Colors.accent : Colors.accent}
-              />
-            )}
-            <Text style={styles.playLabel}>TM</Text>
-          </TouchableOpacity>
-          
+          {/* ИСПРАВЛЕНО: Кнопка избранного с правильным позиционированием */}
           <TouchableOpacity 
             style={styles.favoriteButton}
             onPress={handleToggleFavorite}
           >
             <Ionicons 
               name={favoriteStatus ? "heart" : "heart-outline"} 
-              size={24} 
+              size={20} 
               color={favoriteStatus ? Colors.error : Colors.textLight} 
             />
           </TouchableOpacity>
@@ -209,31 +219,28 @@ export default function CategoryScreen() {
     switch (config.mode) {
       case 'tk': return `${count} sözlem`;
       case 'zh': return `${count}个短语`;
-      default: return count === 1 ? '1 фраза' : `${count} фраз`;
+      default: return count === 1 ? `${count} фраза` : `${count} фраз`;
     }
   }, [categoryPhrases.length, config.mode]);
 
-  // Loading state
   if (isInitialLoading) {
     return (
       <SafeAreaView style={styles.container}>
         <StatusBar barStyle="light-content" backgroundColor={category.color} />
-        
-        <View style={[styles.header, { backgroundColor: category.color }]}>
-          <Text style={styles.categoryIcon}>{category.icon}</Text>
-          <View style={styles.headerText}>
-            <Text style={styles.headerTitle}>{categoryTitle}</Text>
-            <Text style={styles.phrasesCount}>Загрузка...</Text>
-          </View>
-        </View>
+        <LoadingSpinner text="Загрузка фраз..." />
+      </SafeAreaView>
+    );
+  }
 
-        <View style={styles.phrasesList}>
-          <View style={styles.phrasesListContent}>
-            {Array.from({ length: 3 }).map((_, index) => (
-              <PhraseCardSkeleton key={index} />
-            ))}
-          </View>
-        </View>
+  if (categoryPhrases.length === 0) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <StatusBar barStyle="light-content" backgroundColor={category.color} />
+        <EmptyState
+          title="Нет фраз"
+          message="В этой категории пока нет фраз"
+          icon="chatbubbles-outline"
+        />
       </SafeAreaView>
     );
   }
@@ -241,94 +248,64 @@ export default function CategoryScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor={category.color} />
-
+      
+      {/* Заголовок с информацией о категории */}
       <View style={[styles.header, { backgroundColor: category.color }]}>
-        <Text style={styles.categoryIcon}>{category.icon}</Text>
-        <View style={styles.headerText}>
-          <Text style={styles.headerTitle}>{categoryTitle}</Text>
-          <Text style={styles.phrasesCount}>{phrasesCountText}</Text>
-        </View>
+        <Text style={styles.headerTitle}>{categoryTitle}</Text>
+        <Text style={styles.headerSubtitle}>{phrasesCountText}</Text>
       </View>
 
-      {categoryPhrases.length > 0 ? (
-        <FlatList
-          data={categoryPhrases}
-          renderItem={renderPhrase}
-          keyExtractor={keyExtractor}
-          getItemLayout={getItemLayout}
-          style={styles.phrasesList}
-          contentContainerStyle={styles.phrasesListContent}
-          showsVerticalScrollIndicator={false}
-          removeClippedSubviews={true}
-          maxToRenderPerBatch={8}
-          updateCellsBatchingPeriod={50}
-          initialNumToRender={6}
-          windowSize={10}
-          maintainVisibleContentPosition={{
-            minIndexForVisible: 0,
-            autoscrollToTopThreshold: 100,
-          }}
-        />
-      ) : (
-        <EmptyState
-          icon="📚"
-          title={
-            config.mode === 'tk' ? 'Heniz sözlem ýok' :
-            config.mode === 'zh' ? '暂无短语' :
-            'Пока нет фраз'
-          }
-          message={
-            config.mode === 'tk' ? 'Bu kategoriýada heniz sözlem ýok. Tiz wagtda goşarys!' :
-            config.mode === 'zh' ? '此类别中暂无短语。即将添加！' :
-            'В этой категории пока нет фраз. Скоро добавим!'
-          }
-        />
-      )}
+      {/* Список фраз */}
+      <FlatList
+        data={categoryPhrases}
+        renderItem={renderPhrase}
+        keyExtractor={keyExtractor}
+        getItemLayout={getItemLayout}
+        style={styles.list}
+        contentContainerStyle={styles.listContent}
+        showsVerticalScrollIndicator={false}
+        removeClippedSubviews={true}
+        maxToRenderPerBatch={8}
+        windowSize={10}
+        initialNumToRender={6}
+        ItemSeparatorComponent={() => <View style={{ height: SEPARATOR_HEIGHT }} />}
+      />
     </SafeAreaView>
   );
 }
 
+// ИСПРАВЛЕННЫЕ СТИЛИ с правильным layout
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.backgroundLight,
+    backgroundColor: Colors.background,
   },
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 20,
-    paddingTop: 10,
-  },
-  categoryIcon: {
-    fontSize: 48,
-    marginRight: 16,
-  },
-  headerText: {
-    flex: 1,
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    paddingBottom: 20,
   },
   headerTitle: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
     color: Colors.textWhite,
     marginBottom: 4,
   },
-  phrasesCount: {
-    fontSize: 14,
-    color: Colors.textWhite,
-    opacity: 0.8,
+  headerSubtitle: {
+    fontSize: 16,
+    color: 'rgba(255, 255, 255, 0.8)',
   },
-  phrasesList: {
+  list: {
     flex: 1,
   },
-  phrasesListContent: {
+  listContent: {
     padding: 16,
   },
   phraseCard: {
-    height: ITEM_HEIGHT,
     backgroundColor: Colors.cardBackground,
     borderRadius: 12,
     padding: 16,
-    marginBottom: SEPARATOR_HEIGHT,
+    height: ITEM_HEIGHT,
     elevation: 2,
     shadowColor: Colors.cardShadow,
     shadowOffset: {
@@ -338,64 +315,84 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 3,
   },
-  phraseContent: {
+  // ИСПРАВЛЕНО: Новая структура layout
+  phraseContainer: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'flex-start',
+  },
+  phraseContent: {
     flex: 1,
+    marginRight: 12, // Отступ от кнопок
   },
-  phraseTextContainer: {
-    flex: 1,
+  actionsContainer: {
+    alignItems: 'flex-end',
+    justifyContent: 'space-between',
+    height: '100%',
+    minWidth: 80, // Фиксированная ширина для кнопок
   },
-  chineseText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: Colors.text,
-    marginBottom: 4,
-  },
-  pinyinText: {
-    fontSize: 16,
-    color: Colors.primary,
-    marginBottom: 8,
-    fontStyle: 'italic',
-  },
-  primaryText: {
-    fontSize: 17,
-    color: Colors.text,
-    fontWeight: '600',
-    marginBottom: 4,
-  },
-  turkmenMainText: {
-    fontSize: 19,
-    color: Colors.text,
-    fontWeight: '700',
-    marginBottom: 6,
-  },
-  secondaryText: {
-    fontSize: 13,
-    color: Colors.textLight,
-    opacity: 0.8,
-  },
-  phraseActions: {
-    alignItems: 'center',
-    marginLeft: 12,
+  playButtons: {
+    flexDirection: 'row',
     gap: 8,
   },
   playButton: {
     alignItems: 'center',
+    justifyContent: 'center',
+    padding: 4,
   },
   playLabel: {
     fontSize: 10,
     color: Colors.textLight,
     marginTop: 2,
   },
+  // ИСПРАВЛЕНО: Правильные стили для кнопки избранного
   favoriteButton: {
-    padding: 4,
-    marginTop: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: Colors.background,
+    elevation: 1,
+    shadowColor: Colors.cardShadow,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+  },
+  chineseText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: Colors.text,
+    marginBottom: 2,
+  },
+  pinyinText: {
+    fontSize: 14,
+    color: Colors.primary,
+    fontStyle: 'italic',
+    marginBottom: 8,
+  },
+  primaryText: {
+    fontSize: 16,
+    color: Colors.text,
+    fontWeight: '600',
+    marginBottom: 4,
+  },
+  turkmenMainText: {
+    fontSize: 18,
+    color: Colors.text,
+    fontWeight: 'bold',
+    marginBottom: 4,
+  },
+  secondaryText: {
+    fontSize: 14,
+    color: Colors.textLight,
   },
   errorText: {
-    fontSize: 14,
+    fontSize: 16,
     color: Colors.error,
     textAlign: 'center',
-    padding: 20,
   },
 });
