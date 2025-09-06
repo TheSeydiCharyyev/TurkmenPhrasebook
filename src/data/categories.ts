@@ -1,8 +1,6 @@
-// src/data/categories.ts
-import { Category } from '../types';
+// src/data/categories.ts - ОБНОВЛЕННАЯ ВЕРСИЯ с категорией "Погода"
 
-// ПРИМЕЧАНИЕ: Изображения из Unsplash для демонстрации
-// В продакшене заменить на локальные файлы
+import { Category } from '../types';
 
 export const categories: Category[] = [
   {
@@ -113,6 +111,16 @@ export const categories: Category[] = [
     color: '#26C0CE',
     imageUrl: 'https://images.unsplash.com/photo-1495364141860-b0d03eccd065?w=400&h=300&fit=crop'
   },
+  // 🆕 НОВАЯ КАТЕГОРИЯ - Погода
+  {
+    id: 'weather',
+    nameRu: 'Погода',
+    nameTk: 'Howa',
+    nameZh: '天气',
+    icon: '🌤️',
+    color: '#74C0FC',
+    imageUrl: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=400&h=300&fit=crop'
+  },
   {
     id: 'family',
     nameRu: 'Семья и друзья',
@@ -132,3 +140,6 @@ export const categories: Category[] = [
     imageUrl: 'https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=400&h=300&fit=crop'
   }
 ];
+
+// Теперь у нас 15 категорий total, из которых используется 13 согласно техзаданию
+// 'family' и 'work' зарезервированы для будущих обновлений
