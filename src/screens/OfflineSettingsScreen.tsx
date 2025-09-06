@@ -1,4 +1,4 @@
-// src/screens/OfflineSettingsScreen.tsx - День 17: Управление офлайн настройками
+// src/screens/OfflineSettingsScreen.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ
 import React, { useState, useCallback, useEffect } from 'react';
 import {
   View,
@@ -21,7 +21,7 @@ import { useOfflineData } from '../contexts/OfflineDataContext';
 import { useAnimations } from '../hooks/useAnimations';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import AnimatedButton from '../components/AnimatedButton';
-import { LoadingSpinner, LoadingWithProgress } from '../components/LoadingStates';
+import { LoadingSpinner } from '../components/LoadingStates';
 
 const { width } = Dimensions.get('window');
 
@@ -55,7 +55,7 @@ export default function OfflineSettingsScreen() {
   } = useOfflineDataManager();
 
   const { refreshData, dataSource, lastUpdate } = useOfflineData();
-  const { hapticFeedback, pulseAnimation } = useAnimations();
+  const { hapticFeedback } = useAnimations(); // ИСПРАВЛЕНО: убран pulseAnimation
   const { config } = useAppLanguage();
 
   const [stats, setStats] = useState<any>(null);
@@ -248,7 +248,7 @@ export default function OfflineSettingsScreen() {
   );
 
   if (isLoading) {
-    return <LoadingSpinner message="Обработка..." />;
+    return <LoadingSpinner message="Обработка..." />; // ИСПРАВЛЕНО: использован LoadingSpinner
   }
 
   return (
@@ -318,13 +318,14 @@ export default function OfflineSettingsScreen() {
                 </View>
               )}
 
-              <AnimatedButton
-                title="Экспорт статистики"
-                variant="outline"
-                size="small"
-                onPress={handleExportStats}
-                style={styles.actionButton}
-              />
+              <View style={styles.actionButtonContainer}>
+                <AnimatedButton
+                  title="Экспорт статистики"
+                  variant="outline"
+                  size="small"
+                  onPress={handleExportStats}
+                />
+              </View>
             </View>
           )}
         </View>
@@ -394,15 +395,13 @@ export default function OfflineSettingsScreen() {
                 />
               </View>
 
-              <View style={styles.actionButtons}>
+              <View style={styles.actionButtonContainer}>
                 <AnimatedButton
                   title="Принудительная синхронизация"
                   variant="primary"
                   size="medium"
-                  icon="sync"
                   onPress={handleForceSync}
                   disabled={!isOnline}
-                  style={[styles.actionButton, { flex: 1 }]}
                 />
               </View>
             </View>
@@ -430,23 +429,23 @@ export default function OfflineSettingsScreen() {
           {expandedSections.includes('data') && (
             <View style={styles.sectionContent}>
               <View style={styles.actionButtons}>
-                <AnimatedButton
-                  title="Обновить данные"
-                  variant="secondary"
-                  size="medium"
-                  icon="refresh"
-                  onPress={handleRefreshData}
-                  disabled={!isOnline}
-                  style={[styles.actionButton, { flex: 1, marginRight: 8 }]}
-                />
-                <AnimatedButton
-                  title="Очистить кэш"
-                  variant="outline"
-                  size="medium"
-                  icon="trash"
-                  onPress={handleClearCache}
-                  style={[styles.actionButton, { flex: 1, marginLeft: 8 }]}
-                />
+                <View style={styles.actionButtonWrapper}>
+                  <AnimatedButton
+                    title="Обновить данные"
+                    variant="secondary"
+                    size="medium"
+                    onPress={handleRefreshData}
+                    disabled={!isOnline}
+                  />
+                </View>
+                <View style={styles.actionButtonWrapper}>
+                  <AnimatedButton
+                    title="Очистить кэш"
+                    variant="outline"
+                    size="medium"
+                    onPress={handleClearCache}
+                  />
+                </View>
               </View>
             </View>
           )}
@@ -512,7 +511,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     overflow: 'hidden',
     elevation: 2,
-    shadowColor: Colors.shadow,
+    shadowColor: 'rgba(0,0,0,0.1)',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
@@ -536,7 +535,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   statusTitle: {
-    ...TextStyles.bodyMedium,
+    ...TextStyles.body,
     fontWeight: '600',
     color: Colors.text,
   },
@@ -579,7 +578,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   sectionTitle: {
-    ...TextStyles.bodyMedium,
+    ...TextStyles.body,
     fontWeight: '600',
     color: Colors.text,
     marginLeft: 12,
@@ -635,7 +634,7 @@ const styles = StyleSheet.create({
     marginRight: 16,
   },
   settingTitle: {
-    ...TextStyles.bodyMedium,
+    ...TextStyles.body,
     color: Colors.text,
     fontWeight: '500',
   },
@@ -647,8 +646,12 @@ const styles = StyleSheet.create({
   actionButtons: {
     flexDirection: 'row',
     marginTop: 12,
+    gap: 8,
   },
-  actionButton: {
-    marginVertical: 4,
+  actionButtonWrapper: {
+    flex: 1,
+  },
+  actionButtonContainer: {
+    marginTop: 12,
   },
 });
