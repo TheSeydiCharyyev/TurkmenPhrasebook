@@ -1,17 +1,14 @@
 {
   "expo": {
     "name": "Chinese Phrasebook",
-    "slug": "chinese-phrasebook-tkm",
-    "description": "Изучайте китайский язык с помощью практичных фраз. Поддержка русского и туркменского языков.",
+    "slug": "chinese-phrasebook-cng",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/chinese-phrasebook-icon-1024x1024.png",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
-    "privacy": "public",
-    "platforms": ["ios", "android", "web"],
     "splash": {
-      "image": "./assets/chinese-phrasebook-icon-1024x1024.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#DC2626"
     },
@@ -20,65 +17,58 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.seydicharyyev.chinesephrasebook",
-      "buildNumber": "1.0.0",
-      "infoPlist": {
-        "CFBundleDisplayName": "Chinese Phrasebook",
-        "CFBundleName": "Chinese Phrasebook",
-        "NSMicrophoneUsageDescription": "Это приложение использует микрофон для голосового поиска фраз.",
-        "NSSpeechRecognitionUsageDescription": "Это приложение использует распознавание речи для поиска фраз голосом."
+      "bundleIdentifier": "com.chinesephrasebook.cng",
+      "buildNumber": "1",
+      "config": {
+        "usesNonExemptEncryption": false
       },
-      "associatedDomains": [],
-      "usesNonExemptEncryption": false
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Это приложение использует микрофон для голосового поиска фраз и произношения.",
+        "NSCameraUsageDescription": "Камера не используется этим приложением.",
+        "CFBundleDisplayName": "Chinese Phrasebook"
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/chinese-phrasebook-icon-192x192.png",
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#DC2626"
       },
-      "edgeToEdgeEnabled": true,
-      "package": "com.seydicharyyev.chinesephrasebook",
+      "package": "com.chinesephrasebook.cng",
       "versionCode": 1,
       "permissions": [
         "RECORD_AUDIO",
-        "ACCESS_NETWORK_STATE"
+        "ACCESS_NETWORK_STATE",
+        "INTERNET",
+        "VIBRATE"
       ],
-      "blockedPermissions": [
-        "android.permission.CAMERA",
-        "android.permission.ACCESS_FINE_LOCATION",
-        "android.permission.ACCESS_COARSE_LOCATION"
-      ]
+      "compileSdkVersion": 34,
+      "targetSdkVersion": 34
     },
     "web": {
-      "favicon": "./assets/chinese-phrasebook-icon-192x192.png",
-      "bundler": "metro",
-      "output": "static"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/your-project-id-here"
-    },
-    "runtimeVersion": {
-      "policy": "sdkVersion"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
     },
     "extra": {
       "eas": {
         "projectId": "your-project-id-here"
       }
     },
-    "owner": "seydicharyyev",
-    "keywords": [
-      "chinese",
-      "phrasebook",
-      "language",
-      "learning",
-      "mandarin",
-      "turkmen",
-      "russian",
-      "travel",
-      "education"
-    ],
-    "category": "education",
-    "githubUrl": "https://github.com/seydicharyyev/ChinesePhrasebook2"
+    "owner": "your-expo-username",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/your-project-id-here"
+    },
+    "plugins": [
+      "expo-av",
+      [
+        "@react-native-voice/voice",
+        {
+          "microphonePermission": "Разрешите доступ к микрофону для голосового поиска фраз.",
+          "speechRecognitionPermission": "Разрешите распознавание речи для голосового поиска."
+        }
+      ]
+    ]
   }
 }
