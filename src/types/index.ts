@@ -6,7 +6,6 @@ export interface Category {
   nameZh: string;
   icon: string;
   color: string;
-  imageUrl: string;
 }
 
 export interface Phrase {
@@ -29,7 +28,7 @@ export type MainTabParamList = {
   Home: undefined;
   Search: undefined;
   Favorites: undefined;
-  Stats: undefined;     // Новая вкладка
+  Stats: undefined; // Новая вкладка
   Settings: undefined;
 };
 
@@ -115,7 +114,7 @@ export interface CategoryStatsItem {
 }
 
 // Тип для языка интерфейса
-export type AppLanguage = 'ru' | 'tk' | 'zh';
+export type AppLanguage = "ru" | "tk" | "zh";
 
 // Расширенные настройки приложения
 export interface AppSettings {
