@@ -2,11 +2,14 @@
   "expo": {
     "name": "Chinese Phrasebook",
     "slug": "chinese-phrasebook-tkm",
+    "description": "Изучайте китайский язык с помощью практичных фраз. Поддержка русского и туркменского языков.",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/chinese-phrasebook-icon-1024x1024.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+    "privacy": "public",
+    "platforms": ["ios", "android", "web"],
     "splash": {
       "image": "./assets/chinese-phrasebook-icon-1024x1024.png",
       "resizeMode": "contain",
@@ -17,12 +20,16 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.yourname.chinesephrasebook",
+      "bundleIdentifier": "com.seydicharyyev.chinesephrasebook",
       "buildNumber": "1.0.0",
       "infoPlist": {
         "CFBundleDisplayName": "Chinese Phrasebook",
-        "CFBundleName": "Chinese Phrasebook"
-      }
+        "CFBundleName": "Chinese Phrasebook",
+        "NSMicrophoneUsageDescription": "Это приложение использует микрофон для голосового поиска фраз.",
+        "NSSpeechRecognitionUsageDescription": "Это приложение использует распознавание речи для поиска фраз голосом."
+      },
+      "associatedDomains": [],
+      "usesNonExemptEncryption": false
     },
     "android": {
       "adaptiveIcon": {
@@ -30,27 +37,48 @@
         "backgroundColor": "#DC2626"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.yourname.chinesephrasebook",
+      "package": "com.seydicharyyev.chinesephrasebook",
       "versionCode": 1,
       "permissions": [
         "RECORD_AUDIO",
         "ACCESS_NETWORK_STATE"
+      ],
+      "blockedPermissions": [
+        "android.permission.CAMERA",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION"
       ]
     },
     "web": {
       "favicon": "./assets/chinese-phrasebook-icon-192x192.png",
-      "bundler": "metro"
+      "bundler": "metro",
+      "output": "static"
     },
-    "plugins": [
-      "expo-router"
-    ],
-    "experiments": {
-      "typedRoutes": true
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/your-project-id-here"
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     },
     "extra": {
       "eas": {
         "projectId": "your-project-id-here"
       }
-    }
+    },
+    "owner": "seydicharyyev",
+    "keywords": [
+      "chinese",
+      "phrasebook",
+      "language",
+      "learning",
+      "mandarin",
+      "turkmen",
+      "russian",
+      "travel",
+      "education"
+    ],
+    "category": "education",
+    "githubUrl": "https://github.com/seydicharyyev/ChinesePhrasebook2"
   }
 }
