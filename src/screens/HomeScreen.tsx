@@ -1,4 +1,4 @@
-// src/screens/HomeScreen.tsx - Полная исправленная версия
+// src/screens/HomeScreen.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ
 import React, { useMemo, useCallback, useState, useEffect } from 'react';
 import {
   View,
@@ -8,11 +8,9 @@ import {
   TouchableOpacity,
   SafeAreaView,
   StatusBar,
-  ImageBackground,
   Dimensions,
   Modal,
   ScrollView,
-  Animated,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -26,7 +24,7 @@ import { useHistory } from '../hooks/useHistory';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { useAnimations } from '../hooks/useAnimations';
 import { useOfflineData } from '../contexts/OfflineDataContext';
-import CategoryCard from '../components/CategoryCard';
+import CategoryCard from '../components/CategoryCard'; // ✅ Новый компонент
 import ErrorBoundary from '../components/ErrorBoundary';
 
 const { width } = Dimensions.get('window');
@@ -35,48 +33,7 @@ const cardHeight = 120;
 
 type HomeScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'CategoryScreen'>;
 
-// Мемоизированный компонент карточки категории
-const CategoryCard = React.memo<{
-  category: Category;
-  onPress: (category: Category) => void;
-  index: number;
-}>(({ category, onPress, index }) => {
-  const { config } = useAppLanguage();
-  const { hapticFeedback } = useAnimations();
-
-  const primaryName = useMemo(() => {
-    switch (config.mode) {
-      case 'tk': return category.nameTk;
-      case 'zh': return category.nameZh;
-      default: return category.nameRu;
-    }
-  }, [category, config.mode]);
-
-  const handlePress = useCallback(() => {
-    hapticFeedback('medium');
-    onPress(category);
-  }, [category, onPress, hapticFeedback]);
-
-  return (
-    <CategoryCard category={category} onPress={onPress} index={index}
-    >
-      <ImageBackground
-        source={{ uri: category.imageUrl }}
-        style={styles.imageBackground}
-        imageStyle={styles.backgroundImage}
-      >
-        <View style={[styles.gradient, { backgroundColor: 'rgba(0,0,0,0.6)' }]}>
-          <Text style={styles.categoryIcon}>{category.icon}</Text>
-          <Text style={styles.categoryName} numberOfLines={2}>
-            {primaryName}
-          </Text>
-        </View>
-      </ImageBackground>
-    </AnimatedCategoryCard>
-  );
-});
-
-// Исправленный компонент "Недавние фразы"
+// ✅ ИСПРАВЛЕНО: Компонент "Недавние фразы" - без дублирования имени
 const RecentCategoryCard = React.memo<{
   recentPhrases: Phrase[];
   stats: any;
@@ -98,11 +55,11 @@ const RecentCategoryCard = React.memo<{
   }, [onStatsPress, hapticFeedback]);
 
   return (
-    <AnimatedCategoryCard
+    <TouchableOpacity
       style={[styles.categoryCard, styles.recentCard]}
       onPress={handlePress}
       onLongPress={handleLongPress}
-      index={0}
+      activeOpacity={0.7}
     >
       <View style={styles.recentCardContent}>
         {/* Иконка */}
@@ -112,7 +69,7 @@ const RecentCategoryCard = React.memo<{
 
         {/* Заголовок */}
         <Text style={styles.recentTitle} numberOfLines={2}>
-          {texts.recentlyStudied}
+          {texts.recentlyStudied || 'Недавние'}
         </Text>
 
         {/* Статистика */}
@@ -135,7 +92,7 @@ const RecentCategoryCard = React.memo<{
           </View>
         )}
       </View>
-    </AnimatedCategoryCard>
+    </TouchableOpacity>
   );
 });
 
@@ -173,12 +130,12 @@ const QuickStatsModal = React.memo<{
             {/* Сегодняшний прогресс */}
             <View style={styles.statRow}>
               <Text style={styles.statLabel}>
-                {config.mode === 'tk' ? 'Şu günki öşüş:' :
+                {config.mode === 'tk' ? 'Şu günki öwreniş:' :
                   config.mode === 'zh' ? '今日进度：' :
                     'Прогресс сегодня:'}
               </Text>
               <Text style={styles.statValue}>
-                {stats.todaysPhrases}/{stats.dailyGoal.phrasesPerDay}
+                {stats.todaysPhrases || 0}/{stats.dailyGoal?.phrasesPerDay || 10}
                 {config.mode === 'tk' ? ' sözlem' : config.mode === 'zh' ? ' 短语' : ' фраз'}
               </Text>
             </View>
@@ -190,7 +147,7 @@ const QuickStatsModal = React.memo<{
                   config.mode === 'zh' ? '总共学过：' :
                     'Всего изучено:'}
               </Text>
-              <Text style={styles.statValue}>{stats.uniquePhrases} {config.mode === 'tk' ? 'sözlem' : config.mode === 'zh' ? '短语' : 'фраз'}</Text>
+              <Text style={styles.statValue}>{stats.uniquePhrases || 0} {config.mode === 'tk' ? 'sözlem' : config.mode === 'zh' ? '短语' : 'фраз'}</Text>
             </View>
 
             <View style={styles.statRow}>
@@ -200,9 +157,9 @@ const QuickStatsModal = React.memo<{
                     'Общее время:'}
               </Text>
               <Text style={styles.statValue}>
-                {stats.totalStudyTime < 60 ?
-                  `${stats.totalStudyTime}${config.mode === 'tk' ? 'min' : config.mode === 'zh' ? '分' : 'мин'}` :
-                  `${Math.floor(stats.totalStudyTime / 60)}${config.mode === 'tk' ? 's' : config.mode === 'zh' ? '时' : 'ч'} ${stats.totalStudyTime % 60}${config.mode === 'tk' ? 'min' : config.mode === 'zh' ? '分' : 'м'}`
+                {(stats.totalStudyTime || 0) < 60 ?
+                  `${stats.totalStudyTime || 0}${config.mode === 'tk' ? 'min' : config.mode === 'zh' ? '分' : 'мин'}` :
+                  `${Math.floor((stats.totalStudyTime || 0) / 60)}${config.mode === 'tk' ? 's' : config.mode === 'zh' ? '时' : 'ч'} ${(stats.totalStudyTime || 0) % 60}${config.mode === 'tk' ? 'min' : config.mode === 'zh' ? '分' : 'м'}`
                 }
               </Text>
             </View>
@@ -214,7 +171,7 @@ const QuickStatsModal = React.memo<{
                     'Стрик дней:'}
               </Text>
               <Text style={styles.statValue}>
-                {stats.streakDays} {config.mode === 'tk' ? 'gün' : config.mode === 'zh' ? '天' : 'дней'}
+                {stats.streakDays || 0} {config.mode === 'tk' ? 'gün' : config.mode === 'zh' ? '天' : 'дней'}
               </Text>
             </View>
 
@@ -230,7 +187,7 @@ const QuickStatsModal = React.memo<{
                   <View key={phrase.id} style={styles.recentPhraseItem}>
                     <Text style={styles.recentPhraseChinese}>{phrase.chinese}</Text>
                     <Text style={styles.recentPhraseTranslation}>
-                      {config.mode === 'tk' ? phrase.turkmen : phrase.chinese}
+                      {config.mode === 'tk' ? phrase.turkmen : phrase.russian}
                     </Text>
                   </View>
                 ))}
@@ -286,9 +243,9 @@ export default function HomeScreen() {
     setShowQuickStats(false);
   }, []);
 
-  // Создаем данные для сетки: 14 категорий + недавние фразы в конце
+  // Создаем данные для сетки: 13 категорий + недавние фразы в конце
   const gridData = useMemo(() => [
-    ...categories.slice(0, 14),
+    ...categories.slice(0, 13),
     'recent',
   ], [categories]);
 
@@ -312,6 +269,7 @@ export default function HomeScreen() {
       );
     }
 
+    // ✅ ИСПРАВЛЕНО: Правильное использование CategoryCard
     return (
       <ErrorBoundary
         fallbackComponent={
@@ -339,8 +297,8 @@ export default function HomeScreen() {
 
       {/* Заголовок */}
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>{texts.appTitle}</Text>
-        <Text style={styles.headerSubtitle}>{texts.selectCategory}</Text>
+        <Text style={styles.headerTitle}>{texts.appTitle || 'Китайский разговорник'}</Text>
+        <Text style={styles.headerSubtitle}>{texts.selectCategory || 'Выберите категорию'}</Text>
 
         {/* Быстрая информация */}
         {stats.uniquePhrases > 0 && (
@@ -361,7 +319,7 @@ export default function HomeScreen() {
               <View style={styles.quickInfoItem}>
                 <Ionicons name="today" size={16} color={Colors.accent} />
                 <Text style={styles.quickInfoText}>
-                  {stats.todaysPhrases}/{stats.dailyGoal.phrasesPerDay}
+                  {stats.todaysPhrases}/{stats.dailyGoal?.phrasesPerDay || 10}
                 </Text>
               </View>
             )}
@@ -448,37 +406,9 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     overflow: 'hidden',
   },
-  imageBackground: {
-    flex: 1,
-  },
-  backgroundImage: {
-    borderRadius: 16,
-  },
-  gradient: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10,
-  },
-  categoryIcon: {
-    fontSize: 24,
-    marginBottom: 8,
-  },
-  categoryName: {
-    ...TextStyles.caption,
-    color: Colors.textWhite,
-    textAlign: 'center',
-    fontWeight: '600',
-    textShadowColor: 'rgba(0,0,0,0.7)',
-    textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 2,
-  },
 
   // Стили для карточки "Недавние"
   recentCard: {
-    // Ensure exact same dimensions as regular categories
-    width: cardWidth, // Explicitly set to match other cards
-    height: cardHeight, // Explicitly set to match other cards
     backgroundColor: Colors.cardBackground,
     borderWidth: 2,
     borderColor: Colors.primary,
