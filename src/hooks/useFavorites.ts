@@ -1,3 +1,4 @@
+// src/hooks/useFavorites.ts - ИСПРАВЛЕННАЯ ВЕРСИЯ
 import { useState, useEffect, useCallback } from 'react';
 import { Phrase } from '../types';
 import { SafeStorage } from '../utils/SafeStorage';
@@ -44,6 +45,11 @@ export function useFavorites() {
     return true;
   }, [handleError, showErrorAlert]);
 
+  // ИСПРАВЛЕНО: Сначала объявляем isFavorite
+  const isFavorite = useCallback((phraseId: string): boolean => {
+    return favorites.includes(phraseId);
+  }, [favorites]);
+
   const addToFavorites = useCallback(async (phraseId: string) => {
     if (favorites.includes(phraseId)) return;
 
@@ -66,6 +72,7 @@ export function useFavorites() {
     }
   }, [favorites, saveFavorites]);
 
+  // ИСПРАВЛЕНО: Теперь toggleFavorite объявляется ПОСЛЕ isFavorite
   const toggleFavorite = useCallback(async (phraseId: string) => {
     if (isFavorite(phraseId)) {
       await removeFromFavorites(phraseId);
@@ -73,10 +80,6 @@ export function useFavorites() {
       await addToFavorites(phraseId);
     }
   }, [isFavorite, removeFromFavorites, addToFavorites]);
-
-  const isFavorite = useCallback((phraseId: string): boolean => {
-    return favorites.includes(phraseId);
-  }, [favorites]);
 
   const getFavoritesPhrases = useCallback((allPhrases: Phrase[]): Phrase[] => {
     return allPhrases.filter(phrase => favorites.includes(phrase.id));
