@@ -50,9 +50,7 @@
       ]
     },
     "web": {
-      "favicon": "./assets/chinese-phrasebook-icon-192x192.png",
-      "bundler": "metro",
-      "output": "static"
+      "favicon": "./assets/chinese-phrasebook-icon-192x192.png"
     },
     "updates": {
       "fallbackToCacheTimeout": 0,
