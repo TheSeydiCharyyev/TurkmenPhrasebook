@@ -52,18 +52,6 @@
     "web": {
       "favicon": "./assets/chinese-phrasebook-icon-192x192.png"
     },
-    "updates": {
-      "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/your-project-id-here"
-    },
-    "runtimeVersion": {
-      "policy": "sdkVersion"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "your-project-id-here"
-      }
-    },
     "owner": "seydicharyyev",
     "keywords": [
       "chinese",
