@@ -1,4 +1,4 @@
-// src/screens/HomeScreen.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ
+// src/screens/HomeScreen.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ с правильным языком
 import React, { useMemo, useCallback, useState, useEffect } from 'react';
 import {
   View,
@@ -24,7 +24,7 @@ import { useHistory } from '../hooks/useHistory';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { useAnimations } from '../hooks/useAnimations';
 import { useOfflineData } from '../contexts/OfflineDataContext';
-import CategoryCard from '../components/CategoryCard'; // ✅ Новый компонент
+import CategoryCard from '../components/CategoryCard';
 import ErrorBoundary from '../components/ErrorBoundary';
 
 const { width } = Dimensions.get('window');
@@ -33,7 +33,7 @@ const cardHeight = 120;
 
 type HomeScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'CategoryScreen'>;
 
-// ✅ ИСПРАВЛЕНО: Компонент "Недавние фразы" - без дублирования имени
+// ✅ ИСПРАВЛЕНО: Компонент "Недавние фразы"
 const RecentCategoryCard = React.memo<{
   recentPhrases: Phrase[];
   stats: any;
@@ -79,107 +79,51 @@ const RecentCategoryCard = React.memo<{
           </Text>
           {stats.todaysPhrases > 0 && (
             <Text style={styles.recentTodayText}>
-              {config.mode === 'tk' ? 'Şu gün' : 'Сегодня'}: {stats.todaysPhrases}
+              {config.mode === 'tk' ? 
+                `Şu gün: ${stats.todaysPhrases}` :
+                `Сегодня: ${stats.todaysPhrases}`}
             </Text>
           )}
         </View>
-
-        {/* Стрик индикатор */}
-        {stats.streakDays > 0 && (
-          <View style={styles.recentStreakBadge}>
-            <Ionicons name="flame" size={12} color={Colors.error} />
-            <Text style={styles.recentStreakText}>{stats.streakDays}</Text>
-          </View>
-        )}
       </View>
     </TouchableOpacity>
   );
 });
 
-// Быстрая статистика (модал)
-const QuickStatsModal = React.memo<{
+// Модальное окно статистики
+const StatsModal = React.memo<{
   visible: boolean;
   onClose: () => void;
-  stats: any;
   recentPhrases: Phrase[];
-  config: any;
-}>(({ visible, onClose, stats, recentPhrases, config }) => {
-  if (!visible) return null;
+  stats: any;
+}>(({ visible, onClose, recentPhrases, stats }) => {
+  const { getTexts, config } = useAppLanguage();
+  const texts = getTexts();
 
   return (
     <Modal
       visible={visible}
-      transparent
-      animationType="fade"
+      animationType="slide"
+      transparent={true}
       onRequestClose={onClose}
     >
       <View style={styles.modalOverlay}>
         <View style={styles.modalContent}>
           <View style={styles.modalHeader}>
             <Text style={styles.modalTitle}>
-              {config.mode === 'tk' ? '📊 Çalt statistika' :
-                config.mode === 'zh' ? '📊 快速统计' :
-                  '📊 Быстрая статистика'}
+              {config.mode === 'tk' ? '📊 Statistika' : '📊 Статистика'}
             </Text>
-            <TouchableOpacity onPress={onClose} style={styles.closeButton}>
-              <Ionicons name="close" size={24} color={Colors.textLight} />
+            <TouchableOpacity onPress={onClose} style={styles.modalCloseButton}>
+              <Ionicons name="close" size={24} color={Colors.text} />
             </TouchableOpacity>
           </View>
 
-          <ScrollView style={styles.modalBody} showsVerticalScrollIndicator={false}>
-            {/* Сегодняшний прогресс */}
-            <View style={styles.statRow}>
-              <Text style={styles.statLabel}>
-                {config.mode === 'tk' ? 'Şu günki öwreniş:' :
-                  config.mode === 'zh' ? '今日进度：' :
-                    'Прогресс сегодня:'}
-              </Text>
-              <Text style={styles.statValue}>
-                {stats.todaysPhrases || 0}/{stats.dailyGoal?.phrasesPerDay || 10}
-                {config.mode === 'tk' ? ' sözlem' : config.mode === 'zh' ? ' 短语' : ' фраз'}
-              </Text>
-            </View>
-
-            {/* Общая статистика */}
-            <View style={styles.statRow}>
-              <Text style={styles.statLabel}>
-                {config.mode === 'tk' ? 'Jemi öwrenilen:' :
-                  config.mode === 'zh' ? '总共学过：' :
-                    'Всего изучено:'}
-              </Text>
-              <Text style={styles.statValue}>{stats.uniquePhrases || 0} {config.mode === 'tk' ? 'sözlem' : config.mode === 'zh' ? '短语' : 'фраз'}</Text>
-            </View>
-
-            <View style={styles.statRow}>
-              <Text style={styles.statLabel}>
-                {config.mode === 'tk' ? 'Jemi wagt:' :
-                  config.mode === 'zh' ? '总时间：' :
-                    'Общее время:'}
-              </Text>
-              <Text style={styles.statValue}>
-                {(stats.totalStudyTime || 0) < 60 ?
-                  `${stats.totalStudyTime || 0}${config.mode === 'tk' ? 'min' : config.mode === 'zh' ? '分' : 'мин'}` :
-                  `${Math.floor((stats.totalStudyTime || 0) / 60)}${config.mode === 'tk' ? 's' : config.mode === 'zh' ? '时' : 'ч'} ${(stats.totalStudyTime || 0) % 60}${config.mode === 'tk' ? 'min' : config.mode === 'zh' ? '分' : 'м'}`
-                }
-              </Text>
-            </View>
-
-            <View style={styles.statRow}>
-              <Text style={styles.statLabel}>
-                {config.mode === 'tk' ? 'Dowamly günler:' :
-                  config.mode === 'zh' ? '连续天数：' :
-                    'Стрик дней:'}
-              </Text>
-              <Text style={styles.statValue}>
-                {stats.streakDays || 0} {config.mode === 'tk' ? 'gün' : config.mode === 'zh' ? '天' : 'дней'}
-              </Text>
-            </View>
-
-            {/* Недавние фразы */}
+          <ScrollView style={styles.modalBody}>
             {recentPhrases.length > 0 && (
               <>
-                <Text style={styles.recentPhrasesTitle}>
-                  {config.mode === 'tk' ? 'Soňky öwrenilen:' :
+                <Text style={styles.recentSectionTitle}>
+                  {config.mode === 'tk' ? 
+                    'Soňky öwrenilen:' :
                     config.mode === 'zh' ? '最近学习：' :
                       'Недавно изученные:'}
                 </Text>
@@ -243,9 +187,9 @@ export default function HomeScreen() {
     setShowQuickStats(false);
   }, []);
 
-  // Создаем данные для сетки: 13 категорий + недавние фразы в конце
+  // ✅ ИСПРАВЛЕНО: Показываем ВСЕ категории + недавние
   const gridData = useMemo(() => [
-    ...categories.slice(0, 13),
+    ...categories, // Показываем ВСЕ категории (все 13)
     'recent',
   ], [categories]);
 
@@ -269,7 +213,6 @@ export default function HomeScreen() {
       );
     }
 
-    // ✅ ИСПРАВЛЕНО: Правильное использование CategoryCard
     return (
       <ErrorBoundary
         fallbackComponent={
@@ -295,10 +238,14 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
 
-      {/* Заголовок */}
+      {/* ✅ ИСПРАВЛЕНО: Правильный заголовок */}
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>{texts.appTitle || 'Китайский разговорник'}</Text>
-        <Text style={styles.headerSubtitle}>{texts.selectCategory || 'Выберите категорию'}</Text>
+        <Text style={styles.headerTitle}>
+          {texts.appTitle}
+        </Text>
+        <Text style={styles.headerSubtitle}>
+          {texts.selectCategory}
+        </Text>
 
         {/* Быстрая информация */}
         {stats.uniquePhrases > 0 && (
@@ -312,14 +259,8 @@ export default function HomeScreen() {
             {stats.streakDays > 0 && (
               <View style={styles.quickInfoItem}>
                 <Ionicons name="flame" size={16} color={Colors.error} />
-                <Text style={styles.quickInfoText}>{stats.streakDays} {config.mode === 'tk' ? 'gün' : config.mode === 'zh' ? '天' : 'дней'}</Text>
-              </View>
-            )}
-            {stats.todaysPhrases > 0 && (
-              <View style={styles.quickInfoItem}>
-                <Ionicons name="today" size={16} color={Colors.accent} />
                 <Text style={styles.quickInfoText}>
-                  {stats.todaysPhrases}/{stats.dailyGoal?.phrasesPerDay || 10}
+                  {stats.streakDays} {config.mode === 'tk' ? 'gün' : config.mode === 'zh' ? '天' : 'дней'}
                 </Text>
               </View>
             )}
@@ -327,29 +268,24 @@ export default function HomeScreen() {
         )}
       </View>
 
-      {/* Галерея категорий 3x5 */}
+      {/* Сетка категорий */}
       <FlatList
         data={gridData}
         renderItem={renderGridItem}
-        numColumns={3}
         keyExtractor={keyExtractor}
-        style={styles.grid}
+        numColumns={2}
+        style={styles.gridContainer}
         contentContainerStyle={styles.gridContent}
         showsVerticalScrollIndicator={false}
-        columnWrapperStyle={styles.row}
-        removeClippedSubviews={true}
-        maxToRenderPerBatch={9}
-        initialNumToRender={9}
-        windowSize={5}
+        columnWrapperStyle={styles.gridRow}
       />
 
-      {/* Модал быстрой статистики */}
-      <QuickStatsModal
+      {/* Модальное окно статистики */}
+      <StatsModal
         visible={showQuickStats}
         onClose={closeStatsModal}
-        stats={stats}
         recentPhrases={recentPhrases}
-        config={config}
+        stats={stats}
       />
     </SafeAreaView>
   );
@@ -361,204 +297,150 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   header: {
-    padding: 20,
+    paddingHorizontal: 20,
     paddingTop: 10,
-    paddingBottom: 15,
+    paddingBottom: 20,
   },
   headerTitle: {
-    ...TextStyles.h1,
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: Colors.text,
     marginBottom: 5,
   },
   headerSubtitle: {
-    ...TextStyles.bodyLarge,
+    fontSize: 16,
     color: Colors.textLight,
-    marginBottom: 10,
+    marginBottom: 12,
   },
   quickInfo: {
     flexDirection: 'row',
-    alignItems: 'center',
-    gap: 16,
-    marginTop: 8,
+    flexWrap: 'wrap',
+    gap: 12,
   },
   quickInfoItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 4,
+    backgroundColor: Colors.backgroundLight,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    borderRadius: 12,
   },
   quickInfoText: {
-    ...TextStyles.caption,
-    fontWeight: '500',
+    fontSize: 14,
+    color: Colors.textLight,
+    marginLeft: 6,
   },
-  grid: {
+  gridContainer: {
     flex: 1,
-    paddingHorizontal: 20,
   },
   gridContent: {
-    paddingBottom: 20,
+    padding: 16,
   },
-  row: {
+  gridRow: {
     justifyContent: 'space-between',
-    marginBottom: 15,
+    marginBottom: 16,
   },
   categoryCard: {
-    width: cardWidth,
-    height: cardHeight,
-    borderRadius: 16,
-    overflow: 'hidden',
-  },
-
-  // Стили для карточки "Недавние"
-  recentCard: {
     backgroundColor: Colors.cardBackground,
-    borderWidth: 2,
-    borderColor: Colors.primary,
-    borderStyle: 'solid',
-  },
-
-  recentCardContent: {
-    flex: 1,
+    borderRadius: 16,
+    padding: 16,
+    width: (width - 48) / 2,
+    minHeight: cardHeight,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 12,
+    elevation: 2,
+    shadowColor: Colors.cardShadow,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
-
+  recentCard: {
+    backgroundColor: Colors.primary + '10',
+    borderWidth: 1,
+    borderColor: Colors.primary + '30',
+  },
+  recentCardContent: {
+    alignItems: 'center',
+  },
   recentIconContainer: {
     marginBottom: 8,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-
   recentTitle: {
-    fontSize: 11,
+    fontSize: 16,
     fontWeight: '600',
     color: Colors.text,
     textAlign: 'center',
     marginBottom: 8,
-    lineHeight: 13,
   },
-
   recentStatsContainer: {
     alignItems: 'center',
   },
-
   recentStatsText: {
-    fontSize: 9,
+    fontSize: 14,
     color: Colors.textLight,
     textAlign: 'center',
-    fontWeight: '500',
   },
-
   recentTodayText: {
-    fontSize: 8,
+    fontSize: 12,
     color: Colors.primary,
-    textAlign: 'center',
     marginTop: 2,
-    fontWeight: '600',
   },
-
-  recentStreakBadge: {
-    position: 'absolute',
-    top: 8,
-    right: 8,
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: Colors.error + '20',
-    borderRadius: 8,
-    paddingHorizontal: 4,
-    paddingVertical: 2,
-  },
-
-  recentStreakText: {
-    fontSize: 8,
-    color: Colors.error,
-    fontWeight: 'bold',
-    marginLeft: 2,
-  },
-
   errorText: {
-    fontSize: 10,
+    fontSize: 12,
     color: Colors.error,
     textAlign: 'center',
-    padding: 8,
   },
-
-  // Модальное окно
+  // Стили модального окна
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'flex-end',
   },
   modalContent: {
-    backgroundColor: Colors.cardBackground,
-    borderRadius: 20,
-    margin: 20,
-    width: '90%',
-    maxWidth: 400,
-    maxHeight: '70%',
-    elevation: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.25,
-    shadowRadius: 20,
+    backgroundColor: Colors.background,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    maxHeight: '80%',
   },
   modalHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 20,
-    paddingBottom: 16,
     borderBottomWidth: 1,
     borderBottomColor: Colors.cardBorder,
   },
   modalTitle: {
-    ...TextStyles.h5,
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: Colors.text,
   },
-  closeButton: {
+  modalCloseButton: {
     padding: 4,
   },
   modalBody: {
     padding: 20,
   },
-  statRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.backgroundLight,
-  },
-  statLabel: {
-    ...TextStyles.bodySmall,
-    color: Colors.textLight,
-    flex: 1,
-  },
-  statValue: {
-    ...TextStyles.body,
+  recentSectionTitle: {
+    fontSize: 16,
     fontWeight: '600',
     color: Colors.text,
-  },
-  recentPhrasesTitle: {
-    ...TextStyles.body,
-    fontWeight: '600',
-    color: Colors.text,
-    marginTop: 20,
     marginBottom: 12,
   },
   recentPhraseItem: {
     backgroundColor: Colors.backgroundLight,
-    borderRadius: 8,
     padding: 12,
+    borderRadius: 8,
     marginBottom: 8,
   },
   recentPhraseChinese: {
-    ...TextStyles.body,
-    fontWeight: 'bold',
+    fontSize: 16,
+    fontWeight: '500',
     color: Colors.text,
     marginBottom: 4,
   },
   recentPhraseTranslation: {
-    ...TextStyles.bodySmall,
+    fontSize: 14,
     color: Colors.textLight,
   },
 });
