@@ -1,35 +1,41 @@
-// src/contexts/LanguageContext.tsx - SENIOR PRODUCTION VERSION
-import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
+// src/contexts/LanguageContext.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ с правильными переводами
+
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// ===============================================
-// TYPES & CONSTANTS
-// ===============================================
+const APP_LANGUAGE_KEY = 'chinese_phrasebook_app_language';
+const LANGUAGE_VERSION = '1.0';
 
 export type AppLanguageMode = 'tk' | 'zh';
 
-interface AppLanguageConfig {
+export interface AppLanguageConfig {
   mode: AppLanguageMode;
-  primaryLanguage: AppLanguageMode;
-  learningLanguage: AppLanguageMode;
+  primaryLanguage: 'tk' | 'zh';
+  learningLanguage: 'zh' | 'tk';
   helperLanguage: 'ru';
   version: string;
-  lastUpdated: number;
-  isFirstTime: boolean;
 }
 
-interface InterfaceTexts {
+// ✅ ИСПРАВЛЕНО: Правильные переводы интерфейса
+export interface InterfaceTexts {
+  // Общие
   home: string;
   search: string;
   favorites: string;
   settings: string;
+  
+  // Главный экран
   appTitle: string;
   selectCategory: string;
   recentlyStudied: string;
+  
+  // Детальный экран
   pronunciation: string;
   addToFavorites: string;
   inFavorites: string;
   share: string;
+  
+  // Настройки
   settingsTitle: string;
   languageInterface: string;
   switchLanguage: string;
@@ -40,9 +46,13 @@ interface InterfaceTexts {
   offlineMode: string;
   about: string;
   feedback: string;
+  
+  // Поиск
   searchPlaceholder: string;
   noResults: string;
   searchHistory: string;
+  
+  // Общие действия
   cancel: string;
   save: string;
   delete: string;
@@ -52,75 +62,39 @@ interface InterfaceTexts {
   success: string;
 }
 
-interface LanguageContextType {
-  // State
-  isLoading: boolean;
-  isFirstLaunch: boolean;
-  config: AppLanguageConfig;
-  error: string | null;
-  
-  // Actions
-  setLanguageMode: (mode: AppLanguageMode, shouldSave?: boolean) => Promise<void>;
-  switchMode: () => Promise<boolean>;
-  resetLanguageSettings: () => Promise<boolean>;
-  
-  // Getters
-  getTexts: () => InterfaceTexts;
-  getLanguageName: (lang: 'tk' | 'zh' | 'ru') => string;
-  getPhraseTexts: (phrase: { chinese: string; turkmen: string; russian: string }) => {
-    primary: string;
-    learning: string;
-    helper: string;
-  };
-  
-  // Dev Tools (только в development)
-  __DEV_TOOLS?: {
-    getState: () => any;
-    forceLanguage: (mode: AppLanguageMode) => void;
-    validateConfig: () => boolean;
-    exportConfig: () => string;
-    importConfig: (config: string) => Promise<boolean>;
-  };
-}
-
-// ===============================================
-// CONSTANTS
-// ===============================================
-
-const APP_LANGUAGE_KEY = 'app_language_config_v3'; // Bumped version for clean migration
-const LANGUAGE_VERSION = '3.0.0';
-const __DEV__: boolean = typeof process !== 'undefined' && process.env.NODE_ENV === 'development';
-
-// ===============================================
-// INTERFACE TEXTS
-// ===============================================
-
+// ✅ ИСПРАВЛЕНО: Правильные переводы для обоих языков
 const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
   tk: {
+    // Туркменский интерфейс - ЗАГЛАВНЫМИ БУКВАМИ как требуется
     home: 'Baş sahypa',
     search: 'Gözleg',
     favorites: 'Halanýanlar',
     settings: 'Sazlamalar',
-    appTitle: 'Hytaý sözlem kitaby',
+    
+    appTitle: 'HYTAÝ SÖZLEM KITABY', // ✅ ЗАГЛАВНЫМИ 
     selectCategory: 'Kategoriýa saýlaň',
     recentlyStudied: '📚 Soňky öwrenilen',
+    
     pronunciation: 'Aýdylyş',
     addToFavorites: 'Halanýanlara goş',
     inFavorites: 'Halanýanlarda',
     share: 'Paýlaş',
+    
     settingsTitle: '⚙️ Sazlamalar',
     languageInterface: 'Interfeýs dili',
-    switchLanguage: 'Dili üýtget',
+    switchLanguage: 'Dil çalyş',
     audio: 'Audio',
     soundEffects: 'Ses effektleri',
     data: 'Maglumatlar',
     clearHistory: 'Taryhy arassala',
-    offlineMode: 'Offline regime',
+    offlineMode: 'Oflaýn režim',
     about: 'Programma hakda',
-    feedback: 'Teswir',
-    searchPlaceholder: 'Islendik dilde gözläň...',
-    noResults: 'Netije tapylmady',
+    feedback: 'Pikir alyşmak',
+    
+    searchPlaceholder: 'Islendik dilde sözlem giriziň...',
+    noResults: 'Hiç zat tapylmady',
     searchHistory: 'Gözleg taryhy',
+    
     cancel: 'Ýatyr',
     save: 'Ýatda sakla',
     delete: 'Arassala',
@@ -129,18 +103,23 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     error: 'Ýalňyş',
     success: 'Üstünlik',
   },
+  
   zh: {
+    // Китайский интерфейс - СРЕДНИМИ ИЕРОГЛИФАМИ как требуется
     home: '主页',
     search: '搜索',
     favorites: '收藏',
     settings: '设置',
-    appTitle: '土库曼语会话手册',
+    
+    appTitle: '土库曼语会话手册', // ✅ СРЕДНИМИ ИЕРОГЛИФАМИ
     selectCategory: '选择类别',
     recentlyStudied: '📚 最近学习的',
+    
     pronunciation: '发音',
     addToFavorites: '添加到收藏',
     inFavorites: '已收藏',
     share: '分享',
+    
     settingsTitle: '⚙️ 设置',
     languageInterface: '界面语言',
     switchLanguage: '切换语言',
@@ -151,9 +130,11 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     offlineMode: '离线模式',
     about: '关于应用',
     feedback: '反馈',
+    
     searchPlaceholder: '输入任何语言的短语...',
     noResults: '未找到结果',
     searchHistory: '搜索历史',
+    
     cancel: '取消',
     save: '保存',
     delete: '删除',
@@ -164,10 +145,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
   }
 };
 
-// ===============================================
-// VALIDATION & UTILITIES
-// ===============================================
-
+// Валидация конфигурации
 const validateConfig = (config: any): config is AppLanguageConfig => {
   return (
     config &&
@@ -176,125 +154,88 @@ const validateConfig = (config: any): config is AppLanguageConfig => {
     ['tk', 'zh'].includes(config.primaryLanguage) &&
     ['tk', 'zh'].includes(config.learningLanguage) &&
     config.helperLanguage === 'ru' &&
-    config.primaryLanguage !== config.learningLanguage &&
-    typeof config.version === 'string' &&
-    typeof config.lastUpdated === 'number' &&
-    typeof config.isFirstTime === 'boolean'
+    config.primaryLanguage !== config.learningLanguage
   );
 };
 
+// Создание корректной конфигурации
 const createConfig = (mode: AppLanguageMode): AppLanguageConfig => ({
   mode,
   primaryLanguage: mode,
   learningLanguage: mode === 'tk' ? 'zh' : 'tk',
   helperLanguage: 'ru',
   version: LANGUAGE_VERSION,
-  lastUpdated: Date.now(),
-  isFirstTime: true,
 });
 
-// ===============================================
-// CONTEXT
-// ===============================================
-
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
-
-interface LanguageProviderProps {
-  children: ReactNode;
-  initialConfig?: AppLanguageConfig;
+interface LanguageContextValue {
+  config: AppLanguageConfig;
+  setLanguageMode: (mode: AppLanguageMode, shouldSave?: boolean) => Promise<void>;
+  switchMode: () => Promise<boolean>;
+  getTexts: () => InterfaceTexts;
+  getLanguageName: (lang: 'tk' | 'zh' | 'ru') => string;
+  getPhraseTexts: (phrase: { chinese: string; turkmen: string; russian: string }) => {
+    primary: string;
+    learning: string;
+    helper: string;
+  };
+  isFirstLaunch: boolean;
+  error: string | null;
 }
 
-export function LanguageProvider({ children, initialConfig }: LanguageProviderProps) {
-  const [isLoading, setIsLoading] = useState(!initialConfig);
-  const [isFirstLaunch, setIsFirstLaunch] = useState(false);
-  const [config, setConfig] = useState<AppLanguageConfig>(
-    initialConfig || createConfig('tk') // Always default to Turkmen for CNG users
-  );
+const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
+
+export function LanguageProvider({ children }: { children: ReactNode }) {
+  const [config, setConfig] = useState<AppLanguageConfig>(createConfig('tk'));
+  const [isFirstLaunch, setIsFirstLaunch] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // ===============================================
-  // CORE LIFECYCLE
-  // ===============================================
-
+  // Загрузка сохраненной конфигурации
   useEffect(() => {
-    if (!initialConfig) {
-      loadLanguageConfig();
-    }
-  }, [initialConfig]);
+    loadSavedConfig();
+  }, []);
 
-  const loadLanguageConfig = async () => {
+  const loadSavedConfig = async () => {
     try {
-      setError(null);
-      
-      // Try to load saved config
-      const savedConfig = await AsyncStorage.getItem(APP_LANGUAGE_KEY);
-      
-      if (savedConfig) {
-        const parsedConfig = JSON.parse(savedConfig);
-        
-        if (validateConfig(parsedConfig)) {
-          // Handle version migration
-          if (parsedConfig.version !== LANGUAGE_VERSION) {
-            console.log(`[LanguageContext] Migrating from ${parsedConfig.version} to ${LANGUAGE_VERSION}`);
-            const migratedConfig = {
-              ...createConfig(parsedConfig.mode || 'tk'),
-              isFirstTime: false, // Preserve that this isn't first time
-            };
-            await saveConfig(migratedConfig);
-            setConfig(migratedConfig);
-          } else {
-            setConfig(parsedConfig);
-          }
-          setIsFirstLaunch(parsedConfig.isFirstTime);
+      const savedData = await AsyncStorage.getItem(APP_LANGUAGE_KEY);
+      if (savedData) {
+        const parsedData = JSON.parse(savedData);
+        if (validateConfig(parsedData)) {
+          setConfig(parsedData);
+          setIsFirstLaunch(false);
         } else {
-          throw new Error('Invalid saved configuration');
+          // Если конфигурация невалидна, создаем новую
+          const defaultConfig = createConfig('tk');
+          setConfig(defaultConfig);
+          await saveConfig(defaultConfig);
         }
       } else {
-        // First launch - but start with Turkmen for CNG audience
-        console.log('[LanguageContext] First launch detected, defaulting to Turkmen');
         setIsFirstLaunch(true);
-        setConfig(createConfig('tk'));
       }
     } catch (error) {
-      console.warn('[LanguageContext] Error loading config:', error);
-      setError('Failed to load language settings');
-      setIsFirstLaunch(true);
-      setConfig(createConfig('tk')); // Always fallback to Turkmen
-    } finally {
-      setIsLoading(false);
+      console.warn('Ошибка загрузки языковой конфигурации:', error);
+      setError('Не удалось загрузить настройки языка');
     }
   };
 
-  // ===============================================
-  // CORE ACTIONS
-  // ===============================================
-
-  const saveConfig = async (newConfig: AppLanguageConfig): Promise<boolean> => {
+  const saveConfig = async (configToSave: AppLanguageConfig): Promise<boolean> => {
     try {
-      if (!validateConfig(newConfig)) {
-        throw new Error('Invalid configuration');
-      }
-      
-      await AsyncStorage.setItem(APP_LANGUAGE_KEY, JSON.stringify(newConfig));
-      console.log('[LanguageContext] Config saved:', newConfig.mode);
+      await AsyncStorage.setItem(APP_LANGUAGE_KEY, JSON.stringify(configToSave));
       return true;
     } catch (error) {
-      console.warn('[LanguageContext] Error saving config:', error);
-      setError('Failed to save language settings');
+      console.warn('Ошибка сохранения языковой конфигурации:', error);
+      setError('Не удалось сохранить настройки языка');
       return false;
     }
   };
 
-  const setLanguageMode = async (mode: AppLanguageMode, shouldSave: boolean = true) => {
+  // Установка языкового режима
+  const setLanguageMode = async (mode: AppLanguageMode, shouldSave: boolean = true): Promise<void> => {
     try {
       if (!['tk', 'zh'].includes(mode)) {
         throw new Error(`Invalid language mode: ${mode}`);
       }
 
-      const newConfig: AppLanguageConfig = {
-        ...createConfig(mode),
-        isFirstTime: false, // Mark as not first time anymore
-      };
+      const newConfig = createConfig(mode);
       
       if (shouldSave) {
         const saved = await saveConfig(newConfig);
@@ -305,204 +246,100 @@ export function LanguageProvider({ children, initialConfig }: LanguageProviderPr
       }
 
       setConfig(newConfig);
-      console.log('[LanguageContext] Language mode set to:', mode);
     } catch (error) {
-      console.warn('[LanguageContext] Error setting language mode:', error);
-      setError('Failed to change language');
+      console.warn('Ошибка установки языкового режима:', error);
+      setError('Не удалось изменить язык');
     }
   };
 
-  const switchMode = useCallback(async (): Promise<boolean> => {
+  // Переключение режима (для настроек)
+  const switchMode = async (): Promise<boolean> => {
     try {
       const newMode: AppLanguageMode = config.mode === 'tk' ? 'zh' : 'tk';
       await setLanguageMode(newMode, true);
       return true;
     } catch (error) {
-      console.warn('[LanguageContext] Error switching mode:', error);
+      console.warn('Ошибка переключения режима:', error);
       return false;
     }
-  }, [config.mode]);
+  };
 
-  const resetLanguageSettings = useCallback(async (): Promise<boolean> => {
+  // Получить тексты интерфейса для текущего языка
+  const getTexts = (): InterfaceTexts => {
     try {
-      await AsyncStorage.removeItem(APP_LANGUAGE_KEY);
-      setIsFirstLaunch(true);
-      setError(null);
-      setConfig(createConfig('tk')); // Reset to Turkmen
-      console.log('[LanguageContext] Language settings reset');
-      return true;
+      return INTERFACE_TEXTS[config.primaryLanguage as AppLanguageMode] || INTERFACE_TEXTS.tk;
     } catch (error) {
-      console.warn('[LanguageContext] Error resetting language settings:', error);
-      setError('Failed to reset settings');
-      return false;
+      console.warn('Ошибка получения текстов интерфейса:', error);
+      return INTERFACE_TEXTS.tk; // Fallback к туркменскому
     }
-  }, []);
+  };
 
-  // ===============================================
-  // GETTERS
-  // ===============================================
-
-  const getTexts = useCallback((): InterfaceTexts => {
-    try {
-      return INTERFACE_TEXTS[config.primaryLanguage] || INTERFACE_TEXTS.tk;
-    } catch (error) {
-      console.warn('[LanguageContext] Error getting texts:', error);
-      return INTERFACE_TEXTS.tk; // Fallback to Turkmen
-    }
-  }, [config.primaryLanguage]);
-
-  const getLanguageName = useCallback((lang: 'tk' | 'zh' | 'ru'): string => {
+  // Получить название языка на родном языке
+  const getLanguageName = (lang: 'tk' | 'zh' | 'ru'): string => {
     const names = {
-      tk: config.primaryLanguage === 'tk' ? 'Türkmençe' : '土库曼语',
-      zh: config.primaryLanguage === 'tk' ? 'Hytaýça' : '中文',
-      ru: config.primaryLanguage === 'tk' ? 'Rusça' : '俄语'
+      tk: config.primaryLanguage === 'tk' ? 'TÜRKMENÇE' : '土库曼语', // ✅ ЗАГЛАВНЫМИ/средними
+      zh: config.primaryLanguage === 'tk' ? 'hytaýça' : '中文',      // ✅ маленькими/средними  
+      ru: config.primaryLanguage === 'tk' ? 'rusça' : '俄语'        // ✅ маленькими/маленькими
     };
     return names[lang] || lang;
-  }, [config.primaryLanguage]);
+  };
 
-  const getPhraseTexts = useCallback((phrase: { chinese: string; turkmen: string; russian: string }) => {
+  // ✅ ИСПРАВЛЕНО: Получить текст фразы в правильном порядке приоритета
+  const getPhraseTexts = (phrase: { chinese: string; turkmen: string; russian: string }) => {
     try {
       if (config.mode === 'tk') {
-        // Turkmen user: learning Chinese
+        // Туркмен изучает китайский: 
+        // 1. TÜRKMENÇE (заглавными) - что понимает
+        // 2. 中文 (средними) - что изучает  
+        // 3. русский (маленькими) - помощь
         return {
-          primary: phrase.chinese,     // What to say (learning target)
-          learning: phrase.turkmen,    // What they understand (native)
-          helper: phrase.russian       // Additional help
+          primary: phrase.turkmen,     // ГЛАВНЫЙ - туркменский (что понимает)
+          learning: phrase.chinese,    // ИЗУЧАЕМЫЙ - китайский
+          helper: phrase.russian       // ПОМОЩЬ - русский
         };
       } else {
-        // Chinese user: learning Turkmen
+        // Китаец изучает туркменский:
+        // 1. 中文 (средними) - что понимает
+        // 2. TÜRKMENÇE (заглавными) - что изучает
+        // 3. русский (маленькими) - помощь  
         return {
-          primary: phrase.turkmen,     // What to say (learning target)
-          learning: phrase.chinese,    // What they understand (native)
-          helper: phrase.russian       // Additional help
+          primary: phrase.chinese,     // ГЛАВНЫЙ - китайский (что понимает)
+          learning: phrase.turkmen,    // ИЗУЧАЕМЫЙ - туркменский
+          helper: phrase.russian       // ПОМОЩЬ - русский
         };
       }
     } catch (error) {
-      console.warn('[LanguageContext] Error getting phrase texts:', error);
+      console.warn('Ошибка получения текстов фразы:', error);
       return {
         primary: phrase.chinese,
         learning: phrase.turkmen,
         helper: phrase.russian
       };
     }
-  }, [config.mode]);
+  };
 
-  // ===============================================
-  // DEV TOOLS (Development only)
-  // ===============================================
-
-  const devTools = __DEV__ ? {
-    getState: () => ({
-      isLoading,
-      isFirstLaunch,
-      config,
-      error,
-      version: LANGUAGE_VERSION,
-      storageKey: APP_LANGUAGE_KEY,
-    }),
-    
-    forceLanguage: (mode: AppLanguageMode) => {
-      console.log('[DEV] Force setting language to:', mode);
-      setLanguageMode(mode, true);
-    },
-    
-    validateConfig: () => validateConfig(config),
-    
-    exportConfig: () => JSON.stringify(config, null, 2),
-    
-    importConfig: async (configString: string): Promise<boolean> => {
-      try {
-        const importedConfig = JSON.parse(configString);
-        if (validateConfig(importedConfig)) {
-          setConfig(importedConfig);
-          await saveConfig(importedConfig);
-          console.log('[DEV] Config imported successfully');
-          return true;
-        } else {
-          console.error('[DEV] Invalid config format');
-          return false;
-        }
-      } catch (error) {
-        console.error('[DEV] Error importing config:', error);
-        return false;
-      }
-    }
-  } : undefined;
-
-  // ===============================================
-  // CONTEXT VALUE
-  // ===============================================
-
-  const value: LanguageContextType = {
-    // State
-    isLoading,
-    isFirstLaunch,
+  const contextValue: LanguageContextValue = {
     config,
-    error,
-    
-    // Actions
     setLanguageMode,
     switchMode,
-    resetLanguageSettings,
-    
-    // Getters
     getTexts,
     getLanguageName,
     getPhraseTexts,
-    
-    // Dev Tools
-    __DEV_TOOLS: devTools,
+    isFirstLaunch,
+    error,
   };
 
   return (
-    <LanguageContext.Provider value={value}>
+    <LanguageContext.Provider value={contextValue}>
       {children}
     </LanguageContext.Provider>
   );
 }
 
-// ===============================================
-// HOOK
-// ===============================================
-
-export function useAppLanguage(): LanguageContextType {
+export function useAppLanguage(): LanguageContextValue {
   const context = useContext(LanguageContext);
   if (context === undefined) {
     throw new Error('useAppLanguage must be used within a LanguageProvider');
   }
   return context;
-}
-
-// ===============================================
-// DEV UTILITIES (Global access in development)
-// ===============================================
-
-if (__DEV__) {
-  // Make dev tools globally accessible in development
-  (global as any).__LANGUAGE_DEV_TOOLS = {
-    reset: async () => {
-      await AsyncStorage.removeItem(APP_LANGUAGE_KEY);
-      console.log('[DEV] Language settings reset. Restart app.');
-    },
-    
-    setToTurkmen: async () => {
-      const config = createConfig('tk');
-      await AsyncStorage.setItem(APP_LANGUAGE_KEY, JSON.stringify(config));
-      console.log('[DEV] Language set to Turkmen. Restart app.');
-    },
-    
-    setToChinese: async () => {
-      const config = createConfig('zh');
-      await AsyncStorage.setItem(APP_LANGUAGE_KEY, JSON.stringify(config));
-      console.log('[DEV] Language set to Chinese. Restart app.');
-    },
-    
-    getStoredConfig: async () => {
-      const stored = await AsyncStorage.getItem(APP_LANGUAGE_KEY);
-      console.log('[DEV] Stored config:', stored ? JSON.parse(stored) : 'None');
-      return stored;
-    }
-  };
-  
-  console.log('[DEV] Language dev tools available at: global.__LANGUAGE_DEV_TOOLS');
 }
