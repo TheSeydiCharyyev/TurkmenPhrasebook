@@ -111,6 +111,14 @@ export const categories: Category[] = [
     icon: '🌤️',
     color: '#74C0FC', // Sky blue
   },
+  {
+    id: 'study',
+    nameRu: 'Учеба',
+    nameTk: 'Okuw',
+    nameZh: '学习',
+    icon: '📚',
+    color: '#8B5CF6', // Education purple
+  },
 ];
 
 /**

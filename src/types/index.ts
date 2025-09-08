@@ -26,9 +26,7 @@ export type RootStackParamList = {
 
 export type MainTabParamList = {
   Home: undefined;
-  Search: undefined;
-  Favorites: undefined;
-  Stats: undefined; // Новая вкладка
+  AdditionalFeatures: undefined;
   Settings: undefined;
 };
 

@@ -194,10 +194,9 @@ function HomeScreen() {
     setShowQuickStats(false);
   }, []);
 
-  // ✅ ИСПРАВЛЕНО: Показываем ВСЕ категории + недавние
+  // ✅ ИСПРАВЛЕНО: Показываем только категории (без недавних)
   const gridData = useMemo(() => [
-    ...categories, // Показываем ВСЕ категории (все 13)
-    'recent', // Добавляем специальный элемент для недавних
+    ...categories, // Показываем ВСЕ категории
   ], [categories]);
 
   const renderGridItem = useCallback(({ item, index }: { item: Category | string; index: number }) => {

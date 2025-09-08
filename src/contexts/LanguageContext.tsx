@@ -23,6 +23,8 @@ export interface InterfaceTexts {
   search: string;
   favorites: string;
   settings: string;
+  additionalFeatures: string;
+  statistics: string;
   
   // Главный экран
   appTitle: string;
@@ -70,6 +72,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     search: 'Gözleg',
     favorites: 'Halanýanlar',
     settings: 'Sazlamalar',
+    additionalFeatures: 'Goşmaça mümkinçilikler',
+    statistics: 'Statistika',
     
     appTitle: 'HYTAÝ SÖZLEM KITABY', // ✅ ЗАГЛАВНЫМИ 
     selectCategory: 'Kategoriýa saýlaň',
@@ -110,6 +114,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     search: '搜索',
     favorites: '收藏',
     settings: '设置',
+    additionalFeatures: '额外功能',
+    statistics: '统计',
     
     appTitle: '土库曼语会话手册', // ✅ СРЕДНИМИ ИЕРОГЛИФАМИ
     selectCategory: '选择类别',

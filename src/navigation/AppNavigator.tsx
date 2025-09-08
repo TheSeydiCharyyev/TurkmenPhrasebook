@@ -16,7 +16,8 @@ import CategoryScreen from '../screens/CategoryScreen';
 import AdvancedSearchScreen from '../screens/AdvancedSearchScreen';
 import FavoritesScreen from '../screens/FavoritesScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import StatsScreen from '../screens/StatsScreen'; // Новый экран
+import StatsScreen from '../screens/StatsScreen';
+import AdditionalFeaturesScreen from '../screens/AdditionalFeaturesScreen';
 import PhraseDetailScreen from '../screens/PhraseDetailScreen';
 
 // Импортируем типы
@@ -27,6 +28,7 @@ import { useAppLanguage, AppLanguageMode } from '../contexts/LanguageContext';
 const RootStack = createStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<MainTabParamList>();
 const HomeStack = createStackNavigator<HomeStackParamList>();
+const AdditionalFeaturesStack = createStackNavigator();
 
 // Стек для главной вкладки
 function HomeStackNavigator() {
@@ -64,7 +66,58 @@ function HomeStackNavigator() {
   );
 }
 
-// Обновленные вкладки с добавлением статистики
+// Стек для дополнительных возможностей
+function AdditionalFeaturesStackNavigator() {
+  const { config } = useAppLanguage();
+
+  return (
+    <AdditionalFeaturesStack.Navigator>
+      <AdditionalFeaturesStack.Screen
+        name="AdditionalFeaturesMain"
+        component={AdditionalFeaturesScreen}
+        options={{ headerShown: false }}
+      />
+      <AdditionalFeaturesStack.Screen
+        name="Search"
+        component={AdvancedSearchScreen}
+        options={{
+          title: config.mode === 'tk' ? 'Gözleg' :
+                 config.mode === 'zh' ? '搜索' : 'Поиск',
+          headerStyle: {
+            backgroundColor: Colors.primary,
+          },
+          headerTintColor: Colors.textWhite,
+        }}
+      />
+      <AdditionalFeaturesStack.Screen
+        name="Favorites"
+        component={FavoritesScreen}
+        options={{
+          title: config.mode === 'tk' ? 'Halanýanlar' :
+                 config.mode === 'zh' ? '收藏' : 'Избранное',
+          headerStyle: {
+            backgroundColor: Colors.primary,
+          },
+          headerTintColor: Colors.textWhite,
+        }}
+      />
+      <AdditionalFeaturesStack.Screen
+        name="Stats"
+        component={StatsScreen}
+        options={{
+          title: config.mode === 'tk' ? 'Statistika' :
+                 config.mode === 'zh' ? '统计' : 'Статистика',
+          headerStyle: {
+            backgroundColor: Colors.primary,
+          },
+          headerTintColor: Colors.textWhite,
+        }}
+      />
+    </AdditionalFeaturesStack.Navigator>
+  );
+}
+
+// Обновленные вкладки - 3 основные вкладки
 function MainTabs() {
   const { getTexts } = useAppLanguage();
   const texts = getTexts();
@@ -79,12 +132,8 @@ function MainTabs() {
 
             if (route.name === 'Home') {
               iconName = focused ? 'home' : 'home-outline';
-            } else if (route.name === 'Search') {
-              iconName = focused ? 'search' : 'search-outline';
-            } else if (route.name === 'Favorites') {
-              iconName = focused ? 'heart' : 'heart-outline';
-            } else if (route.name === 'Stats') {
-              iconName = focused ? 'analytics' : 'analytics-outline';
+            } else if (route.name === 'AdditionalFeatures') {
+              iconName = focused ? 'apps' : 'apps-outline';
             } else if (route.name === 'Settings') {
               iconName = focused ? 'settings' : 'settings-outline';
             } else {
@@ -112,27 +161,11 @@ function MainTabs() {
           }}
         />
         <Tab.Screen 
-          name="Search" 
-          component={AdvancedSearchScreen}
+          name="AdditionalFeatures" 
+          component={AdditionalFeaturesStackNavigator}
           options={{ 
-            title: texts.search,
-            tabBarLabel: texts.search,
-          }}
-        />
-        <Tab.Screen 
-          name="Favorites" 
-          component={FavoritesScreen}
-          options={{ 
-            title: texts.favorites,
-            tabBarLabel: texts.favorites,
-          }}
-        />
-        <Tab.Screen 
-          name="Stats" 
-          component={StatsScreen}
-          options={{ 
-            title: 'Статистика',
-            tabBarLabel: 'Статистика',
+            title: texts.additionalFeatures,
+            tabBarLabel: texts.additionalFeatures,
           }}
         />
         <Tab.Screen 
