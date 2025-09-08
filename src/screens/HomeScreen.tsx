@@ -1,4 +1,5 @@
-// src/screens/HomeScreen.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ с правильным языком
+// src/screens/HomeScreen.tsx - ИСПРАВЛЕНО для корректной работы с useHistory
+
 import React, { useMemo, useCallback, useState, useEffect } from 'react';
 import {
   View,
@@ -24,6 +25,7 @@ import { useHistory } from '../hooks/useHistory';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { useAnimations } from '../hooks/useAnimations';
 import { useOfflineData } from '../contexts/OfflineDataContext';
+import { phrases } from '../data/phrases'; // Импортируем фразы
 import CategoryCard from '../components/CategoryCard';
 import ErrorBoundary from '../components/ErrorBoundary';
 
@@ -33,15 +35,15 @@ const cardHeight = 120;
 
 type HomeScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'CategoryScreen'>;
 
-// ✅ ИСПРАВЛЕНО: Компонент "Недавние фразы"
+// ✅ ИСПРАВЛЕНО: Отдельный компонент RecentCategoryCard внутри файла
 const RecentCategoryCard = React.memo<{
   recentPhrases: Phrase[];
   stats: any;
   onPress: () => void;
   onStatsPress: () => void;
 }>(({ recentPhrases, stats, onPress, onStatsPress }) => {
-  const { getTexts, config } = useAppLanguage();
   const { hapticFeedback } = useAnimations();
+  const { getTexts, config } = useAppLanguage();
   const texts = getTexts();
 
   const handlePress = useCallback(() => {
@@ -55,38 +57,43 @@ const RecentCategoryCard = React.memo<{
   }, [onStatsPress, hapticFeedback]);
 
   return (
-    <TouchableOpacity
-      style={[styles.categoryCard, styles.recentCard]}
-      onPress={handlePress}
-      onLongPress={handleLongPress}
-      activeOpacity={0.7}
-    >
-      <View style={styles.recentCardContent}>
-        {/* Иконка */}
-        <View style={styles.recentIconContainer}>
-          <Ionicons name="time" size={32} color={Colors.primary} />
-        </View>
+    <View style={styles.cardContainer}>
+      <TouchableOpacity
+        style={[styles.categoryCard, styles.recentCard]}
+        onPress={handlePress}
+        onLongPress={handleLongPress}
+        activeOpacity={0.7}
+      >
+        <View style={styles.recentCardContent}>
+          {/* Иконка */}
+          <View style={styles.recentIconContainer}>
+            <Ionicons name="time" size={32} color={Colors.primary} />
+          </View>
 
-        {/* Заголовок */}
-        <Text style={styles.recentTitle} numberOfLines={2}>
-          {texts.recentlyStudied || 'Недавние'}
-        </Text>
-
-        {/* Статистика */}
-        <View style={styles.recentStatsContainer}>
-          <Text style={styles.recentStatsText}>
-            {recentPhrases.length} {config.mode === 'tk' ? 'sözlem' : 'фраз'}
+          {/* Заголовок */}
+          <Text style={styles.recentTitle} numberOfLines={2}>
+            {config.mode === 'tk' ? 'Soňky öwrenilen' :
+             config.mode === 'zh' ? '最近学习的' :
+             'Недавние фразы'}
           </Text>
-          {stats.todaysPhrases > 0 && (
-            <Text style={styles.recentTodayText}>
-              {config.mode === 'tk' ? 
-                `Şu gün: ${stats.todaysPhrases}` :
-                `Сегодня: ${stats.todaysPhrases}`}
+
+          {/* Статистика */}
+          <View style={styles.recentStatsContainer}>
+            <Text style={styles.recentStatsText}>
+              {recentPhrases.length} {config.mode === 'tk' ? 'sözlem' : 
+                                     config.mode === 'zh' ? '短语' : 'фраз'}
             </Text>
-          )}
+            {stats.todaysPhrases > 0 && (
+              <Text style={styles.recentTodayText}>
+                {config.mode === 'tk' ? `Şu gün: ${stats.todaysPhrases}` :
+                 config.mode === 'zh' ? `今天: ${stats.todaysPhrases}` :
+                 `Сегодня: ${stats.todaysPhrases}`}
+              </Text>
+            )}
+          </View>
         </View>
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </View>
   );
 });
 
@@ -103,67 +110,67 @@ const StatsModal = React.memo<{
   return (
     <Modal
       visible={visible}
-      animationType="slide"
-      transparent={true}
+      transparent
+      animationType="fade"
       onRequestClose={onClose}
     >
       <View style={styles.modalOverlay}>
         <View style={styles.modalContent}>
-          <View style={styles.modalHeader}>
-            <Text style={styles.modalTitle}>
-              {config.mode === 'tk' ? '📊 Statistika' : '📊 Статистика'}
-            </Text>
-            <TouchableOpacity onPress={onClose} style={styles.modalCloseButton}>
-              <Ionicons name="close" size={24} color={Colors.text} />
-            </TouchableOpacity>
+          <Text style={styles.modalTitle}>
+            {config.mode === 'tk' ? 'Statistika' : 
+             config.mode === 'zh' ? '统计' : 'Статистика'}
+          </Text>
+          
+          <View style={styles.statsGrid}>
+            <View style={styles.statItem}>
+              <Text style={styles.statNumber}>{stats.uniquePhrases}</Text>
+              <Text style={styles.statLabel}>
+                {config.mode === 'tk' ? 'Sözlem' : 
+                 config.mode === 'zh' ? '短语' : 'Фраз изучено'}
+              </Text>
+            </View>
+            
+            <View style={styles.statItem}>
+              <Text style={styles.statNumber}>{stats.streakDays}</Text>
+              <Text style={styles.statLabel}>
+                {config.mode === 'tk' ? 'Gün' : 
+                 config.mode === 'zh' ? '天' : 'Дней подряд'}
+              </Text>
+            </View>
           </View>
 
-          <ScrollView style={styles.modalBody}>
-            {recentPhrases.length > 0 && (
-              <>
-                <Text style={styles.recentSectionTitle}>
-                  {config.mode === 'tk' ? 
-                    'Soňky öwrenilen:' :
-                    config.mode === 'zh' ? '最近学习：' :
-                      'Недавно изученные:'}
-                </Text>
-                {recentPhrases.slice(0, 3).map(phrase => (
-                  <View key={phrase.id} style={styles.recentPhraseItem}>
-                    <Text style={styles.recentPhraseChinese}>{phrase.chinese}</Text>
-                    <Text style={styles.recentPhraseTranslation}>
-                      {config.mode === 'tk' ? phrase.turkmen : phrase.russian}
-                    </Text>
-                  </View>
-                ))}
-              </>
-            )}
-          </ScrollView>
+          <TouchableOpacity style={styles.closeButton} onPress={onClose}>
+            <Text style={styles.closeButtonText}>
+              {config.mode === 'tk' ? 'Ýap' : 
+               config.mode === 'zh' ? '关闭' : 'Закрыть'}
+            </Text>
+          </TouchableOpacity>
         </View>
       </View>
     </Modal>
   );
 });
 
-export default function HomeScreen() {
+// ✅ ГЛАВНЫЙ КОМПОНЕНТ HomeScreen
+function HomeScreen() {
   const navigation = useNavigation<HomeScreenNavigationProp>();
+  const { getTexts, config } = useAppLanguage();
+  const { hapticFeedback } = useAnimations();
+  
+  // ✅ ИСПРАВЛЕНО: Используем правильные методы из useHistory
+  const { getRecentPhrases, stats } = useHistory();
+  const { categories } = useOfflineData();
   const [showQuickStats, setShowQuickStats] = useState(false);
 
-  const { getRecentPhrases, stats, startStudySession } = useHistory();
-  const { getTexts, config } = useAppLanguage();
-  const { mountAnimation, hapticFeedback } = useAnimations();
-  const { phrases, categories, isOfflineMode, dataSource } = useOfflineData();
-
-  const recentPhrases = useMemo(() => getRecentPhrases(phrases, 10), [getRecentPhrases, phrases]);
   const texts = getTexts();
 
-  // Автоматически начинаем сессию при открытии приложения
-  useEffect(() => {
-    startStudySession();
-    mountAnimation();
-  }, [startStudySession, mountAnimation]);
+  // ✅ ИСПРАВЛЕНО: Получаем недавние фразы через метод getRecentPhrases
+  const recentPhrases = useMemo(() => {
+    return getRecentPhrases(phrases, 10); // Получаем последние 10 фраз
+  }, [getRecentPhrases]);
 
   const handleCategoryPress = useCallback((category: Category) => {
-    hapticFeedback('medium');
+    hapticFeedback('light');
     navigation.navigate('CategoryScreen', { category });
   }, [navigation, hapticFeedback]);
 
@@ -190,7 +197,7 @@ export default function HomeScreen() {
   // ✅ ИСПРАВЛЕНО: Показываем ВСЕ категории + недавние
   const gridData = useMemo(() => [
     ...categories, // Показываем ВСЕ категории (все 13)
-    'recent',
+    'recent', // Добавляем специальный элемент для недавних
   ], [categories]);
 
   const renderGridItem = useCallback(({ item, index }: { item: Category | string; index: number }) => {
@@ -213,6 +220,7 @@ export default function HomeScreen() {
       );
     }
 
+    // ✅ ИСПРАВЛЕНО: Обычные категории используют CategoryCard
     return (
       <ErrorBoundary
         fallbackComponent={
@@ -238,7 +246,7 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
 
-      {/* ✅ ИСПРАВЛЕНО: Правильный заголовок */}
+      {/* ✅ ИСПРАВЛЕНО: Правильный заголовок в зависимости от языка */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>
           {texts.appTitle}
@@ -253,14 +261,16 @@ export default function HomeScreen() {
             <View style={styles.quickInfoItem}>
               <Ionicons name="book" size={16} color={Colors.primary} />
               <Text style={styles.quickInfoText}>
-                {stats.uniquePhrases} {config.mode === 'tk' ? 'sözlem' : config.mode === 'zh' ? '短语' : 'фраз'}
+                {stats.uniquePhrases} {config.mode === 'tk' ? 'sözlem' : 
+                                       config.mode === 'zh' ? '短语' : 'фраз'}
               </Text>
             </View>
             {stats.streakDays > 0 && (
               <View style={styles.quickInfoItem}>
                 <Ionicons name="flame" size={16} color={Colors.error} />
                 <Text style={styles.quickInfoText}>
-                  {stats.streakDays} {config.mode === 'tk' ? 'gün' : config.mode === 'zh' ? '天' : 'дней'}
+                  {stats.streakDays} {config.mode === 'tk' ? 'gün' : 
+                                     config.mode === 'zh' ? '天' : 'дней'}
                 </Text>
               </View>
             )}
@@ -268,7 +278,7 @@ export default function HomeScreen() {
         )}
       </View>
 
-      {/* Сетка категорий */}
+      {/* ✅ ИСПРАВЛЕНО: Сетка категорий с правильным отображением */}
       <FlatList
         data={gridData}
         renderItem={renderGridItem}
@@ -340,6 +350,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 16,
   },
+  cardContainer: {
+    width: (width - 48) / 2,
+    marginBottom: 8,
+  },
   categoryCard: {
     backgroundColor: Colors.cardBackground,
     borderRadius: 16,
@@ -361,6 +375,7 @@ const styles = StyleSheet.create({
   },
   recentCardContent: {
     alignItems: 'center',
+    width: '100%',
   },
   recentIconContainer: {
     marginBottom: 8,
@@ -383,64 +398,68 @@ const styles = StyleSheet.create({
   recentTodayText: {
     fontSize: 12,
     color: Colors.primary,
+    textAlign: 'center',
     marginTop: 2,
   },
   errorText: {
-    fontSize: 12,
     color: Colors.error,
+    fontSize: 14,
     textAlign: 'center',
   },
-  // Стили модального окна
+  
+  // Модальное окно
   modalOverlay: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'flex-end',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   modalContent: {
-    backgroundColor: Colors.background,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    maxHeight: '80%',
-  },
-  modalHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.cardBorder,
+    backgroundColor: Colors.cardBackground,
+    borderRadius: 20,
+    padding: 24,
+    margin: 20,
+    minWidth: 280,
   },
   modalTitle: {
     fontSize: 20,
     fontWeight: 'bold',
     color: Colors.text,
+    textAlign: 'center',
+    marginBottom: 20,
   },
-  modalCloseButton: {
-    padding: 4,
+  statsGrid: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginBottom: 24,
   },
-  modalBody: {
-    padding: 20,
+  statItem: {
+    alignItems: 'center',
   },
-  recentSectionTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: Colors.text,
-    marginBottom: 12,
+  statNumber: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: Colors.primary,
   },
-  recentPhraseItem: {
-    backgroundColor: Colors.backgroundLight,
-    padding: 12,
-    borderRadius: 8,
-    marginBottom: 8,
-  },
-  recentPhraseChinese: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: Colors.text,
-    marginBottom: 4,
-  },
-  recentPhraseTranslation: {
+  statLabel: {
     fontSize: 14,
     color: Colors.textLight,
+    textAlign: 'center',
+    marginTop: 4,
+  },
+  closeButton: {
+    backgroundColor: Colors.primary,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+    borderRadius: 12,
+    alignSelf: 'center',
+  },
+  closeButtonText: {
+    color: Colors.textWhite,
+    fontSize: 16,
+    fontWeight: '600',
   },
 });
+
+// ✅ ИСПРАВЛЕНО: Только ОДИН export default
+export default HomeScreen;

@@ -1,103 +1,100 @@
-// src/components/CategoryCard.tsx - Simplified Version (No Reanimated)
-import React, { memo, useCallback } from 'react';
+// src/components/CategoryCard.tsx - ПОЛНОСТЬЮ ИСПРАВЛЕННАЯ ВЕРСИЯ
+
+import React, { useCallback, useMemo } from 'react';
 import {
   View,
   Text,
-  TouchableOpacity,
   StyleSheet,
+  TouchableOpacity,
   Dimensions,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { Colors } from '../constants/Colors';
+
+// Импорты
 import { Category } from '../types';
+import { Colors } from '../constants/Colors';
+import { useAnimations } from '../hooks/useAnimations';
+import { useAppLanguage } from '../contexts/LanguageContext';
 
 const { width } = Dimensions.get('window');
-const CARD_MARGIN = 12;
-const CARDS_PER_ROW = 2;
-const CARD_WIDTH = (width - (CARD_MARGIN * 3)) / CARDS_PER_ROW;
+const CARD_WIDTH = (width - 48) / 2; // 48 = padding 16 * 2 + gap 16
 const CARD_HEIGHT = 120;
+const CARD_MARGIN = 8;
 
 interface CategoryCardProps {
   category: Category;
   onPress: (category: Category) => void;
-  index: number;
-  accessibilityLabel?: string;
+  index?: number;
 }
 
-/**
- * Senior Implementation - Simplified Version
- * No external dependencies, pure React Native
- */
-
-const CategoryCard = memo<CategoryCardProps>(({ 
+const CategoryCard = React.memo<CategoryCardProps>(({ 
   category, 
   onPress, 
-  index,
-  accessibilityLabel 
+  index = 0 
 }) => {
-  
-  // Optimized press handler
-  const handlePress = useCallback(() => {
-    onPress(category);
-  }, [category, onPress]);
+  const { hapticFeedback } = useAnimations();
+  const { config } = useAppLanguage();
 
-  // Dynamic color scheme based on category
-  const cardBackgroundColor = `${category.color}15`; // 15% opacity
-  const iconColor = category.color;
-  const borderColor = `${category.color}30`; // 30% opacity
+  const handlePress = useCallback(() => {
+    hapticFeedback('light');
+    onPress(category);
+  }, [category, onPress, hapticFeedback]);
+
+  // ✅ ИСПРАВЛЕНО: Правильное название категории в зависимости от языка
+  const categoryTitle = useMemo(() => {
+    switch (config.mode) {
+      case 'tk': 
+        return category.nameTk; // ТҮРКМЕНЧЕ (заглавными)
+      case 'zh': 
+        return category.nameZh; // 中文 (средними)
+      default: 
+        return category.nameRu; // русский (маленькими)
+    }
+  }, [category, config.mode]);
+
+  // Создаем стили динамически для каждой карточки
+  const cardStyle = useMemo(() => [
+    styles.card,
+    {
+      backgroundColor: Colors.cardBackground,
+      borderColor: category.color + '20', // Легкая граница в цвете категории
+      // Тень в зависимости от индекса для разнообразия
+      shadowColor: category.color,
+      shadowOpacity: 0.15,
+      elevation: 3,
+    }
+  ], [category.color]);
 
   return (
     <View style={styles.cardContainer}>
       <TouchableOpacity
-        style={[
-          styles.card,
-          {
-            backgroundColor: cardBackgroundColor,
-            borderColor: borderColor,
-          }
-        ]}
+        style={cardStyle}
         onPress={handlePress}
         activeOpacity={0.7}
-        accessible={true}
-        accessibilityRole="button"
-        accessibilityLabel={accessibilityLabel || `Open ${category.nameRu} category`}
-        accessibilityHint="Double tap to view phrases in this category"
       >
-        
-        {/* Icon Container */}
+        {/* Иконка категории */}
         <View style={styles.iconContainer}>
-          <Text 
-            style={[styles.categoryIcon, { color: iconColor }]}
-            accessible={false}
-          >
+          <Text style={[styles.categoryIcon, { color: category.color }]}>
             {category.icon}
           </Text>
         </View>
 
-        {/* Content Container */}
+        {/* Контент */}
         <View style={styles.contentContainer}>
-          <Text 
-            style={styles.categoryTitle}
-            numberOfLines={2}
-            adjustsFontSizeToFit={true}
-            minimumFontScale={0.8}
-            accessible={true}
-            accessibilityRole="text"
-          >
-            {category.nameRu}
+          {/* ✅ ИСПРАВЛЕНО: Правильное название */}
+          <Text style={styles.categoryTitle} numberOfLines={2}>
+            {categoryTitle}
           </Text>
-          
-          {/* Indicator */}
+
+          {/* Индикатор */}
           <View style={styles.indicatorContainer}>
             <Ionicons 
               name="chevron-forward" 
               size={16} 
-              color={iconColor}
-              style={{ opacity: 0.7 }}
+              color={category.color} 
             />
           </View>
         </View>
-
       </TouchableOpacity>
     </View>
   );
@@ -105,12 +102,13 @@ const CategoryCard = memo<CategoryCardProps>(({
 
 CategoryCard.displayName = 'CategoryCard';
 
+// ✅ ИСПРАВЛЕНО: Единообразные стили для всех карточек
 const styles = StyleSheet.create({
   cardContainer: {
     width: CARD_WIDTH,
     height: CARD_HEIGHT,
     marginBottom: CARD_MARGIN,
-    // iOS shadow
+    // iOS shadow - единообразная для всех карточек
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
