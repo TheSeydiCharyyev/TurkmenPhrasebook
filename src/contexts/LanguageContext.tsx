@@ -30,6 +30,7 @@ export interface InterfaceTexts {
   appTitle: string;
   selectCategory: string;
   recentlyStudied: string;
+  study: string;
   
   // Детальный экран
   pronunciation: string;
@@ -77,7 +78,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     
     appTitle: 'HYTAÝ SÖZLEM KITABY', // ✅ ЗАГЛАВНЫМИ 
     selectCategory: 'Kategoriýa saýlaň',
-    recentlyStudied: '📚 Soňky öwrenilen',
+    recentlyStudied: 'Soňky öwrenilen',
+    study: 'Okuw',
     
     pronunciation: 'Aýdylyş',
     addToFavorites: 'Halanýanlara goş',
@@ -119,7 +121,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     
     appTitle: '土库曼语会话手册', // ✅ СРЕДНИМИ ИЕРОГЛИФАМИ
     selectCategory: '选择类别',
-    recentlyStudied: '📚 最近学习的',
+    recentlyStudied: '最近学习的',
+    study: '学习',
     
     pronunciation: '发音',
     addToFavorites: '添加到收藏',

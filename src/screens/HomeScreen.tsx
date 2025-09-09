@@ -72,9 +72,7 @@ const RecentCategoryCard = React.memo<{
 
           {/* Заголовок */}
           <Text style={styles.recentTitle} numberOfLines={2}>
-            {config.mode === 'tk' ? 'Soňky öwrenilen' :
-             config.mode === 'zh' ? '最近学习的' :
-             'Недавние фразы'}
+{texts.recentlyStudied}
           </Text>
 
           {/* Статистика */}
