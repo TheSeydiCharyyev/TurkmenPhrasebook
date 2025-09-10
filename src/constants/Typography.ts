@@ -347,5 +347,81 @@ export const TextStyles = {
   } as TextStyle,
 };
 
+/**
+ * ✅ УТИЛИТЫ для работы с типографикой
+ */
+export const TypographyUtils = {
+  /**
+   * Получить стиль для заголовка определенного уровня
+   */
+  getHeadingStyle: (level: 1 | 2 | 3 | 4 | 5 | 6) => {
+    const styleMap = {
+      1: TextStyles.h1,
+      2: TextStyles.h2,
+      3: TextStyles.h3,
+      4: TextStyles.h4,
+      5: TextStyles.h5,
+      6: TextStyles.h6,
+    };
+    return styleMap[level];
+  },
+  
+  /**
+   * Создать стиль с измененным размером шрифта
+   */
+  withFontSize: (baseStyle: any, fontSize: number) => ({
+    ...baseStyle,
+    fontSize,
+    lineHeight: fontSize * 1.4,
+  }),
+  
+  /**
+   * Создать стиль с измененным цветом
+   */
+  withColor: (baseStyle: any, color: string) => ({
+    ...baseStyle,
+    color,
+  }),
+  
+  /**
+   * Создать стиль для языка
+   */
+  getLanguageStyle: (language: 'chinese' | 'pinyin' | 'turkmen' | 'russian') => {
+    const styleMap = {
+      chinese: TextStyles.chinese,
+      pinyin: TextStyles.pinyin,
+      turkmen: TextStyles.turkmen,
+      russian: TextStyles.russian,
+    };
+    return styleMap[language] || TextStyles.body;
+  },
+  
+  /**
+   * Адаптивный размер шрифта
+   */
+  getResponsiveFontSize: (baseSize: number, screenWidth: number) => {
+    if (screenWidth < 350) return baseSize * 0.9;
+    if (screenWidth > 400) return baseSize * 1.1;
+    return baseSize;
+  },
+  
+  /**
+   * Получить стиль текста для кнопки
+   */
+  getButtonTextStyle: (variant: 'primary' | 'secondary' | 'outline' | 'ghost' | 'gradient' = 'primary') => {
+    switch (variant) {
+      case 'primary':
+      case 'gradient':
+        return TextStyles.button;
+      case 'secondary':
+      case 'outline':
+      case 'ghost':
+        return TextStyles.buttonSecondary;
+      default:
+        return TextStyles.button;
+    }
+  },
+};
+
 // ✅ ЭКСПОРТ
 export default TextStyles;

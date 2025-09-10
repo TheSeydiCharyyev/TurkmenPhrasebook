@@ -22,8 +22,13 @@ export const Colors = {
   // ✅ НЕЙТРАЛЬНЫЕ ЦВЕТА - улучшенная читаемость
   background: '#FAFAFA',     // Очень светлый серый фон
   backgroundSecondary: '#F5F5F5', // Вторичный фон
+  backgroundLight: '#FFFFFF', // Светлый фон
+  backgroundDark: '#1F2937', // Темный фон
   surface: '#FFFFFF',        // Белый для карточек
   surfaceElevated: '#FFFFFF', // Поднятые поверхности
+  cardBackground: '#FFFFFF', // Фон карточек
+  cardShadow: 'rgba(0, 0, 0, 0.1)', // Тени карточек
+  cardBorder: '#E5E7EB',     // Границы карточек
   
   // ✅ ТЕКСТ - оптимизированная контрастность
   text: '#111827',           // Почти черный для основного текста
@@ -31,6 +36,8 @@ export const Colors = {
   textLight: '#6B7280',      // Светло-серый для подсказок
   textMuted: '#9CA3AF',      // Приглушенный для неактивного текста
   textOnPrimary: '#FFFFFF',  // Белый на цветном фоне
+  textWhite: '#FFFFFF',      // Белый текст
+  textDark: '#111827',       // Темный текст
   
   // ✅ ГРАНИЦЫ И РАЗДЕЛИТЕЛИ
   border: '#E5E7EB',         // Светлые границы
@@ -58,6 +65,8 @@ export const Colors = {
   tabBarActive: '#DC2626',       // Активная вкладка
   tabBarInactive: '#9CA3AF',     // Неактивная вкладка
   tabBarBackground: '#FFFFFF',   // Фон панели вкладок
+  tabActive: '#DC2626',          // Активная вкладка (обратная совместимость)
+  tabInactive: '#9CA3AF',        // Неактивная вкладка (обратная совместимость)
   
   // ✅ ФОРМЫ
   inputBackground: '#F9FAFB',    // Фон полей ввода
@@ -99,6 +108,10 @@ export const Colors = {
     error: ['#EF4444', '#DC2626'],
     info: ['#3B82F6', '#2563EB'],
   },
+  
+  // ✅ ОБРАТНАЯ СОВМЕСТИМОСТЬ
+  gradientStart: '#DC2626',
+  gradientEnd: '#B91C1C',
   
   // ✅ ТЕМНАЯ ТЕМА (для будущего использования)
   dark: {

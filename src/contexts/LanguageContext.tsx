@@ -182,8 +182,10 @@ const createConfig = (mode: AppLanguageMode): AppLanguageConfig => ({
 
 interface LanguageContextValue {
   config: AppLanguageConfig;
+  isLoading: boolean;
   setLanguageMode: (mode: AppLanguageMode, shouldSave?: boolean) => Promise<void>;
   switchMode: () => Promise<boolean>;
+  resetLanguageSettings: () => Promise<void>;
   getTexts: () => InterfaceTexts;
   getLanguageName: (lang: 'tk' | 'zh' | 'ru') => string;
   getPhraseTexts: (phrase: { chinese: string; turkmen: string; russian: string }) => {
@@ -205,6 +207,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
   const [config, setConfig] = useState<AppLanguageConfig>(createConfig('tk'));
   const [isFirstLaunch, setIsFirstLaunch] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Загрузка сохраненной конфигурации при запуске
   useEffect(() => {
@@ -224,6 +227,8 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
     } catch (error) {
       console.warn('Ошибка загрузки языковой конфигурации:', error);
       setError('Не удалось загрузить настройки языка');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -269,6 +274,18 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
     } catch (error) {
       console.warn('Ошибка переключения режима:', error);
       return false;
+    }
+  };
+
+  const resetLanguageSettings = async (): Promise<void> => {
+    try {
+      await AsyncStorage.removeItem(APP_LANGUAGE_KEY);
+      setConfig(createConfig('tk'));
+      setIsFirstLaunch(true);
+      setError(null);
+    } catch (error) {
+      console.warn('Ошибка сброса настроек языка:', error);
+      setError('Не удалось сбросить настройки языка');
     }
   };
 
@@ -319,8 +336,10 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
 
   const contextValue: LanguageContextValue = {
     config,
+    isLoading,
     setLanguageMode,
     switchMode,
+    resetLanguageSettings,
     getTexts,
     getLanguageName,
     getPhraseTexts,

@@ -166,7 +166,7 @@ export default function AnimatedButton({
   };
 
   const getTextStyles = () => {
-    const baseTextStyle = TypographyUtils.getButtonTextStyle(size, variant);
+    const baseTextStyle = TypographyUtils.getButtonTextStyle(variant);
     
     const variantTextColors: Record<string, string> = {
       primary: Colors.textWhite,

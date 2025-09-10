@@ -92,13 +92,13 @@ export function AnimatedElement({
               Animated.timing(scale, {
                 toValue: 1.05,
                 duration: duration / 2,
-                easing: Easing.inOut(Easing.sine),
+                easing: Easing.inOut(Easing.sin),
                 useNativeDriver: true,
               }),
               Animated.timing(scale, {
                 toValue: 1,
                 duration: duration / 2,
-                easing: Easing.inOut(Easing.sine),
+                easing: Easing.inOut(Easing.sin),
                 useNativeDriver: true,
               }),
             ]).start();
@@ -149,13 +149,13 @@ export function LoadingDots({ size = 8, color = '#DC2626', style }: LoadingDotsP
             Animated.timing(dot, {
               toValue: 1,
               duration: 400,
-              easing: Easing.inOut(Easing.sine),
+              easing: Easing.inOut(Easing.sin),
               useNativeDriver: true,
             }),
             Animated.timing(dot, {
               toValue: 0,
               duration: 400,
-              easing: Easing.inOut(Easing.sine),
+              easing: Easing.inOut(Easing.sin),
               useNativeDriver: true,
             }),
             Animated.delay(200),
