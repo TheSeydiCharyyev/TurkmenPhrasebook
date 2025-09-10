@@ -1,134 +1,351 @@
-// src/constants/Colors.ts - ИСПРАВЛЕНО без TypeScript ошибок
+// src/constants/Typography.ts - ФИНАЛЬНОЕ ИСПРАВЛЕНИЕ
 
-/**
- * ✅ ПРОФЕССИОНАЛЬНАЯ ЦВЕТОВАЯ СХЕМА
- */
-export const Colors = {
-  // ОСНОВНЫЕ ЦВЕТА
-  primary: '#DC2626',
-  primaryLight: '#EF4444',
-  primaryDark: '#B91C1C',
-  
-  secondary: '#059669',
-  secondaryLight: '#10B981',
-  secondaryDark: '#047857',
-  
-  accent: '#F59E0B',
-  accentLight: '#FBBF24',
-  accentDark: '#D97706',
-  
-  // ФОНЫ
-  background: '#FAFAFA',
-  backgroundSecondary: '#F5F5F5',
-  surface: '#FFFFFF',
-  surfaceElevated: '#FFFFFF',
-  
-  // ТЕКСТ
+import { TextStyle, Platform } from 'react-native';
+
+// ✅ Встроенные цвета, чтобы избежать циклических импортов
+const Colors = {
   text: '#111827',
-  textSecondary: '#374151',
+  textSecondary: '#374151', 
   textLight: '#6B7280',
   textMuted: '#9CA3AF',
-  textOnPrimary: '#FFFFFF',
-  
-  // ГРАНИЦЫ
-  border: '#E5E7EB',
-  borderLight: '#F3F4F6',
-  borderFocus: '#DC2626',
-  divider: '#E5E7EB',
-  
-  // СОСТОЯНИЯ
-  success: '#059669',
-  successLight: '#D1FAE5',
-  warning: '#F59E0B',
-  warningLight: '#FEF3C7',
-  error: '#DC2626',
-  errorLight: '#FEE2E2',
-  info: '#2563EB',
-  infoLight: '#DBEAFE',
-  
-  // ИНТЕРАКТИВНЫЕ ЭЛЕМЕНТЫ
-  buttonPrimary: '#DC2626',
-  buttonSecondary: '#F3F4F6',
   buttonText: '#FFFFFF',
   buttonTextSecondary: '#374151',
-  
-  // НАВИГАЦИЯ
-  tabBarActive: '#DC2626',
-  tabBarInactive: '#9CA3AF',
-  tabBarBackground: '#FFFFFF',
-  
-  // ФОРМЫ
-  inputBackground: '#F9FAFB',
-  inputBorder: '#D1D5DB',
-  inputFocus: '#DC2626',
+  primary: '#DC2626',
   inputText: '#111827',
   inputPlaceholder: '#9CA3AF',
-  
-  // ТЕНИ
-  shadow: 'rgba(0, 0, 0, 0.1)',
-  shadowDark: 'rgba(0, 0, 0, 0.2)',
-  overlay: 'rgba(0, 0, 0, 0.5)',
 };
 
 /**
- * ✅ ЦВЕТА КАТЕГОРИЙ
+ * ✅ СЕМЕЙСТВА ШРИФТОВ
  */
-export const CategoryColors = {
-  greetings: '#EF4444',
-  emergency: '#DC2626',
-  hotel: '#3B82F6',
-  food: '#10B981',
-  shopping: '#F59E0B',
-  transport: '#8B5CF6',
-  directions: '#F97316',
-  health: '#EC4899',
-  money: '#EAB308',
-  communication: '#06B6D4',
-  entertainment: '#A855F7',
-  time: '#6366F1',
-  numbers: '#1E40AF',
-  weather: '#0EA5E9',
+export const FontFamilies = {
+  primary: Platform.select({
+    ios: 'SF Pro Display',
+    android: 'Roboto',
+    default: 'System',
+  }) as string,
+  
+  secondary: Platform.select({
+    ios: 'SF Pro Text',
+    android: 'Roboto',
+    default: 'System',
+  }) as string,
+  
+  chinese: Platform.select({
+    ios: 'PingFang SC',
+    android: 'Noto Sans CJK SC',
+    default: 'System',
+  }) as string,
+  
+  turkmen: Platform.select({
+    ios: 'SF Pro Display',
+    android: 'Roboto',
+    default: 'System',
+  }) as string,
+  
+  russian: Platform.select({
+    ios: 'SF Pro Display',
+    android: 'Roboto',
+    default: 'System',
+  }) as string,
 };
 
 /**
- * ✅ УТИЛИТЫ
+ * ✅ РАЗМЕРЫ ШРИФТОВ
  */
-export const ColorUtils = {
-  /**
-   * Добавить прозрачность к цвету
-   */
-  withOpacity: (color: string, opacity: number): string => {
-    const alpha = Math.round(opacity * 255).toString(16).padStart(2, '0');
-    return color + alpha;
-  },
+export const FontSizes = {
+  xs: 12,
+  sm: 14,
+  base: 16,
+  lg: 18,
+  xl: 20,
+  h6: 16,
+  h5: 18,
+  h4: 20,
+  h3: 24,
+  h2: 28,
+  h1: 32,
+  caption: 12,
+  overline: 10,
+  button: 16,
+  input: 16,
+} as const;
+
+/**
+ * ✅ ВЕСА ШРИФТОВ
+ */
+export const FontWeights = {
+  thin: '100',
+  light: '300',
+  normal: '400',
+  medium: '500',
+  semibold: '600',
+  bold: '700',
+  extrabold: '800',
+  black: '900',
+} as const;
+
+/**
+ * ✅ ВЫСОТА СТРОК
+ */
+export const LineHeights = {
+  tight: 1.2,
+  normal: 1.4,
+  relaxed: 1.6,
+  loose: 1.8,
+  h1: 1.1,
+  h2: 1.15,
+  h3: 1.2,
+  h4: 1.25,
+  h5: 1.3,
+  h6: 1.35,
+  body: 1.5,
+  caption: 1.4,
+} as const;
+
+/**
+ * ✅ МЕЖБУКВЕННЫЕ ИНТЕРВАЛЫ
+ */
+export const LetterSpacing = {
+  tight: -0.5,
+  normal: 0,
+  wide: 0.5,
+  wider: 1,
+  widest: 2,
+  heading: -0.25,
+  button: 0.5,
+  caption: 0.25,
+} as const;
+
+/**
+ * ✅ ОСНОВНЫЕ СТИЛИ ТЕКСТА
+ */
+export const TextStyles = {
+  // ЗАГОЛОВКИ
+  h1: {
+    fontFamily: FontFamilies.primary,
+    fontSize: FontSizes.h1,
+    fontWeight: FontWeights.bold,
+    lineHeight: FontSizes.h1 * LineHeights.h1,
+    letterSpacing: LetterSpacing.heading,
+    color: Colors.text,
+  } as TextStyle,
   
-  /**
-   * Получить цвет категории
-   */
-  getCategoryColor: (categoryId: string): string => {
-    return CategoryColors[categoryId as keyof typeof CategoryColors] || Colors.primary;
-  },
+  h2: {
+    fontFamily: FontFamilies.primary,
+    fontSize: FontSizes.h2,
+    fontWeight: FontWeights.bold,
+    lineHeight: FontSizes.h2 * LineHeights.h2,
+    letterSpacing: LetterSpacing.heading,
+    color: Colors.text,
+  } as TextStyle,
   
-  /**
-   * Получить градиент для категории
-   */
-  getCategoryGradient: (categoryId: string): [string, string] => {
-    const baseColor = ColorUtils.getCategoryColor(categoryId);
-    // Создаем более темный оттенок
-    const match = baseColor.match(/^#([0-9a-f]{6})$/i);
-    if (!match) return [baseColor, baseColor];
-    
-    const hex = match[1];
-    const r = Math.max(0, parseInt(hex.substr(0, 2), 16) - 30);
-    const g = Math.max(0, parseInt(hex.substr(2, 2), 16) - 30);
-    const b = Math.max(0, parseInt(hex.substr(4, 2), 16) - 30);
-    
-    const darkerColor = '#' + [r, g, b]
-      .map(c => c.toString(16).padStart(2, '0'))
-      .join('');
-    
-    return [baseColor, darkerColor];
-  },
+  h3: {
+    fontFamily: FontFamilies.primary,
+    fontSize: FontSizes.h3,
+    fontWeight: FontWeights.semibold,
+    lineHeight: FontSizes.h3 * LineHeights.h3,
+    letterSpacing: LetterSpacing.heading,
+    color: Colors.text,
+  } as TextStyle,
+  
+  h4: {
+    fontFamily: FontFamilies.primary,
+    fontSize: FontSizes.h4,
+    fontWeight: FontWeights.semibold,
+    lineHeight: FontSizes.h4 * LineHeights.h4,
+    letterSpacing: LetterSpacing.normal,
+    color: Colors.text,
+  } as TextStyle,
+  
+  h5: {
+    fontFamily: FontFamilies.primary,
+    fontSize: FontSizes.h5,
+    fontWeight: FontWeights.medium,
+    lineHeight: FontSizes.h5 * LineHeights.h5,
+    letterSpacing: LetterSpacing.normal,
+    color: Colors.text,
+  } as TextStyle,
+  
+  h6: {
+    fontFamily: FontFamilies.primary,
+    fontSize: FontSizes.h6,
+    fontWeight: FontWeights.medium,
+    lineHeight: FontSizes.h6 * LineHeights.h6,
+    letterSpacing: LetterSpacing.normal,
+    color: Colors.text,
+  } as TextStyle,
+  
+  // ОСНОВНОЙ ТЕКСТ
+  title: {
+    fontFamily: FontFamilies.primary,
+    fontSize: FontSizes.lg,
+    fontWeight: FontWeights.semibold,
+    lineHeight: FontSizes.lg * LineHeights.body,
+    letterSpacing: LetterSpacing.normal,
+    color: Colors.text,
+  } as TextStyle,
+  
+  subtitle: {
+    fontFamily: FontFamilies.secondary,
+    fontSize: FontSizes.base,
+    fontWeight: FontWeights.medium,
+    lineHeight: FontSizes.base * LineHeights.body,
+    letterSpacing: LetterSpacing.normal,
+    color: Colors.textSecondary,
+  } as TextStyle,
+  
+  body: {
+    fontFamily: FontFamilies.secondary,
+    fontSize: FontSizes.base,
+    fontWeight: FontWeights.normal,
+    lineHeight: FontSizes.base * LineHeights.body,
+    letterSpacing: LetterSpacing.normal,
+    color: Colors.text,
+  } as TextStyle,
+  
+  bodyLarge: {
+    fontFamily: FontFamilies.secondary,
+    fontSize: FontSizes.lg,
+    fontWeight: FontWeights.normal,
+    lineHeight: FontSizes.lg * LineHeights.body,
+    letterSpacing: LetterSpacing.normal,
+    color: Colors.text,
+  } as TextStyle,
+  
+  bodySmall: {
+    fontFamily: FontFamilies.secondary,
+    fontSize: FontSizes.sm,
+    fontWeight: FontWeights.normal,
+    lineHeight: FontSizes.sm * LineHeights.body,
+    letterSpacing: LetterSpacing.normal,
+    color: Colors.textSecondary,
+  } as TextStyle,
+  
+  // ВСПОМОГАТЕЛЬНЫЙ ТЕКСТ
+  caption: {
+    fontFamily: FontFamilies.secondary,
+    fontSize: FontSizes.caption,
+    fontWeight: FontWeights.normal,
+    lineHeight: FontSizes.caption * LineHeights.caption,
+    letterSpacing: LetterSpacing.caption,
+    color: Colors.textLight,
+  } as TextStyle,
+  
+  overline: {
+    fontFamily: FontFamilies.secondary,
+    fontSize: FontSizes.overline,
+    fontWeight: FontWeights.medium,
+    lineHeight: FontSizes.overline * LineHeights.normal,
+    letterSpacing: LetterSpacing.wider,
+    color: Colors.textMuted,
+    textTransform: 'uppercase',
+  } as TextStyle,
+  
+  // ИНТЕРАКТИВНЫЕ ЭЛЕМЕНТЫ
+  button: {
+    fontFamily: FontFamilies.primary,
+    fontSize: FontSizes.button,
+    fontWeight: FontWeights.medium,
+    lineHeight: FontSizes.button * LineHeights.normal,
+    letterSpacing: LetterSpacing.button,
+    color: Colors.buttonText,
+  } as TextStyle,
+  
+  buttonSecondary: {
+    fontFamily: FontFamilies.primary,
+    fontSize: FontSizes.button,
+    fontWeight: FontWeights.medium,
+    lineHeight: FontSizes.button * LineHeights.normal,
+    letterSpacing: LetterSpacing.button,
+    color: Colors.buttonTextSecondary,
+  } as TextStyle,
+  
+  link: {
+    fontFamily: FontFamilies.secondary,
+    fontSize: FontSizes.base,
+    fontWeight: FontWeights.medium,
+    lineHeight: FontSizes.base * LineHeights.body,
+    letterSpacing: LetterSpacing.normal,
+    color: Colors.primary,
+    textDecorationLine: 'underline',
+  } as TextStyle,
+  
+  // ФОРМЫ
+  input: {
+    fontFamily: FontFamilies.secondary,
+    fontSize: FontSizes.input,
+    fontWeight: FontWeights.normal,
+    lineHeight: FontSizes.input * LineHeights.normal,
+    letterSpacing: LetterSpacing.normal,
+    color: Colors.inputText,
+  } as TextStyle,
+  
+  inputLabel: {
+    fontFamily: FontFamilies.secondary,
+    fontSize: FontSizes.sm,
+    fontWeight: FontWeights.medium,
+    lineHeight: FontSizes.sm * LineHeights.normal,
+    letterSpacing: LetterSpacing.normal,
+    color: Colors.textSecondary,
+  } as TextStyle,
+  
+  placeholder: {
+    fontFamily: FontFamilies.secondary,
+    fontSize: FontSizes.input,
+    fontWeight: FontWeights.normal,
+    lineHeight: FontSizes.input * LineHeights.normal,
+    letterSpacing: LetterSpacing.normal,
+    color: Colors.inputPlaceholder,
+  } as TextStyle,
+  
+  // СПЕЦИАЛЬНЫЕ СТИЛИ ДЛЯ РАЗНЫХ ЯЗЫКОВ
+  chinese: {
+    fontFamily: FontFamilies.chinese,
+    fontSize: FontSizes.lg,
+    fontWeight: FontWeights.medium,
+    lineHeight: FontSizes.lg * 1.3,
+    letterSpacing: LetterSpacing.normal,
+    color: Colors.text,
+  } as TextStyle,
+  
+  chineseLarge: {
+    fontFamily: FontFamilies.chinese,
+    fontSize: FontSizes.h3,
+    fontWeight: FontWeights.medium,
+    lineHeight: FontSizes.h3 * 1.3,
+    letterSpacing: LetterSpacing.normal,
+    color: Colors.text,
+  } as TextStyle,
+  
+  pinyin: {
+    fontFamily: FontFamilies.secondary,
+    fontSize: FontSizes.sm,
+    fontWeight: FontWeights.normal,
+    lineHeight: FontSizes.sm * LineHeights.body,
+    letterSpacing: LetterSpacing.wide,
+    color: Colors.textSecondary,
+    fontStyle: 'italic',
+  } as TextStyle,
+  
+  turkmen: {
+    fontFamily: FontFamilies.turkmen,
+    fontSize: FontSizes.base,
+    fontWeight: FontWeights.medium,
+    lineHeight: FontSizes.base * LineHeights.body,
+    letterSpacing: LetterSpacing.normal,
+    color: Colors.text,
+  } as TextStyle,
+  
+  russian: {
+    fontFamily: FontFamilies.russian,
+    fontSize: FontSizes.sm,
+    fontWeight: FontWeights.normal,
+    lineHeight: FontSizes.sm * LineHeights.body,
+    letterSpacing: LetterSpacing.normal,
+    color: Colors.textLight,
+  } as TextStyle,
 };
 
-export default Colors;
+// ✅ ЭКСПОРТ
+export default TextStyles;
