@@ -1,4 +1,4 @@
-// src/screens/HomeScreen.tsx - ИСПРАВЛЕННЫЙ с правильными заголовками и UI
+// src/screens/HomeScreen.tsx - ИСПРАВЛЕННЫЙ с убранным "Soňky öwrenilen"
 
 import React, { useMemo, useCallback, useState, useEffect } from 'react';
 import {
@@ -20,10 +20,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { Category, HomeStackParamList, Phrase } from '../types';
 import { Colors } from '../constants/Colors';
 import { TextStyles } from '../constants/Typography';
-import { useHistory } from '../hooks/useHistory';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { useAnimations } from '../hooks/useAnimations';
-import { useOfflineData } from '../contexts/OfflineDataContext';
 import { phrases } from '../data/phrases';
 import { categories, getCategoryName } from '../data/categories';
 import CategoryCard from '../components/CategoryCard';
@@ -31,11 +29,11 @@ import ErrorBoundary from '../components/ErrorBoundary';
 
 const { width } = Dimensions.get('window');
 const cardWidth = (width - 60) / 2;
-const cardHeight = 140; // Увеличили высоту для лучшего отображения
+const cardHeight = 140;
 
 type HomeScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'CategoryScreen'>;
 
-// ✅ ИСПРАВЛЕНО: Профессиональный заголовок с правильной иерархией языков
+// ✅ ИСПРАВЛЕНО: Заголовок без "Soňky öwrenilen"
 const AppHeader = React.memo(() => {
   const { getTexts, config } = useAppLanguage();
   const texts = getTexts();
@@ -47,7 +45,7 @@ const AppHeader = React.memo(() => {
         {texts.appTitle}
       </Text>
       
-      {/* Подзаголовок с дополнительными языками */}
+      {/* Подзаголовок с переводом на другой язык */}
       <Text style={styles.appSubtitle}>
         {texts.appSubtitle}
       </Text>
@@ -60,7 +58,7 @@ const AppHeader = React.memo(() => {
   );
 });
 
-// ✅ ИСПРАВЛЕНО: Профессиональная карточка категории с правильным отображением языков
+// ✅ ИСПРАВЛЕНО: Карточка категории с правильным отображением языков
 const EnhancedCategoryCard = React.memo<{
   category: Category;
   onPress: () => void;
@@ -88,63 +86,38 @@ const EnhancedCategoryCard = React.memo<{
 
       {/* Названия в правильном порядке */}
       <View style={styles.categoryTextContainer}>
-        {/* Главное название (родной язык) */}
-        <Text style={[styles.categoryNamePrimary, { color: category.color }]} numberOfLines={2}>
+        {/* Основной язык (крупно) */}
+        <Text style={styles.categoryMainText} numberOfLines={1}>
           {categoryNames.primary}
         </Text>
         
-        {/* Изучаемый язык */}
-        <Text style={styles.categoryNameLearning} numberOfLines={1}>
+        {/* Изучаемый язык (средне) */}
+        <Text style={styles.categorySecondaryText} numberOfLines={1}>
           {categoryNames.learning}
         </Text>
         
-        {/* Язык-помощник */}
-        <Text style={styles.categoryNameHelper} numberOfLines={1}>
+        {/* Вспомогательный язык (мелко) */}
+        <Text style={styles.categoryHelperText} numberOfLines={1}>
           {categoryNames.helper}
         </Text>
       </View>
 
-      {/* Профессиональная стрелка */}
-      <View style={[styles.arrowContainer, { backgroundColor: category.color }]}>
-        <Ionicons 
-          name="chevron-forward" 
-          size={16} 
-          color="white" 
-        />
+      {/* Кнопка перехода */}
+      <View style={styles.categoryArrow}>
+        <Ionicons name="chevron-forward" size={16} color={category.color} />
       </View>
     </TouchableOpacity>
   );
 });
 
-// ✅ ДОБАВЛЕНО: Статистика недавних фраз
-const RecentPhrasesCard = React.memo(() => {
-  const { getTexts, config } = useAppLanguage();
-  const { getRecentPhrases } = useHistory();
-  const texts = getTexts();
-  
-  const recentPhrases = getRecentPhrases(phrases, 5);
-
-  if (recentPhrases.length === 0) return null;
-
-  return (
-    <View style={styles.recentCard}>
-      <View style={styles.recentHeader}>
-        <Ionicons name="time" size={24} color={Colors.primary} />
-        <Text style={styles.recentTitle}>{texts.recentlyStudied}</Text>
-      </View>
-      
-      <Text style={styles.recentCount}>
-        {recentPhrases.length} {config.mode === 'tk' ? 'sözlem' : '个短语'}
-      </Text>
-    </View>
-  );
-});
-
+// ✅ Главный компонент HomeScreen
 export default function HomeScreen() {
   const navigation = useNavigation<HomeScreenNavigationProp>();
-  const { getTexts } = useAppLanguage();
-  const texts = getTexts();
-
+  const { getHistory } = useHistory();
+  const { isOffline } = useOfflineData();
+  
+  // ✅ УБРАНО: Вся логика с недавними фразами
+  
   const handleCategoryPress = useCallback((category: Category) => {
     navigation.navigate('CategoryScreen', { category });
   }, [navigation]);
@@ -156,29 +129,40 @@ export default function HomeScreen() {
     />
   ), [handleCategoryPress]);
 
+  const renderCategoryRow = useCallback(({ item }: { item: Category[] }) => (
+    <View style={styles.row}>
+      {item.map((category) => (
+        <EnhancedCategoryCard
+          key={category.id}
+          category={category}
+          onPress={() => handleCategoryPress(category)}
+        />
+      ))}
+    </View>
+  ), [handleCategoryPress]);
+
+  // Группируем категории по 2 в ряд
+  const categoriesInRows = useMemo(() => {
+    const rows: Category[][] = [];
+    for (let i = 0; i < categories.length; i += 2) {
+      rows.push(categories.slice(i, i + 2));
+    }
+    return rows;
+  }, []);
+
   return (
     <ErrorBoundary>
       <SafeAreaView style={styles.container}>
-        <StatusBar 
-          barStyle="dark-content" 
-          backgroundColor={Colors.background}
-        />
+        <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
         
         <FlatList
-          data={categories}
-          renderItem={renderCategoryItem}
-          keyExtractor={(item) => item.id}
-          numColumns={2}
-          contentContainerStyle={styles.contentContainer}
+          data={categoriesInRows}
+          renderItem={renderCategoryRow}
+          keyExtractor={(item, index) => `row-${index}`}
           showsVerticalScrollIndicator={false}
-          ListHeaderComponent={
-            <>
-              <AppHeader />
-              <RecentPhrasesCard />
-            </>
-          }
+          ListHeaderComponent={<AppHeader />}
+          contentContainerStyle={styles.scrollContent}
           ItemSeparatorComponent={() => <View style={styles.separator} />}
-          columnWrapperStyle={styles.row}
         />
       </SafeAreaView>
     </ErrorBoundary>
@@ -190,13 +174,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.background,
   },
-  
-  contentContainer: {
-    padding: 20,
+
+  scrollContent: {
+    paddingHorizontal: 20,
+    paddingTop: 20,
     paddingBottom: 100,
   },
 
-  // ✅ ИСПРАВЛЕНО: Профессиональный стиль заголовка
+  // ✅ ИСПРАВЛЕНО: Стили заголовка
   headerContainer: {
     marginBottom: 30,
     alignItems: 'center',
@@ -229,8 +214,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 
-  // ✅ ИСПРАВЛЕНО: Профессиональный стиль карточек категорий
+  // ✅ Стили для карточек категорий
   row: {
+    flexDirection: 'row',
     justifyContent: 'space-between',
   },
 
@@ -277,85 +263,35 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
 
-  categoryNamePrimary: {
+  categoryMainText: {
     fontSize: 16,
     fontWeight: '700',
-    lineHeight: 20,
+    color: Colors.text,
     marginBottom: 4,
   },
 
-  categoryNameLearning: {
+  categorySecondaryText: {
     fontSize: 13,
-    fontWeight: '500',
-    color: Colors.textSecondary,
-    lineHeight: 16,
+    fontWeight: '600',
+    color: Colors.textMedium,
     marginBottom: 2,
   },
 
-  categoryNameHelper: {
+  categoryHelperText: {
     fontSize: 11,
-    fontWeight: '400',
+    fontWeight: '500',
     color: Colors.textLight,
-    lineHeight: 14,
   },
 
-  // ✅ ИСПРАВЛЕНО: Профессиональная стрелка выровненная по центру
-  arrowContainer: {
+  categoryArrow: {
     position: 'absolute',
+    bottom: 12,
     right: 12,
-    top: '50%',
-    marginTop: -16,
-    width: 32,
-    height: 32,
-    borderRadius: 16,
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-
-  // Стили для карточки недавних фраз
-  recentCard: {
-    backgroundColor: 'white',
-    borderRadius: 16,
-    padding: 20,
-    marginBottom: 24,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 3,
-    borderWidth: 1,
-    borderColor: Colors.border,
-  },
-
-  recentHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 8,
-  },
-
-  recentTitle: {
-    ...TextStyles.subtitle,
-    fontSize: 18,
-    fontWeight: '600',
-    color: Colors.text,
-    marginLeft: 12,
-  },
-
-  recentCount: {
-    ...TextStyles.caption,
-    fontSize: 14,
-    color: Colors.textLight,
-    fontWeight: '500',
   },
 });

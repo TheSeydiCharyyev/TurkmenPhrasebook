@@ -78,9 +78,9 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     
     // ✅ ИСПРАВЛЕНО: Правильный заголовок для туркменского интерфейса
     appTitle: 'TÜRKMEN-HYTAÝ GEPLEŞIK KITABY',
-    appSubtitle: '中文, русский', // Китайский и русский мелким шрифтом
+    appSubtitle: '土库曼-中文会话手册', // Китайский перевод заголовка
     selectCategory: 'Kategoriýa saýlaň',
-    recentlyStudied: 'Soňky öwrenilen',
+    recentlyStudied: 'Soňky öwrenilen',  // Оставляем для внутреннего использования
     study: 'Okuw',
     
     pronunciation: 'Aýdylyş',
@@ -118,19 +118,19 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     search: '搜索',
     favorites: '收藏',
     settings: '设置',
-    additionalFeatures: '额外功能',
+    additionalFeatures: '其他功能',
     statistics: '统计',
     
     // ✅ ИСПРАВЛЕНО: Правильный заголовок для китайского интерфейса
     appTitle: '中文-土库曼语会话手册',
-    appSubtitle: 'Türkmençe, русский', // Туркменский и русский мелким шрифтом
+    appSubtitle: 'TÜRKMEN-HYTAÝ GEPLEŞIK KITABY • Туркменский-Китайский разговорник', // Полный перевод
     selectCategory: '选择类别',
-    recentlyStudied: '最近学习的',
+    recentlyStudied: '最近学习',
     study: '学习',
     
     pronunciation: '发音',
     addToFavorites: '添加到收藏',
-    inFavorites: '已收藏',
+    inFavorites: '在收藏中',
     share: '分享',
     
     settingsTitle: '⚙️ 设置',
@@ -144,7 +144,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     about: '关于应用',
     feedback: '反馈',
     
-    searchPlaceholder: '输入任何语言的短语...',
+    searchPlaceholder: '输入任何语言的短语搜索...',
     noResults: '未找到结果',
     searchHistory: '搜索历史',
     
@@ -155,10 +155,9 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     loading: '加载中...',
     error: '错误',
     success: '成功',
-  }
+  },
 };
 
-// Валидация конфигурации
 const validateConfig = (config: any): config is AppLanguageConfig => {
   return (
     config &&
@@ -167,11 +166,10 @@ const validateConfig = (config: any): config is AppLanguageConfig => {
     ['tk', 'zh'].includes(config.primaryLanguage) &&
     ['tk', 'zh'].includes(config.learningLanguage) &&
     config.helperLanguage === 'ru' &&
-    config.primaryLanguage !== config.learningLanguage
+    typeof config.version === 'string'
   );
 };
 
-// Создание корректной конфигурации
 const createConfig = (mode: AppLanguageMode): AppLanguageConfig => ({
   mode,
   primaryLanguage: mode,
