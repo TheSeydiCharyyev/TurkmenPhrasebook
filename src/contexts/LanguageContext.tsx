@@ -1,4 +1,4 @@
-// src/contexts/LanguageContext.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ с правильными переводами
+// src/contexts/LanguageContext.tsx - ИСПРАВЛЕНО с правильными заголовками
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -16,7 +16,6 @@ export interface AppLanguageConfig {
   version: string;
 }
 
-// ✅ ИСПРАВЛЕНО: Правильные переводы интерфейса
 export interface InterfaceTexts {
   // Общие
   home: string;
@@ -28,6 +27,7 @@ export interface InterfaceTexts {
   
   // Главный экран
   appTitle: string;
+  appSubtitle: string; // ✅ ДОБАВЛЕНО: подзаголовок с языками
   selectCategory: string;
   recentlyStudied: string;
   study: string;
@@ -65,10 +65,10 @@ export interface InterfaceTexts {
   success: string;
 }
 
-// ✅ ИСПРАВЛЕНО: Правильные переводы для обоих языков
+// ✅ ИСПРАВЛЕНО: Правильные заголовки согласно требованиям
 const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
   tk: {
-    // Туркменский интерфейс - ЗАГЛАВНЫМИ БУКВАМИ как требуется
+    // Туркменский режим: туркмен изучает китайский
     home: 'Baş sahypa',
     search: 'Gözleg',
     favorites: 'Halanýanlar',
@@ -76,7 +76,9 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     additionalFeatures: 'Goşmaça mümkinçilikler',
     statistics: 'Statistika',
     
-    appTitle: 'HYTAÝ SÖZLEM KITABY', // ✅ ЗАГЛАВНЫМИ 
+    // ✅ ИСПРАВЛЕНО: Правильный заголовок для туркменского интерфейса
+    appTitle: 'TÜRKMEN-HYTAÝ GEPLEŞIK KITABY',
+    appSubtitle: '中文, русский', // Китайский и русский мелким шрифтом
     selectCategory: 'Kategoriýa saýlaň',
     recentlyStudied: 'Soňky öwrenilen',
     study: 'Okuw',
@@ -111,7 +113,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
   },
   
   zh: {
-    // Китайский интерфейс - СРЕДНИМИ ИЕРОГЛИФАМИ как требуется
+    // Китайский режим: китаец изучает туркменский
     home: '主页',
     search: '搜索',
     favorites: '收藏',
@@ -119,7 +121,9 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     additionalFeatures: '额外功能',
     statistics: '统计',
     
-    appTitle: '土库曼语会话手册', // ✅ СРЕДНИМИ ИЕРОГЛИФАМИ
+    // ✅ ИСПРАВЛЕНО: Правильный заголовок для китайского интерфейса
+    appTitle: '中文-土库曼语会话手册',
+    appSubtitle: 'Türkmençe, русский', // Туркменский и русский мелким шрифтом
     selectCategory: '选择类别',
     recentlyStudied: '最近学习的',
     study: '学习',
@@ -193,32 +197,29 @@ interface LanguageContextValue {
 
 const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
+interface LanguageProviderProps {
+  children: ReactNode;
+}
+
+export function LanguageProvider({ children }: LanguageProviderProps) {
   const [config, setConfig] = useState<AppLanguageConfig>(createConfig('tk'));
   const [isFirstLaunch, setIsFirstLaunch] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Загрузка сохраненной конфигурации
+  // Загрузка сохраненной конфигурации при запуске
   useEffect(() => {
-    loadSavedConfig();
+    loadConfig();
   }, []);
 
-  const loadSavedConfig = async () => {
+  const loadConfig = async () => {
     try {
-      const savedData = await AsyncStorage.getItem(APP_LANGUAGE_KEY);
-      if (savedData) {
-        const parsedData = JSON.parse(savedData);
-        if (validateConfig(parsedData)) {
-          setConfig(parsedData);
+      const saved = await AsyncStorage.getItem(APP_LANGUAGE_KEY);
+      if (saved) {
+        const parsedConfig = JSON.parse(saved);
+        if (validateConfig(parsedConfig)) {
+          setConfig(parsedConfig);
           setIsFirstLaunch(false);
-        } else {
-          // Если конфигурация невалидна, создаем новую
-          const defaultConfig = createConfig('tk');
-          setConfig(defaultConfig);
-          await saveConfig(defaultConfig);
         }
-      } else {
-        setIsFirstLaunch(true);
       }
     } catch (error) {
       console.warn('Ошибка загрузки языковой конфигурации:', error);
@@ -226,9 +227,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const saveConfig = async (configToSave: AppLanguageConfig): Promise<boolean> => {
+  const saveConfig = async (config: AppLanguageConfig): Promise<boolean> => {
     try {
-      await AsyncStorage.setItem(APP_LANGUAGE_KEY, JSON.stringify(configToSave));
+      await AsyncStorage.setItem(APP_LANGUAGE_KEY, JSON.stringify(config));
       return true;
     } catch (error) {
       console.warn('Ошибка сохранения языковой конфигурации:', error);
@@ -237,8 +238,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  // Установка языкового режима
-  const setLanguageMode = async (mode: AppLanguageMode, shouldSave: boolean = true): Promise<void> => {
+  const setLanguageMode = async (mode: AppLanguageMode, shouldSave: boolean = true) => {
     try {
       if (!['tk', 'zh'].includes(mode)) {
         throw new Error(`Invalid language mode: ${mode}`);
@@ -261,7 +261,6 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  // Переключение режима (для настроек)
   const switchMode = async (): Promise<boolean> => {
     try {
       const newMode: AppLanguageMode = config.mode === 'tk' ? 'zh' : 'tk';
@@ -273,48 +272,39 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  // Получить тексты интерфейса для текущего языка
   const getTexts = (): InterfaceTexts => {
     try {
       return INTERFACE_TEXTS[config.primaryLanguage as AppLanguageMode] || INTERFACE_TEXTS.tk;
     } catch (error) {
       console.warn('Ошибка получения текстов интерфейса:', error);
-      return INTERFACE_TEXTS.tk; // Fallback к туркменскому
+      return INTERFACE_TEXTS.tk;
     }
   };
 
-  // Получить название языка на родном языке
   const getLanguageName = (lang: 'tk' | 'zh' | 'ru'): string => {
     const names = {
-      tk: config.primaryLanguage === 'tk' ? 'TÜRKMENÇE' : '土库曼语', // ✅ ЗАГЛАВНЫМИ/средними
-      zh: config.primaryLanguage === 'tk' ? 'hytaýça' : '中文',      // ✅ маленькими/средними  
-      ru: config.primaryLanguage === 'tk' ? 'rusça' : '俄语'        // ✅ маленькими/маленькими
+      tk: config.primaryLanguage === 'tk' ? 'Türkmençe' : '土库曼语',
+      zh: config.primaryLanguage === 'tk' ? 'Hytaýça' : '中文',
+      ru: config.primaryLanguage === 'tk' ? 'Rusça' : '俄语'
     };
     return names[lang] || lang;
   };
 
-  // ✅ ИСПРАВЛЕНО: Получить текст фразы в правильном порядке приоритета
   const getPhraseTexts = (phrase: { chinese: string; turkmen: string; russian: string }) => {
     try {
       if (config.mode === 'tk') {
-        // Туркмен изучает китайский: 
-        // 1. TÜRKMENÇE (заглавными) - что понимает
-        // 2. 中文 (средними) - что изучает  
-        // 3. русский (маленькими) - помощь
+        // Туркмен изучает китайский
         return {
-          primary: phrase.turkmen,     // ГЛАВНЫЙ - туркменский (что понимает)
-          learning: phrase.chinese,    // ИЗУЧАЕМЫЙ - китайский
-          helper: phrase.russian       // ПОМОЩЬ - русский
+          primary: phrase.chinese,     // Китайский - основной для изучения
+          learning: phrase.turkmen,    // Туркменский - родной язык
+          helper: phrase.russian       // Русский - дополнительная помощь
         };
       } else {
-        // Китаец изучает туркменский:
-        // 1. 中文 (средними) - что понимает
-        // 2. TÜRKMENÇE (заглавными) - что изучает
-        // 3. русский (маленькими) - помощь  
+        // Китаец изучает туркменский
         return {
-          primary: phrase.chinese,     // ГЛАВНЫЙ - китайский (что понимает)
-          learning: phrase.turkmen,    // ИЗУЧАЕМЫЙ - туркменский
-          helper: phrase.russian       // ПОМОЩЬ - русский
+          primary: phrase.turkmen,     // Туркменский - основной для изучения
+          learning: phrase.chinese,    // Китайский - родной язык
+          helper: phrase.russian       // Русский - дополнительная помощь
         };
       }
     } catch (error) {

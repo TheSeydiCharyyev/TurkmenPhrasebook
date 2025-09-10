@@ -1,229 +1,169 @@
-// src/constants/Colors.ts - Расширенная цветовая система дня 16
+// src/constants/Colors.ts - ПРОФЕССИОНАЛЬНАЯ ЦВЕТОВАЯ СХЕМА
+
+/**
+ * ✅ ОБНОВЛЕННАЯ профессиональная цветовая палитра
+ * Следует современным принципам Material Design 3 и iOS Human Interface Guidelines
+ */
 export const Colors = {
-  // Основные цвета
-  primary: '#DC2626',      // Красный (символ Китая)
-  primaryLight: '#F87171', // Светлый красный
-  primaryDark: '#991B1B',  // Темный красный
+  // ✅ ОСНОВНЫЕ ЦВЕТА - более насыщенные и профессиональные
+  primary: '#DC2626',        // Красный - символ Китая (более глубокий)
+  primaryLight: '#EF4444',   // Светлый красный для акцентов
+  primaryDark: '#B91C1C',    // Темный красный для активных состояний
   
-  secondary: '#F3F4F6',    // Светло-серый
-  secondaryLight: '#F9FAFB', // Очень светло-серый
-  secondaryDark: '#E5E7EB', // Темнее серый
+  secondary: '#059669',      // Изумрудно-зеленый для успешных действий
+  secondaryLight: '#10B981', // Светлый зеленый
+  secondaryDark: '#047857',  // Темный зеленый
   
-  accent: '#10B981',       // Зеленый для кнопок
-  accentLight: '#34D399',  // Светло-зеленый
-  accentDark: '#059669',   // Темно-зеленый
+  // ✅ АКЦЕНТНЫЕ ЦВЕТА
+  accent: '#F59E0B',         // Золотистый для важных элементов
+  accentLight: '#FBBF24',    // Светлый золотой
+  accentDark: '#D97706',     // Темный золотой
   
-  // Текст с расширенной палитрой
-  text: '#1F2937',         // Темно-серый основной
-  textLight: '#6B7280',    // Светло-серый текст
-  textLighter: '#9CA3AF',  // Еще светлее
-  textWhite: '#FFFFFF',    // Белый текст
-  textMuted: '#D1D5DB',    // Приглушенный текст
+  // ✅ НЕЙТРАЛЬНЫЕ ЦВЕТА - улучшенная читаемость
+  background: '#FAFAFA',     // Очень светлый серый фон
+  backgroundSecondary: '#F5F5F5', // Вторичный фон
+  surface: '#FFFFFF',        // Белый для карточек
+  surfaceElevated: '#FFFFFF', // Поднятые поверхности
   
-  // Фон с градациями
-  background: '#FFFFFF',   // Белый фон
-  backgroundLight: '#F9FAFB', // Очень светло-серый
-  backgroundDark: '#F3F4F6',  // Темнее фон
-  backgroundCard: '#FFFFFF',  // Фон карточек
+  // ✅ ТЕКСТ - оптимизированная контрастность
+  text: '#111827',           // Почти черный для основного текста
+  textSecondary: '#374151',  // Серый для вторичного текста
+  textLight: '#6B7280',      // Светло-серый для подсказок
+  textMuted: '#9CA3AF',      // Приглушенный для неактивного текста
+  textOnPrimary: '#FFFFFF',  // Белый на цветном фоне
   
-  // Состояния с градациями
-  success: '#10B981',      // Зеленый успех
-  successLight: '#D1FAE5', // Светлый фон успеха
-  successDark: '#065F46',  // Темный успех
+  // ✅ ГРАНИЦЫ И РАЗДЕЛИТЕЛИ
+  border: '#E5E7EB',         // Светлые границы
+  borderLight: '#F3F4F6',    // Очень светлые границы
+  borderFocus: '#DC2626',    // Красные границы для фокуса
+  divider: '#E5E7EB',        // Разделители
   
-  warning: '#F59E0B',      // Желтый предупреждение
-  warningLight: '#FEF3C7', // Светлый фон предупреждения
-  warningDark: '#92400E',  // Темный предупреждения
+  // ✅ СОСТОЯНИЯ
+  success: '#059669',        // Зеленый для успеха
+  successLight: '#D1FAE5',   // Светлый зеленый фон
+  warning: '#F59E0B',        // Оранжевый для предупреждений  
+  warningLight: '#FEF3C7',   // Светлый оранжевый фон
+  error: '#DC2626',          // Красный для ошибок
+  errorLight: '#FEE2E2',     // Светлый красный фон
+  info: '#2563EB',           // Синий для информации
+  infoLight: '#DBEAFE',      // Светлый синий фон
   
-  error: '#EF4444',        // Красный ошибка
-  errorLight: '#FEE2E2',   // Светлый фон ошибки
-  errorDark: '#991B1B',    // Темный ошибки
+  // ✅ ИНТЕРАКТИВНЫЕ ЭЛЕМЕНТЫ
+  buttonPrimary: '#DC2626',      // Основные кнопки
+  buttonSecondary: '#F3F4F6',    // Вторичные кнопки
+  buttonText: '#FFFFFF',         // Текст на кнопках
+  buttonTextSecondary: '#374151', // Текст на вторичных кнопках
   
-  info: '#3B82F6',         // Синий информация
-  infoLight: '#DBEAFE',    // Светлый фон информации
-  infoDark: '#1E40AF',     // Темный информации
+  // ✅ НАВИГАЦИЯ
+  tabBarActive: '#DC2626',       // Активная вкладка
+  tabBarInactive: '#9CA3AF',     // Неактивная вкладка
+  tabBarBackground: '#FFFFFF',   // Фон панели вкладок
   
-  // Навигация
-  tabActive: '#DC2626',    // Активная вкладка
-  tabInactive: '#9CA3AF', // Неактивная вкладка
-  tabBackground: '#FFFFFF', // Фон вкладок
+  // ✅ ФОРМЫ
+  inputBackground: '#F9FAFB',    // Фон полей ввода
+  inputBorder: '#D1D5DB',        // Границы полей
+  inputFocus: '#DC2626',         // Фокус полей
+  inputText: '#111827',          // Текст в полях
+  inputPlaceholder: '#9CA3AF',   // Placeholder текст
   
-  // Карточки и границы
-  cardBackground: '#FFFFFF',
-  cardBorder: '#E5E7EB',
-  cardShadow: '#00000010',
-  cardShadowDark: '#00000020',
+  // ✅ ТЕНИ И НАЛОЖЕНИЯ
+  shadow: 'rgba(0, 0, 0, 0.1)',     // Мягкие тени
+  shadowDark: 'rgba(0, 0, 0, 0.2)',  // Более темные тени
+  overlay: 'rgba(0, 0, 0, 0.5)',     // Оверлеи модалок
   
-  // Дополнительные цвета для анимаций и эффектов
-  overlay: '#00000080',    // Полупрозрачный черный
-  overlayLight: '#00000040', // Легкий оверлей
-  overlayDark: '#000000B3',  // Темный оверлей
+  // ✅ СПЕЦИАЛЬНЫЕ ЦВЕТА ДЛЯ КАТЕГОРИЙ (обновленные)
+  categoryColors: {
+    greetings: '#EF4444',      // Яркий красный
+    emergency: '#DC2626',      // Алертный красный
+    hotel: '#3B82F6',          // Синий
+    food: '#10B981',           // Зеленый
+    shopping: '#F59E0B',       // Золотистый
+    transport: '#8B5CF6',      // Фиолетовый
+    directions: '#F97316',     // Оранжевый
+    health: '#EC4899',         // Розовый
+    money: '#EAB308',          // Желтый
+    communication: '#06B6D4',  // Голубой
+    entertainment: '#A855F7',  // Пурпурный
+    time: '#6366F1',           // Индиго
+    numbers: '#1E40AF',        // Темно-синий
+    weather: '#0EA5E9',        // Небесный синий
+  },
   
-  // Gradient цвета
-  gradientStart: '#DC2626',
-  gradientEnd: '#10B981',
-  gradientStartLight: '#F87171',
-  gradientEndLight: '#34D399',
+  // ✅ ГРАДИЕНТЫ ДЛЯ ПРЕМИУМ-ЭЛЕМЕНТОВ
+  gradients: {
+    primary: ['#DC2626', '#B91C1C'],
+    secondary: ['#059669', '#047857'],
+    accent: ['#F59E0B', '#D97706'],
+    success: ['#10B981', '#059669'],
+    warning: ['#F59E0B', '#D97706'],
+    error: ['#EF4444', '#DC2626'],
+    info: ['#3B82F6', '#2563EB'],
+  },
   
-  // Специальные цвета для языков
-  chinese: '#DC2626',      // Красный для китайского
-  turkmen: '#10B981',      // Зеленый для туркменского
-  russian: '#F59E0B',      // Желтый для русского
+  // ✅ ТЕМНАЯ ТЕМА (для будущего использования)
+  dark: {
+    background: '#111827',
+    surface: '#1F2937',
+    text: '#F9FAFB',
+    textSecondary: '#D1D5DB',
+    border: '#374151',
+    primary: '#EF4444',
+  },
   
-  // Цвета для статистики и прогресса
-  progress: '#3B82F6',     // Синий прогресс
-  progressBackground: '#E5E7EB', // Фон прогресс-бара
-  achievement: '#F59E0B',  // Цвет достижений
-  streak: '#EF4444',       // Цвет стрика
-  
-  // Интерактивные элементы
-  ripple: '#DC262620',     // Цвет ripple эффекта
-  highlight: '#FEF3C7',    // Цвет выделения
-  focus: '#3B82F6',        // Цвет фокуса
-  
-  // Семантические цвета для различных состояний
-  online: '#10B981',       // Онлайн статус
-  offline: '#6B7280',      // Офлайн статус
-  loading: '#3B82F6',      // Загрузка
-  disabled: '#9CA3AF',     // Отключенный элемент
+  // ✅ ДОСТУПНОСТЬ
+  accessibility: {
+    focus: '#DC2626',          // Цвет фокуса для screen readers
+    highContrast: '#000000',   // Высокий контраст
+    lowContrast: '#6B7280',    // Низкий контраст
+  },
 };
 
-// Функции для работы с цветами
+/**
+ * ✅ УТИЛИТЫ для работы с цветами
+ */
 export const ColorUtils = {
-  // Добавление прозрачности к цвету
+  /**
+   * Добавить прозрачность к цвету
+   */
   withOpacity: (color: string, opacity: number): string => {
-    if (color.startsWith('#')) {
-      const alpha = Math.round(255 * opacity).toString(16).padStart(2, '0');
-      return color + alpha;
-    }
-    return color;
+    const alpha = Math.round(opacity * 255).toString(16).padStart(2, '0');
+    return color + alpha;
   },
-
-  // Получение контрастного цвета
-  getContrastColor: (backgroundColor: string): string => {
-    // Простая проверка светлости цвета
-    const lightColors = [
-      Colors.background,
-      Colors.backgroundLight,
-      Colors.cardBackground,
-      Colors.successLight,
-      Colors.warningLight,
-      Colors.errorLight,
-      Colors.infoLight,
-    ];
+  
+  /**
+   * Получить цвет категории
+   */
+  getCategoryColor: (categoryId: string): string => {
+    return Colors.categoryColors[categoryId as keyof typeof Colors.categoryColors] || Colors.primary;
+  },
+  
+  /**
+   * Получить градиент для категории
+   */
+  getCategoryGradient: (categoryId: string): [string, string] => {
+    const baseColor = ColorUtils.getCategoryColor(categoryId);
+    // Создаем более темный оттенок для градиента
+    const darkerColor = baseColor.replace(/^#/, '').match(/.{2}/g)
+      ?.map(hex => Math.max(0, parseInt(hex, 16) - 30).toString(16).padStart(2, '0'))
+      .join('') || baseColor.slice(1);
     
-    return lightColors.includes(backgroundColor) ? Colors.text : Colors.textWhite;
+    return [baseColor, '#' + darkerColor];
   },
-
-  // Получение цвета тени в зависимости от фона
-  getShadowColor: (backgroundColor: string): string => {
-    return backgroundColor === Colors.background ? Colors.cardShadow : Colors.cardShadowDark;
-  },
-
-  // Градиент для кнопок
-  getButtonGradient: (type: 'primary' | 'secondary' | 'accent' = 'primary'): [string, string] => {
-    switch (type) {
-      case 'primary':
-        return [Colors.primary, Colors.primaryDark];
-      case 'accent':
-        return [Colors.accent, Colors.accentDark];
-      case 'secondary':
-      default:
-        return [Colors.secondary, Colors.secondaryDark];
-    }
-  },
-
-  // Цвет состояния для интерактивных элементов
-  getStateColor: (state: 'default' | 'hover' | 'active' | 'disabled', baseColor: string): string => {
-    switch (state) {
-      case 'hover':
-        return ColorUtils.withOpacity(baseColor, 0.8);
-      case 'active':
-        return ColorUtils.withOpacity(baseColor, 0.9);
-      case 'disabled':
-        return Colors.disabled;
-      default:
-        return baseColor;
-    }
+  
+  /**
+   * Проверить контрастность цвета
+   */
+  isLightColor: (color: string): boolean => {
+    const hex = color.replace('#', '');
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
+    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+    return brightness > 128;
   },
 };
 
-// Темная тема (для будущего использования)
-export const DarkColors = {
-  ...Colors,
-  // Переопределяем основные цвета для темной темы
-  text: '#F9FAFB',
-  textLight: '#D1D5DB',
-  textLighter: '#9CA3AF',
-  
-  background: '#111827',
-  backgroundLight: '#1F2937',
-  backgroundDark: '#0F172A',
-  backgroundCard: '#1F2937',
-  
-  cardBackground: '#1F2937',
-  cardBorder: '#374151',
-  cardShadow: '#00000040',
-  
-  tabBackground: '#1F2937',
-  
-  overlay: '#FFFFFF20',
-  overlayLight: '#FFFFFF10',
-  overlayDark: '#FFFFFF40',
-};
-
-// Системные цвета для конкретных компонентов
-export const ComponentColors = {
-  // Карточки категорий
-  categoryCard: {
-    background: Colors.cardBackground,
-    border: Colors.cardBorder,
-    shadow: Colors.cardShadow,
-    overlay: Colors.overlayLight,
-  },
-
-  // Карточки фраз
-  phraseCard: {
-    background: Colors.cardBackground,
-    border: Colors.cardBorder,
-    shadow: Colors.cardShadow,
-    highlight: Colors.highlight,
-  },
-
-  // Кнопки
-  button: {
-    primary: Colors.primary,
-    primaryHover: Colors.primaryDark,
-    secondary: Colors.secondary,
-    secondaryHover: Colors.secondaryDark,
-    accent: Colors.accent,
-    accentHover: Colors.accentDark,
-    disabled: Colors.disabled,
-  },
-
-  // Поля ввода
-  input: {
-    background: Colors.backgroundLight,
-    border: Colors.cardBorder,
-    borderFocus: Colors.focus,
-    text: Colors.text,
-    placeholder: Colors.textLight,
-  },
-
-  // Модальные окна
-  modal: {
-    background: Colors.cardBackground,
-    overlay: Colors.overlay,
-    border: Colors.cardBorder,
-    shadow: Colors.cardShadowDark,
-  },
-
-  // Прогресс бары
-  progress: {
-    background: Colors.progressBackground,
-    fill: Colors.progress,
-    success: Colors.success,
-    warning: Colors.warning,
-    error: Colors.error,
-  },
-};
+/**
+ * ✅ ЭКСПОРТ для обратной совместимости
+ */
+export default Colors;

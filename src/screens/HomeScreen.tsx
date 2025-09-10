@@ -1,4 +1,4 @@
-// src/screens/HomeScreen.tsx - ИСПРАВЛЕНО для корректной работы с useHistory
+// src/screens/HomeScreen.tsx - ИСПРАВЛЕННЫЙ с правильными заголовками и UI
 
 import React, { useMemo, useCallback, useState, useEffect } from 'react';
 import {
@@ -17,7 +17,6 @@ import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 
-// Импорты
 import { Category, HomeStackParamList, Phrase } from '../types';
 import { Colors } from '../constants/Colors';
 import { TextStyles } from '../constants/Typography';
@@ -25,276 +24,164 @@ import { useHistory } from '../hooks/useHistory';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { useAnimations } from '../hooks/useAnimations';
 import { useOfflineData } from '../contexts/OfflineDataContext';
-import { phrases } from '../data/phrases'; // Импортируем фразы
+import { phrases } from '../data/phrases';
+import { categories, getCategoryName } from '../data/categories';
 import CategoryCard from '../components/CategoryCard';
 import ErrorBoundary from '../components/ErrorBoundary';
 
 const { width } = Dimensions.get('window');
-const cardWidth = (width - 60) / 3;
-const cardHeight = 120;
+const cardWidth = (width - 60) / 2;
+const cardHeight = 140; // Увеличили высоту для лучшего отображения
 
 type HomeScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'CategoryScreen'>;
 
-// ✅ ИСПРАВЛЕНО: Отдельный компонент RecentCategoryCard внутри файла
-const RecentCategoryCard = React.memo<{
-  recentPhrases: Phrase[];
-  stats: any;
-  onPress: () => void;
-  onStatsPress: () => void;
-}>(({ recentPhrases, stats, onPress, onStatsPress }) => {
-  const { hapticFeedback } = useAnimations();
+// ✅ ИСПРАВЛЕНО: Профессиональный заголовок с правильной иерархией языков
+const AppHeader = React.memo(() => {
   const { getTexts, config } = useAppLanguage();
   const texts = getTexts();
 
-  const handlePress = useCallback(() => {
-    hapticFeedback('medium');
-    onPress();
-  }, [onPress, hapticFeedback]);
-
-  const handleLongPress = useCallback(() => {
-    hapticFeedback('heavy');
-    onStatsPress();
-  }, [onStatsPress, hapticFeedback]);
-
   return (
-    <View style={styles.cardContainer}>
-      <TouchableOpacity
-        style={[styles.categoryCard, styles.recentCard]}
-        onPress={handlePress}
-        onLongPress={handleLongPress}
-        activeOpacity={0.7}
-      >
-        <View style={styles.recentCardContent}>
-          {/* Иконка */}
-          <View style={styles.recentIconContainer}>
-            <Ionicons name="time" size={32} color={Colors.primary} />
-          </View>
-
-          {/* Заголовок */}
-          <Text style={styles.recentTitle} numberOfLines={2}>
-{texts.recentlyStudied}
-          </Text>
-
-          {/* Статистика */}
-          <View style={styles.recentStatsContainer}>
-            <Text style={styles.recentStatsText}>
-              {recentPhrases.length} {config.mode === 'tk' ? 'sözlem' : 
-                                     config.mode === 'zh' ? '短语' : 'фраз'}
-            </Text>
-            {stats.todaysPhrases > 0 && (
-              <Text style={styles.recentTodayText}>
-                {config.mode === 'tk' ? `Şu gün: ${stats.todaysPhrases}` :
-                 config.mode === 'zh' ? `今天: ${stats.todaysPhrases}` :
-                 `Сегодня: ${stats.todaysPhrases}`}
-              </Text>
-            )}
-          </View>
-        </View>
-      </TouchableOpacity>
+    <View style={styles.headerContainer}>
+      {/* Главный заголовок */}
+      <Text style={styles.appTitle}>
+        {texts.appTitle}
+      </Text>
+      
+      {/* Подзаголовок с дополнительными языками */}
+      <Text style={styles.appSubtitle}>
+        {texts.appSubtitle}
+      </Text>
+      
+      {/* Селектор категории */}
+      <Text style={styles.selectCategoryText}>
+        {texts.selectCategory}
+      </Text>
     </View>
   );
 });
 
-// Модальное окно статистики
-const StatsModal = React.memo<{
-  visible: boolean;
-  onClose: () => void;
-  recentPhrases: Phrase[];
-  stats: any;
-}>(({ visible, onClose, recentPhrases, stats }) => {
-  const { getTexts, config } = useAppLanguage();
-  const texts = getTexts();
+// ✅ ИСПРАВЛЕНО: Профессиональная карточка категории с правильным отображением языков
+const EnhancedCategoryCard = React.memo<{
+  category: Category;
+  onPress: () => void;
+}>(({ category, onPress }) => {
+  const { config } = useAppLanguage();
+  const { pressAnimation, hapticFeedback } = useAnimations();
+  const categoryNames = getCategoryName(category, config.mode);
+
+  const handlePress = useCallback(() => {
+    hapticFeedback('medium');
+    pressAnimation();
+    onPress();
+  }, [onPress, hapticFeedback, pressAnimation]);
 
   return (
-    <Modal
-      visible={visible}
-      transparent
-      animationType="fade"
-      onRequestClose={onClose}
+    <TouchableOpacity
+      style={[styles.categoryCard, { backgroundColor: category.color + '15' }]}
+      onPress={handlePress}
+      activeOpacity={0.8}
     >
-      <View style={styles.modalOverlay}>
-        <View style={styles.modalContent}>
-          <Text style={styles.modalTitle}>
-            {config.mode === 'tk' ? 'Statistika' : 
-             config.mode === 'zh' ? '统计' : 'Статистика'}
-          </Text>
-          
-          <View style={styles.statsGrid}>
-            <View style={styles.statItem}>
-              <Text style={styles.statNumber}>{stats.uniquePhrases}</Text>
-              <Text style={styles.statLabel}>
-                {config.mode === 'tk' ? 'Sözlem' : 
-                 config.mode === 'zh' ? '短语' : 'Фраз изучено'}
-              </Text>
-            </View>
-            
-            <View style={styles.statItem}>
-              <Text style={styles.statNumber}>{stats.streakDays}</Text>
-              <Text style={styles.statLabel}>
-                {config.mode === 'tk' ? 'Gün' : 
-                 config.mode === 'zh' ? '天' : 'Дней подряд'}
-              </Text>
-            </View>
-          </View>
-
-          <TouchableOpacity style={styles.closeButton} onPress={onClose}>
-            <Text style={styles.closeButtonText}>
-              {config.mode === 'tk' ? 'Ýap' : 
-               config.mode === 'zh' ? '关闭' : 'Закрыть'}
-            </Text>
-          </TouchableOpacity>
-        </View>
+      {/* Иконка */}
+      <View style={[styles.categoryIconContainer, { backgroundColor: category.color + '25' }]}>
+        <Text style={styles.categoryIcon}>{category.icon}</Text>
       </View>
-    </Modal>
+
+      {/* Названия в правильном порядке */}
+      <View style={styles.categoryTextContainer}>
+        {/* Главное название (родной язык) */}
+        <Text style={[styles.categoryNamePrimary, { color: category.color }]} numberOfLines={2}>
+          {categoryNames.primary}
+        </Text>
+        
+        {/* Изучаемый язык */}
+        <Text style={styles.categoryNameLearning} numberOfLines={1}>
+          {categoryNames.learning}
+        </Text>
+        
+        {/* Язык-помощник */}
+        <Text style={styles.categoryNameHelper} numberOfLines={1}>
+          {categoryNames.helper}
+        </Text>
+      </View>
+
+      {/* Профессиональная стрелка */}
+      <View style={[styles.arrowContainer, { backgroundColor: category.color }]}>
+        <Ionicons 
+          name="chevron-forward" 
+          size={16} 
+          color="white" 
+        />
+      </View>
+    </TouchableOpacity>
   );
 });
 
-// ✅ ГЛАВНЫЙ КОМПОНЕНТ HomeScreen
-function HomeScreen() {
-  const navigation = useNavigation<HomeScreenNavigationProp>();
+// ✅ ДОБАВЛЕНО: Статистика недавних фраз
+const RecentPhrasesCard = React.memo(() => {
   const { getTexts, config } = useAppLanguage();
-  const { hapticFeedback } = useAnimations();
-  
-  // ✅ ИСПРАВЛЕНО: Используем правильные методы из useHistory
-  const { getRecentPhrases, stats } = useHistory();
-  const { categories } = useOfflineData();
-  const [showQuickStats, setShowQuickStats] = useState(false);
-
+  const { getRecentPhrases } = useHistory();
   const texts = getTexts();
+  
+  const recentPhrases = getRecentPhrases(phrases, 5);
 
-  // ✅ ИСПРАВЛЕНО: Получаем недавние фразы через метод getRecentPhrases
-  const recentPhrases = useMemo(() => {
-    return getRecentPhrases(phrases, 10); // Получаем последние 10 фраз
-  }, [getRecentPhrases]);
-
-  const handleCategoryPress = useCallback((category: Category) => {
-    hapticFeedback('light');
-    navigation.navigate('CategoryScreen', { category });
-  }, [navigation, hapticFeedback]);
-
-  const handleRecentPress = useCallback(() => {
-    if (recentPhrases.length > 0) {
-      hapticFeedback('light');
-      const firstRecentPhrase = recentPhrases[0];
-      const category = categories.find(cat => cat.id === firstRecentPhrase.categoryId);
-      if (category) {
-        navigation.navigate('CategoryScreen', { category });
-      }
-    }
-  }, [recentPhrases, categories, navigation, hapticFeedback]);
-
-  const handleStatsPress = useCallback(() => {
-    hapticFeedback('medium');
-    setShowQuickStats(true);
-  }, [hapticFeedback]);
-
-  const closeStatsModal = useCallback(() => {
-    setShowQuickStats(false);
-  }, []);
-
-  // ✅ ИСПРАВЛЕНО: Показываем только категории (без недавних)
-  const gridData = useMemo(() => [
-    ...categories, // Показываем ВСЕ категории
-  ], [categories]);
-
-  const renderGridItem = useCallback(({ item, index }: { item: Category | string; index: number }) => {
-    if (item === 'recent') {
-      return (
-        <ErrorBoundary
-          fallbackComponent={
-            <View style={styles.categoryCard}>
-              <Text style={styles.errorText}>Ошибка загрузки недавних</Text>
-            </View>
-          }
-        >
-          <RecentCategoryCard
-            recentPhrases={recentPhrases}
-            stats={stats}
-            onPress={handleRecentPress}
-            onStatsPress={handleStatsPress}
-          />
-        </ErrorBoundary>
-      );
-    }
-
-    // ✅ ИСПРАВЛЕНО: Обычные категории используют CategoryCard
-    return (
-      <ErrorBoundary
-        fallbackComponent={
-          <View style={styles.categoryCard}>
-            <Text style={styles.errorText}>Ошибка категории</Text>
-          </View>
-        }
-      >
-        <CategoryCard
-          category={item as Category}
-          onPress={handleCategoryPress}
-          index={index}
-        />
-      </ErrorBoundary>
-    );
-  }, [recentPhrases, stats, handleRecentPress, handleStatsPress, handleCategoryPress]);
-
-  const keyExtractor = useCallback((item: Category | string, index: number) =>
-    typeof item === 'string' ? item : (item as Category).id + index.toString()
-    , []);
+  if (recentPhrases.length === 0) return null;
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
-
-      {/* ✅ ИСПРАВЛЕНО: Правильный заголовок в зависимости от языка */}
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>
-          {texts.appTitle}
-        </Text>
-        <Text style={styles.headerSubtitle}>
-          {texts.selectCategory}
-        </Text>
-
-        {/* Быстрая информация */}
-        {stats.uniquePhrases > 0 && (
-          <View style={styles.quickInfo}>
-            <View style={styles.quickInfoItem}>
-              <Ionicons name="book" size={16} color={Colors.primary} />
-              <Text style={styles.quickInfoText}>
-                {stats.uniquePhrases} {config.mode === 'tk' ? 'sözlem' : 
-                                       config.mode === 'zh' ? '短语' : 'фраз'}
-              </Text>
-            </View>
-            {stats.streakDays > 0 && (
-              <View style={styles.quickInfoItem}>
-                <Ionicons name="flame" size={16} color={Colors.error} />
-                <Text style={styles.quickInfoText}>
-                  {stats.streakDays} {config.mode === 'tk' ? 'gün' : 
-                                     config.mode === 'zh' ? '天' : 'дней'}
-                </Text>
-              </View>
-            )}
-          </View>
-        )}
+    <View style={styles.recentCard}>
+      <View style={styles.recentHeader}>
+        <Ionicons name="time" size={24} color={Colors.primary} />
+        <Text style={styles.recentTitle}>{texts.recentlyStudied}</Text>
       </View>
+      
+      <Text style={styles.recentCount}>
+        {recentPhrases.length} {config.mode === 'tk' ? 'sözlem' : '个短语'}
+      </Text>
+    </View>
+  );
+});
 
-      {/* ✅ ИСПРАВЛЕНО: Сетка категорий с правильным отображением */}
-      <FlatList
-        data={gridData}
-        renderItem={renderGridItem}
-        keyExtractor={keyExtractor}
-        numColumns={2}
-        style={styles.gridContainer}
-        contentContainerStyle={styles.gridContent}
-        showsVerticalScrollIndicator={false}
-        columnWrapperStyle={styles.gridRow}
-      />
+export default function HomeScreen() {
+  const navigation = useNavigation<HomeScreenNavigationProp>();
+  const { getTexts } = useAppLanguage();
+  const texts = getTexts();
 
-      {/* Модальное окно статистики */}
-      <StatsModal
-        visible={showQuickStats}
-        onClose={closeStatsModal}
-        recentPhrases={recentPhrases}
-        stats={stats}
-      />
-    </SafeAreaView>
+  const handleCategoryPress = useCallback((category: Category) => {
+    navigation.navigate('CategoryScreen', { category });
+  }, [navigation]);
+
+  const renderCategoryItem = useCallback(({ item }: { item: Category }) => (
+    <EnhancedCategoryCard
+      category={item}
+      onPress={() => handleCategoryPress(item)}
+    />
+  ), [handleCategoryPress]);
+
+  return (
+    <ErrorBoundary>
+      <SafeAreaView style={styles.container}>
+        <StatusBar 
+          barStyle="dark-content" 
+          backgroundColor={Colors.background}
+        />
+        
+        <FlatList
+          data={categories}
+          renderItem={renderCategoryItem}
+          keyExtractor={(item) => item.id}
+          numColumns={2}
+          contentContainerStyle={styles.contentContainer}
+          showsVerticalScrollIndicator={false}
+          ListHeaderComponent={
+            <>
+              <AppHeader />
+              <RecentPhrasesCard />
+            </>
+          }
+          ItemSeparatorComponent={() => <View style={styles.separator} />}
+          columnWrapperStyle={styles.row}
+        />
+      </SafeAreaView>
+    </ErrorBoundary>
   );
 }
 
@@ -303,160 +190,172 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.background,
   },
-  header: {
-    paddingHorizontal: 20,
-    paddingTop: 10,
-    paddingBottom: 20,
+  
+  contentContainer: {
+    padding: 20,
+    paddingBottom: 100,
   },
-  headerTitle: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: Colors.text,
-    marginBottom: 5,
-  },
-  headerSubtitle: {
-    fontSize: 16,
-    color: Colors.textLight,
-    marginBottom: 12,
-  },
-  quickInfo: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 12,
-  },
-  quickInfoItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: Colors.backgroundLight,
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: 12,
-  },
-  quickInfoText: {
-    fontSize: 14,
-    color: Colors.textLight,
-    marginLeft: 6,
-  },
-  gridContainer: {
-    flex: 1,
-  },
-  gridContent: {
-    padding: 16,
-  },
-  gridRow: {
-    justifyContent: 'space-between',
-    marginBottom: 16,
-  },
-  cardContainer: {
-    width: (width - 48) / 2,
-    marginBottom: 8,
-  },
-  categoryCard: {
-    backgroundColor: Colors.cardBackground,
-    borderRadius: 16,
-    padding: 16,
-    width: (width - 48) / 2,
-    minHeight: cardHeight,
-    justifyContent: 'center',
-    alignItems: 'center',
-    elevation: 2,
-    shadowColor: Colors.cardShadow,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  recentCard: {
-    backgroundColor: Colors.primary + '10',
-    borderWidth: 1,
-    borderColor: Colors.primary + '30',
-  },
-  recentCardContent: {
-    alignItems: 'center',
-    width: '100%',
-  },
-  recentIconContainer: {
-    marginBottom: 8,
-  },
-  recentTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: Colors.text,
-    textAlign: 'center',
-    marginBottom: 8,
-  },
-  recentStatsContainer: {
+
+  // ✅ ИСПРАВЛЕНО: Профессиональный стиль заголовка
+  headerContainer: {
+    marginBottom: 30,
     alignItems: 'center',
   },
-  recentStatsText: {
-    fontSize: 14,
-    color: Colors.textLight,
-    textAlign: 'center',
-  },
-  recentTodayText: {
-    fontSize: 12,
+
+  appTitle: {
+    ...TextStyles.title,
+    fontSize: 24,
+    fontWeight: '800',
     color: Colors.primary,
     textAlign: 'center',
-    marginTop: 2,
+    letterSpacing: 0.5,
+    marginBottom: 8,
   },
-  errorText: {
-    color: Colors.error,
+
+  appSubtitle: {
+    ...TextStyles.subtitle,
     fontSize: 14,
-    textAlign: 'center',
-  },
-  
-  // Модальное окно
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  modalContent: {
-    backgroundColor: Colors.cardBackground,
-    borderRadius: 20,
-    padding: 24,
-    margin: 20,
-    minWidth: 280,
-  },
-  modalTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: Colors.text,
+    color: Colors.textLight,
     textAlign: 'center',
     marginBottom: 20,
+    fontWeight: '500',
   },
-  statsGrid: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginBottom: 24,
+
+  selectCategoryText: {
+    ...TextStyles.body,
+    fontSize: 16,
+    color: Colors.text,
+    fontWeight: '600',
+    textAlign: 'center',
   },
-  statItem: {
+
+  // ✅ ИСПРАВЛЕНО: Профессиональный стиль карточек категорий
+  row: {
+    justifyContent: 'space-between',
+  },
+
+  separator: {
+    height: 16,
+  },
+
+  categoryCard: {
+    width: cardWidth,
+    height: cardHeight,
+    borderRadius: 16,
+    padding: 16,
+    marginBottom: 16,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 5,
+    backgroundColor: 'white',
+    borderWidth: 1,
+    borderColor: Colors.border,
+    position: 'relative',
+  },
+
+  categoryIconContainer: {
+    width: 48,
+    height: 48,
+    borderRadius: 12,
+    justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 12,
   },
-  statNumber: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    color: Colors.primary,
+
+  categoryIcon: {
+    fontSize: 24,
   },
-  statLabel: {
+
+  categoryTextContainer: {
+    flex: 1,
+    justifyContent: 'space-between',
+    marginBottom: 8,
+  },
+
+  categoryNamePrimary: {
+    fontSize: 16,
+    fontWeight: '700',
+    lineHeight: 20,
+    marginBottom: 4,
+  },
+
+  categoryNameLearning: {
+    fontSize: 13,
+    fontWeight: '500',
+    color: Colors.textSecondary,
+    lineHeight: 16,
+    marginBottom: 2,
+  },
+
+  categoryNameHelper: {
+    fontSize: 11,
+    fontWeight: '400',
+    color: Colors.textLight,
+    lineHeight: 14,
+  },
+
+  // ✅ ИСПРАВЛЕНО: Профессиональная стрелка выровненная по центру
+  arrowContainer: {
+    position: 'absolute',
+    right: 12,
+    top: '50%',
+    marginTop: -16,
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+
+  // Стили для карточки недавних фраз
+  recentCard: {
+    backgroundColor: 'white',
+    borderRadius: 16,
+    padding: 20,
+    marginBottom: 24,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 3,
+    borderWidth: 1,
+    borderColor: Colors.border,
+  },
+
+  recentHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+
+  recentTitle: {
+    ...TextStyles.subtitle,
+    fontSize: 18,
+    fontWeight: '600',
+    color: Colors.text,
+    marginLeft: 12,
+  },
+
+  recentCount: {
+    ...TextStyles.caption,
     fontSize: 14,
     color: Colors.textLight,
-    textAlign: 'center',
-    marginTop: 4,
-  },
-  closeButton: {
-    backgroundColor: Colors.primary,
-    paddingVertical: 12,
-    paddingHorizontal: 24,
-    borderRadius: 12,
-    alignSelf: 'center',
-  },
-  closeButtonText: {
-    color: Colors.textWhite,
-    fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '500',
   },
 });
-
-// ✅ ИСПРАВЛЕНО: Только ОДИН export default
-export default HomeScreen;
