@@ -22,6 +22,8 @@ import { Colors } from '../constants/Colors';
 import { TextStyles } from '../constants/Typography';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { useAnimations } from '../hooks/useAnimations';
+import { useHistory } from '../hooks/useHistory';
+import { useOfflineData } from '../hooks/useOfflineDataManager';
 import { phrases } from '../data/phrases';
 import { categories, getCategoryName } from '../data/categories';
 import CategoryCard from '../components/CategoryCard';
