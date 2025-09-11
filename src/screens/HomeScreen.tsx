@@ -22,8 +22,7 @@ import { Colors } from '../constants/Colors';
 import { TextStyles } from '../constants/Typography';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { useAnimations } from '../hooks/useAnimations';
-import { useHistory } from '../hooks/useHistory';
-import { useOfflineData } from '../hooks/useOfflineDataManager';
+import { useOfflineDataManager } from '../hooks/useOfflineDataManager';
 import { phrases } from '../data/phrases';
 import { categories, getCategoryName } from '../data/categories';
 import CategoryCard from '../components/CategoryCard';
@@ -115,8 +114,7 @@ const EnhancedCategoryCard = React.memo<{
 // ✅ Главный компонент HomeScreen
 export default function HomeScreen() {
   const navigation = useNavigation<HomeScreenNavigationProp>();
-  const { getHistory } = useHistory();
-  const { isOffline } = useOfflineData();
+  const { isOnline } = useOfflineDataManager();
   
   // ✅ УБРАНО: Вся логика с недавними фразами
   
@@ -275,7 +273,7 @@ const styles = StyleSheet.create({
   categorySecondaryText: {
     fontSize: 13,
     fontWeight: '600',
-    color: Colors.textMedium,
+    color: Colors.textSecondary,
     marginBottom: 2,
   },
 
