@@ -38,22 +38,22 @@ const AppHeader = React.memo(() => {
 
   return (
     <View style={styles.headerContainer}>
-      {/* Название на текущем языке */}
-      <Text style={styles.appTitle}>
-        {texts.appTitle}
+      {/* Turkmen Title */}
+      <Text style={styles.turkmenTitle}>
+        TÜRKMEN-HYTAÝ GEPLEŞIK KITABY
       </Text>
       
-      {/* Китайское название */}
+      {/* Chinese Title */}
       <Text style={styles.chineseTitle}>
         土库曼-中文会话手册
       </Text>
       
-      {/* Русское название (всегда показываем) */}
+      {/* Russian Title */}
       <Text style={styles.russianTitle}>
-        Туркменский-китайский разговорник
+        Туркменско-китайский разговорник
       </Text>
       
-      {/* Селектор категории */}
+      {/* Select Category Text */}
       <Text style={styles.selectCategoryText}>
         {texts.selectCategory}
       </Text>
@@ -117,26 +117,27 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
-  appTitle: {
-    fontSize: 22,
-    fontWeight: '800',
+  turkmenTitle: {
+    fontSize: 18,
+    fontWeight: '700',
     color: Colors.textWhite,
     textAlign: 'center',
-    marginBottom: 4,
+    marginBottom: 6,
+    letterSpacing: 0.5,
   },
 
   chineseTitle: {
     fontSize: 16,
     fontWeight: '600',
-    color: Colors.textWhite + 'CC',
+    color: Colors.textWhite + 'DD',
     textAlign: 'center',
-    marginBottom: 4,
+    marginBottom: 6,
   },
 
   russianTitle: {
     fontSize: 14,
     fontWeight: '500',
-    color: Colors.textWhite + 'AA',
+    color: Colors.textWhite + 'CC',
     textAlign: 'center',
     marginBottom: 16,
   },
@@ -151,5 +152,6 @@ const styles = StyleSheet.create({
   gridContainer: {
     padding: 16,
     paddingBottom: 100,
+    backgroundColor: Colors.background,
   },
 });

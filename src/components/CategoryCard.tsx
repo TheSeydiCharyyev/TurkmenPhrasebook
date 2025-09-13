@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
 import { Category } from '../types';
 import { Colors } from '../constants/Colors';
 import { useAppLanguage } from '../contexts/LanguageContext';
@@ -11,6 +11,7 @@ interface CategoryCardProps {
 
 export default function CategoryCard({ category, onPress }: CategoryCardProps) {
   const { config } = useAppLanguage();
+  const [scaleValue] = useState(new Animated.Value(1));
 
   const getCategoryName = () => {
     switch (config.mode) {
@@ -28,12 +29,34 @@ export default function CategoryCard({ category, onPress }: CategoryCardProps) {
     }
   };
 
+  const handlePressIn = () => {
+    Animated.spring(scaleValue, {
+      toValue: 1.02,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const handlePressOut = () => {
+    Animated.spring(scaleValue, {
+      toValue: 1,
+      useNativeDriver: true,
+    }).start();
+  };
+
   return (
     <TouchableOpacity
-      style={[styles.card, { backgroundColor: category.color + '15' }]}
       onPress={onPress}
-      activeOpacity={0.8}
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
+      activeOpacity={0.9}
     >
+      <Animated.View
+        style={[
+          styles.card,
+          { backgroundColor: category.color + '08' },
+          { transform: [{ scale: scaleValue }] }
+        ]}
+      >
       <View style={styles.iconContainer}>
         <Text style={styles.icon}>{category.icon}</Text>
       </View>
@@ -51,6 +74,7 @@ export default function CategoryCard({ category, onPress }: CategoryCardProps) {
       </View>
       
       <View style={[styles.accent, { backgroundColor: category.color }]} />
+      </Animated.View>
     </TouchableOpacity>
   );
 }
@@ -58,20 +82,18 @@ export default function CategoryCard({ category, onPress }: CategoryCardProps) {
 const styles = StyleSheet.create({
   card: {
     height: 140,
-    borderRadius: 16,
+    borderRadius: 14,
     padding: 16,
     marginHorizontal: 8,
     marginVertical: 6,
     backgroundColor: Colors.cardBackground,
     
-    // Улучшенные тени и границы
-    borderWidth: 1,
-    borderColor: Colors.cardBorder + '40',
-    shadowColor: Colors.shadowColor,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.12,
-    shadowRadius: 8,
-    elevation: 6,
+    // Option 2: Cards with Shadow - No border, subtle shadow
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 6,
+    elevation: 3,
     
     position: 'relative',
   },

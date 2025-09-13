@@ -1,11 +1,11 @@
 export const Colors = {
   // Primary colors
-  primary: '#DC2626',
-  primaryLight: '#EF4444',
-  primaryDark: '#B91C1C',
+  primary: '#E53935',
+  primaryLight: '#EF5350',
+  primaryDark: '#C62828',
   
   // Background colors
-  background: '#FFFFFF',
+  background: '#FAFAFA',
   backgroundLight: '#F9FAFB',
   backgroundDark: '#F3F4F6',
   
@@ -37,7 +37,7 @@ export const Colors = {
   divider: '#F3F4F6',
   
   // Tab navigation
-  tabActive: '#DC2626',
+  tabActive: '#E53935',
   tabInactive: '#9CA3AF',
 } as const;
 
