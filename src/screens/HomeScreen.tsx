@@ -1,5 +1,3 @@
-// src/screens/HomeScreen.tsx - ИСПРАВЛЕННЫЙ с убранным "Soňky öwrenilen"
-
 import React, { useMemo, useCallback, useState, useEffect } from 'react';
 import {
   View,
@@ -34,21 +32,25 @@ const cardHeight = 140;
 
 type HomeScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'CategoryScreen'>;
 
-// ✅ ИСПРАВЛЕНО: Заголовок без "Soňky öwrenilen"
 const AppHeader = React.memo(() => {
   const { getTexts, config } = useAppLanguage();
   const texts = getTexts();
 
   return (
     <View style={styles.headerContainer}>
-      {/* Главный заголовок */}
+      {/* Название на текущем языке */}
       <Text style={styles.appTitle}>
         {texts.appTitle}
       </Text>
       
-      {/* Подзаголовок с переводом на другой язык */}
-      <Text style={styles.appSubtitle}>
-        {texts.appSubtitle}
+      {/* Китайское название */}
+      <Text style={styles.chineseTitle}>
+        土库曼-中文会话手册
+      </Text>
+      
+      {/* Русское название (всегда показываем) */}
+      <Text style={styles.russianTitle}>
+        Туркменский-китайский разговорник
       </Text>
       
       {/* Селектор категории */}
@@ -59,111 +61,44 @@ const AppHeader = React.memo(() => {
   );
 });
 
-// ✅ ИСПРАВЛЕНО: Карточка категории с правильным отображением языков
-const EnhancedCategoryCard = React.memo<{
-  category: Category;
-  onPress: () => void;
-}>(({ category, onPress }) => {
-  const { config } = useAppLanguage();
-  const { pressAnimation, hapticFeedback } = useAnimations();
-  const categoryNames = getCategoryName(category, config.mode);
-
-  const handlePress = useCallback(() => {
-    hapticFeedback('medium');
-    pressAnimation();
-    onPress();
-  }, [onPress, hapticFeedback, pressAnimation]);
-
-  return (
-    <TouchableOpacity
-      style={[styles.categoryCard, { backgroundColor: category.color + '15' }]}
-      onPress={handlePress}
-      activeOpacity={0.8}
-    >
-      {/* Иконка */}
-      <View style={[styles.categoryIconContainer, { backgroundColor: category.color + '25' }]}>
-        <Text style={styles.categoryIcon}>{category.icon}</Text>
-      </View>
-
-      {/* Названия в правильном порядке */}
-      <View style={styles.categoryTextContainer}>
-        {/* Основной язык (крупно) */}
-        <Text style={styles.categoryMainText} numberOfLines={1}>
-          {categoryNames.primary}
-        </Text>
-        
-        {/* Изучаемый язык (средне) */}
-        <Text style={styles.categorySecondaryText} numberOfLines={1}>
-          {categoryNames.learning}
-        </Text>
-        
-        {/* Вспомогательный язык (мелко) */}
-        <Text style={styles.categoryHelperText} numberOfLines={1}>
-          {categoryNames.helper}
-        </Text>
-      </View>
-
-      {/* Кнопка перехода */}
-      <View style={styles.categoryArrow}>
-        <Ionicons name="chevron-forward" size={16} color={category.color} />
-      </View>
-    </TouchableOpacity>
-  );
-});
-
-// ✅ Главный компонент HomeScreen
-export default function HomeScreen() {
+const CategoryGrid = React.memo(() => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
-  const { isOnline } = useOfflineDataManager();
-  
-  // ✅ УБРАНО: Вся логика с недавними фразами
   
   const handleCategoryPress = useCallback((category: Category) => {
     navigation.navigate('CategoryScreen', { category });
   }, [navigation]);
 
-  const renderCategoryItem = useCallback(({ item }: { item: Category }) => (
-    <EnhancedCategoryCard
-      category={item}
+  const renderCategory = useCallback(({ item }: { item: Category }) => (
+    <CategoryCard 
+      category={item} 
       onPress={() => handleCategoryPress(item)}
     />
   ), [handleCategoryPress]);
 
-  const renderCategoryRow = useCallback(({ item }: { item: Category[] }) => (
-    <View style={styles.row}>
-      {item.map((category) => (
-        <EnhancedCategoryCard
-          key={category.id}
-          category={category}
-          onPress={() => handleCategoryPress(category)}
-        />
-      ))}
-    </View>
-  ), [handleCategoryPress]);
+  return (
+    <FlatList
+      data={categories}
+      renderItem={renderCategory}
+      keyExtractor={(item) => item.id}
+      numColumns={2}
+      contentContainerStyle={styles.gridContainer}
+      showsVerticalScrollIndicator={false}
+      getItemLayout={(_, index) => ({
+        length: cardHeight + 12,
+        offset: (cardHeight + 12) * Math.floor(index / 2),
+        index,
+      })}
+    />
+  );
+});
 
-  // Группируем категории по 2 в ряд
-  const categoriesInRows = useMemo(() => {
-    const rows: Category[][] = [];
-    for (let i = 0; i < categories.length; i += 2) {
-      rows.push(categories.slice(i, i + 2));
-    }
-    return rows;
-  }, []);
-
+export default function HomeScreen() {
   return (
     <ErrorBoundary>
       <SafeAreaView style={styles.container}>
-        <StatusBar barStyle="dark-content" backgroundColor={Colors.background} />
-        
-        <FlatList
-          data={categoriesInRows}
-          renderItem={renderCategoryRow}
-          keyExtractor={(item, index) => `row-${index}`}
-          showsVerticalScrollIndicator={false}
-          ListHeaderComponent={<AppHeader />}
-          contentContainerStyle={styles.scrollContent}
-          ItemSeparatorComponent={() => <View style={styles.separator} />}
-        />
+        <StatusBar backgroundColor={Colors.primary} barStyle="light-content" />
+        <AppHeader />
+        <CategoryGrid />
       </SafeAreaView>
     </ErrorBoundary>
   );
@@ -175,123 +110,46 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
 
-  scrollContent: {
-    paddingHorizontal: 20,
-    paddingTop: 20,
-    paddingBottom: 100,
-  },
-
-  // ✅ ИСПРАВЛЕНО: Стили заголовка
   headerContainer: {
-    marginBottom: 30,
+    paddingHorizontal: 20,
+    paddingVertical: 24,
+    backgroundColor: Colors.primary,
     alignItems: 'center',
   },
 
   appTitle: {
-    ...TextStyles.title,
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: '800',
-    color: Colors.primary,
+    color: Colors.textWhite,
     textAlign: 'center',
-    letterSpacing: 0.5,
-    marginBottom: 8,
-  },
-
-  appSubtitle: {
-    ...TextStyles.subtitle,
-    fontSize: 14,
-    color: Colors.textLight,
-    textAlign: 'center',
-    marginBottom: 20,
-    fontWeight: '500',
-  },
-
-  selectCategoryText: {
-    ...TextStyles.body,
-    fontSize: 16,
-    color: Colors.text,
-    fontWeight: '600',
-    textAlign: 'center',
-  },
-
-  // ✅ Стили для карточек категорий
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-
-  separator: {
-    height: 16,
-  },
-
-  categoryCard: {
-    width: cardWidth,
-    height: cardHeight,
-    borderRadius: 16,
-    padding: 16,
-    marginBottom: 16,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 5,
-    backgroundColor: 'white',
-    borderWidth: 1,
-    borderColor: Colors.border,
-    position: 'relative',
-  },
-
-  categoryIconContainer: {
-    width: 48,
-    height: 48,
-    borderRadius: 12,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 12,
-  },
-
-  categoryIcon: {
-    fontSize: 24,
-  },
-
-  categoryTextContainer: {
-    flex: 1,
-    justifyContent: 'space-between',
-    marginBottom: 8,
-  },
-
-  categoryMainText: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: Colors.text,
     marginBottom: 4,
   },
 
-  categorySecondaryText: {
-    fontSize: 13,
+  chineseTitle: {
+    fontSize: 16,
     fontWeight: '600',
-    color: Colors.textSecondary,
-    marginBottom: 2,
+    color: Colors.textWhite + 'CC',
+    textAlign: 'center',
+    marginBottom: 4,
   },
 
-  categoryHelperText: {
-    fontSize: 11,
+  russianTitle: {
+    fontSize: 14,
     fontWeight: '500',
-    color: Colors.textLight,
+    color: Colors.textWhite + 'AA',
+    textAlign: 'center',
+    marginBottom: 16,
   },
 
-  categoryArrow: {
-    position: 'absolute',
-    bottom: 12,
-    right: 12,
-    width: 24,
-    height: 24,
-    borderRadius: 12,
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    justifyContent: 'center',
-    alignItems: 'center',
+  selectCategoryText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: Colors.textWhite,
+    textAlign: 'center',
+  },
+
+  gridContainer: {
+    padding: 16,
+    paddingBottom: 100,
   },
 });
