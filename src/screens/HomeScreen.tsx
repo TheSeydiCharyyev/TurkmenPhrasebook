@@ -1,6 +1,6 @@
-// src/screens/HomeScreen.tsx - 25 категорий с вертикальной прокруткой
+// src/screens/HomeScreen.tsx - Сворачиваемый заголовок при скролле
 
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import {
   View,
   Text,
@@ -8,6 +8,7 @@ import {
   FlatList,
   SafeAreaView,
   StatusBar,
+  Animated,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -21,33 +22,66 @@ import ErrorBoundary from '../components/ErrorBoundary';
 
 type HomeScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'CategoryScreen'>;
 
-const AppHeader = React.memo(() => {
+// Высота заголовка для анимации
+const HEADER_HEIGHT = 140;
+
+const AppHeader = React.memo<{ animatedValue: Animated.Value }>(({ animatedValue }) => {
   const { getTexts } = useAppLanguage();
   const texts = getTexts();
 
+  // Анимация высоты заголовка
+  const headerHeight = animatedValue.interpolate({
+    inputRange: [0, 100],
+    outputRange: [HEADER_HEIGHT, 60], // Сворачиваем с 140px до 60px
+    extrapolate: 'clamp',
+  });
+
+  // Анимация прозрачности основного текста
+  const headerOpacity = animatedValue.interpolate({
+    inputRange: [0, 50],
+    outputRange: [1, 0],
+    extrapolate: 'clamp',
+  });
+
+  // Анимация прозрачности компактного заголовка
+  const compactOpacity = animatedValue.interpolate({
+    inputRange: [30, 80],
+    outputRange: [0, 1],
+    extrapolate: 'clamp',
+  });
+
   return (
-    <View style={styles.headerContainer}>
-      {/* Оригинальный заголовок */}
-      <Text style={styles.turkmenTitle}>
-        TÜRKMEN-HYTAÝ GEPLEŞIK KITABY
-      </Text>
-      
-      <Text style={styles.chineseTitle}>
-        土库曼-中文会话手册
-      </Text>
-      
-      <Text style={styles.russianTitle}>
-        Туркменско-китайский разговорник
-      </Text>
-      
-      <Text style={styles.selectCategoryText}>
-        {texts.selectCategory}
-      </Text>
-    </View>
+    <Animated.View style={[styles.headerContainer, { height: headerHeight }]}>
+      {/* Полный заголовок - исчезает при скролле */}
+      <Animated.View style={[styles.fullHeader, { opacity: headerOpacity }]}>
+        <Text style={styles.turkmenTitle}>
+          TÜRKMEN-HYTAÝ GEPLEŞIK KITABY
+        </Text>
+        
+        <Text style={styles.chineseTitle}>
+          土库曼-中文会话手册
+        </Text>
+        
+        <Text style={styles.russianTitle}>
+          Туркменско-китайский разговорник
+        </Text>
+        
+        <Text style={styles.selectCategoryText}>
+          {texts.selectCategory}
+        </Text>
+      </Animated.View>
+
+      {/* Компактный заголовок - появляется при скролле */}
+      <Animated.View style={[styles.compactHeader, { opacity: compactOpacity }]}>
+        <Text style={styles.compactTitle}>
+          {texts.selectCategory}
+        </Text>
+      </Animated.View>
+    </Animated.View>
   );
 });
 
-const CategoryGrid = React.memo(() => {
+const CategoryGrid = React.memo<{ onScroll: (event: any) => void }>(({ onScroll }) => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
   
   const handleCategoryPress = useCallback((category: Category) => {
@@ -57,7 +91,6 @@ const CategoryGrid = React.memo(() => {
   const renderCategory = useCallback(({ item, index }: { item: Category; index: number }) => (
     <View style={[
       styles.cardWrapper,
-      // Добавляем отступ только к левой карточке в паре
       index % 2 === 0 ? styles.leftCard : styles.rightCard
     ]}>
       <CategoryCard 
@@ -69,14 +102,15 @@ const CategoryGrid = React.memo(() => {
 
   return (
     <FlatList
-      data={categories} // Все 25 категорий
+      data={categories}
       renderItem={renderCategory}
       keyExtractor={(item) => item.id}
       numColumns={2}
       contentContainerStyle={styles.gridContainer}
       columnWrapperStyle={styles.row}
       showsVerticalScrollIndicator={false}
-      // Оптимизация для больших списков
+      onScroll={onScroll}
+      scrollEventThrottle={16} // Плавная анимация
       removeClippedSubviews={true}
       maxToRenderPerBatch={8}
       windowSize={10}
@@ -86,6 +120,13 @@ const CategoryGrid = React.memo(() => {
 });
 
 export default function HomeScreen() {
+  const scrollY = useRef(new Animated.Value(0)).current;
+
+  const handleScroll = Animated.event(
+    [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+    { useNativeDriver: false } // Используем height анимацию
+  );
+
   return (
     <ErrorBoundary>
       <SafeAreaView style={styles.container}>
@@ -95,10 +136,10 @@ export default function HomeScreen() {
           translucent={false}
         />
         
-        <AppHeader />
+        <AppHeader animatedValue={scrollY} />
         
         <View style={styles.contentContainer}>
-          <CategoryGrid />
+          <CategoryGrid onScroll={handleScroll} />
         </View>
       </SafeAreaView>
     </ErrorBoundary>
@@ -114,11 +155,19 @@ const styles = StyleSheet.create({
   headerContainer: {
     backgroundColor: Colors.primary,
     paddingHorizontal: 24,
-    paddingVertical: 24,
-    paddingBottom: 32,
+    justifyContent: 'center',
+    overflow: 'hidden',
+  },
+
+  // Полный заголовок
+  fullHeader: {
+    position: 'absolute',
+    width: '100%',
+    alignItems: 'center',
+    top: '50%',
+    transform: [{ translateY: -60 }],
   },
   
-  // Заголовки
   turkmenTitle: {
     fontSize: 18,
     fontWeight: '700',
@@ -153,6 +202,22 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     opacity: 0.9,
   },
+
+  // Компактный заголовок
+  compactHeader: {
+    position: 'absolute',
+    width: '100%',
+    alignItems: 'center',
+    top: '50%',
+    transform: [{ translateY: -10 }],
+  },
+
+  compactTitle: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: Colors.textWhite,
+    textAlign: 'center',
+  },
   
   contentContainer: {
     flex: 1,
@@ -162,23 +227,23 @@ const styles = StyleSheet.create({
   gridContainer: {
     paddingHorizontal: 24,
     paddingVertical: 20,
-    paddingBottom: 40, // Дополнительный отступ снизу
+    paddingBottom: 40,
   },
   
   row: {
     justifyContent: 'space-between',
-    marginBottom: 0, // Убираем отступ, используем marginBottom в карточках
+    marginBottom: 0,
   },
   
   cardWrapper: {
-    width: '48%', // Точно половина минус промежуток
+    width: '48%',
   },
   
   leftCard: {
-    marginRight: 8, // Отступ только у левой карточки
+    marginRight: 8,
   },
   
   rightCard: {
-    marginLeft: 8, // Отступ только у правой карточки
+    marginLeft: 8,
   },
 });
