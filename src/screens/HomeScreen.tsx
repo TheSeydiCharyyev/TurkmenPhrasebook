@@ -1,4 +1,4 @@
-// src/screens/HomeScreen.tsx - С оригинальным полным заголовком
+// src/screens/HomeScreen.tsx - 25 категорий с вертикальной прокруткой
 
 import React, { useCallback } from 'react';
 import {
@@ -15,7 +15,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { Category, HomeStackParamList } from '../types';
 import { Colors } from '../constants/Colors';
 import { useAppLanguage } from '../contexts/LanguageContext';
-import { categories } from '../data/categories'; // Все 14 категорий
+import { categories } from '../data/categories'; // Все 25 категорий
 import CategoryCard from '../components/CategoryCard';
 import ErrorBoundary from '../components/ErrorBoundary';
 
@@ -27,7 +27,7 @@ const AppHeader = React.memo(() => {
 
   return (
     <View style={styles.headerContainer}>
-      {/* Оригинальный заголовок как во втором фото */}
+      {/* Оригинальный заголовок */}
       <Text style={styles.turkmenTitle}>
         TÜRKMEN-HYTAÝ GEPLEŞIK KITABY
       </Text>
@@ -54,8 +54,12 @@ const CategoryGrid = React.memo(() => {
     navigation.navigate('CategoryScreen', { category });
   }, [navigation]);
 
-  const renderCategory = useCallback(({ item }: { item: Category }) => (
-    <View style={styles.cardWrapper}>
+  const renderCategory = useCallback(({ item, index }: { item: Category; index: number }) => (
+    <View style={[
+      styles.cardWrapper,
+      // Добавляем отступ только к левой карточке в паре
+      index % 2 === 0 ? styles.leftCard : styles.rightCard
+    ]}>
       <CategoryCard 
         category={item} 
         onPress={() => handleCategoryPress(item)}
@@ -65,13 +69,18 @@ const CategoryGrid = React.memo(() => {
 
   return (
     <FlatList
-      data={categories} // Все 14 категорий
+      data={categories} // Все 25 категорий
       renderItem={renderCategory}
       keyExtractor={(item) => item.id}
       numColumns={2}
       contentContainerStyle={styles.gridContainer}
       columnWrapperStyle={styles.row}
       showsVerticalScrollIndicator={false}
+      // Оптимизация для больших списков
+      removeClippedSubviews={true}
+      maxToRenderPerBatch={8}
+      windowSize={10}
+      initialNumToRender={8}
     />
   );
 });
@@ -109,7 +118,7 @@ const styles = StyleSheet.create({
     paddingBottom: 32,
   },
   
-  // Оригинальные стили заголовков как во втором фото
+  // Заголовки
   turkmenTitle: {
     fontSize: 18,
     fontWeight: '700',
@@ -151,15 +160,25 @@ const styles = StyleSheet.create({
   },
   
   gridContainer: {
-    padding: 24,
-    paddingBottom: 40,
+    paddingHorizontal: 24,
+    paddingVertical: 20,
+    paddingBottom: 40, // Дополнительный отступ снизу
   },
   
   row: {
     justifyContent: 'space-between',
+    marginBottom: 0, // Убираем отступ, используем marginBottom в карточках
   },
   
   cardWrapper: {
-    flex: 0.48,
+    width: '48%', // Точно половина минус промежуток
+  },
+  
+  leftCard: {
+    marginRight: 8, // Отступ только у левой карточки
+  },
+  
+  rightCard: {
+    marginLeft: 8, // Отступ только у правой карточки
   },
 });

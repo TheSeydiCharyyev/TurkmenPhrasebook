@@ -1,4 +1,4 @@
-// src/components/CategoryCard.tsx - Крупные современные карточки
+// src/components/CategoryCard.tsx - Крупные современные карточки для 25 категорий
 
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated, Dimensions } from 'react-native';
@@ -8,9 +8,9 @@ import { Colors } from '../constants/Colors';
 import { useAppLanguage } from '../contexts/LanguageContext';
 
 const { width } = Dimensions.get('window');
-// Крупные карточки: 3 строки по 2 карточки
-const cardWidth = (width - 48) / 2; // 24px margin on each side
-const cardHeight = 160; // Увеличенная высота для большего удобства
+// Крупные карточки для удобства чтения 3 языков
+const cardWidth = (width - 48) / 2; // 24px отступы по краям
+const cardHeight = 200; // Увеличенная высота для 3 языков
 
 interface CategoryCardProps {
   category: Category;
@@ -20,22 +20,6 @@ interface CategoryCardProps {
 export default function CategoryCard({ category, onPress }: CategoryCardProps) {
   const { config } = useAppLanguage();
   const [scaleValue] = useState(new Animated.Value(1));
-
-  const getCategoryName = () => {
-    switch (config.mode) {
-      case 'tk': return category.nameTk;
-      case 'zh': return category.nameZh;
-      default: return category.nameRu;
-    }
-  };
-
-  const getSecondaryName = () => {
-    switch (config.mode) {
-      case 'tk': return category.nameRu;
-      case 'zh': return category.nameRu;
-      default: return category.nameTk;
-    }
-  };
 
   const handlePressIn = () => {
     Animated.spring(scaleValue, {
@@ -69,32 +53,32 @@ export default function CategoryCard({ category, onPress }: CategoryCardProps) {
           { transform: [{ scale: scaleValue }] }
         ]}
       >
-        {/* Профессиональная иконка Ionicons */}
-        <View style={[styles.iconContainer, { backgroundColor: category.color + '15' }]}>
+        {/* Modern flat иконка */}
+        <View style={[styles.iconContainer, { backgroundColor: category.color + '12' }]}>
           <Ionicons
             name={category.icon as any}
-            size={32}
+            size={28}
             color={category.color}
           />
         </View>
         
-        {/* Текстовый контент */}
+        {/* Текстовый контент с правильной иерархией */}
         <View style={styles.textContainer}>
-          <Text style={styles.primaryText} numberOfLines={2}>
-            {getCategoryName()}
+          {/* ТУРКМЕНСКИЙ - основной (черный, жирный) */}
+          <Text style={styles.turkmenText} numberOfLines={2}>
+            {category.nameTk}
           </Text>
           
+          {/* КИТАЙСКИЙ - серый, тоньше */}
           <Text style={styles.chineseText} numberOfLines={1}>
             {category.nameZh}
           </Text>
           
-          <Text style={styles.secondaryText} numberOfLines={1}>
-            {getSecondaryName()}
+          {/* РУССКИЙ - серый, тоньше */}
+          <Text style={styles.russianText} numberOfLines={1}>
+            {category.nameRu}
           </Text>
         </View>
-        
-        {/* Тонкая цветная полоска снизу */}
-        <View style={[styles.colorAccent, { backgroundColor: category.color }]} />
       </Animated.View>
     </TouchableOpacity>
   );
@@ -104,77 +88,71 @@ const styles = StyleSheet.create({
   cardContainer: {
     width: cardWidth,
     height: cardHeight,
-    marginBottom: 20, // Увеличенный отступ между рядами
+    marginBottom: 16, // Равномерные отступы
   },
   
   card: {
     flex: 1,
-    backgroundColor: Colors.cardBackground,
-    borderRadius: 20, // Более скруглённые углы
-    padding: 20, // Больше внутренних отступов
+    backgroundColor: Colors.cardBackground, // Белый фон
+    borderRadius: 16, // Скруглённые углы
+    padding: 20,
     justifyContent: 'space-between',
-    position: 'relative',
     
-    // Профессиональная тень
+    // Лёгкая тень
     shadowColor: '#000000',
     shadowOffset: {
       width: 0,
-      height: 4,
+      height: 3,
     },
-    shadowOpacity: 0.08,
+    shadowOpacity: 0.06,
     shadowRadius: 12,
-    elevation: 4,
+    elevation: 3,
     
-    borderWidth: 0,
+    borderWidth: 0, // Без границ
   },
 
   iconContainer: {
-    width: 56, // Крупнее иконка
-    height: 56,
-    borderRadius: 16,
+    width: 48,
+    height: 48,
+    borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'flex-start',
-    marginBottom: 12,
+    marginBottom: 16,
   },
 
   textContainer: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'flex-start',
   },
 
-  primaryText: {
-    fontSize: 17, // Крупнее текст
-    fontWeight: '700', // Жирнее
-    color: Colors.textPrimary,
+  // ТУРКМЕНСКИЙ - основной текст (черный, жирный)
+  turkmenText: {
+    fontSize: 17,
+    fontWeight: '700', // Жирный
+    color: Colors.textPrimary, // Черный
     lineHeight: 22,
-    marginBottom: 6,
+    marginBottom: 8,
     textAlign: 'left',
   },
 
+  // КИТАЙСКИЙ - вторичный (серый, тоньше)
   chineseText: {
+    fontSize: 15,
+    fontWeight: '500', // Средний
+    color: Colors.textSecondary, // Серый
+    lineHeight: 20,
+    marginBottom: 6,
+    opacity: 0.8,
+  },
+
+  // РУССКИЙ - вторичный (серый, тоньше)
+  russianText: {
     fontSize: 14,
-    fontWeight: '600',
-    color: Colors.textSecondary,
+    fontWeight: '400', // Обычный
+    color: Colors.textLight, // Светло-серый
     lineHeight: 18,
-    marginBottom: 4,
-  },
-
-  secondaryText: {
-    fontSize: 13,
-    fontWeight: '500',
-    color: Colors.textLight,
-    lineHeight: 16,
-  },
-
-  // Тонкая цветная полоска внизу карточки
-  colorAccent: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: 3,
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    opacity: 0.7,
   },
 });
