@@ -1,12 +1,13 @@
-// src/components/RecentCategoryCard.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ с едиными границами
+// src/components/RecentCategoryCard.tsx - Современный дизайн без границ
 
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
   Dimensions,
+  Animated,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -17,9 +18,8 @@ import { useAnimations } from '../hooks/useAnimations';
 import { useAppLanguage } from '../contexts/LanguageContext';
 
 const { width } = Dimensions.get('window');
-const CARD_WIDTH = (width - 48) / 2; // Такой же размер как обычные категории
-const CARD_HEIGHT = 120; // Такая же высота как обычные категории
-const CARD_MARGIN = 8;
+const cardWidth = (width - 48) / 2; // Такой же как CategoryCard
+const cardHeight = 120;
 
 interface RecentCategoryCardProps {
   recentPhrases: Phrase[];
@@ -36,7 +36,7 @@ const RecentCategoryCard = React.memo<RecentCategoryCardProps>(({
 }) => {
   const { hapticFeedback } = useAnimations();
   const { getTexts, config } = useAppLanguage();
-  const texts = getTexts();
+  const [scaleValue] = useState(new Animated.Value(1));
 
   const handlePress = useCallback(() => {
     hapticFeedback('medium');
@@ -48,117 +48,154 @@ const RecentCategoryCard = React.memo<RecentCategoryCardProps>(({
     onStatsPress();
   }, [onStatsPress, hapticFeedback]);
 
+  const handlePressIn = () => {
+    Animated.spring(scaleValue, {
+      toValue: 0.95,
+      useNativeDriver: true,
+      tension: 300,
+      friction: 10,
+    }).start();
+  };
+
+  const handlePressOut = () => {
+    Animated.spring(scaleValue, {
+      toValue: 1,
+      useNativeDriver: true,
+      tension: 300,
+      friction: 10,
+    }).start();
+  };
+
   return (
-    <View style={styles.cardContainer}>
-      {/* ✅ ИСПРАВЛЕНО: Такие же стили как у обычных CategoryCard */}
-      <TouchableOpacity
-        style={styles.card}
-        onPress={handlePress}
-        onLongPress={handleLongPress}
-        activeOpacity={0.7}
+    <TouchableOpacity
+      style={styles.cardContainer}
+      onPress={handlePress}
+      onLongPress={handleLongPress}
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
+      activeOpacity={1}
+    >
+      <Animated.View
+        style={[
+          styles.card,
+          { transform: [{ scale: scaleValue }] }
+        ]}
       >
-        {/* Иконка - такая же структура как в CategoryCard */}
+        {/* Иконка с цветным фоном */}
         <View style={styles.iconContainer}>
           <Text style={styles.categoryIcon}>📚</Text>
         </View>
 
-        {/* Контент - такая же структура как в CategoryCard */}
-        <View style={styles.contentContainer}>
-          {/* ✅ ИСПРАВЛЕНО: Правильное название */}
-          <Text style={styles.categoryTitle} numberOfLines={2}>
+        {/* Текстовый контент */}
+        <View style={styles.textContainer}>
+          <Text style={styles.primaryText} numberOfLines={2}>
             {config.mode === 'tk' ? 'Soňky öwrenilen' :
              config.mode === 'zh' ? '最近学习的' :
              'Недавние фразы'}
           </Text>
 
-          {/* Статистика */}
-          <View style={styles.statsContainer}>
-            <Text style={styles.statsText}>
-              {recentPhrases.length} {config.mode === 'tk' ? 'sözlem' : 
-                                     config.mode === 'zh' ? '短语' : 'фраз'}
-            </Text>
-          </View>
+          <Text style={styles.chineseText} numberOfLines={1}>
+            最近学习
+          </Text>
 
-          {/* Индикатор - точно такой же как в CategoryCard */}
-          <View style={styles.indicatorContainer}>
-            <Ionicons 
-              name="chevron-forward" 
-              size={16} 
-              color={Colors.primary} 
-            />
-          </View>
+          <Text style={styles.secondaryText} numberOfLines={1}>
+            {recentPhrases.length} {config.mode === 'tk' ? 'sözlem' : 
+                                   config.mode === 'zh' ? '短语' : 'фраз'}
+          </Text>
         </View>
-      </TouchableOpacity>
-    </View>
+
+        {/* Стрелка перехода */}
+        <View style={styles.arrowContainer}>
+          <Ionicons 
+            name="chevron-forward" 
+            size={16} 
+            color={Colors.textLight}
+          />
+        </View>
+      </Animated.View>
+    </TouchableOpacity>
   );
 });
 
 RecentCategoryCard.displayName = 'RecentCategoryCard';
 
-// ✅ ИСПРАВЛЕНО: Точно такие же стили как у CategoryCard
 const styles = StyleSheet.create({
   cardContainer: {
-    width: CARD_WIDTH,
-    height: CARD_HEIGHT, 
-    marginBottom: CARD_MARGIN,
-    // Точно такая же тень как у CategoryCard
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
+    width: cardWidth,
+    height: cardHeight,
+    marginBottom: 16,
   },
   
   card: {
     flex: 1,
+    backgroundColor: Colors.cardBackground,
     borderRadius: 16,
-    borderWidth: 1,
-    borderColor: Colors.primary + '20', // Легкая граница в основном цвете
     padding: 16,
     justifyContent: 'space-between',
-    backgroundColor: Colors.primary + '05', // Очень легкий оттенок
+    
+    // Современная лёгкая тень - точно такая же как у CategoryCard
+    shadowColor: '#000000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 3,
+    
+    // Убираем любые границы
+    borderWidth: 0,
   },
   
   iconContainer: {
+    width: 40,
+    height: 40,
+    borderRadius: 12,
+    backgroundColor: Colors.primary + '15', // Легкий оттенок основного цвета
+    justifyContent: 'center',
+    alignItems: 'center',
     alignSelf: 'flex-start',
     marginBottom: 8,
   },
   
   categoryIcon: {
-    fontSize: 32,
-    lineHeight: 36,
-    color: Colors.primary, // Цвет иконки как акцентный цвет
+    fontSize: 20,
+    fontWeight: '500',
+    color: Colors.primary,
   },
   
-  contentContainer: {
+  textContainer: {
     flex: 1,
     justifyContent: 'space-between',
-    alignItems: 'flex-start',
   },
   
-  categoryTitle: {
-    fontSize: 16,
+  primaryText: {
+    fontSize: 15,
     fontWeight: '600',
-    lineHeight: 20,
-    color: '#1F2937',
-    letterSpacing: -0.3,
+    color: Colors.textPrimary,
+    lineHeight: 18,
+    marginBottom: 4,
   },
   
-  statsContainer: {
-    marginVertical: 4,
+  chineseText: {
+    fontSize: 13,
+    fontWeight: '500',
+    color: Colors.textSecondary,
+    lineHeight: 16,
+    marginBottom: 2,
   },
   
-  statsText: {
-    fontSize: 14,
+  secondaryText: {
+    fontSize: 12,
+    fontWeight: '400',
     color: Colors.textLight,
+    lineHeight: 14,
   },
   
-  indicatorContainer: {
-    alignSelf: 'flex-end',
-    marginTop: 4,
+  arrowContainer: {
+    position: 'absolute',
+    top: 16,
+    right: 16,
   },
 });
 

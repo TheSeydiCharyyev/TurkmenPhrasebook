@@ -1,8 +1,15 @@
+// src/components/CategoryCard.tsx - Современный дизайн без цветных границ
+
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Animated } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Animated, Dimensions } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { Category } from '../types';
 import { Colors } from '../constants/Colors';
 import { useAppLanguage } from '../contexts/LanguageContext';
+
+const { width } = Dimensions.get('window');
+const cardWidth = (width - 48) / 2; // 24px margin on each side = 48px total
+const cardHeight = 120;
 
 interface CategoryCardProps {
   category: Category;
@@ -31,8 +38,10 @@ export default function CategoryCard({ category, onPress }: CategoryCardProps) {
 
   const handlePressIn = () => {
     Animated.spring(scaleValue, {
-      toValue: 1.02,
+      toValue: 0.95,
       useNativeDriver: true,
+      tension: 300,
+      friction: 10,
     }).start();
   };
 
@@ -40,6 +49,8 @@ export default function CategoryCard({ category, onPress }: CategoryCardProps) {
     Animated.spring(scaleValue, {
       toValue: 1,
       useNativeDriver: true,
+      tension: 300,
+      friction: 10,
     }).start();
   };
 
@@ -48,68 +59,91 @@ export default function CategoryCard({ category, onPress }: CategoryCardProps) {
       onPress={onPress}
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
-      activeOpacity={0.9}
+      activeOpacity={1} // Отключаем встроенную анимацию, используем свою
+      style={styles.cardContainer}
     >
       <Animated.View
         style={[
           styles.card,
-          { backgroundColor: category.color + '08' },
           { transform: [{ scale: scaleValue }] }
         ]}
       >
-      <View style={styles.iconContainer}>
-        <Text style={styles.icon}>{category.icon}</Text>
-      </View>
-      
-      <View style={styles.textContainer}>
-        <Text style={styles.primaryText} numberOfLines={2}>
-          {getCategoryName()}
-        </Text>
-        <Text style={styles.chineseText} numberOfLines={1}>
-          {category.nameZh}
-        </Text>
-        <Text style={styles.secondaryText} numberOfLines={2}>
-          {getSecondaryName()}
-        </Text>
-      </View>
-      
-      <View style={[styles.accent, { backgroundColor: category.color }]} />
+        {/* Иконка с цветным фоном */}
+        <View style={[styles.iconContainer, { backgroundColor: category.color + '15' }]}>
+          <Text style={[styles.icon, { color: category.color }]}>
+            {category.icon}
+          </Text>
+        </View>
+        
+        {/* Текстовый контент */}
+        <View style={styles.textContainer}>
+          <Text style={styles.primaryText} numberOfLines={2}>
+            {getCategoryName()}
+          </Text>
+          
+          <Text style={styles.chineseText} numberOfLines={1}>
+            {category.nameZh}
+          </Text>
+          
+          <Text style={styles.secondaryText} numberOfLines={1}>
+            {getSecondaryName()}
+          </Text>
+        </View>
+        
+        {/* Стрелка перехода */}
+        <View style={styles.arrowContainer}>
+          <Ionicons 
+            name="chevron-forward" 
+            size={16} 
+            color={Colors.textLight}
+          />
+        </View>
       </Animated.View>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
+  cardContainer: {
+    width: cardWidth,
+    height: cardHeight,
+    marginBottom: 16,
+  },
+  
   card: {
-    height: 140,
-    borderRadius: 14,
-    padding: 16,
-    marginHorizontal: 8,
-    marginVertical: 6,
+    flex: 1,
     backgroundColor: Colors.cardBackground,
+    borderRadius: 16,
+    padding: 16,
+    justifyContent: 'space-between',
     
-    // Option 2: Cards with Shadow - No border, subtle shadow
+    // Современная лёгкая тень
     shadowColor: '#000000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 6,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
     elevation: 3,
     
-    position: 'relative',
+    // Убираем любые границы
+    borderWidth: 0,
   },
 
   iconContainer: {
-    width: 32,
-    height: 32,
-    borderRadius: 8,
-    backgroundColor: Colors.background,
+    width: 40,
+    height: 40,
+    borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
+    alignSelf: 'flex-start',
     marginBottom: 8,
   },
 
   icon: {
     fontSize: 20,
+    fontWeight: '500',
   },
 
   textContainer: {
@@ -118,11 +152,11 @@ const styles = StyleSheet.create({
   },
 
   primaryText: {
-    fontSize: 16,
-    fontWeight: '700',
+    fontSize: 15,
+    fontWeight: '600',
     color: Colors.textPrimary,
-    lineHeight: 20,
-    marginBottom: 2,
+    lineHeight: 18,
+    marginBottom: 4,
   },
 
   chineseText: {
@@ -130,7 +164,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: Colors.textSecondary,
     lineHeight: 16,
-    marginBottom: 4,
+    marginBottom: 2,
   },
 
   secondaryText: {
@@ -138,21 +172,11 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     color: Colors.textLight,
     lineHeight: 14,
-    // Улучшенная читаемость для русского текста
-    backgroundColor: Colors.background + '80',
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    borderRadius: 4,
-    alignSelf: 'flex-start',
   },
 
-  accent: {
+  arrowContainer: {
     position: 'absolute',
-    right: 0,
-    top: 0,
-    bottom: 0,
-    width: 4,
-    borderTopRightRadius: 16,
-    borderBottomRightRadius: 16,
+    top: 16,
+    right: 16,
   },
 });
