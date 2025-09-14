@@ -1,4 +1,4 @@
-// src/constants/Colors.ts - Обновленные цвета с дополнительными константами
+// src/constants/Colors.ts - С градиентными цветами
 
 export const Colors = {
   // Primary colors
@@ -57,6 +57,10 @@ export const Colors = {
   offline: '#F59E0B',
   online: '#10B981',
   syncing: '#3B82F6',
+  
+  // Градиентные цвета для AnimatedButton
+  gradientStart: '#E53935', // primary
+  gradientEnd: '#C62828',   // primaryDark
 } as const;
 
 export type ColorKey = keyof typeof Colors;

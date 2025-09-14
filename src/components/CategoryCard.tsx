@@ -1,4 +1,4 @@
-// src/components/CategoryCard.tsx - Современный дизайн без цветных границ
+// src/components/CategoryCard.tsx - Крупные современные карточки
 
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Animated, Dimensions } from 'react-native';
@@ -8,8 +8,9 @@ import { Colors } from '../constants/Colors';
 import { useAppLanguage } from '../contexts/LanguageContext';
 
 const { width } = Dimensions.get('window');
-const cardWidth = (width - 48) / 2; // 24px margin on each side = 48px total
-const cardHeight = 120;
+// Крупные карточки: 3 строки по 2 карточки
+const cardWidth = (width - 48) / 2; // 24px margin on each side
+const cardHeight = 160; // Увеличенная высота для большего удобства
 
 interface CategoryCardProps {
   category: Category;
@@ -38,9 +39,9 @@ export default function CategoryCard({ category, onPress }: CategoryCardProps) {
 
   const handlePressIn = () => {
     Animated.spring(scaleValue, {
-      toValue: 0.95,
+      toValue: 0.96,
       useNativeDriver: true,
-      tension: 300,
+      tension: 250,
       friction: 10,
     }).start();
   };
@@ -49,7 +50,7 @@ export default function CategoryCard({ category, onPress }: CategoryCardProps) {
     Animated.spring(scaleValue, {
       toValue: 1,
       useNativeDriver: true,
-      tension: 300,
+      tension: 250,
       friction: 10,
     }).start();
   };
@@ -59,7 +60,7 @@ export default function CategoryCard({ category, onPress }: CategoryCardProps) {
       onPress={onPress}
       onPressIn={handlePressIn}
       onPressOut={handlePressOut}
-      activeOpacity={1} // Отключаем встроенную анимацию, используем свою
+      activeOpacity={1}
       style={styles.cardContainer}
     >
       <Animated.View
@@ -68,11 +69,13 @@ export default function CategoryCard({ category, onPress }: CategoryCardProps) {
           { transform: [{ scale: scaleValue }] }
         ]}
       >
-        {/* Иконка с цветным фоном */}
+        {/* Профессиональная иконка Ionicons */}
         <View style={[styles.iconContainer, { backgroundColor: category.color + '15' }]}>
-          <Text style={[styles.icon, { color: category.color }]}>
-            {category.icon}
-          </Text>
+          <Ionicons
+            name={category.icon as any}
+            size={32}
+            color={category.color}
+          />
         </View>
         
         {/* Текстовый контент */}
@@ -90,14 +93,8 @@ export default function CategoryCard({ category, onPress }: CategoryCardProps) {
           </Text>
         </View>
         
-        {/* Стрелка перехода */}
-        <View style={styles.arrowContainer}>
-          <Ionicons 
-            name="chevron-forward" 
-            size={16} 
-            color={Colors.textLight}
-          />
-        </View>
+        {/* Тонкая цветная полоска снизу */}
+        <View style={[styles.colorAccent, { backgroundColor: category.color }]} />
       </Animated.View>
     </TouchableOpacity>
   );
@@ -107,76 +104,77 @@ const styles = StyleSheet.create({
   cardContainer: {
     width: cardWidth,
     height: cardHeight,
-    marginBottom: 16,
+    marginBottom: 20, // Увеличенный отступ между рядами
   },
   
   card: {
     flex: 1,
     backgroundColor: Colors.cardBackground,
-    borderRadius: 16,
-    padding: 16,
+    borderRadius: 20, // Более скруглённые углы
+    padding: 20, // Больше внутренних отступов
     justifyContent: 'space-between',
+    position: 'relative',
     
-    // Современная лёгкая тень
+    // Профессиональная тень
     shadowColor: '#000000',
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 4,
     },
     shadowOpacity: 0.08,
-    shadowRadius: 8,
-    elevation: 3,
+    shadowRadius: 12,
+    elevation: 4,
     
-    // Убираем любые границы
     borderWidth: 0,
   },
 
   iconContainer: {
-    width: 40,
-    height: 40,
-    borderRadius: 12,
+    width: 56, // Крупнее иконка
+    height: 56,
+    borderRadius: 16,
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'flex-start',
-    marginBottom: 8,
-  },
-
-  icon: {
-    fontSize: 20,
-    fontWeight: '500',
+    marginBottom: 12,
   },
 
   textContainer: {
     flex: 1,
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
 
   primaryText: {
-    fontSize: 15,
-    fontWeight: '600',
+    fontSize: 17, // Крупнее текст
+    fontWeight: '700', // Жирнее
     color: Colors.textPrimary,
+    lineHeight: 22,
+    marginBottom: 6,
+    textAlign: 'left',
+  },
+
+  chineseText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: Colors.textSecondary,
     lineHeight: 18,
     marginBottom: 4,
   },
 
-  chineseText: {
+  secondaryText: {
     fontSize: 13,
     fontWeight: '500',
-    color: Colors.textSecondary,
-    lineHeight: 16,
-    marginBottom: 2,
-  },
-
-  secondaryText: {
-    fontSize: 12,
-    fontWeight: '400',
     color: Colors.textLight,
-    lineHeight: 14,
+    lineHeight: 16,
   },
 
-  arrowContainer: {
+  // Тонкая цветная полоска внизу карточки
+  colorAccent: {
     position: 'absolute',
-    top: 16,
-    right: 16,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 3,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
 });

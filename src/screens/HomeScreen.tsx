@@ -1,4 +1,4 @@
-// src/screens/HomeScreen.tsx - Все 14 категорий в крупном размере
+// src/screens/HomeScreen.tsx - С оригинальным полным заголовком
 
 import React, { useCallback } from 'react';
 import {
@@ -22,19 +22,25 @@ import ErrorBoundary from '../components/ErrorBoundary';
 type HomeScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'CategoryScreen'>;
 
 const AppHeader = React.memo(() => {
-  const { getTexts, config } = useAppLanguage();
+  const { getTexts } = useAppLanguage();
   const texts = getTexts();
 
   return (
     <View style={styles.headerContainer}>
-      {/* Компактный заголовок */}
-      <Text style={styles.mainTitle}>
-        {config.mode === 'tk' ? 'HYTAÝ DILI' :
-         config.mode === 'zh' ? '中文学习' : 
-         'КИТАЙСКИЙ ЯЗЫК'}
+      {/* Оригинальный заголовок как во втором фото */}
+      <Text style={styles.turkmenTitle}>
+        TÜRKMEN-HYTAÝ GEPLEŞIK KITABY
       </Text>
       
-      <Text style={styles.subtitle}>
+      <Text style={styles.chineseTitle}>
+        土库曼-中文会话手册
+      </Text>
+      
+      <Text style={styles.russianTitle}>
+        Туркменско-китайский разговорник
+      </Text>
+      
+      <Text style={styles.selectCategoryText}>
         {texts.selectCategory}
       </Text>
     </View>
@@ -59,14 +65,13 @@ const CategoryGrid = React.memo(() => {
 
   return (
     <FlatList
-      data={categories} // Показываем ВСЕ 14 категорий
+      data={categories} // Все 14 категорий
       renderItem={renderCategory}
       keyExtractor={(item) => item.id}
       numColumns={2}
       contentContainerStyle={styles.gridContainer}
       columnWrapperStyle={styles.row}
       showsVerticalScrollIndicator={false}
-      // Убираем scrollEnabled={false} - теперь можно скроллить
     />
   );
 });
@@ -100,23 +105,41 @@ const styles = StyleSheet.create({
   headerContainer: {
     backgroundColor: Colors.primary,
     paddingHorizontal: 24,
-    paddingVertical: 20,
-    paddingBottom: 28,
-    alignItems: 'center',
+    paddingVertical: 24,
+    paddingBottom: 32,
   },
   
-  mainTitle: {
-    fontSize: 24,
-    fontWeight: '800',
+  // Оригинальные стили заголовков как во втором фото
+  turkmenTitle: {
+    fontSize: 18,
+    fontWeight: '700',
     color: Colors.textWhite,
     textAlign: 'center',
-    marginBottom: 8,
-    letterSpacing: 1,
+    marginBottom: 4,
+    letterSpacing: 0.5,
   },
   
-  subtitle: {
+  chineseTitle: {
     fontSize: 16,
+    fontWeight: '600',
+    color: Colors.textWhite,
+    textAlign: 'center',
+    marginBottom: 4,
+    opacity: 0.9,
+  },
+  
+  russianTitle: {
+    fontSize: 14,
     fontWeight: '500',
+    color: Colors.textWhite,
+    textAlign: 'center',
+    marginBottom: 16,
+    opacity: 0.8,
+  },
+  
+  selectCategoryText: {
+    fontSize: 16,
+    fontWeight: '600',
     color: Colors.textWhite,
     textAlign: 'center',
     opacity: 0.9,
@@ -129,7 +152,7 @@ const styles = StyleSheet.create({
   
   gridContainer: {
     padding: 24,
-    paddingBottom: 40, // Больше отступ снизу для последних карточек
+    paddingBottom: 40,
   },
   
   row: {
@@ -137,6 +160,6 @@ const styles = StyleSheet.create({
   },
   
   cardWrapper: {
-    flex: 0.48, // Чуть меньше половины для промежутка между карточками
+    flex: 0.48,
   },
 });
