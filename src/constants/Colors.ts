@@ -1,3 +1,5 @@
+// src/constants/Colors.ts - Обновленные цвета с дополнительными константами
+
 export const Colors = {
   // Primary colors
   primary: '#E53935',
@@ -15,9 +17,11 @@ export const Colors = {
   cardShadow: '#000000',
   
   // Text colors
+  text: '#1F2937',
   textPrimary: '#1F2937',
   textSecondary: '#6B7280',
   textLight: '#9CA3AF',
+  textMuted: '#D1D5DB',
   textWhite: '#FFFFFF',
   
   // Accent colors
@@ -35,10 +39,24 @@ export const Colors = {
   shadowColor: '#000000',
   borderColor: '#E5E7EB',
   divider: '#F3F4F6',
+  overlay: '#000000',
   
   // Tab navigation
   tabActive: '#E53935',
   tabInactive: '#9CA3AF',
+  
+  // Button colors
+  buttonText: '#FFFFFF',
+  buttonTextSecondary: '#374151',
+  
+  // Input colors
+  inputText: '#111827',
+  inputPlaceholder: '#9CA3AF',
+  
+  // Offline status colors
+  offline: '#F59E0B',
+  online: '#10B981',
+  syncing: '#3B82F6',
 } as const;
 
 export type ColorKey = keyof typeof Colors;
