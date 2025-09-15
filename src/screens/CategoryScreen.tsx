@@ -1,4 +1,4 @@
-// src/screens/CategoryScreen.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ с правильным позиционированием кнопки избранного
+// src/screens/CategoryScreen.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ с правильным дизайном
 
 import React, { useMemo, useCallback, useState, useEffect } from 'react';
 import { ResponsiveUtils } from '../utils/ResponsiveUtils';
@@ -71,90 +71,80 @@ const PhraseItem = React.memo<{
         main: phrase.turkmen,
         secondary: phrase.russian,
         mainStyle: styles.turkmenMainText,
+        secondaryStyle: styles.russianSecondaryText,
       };
     } else {
       return {
-        main: phrase.turkmen,
+        main: phrase.chinese,
         secondary: phrase.russian,
-        mainStyle: styles.primaryText,
+        mainStyle: styles.chineseMainText,
+        secondaryStyle: styles.russianSecondaryText,
       };
     }
-  }, [phrase.turkmen, phrase.russian, config.mode]);
-
-  const favoriteStatus = isFavorite(phrase.id);
+  }, [config.mode, phrase]);
 
   return (
-    <TouchableOpacity
-      style={styles.phraseCard}
+    <TouchableOpacity 
+      style={styles.phraseCard} 
       onPress={handlePress}
       activeOpacity={0.7}
     >
-      {/* ИСПРАВЛЕНО: Используем правильную структуру с flex */}
-      <View style={styles.phraseContainer}>
-        {/* Основной контент фразы */}
-        <View style={styles.phraseContent}>
-          <Text style={styles.chineseText}>{phrase.chinese}</Text>
-          <Text style={styles.pinyinText}>{phrase.pinyin}</Text>
-          
-          <Text style={phraseTexts.mainStyle}>
-            {phraseTexts.main}
-          </Text>
-          <Text style={styles.secondaryText}>
-            {phraseTexts.secondary}
-          </Text>
-        </View>
+      {/* Основной контент фразы */}
+      <View style={styles.phraseContent}>
+        {/* Китайские иероглифы - всегда сверху */}
+        <Text style={styles.chineseText}>{phrase.chinese}</Text>
         
-        {/* ИСПРАВЛЕНО: Правильное позиционирование кнопок */}
-        <View style={styles.actionsContainer}>
-          {/* Кнопки воспроизведения */}
-          <View style={styles.playButtons}>
-            <TouchableOpacity
-              style={styles.playButton}
-              onPress={handlePlayChinese}
-              disabled={isPlaying || isLoading}
-            >
-              {isLoading ? (
-                <ActivityIndicator size={20} color={Colors.primary} />
-              ) : (
-                <Ionicons
-                  name={isPlaying ? "pause-circle" : "play-circle"}
-                  size={24}
-                  color={isPlaying ? Colors.primary : Colors.primary}
-                />
-              )}
-              <Text style={styles.playLabel}>中文</Text>
-            </TouchableOpacity>
-            
-            <TouchableOpacity
-              style={styles.playButton}
-              onPress={handlePlayTurkmen}
-              disabled={isPlaying || isLoading}
-            >
-              {isLoading ? (
-                <ActivityIndicator size={20} color={Colors.accent} />
-              ) : (
-                <Ionicons
-                  name={isPlaying ? "pause-circle" : "play-circle"}
-                  size={24}
-                  color={isPlaying ? Colors.accent : Colors.accent}
-                />
-              )}
-              <Text style={styles.playLabel}>TM</Text>
-            </TouchableOpacity>
-          </View>
-          
-          {/* ИСПРАВЛЕНО: Кнопка избранного с правильным позиционированием */}
-          <TouchableOpacity 
-            style={styles.favoriteButton}
-            onPress={handleToggleFavorite}
-          >
-            <Ionicons 
-              name={favoriteStatus ? "heart" : "heart-outline"} 
-              size={20} 
-              color={favoriteStatus ? Colors.error : Colors.textLight} 
-            />
-          </TouchableOpacity>
-        </View>
+        {/* Пиньинь - серым цветом */}
+        <Text style={styles.pinyinText}>{phrase.pinyin}</Text>
+        
+        {/* Туркменский перевод - жирным черным */}
+        <Text style={styles.turkmenText}>{phrase.turkmen}</Text>
+        
+        {/* Русский перевод - серым */}
+        <Text style={styles.russianText}>{phrase.russian}</Text>
+      </View>
+
+      {/* Кнопки действий */}
+      <View style={styles.actionButtons}>
+        {/* Кнопка воспроизведения китайского */}
+        <TouchableOpacity
+          style={[styles.actionButton, styles.playChineseButton]}
+          onPress={handlePlayChinese}
+          disabled={isPlaying || isLoading}
+        >
+          {isPlaying ? (
+            <ActivityIndicator size="small" color={Colors.primary} />
+          ) : (
+            <Ionicons name="play" size={16} color={Colors.primary} />
+          )}
+          <Text style={styles.playButtonLabel}>中文</Text>
+        </TouchableOpacity>
+
+        {/* Кнопка воспроизведения туркменского */}
+        <TouchableOpacity
+          style={[styles.actionButton, styles.playTurkmenButton]}
+          onPress={handlePlayTurkmen}
+          disabled={isPlaying || isLoading}
+        >
+          {isPlaying ? (
+            <ActivityIndicator size="small" color={Colors.accent} />
+          ) : (
+            <Ionicons name="play" size={16} color={Colors.accent} />
+          )}
+          <Text style={styles.playButtonLabel}>TM</Text>
+        </TouchableOpacity>
+
+        {/* Кнопка избранного */}
+        <TouchableOpacity
+          style={[styles.actionButton, styles.favoriteButton]}
+          onPress={handleToggleFavorite}
+        >
+          <Ionicons
+            name={isFavorite(phrase.id) ? "heart" : "heart-outline"}
+            size={20}
+            color={isFavorite(phrase.id) ? Colors.error : Colors.textLight}
+          />
+        </TouchableOpacity>
       </View>
     </TouchableOpacity>
   );
@@ -164,20 +154,18 @@ export default function CategoryScreen() {
   const route = useRoute<CategoryScreenRouteProp>();
   const navigation = useNavigation<CategoryScreenNavigationProp>();
   const { config } = useAppLanguage();
-  const [isInitialLoading, setIsInitialLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   const { category } = route.params;
 
+  // Фильтрация фраз по категории
   const categoryPhrases = useMemo(() => {
     return phrases.filter(phrase => phrase.categoryId === category.id);
   }, [category.id]);
 
-  // Имитация загрузки для демонстрации
+  // Имитация загрузки
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsInitialLoading(false);
-    }, 500);
-
+    const timer = setTimeout(() => setIsLoading(false), 500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -185,18 +173,12 @@ export default function CategoryScreen() {
     navigation.navigate('PhraseDetail', { phrase });
   }, [navigation]);
 
-  const renderPhrase: ListRenderItem<Phrase> = useCallback(({ item }) => (
-    <ErrorBoundary fallbackComponent={
-      <View style={styles.phraseCard}>
-        <Text style={styles.errorText}>Ошибка загрузки фразы</Text>
-      </View>
-    }>
-      <PhraseItem 
-        phrase={item} 
-        onPress={handlePhrasePress}
-        config={config}
-      />
-    </ErrorBoundary>
+  const renderPhraseItem: ListRenderItem<Phrase> = useCallback(({ item }) => (
+    <PhraseItem 
+      phrase={item} 
+      onPress={handlePhrasePress}
+      config={config}
+    />
   ), [handlePhrasePress, config]);
 
   const getItemLayout = useCallback((data: any, index: number) => ({
@@ -205,195 +187,299 @@ export default function CategoryScreen() {
     index,
   }), []);
 
+  const ItemSeparator = useCallback(() => <View style={styles.separator} />, []);
+
   const keyExtractor = useCallback((item: Phrase) => item.id, []);
 
-  const categoryTitle = useMemo(() => {
-    switch (config.mode) {
-      case 'tk': return category.nameTk;
-      case 'zh': return category.nameZh;
-      default: return category.nameRu;
-    }
-  }, [category, config.mode]);
+  // Получаем иконку категории
+  const getCategoryIcon = () => {
+    // Возвращаем иконку в зависимости от ID категории
+    const iconMap: Record<string, string> = {
+      'greetings': 'hand-left',
+      'emergency': 'warning',
+      'hotel': 'bed',
+      'food': 'restaurant',
+      'shopping': 'bag',
+      'transport': 'bus',
+      'directions': 'compass',
+      'health': 'medical',
+      'money': 'cash',
+      'communication': 'call',
+      'entertainment': 'game-controller',
+      'time': 'time',
+      'numbers': 'calculator',
+      'weather': 'partly-sunny',
+    };
+    return iconMap[category.id] || 'apps';
+  };
 
-  const phrasesCountText = useMemo(() => {
-    const count = categoryPhrases.length;
-    switch (config.mode) {
-      case 'tk': return `${count} sözlem`;
-      case 'zh': return `${count}个短语`;
-      default: return count === 1 ? `${count} фраза` : `${count} фраз`;
-    }
-  }, [categoryPhrases.length, config.mode]);
-
-  if (isInitialLoading) {
+  if (isLoading) {
     return (
-      <SafeAreaView style={styles.container}>
-        <StatusBar barStyle="light-content" backgroundColor={category.color} />
-        <LoadingSpinner message="Загрузка фраз..." />
-      </SafeAreaView>
-    );
-  }
+      <View style={styles.container}>
+        <StatusBar barStyle="light-content" backgroundColor={Colors.primary} />
+        
+        {/* ЕДИНСТВЕННАЯ ШАПКА */}
+        <View style={styles.header}>
+          <TouchableOpacity 
+            style={styles.backButton}
+            onPress={() => navigation.goBack()}
+          >
+            <Ionicons name="chevron-back" size={24} color={Colors.textWhite} />
+          </TouchableOpacity>
+          
+          <Text style={styles.headerTitle}>{category.nameTk}</Text>
+          
+          <View style={styles.categoryIconContainer}>
+            <Ionicons name={getCategoryIcon() as any} size={24} color={Colors.textWhite} />
+          </View>
+        </View>
 
-  if (categoryPhrases.length === 0) {
-    return (
-      <SafeAreaView style={styles.container}>
-        <StatusBar barStyle="light-content" backgroundColor={category.color} />
-        <EmptyState
-          title="Нет фраз"
-          message="В этой категории пока нет фраз"
-          icon="chatbubbles-outline"
-        />
-      </SafeAreaView>
+        {/* ИНФОРМАЦИЯ О КАТЕГОРИИ */}
+        <View style={styles.categoryInfo}>
+          <Text style={styles.categoryNameChinese}>{category.nameZh}</Text>
+          <Text style={styles.categoryNameRussian}>{category.nameRu}</Text>
+          <Text style={styles.phraseCount}>{categoryPhrases.length} sözlem</Text>
+        </View>
+
+        <View style={styles.loadingContainer}>
+          <LoadingSpinner message="Загружаем фразы..." />
+        </View>
+      </View>
     );
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor={category.color} />
-      
-      {/* Заголовок с информацией о категории */}
-      <View style={[styles.header, { backgroundColor: category.color }]}>
-        <Text style={styles.headerTitle}>{categoryTitle}</Text>
-        <Text style={styles.headerSubtitle}>{phrasesCountText}</Text>
-      </View>
+    <ErrorBoundary>
+      <View style={styles.container}>
+        <StatusBar barStyle="light-content" backgroundColor={Colors.primary} />
+        
+        {/* ЕДИНСТВЕННАЯ ШАПКА */}
+        <View style={styles.header}>
+          <TouchableOpacity 
+            style={styles.backButton}
+            onPress={() => navigation.goBack()}
+          >
+            <Ionicons name="chevron-back" size={24} color={Colors.textWhite} />
+          </TouchableOpacity>
+          
+          <Text style={styles.headerTitle}>{category.nameTk}</Text>
+          
+          <View style={styles.categoryIconContainer}>
+            <Ionicons name={getCategoryIcon() as any} size={24} color={Colors.textWhite} />
+          </View>
+        </View>
 
-      {/* Список фраз */}
-      <FlatList
-        data={categoryPhrases}
-        renderItem={renderPhrase}
-        keyExtractor={keyExtractor}
-        getItemLayout={getItemLayout}
-        style={styles.list}
-        contentContainerStyle={styles.listContent}
-        showsVerticalScrollIndicator={false}
-        removeClippedSubviews={true}
-        maxToRenderPerBatch={8}
-        windowSize={10}
-        initialNumToRender={6}
-        ItemSeparatorComponent={() => <View style={{ height: SEPARATOR_HEIGHT }} />}
-      />
-    </SafeAreaView>
+        {/* ИНФОРМАЦИЯ О КАТЕГОРИИ */}
+        <View style={styles.categoryInfo}>
+          <Text style={styles.categoryNameChinese}>{category.nameZh}</Text>
+          <Text style={styles.categoryNameRussian}>{category.nameRu}</Text>
+          <Text style={styles.phraseCount}>{categoryPhrases.length} sözlem</Text>
+        </View>
+
+        {/* Список фраз */}
+        <FlatList
+          data={categoryPhrases}
+          renderItem={renderPhraseItem}
+          keyExtractor={keyExtractor}
+          getItemLayout={getItemLayout}
+          ItemSeparatorComponent={ItemSeparator}
+          contentContainerStyle={styles.listContainer}
+          showsVerticalScrollIndicator={false}
+          removeClippedSubviews={true}
+          maxToRenderPerBatch={10}
+          windowSize={10}
+          initialNumToRender={5}
+        />
+      </View>
+    </ErrorBoundary>
   );
 }
 
-// ИСПРАВЛЕННЫЕ СТИЛИ с правильным layout
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.background,
   },
+  
+  // ИСПРАВЛЕННЫЕ СТИЛИ ШАПКИ
   header: {
-    paddingHorizontal: 20,
-    paddingVertical: 16,
-    paddingBottom: 20,
+    height: 64,
+    backgroundColor: Colors.primary,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    elevation: 4,
+    shadowColor: Colors.shadowColor,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
   },
+  
+  backButton: {
+    padding: 8,
+    marginRight: 8,
+  },
+  
   headerTitle: {
-    fontSize: 28,
-    fontWeight: 'bold',
+    flex: 1,
+    fontSize: 20,
+    fontWeight: '600',
     color: Colors.textWhite,
+    textAlign: 'center',
+    marginRight: 40, // Компенсируем иконку справа
+  },
+  
+  categoryIconContainer: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: Colors.primaryLight,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  // ИСПРАВЛЕННАЯ ИНФОРМАЦИЯ О КАТЕГОРИИ
+  categoryInfo: {
+    backgroundColor: Colors.cardBackground,
+    paddingVertical: 16,
+    paddingHorizontal: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.borderColor,
+  },
+  
+  categoryNameChinese: {
+    fontSize: 18,
+    fontWeight: '500',
+    color: Colors.textSecondary, // Серый цвет
+    textAlign: 'center',
     marginBottom: 4,
   },
-  headerSubtitle: {
+  
+  categoryNameRussian: {
     fontSize: 16,
-    color: 'rgba(255, 255, 255, 0.8)',
+    fontWeight: '400',
+    color: Colors.textSecondary, // Серый цвет
+    textAlign: 'center',
+    marginBottom: 8,
   },
-  list: {
-    flex: 1,
+  
+  phraseCount: {
+    fontSize: 14,
+    color: Colors.textLight,
+    textAlign: 'center',
   },
-  listContent: {
+
+  // Остальные стили карточек
+  listContainer: {
     padding: 16,
   },
+  
   phraseCard: {
     backgroundColor: Colors.cardBackground,
     borderRadius: 12,
     padding: 16,
-    height: ITEM_HEIGHT,
+    flexDirection: 'row',
     elevation: 2,
-    shadowColor: Colors.cardShadow,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
-  },
-  // ИСПРАВЛЕНО: Новая структура layout
-  phraseContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-  },
-  phraseContent: {
-    flex: 1,
-    marginRight: 12, // Отступ от кнопок
-  },
-  actionsContainer: {
-    alignItems: 'flex-end',
-    justifyContent: 'space-between',
-    height: '100%',
-    minWidth: 80, // Фиксированная ширина для кнопок
-  },
-  playButtons: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-  playButton: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 4,
-  },
-  playLabel: {
-    fontSize: 10,
-    color: Colors.textLight,
-    marginTop: 2,
-  },
-  // ИСПРАВЛЕНО: Правильные стили для кнопки избранного
-  favoriteButton: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: Colors.background,
-    elevation: 1,
-    shadowColor: Colors.cardShadow,
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
+    shadowColor: Colors.shadowColor,
+    shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
     shadowRadius: 2,
+    borderWidth: 1,
+    borderColor: Colors.cardBorder,
   },
+  
+  phraseContent: {
+    flex: 1,
+    marginRight: 12,
+  },
+  
   chineseText: {
-    fontSize: ResponsiveUtils.fontSize.chineseText,
-    fontWeight: 'bold',
-    color: Colors.text,
-    marginBottom: 2,
+    fontSize: 24,
+    fontWeight: '600',
+    color: Colors.textSecondary, // Серый цвет для китайского
+    marginBottom: 4,
   },
+  
   pinyinText: {
-    fontSize: ResponsiveUtils.fontSize.pinyinText,
-    color: Colors.primary,
+    fontSize: 16,
+    color: Colors.textLight,
+    marginBottom: 8,
     fontStyle: 'italic',
+  },
+  
+  turkmenText: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: Colors.text, // Черный цвет для туркменского
+    marginBottom: 4,
+  },
+  
+  russianText: {
+    fontSize: 16,
+    color: Colors.textSecondary, // Серый цвет для русского
+  },
+  
+  actionButtons: {
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: 60,
+  },
+  
+  actionButton: {
+    width: 48,
+    height: 32,
+    borderRadius: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: 8,
   },
-  primaryText: {
-    fontSize: 16,
-    color: Colors.text,
-    fontWeight: '600',
-    marginBottom: 4,
+  
+  playChineseButton: {
+    backgroundColor: Colors.primary + '15',
+    flexDirection: 'row',
   },
+  
+  playTurkmenButton: {
+    backgroundColor: Colors.accent + '15',
+    flexDirection: 'row',
+  },
+  
+  favoriteButton: {
+    backgroundColor: 'transparent',
+  },
+  
+  playButtonLabel: {
+    fontSize: 10,
+    fontWeight: '600',
+    marginLeft: 2,
+    color: Colors.textSecondary,
+  },
+  
+  separator: {
+    height: SEPARATOR_HEIGHT,
+  },
+  
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  // Старые стили для совместимости
+  chineseMainText: {
+    fontSize: 24,
+    fontWeight: '600',
+    color: Colors.textSecondary,
+  },
+  
   turkmenMainText: {
     fontSize: 18,
+    fontWeight: '600',
     color: Colors.text,
-    fontWeight: 'bold',
-    marginBottom: 4,
   },
-  secondaryText: {
-    fontSize: 14,
-    color: Colors.textLight,
-  },
-  errorText: {
+  
+  russianSecondaryText: {
     fontSize: 16,
-    color: Colors.error,
-    textAlign: 'center',
+    color: Colors.textSecondary,
   },
 });

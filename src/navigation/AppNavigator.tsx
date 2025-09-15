@@ -1,4 +1,5 @@
-// src/navigation/AppNavigator.tsx - Обновленная версия с StatsScreen
+// src/navigation/AppNavigator.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ без дублирования шапок
+
 import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
@@ -41,26 +42,11 @@ function HomeStackNavigator() {
         component={HomeScreen}
         options={{ headerShown: false }}
       />
+      {/* ИСПРАВЛЕНО: отключена стандартная шапка для CategoryScreen */}
       <HomeStack.Screen
         name="CategoryScreen"
         component={CategoryScreen}
-        options={({ route }) => {
-          const category = route.params.category;
-          const categoryName = config.mode === 'tk' ? category.nameTk :
-                              config.mode === 'zh' ? category.nameZh :
-                              category.nameRu;
-          
-          return {
-            title: categoryName,
-            headerStyle: {
-              backgroundColor: category.color,
-            },
-            headerTintColor: Colors.textWhite,
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          };
-        }}
+        options={{ headerShown: false }}
       />
     </HomeStack.Navigator>
   );
