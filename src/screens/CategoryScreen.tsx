@@ -1,6 +1,6 @@
-// src/screens/CategoryScreen.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ с правильным дизайном
+// src/screens/CategoryScreen.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ без ошибок
 
-import React, { useMemo, useCallback, useState, useEffect } from 'react';
+import React, { useMemo, useCallback, useState, useEffect, useRef } from 'react';
 import { ResponsiveUtils } from '../utils/ResponsiveUtils';
 import {
   View,
@@ -8,10 +8,10 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  SafeAreaView,
   StatusBar,
   ListRenderItem,
   ActivityIndicator,
+  Animated,
 } from 'react-native';
 import { RouteProp, useRoute, useNavigation, useFocusEffect } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -155,6 +155,9 @@ export default function CategoryScreen() {
   const navigation = useNavigation<CategoryScreenNavigationProp>();
   const { config } = useAppLanguage();
   const [isLoading, setIsLoading] = useState(true);
+  
+  // Анимация для header
+  const scrollY = useRef(new Animated.Value(0)).current;
 
   const { category } = route.params;
 
@@ -213,33 +216,68 @@ export default function CategoryScreen() {
     return iconMap[category.id] || 'apps';
   };
 
+  // Анимация для расширенного header
+  const headerHeight = scrollY.interpolate({
+    inputRange: [0, 100],
+    outputRange: [140, 64], // От полного header до компактного
+    extrapolate: 'clamp',
+  });
+
+  const categoryInfoOpacity = scrollY.interpolate({
+    inputRange: [0, 80],
+    outputRange: [1, 0],
+    extrapolate: 'clamp',
+  });
+
+  const categoryInfoHeight = scrollY.interpolate({
+    inputRange: [0, 80],
+    outputRange: [76, 0], // Высота блока с информацией
+    extrapolate: 'clamp',
+  });
+
+  // Обработчик скролла
+  const handleScroll = Animated.event(
+    [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+    { useNativeDriver: false }
+  );
+
   if (isLoading) {
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" backgroundColor={Colors.primary} />
         
-        {/* ЕДИНСТВЕННАЯ ШАПКА */}
-        <View style={styles.header}>
-          <TouchableOpacity 
-            style={styles.backButton}
-            onPress={() => navigation.goBack()}
-          >
-            <Ionicons name="chevron-back" size={24} color={Colors.textWhite} />
-          </TouchableOpacity>
-          
-          <Text style={styles.headerTitle}>{category.nameTk}</Text>
-          
-          <View style={styles.categoryIconContainer}>
-            <Ionicons name={getCategoryIcon() as any} size={24} color={Colors.textWhite} />
+        {/* РАСШИРЯЕМАЯ ШАПКА */}
+        <Animated.View style={[styles.expandedHeader, { height: headerHeight }]}>
+          {/* Верхняя часть - всегда видна */}
+          <View style={styles.mainHeader}>
+            <TouchableOpacity 
+              style={styles.backButton}
+              onPress={() => navigation.goBack()}
+            >
+              <Ionicons name="chevron-back" size={24} color={Colors.textWhite} />
+            </TouchableOpacity>
+            
+            <Text style={styles.headerTitle}>{category.nameTk}</Text>
+            
+            <View style={styles.categoryIconContainer}>
+              <Ionicons name={getCategoryIcon() as any} size={24} color={Colors.textWhite} />
+            </View>
           </View>
-        </View>
 
-        {/* ИНФОРМАЦИЯ О КАТЕГОРИИ */}
-        <View style={styles.categoryInfo}>
-          <Text style={styles.categoryNameChinese}>{category.nameZh}</Text>
-          <Text style={styles.categoryNameRussian}>{category.nameRu}</Text>
-          <Text style={styles.phraseCount}>{categoryPhrases.length} sözlem</Text>
-        </View>
+          {/* Нижняя часть - исчезает при скролле */}
+          <Animated.View style={[
+            styles.headerSubtitle,
+            {
+              opacity: categoryInfoOpacity,
+              height: categoryInfoHeight,
+              overflow: 'hidden'
+            }
+          ]}>
+            <Text style={styles.headerChineseText}>{category.nameZh}</Text>
+            <Text style={styles.headerRussianText}>{category.nameRu}</Text>
+            <Text style={styles.headerPhraseCount}>{categoryPhrases.length} sözlem</Text>
+          </Animated.View>
+        </Animated.View>
 
         <View style={styles.loadingContainer}>
           <LoadingSpinner message="Загружаем фразы..." />
@@ -253,31 +291,41 @@ export default function CategoryScreen() {
       <View style={styles.container}>
         <StatusBar barStyle="light-content" backgroundColor={Colors.primary} />
         
-        {/* ЕДИНСТВЕННАЯ ШАПКА */}
-        <View style={styles.header}>
-          <TouchableOpacity 
-            style={styles.backButton}
-            onPress={() => navigation.goBack()}
-          >
-            <Ionicons name="chevron-back" size={24} color={Colors.textWhite} />
-          </TouchableOpacity>
-          
-          <Text style={styles.headerTitle}>{category.nameTk}</Text>
-          
-          <View style={styles.categoryIconContainer}>
-            <Ionicons name={getCategoryIcon() as any} size={24} color={Colors.textWhite} />
+        {/* РАСШИРЯЕМАЯ ШАПКА */}
+        <Animated.View style={[styles.expandedHeader, { height: headerHeight }]}>
+          {/* Верхняя часть - всегда видна */}
+          <View style={styles.mainHeader}>
+            <TouchableOpacity 
+              style={styles.backButton}
+              onPress={() => navigation.goBack()}
+            >
+              <Ionicons name="chevron-back" size={24} color={Colors.textWhite} />
+            </TouchableOpacity>
+            
+            <Text style={styles.headerTitle}>{category.nameTk}</Text>
+            
+            <View style={styles.categoryIconContainer}>
+              <Ionicons name={getCategoryIcon() as any} size={24} color={Colors.textWhite} />
+            </View>
           </View>
-        </View>
 
-        {/* ИНФОРМАЦИЯ О КАТЕГОРИИ */}
-        <View style={styles.categoryInfo}>
-          <Text style={styles.categoryNameChinese}>{category.nameZh}</Text>
-          <Text style={styles.categoryNameRussian}>{category.nameRu}</Text>
-          <Text style={styles.phraseCount}>{categoryPhrases.length} sözlem</Text>
-        </View>
+          {/* Нижняя часть - исчезает при скролле */}
+          <Animated.View style={[
+            styles.headerSubtitle,
+            {
+              opacity: categoryInfoOpacity,
+              height: categoryInfoHeight,
+              overflow: 'hidden'
+            }
+          ]}>
+            <Text style={styles.headerChineseText}>{category.nameZh}</Text>
+            <Text style={styles.headerRussianText}>{category.nameRu}</Text>
+            <Text style={styles.headerPhraseCount}>{categoryPhrases.length} sözlem</Text>
+          </Animated.View>
+        </Animated.View>
 
         {/* Список фраз */}
-        <FlatList
+        <Animated.FlatList
           data={categoryPhrases}
           renderItem={renderPhraseItem}
           keyExtractor={keyExtractor}
@@ -289,6 +337,8 @@ export default function CategoryScreen() {
           maxToRenderPerBatch={10}
           windowSize={10}
           initialNumToRender={5}
+          onScroll={handleScroll}
+          scrollEventThrottle={16}
         />
       </View>
     </ErrorBoundary>
@@ -301,20 +351,34 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   
-  // ИСПРАВЛЕННЫЕ СТИЛИ ШАПКИ
-  header: {
-    height: 64,
+  // РАСШИРЕННЫЙ HEADER
+  expandedHeader: {
     backgroundColor: Colors.primary,
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 16,
     elevation: 4,
     shadowColor: Colors.shadowColor,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
   },
-  
+
+  // ОСНОВНАЯ ЧАСТЬ HEADER (красная шапка)
+  mainHeader: {
+    height: 64,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+  },
+
+  // ПОДЗАГОЛОВОК HEADER - исчезает при скролле
+  headerSubtitle: {
+    backgroundColor: Colors.primary, // Тот же красный цвет
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderTopWidth: 1,
+    borderTopColor: Colors.primaryLight, // Тонкая линия-разделитель
+  },
+
+  // КНОПКИ И ЭЛЕМЕНТЫ HEADER
   backButton: {
     padding: 8,
     marginRight: 8,
@@ -338,7 +402,31 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  // ИСПРАВЛЕННАЯ ИНФОРМАЦИЯ О КАТЕГОРИИ
+  // ТЕКСТ В HEADER
+  headerChineseText: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: Colors.textWhite,
+    textAlign: 'center',
+    marginBottom: 4,
+  },
+  
+  headerRussianText: {
+    fontSize: 14,
+    color: Colors.textWhite,
+    opacity: 0.9,
+    textAlign: 'center',
+    marginBottom: 4,
+  },
+  
+  headerPhraseCount: {
+    fontSize: 12,
+    color: Colors.textWhite,
+    opacity: 0.8,
+    textAlign: 'center',
+  },
+
+  // ИНФОРМАЦИЯ О КАТЕГОРИИ
   categoryInfo: {
     backgroundColor: Colors.cardBackground,
     paddingVertical: 16,
