@@ -1,6 +1,6 @@
-// src/screens/HomeScreen.tsx - Сворачиваемый заголовок при скролле
+// src/screens/HomeScreen.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ с правильными языками
 
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState, useMemo } from 'react';
 import {
   View,
   Text,
@@ -16,7 +16,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { Category, HomeStackParamList } from '../types';
 import { Colors } from '../constants/Colors';
 import { useAppLanguage } from '../contexts/LanguageContext';
-import { categories } from '../data/categories'; // Все 25 категорий
+import { categories } from '../data/categories';
 import CategoryCard from '../components/CategoryCard';
 import ErrorBoundary from '../components/ErrorBoundary';
 
@@ -26,13 +26,12 @@ type HomeScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'Categor
 const HEADER_HEIGHT = 140;
 
 const AppHeader = React.memo<{ animatedValue: Animated.Value }>(({ animatedValue }) => {
-  const { getTexts } = useAppLanguage();
-  const texts = getTexts();
+  const { config } = useAppLanguage();
 
   // Анимация высоты заголовка
   const headerHeight = animatedValue.interpolate({
     inputRange: [0, 100],
-    outputRange: [HEADER_HEIGHT, 60], // Сворачиваем с 140px до 60px
+    outputRange: [HEADER_HEIGHT, 60],
     extrapolate: 'clamp',
   });
 
@@ -50,31 +49,54 @@ const AppHeader = React.memo<{ animatedValue: Animated.Value }>(({ animatedValue
     extrapolate: 'clamp',
   });
 
+  // ИСПРАВЛЕНО: Правильный порядок названий в зависимости от выбранного языка
+  const getAppTitles = () => {
+    if (config.mode === 'zh') {
+      // Когда выбран китайский - китайский главный
+      return {
+        mainTitle: '土库曼-中文会话手册',
+        secondaryTitle: 'TÜRKMEN-HYTAÝ GEPLEŞIK KITABY',
+        subtitle: 'Туркменско-китайский разговорник',
+        selectText: '选择类别'
+      };
+    } else {
+      // Когда выбран туркменский - туркменский главный
+      return {
+        mainTitle: 'TÜRKMEN-HYTAÝ GEPLEŞIK KITABY',
+        secondaryTitle: '土库曼-中文会话手册',
+        subtitle: 'Туркменско-китайский разговорник',
+        selectText: 'Kategoriýa saýlaň'
+      };
+    }
+  };
+
+  const titles = getAppTitles();
+
   return (
     <Animated.View style={[styles.headerContainer, { height: headerHeight }]}>
       {/* Полный заголовок - исчезает при скролле */}
       <Animated.View style={[styles.fullHeader, { opacity: headerOpacity }]}>
-        <Text style={styles.turkmenTitle}>
-          TÜRKMEN-HYTAÝ GEPLEŞIK KITABY
+        <Text style={styles.mainTitle}>
+          {titles.mainTitle}
         </Text>
         
-        <Text style={styles.chineseTitle}>
-          土库曼-中文会话手册
+        <Text style={styles.secondaryTitle}>
+          {titles.secondaryTitle}
         </Text>
         
         <Text style={styles.russianTitle}>
-          Туркменско-китайский разговорник
+          {titles.subtitle}
         </Text>
         
         <Text style={styles.selectCategoryText}>
-          {texts.selectCategory}
+          {titles.selectText}
         </Text>
       </Animated.View>
 
       {/* Компактный заголовок - появляется при скролле */}
       <Animated.View style={[styles.compactHeader, { opacity: compactOpacity }]}>
         <Text style={styles.compactTitle}>
-          {texts.selectCategory}
+          {config.mode === 'zh' ? '中文会话' : 'Hytaý Kitaby'}
         </Text>
       </Animated.View>
     </Animated.View>
@@ -83,38 +105,56 @@ const AppHeader = React.memo<{ animatedValue: Animated.Value }>(({ animatedValue
 
 const CategoryGrid = React.memo<{ onScroll: (event: any) => void }>(({ onScroll }) => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
-  
+  const { config } = useAppLanguage();
+
   const handleCategoryPress = useCallback((category: Category) => {
     navigation.navigate('CategoryScreen', { category });
   }, [navigation]);
 
-  const renderCategory = useCallback(({ item, index }: { item: Category; index: number }) => (
-    <View style={[
-      styles.cardWrapper,
-      index % 2 === 0 ? styles.leftCard : styles.rightCard
-    ]}>
-      <CategoryCard 
-        category={item} 
-        onPress={() => handleCategoryPress(item)}
-      />
+  const renderCategoryPair: any = useCallback(({ item }: { item: [Category, Category?] }) => (
+    <View style={styles.row}>
+      <View style={[styles.cardWrapper, styles.leftCard]}>
+        <CategoryCard
+          category={item[0]}
+          onPress={handleCategoryPress}
+          languageMode={config.mode}
+        />
+      </View>
+      
+      {item[1] && (
+        <View style={[styles.cardWrapper, styles.rightCard]}>
+          <CategoryCard
+            category={item[1]}
+            onPress={handleCategoryPress}
+            languageMode={config.mode}
+          />
+        </View>
+      )}
     </View>
-  ), [handleCategoryPress]);
+  ), [handleCategoryPress, config.mode]);
+
+  // Группируем категории по парам для 2-колоночной сетки
+  const categoryPairs = useMemo(() => {
+    const pairs: Array<[Category, Category?]> = [];
+    for (let i = 0; i < categories.length; i += 2) {
+      pairs.push([categories[i], categories[i + 1]]);
+    }
+    return pairs;
+  }, []);
 
   return (
-    <FlatList
-      data={categories}
-      renderItem={renderCategory}
-      keyExtractor={(item) => item.id}
-      numColumns={2}
+    <Animated.FlatList
+      data={categoryPairs}
+      renderItem={renderCategoryPair}
+      keyExtractor={(item, index) => `pair-${index}`}
       contentContainerStyle={styles.gridContainer}
-      columnWrapperStyle={styles.row}
       showsVerticalScrollIndicator={false}
       onScroll={onScroll}
-      scrollEventThrottle={16} // Плавная анимация
+      scrollEventThrottle={16}
       removeClippedSubviews={true}
-      maxToRenderPerBatch={8}
+      maxToRenderPerBatch={6}
       windowSize={10}
-      initialNumToRender={8}
+      initialNumToRender={4}
     />
   );
 });
@@ -124,7 +164,7 @@ export default function HomeScreen() {
 
   const handleScroll = Animated.event(
     [{ nativeEvent: { contentOffset: { y: scrollY } } }],
-    { useNativeDriver: false } // Используем height анимацию
+    { useNativeDriver: false }
   );
 
   return (
@@ -152,10 +192,12 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   
+  // ИСПРАВЛЕНО: Лучшее центрирование header
   headerContainer: {
     backgroundColor: Colors.primary,
-    paddingHorizontal: 24,
+    paddingHorizontal: 20, // Уменьшили с 24 до 20
     justifyContent: 'center',
+    alignItems: 'center', // Добавили для центрирования
     overflow: 'hidden',
   },
 
@@ -164,26 +206,31 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     alignItems: 'center',
+    justifyContent: 'center', // Добавили для лучшего центрирования
     top: '50%',
-    transform: [{ translateY: -60 }],
+    transform: [{ translateY: -50 }], // Изменили для точного центрирования
   },
   
-  turkmenTitle: {
+  // ИСПРАВЛЕНО: Главный заголовок - размер зависит от выбранного языка
+  mainTitle: {
     fontSize: 18,
     fontWeight: '700',
     color: Colors.textWhite,
     textAlign: 'center',
-    marginBottom: 4,
+    marginBottom: 6,
     letterSpacing: 0.5,
+    paddingHorizontal: 10, // Добавили padding для предотвращения обрезки
   },
   
-  chineseTitle: {
+  // Вторичный заголовок
+  secondaryTitle: {
     fontSize: 16,
     fontWeight: '600',
     color: Colors.textWhite,
     textAlign: 'center',
     marginBottom: 4,
     opacity: 0.9,
+    paddingHorizontal: 10,
   },
   
   russianTitle: {
@@ -191,8 +238,9 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: Colors.textWhite,
     textAlign: 'center',
-    marginBottom: 16,
+    marginBottom: 12,
     opacity: 0.8,
+    paddingHorizontal: 10,
   },
   
   selectCategoryText: {
@@ -201,6 +249,7 @@ const styles = StyleSheet.create({
     color: Colors.textWhite,
     textAlign: 'center',
     opacity: 0.9,
+    paddingHorizontal: 10,
   },
 
   // Компактный заголовок
@@ -208,6 +257,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     alignItems: 'center',
+    justifyContent: 'center',
     top: '50%',
     transform: [{ translateY: -10 }],
   },
@@ -231,8 +281,9 @@ const styles = StyleSheet.create({
   },
   
   row: {
+    flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 0,
+    marginBottom: 16,
   },
   
   cardWrapper: {

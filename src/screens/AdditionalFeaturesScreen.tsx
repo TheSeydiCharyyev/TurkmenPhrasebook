@@ -1,4 +1,5 @@
-// src/screens/AdditionalFeaturesScreen.tsx
+// src/screens/AdditionalFeaturesScreen.tsx - ПОЛНЫЙ КОД с исправленными стилями
+
 import React, { useCallback } from 'react';
 import {
   View,
@@ -215,13 +216,14 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   title: {
-    ...TextStyles.title,
-    color: Colors.textDark,
+    fontSize: 24,
+    fontWeight: '700',
+    color: Colors.text, // Заменили textDark на text
     textAlign: 'center',
     marginBottom: 8,
   },
   subtitle: {
-    ...TextStyles.body,
+    fontSize: 16,
     color: Colors.textLight,
     textAlign: 'center',
   },
@@ -231,39 +233,41 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 30,
   },
+  // ИСПРАВЛЕНО: Стили как у CategoryCard
   featureCard: {
     width: cardWidth,
-    padding: 20,
-    borderRadius: 16,
+    height: 160, // Такая же высота как у CategoryCard
+    padding: 16,
+    borderRadius: 12, // Такой же радиус как у CategoryCard
     marginBottom: 16,
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 4,
+    justifyContent: 'center',
+    backgroundColor: Colors.cardBackground, // Убрали тени и границы
   },
   iconContainer: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
+    width: 60, // Такой же размер как у CategoryCard
+    height: 60,
+    borderRadius: 30,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: 16, // Такой же отступ как у CategoryCard
   },
   cardTitle: {
-    ...TextStyles.subtitle,
-    color: Colors.textDark,
+    fontSize: 14, // Такой же размер как primaryName в CategoryCard
+    fontWeight: '700',
+    color: Colors.text,
     textAlign: 'center',
-    marginBottom: 4,
+    marginBottom: 6,
+    lineHeight: 18,
+    minHeight: 18,
   },
   cardSubtitle: {
-    ...TextStyles.caption,
-    color: Colors.textLight,
+    fontSize: 12, // Такой же размер как secondaryName в CategoryCard
+    fontWeight: '500',
+    color: Colors.textSecondary,
     textAlign: 'center',
+    lineHeight: 16,
+    minHeight: 16,
   },
   statsContainer: {
     backgroundColor: Colors.backgroundLight,
@@ -271,8 +275,9 @@ const styles = StyleSheet.create({
     borderRadius: 16,
   },
   statsTitle: {
-    ...TextStyles.subtitle,
-    color: Colors.textDark,
+    fontSize: 18,
+    fontWeight: '600',
+    color: Colors.text, // Заменили textDark на text
     textAlign: 'center',
     marginBottom: 16,
   },
@@ -284,13 +289,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   statNumber: {
-    ...TextStyles.title,
-    color: Colors.primary,
     fontSize: 28,
     fontWeight: 'bold',
+    color: Colors.primary,
   },
   statLabel: {
-    ...TextStyles.caption,
+    fontSize: 12,
     color: Colors.textLight,
     marginTop: 4,
   },

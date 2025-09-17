@@ -1,158 +1,143 @@
-// src/components/CategoryCard.tsx - Крупные современные карточки для 25 категорий
+// src/components/CategoryCard.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ с правильными языками
 
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Animated, Dimensions } from 'react-native';
+import React, { useCallback } from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Category } from '../types';
 import { Colors } from '../constants/Colors';
-import { useAppLanguage } from '../contexts/LanguageContext';
-
-const { width } = Dimensions.get('window');
-// Крупные карточки для удобства чтения 3 языков
-const cardWidth = (width - 48) / 2; // 24px отступы по краям
-const cardHeight = 200; // Увеличенная высота для 3 языков
+import { useAnimations } from '../hooks/useAnimations';
 
 interface CategoryCardProps {
   category: Category;
-  onPress: () => void;
+  onPress: (category: Category) => void;
+  languageMode: 'tk' | 'zh';
 }
 
-export default function CategoryCard({ category, onPress }: CategoryCardProps) {
-  const { config } = useAppLanguage();
-  const [scaleValue] = useState(new Animated.Value(1));
+export default function CategoryCard({ category, onPress, languageMode }: CategoryCardProps) {
+  const { hapticFeedback } = useAnimations();
 
-  const handlePressIn = () => {
-    Animated.spring(scaleValue, {
-      toValue: 0.96,
-      useNativeDriver: true,
-      tension: 250,
-      friction: 10,
-    }).start();
+  const handlePress = useCallback(() => {
+    hapticFeedback('light');
+    onPress(category);
+  }, [category, onPress, hapticFeedback]);
+
+  // ИСПРАВЛЕНО: Правильный порядок названий в зависимости от выбранного языка
+  const getCategoryNames = () => {
+    if (languageMode === 'zh') {
+      // Когда выбран китайский - китайский сначала
+      return {
+        primary: category.nameZh,
+        secondary: category.nameTk,
+        tertiary: category.nameRu
+      };
+    } else {
+      // Когда выбран туркменский - туркменский сначала
+      return {
+        primary: category.nameTk,
+        secondary: category.nameZh,
+        tertiary: category.nameRu
+      };
+    }
   };
 
-  const handlePressOut = () => {
-    Animated.spring(scaleValue, {
-      toValue: 1,
-      useNativeDriver: true,
-      tension: 250,
-      friction: 10,
-    }).start();
-  };
+  const names = getCategoryNames();
 
   return (
     <TouchableOpacity
-      onPress={onPress}
-      onPressIn={handlePressIn}
-      onPressOut={handlePressOut}
-      activeOpacity={1}
-      style={styles.cardContainer}
+      style={[styles.card, { backgroundColor: category.color + '15' }]}
+      onPress={handlePress}
+      activeOpacity={0.8}
     >
-      <Animated.View
-        style={[
-          styles.card,
-          { transform: [{ scale: scaleValue }] }
-        ]}
-      >
-        {/* Modern flat иконка */}
-        <View style={[styles.iconContainer, { backgroundColor: category.color + '12' }]}>
-          <Ionicons
-            name={category.icon as any}
-            size={28}
-            color={category.color}
-          />
-        </View>
-        
-        {/* Текстовый контент с правильной иерархией */}
-        <View style={styles.textContainer}>
-          {/* ТУРКМЕНСКИЙ - основной (черный, жирный) */}
-          <Text style={styles.turkmenText} numberOfLines={2}>
-            {category.nameTk}
-          </Text>
-          
-          {/* КИТАЙСКИЙ - серый, тоньше */}
-          <Text style={styles.chineseText} numberOfLines={1}>
-            {category.nameZh}
-          </Text>
-          
-          {/* РУССКИЙ - серый, тоньше */}
-          <Text style={styles.russianText} numberOfLines={1}>
-            {category.nameRu}
-          </Text>
-        </View>
-      </Animated.View>
+      {/* Иконка категории */}
+      <View style={[styles.iconContainer, { backgroundColor: category.color + '25' }]}>
+        <Ionicons 
+          name={category.icon as any} 
+          size={32} 
+          color={category.color} 
+        />
+      </View>
+
+      {/* Названия категории */}
+      <View style={styles.textContainer}>
+        {/* Главное название */}
+        <Text style={styles.primaryName} numberOfLines={2}>
+          {names.primary}
+        </Text>
+
+        {/* Вторичное название */}
+        <Text style={styles.secondaryName} numberOfLines={1}>
+          {names.secondary}
+        </Text>
+
+        {/* Третье название (русский) */}
+        <Text style={styles.tertiaryName} numberOfLines={1}>
+          {names.tertiary}
+        </Text>
+      </View>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  cardContainer: {
-    width: cardWidth,
-    height: cardHeight,
-    marginBottom: 16, // Равномерные отступы
-  },
-  
   card: {
-    flex: 1,
-    backgroundColor: Colors.cardBackground, // Белый фон
-    borderRadius: 16, // Скруглённые углы
-    padding: 20,
-    justifyContent: 'space-between',
-    
-    // Лёгкая тень
-    shadowColor: '#000000',
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 0.06,
-    shadowRadius: 12,
-    elevation: 3,
-    
-    borderWidth: 0, // Без границ
+    borderRadius: 12,
+    padding: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 160, // Фиксированная высота для всех карточек
+    width: '100%', // Фиксированная ширина
+    backgroundColor: Colors.cardBackground,
   },
 
   iconContainer: {
-    width: 48,
-    height: 48,
-    borderRadius: 12,
-    justifyContent: 'center',
+    width: 60,
+    height: 60,
+    borderRadius: 30,
     alignItems: 'center',
-    alignSelf: 'flex-start',
-    marginBottom: 16,
+    justifyContent: 'center',
+    marginBottom: 16, // Увеличили отступ
   },
 
   textContainer: {
     flex: 1,
+    alignItems: 'center',
     justifyContent: 'center',
-    alignItems: 'flex-start',
+    width: '100%',
+    paddingHorizontal: 8, // Добавили внутренние отступы
   },
 
-  // ТУРКМЕНСКИЙ - основной текст (черный, жирный)
-  turkmenText: {
-    fontSize: 17,
-    fontWeight: '700', // Жирный
-    color: Colors.textPrimary, // Черный
-    lineHeight: 22,
-    marginBottom: 8,
-    textAlign: 'left',
-  },
-
-  // КИТАЙСКИЙ - вторичный (серый, тоньше)
-  chineseText: {
-    fontSize: 15,
-    fontWeight: '500', // Средний
-    color: Colors.textSecondary, // Серый
-    lineHeight: 20,
-    marginBottom: 6,
-    opacity: 0.8,
-  },
-
-  // РУССКИЙ - вторичный (серый, тоньше)
-  russianText: {
+  // Стили для трех строк текста с одинаковыми размерами
+  primaryName: {
     fontSize: 14,
-    fontWeight: '400', // Обычный
-    color: Colors.textLight, // Светло-серый
+    fontWeight: '700',
+    color: Colors.text,
+    textAlign: 'center',
+    marginBottom: 6,
     lineHeight: 18,
-    opacity: 0.7,
+    minHeight: 18, // Минимальная высота для строки
+  },
+
+  secondaryName: {
+    fontSize: 12,
+    fontWeight: '500',
+    color: Colors.textSecondary,
+    textAlign: 'center',
+    marginBottom: 4,
+    lineHeight: 16,
+    minHeight: 16,
+  },
+
+  tertiaryName: {
+    fontSize: 11,
+    fontWeight: '400',
+    color: Colors.textLight,
+    textAlign: 'center',
+    lineHeight: 14,
+    minHeight: 14,
   },
 });
