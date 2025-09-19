@@ -1,4 +1,4 @@
-// src/screens/AdditionalFeaturesScreen.tsx - ПОЛНЫЙ КОД с исправленными стилями
+// src/screens/AdditionalFeaturesScreen.tsx - ОБНОВЛЕННЫЙ с 6 категориями
 
 import React, { useCallback } from 'react';
 import {
@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Dimensions,
   ScrollView,
+  Alert,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
@@ -110,6 +111,28 @@ export default function AdditionalFeaturesScreen() {
       color: '#8B5CF6',
       screen: 'Recent',
     },
+    // НОВАЯ КАТЕГОРИЯ 1: Интересные факты
+    {
+      id: 'interesting_facts',
+      title: config.mode === 'tk' ? 'Gyzykly maglumatlar' :
+             config.mode === 'zh' ? '有趣信息' : 'Интересное',
+      subtitle: config.mode === 'tk' ? 'Gyzykly faktlar we maglumatlar' :
+                config.mode === 'zh' ? '有趣的事实和信息' : 'Интересные факты и информация',
+      icon: 'bulb' as keyof typeof Ionicons.glyphMap,
+      color: '#F59E0B',
+      screen: 'InterestingFacts',
+    },
+    // НОВАЯ КАТЕГОРИЯ 2: Случайные фразы
+    {
+      id: 'random_phrases',
+      title: config.mode === 'tk' ? 'Tötänleýin sözler' :
+             config.mode === 'zh' ? '随机短语' : 'Случайные фразы',
+      subtitle: config.mode === 'tk' ? 'Şowly sözlemler' :
+                config.mode === 'zh' ? '随机练习短语' : 'Случайные фразы для изучения',
+      icon: 'shuffle' as keyof typeof Ionicons.glyphMap,
+      color: '#EC4899',
+      screen: 'RandomPhrases',
+    },
   ], [config.mode, recentPhrases.length]);
 
   const handleFeaturePress = useCallback((featureId: string) => {
@@ -130,10 +153,37 @@ export default function AdditionalFeaturesScreen() {
           navigation.getParent()?.navigate('Home' as never);
         }
         break;
+      case 'interesting_facts':
+        // Показываем alert с интересными фактами о китайском языке
+        const factTitle = config.mode === 'tk' ? 'Gyzykly faktlar' :
+                         config.mode === 'zh' ? '有趣的事实' : 'Интересные факты';
+        
+        const factContent = config.mode === 'tk' ? 
+          'Hytaý dili düýdän iň köp ulanylýan dildir. 1.4 milliard adam bu dilde gürleýär!' :
+          config.mode === 'zh' ?
+          '中文是世界上使用人数最多的语言。约有14亿人说中文！' :
+          'Китайский язык - самый распространенный язык в мире. На нем говорят более 1.4 миллиарда человек!';
+        
+        Alert.alert(factTitle, factContent);
+        break;
+      case 'random_phrases':
+        // Показываем случайную фразу
+        const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+        const randomTitle = config.mode === 'tk' ? 'Tötänleýin sözlem' :
+                           config.mode === 'zh' ? '随机短语' : 'Случайная фраза';
+        
+        const randomContent = config.mode === 'tk' ? 
+          `${randomPhrase.turkmen}\n\n${randomPhrase.chinese}` :
+          config.mode === 'zh' ?
+          `${randomPhrase.chinese}\n\n${randomPhrase.russian}` :
+          `${randomPhrase.russian}\n\n${randomPhrase.chinese}`;
+        
+        Alert.alert(randomTitle, randomContent);
+        break;
       default:
         break;
     }
-  }, [navigation, recentPhrases.length]);
+  }, [navigation, recentPhrases.length, config.mode]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -153,7 +203,7 @@ export default function AdditionalFeaturesScreen() {
           </Text>
         </View>
 
-        {/* Features Grid */}
+        {/* Features Grid - теперь с 6 категориями */}
         <View style={styles.featuresGrid}>
           {features.map((feature, index) => (
             <FeatureCard
@@ -218,7 +268,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: '700',
-    color: Colors.text, // Заменили textDark на text
+    color: Colors.text,
     textAlign: 'center',
     marginBottom: 8,
   },
@@ -233,27 +283,26 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 30,
   },
-  // ИСПРАВЛЕНО: Стили как у CategoryCard
   featureCard: {
     width: cardWidth,
-    height: 160, // Такая же высота как у CategoryCard
+    height: 160,
     padding: 16,
-    borderRadius: 12, // Такой же радиус как у CategoryCard
+    borderRadius: 12,
     marginBottom: 16,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Colors.cardBackground, // Убрали тени и границы
+    backgroundColor: Colors.cardBackground,
   },
   iconContainer: {
-    width: 60, // Такой же размер как у CategoryCard
+    width: 60,
     height: 60,
     borderRadius: 30,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 16, // Такой же отступ как у CategoryCard
+    marginBottom: 16,
   },
   cardTitle: {
-    fontSize: 14, // Такой же размер как primaryName в CategoryCard
+    fontSize: 14,
     fontWeight: '700',
     color: Colors.text,
     textAlign: 'center',
@@ -262,7 +311,7 @@ const styles = StyleSheet.create({
     minHeight: 18,
   },
   cardSubtitle: {
-    fontSize: 12, // Такой же размер как secondaryName в CategoryCard
+    fontSize: 12,
     fontWeight: '500',
     color: Colors.textSecondary,
     textAlign: 'center',
@@ -277,7 +326,7 @@ const styles = StyleSheet.create({
   statsTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: Colors.text, // Заменили textDark на text
+    color: Colors.text,
     textAlign: 'center',
     marginBottom: 16,
   },
