@@ -1,151 +1,91 @@
-// src/screens/CategoryScreen.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ без ошибок
+// src/screens/CategoryScreen.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ (совместимая с текущей навигацией)
 
-import React, { useMemo, useCallback, useState, useEffect, useRef } from 'react';
-import { ResponsiveUtils } from '../utils/ResponsiveUtils';
+import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import {
   View,
   Text,
   StyleSheet,
+  SafeAreaView,
   FlatList,
   TouchableOpacity,
-  StatusBar,
-  ListRenderItem,
-  ActivityIndicator,
   Animated,
+  ActivityIndicator,
+  Dimensions,
 } from 'react-native';
-import { RouteProp, useRoute, useNavigation, useFocusEffect } from '@react-navigation/native';
+import { useRoute, useNavigation, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 
-import { HomeStackParamList, RootStackParamList, Phrase } from '../types';
-import { phrases } from '../data/phrases';
 import { Colors } from '../constants/Colors';
-import { useAudio } from '../hooks/useAudio';
+import { phrases } from '../data/phrases';
+import { getCategoryName, getSubcategoriesByParentId } from '../data/categories';
+import { Phrase, HomeStackParamList, SubCategory } from '../types';
 import { useFavorites } from '../hooks/useFavorites';
 import { useAppLanguage } from '../contexts/LanguageContext';
-import { useHistory } from '../hooks/useHistory';
-import { PhraseCardSkeleton, LoadingSpinner, EmptyState } from '../components/LoadingStates';
-import ErrorBoundary from '../components/ErrorBoundary';
+import { SubCategoriesGrid } from '../components/SubCategoryCard';
 
 type CategoryScreenRouteProp = RouteProp<HomeStackParamList, 'CategoryScreen'>;
-type CategoryScreenNavigationProp = StackNavigationProp<RootStackParamList, 'PhraseDetail'>;
+type CategoryScreenNavigationProp = StackNavigationProp<HomeStackParamList>;
 
-const ITEM_HEIGHT = ResponsiveUtils.dimensions.phraseCardHeight;
-const SEPARATOR_HEIGHT = 12;
-const TOTAL_ITEM_HEIGHT = ITEM_HEIGHT + SEPARATOR_HEIGHT;
-
-// ИСПРАВЛЕННЫЙ компонент PhraseItem с правильным layout
+// Компонент для отображения фразы
 const PhraseItem = React.memo<{
   phrase: Phrase;
   onPress: (phrase: Phrase) => void;
-  config: { mode: 'tk' | 'zh' };
+  config: any;
 }>(({ phrase, onPress, config }) => {
-  const { isPlaying, isLoading, playText } = useAudio();
   const { isFavorite, toggleFavorite } = useFavorites();
-  const { addToHistory } = useHistory();
-
-  const handlePress = useCallback(() => {
-    addToHistory(phrase.id);
-    onPress(phrase);
-  }, [phrase, onPress, addToHistory]);
-
-  const handlePlayChinese = useCallback(() => {
-    if (!isPlaying && !isLoading) {
-      playText(phrase.chinese, 'chinese');
-    }
-  }, [phrase.chinese, playText, isPlaying, isLoading]);
-
-  const handlePlayTurkmen = useCallback(() => {
-    if (!isPlaying && !isLoading) {
-      playText(phrase.turkmen, 'turkmen');
-    }
-  }, [phrase.turkmen, playText, isPlaying, isLoading]);
 
   const handleToggleFavorite = useCallback(() => {
     toggleFavorite(phrase.id);
   }, [phrase.id, toggleFavorite]);
 
-  const phraseTexts = useMemo(() => {
-    if (config.mode === 'tk') {
-      return {
-        main: phrase.turkmen,
-        secondary: phrase.russian,
-        mainStyle: styles.turkmenMainText,
-        secondaryStyle: styles.russianSecondaryText,
-      };
-    } else {
-      return {
-        main: phrase.chinese,
-        secondary: phrase.russian,
-        mainStyle: styles.chineseMainText,
-        secondaryStyle: styles.russianSecondaryText,
-      };
+  const handlePress = useCallback(() => {
+    onPress(phrase);
+  }, [phrase, onPress]);
+
+  // Получаем текст фразы в зависимости от языка
+  const getPhraseText = () => {
+    switch (config.mode) {
+      case 'tk': return phrase.turkmen;
+      case 'zh': return phrase.chinese;
+      default: return phrase.russian;
     }
-  }, [config.mode, phrase]);
+  };
 
   return (
-    <TouchableOpacity 
-      style={styles.phraseCard} 
+    <TouchableOpacity
+      style={styles.phraseItem}
       onPress={handlePress}
       activeOpacity={0.7}
     >
-      {/* Основной контент фразы */}
       <View style={styles.phraseContent}>
-        {/* Китайские иероглифы - всегда сверху */}
-        <Text style={styles.chineseText}>{phrase.chinese}</Text>
+        {/* Основной текст */}
+        <Text style={styles.phraseText} numberOfLines={2}>
+          {getPhraseText()}
+        </Text>
         
-        {/* Пиньинь - серым цветом */}
-        <Text style={styles.pinyinText}>{phrase.pinyin}</Text>
-        
-        {/* Туркменский перевод - жирным черным */}
-        <Text style={styles.turkmenText}>{phrase.turkmen}</Text>
-        
-        {/* Русский перевод - серым */}
-        <Text style={styles.russianText}>{phrase.russian}</Text>
+        {/* Дополнительная информация */}
+        <View style={styles.phraseDetails}>
+          <Text style={styles.chineseText} numberOfLines={1}>
+            {phrase.chinese}
+          </Text>
+          <Text style={styles.pinyinText} numberOfLines={1}>
+            {phrase.pinyin}
+          </Text>
+        </View>
       </View>
 
-      {/* Кнопки действий */}
-      <View style={styles.actionButtons}>
-        {/* Кнопка воспроизведения китайского */}
-        <TouchableOpacity
-          style={[styles.actionButton, styles.playChineseButton]}
-          onPress={handlePlayChinese}
-          disabled={isPlaying || isLoading}
-        >
-          {isPlaying ? (
-            <ActivityIndicator size="small" color={Colors.primary} />
-          ) : (
-            <Ionicons name="play" size={16} color={Colors.primary} />
-          )}
-          <Text style={styles.playButtonLabel}>中文</Text>
-        </TouchableOpacity>
-
-        {/* Кнопка воспроизведения туркменского */}
-        <TouchableOpacity
-          style={[styles.actionButton, styles.playTurkmenButton]}
-          onPress={handlePlayTurkmen}
-          disabled={isPlaying || isLoading}
-        >
-          {isPlaying ? (
-            <ActivityIndicator size="small" color={Colors.accent} />
-          ) : (
-            <Ionicons name="play" size={16} color={Colors.accent} />
-          )}
-          <Text style={styles.playButtonLabel}>TM</Text>
-        </TouchableOpacity>
-
-        {/* Кнопка избранного */}
-        <TouchableOpacity
-          style={[styles.actionButton, styles.favoriteButton]}
-          onPress={handleToggleFavorite}
-        >
-          <Ionicons
-            name={isFavorite(phrase.id) ? "heart" : "heart-outline"}
-            size={20}
-            color={isFavorite(phrase.id) ? Colors.error : Colors.textLight}
-          />
-        </TouchableOpacity>
-      </View>
+      {/* Кнопка избранного */}
+      <TouchableOpacity
+        style={styles.favoriteButton}
+        onPress={handleToggleFavorite}
+      >
+        <Ionicons
+          name={isFavorite(phrase.id) ? "heart" : "heart-outline"}
+          size={20}
+          color={isFavorite(phrase.id) ? Colors.error : Colors.textLight}
+        />
+      </TouchableOpacity>
     </TouchableOpacity>
   );
 });
@@ -155,15 +95,33 @@ export default function CategoryScreen() {
   const navigation = useNavigation<CategoryScreenNavigationProp>();
   const { config } = useAppLanguage();
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedSubcategory, setSelectedSubcategory] = useState<SubCategory | null>(null);
   
-  // Анимация для header
   const scrollY = useRef(new Animated.Value(0)).current;
-
   const { category } = route.params;
 
-  // Фильтрация фраз по категории
-  const categoryPhrases = useMemo(() => {
-    return phrases.filter(phrase => phrase.categoryId === category.id);
+  // Получаем подкатегории для данной категории
+  const subcategories = useMemo(() => {
+    return getSubcategoriesByParentId(category.id);
+  }, [category.id]);
+
+  // Фильтрация фраз
+  const filteredPhrases = useMemo(() => {
+    let categoryPhrases = phrases.filter(phrase => phrase.categoryId === category.id);
+    
+    // Если выбрана подкатегория, фильтруем по ней
+    if (selectedSubcategory) {
+      categoryPhrases = categoryPhrases.filter(phrase => phrase.subcategoryId === selectedSubcategory.id);
+    }
+    
+    return categoryPhrases;
+  }, [category.id, selectedSubcategory]);
+
+  // Функция для получения количества фраз в подкатегории
+  const getPhrasesCountForSubcategory = useCallback((subcategoryId: string) => {
+    return phrases.filter(phrase => 
+      phrase.categoryId === category.id && phrase.subcategoryId === subcategoryId
+    ).length;
   }, [category.id]);
 
   // Имитация загрузки
@@ -172,11 +130,25 @@ export default function CategoryScreen() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Сброс выбранной подкатегории при смене категории
+  useEffect(() => {
+    setSelectedSubcategory(null);
+  }, [category.id]);
+
+  // ✅ ИСПРАВЛЕНО: Используем правильный тип навигации
   const handlePhrasePress = useCallback((phrase: Phrase) => {
     navigation.navigate('PhraseDetail', { phrase });
   }, [navigation]);
 
-  const renderPhraseItem: ListRenderItem<Phrase> = useCallback(({ item }) => (
+  const handleSubcategoryPress = useCallback((subcategory: SubCategory) => {
+    setSelectedSubcategory(subcategory);
+  }, []);
+
+  const handleBackToCategory = useCallback(() => {
+    setSelectedSubcategory(null);
+  }, []);
+
+  const renderPhraseItem = useCallback(({ item }: { item: Phrase }) => (
     <PhraseItem 
       phrase={item} 
       onPress={handlePhrasePress}
@@ -184,164 +156,125 @@ export default function CategoryScreen() {
     />
   ), [handlePhrasePress, config]);
 
-  const getItemLayout = useCallback((data: any, index: number) => ({
-    length: TOTAL_ITEM_HEIGHT,
-    offset: TOTAL_ITEM_HEIGHT * index,
-    index,
-  }), []);
-
-  const ItemSeparator = useCallback(() => <View style={styles.separator} />, []);
-
   const keyExtractor = useCallback((item: Phrase) => item.id, []);
 
-  // Получаем иконку категории
-  const getCategoryIcon = () => {
-    // Возвращаем иконку в зависимости от ID категории
-    const iconMap: Record<string, string> = {
-      'greetings': 'hand-left',
-      'emergency': 'warning',
-      'hotel': 'bed',
-      'food': 'restaurant',
-      'shopping': 'bag',
-      'transport': 'bus',
-      'directions': 'compass',
-      'health': 'medical',
-      'money': 'cash',
-      'communication': 'call',
-      'entertainment': 'game-controller',
-      'time': 'time',
-      'numbers': 'calculator',
-      'weather': 'partly-sunny',
-    };
-    return iconMap[category.id] || 'apps';
-  };
-
-  // Анимация для расширенного header
-  const headerHeight = scrollY.interpolate({
-    inputRange: [0, 100],
-    outputRange: [140, 64], // От полного header до компактного
-    extrapolate: 'clamp',
-  });
-
-  const categoryInfoOpacity = scrollY.interpolate({
-    inputRange: [0, 80],
-    outputRange: [1, 0],
-    extrapolate: 'clamp',
-  });
-
-  const categoryInfoHeight = scrollY.interpolate({
-    inputRange: [0, 80],
-    outputRange: [76, 0], // Высота блока с информацией
-    extrapolate: 'clamp',
-  });
-
-  // Обработчик скролла
-  const handleScroll = Animated.event(
-    [{ nativeEvent: { contentOffset: { y: scrollY } } }],
-    { useNativeDriver: false }
-  );
+  // Получаем название категории на текущем языке
+  const categoryName = getCategoryName(category, config.mode);
+  const selectedSubcategoryName = selectedSubcategory 
+    ? (config.mode === 'tk' ? selectedSubcategory.nameTk :
+       config.mode === 'zh' ? selectedSubcategory.nameZh : 
+       selectedSubcategory.nameRu)
+    : '';
 
   if (isLoading) {
     return (
-      <View style={styles.container}>
-        <StatusBar barStyle="light-content" backgroundColor={Colors.primary} />
-        
-        {/* РАСШИРЯЕМАЯ ШАПКА */}
-        <Animated.View style={[styles.expandedHeader, { height: headerHeight }]}>
-          {/* Верхняя часть - всегда видна */}
-          <View style={styles.mainHeader}>
-            <TouchableOpacity 
-              style={styles.backButton}
-              onPress={() => navigation.goBack()}
-            >
-              <Ionicons name="chevron-back" size={24} color={Colors.textWhite} />
-            </TouchableOpacity>
-            
-            <Text style={styles.headerTitle}>{category.nameTk}</Text>
-            
-            <View style={styles.categoryIconContainer}>
-              <Ionicons name={getCategoryIcon() as any} size={24} color={Colors.textWhite} />
-            </View>
-          </View>
-
-          {/* Нижняя часть - исчезает при скролле */}
-          <Animated.View style={[
-            styles.headerSubtitle,
-            {
-              opacity: categoryInfoOpacity,
-              height: categoryInfoHeight,
-              overflow: 'hidden'
-            }
-          ]}>
-            <Text style={styles.headerChineseText}>{category.nameZh}</Text>
-            <Text style={styles.headerRussianText}>{category.nameRu}</Text>
-            <Text style={styles.headerPhraseCount}>{categoryPhrases.length} sözlem</Text>
-          </Animated.View>
-        </Animated.View>
-
+      <SafeAreaView style={styles.container}>
         <View style={styles.loadingContainer}>
-          <LoadingSpinner message="Загружаем фразы..." />
+          <ActivityIndicator size="large" color={Colors.primary} />
         </View>
-      </View>
+      </SafeAreaView>
     );
   }
 
   return (
-    <ErrorBoundary>
-      <View style={styles.container}>
-        <StatusBar barStyle="light-content" backgroundColor={Colors.primary} />
+    <SafeAreaView style={styles.container}>
+      {/* Кастомный заголовок */}
+      <View style={[styles.header, { backgroundColor: category.color }]}>
+        <TouchableOpacity 
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}
+        >
+          <Ionicons name="arrow-back" size={24} color={Colors.textWhite} />
+        </TouchableOpacity>
         
-        {/* РАСШИРЯЕМАЯ ШАПКА */}
-        <Animated.View style={[styles.expandedHeader, { height: headerHeight }]}>
-          {/* Верхняя часть - всегда видна */}
-          <View style={styles.mainHeader}>
-            <TouchableOpacity 
-              style={styles.backButton}
-              onPress={() => navigation.goBack()}
-            >
-              <Ionicons name="chevron-back" size={24} color={Colors.textWhite} />
-            </TouchableOpacity>
-            
-            <Text style={styles.headerTitle}>{category.nameTk}</Text>
-            
-            <View style={styles.categoryIconContainer}>
-              <Ionicons name={getCategoryIcon() as any} size={24} color={Colors.textWhite} />
-            </View>
-          </View>
+        <View style={styles.headerTextContainer}>
+          <Text style={styles.headerTitle} numberOfLines={1}>
+            {selectedSubcategory ? selectedSubcategoryName : categoryName}
+          </Text>
+          {selectedSubcategory && (
+            <Text style={styles.headerSubtitle} numberOfLines={1}>
+              {categoryName}
+            </Text>
+          )}
+        </View>
 
-          {/* Нижняя часть - исчезает при скролле */}
-          <Animated.View style={[
-            styles.headerSubtitle,
-            {
-              opacity: categoryInfoOpacity,
-              height: categoryInfoHeight,
-              overflow: 'hidden'
-            }
-          ]}>
-            <Text style={styles.headerChineseText}>{category.nameZh}</Text>
-            <Text style={styles.headerRussianText}>{category.nameRu}</Text>
-            <Text style={styles.headerPhraseCount}>{categoryPhrases.length} sözlem</Text>
-          </Animated.View>
-        </Animated.View>
-
-        {/* Список фраз */}
-        <Animated.FlatList
-          data={categoryPhrases}
-          renderItem={renderPhraseItem}
-          keyExtractor={keyExtractor}
-          getItemLayout={getItemLayout}
-          ItemSeparatorComponent={ItemSeparator}
-          contentContainerStyle={styles.listContainer}
-          showsVerticalScrollIndicator={false}
-          removeClippedSubviews={true}
-          maxToRenderPerBatch={10}
-          windowSize={10}
-          initialNumToRender={5}
-          onScroll={handleScroll}
-          scrollEventThrottle={16}
-        />
+        {/* Кнопка "Назад к категории" если выбрана подкатегория */}
+        {selectedSubcategory && (
+          <TouchableOpacity 
+            style={styles.backToCategoryButton}
+            onPress={handleBackToCategory}
+          >
+            <Ionicons name="apps" size={20} color={Colors.textWhite} />
+          </TouchableOpacity>
+        )}
       </View>
-    </ErrorBoundary>
+
+      {/* Контент */}
+      <View style={styles.content}>
+        {/* Если есть подкатегории и не выбрана конкретная подкатегория */}
+        {subcategories.length > 0 && !selectedSubcategory && (
+          <View style={styles.subcategoriesSection}>
+            <Text style={styles.sectionTitle}>
+              {config.mode === 'tk' ? 'Bölümler' :
+               config.mode === 'zh' ? '分类' : 'Разделы'}
+            </Text>
+            <SubCategoriesGrid
+              subcategories={subcategories}
+              onSubcategoryPress={handleSubcategoryPress}
+              getPhrasesCount={getPhrasesCountForSubcategory}
+            />
+          </View>
+        )}
+
+        {/* Фразы */}
+        {filteredPhrases.length > 0 && (
+          <View style={styles.phrasesSection}>
+            {/* Заголовок секции фраз */}
+            {subcategories.length > 0 && !selectedSubcategory && (
+              <Text style={styles.sectionTitle}>
+                {config.mode === 'tk' ? 'Ähli sözlemler' :
+                 config.mode === 'zh' ? '所有短语' : 'Все фразы'}
+              </Text>
+            )}
+            
+            <FlatList
+              data={filteredPhrases}
+              renderItem={renderPhraseItem}
+              keyExtractor={keyExtractor}
+              showsVerticalScrollIndicator={false}
+              contentContainerStyle={styles.phrasesList}
+              onScroll={Animated.event(
+                [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+                { useNativeDriver: false }
+              )}
+            />
+          </View>
+        )}
+
+        {/* Пустое состояние */}
+        {filteredPhrases.length === 0 && (
+          <View style={styles.emptyState}>
+            <Ionicons 
+              name="document-text-outline" 
+              size={64} 
+              color={Colors.textLight} 
+            />
+            <Text style={styles.emptyStateTitle}>
+              {config.mode === 'tk' ? 'Sözlem ýok' :
+               config.mode === 'zh' ? '暂无短语' : 'Нет фраз'}
+            </Text>
+            <Text style={styles.emptyStateText}>
+              {selectedSubcategory
+                ? (config.mode === 'tk' ? 'Bu bölümde sözlemler heniz goşulmady' :
+                   config.mode === 'zh' ? '此分类中尚未添加短语' : 'В этом разделе пока нет фраз')
+                : (config.mode === 'tk' ? 'Bu kategoriýada sözlemler heniz goşulmady' :
+                   config.mode === 'zh' ? '此类别中尚未添加短语' : 'В этой категории пока нет фраз')
+              }
+            </Text>
+          </View>
+        )}
+      </View>
+    </SafeAreaView>
   );
 }
 
@@ -350,224 +283,131 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.background,
   },
-  
-  // РАСШИРЕННЫЙ HEADER
-  expandedHeader: {
-    backgroundColor: Colors.primary,
-    elevation: 4,
-    shadowColor: Colors.shadowColor,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-  },
-
-  // ОСНОВНАЯ ЧАСТЬ HEADER (красная шапка)
-  mainHeader: {
-    height: 64,
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-  },
-
-  // ПОДЗАГОЛОВОК HEADER - исчезает при скролле
-  headerSubtitle: {
-    backgroundColor: Colors.primary, // Тот же красный цвет
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    borderTopWidth: 1,
-    borderTopColor: Colors.primaryLight, // Тонкая линия-разделитель
-  },
-
-  // КНОПКИ И ЭЛЕМЕНТЫ HEADER
-  backButton: {
-    padding: 8,
-    marginRight: 8,
-  },
-  
-  headerTitle: {
-    flex: 1,
-    fontSize: 20,
-    fontWeight: '600',
-    color: Colors.textWhite,
-    textAlign: 'center',
-    marginRight: 40, // Компенсируем иконку справа
-  },
-  
-  categoryIconContainer: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: Colors.primaryLight,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  // ТЕКСТ В HEADER
-  headerChineseText: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: Colors.textWhite,
-    textAlign: 'center',
-    marginBottom: 4,
-  },
-  
-  headerRussianText: {
-    fontSize: 14,
-    color: Colors.textWhite,
-    opacity: 0.9,
-    textAlign: 'center',
-    marginBottom: 4,
-  },
-  
-  headerPhraseCount: {
-    fontSize: 12,
-    color: Colors.textWhite,
-    opacity: 0.8,
-    textAlign: 'center',
-  },
-
-  // ИНФОРМАЦИЯ О КАТЕГОРИИ
-  categoryInfo: {
-    backgroundColor: Colors.cardBackground,
-    paddingVertical: 16,
-    paddingHorizontal: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.borderColor,
-  },
-  
-  categoryNameChinese: {
-    fontSize: 18,
-    fontWeight: '500',
-    color: Colors.textSecondary, // Серый цвет
-    textAlign: 'center',
-    marginBottom: 4,
-  },
-  
-  categoryNameRussian: {
-    fontSize: 16,
-    fontWeight: '400',
-    color: Colors.textSecondary, // Серый цвет
-    textAlign: 'center',
-    marginBottom: 8,
-  },
-  
-  phraseCount: {
-    fontSize: 14,
-    color: Colors.textLight,
-    textAlign: 'center',
-  },
-
-  // Остальные стили карточек
-  listContainer: {
-    padding: 16,
-  },
-  
-  phraseCard: {
-    backgroundColor: Colors.cardBackground,
-    borderRadius: 12,
-    padding: 16,
-    flexDirection: 'row',
-    elevation: 2,
-    shadowColor: Colors.shadowColor,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-    borderWidth: 1,
-    borderColor: Colors.cardBorder,
-  },
-  
-  phraseContent: {
-    flex: 1,
-    marginRight: 12,
-  },
-  
-  chineseText: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.textSecondary, // Серый цвет для китайского
-    marginBottom: 4,
-  },
-  
-  pinyinText: {
-    fontSize: 16,
-    color: Colors.textLight,
-    marginBottom: 8,
-    fontStyle: 'italic',
-  },
-  
-  turkmenText: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: Colors.text, // Черный цвет для туркменского
-    marginBottom: 4,
-  },
-  
-  russianText: {
-    fontSize: 16,
-    color: Colors.textSecondary, // Серый цвет для русского
-  },
-  
-  actionButtons: {
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    width: 60,
-  },
-  
-  actionButton: {
-    width: 48,
-    height: 32,
-    borderRadius: 16,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 8,
-  },
-  
-  playChineseButton: {
-    backgroundColor: Colors.primary + '15',
-    flexDirection: 'row',
-  },
-  
-  playTurkmenButton: {
-    backgroundColor: Colors.accent + '15',
-    flexDirection: 'row',
-  },
-  
-  favoriteButton: {
-    backgroundColor: 'transparent',
-  },
-  
-  playButtonLabel: {
-    fontSize: 10,
-    fontWeight: '600',
-    marginLeft: 2,
-    color: Colors.textSecondary,
-  },
-  
-  separator: {
-    height: SEPARATOR_HEIGHT,
-  },
-  
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-
-  // Старые стили для совместимости
-  chineseMainText: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.textSecondary,
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    paddingTop: 16,
+    elevation: 4,
+    shadowColor: Colors.cardShadow,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
-  
-  turkmenMainText: {
+  backButton: {
+    padding: 8,
+    marginRight: 12,
+  },
+  headerTextContainer: {
+    flex: 1,
+  },
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: Colors.textWhite,
+  },
+  headerSubtitle: {
+    fontSize: 14,
+    color: Colors.textWhite + 'CC',
+    marginTop: 2,
+  },
+  backToCategoryButton: {
+    padding: 8,
+    marginLeft: 12,
+  },
+  content: {
+    flex: 1,
+  },
+  subcategoriesSection: {
+    paddingVertical: 20,
+  },
+  sectionTitle: {
     fontSize: 18,
     fontWeight: '600',
     color: Colors.text,
+    marginHorizontal: 20,
+    marginBottom: 16,
   },
-  
-  russianSecondaryText: {
+  phrasesSection: {
+    flex: 1,
+    paddingTop: 10,
+  },
+  phrasesList: {
+    paddingBottom: 20,
+  },
+  phraseItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: Colors.cardBackground,
+    marginHorizontal: 20,
+    marginBottom: 8,
+    padding: 16,
+    borderRadius: 12,
+    elevation: 1,
+    shadowColor: Colors.cardShadow,
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+  },
+  phraseContent: {
+    flex: 1,
+    marginRight: 12,
+  },
+  phraseText: {
     fontSize: 16,
-    color: Colors.textSecondary,
+    fontWeight: '600',
+    color: Colors.text,
+    marginBottom: 4,
+    lineHeight: 22,
+  },
+  phraseDetails: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  chineseText: {
+    fontSize: 14,
+    color: Colors.primary,
+    fontWeight: '500',
+  },
+  pinyinText: {
+    fontSize: 13,
+    color: Colors.textLight,
+    fontStyle: 'italic',
+  },
+  favoriteButton: {
+    padding: 8,
+  },
+  emptyState: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 40,
+  },
+  emptyStateTitle: {
+    fontSize: 20,
+    fontWeight: '600',
+    color: Colors.text,
+    marginTop: 16,
+    marginBottom: 8,
+    textAlign: 'center',
+  },
+  emptyStateText: {
+    fontSize: 16,
+    color: Colors.textLight,
+    textAlign: 'center',
+    lineHeight: 22,
   },
 });
