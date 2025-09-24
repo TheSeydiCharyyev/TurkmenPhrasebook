@@ -1,4 +1,4 @@
-// src/screens/CategoryScreen.tsx - ИСПРАВЛЕННАЯ навигация
+// src/screens/CategoryScreen.tsx - ФИНАЛЬНАЯ ВЕРСИЯ с правильной логикой подкатегорий
 
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import {
@@ -11,6 +11,7 @@ import {
   Animated,
   ActivityIndicator,
   Dimensions,
+  ScrollView,
 } from 'react-native';
 import { useRoute, useNavigation, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -29,9 +30,9 @@ import { useFavorites } from '../hooks/useFavorites';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { SubCategoriesGrid } from '../components/SubCategoryCard';
 
-// ✅ ИСПРАВЛЕНО: Правильные типы для навигации
+// ✅ ИСПРАВЛЕННЫЕ типы для навигации
 type CategoryScreenRouteProp = RouteProp<HomeStackParamList, 'CategoryScreen'>;
-type CategoryScreenNavigationProp = StackNavigationProp<RootStackParamList>; // Изменено!
+type CategoryScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
 const { width, height } = Dimensions.get('window');
 
@@ -100,7 +101,7 @@ const PhraseItem = React.memo<{
 
 export default function CategoryScreen() {
   const route = useRoute<CategoryScreenRouteProp>();
-  const navigation = useNavigation<CategoryScreenNavigationProp>(); // Исправлено!
+  const navigation = useNavigation<CategoryScreenNavigationProp>();
   const { config } = useAppLanguage();
   const [isLoading, setIsLoading] = useState(true);
   const [selectedSubcategory, setSelectedSubcategory] = useState<SubCategory | null>(null);
@@ -143,7 +144,7 @@ export default function CategoryScreen() {
     setSelectedSubcategory(null);
   }, [category.id]);
 
-  // ✅ ИСПРАВЛЕНО: Теперь используем правильную навигацию на RootStack
+  // ✅ Навигация на PhraseDetail
   const handlePhrasePress = useCallback((phrase: Phrase) => {
     navigation.navigate('PhraseDetail', { phrase });
   }, [navigation]);
@@ -218,8 +219,20 @@ export default function CategoryScreen() {
       </View>
 
       {/* Контент */}
-      <View style={styles.content}>
-        {/* Если есть подкатегории и не выбрана конкретная подкатегория */}
+      <ScrollView 
+        style={styles.content}
+        showsVerticalScrollIndicator={false}
+        bounces={true}
+      >
+        {/* 
+        ✅ ЛОГИКА ОТОБРАЖЕНИЯ:
+        1. Если есть подкатегории И не выбрана конкретная подкатегория → показываем сетку подкатегорий
+        2. После подкатегорий показываем все фразы категории (если не выбрана конкретная подкатегория)
+        3. Если выбрана подкатегория → показываем только фразы этой подкатегории
+        4. Если подкатегорий нет → показываем сразу фразы категории
+        */}
+        
+        {/* ПОДКАТЕГОРИИ - показываем ПЕРВЫМИ если есть и не выбрана конкретная */}
         {subcategories.length > 0 && !selectedSubcategory && (
           <View style={styles.subcategoriesSection}>
             <Text style={styles.sectionTitle}>
@@ -234,10 +247,10 @@ export default function CategoryScreen() {
           </View>
         )}
 
-        {/* Фразы */}
+        {/* ФРАЗЫ - показываем всегда когда есть */}
         {filteredPhrases.length > 0 && (
-          <View style={subcategories.length > 0 ? styles.phrasesSection : styles.phrasesSectionNoSubcategories}>
-            {/* Заголовок секции фраз */}
+          <View style={styles.phrasesSection}>
+            {/* Заголовок для фраз (только если есть подкатегории и не выбрана конкретная) */}
             {subcategories.length > 0 && !selectedSubcategory && (
               <Text style={styles.sectionTitle}>
                 {config.mode === 'tk' ? 'Ähli sözlemler' :
@@ -245,18 +258,17 @@ export default function CategoryScreen() {
               </Text>
             )}
 
-            <FlatList
-              data={filteredPhrases}
-              renderItem={renderPhraseItem}
-              keyExtractor={keyExtractor}
-              showsVerticalScrollIndicator={false}
-              contentContainerStyle={styles.phrasesList}
-              onScroll={Animated.event(
-                [{ nativeEvent: { contentOffset: { y: scrollY } } }],
-                { useNativeDriver: false }
-              )}
-              scrollEventThrottle={16}
-            />
+            {/* Список фраз */}
+            <View style={styles.phrasesList}>
+              {filteredPhrases.map((phrase) => (
+                <PhraseItem 
+                  key={phrase.id}
+                  phrase={phrase} 
+                  onPress={handlePhrasePress}
+                  config={config}
+                />
+              ))}
+            </View>
           </View>
         )}
 
@@ -278,7 +290,7 @@ export default function CategoryScreen() {
             </Text>
           </View>
         )}
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -326,6 +338,7 @@ const styles = StyleSheet.create({
   },
   subcategoriesSection: {
     paddingTop: 20,
+    paddingBottom: 8,
   },
   sectionTitle: {
     fontSize: 18,
@@ -335,16 +348,11 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   phrasesSection: {
-    flex: 1,
-    paddingTop: 20,
-  },
-  phrasesSectionNoSubcategories: {
-    flex: 1,
-    paddingTop: 0,
+    paddingTop: 16,
+    paddingBottom: 20,
   },
   phrasesList: {
     paddingHorizontal: 20,
-    paddingBottom: 20,
   },
   phraseItem: {
     flexDirection: 'row',
@@ -393,6 +401,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 40,
+    paddingVertical: 60,
   },
   emptyTitle: {
     fontSize: 20,
