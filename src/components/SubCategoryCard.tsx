@@ -1,56 +1,49 @@
-// src/components/SubCategoryCard.tsx - Карточка подкатегории
-
+// src/components/SubCategoryCard.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ с идентичным дизайном
 import React from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  Dimensions,
-} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { SubCategory } from '../types';
 import { Colors } from '../constants/Colors';
-import { getSubcategoryName } from '../data/categories';
 import { useAppLanguage } from '../contexts/LanguageContext';
+import { getSubcategoryName } from '../data/categories';
 
-const { width } = Dimensions.get('window');
-const cardWidth = (width - 60) / 2; // 2 колонки с отступами
+const { width: screenWidth } = Dimensions.get('window');
+const cardMargin = 20;
+const cardSpacing = 12;
+// ИСПРАВЛЕНО: Используем ТОЧНО такую же ширину как у основных категорий
+const cardWidth = (screenWidth - (cardMargin * 2) - cardSpacing) / 2;
 
 interface SubCategoryCardProps {
   subcategory: SubCategory;
   onPress: (subcategory: SubCategory) => void;
-  phrasesCount?: number; // Количество фраз в подкатегории
-  style?: any;
+  phrasesCount?: number;
 }
 
-export default function SubCategoryCard({ 
-  subcategory, 
-  onPress, 
-  phrasesCount = 0,
-  style 
-}: SubCategoryCardProps) {
+export default function SubCategoryCard({ subcategory, onPress, phrasesCount = 0 }: SubCategoryCardProps) {
   const { config } = useAppLanguage();
-
-  const handlePress = () => {
-    onPress(subcategory);
-  };
-
-  // Получаем название на текущем языке
   const subcategoryName = getSubcategoryName(subcategory, config.mode);
 
   return (
     <TouchableOpacity
-      style={[styles.card, { backgroundColor: subcategory.color + '15' }, style]}
-      onPress={handlePress}
-      activeOpacity={0.7}
+      // ИСПРАВЛЕНО: ТОЧНО такие же стили как у CategoryCard
+      style={[
+        styles.card,
+        { 
+          backgroundColor: subcategory.color,
+          width: cardWidth,
+        }
+      ]}
+      onPress={() => onPress(subcategory)}
+      activeOpacity={0.8}
     >
-      {/* Иконка */}
-      <View style={[styles.iconContainer, { backgroundColor: subcategory.color + '25' }]}>
+      {/* ИСПРАВЛЕНО: Точно такая же структура как у CategoryCard */}
+      
+      {/* Иконка в том же стиле */}
+      <View style={[styles.iconContainer, { backgroundColor: Colors.textWhite + '20' }]}>
         <Ionicons 
           name={subcategory.icon as any} 
-          size={28} 
-          color={subcategory.color} 
+          size={24} 
+          color={Colors.textWhite} 
         />
       </View>
 
@@ -59,9 +52,9 @@ export default function SubCategoryCard({
         {subcategoryName}
       </Text>
 
-      {/* Количество фраз */}
+      {/* Счетчик фраз в том же стиле */}
       <View style={styles.phrasesContainer}>
-        <Text style={[styles.phrasesCount, { color: subcategory.color }]}>
+        <Text style={styles.phrasesCount}>
           {phrasesCount}
         </Text>
         <Text style={styles.phrasesLabel}>
@@ -71,12 +64,12 @@ export default function SubCategoryCard({
         </Text>
       </View>
 
-      {/* Стрелка для перехода */}
+      {/* Стрелка в том же месте */}
       <View style={styles.arrowContainer}>
         <Ionicons 
           name="chevron-forward" 
           size={16} 
-          color={Colors.textLight} 
+          color={Colors.textWhite + '80'} 
         />
       </View>
     </TouchableOpacity>
@@ -84,63 +77,65 @@ export default function SubCategoryCard({
 }
 
 const styles = StyleSheet.create({
+  // ИСПРАВЛЕНО: ТОЧНО ТАКИЕ ЖЕ стили как у CategoryCard
   card: {
-    width: cardWidth,
-    height: 140,
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 16,
+    height: 140, // Такая же высота
+    borderRadius: 16, // Такие же скругления
+    padding: 16, // Такие же отступы
+    marginBottom: 16, // Такие же отступы снизу
     position: 'relative',
     justifyContent: 'space-between',
-    elevation: 2,
+    // ИСПРАВЛЕНО: Такие же тени
+    elevation: 4,
     shadowColor: Colors.cardShadow,
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 4,
     },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOpacity: 0.15,
+    shadowRadius: 6,
   },
   iconContainer: {
-    width: 44,
+    width: 44, // Такой же размер
     height: 44,
     borderRadius: 22,
     justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: 'flex-start',
+    alignSelf: 'flex-start', // Такое же позиционирование
   },
   title: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: Colors.text,
-    textAlign: 'left',
-    lineHeight: 18,
+    fontSize: 15, // Такой же размер
+    fontWeight: '600', // Такая же жирность
+    color: Colors.textWhite,
+    textAlign: 'left', // Такое же выравнивание
+    lineHeight: 20, // Такая же высота строки
     marginTop: 8,
     flex: 1,
   },
   phrasesContainer: {
     flexDirection: 'row',
     alignItems: 'baseline',
-    marginTop: 4,
+    marginTop: 4, // Такой же отступ
   },
   phrasesCount: {
-    fontSize: 16,
-    fontWeight: '700',
+    fontSize: 18, // Такой же размер
+    fontWeight: '700', // Такая же жирность
+    color: Colors.textWhite,
     marginRight: 4,
   },
   phrasesLabel: {
-    fontSize: 12,
-    color: Colors.textLight,
+    fontSize: 12, // Такой же размер
+    color: Colors.textWhite + '80', // Такая же прозрачность
     fontWeight: '500',
   },
   arrowContainer: {
     position: 'absolute',
-    top: 12,
-    right: 12,
+    top: 12, // Такая же позиция
+    right: 12, // Такая же позиция
   },
 });
 
-// Компонент для отображения подкатегорий в виде сетки
+// ИСПРАВЛЕНО: Компонент сетки подкатегорий с правильными отступами
 export function SubCategoriesGrid({ 
   subcategories, 
   onSubcategoryPress,
@@ -153,13 +148,21 @@ export function SubCategoriesGrid({
   return (
     <View style={gridStyles.container}>
       <View style={gridStyles.grid}>
-        {subcategories.map((subcategory) => (
-          <SubCategoryCard
+        {subcategories.map((subcategory, index) => (
+          <View
             key={subcategory.id}
-            subcategory={subcategory}
-            onPress={onSubcategoryPress}
-            phrasesCount={getPhrasesCount ? getPhrasesCount(subcategory.id) : 0}
-          />
+            style={[
+              gridStyles.cardWrapper,
+              // ИСПРАВЛЕНО: Правильные отступы как у основных категорий
+              index % 2 === 0 ? gridStyles.leftCard : gridStyles.rightCard
+            ]}
+          >
+            <SubCategoryCard
+              subcategory={subcategory}
+              onPress={onSubcategoryPress}
+              phrasesCount={getPhrasesCount ? getPhrasesCount(subcategory.id) : 0}
+            />
+          </View>
         ))}
       </View>
     </View>
@@ -168,16 +171,25 @@ export function SubCategoriesGrid({
 
 const gridStyles = StyleSheet.create({
   container: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 20, // Такие же боковые отступы как у основных
   },
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
   },
+  cardWrapper: {
+    width: cardWidth, // ИСПРАВЛЕНО: Точно такая же ширина
+  },
+  leftCard: {
+    marginRight: cardSpacing / 2, // Половина spacing справа
+  },
+  rightCard: {
+    marginLeft: cardSpacing / 2, // Половина spacing слева
+  },
 });
 
-// Компонент для одной подкатегории в списке (альтернативный вид)
+// Компонент для одной подкатегории в списке (если нужен альтернативный вид)
 export function SubCategoryListItem({ 
   subcategory, 
   onPress, 

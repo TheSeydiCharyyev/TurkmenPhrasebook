@@ -1,12 +1,10 @@
-// src/screens/CategoryScreen.tsx - ФИНАЛЬНАЯ ВЕРСИЯ с правильной логикой подкатегорий
-
+// src/screens/CategoryScreen.tsx - ПОЛНАЯ ВЕРСИЯ с кнопкой аудио
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   SafeAreaView,
-  FlatList,
   TouchableOpacity,
   Animated,
   ActivityIndicator,
@@ -29,24 +27,33 @@ import {
 import { useFavorites } from '../hooks/useFavorites';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { SubCategoriesGrid } from '../components/SubCategoryCard';
+// ДОБАВЛЕНО: Импорт useAudio
+import { useAudio } from '../hooks/useAudio';
 
-// ✅ ИСПРАВЛЕННЫЕ типы для навигации
 type CategoryScreenRouteProp = RouteProp<HomeStackParamList, 'CategoryScreen'>;
 type CategoryScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
 const { width, height } = Dimensions.get('window');
 
-// Компонент для отображения фразы
+// Компонент для отображения фразы с ДОБАВЛЕННОЙ кнопкой аудио
 const PhraseItem = React.memo<{
   phrase: Phrase;
   onPress: (phrase: Phrase) => void;
   config: any;
 }>(({ phrase, onPress, config }) => {
   const { isFavorite, toggleFavorite } = useFavorites();
+  // ДОБАВЛЕНО: useAudio хук
+  const { playText, isPlaying } = useAudio();
 
   const handleToggleFavorite = useCallback(() => {
     toggleFavorite(phrase.id);
   }, [phrase.id, toggleFavorite]);
+
+  // ДОБАВЛЕНО: обработчик аудио
+  const handlePlayAudio = useCallback((e: any) => {
+    e.stopPropagation();
+    playText(phrase.chinese, 'chinese');
+  }, [phrase.chinese, playText]);
 
   const handlePress = useCallback(() => {
     onPress(phrase);
@@ -84,17 +91,33 @@ const PhraseItem = React.memo<{
         </View>
       </View>
 
-      {/* Кнопка избранного */}
-      <TouchableOpacity
-        style={styles.favoriteButton}
-        onPress={handleToggleFavorite}
-      >
-        <Ionicons
-          name={isFavorite(phrase.id) ? "heart" : "heart-outline"}
-          size={20}
-          color={isFavorite(phrase.id) ? Colors.error : Colors.textLight}
-        />
-      </TouchableOpacity>
+      {/* ОБНОВЛЕНО: Добавляем контейнер для двух кнопок */}
+      <View style={styles.actionsContainer}>
+        {/* НОВАЯ кнопка аудио */}
+        <TouchableOpacity
+          style={styles.audioButton}
+          onPress={handlePlayAudio}
+          disabled={isPlaying}
+        >
+          <Ionicons
+            name={isPlaying ? "pause" : "play"}
+            size={18}
+            color={isPlaying ? Colors.textWhite : Colors.primary}
+          />
+        </TouchableOpacity>
+
+        {/* Существующая кнопка избранного */}
+        <TouchableOpacity
+          style={styles.favoriteButton}
+          onPress={handleToggleFavorite}
+        >
+          <Ionicons
+            name={isFavorite(phrase.id) ? "heart" : "heart-outline"}
+            size={18}
+            color={isFavorite(phrase.id) ? Colors.error : Colors.textLight}
+          />
+        </TouchableOpacity>
+      </View>
     </TouchableOpacity>
   );
 });
@@ -144,7 +167,7 @@ export default function CategoryScreen() {
     setSelectedSubcategory(null);
   }, [category.id]);
 
-  // ✅ Навигация на PhraseDetail
+  // Навигация на PhraseDetail
   const handlePhrasePress = useCallback((phrase: Phrase) => {
     navigation.navigate('PhraseDetail', { phrase });
   }, [navigation]);
@@ -156,16 +179,6 @@ export default function CategoryScreen() {
   const handleBackToCategory = useCallback(() => {
     setSelectedSubcategory(null);
   }, []);
-
-  const renderPhraseItem = useCallback(({ item }: { item: Phrase }) => (
-    <PhraseItem 
-      phrase={item} 
-      onPress={handlePhrasePress}
-      config={config}
-    />
-  ), [handlePhrasePress, config]);
-
-  const keyExtractor = useCallback((item: Phrase) => item.id, []);
 
   // Получаем название категории на текущем языке
   const categoryName = getCategoryName(category, config.mode);
@@ -224,14 +237,6 @@ export default function CategoryScreen() {
         showsVerticalScrollIndicator={false}
         bounces={true}
       >
-        {/* 
-        ✅ ЛОГИКА ОТОБРАЖЕНИЯ:
-        1. Если есть подкатегории И не выбрана конкретная подкатегория → показываем сетку подкатегорий
-        2. После подкатегорий показываем все фразы категории (если не выбрана конкретная подкатегория)
-        3. Если выбрана подкатегория → показываем только фразы этой подкатегории
-        4. Если подкатегорий нет → показываем сразу фразы категории
-        */}
-        
         {/* ПОДКАТЕГОРИИ - показываем ПЕРВЫМИ если есть и не выбрана конкретная */}
         {subcategories.length > 0 && !selectedSubcategory && (
           <View style={styles.subcategoriesSection}>
@@ -285,8 +290,7 @@ export default function CategoryScreen() {
                 ? (config.mode === 'tk' ? 'Bu bölümde heniz sözlem ýok' :
                    config.mode === 'zh' ? '此分类中暂无短语' : 'В этой подкатегории пока нет фраз')
                 : (config.mode === 'tk' ? 'Bu kategoriýada heniz sözlem ýok' :
-                   config.mode === 'zh' ? '此类别中暂无短语' : 'В этой категории пока нет фраз')
-              }
+                   config.mode === 'zh' ? '此类别中暂无短语' : 'В этой категории пока нет фраз')}
             </Text>
           </View>
         )}
@@ -309,58 +313,102 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 20,
-    paddingVertical: 16,
-    paddingTop: 20,
+    paddingTop: 8,
+    paddingBottom: 16,
+    elevation: 4,
+    shadowColor: Colors.cardShadow,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 4,
   },
   backButton: {
-    marginRight: 16,
-    padding: 4,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: Colors.textWhite + '20',
   },
   headerTextContainer: {
     flex: 1,
-    marginRight: 16,
+    marginHorizontal: 16,
   },
   headerTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 18,
+    fontWeight: '700',
     color: Colors.textWhite,
+    textAlign: 'center',
   },
   headerSubtitle: {
     fontSize: 14,
     color: Colors.textWhite + '80',
+    textAlign: 'center',
     marginTop: 2,
   },
   backToCategoryButton: {
-    padding: 4,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: Colors.textWhite + '20',
   },
   content: {
     flex: 1,
+    backgroundColor: Colors.background,
   },
   subcategoriesSection: {
     paddingTop: 20,
-    paddingBottom: 8,
+  },
+  phrasesSection: {
+    paddingTop: 20,
+    paddingBottom: 40,
   },
   sectionTitle: {
     fontSize: 18,
     fontWeight: '600',
     color: Colors.text,
-    marginHorizontal: 20,
     marginBottom: 16,
-  },
-  phrasesSection: {
-    paddingTop: 16,
-    paddingBottom: 20,
-  },
-  phrasesList: {
     paddingHorizontal: 20,
   },
+  phrasesList: {
+    // Стили для списка фраз
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 60,
+    paddingHorizontal: 40,
+  },
+  emptyTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: Colors.text,
+    marginTop: 16,
+    marginBottom: 8,
+    textAlign: 'center',
+  },
+  emptyText: {
+    fontSize: 14,
+    color: Colors.textLight,
+    textAlign: 'center',
+    lineHeight: 20,
+  },
+  
+  // СТИЛИ ДЛЯ ФРАЗ
   phraseItem: {
     flexDirection: 'row',
     alignItems: 'center',
+    paddingVertical: 16,
+    paddingHorizontal: 20,
     backgroundColor: Colors.cardBackground,
+    marginHorizontal: 20,
+    marginBottom: 8,
     borderRadius: 12,
-    padding: 16,
-    marginBottom: 12,
     elevation: 1,
     shadowColor: Colors.cardShadow,
     shadowOffset: {
@@ -378,14 +426,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     color: Colors.text,
-    marginBottom: 6,
+    marginBottom: 4,
+    lineHeight: 22,
   },
   phraseDetails: {
-    flexDirection: 'column',
+    marginTop: 4,
   },
   chineseText: {
     fontSize: 14,
-    color: Colors.textSecondary,
+    color: Colors.primary,
+    fontWeight: '500',
     marginBottom: 2,
   },
   pinyinText: {
@@ -393,28 +443,29 @@ const styles = StyleSheet.create({
     color: Colors.textLight,
     fontStyle: 'italic',
   },
-  favoriteButton: {
-    padding: 8,
+  
+  // НОВЫЕ СТИЛИ ДЛЯ КНОПОК
+  actionsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
-  emptyContainer: {
-    flex: 1,
+  audioButton: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 40,
-    paddingVertical: 60,
+    marginRight: 8,
+    backgroundColor: Colors.primary + '15',
+    borderWidth: 1,
+    borderColor: Colors.primary + '30',
   },
-  emptyTitle: {
-    fontSize: 20,
-    fontWeight: '600',
-    color: Colors.text,
-    marginTop: 16,
-    marginBottom: 8,
-    textAlign: 'center',
-  },
-  emptyText: {
-    fontSize: 16,
-    color: Colors.textSecondary,
-    textAlign: 'center',
-    lineHeight: 24,
+  favoriteButton: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
   },
 });
