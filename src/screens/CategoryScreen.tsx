@@ -1,4 +1,4 @@
-// src/screens/CategoryScreen.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ (совместимая с текущей навигацией)
+// src/screens/CategoryScreen.tsx - ИСПРАВЛЕННАЯ навигация
 
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import {
@@ -19,13 +19,21 @@ import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../constants/Colors';
 import { phrases } from '../data/phrases';
 import { getCategoryName, getSubcategoriesByParentId } from '../data/categories';
-import { Phrase, HomeStackParamList, SubCategory } from '../types';
+import { 
+  Phrase, 
+  HomeStackParamList, 
+  RootStackParamList, 
+  SubCategory 
+} from '../types';
 import { useFavorites } from '../hooks/useFavorites';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { SubCategoriesGrid } from '../components/SubCategoryCard';
 
+// ✅ ИСПРАВЛЕНО: Правильные типы для навигации
 type CategoryScreenRouteProp = RouteProp<HomeStackParamList, 'CategoryScreen'>;
-type CategoryScreenNavigationProp = StackNavigationProp<HomeStackParamList>;
+type CategoryScreenNavigationProp = StackNavigationProp<RootStackParamList>; // Изменено!
+
+const { width, height } = Dimensions.get('window');
 
 // Компонент для отображения фразы
 const PhraseItem = React.memo<{
@@ -92,7 +100,7 @@ const PhraseItem = React.memo<{
 
 export default function CategoryScreen() {
   const route = useRoute<CategoryScreenRouteProp>();
-  const navigation = useNavigation<CategoryScreenNavigationProp>();
+  const navigation = useNavigation<CategoryScreenNavigationProp>(); // Исправлено!
   const { config } = useAppLanguage();
   const [isLoading, setIsLoading] = useState(true);
   const [selectedSubcategory, setSelectedSubcategory] = useState<SubCategory | null>(null);
@@ -135,7 +143,7 @@ export default function CategoryScreen() {
     setSelectedSubcategory(null);
   }, [category.id]);
 
-  // ✅ ИСПРАВЛЕНО: Используем правильный тип навигации
+  // ✅ ИСПРАВЛЕНО: Теперь используем правильную навигацию на RootStack
   const handlePhrasePress = useCallback((phrase: Phrase) => {
     navigation.navigate('PhraseDetail', { phrase });
   }, [navigation]);
@@ -228,7 +236,7 @@ export default function CategoryScreen() {
 
         {/* Фразы */}
         {filteredPhrases.length > 0 && (
-          <View style={styles.phrasesSection}>
+          <View style={subcategories.length > 0 ? styles.phrasesSection : styles.phrasesSectionNoSubcategories}>
             {/* Заголовок секции фраз */}
             {subcategories.length > 0 && !selectedSubcategory && (
               <Text style={styles.sectionTitle}>
@@ -236,7 +244,7 @@ export default function CategoryScreen() {
                  config.mode === 'zh' ? '所有短语' : 'Все фразы'}
               </Text>
             )}
-            
+
             <FlatList
               data={filteredPhrases}
               renderItem={renderPhraseItem}
@@ -247,28 +255,25 @@ export default function CategoryScreen() {
                 [{ nativeEvent: { contentOffset: { y: scrollY } } }],
                 { useNativeDriver: false }
               )}
+              scrollEventThrottle={16}
             />
           </View>
         )}
 
-        {/* Пустое состояние */}
+        {/* Сообщение о пустом списке */}
         {filteredPhrases.length === 0 && (
-          <View style={styles.emptyState}>
-            <Ionicons 
-              name="document-text-outline" 
-              size={64} 
-              color={Colors.textLight} 
-            />
-            <Text style={styles.emptyStateTitle}>
-              {config.mode === 'tk' ? 'Sözlem ýok' :
-               config.mode === 'zh' ? '暂无短语' : 'Нет фраз'}
+          <View style={styles.emptyContainer}>
+            <Ionicons name="chatbubbles-outline" size={64} color={Colors.textLight} />
+            <Text style={styles.emptyTitle}>
+              {config.mode === 'tk' ? 'Sözlem tapylmady' :
+               config.mode === 'zh' ? '未找到短语' : 'Фразы не найдены'}
             </Text>
-            <Text style={styles.emptyStateText}>
-              {selectedSubcategory
-                ? (config.mode === 'tk' ? 'Bu bölümde sözlemler heniz goşulmady' :
-                   config.mode === 'zh' ? '此分类中尚未添加短语' : 'В этом разделе пока нет фраз')
-                : (config.mode === 'tk' ? 'Bu kategoriýada sözlemler heniz goşulmady' :
-                   config.mode === 'zh' ? '此类别中尚未添加短语' : 'В этой категории пока нет фраз')
+            <Text style={styles.emptyText}>
+              {selectedSubcategory 
+                ? (config.mode === 'tk' ? 'Bu bölümde heniz sözlem ýok' :
+                   config.mode === 'zh' ? '此分类中暂无短语' : 'В этой подкатегории пока нет фраз')
+                : (config.mode === 'tk' ? 'Bu kategoriýada heniz sözlem ýok' :
+                   config.mode === 'zh' ? '此类别中暂无短语' : 'В этой категории пока нет фраз')
               }
             </Text>
           </View>
@@ -291,44 +296,36 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    paddingTop: 16,
-    elevation: 4,
-    shadowColor: Colors.cardShadow,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    paddingTop: 20,
   },
   backButton: {
-    padding: 8,
-    marginRight: 12,
+    marginRight: 16,
+    padding: 4,
   },
   headerTextContainer: {
     flex: 1,
+    marginRight: 16,
   },
   headerTitle: {
     fontSize: 20,
-    fontWeight: '700',
+    fontWeight: 'bold',
     color: Colors.textWhite,
   },
   headerSubtitle: {
     fontSize: 14,
-    color: Colors.textWhite + 'CC',
+    color: Colors.textWhite + '80',
     marginTop: 2,
   },
   backToCategoryButton: {
-    padding: 8,
-    marginLeft: 12,
+    padding: 4,
   },
   content: {
     flex: 1,
   },
   subcategoriesSection: {
-    paddingVertical: 20,
+    paddingTop: 20,
   },
   sectionTitle: {
     fontSize: 18,
@@ -339,19 +336,23 @@ const styles = StyleSheet.create({
   },
   phrasesSection: {
     flex: 1,
-    paddingTop: 10,
+    paddingTop: 20,
+  },
+  phrasesSectionNoSubcategories: {
+    flex: 1,
+    paddingTop: 0,
   },
   phrasesList: {
+    paddingHorizontal: 20,
     paddingBottom: 20,
   },
   phraseItem: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: Colors.cardBackground,
-    marginHorizontal: 20,
-    marginBottom: 8,
-    padding: 16,
     borderRadius: 12,
+    padding: 16,
+    marginBottom: 12,
     elevation: 1,
     shadowColor: Colors.cardShadow,
     shadowOffset: {
@@ -369,34 +370,31 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     color: Colors.text,
-    marginBottom: 4,
-    lineHeight: 22,
+    marginBottom: 6,
   },
   phraseDetails: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+    flexDirection: 'column',
   },
   chineseText: {
     fontSize: 14,
-    color: Colors.primary,
-    fontWeight: '500',
+    color: Colors.textSecondary,
+    marginBottom: 2,
   },
   pinyinText: {
-    fontSize: 13,
+    fontSize: 12,
     color: Colors.textLight,
     fontStyle: 'italic',
   },
   favoriteButton: {
     padding: 8,
   },
-  emptyState: {
+  emptyContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 40,
   },
-  emptyStateTitle: {
+  emptyTitle: {
     fontSize: 20,
     fontWeight: '600',
     color: Colors.text,
@@ -404,10 +402,10 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     textAlign: 'center',
   },
-  emptyStateText: {
+  emptyText: {
     fontSize: 16,
-    color: Colors.textLight,
+    color: Colors.textSecondary,
     textAlign: 'center',
-    lineHeight: 22,
+    lineHeight: 24,
   },
 });
