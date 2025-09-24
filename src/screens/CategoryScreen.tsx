@@ -1,10 +1,12 @@
-// src/screens/CategoryScreen.tsx - ПОЛНАЯ ВЕРСИЯ с кнопкой аудио
+// src/screens/CategoryScreen.tsx - ОБНОВЛЕННАЯ ВЕРСИЯ с аудио кнопками как на фото
+
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   SafeAreaView,
+  FlatList,
   TouchableOpacity,
   Animated,
   ActivityIndicator,
@@ -26,47 +28,38 @@ import {
 } from '../types';
 import { useFavorites } from '../hooks/useFavorites';
 import { useAppLanguage } from '../contexts/LanguageContext';
-import { SubCategoriesGrid } from '../components/SubCategoryCard';
-// ДОБАВЛЕНО: Импорт useAudio
 import { useAudio } from '../hooks/useAudio';
+import { SubCategoriesGrid } from '../components/SubCategoryCard';
 
 type CategoryScreenRouteProp = RouteProp<HomeStackParamList, 'CategoryScreen'>;
 type CategoryScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
 const { width, height } = Dimensions.get('window');
 
-// Компонент для отображения фразы с ДОБАВЛЕННОЙ кнопкой аудио
+// Компонент для отображения фразы с аудио кнопками
 const PhraseItem = React.memo<{
   phrase: Phrase;
   onPress: (phrase: Phrase) => void;
   config: any;
 }>(({ phrase, onPress, config }) => {
   const { isFavorite, toggleFavorite } = useFavorites();
-  // ДОБАВЛЕНО: useAudio хук
   const { playText, isPlaying } = useAudio();
 
   const handleToggleFavorite = useCallback(() => {
     toggleFavorite(phrase.id);
   }, [phrase.id, toggleFavorite]);
 
-  // ДОБАВЛЕНО: обработчик аудио
-  const handlePlayAudio = useCallback((e: any) => {
-    e.stopPropagation();
-    playText(phrase.chinese, 'chinese');
-  }, [phrase.chinese, playText]);
-
   const handlePress = useCallback(() => {
     onPress(phrase);
   }, [phrase, onPress]);
 
-  // Получаем текст фразы в зависимости от языка
-  const getPhraseText = () => {
-    switch (config.mode) {
-      case 'tk': return phrase.turkmen;
-      case 'zh': return phrase.chinese;
-      default: return phrase.russian;
-    }
-  };
+  const handlePlayChinese = useCallback(() => {
+    playText(phrase.chinese, 'chinese');
+  }, [phrase.chinese, playText]);
+
+  const handlePlayTurkmen = useCallback(() => {
+    playText(phrase.turkmen, 'turkmen');
+  }, [phrase.turkmen, playText]);
 
   return (
     <TouchableOpacity
@@ -75,48 +68,68 @@ const PhraseItem = React.memo<{
       activeOpacity={0.7}
     >
       <View style={styles.phraseContent}>
-        {/* Основной текст */}
-        <Text style={styles.phraseText} numberOfLines={2}>
-          {getPhraseText()}
-        </Text>
-        
-        {/* Дополнительная информация */}
-        <View style={styles.phraseDetails}>
+        {/* Левая часть - основной текст */}
+        <View style={styles.phraseTextContainer}>
+          {/* Китайский текст */}
           <Text style={styles.chineseText} numberOfLines={1}>
             {phrase.chinese}
           </Text>
+          
+          {/* Пиньинь */}
           <Text style={styles.pinyinText} numberOfLines={1}>
             {phrase.pinyin}
           </Text>
+          
+          {/* Перевод в зависимости от языка интерфейса */}
+          <Text style={styles.translationText} numberOfLines={1}>
+            {config.mode === 'tk' ? phrase.turkmen : 
+             config.mode === 'zh' ? phrase.chinese :
+             phrase.russian}
+          </Text>
+          
+          {/* Русский перевод (всегда показываем) */}
+          {config.mode !== 'ru' && (
+            <Text style={styles.russianText} numberOfLines={1}>
+              {phrase.russian}
+            </Text>
+          )}
         </View>
-      </View>
 
-      {/* ОБНОВЛЕНО: Добавляем контейнер для двух кнопок */}
-      <View style={styles.actionsContainer}>
-        {/* НОВАЯ кнопка аудио */}
-        <TouchableOpacity
-          style={styles.audioButton}
-          onPress={handlePlayAudio}
-          disabled={isPlaying}
-        >
-          <Ionicons
-            name={isPlaying ? "pause" : "play"}
-            size={18}
-            color={isPlaying ? Colors.textWhite : Colors.primary}
-          />
-        </TouchableOpacity>
+        {/* Правая часть - кнопки аудио и избранное */}
+        <View style={styles.actionsContainer}>
+          {/* Кнопка китайского аудио */}
+          <TouchableOpacity
+            style={[styles.audioButton, styles.chineseButton]}
+            onPress={handlePlayChinese}
+            disabled={isPlaying}
+          >
+            <Text style={styles.audioButtonText}>中文</Text>
+            {isPlaying && (
+              <ActivityIndicator size="small" color="#fff" style={styles.loadingIndicator} />
+            )}
+          </TouchableOpacity>
 
-        {/* Существующая кнопка избранного */}
-        <TouchableOpacity
-          style={styles.favoriteButton}
-          onPress={handleToggleFavorite}
-        >
-          <Ionicons
-            name={isFavorite(phrase.id) ? "heart" : "heart-outline"}
-            size={18}
-            color={isFavorite(phrase.id) ? Colors.error : Colors.textLight}
-          />
-        </TouchableOpacity>
+          {/* Кнопка туркменского аудио */}
+          <TouchableOpacity
+            style={[styles.audioButton, styles.turkmenButton]}
+            onPress={handlePlayTurkmen}
+            disabled={isPlaying}
+          >
+            <Text style={styles.audioButtonText}>TM</Text>
+          </TouchableOpacity>
+
+          {/* Кнопка избранного */}
+          <TouchableOpacity
+            style={styles.favoriteButton}
+            onPress={handleToggleFavorite}
+          >
+            <Ionicons
+              name={isFavorite(phrase.id) ? "heart" : "heart-outline"}
+              size={20}
+              color={isFavorite(phrase.id) ? Colors.error : Colors.textLight}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
     </TouchableOpacity>
   );
@@ -180,13 +193,36 @@ export default function CategoryScreen() {
     setSelectedSubcategory(null);
   }, []);
 
+  const renderPhraseItem = useCallback(({ item }: { item: Phrase }) => (
+    <PhraseItem 
+      phrase={item} 
+      onPress={handlePhrasePress}
+      config={config}
+    />
+  ), [handlePhrasePress, config]);
+
+  const keyExtractor = useCallback((item: Phrase) => item.id, []);
+
   // Получаем название категории на текущем языке
   const categoryName = getCategoryName(category, config.mode);
   const selectedSubcategoryName = selectedSubcategory 
     ? (config.mode === 'tk' ? selectedSubcategory.nameTk :
-       config.mode === 'zh' ? selectedSubcategory.nameZh : 
+       config.mode === 'zh' ? selectedSubcategory.nameZh :
        selectedSubcategory.nameRu)
-    : '';
+    : null;
+
+  // Анимация для заголовка
+  const headerTranslateY = scrollY.interpolate({
+    inputRange: [0, 100],
+    outputRange: [0, -50],
+    extrapolate: 'clamp',
+  });
+
+  const headerOpacity = scrollY.interpolate({
+    inputRange: [0, 100],
+    outputRange: [1, 0],
+    extrapolate: 'clamp',
+  });
 
   if (isLoading) {
     return (
@@ -200,42 +236,53 @@ export default function CategoryScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* Кастомный заголовок */}
-      <View style={[styles.header, { backgroundColor: category.color }]}>
-        <TouchableOpacity 
+      {/* Заголовок */}
+      <Animated.View style={[
+        styles.headerContainer, 
+        { 
+          transform: [{ translateY: headerTranslateY }],
+          opacity: headerOpacity 
+        }
+      ]}>
+        <TouchableOpacity
           style={styles.backButton}
           onPress={() => navigation.goBack()}
         >
-          <Ionicons name="arrow-back" size={24} color={Colors.textWhite} />
+          <Ionicons name="chevron-back" size={28} color="#fff" />
         </TouchableOpacity>
         
-        <View style={styles.headerTextContainer}>
-          <Text style={styles.headerTitle} numberOfLines={1}>
-            {selectedSubcategory ? selectedSubcategoryName : categoryName}
+        <View style={styles.headerContent}>
+          <Text style={styles.headerTitle}>
+            {selectedSubcategoryName || categoryName}
           </Text>
-          {selectedSubcategory && (
-            <Text style={styles.headerSubtitle} numberOfLines={1}>
-              {categoryName}
-            </Text>
-          )}
+          <Text style={styles.headerSubtitle}>
+            {selectedSubcategory 
+              ? `${filteredPhrases.length} ${config.mode === 'tk' ? 'sözlem' :
+                  config.mode === 'zh' ? '个短语' : 'фраз'}`
+              : `${filteredPhrases.length} ${config.mode === 'tk' ? 'sözlem' :
+                  config.mode === 'zh' ? '个短语' : 'фраз'}`
+            }
+          </Text>
         </View>
-
-        {/* Кнопка "Назад к категории" если выбрана подкатегория */}
+        
         {selectedSubcategory && (
-          <TouchableOpacity 
+          <TouchableOpacity
             style={styles.backToCategoryButton}
             onPress={handleBackToCategory}
           >
-            <Ionicons name="apps" size={20} color={Colors.textWhite} />
+            <Ionicons name="grid-outline" size={24} color="#fff" />
           </TouchableOpacity>
         )}
-      </View>
+      </Animated.View>
 
-      {/* Контент */}
-      <ScrollView 
+      <ScrollView
         style={styles.content}
         showsVerticalScrollIndicator={false}
-        bounces={true}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+          { useNativeDriver: true }
+        )}
+        scrollEventThrottle={16}
       >
         {/* ПОДКАТЕГОРИИ - показываем ПЕРВЫМИ если есть и не выбрана конкретная */}
         {subcategories.length > 0 && !selectedSubcategory && (
@@ -290,10 +337,13 @@ export default function CategoryScreen() {
                 ? (config.mode === 'tk' ? 'Bu bölümde heniz sözlem ýok' :
                    config.mode === 'zh' ? '此分类中暂无短语' : 'В этой подкатегории пока нет фраз')
                 : (config.mode === 'tk' ? 'Bu kategoriýada heniz sözlem ýok' :
-                   config.mode === 'zh' ? '此类别中暂无短语' : 'В этой категории пока нет фраз')}
+                   config.mode === 'zh' ? '此分类中暂无短语' : 'В этой категории пока нет фраз')
+              }
             </Text>
           </View>
         )}
+
+        <View style={styles.bottomSpacing} />
       </ScrollView>
     </SafeAreaView>
   );
@@ -304,168 +354,190 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.background,
   },
+  
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 20,
-    paddingTop: 8,
-    paddingBottom: 16,
-    elevation: 4,
-    shadowColor: Colors.cardShadow,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.15,
-    shadowRadius: 4,
-  },
-  backButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: Colors.textWhite + '20',
-  },
-  headerTextContainer: {
-    flex: 1,
-    marginHorizontal: 16,
-  },
-  headerTitle: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: Colors.textWhite,
-    textAlign: 'center',
-  },
-  headerSubtitle: {
-    fontSize: 14,
-    color: Colors.textWhite + '80',
-    textAlign: 'center',
-    marginTop: 2,
-  },
-  backToCategoryButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: Colors.textWhite + '20',
-  },
-  content: {
-    flex: 1,
     backgroundColor: Colors.background,
   },
+
+  headerContainer: {
+    backgroundColor: Colors.primary,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+    zIndex: 1000,
+  },
+
+  backButton: {
+    marginRight: 12,
+    padding: 4,
+  },
+
+  headerContent: {
+    flex: 1,
+  },
+
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#fff',
+    marginBottom: 2,
+  },
+
+  headerSubtitle: {
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.8)',
+  },
+
+  backToCategoryButton: {
+    marginLeft: 12,
+    padding: 4,
+  },
+
+  content: {
+    flex: 1,
+  },
+
   subcategoriesSection: {
-    paddingTop: 20,
+    paddingHorizontal: 16,
+    paddingVertical: 20,
   },
+
   phrasesSection: {
-    paddingTop: 20,
-    paddingBottom: 40,
+    paddingHorizontal: 16,
+    paddingBottom: 20,
   },
+
   sectionTitle: {
     fontSize: 18,
     fontWeight: '600',
     color: Colors.text,
     marginBottom: 16,
-    paddingHorizontal: 20,
   },
+
   phrasesList: {
-    // Стили для списка фраз
+    gap: 8,
   },
+
+  phraseItem: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    marginBottom: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+
+  phraseContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+  },
+
+  phraseTextContainer: {
+    flex: 1,
+    marginRight: 12,
+  },
+
+  chineseText: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: Colors.text,
+    marginBottom: 4,
+  },
+
+  pinyinText: {
+    fontSize: 14,
+    color: Colors.textLight,
+    fontStyle: 'italic',
+    marginBottom: 4,
+  },
+
+  translationText: {
+    fontSize: 16,
+    color: Colors.text,
+    marginBottom: 2,
+  },
+
+  russianText: {
+    fontSize: 14,
+    color: Colors.textLight,
+  },
+
+  actionsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+
+  audioButton: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
+    minWidth: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative',
+  },
+
+  chineseButton: {
+    backgroundColor: Colors.primary,
+  },
+
+  turkmenButton: {
+    backgroundColor: Colors.success,
+  },
+
+  audioButtonText: {
+    color: '#fff',
+    fontSize: 12,
+    fontWeight: '600',
+  },
+
+  loadingIndicator: {
+    position: 'absolute',
+    right: 2,
+    top: 2,
+  },
+
+  favoriteButton: {
+    padding: 4,
+  },
+
   emptyContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: 60,
-    paddingHorizontal: 40,
   },
+
   emptyTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: Colors.text,
+    color: Colors.textLight,
     marginTop: 16,
     marginBottom: 8,
-    textAlign: 'center',
   },
+
   emptyText: {
     fontSize: 14,
     color: Colors.textLight,
     textAlign: 'center',
     lineHeight: 20,
+    paddingHorizontal: 32,
   },
-  
-  // СТИЛИ ДЛЯ ФРАЗ
-  phraseItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 16,
-    paddingHorizontal: 20,
-    backgroundColor: Colors.cardBackground,
-    marginHorizontal: 20,
-    marginBottom: 8,
-    borderRadius: 12,
-    elevation: 1,
-    shadowColor: Colors.cardShadow,
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
-  },
-  phraseContent: {
-    flex: 1,
-    marginRight: 12,
-  },
-  phraseText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: Colors.text,
-    marginBottom: 4,
-    lineHeight: 22,
-  },
-  phraseDetails: {
-    marginTop: 4,
-  },
-  chineseText: {
-    fontSize: 14,
-    color: Colors.primary,
-    fontWeight: '500',
-    marginBottom: 2,
-  },
-  pinyinText: {
-    fontSize: 12,
-    color: Colors.textLight,
-    fontStyle: 'italic',
-  },
-  
-  // НОВЫЕ СТИЛИ ДЛЯ КНОПОК
-  actionsContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  audioButton: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 8,
-    backgroundColor: Colors.primary + '15',
-    borderWidth: 1,
-    borderColor: Colors.primary + '30',
-  },
-  favoriteButton: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'transparent',
+
+  bottomSpacing: {
+    height: 20,
   },
 });
