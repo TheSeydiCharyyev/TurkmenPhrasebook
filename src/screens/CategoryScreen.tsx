@@ -87,12 +87,10 @@ const PhraseItem = React.memo<{
              phrase.russian}
           </Text>
           
-          {/* Русский перевод (всегда показываем) */}
-          {config.mode !== 'ru' && (
-            <Text style={styles.russianText} numberOfLines={1}>
-              {phrase.russian}
-            </Text>
-          )}
+          {/* Русский перевод (всегда показываем как вспомогательный) */}
+          <Text style={styles.russianText} numberOfLines={1}>
+            {phrase.russian}
+          </Text>
         </View>
 
         {/* Правая часть - кнопки аудио и избранное */}
@@ -144,6 +142,8 @@ export default function CategoryScreen() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedSubcategory, setSelectedSubcategory] = useState<SubCategory | null>(null);
   
+  // Анимация скролла для заголовка
+  const scrollY = useRef(new Animated.Value(0)).current;
   const { category } = route.params;
 
   // Получаем подкатегории для данной категории
@@ -212,6 +212,32 @@ export default function CategoryScreen() {
        selectedSubcategory.nameRu)
     : null;
 
+  // Анимации для заголовка при скролле
+  const headerOpacity = scrollY.interpolate({
+    inputRange: [0, 50],
+    outputRange: [1, 0],
+    extrapolate: 'clamp',
+  });
+
+  const categoryTitleOpacity = scrollY.interpolate({
+    inputRange: [0, 80],
+    outputRange: [1, 0],
+    extrapolate: 'clamp',
+  });
+
+  const categoryTitleTranslateY = scrollY.interpolate({
+    inputRange: [0, 80],
+    outputRange: [0, -20],
+    extrapolate: 'clamp',
+  });
+
+  // Компактный заголовок появляется при скролле
+  const compactOpacity = scrollY.interpolate({
+    inputRange: [40, 100],
+    outputRange: [0, 1],
+    extrapolate: 'clamp',
+  });
+
   if (isLoading) {
     return (
       <SafeAreaView style={styles.container}>
@@ -247,6 +273,18 @@ export default function CategoryScreen() {
           </Text>
         </View>
         
+        {/* Компактный заголовок - появляется при скролле */}
+        <Animated.View style={[
+          styles.compactHeader, 
+          { opacity: compactOpacity }
+        ]}>
+          <Text style={styles.compactTitle}>
+            {config.mode === 'tk' ? category.nameTk : 
+             config.mode === 'zh' ? category.nameZh : 
+             category.nameRu}
+          </Text>
+        </Animated.View>
+        
         {selectedSubcategory && (
           <TouchableOpacity
             style={styles.backToCategoryButton}
@@ -257,8 +295,14 @@ export default function CategoryScreen() {
         )}
       </View>
 
-      {/* Заголовок на трех языках как на фото */}
-      <View style={styles.categoryTitleContainer}>
+      {/* Заголовок на трех языках как на фото - исчезает при скролле */}
+      <Animated.View style={[
+        styles.categoryTitleContainer,
+        { 
+          opacity: categoryTitleOpacity,
+          transform: [{ translateY: categoryTitleTranslateY }]
+        }
+      ]}>
         {/* Китайский */}
         <Text style={styles.chineseCategoryTitle}>
           {config.mode === 'tk' ? category.nameZh : 
@@ -278,11 +322,16 @@ export default function CategoryScreen() {
           {filteredPhrases.length} {config.mode === 'tk' ? 'sözlem' :
                                    config.mode === 'zh' ? '短语' : 'фраз'}
         </Text>
-      </View>
+      </Animated.View>
 
       <ScrollView
         style={styles.content}
         showsVerticalScrollIndicator={false}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+          { useNativeDriver: false }
+        )}
+        scrollEventThrottle={16}
       >
         {/* ПОДКАТЕГОРИИ - показываем ПЕРВЫМИ если есть и не выбрана конкретная */}
         {subcategories.length > 0 && !selectedSubcategory && (
@@ -402,6 +451,24 @@ const styles = StyleSheet.create({
     padding: 4,
   },
 
+  // Компактный заголовок - появляется при скролле
+  compactHeader: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  compactTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#fff',
+    textAlign: 'center',
+  },
+
   // Заголовок на трех языках как на фото
   categoryTitleContainer: {
     backgroundColor: '#fff',
@@ -505,6 +572,7 @@ const styles = StyleSheet.create({
   russianText: {
     fontSize: 14,
     color: Colors.textLight,
+    marginTop: 2,
   },
 
   actionsContainer: {
