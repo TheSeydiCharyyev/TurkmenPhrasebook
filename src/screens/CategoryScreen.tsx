@@ -236,43 +236,29 @@ export default function CategoryScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* Заголовок */}
-      <Animated.View style={[
-        styles.headerContainer,
-        {
-          transform: [{ translateY: headerTranslateY }],
-          opacity: headerOpacity
-        }
-      ]}>
+      {/* Статичный заголовок */}
+      <View style={styles.headerContainer}>
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => navigation.goBack()}
         >
           <Ionicons name="chevron-back" size={28} color="#fff" />
         </TouchableOpacity>
-
+        
         <View style={styles.headerContent}>
           <Text style={styles.headerTitle}>
             {selectedSubcategoryName || categoryName}
           </Text>
-
-          {/* Центральный блок с китайскими символами */}
-          <View style={styles.categoryDisplayContainer}>
-            <Text style={styles.chineseTitle}>
-              {category.nameZh}
-            </Text>
-            <Text style={styles.categoryRussianSubtitle}>
-              {category.nameRu}
-            </Text>
-            <Text style={styles.categoryPhrasesCount}>
-              {selectedSubcategory
-                ? `${filteredPhrases.length} sözlem`
-                : `${filteredPhrases.length} sözlem`
-              }
-            </Text>
-          </View>
+          <Text style={styles.headerSubtitle}>
+            {selectedSubcategory 
+              ? `${filteredPhrases.length} ${config.mode === 'tk' ? 'sözlem' :
+                  config.mode === 'zh' ? '个短语' : 'фраз'}`
+              : `${filteredPhrases.length} ${config.mode === 'tk' ? 'sözlem' :
+                  config.mode === 'zh' ? '个短语' : 'фраз'}`
+            }
+          </Text>
         </View>
-
+        
         {selectedSubcategory && (
           <TouchableOpacity
             style={styles.backToCategoryButton}
@@ -281,16 +267,11 @@ export default function CategoryScreen() {
             <Ionicons name="grid-outline" size={24} color="#fff" />
           </TouchableOpacity>
         )}
-      </Animated.View>
+      </View>
 
       <ScrollView
         style={styles.content}
         showsVerticalScrollIndicator={false}
-        onScroll={Animated.event(
-          [{ nativeEvent: { contentOffset: { y: scrollY } } }],
-          { useNativeDriver: true }
-        )}
-        scrollEventThrottle={16}
       >
         {/* ПОДКАТЕГОРИИ - показываем ПЕРВЫМИ если есть и не выбрана конкретная */}
         {subcategories.length > 0 && !selectedSubcategory && (
@@ -391,40 +372,13 @@ const styles = StyleSheet.create({
 
   headerContent: {
     flex: 1,
-    alignItems: 'center',
   },
 
   headerTitle: {
     fontSize: 20,
     fontWeight: 'bold',
     color: '#fff',
-    marginBottom: 8,
-  },
-
-  categoryDisplayContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  chineseTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: '#fff',
     marginBottom: 2,
-    textAlign: 'center',
-  },
-
-  categoryRussianSubtitle: {
-    fontSize: 16,
-    color: 'rgba(255, 255, 255, 0.9)',
-    marginBottom: 4,
-    textAlign: 'center',
-  },
-
-  categoryPhrasesCount: {
-    fontSize: 14,
-    color: 'rgba(255, 255, 255, 0.8)',
-    textAlign: 'center',
   },
 
   headerSubtitle: {
