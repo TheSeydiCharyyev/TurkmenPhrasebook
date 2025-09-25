@@ -103,6 +103,7 @@ const PhraseItem = React.memo<{
             onPress={handlePlayChinese}
             disabled={isPlaying}
           >
+            <Ionicons name="volume-medium" size={12} color="#fff" style={styles.audioIcon} />
             <Text style={styles.audioButtonText}>中文</Text>
             {isPlaying && (
               <ActivityIndicator size="small" color="#fff" style={styles.loadingIndicator} />
@@ -115,6 +116,7 @@ const PhraseItem = React.memo<{
             onPress={handlePlayTurkmen}
             disabled={isPlaying}
           >
+            <Ionicons name="volume-medium" size={12} color="#fff" style={styles.audioIcon} />
             <Text style={styles.audioButtonText}>TM</Text>
           </TouchableOpacity>
 
@@ -142,7 +144,6 @@ export default function CategoryScreen() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedSubcategory, setSelectedSubcategory] = useState<SubCategory | null>(null);
   
-  const scrollY = useRef(new Animated.Value(0)).current;
   const { category } = route.params;
 
   // Получаем подкатегории для данной категории
@@ -211,19 +212,6 @@ export default function CategoryScreen() {
        selectedSubcategory.nameRu)
     : null;
 
-  // Анимация для заголовка
-  const headerTranslateY = scrollY.interpolate({
-    inputRange: [0, 100],
-    outputRange: [0, -50],
-    extrapolate: 'clamp',
-  });
-
-  const headerOpacity = scrollY.interpolate({
-    inputRange: [0, 100],
-    outputRange: [1, 0],
-    extrapolate: 'clamp',
-  });
-
   if (isLoading) {
     return (
       <SafeAreaView style={styles.container}>
@@ -236,7 +224,7 @@ export default function CategoryScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* Статичный заголовок */}
+      {/* Заголовок с названиями на трех языках */}
       <View style={styles.headerContainer}>
         <TouchableOpacity
           style={styles.backButton}
@@ -267,6 +255,29 @@ export default function CategoryScreen() {
             <Ionicons name="grid-outline" size={24} color="#fff" />
           </TouchableOpacity>
         )}
+      </View>
+
+      {/* Заголовок на трех языках как на фото */}
+      <View style={styles.categoryTitleContainer}>
+        {/* Китайский */}
+        <Text style={styles.chineseCategoryTitle}>
+          {config.mode === 'tk' ? category.nameZh : 
+           config.mode === 'zh' ? category.nameZh : 
+           category.nameZh}
+        </Text>
+        
+        {/* Основной язык (в зависимости от интерфейса) */}
+        <Text style={styles.mainCategoryTitle}>
+          {config.mode === 'tk' ? category.nameTk : 
+           config.mode === 'zh' ? category.nameTk : 
+           category.nameRu}
+        </Text>
+        
+        {/* Количество фраз */}
+        <Text style={styles.phrasesCountTitle}>
+          {filteredPhrases.length} {config.mode === 'tk' ? 'sözlem' :
+                                   config.mode === 'zh' ? '短语' : 'фраз'}
+        </Text>
       </View>
 
       <ScrollView
@@ -391,6 +402,39 @@ const styles = StyleSheet.create({
     padding: 4,
   },
 
+  // Заголовок на трех языках как на фото
+  categoryTitleContainer: {
+    backgroundColor: '#fff',
+    paddingVertical: 20,
+    paddingHorizontal: 16,
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E5E5',
+  },
+
+  chineseCategoryTitle: {
+    fontSize: 24,
+    fontWeight: '600',
+    color: Colors.text,
+    textAlign: 'center',
+    marginBottom: 8,
+  },
+
+  mainCategoryTitle: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: Colors.textSecondary,
+    textAlign: 'center',
+    marginBottom: 8,
+  },
+
+  phrasesCountTitle: {
+    fontSize: 14,
+    fontWeight: '400',
+    color: Colors.textLight,
+    textAlign: 'center',
+  },
+
   content: {
     flex: 1,
   },
@@ -473,10 +517,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
-    minWidth: 40,
+    minWidth: 50,
     alignItems: 'center',
     justifyContent: 'center',
     position: 'relative',
+    flexDirection: 'row',
+    gap: 4,
   },
 
   chineseButton: {
@@ -491,6 +537,10 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 12,
     fontWeight: '600',
+  },
+
+  audioIcon: {
+    marginRight: 2,
   },
 
   loadingIndicator: {
