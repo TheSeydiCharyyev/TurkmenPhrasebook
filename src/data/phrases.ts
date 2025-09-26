@@ -1443,6 +1443,111 @@ export const phrases: Phrase[] = [
     turkmen: 'Şowly bolsun!',
     audioFile: 'audio/phrase_157.mp3'
   },
+  // ДОБАВИТЬ В src/data/phrases.ts - фразы категории addressing
+
+// ===== КАТЕГОРИЯ: ОБРАЩЕНИЕ (addressing) =====
+
+{
+  id: 'addr-001',
+  categoryId: 'addressing',
+  chinese: '女士们先生们！',
+  pinyin: 'nǚshìmen xiānshengmen!',
+  russian: 'Дамы и господа!',
+  turkmen: 'Hanymlar we jenaplar!',
+  audioFile: 'addr_001.mp3'
+},
+{
+  id: 'addr-002',
+  categoryId: 'addressing',
+  chinese: '尊敬的同事们！',
+  pinyin: 'zūnjìng de tóngshìmen!',
+  russian: 'Уважаемые коллеги!',
+  turkmen: 'Hormatly kärdeşler!',
+  audioFile: 'addr_002.mp3'
+},
+{
+  id: 'addr-003',
+  categoryId: 'addressing',
+  chinese: '亲爱的朋友们！',
+  pinyin: 'qīn\'ài de péngyǒumen!',
+  russian: 'Дорогие друзья!',
+  turkmen: 'Gadyrly dostlar!',
+  audioFile: 'addr_003.mp3'
+},
+{
+  id: 'addr-004',
+  categoryId: 'addressing',
+  chinese: '女士',
+  pinyin: 'nǚshì',
+  russian: 'Госпожа',
+  turkmen: 'Hanym',
+  audioFile: 'addr_004.mp3'
+},
+{
+  id: 'addr-005',
+  categoryId: 'addressing',
+  chinese: '先生',
+  pinyin: 'xiānsheng',
+  russian: 'Господин',
+  turkmen: 'Jenap',
+  audioFile: 'addr_005.mp3'
+},
+{
+  id: 'addr-006',
+  categoryId: 'addressing',
+  chinese: '小姐',
+  pinyin: 'xiǎojiě',
+  russian: 'Девушка',
+  turkmen: 'Uly gyz',
+  audioFile: 'addr_006.mp3'
+},
+{
+  id: 'addr-007',
+  categoryId: 'addressing',
+  chinese: '小伙子',
+  pinyin: 'xiǎohuǒzi',
+  russian: 'Молодой человек',
+  turkmen: 'Ýaş adam',
+  audioFile: 'addr_007.mp3'
+},
+{
+  id: 'addr-008',
+  categoryId: 'addressing',
+  chinese: '小男孩',
+  pinyin: 'xiǎo nánhái',
+  russian: 'Мальчик',
+  turkmen: 'Oglan',
+  audioFile: 'addr_008.mp3'
+},
+{
+  id: 'addr-009',
+  categoryId: 'addressing',
+  chinese: '小女孩',
+  pinyin: 'xiǎo nǚhái',
+  russian: 'Девочка',
+  turkmen: 'Gyz',
+  audioFile: 'addr_009.mp3'
+},
+{
+  id: 'addr-010',
+  categoryId: 'addressing',
+  chinese: '对不起',
+  pinyin: 'duìbuqǐ',
+  russian: 'Извините',
+  turkmen: 'Bagyşlaň',
+  audioFile: 'addr_010.mp3'
+},
+{
+  id: 'addr-011',
+  categoryId: 'addressing',
+  chinese: '请问',
+  pinyin: 'qǐng wèn',
+  russian: 'Скажите, пожалуйста',
+  turkmen: 'Aýdyň, haýyş edýärin',
+  audioFile: 'addr_011.mp3'
+}
+
+// ИТОГО: 11 фраз для категории addressing
 ];
 
 // Итого: 157 фраз (104 существующих + 53 новых)
