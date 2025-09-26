@@ -250,8 +250,8 @@ export default function CategoryScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* Заголовок с названиями на трех языках */}
-      <View style={styles.headerContainer}>
+      {/* Заголовок с навигацией - НЕ АНИМИРОВАННЫЙ */}
+      <View style={[styles.headerContainer, { backgroundColor: category.color }]}>
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => navigation.goBack()}
@@ -273,18 +273,6 @@ export default function CategoryScreen() {
           </Text>
         </View>
         
-        {/* Компактный заголовок - появляется при скролле */}
-        <Animated.View style={[
-          styles.compactHeader, 
-          { opacity: compactOpacity }
-        ]}>
-          <Text style={styles.compactTitle}>
-            {config.mode === 'tk' ? category.nameTk : 
-             config.mode === 'zh' ? category.nameZh : 
-             category.nameRu}
-          </Text>
-        </Animated.View>
-        
         {selectedSubcategory && (
           <TouchableOpacity
             style={styles.backToCategoryButton}
@@ -295,35 +283,6 @@ export default function CategoryScreen() {
         )}
       </View>
 
-      {/* Заголовок на трех языках как на фото - исчезает при скролле */}
-      <Animated.View style={[
-        styles.categoryTitleContainer,
-        { 
-          opacity: categoryTitleOpacity,
-          transform: [{ translateY: categoryTitleTranslateY }]
-        }
-      ]}>
-        {/* Китайский */}
-        <Text style={styles.chineseCategoryTitle}>
-          {config.mode === 'tk' ? category.nameZh : 
-           config.mode === 'zh' ? category.nameZh : 
-           category.nameZh}
-        </Text>
-        
-        {/* Основной язык (в зависимости от интерфейса) */}
-        <Text style={styles.mainCategoryTitle}>
-          {config.mode === 'tk' ? category.nameTk : 
-           config.mode === 'zh' ? category.nameTk : 
-           category.nameRu}
-        </Text>
-        
-        {/* Количество фраз */}
-        <Text style={styles.phrasesCountTitle}>
-          {filteredPhrases.length} {config.mode === 'tk' ? 'sözlem' :
-                                   config.mode === 'zh' ? '短语' : 'фраз'}
-        </Text>
-      </Animated.View>
-
       <ScrollView
         style={styles.content}
         showsVerticalScrollIndicator={false}
@@ -333,6 +292,30 @@ export default function CategoryScreen() {
         )}
         scrollEventThrottle={16}
       >
+        {/* Заголовок на трех языках - АНИМИРОВАННЫЙ (исчезает при скролле) */}
+        <Animated.View style={[
+          styles.categoryTitleContainer,
+          { 
+            opacity: categoryTitleOpacity,
+            transform: [{ translateY: categoryTitleTranslateY }]
+          }
+        ]}>
+          {/* Китайский (всегда показываем) */}
+          <Text style={styles.chineseCategoryTitle}>
+            {category.nameZh}
+          </Text>
+          
+          {/* Русский (дополнительный перевод) */}
+          <Text style={styles.mainCategoryTitle}>
+            {category.nameRu}
+          </Text>
+          
+          {/* Количество фраз */}
+          <Text style={styles.phrasesCountTitle}>
+            {filteredPhrases.length} {config.mode === 'tk' ? 'sözlem' :
+                                     config.mode === 'zh' ? '短语' : 'фраз'}
+          </Text>
+        </Animated.View>
         {/* ПОДКАТЕГОРИИ - показываем ПЕРВЫМИ если есть и не выбрана конкретная */}
         {subcategories.length > 0 && !selectedSubcategory && (
           <View style={styles.subcategoriesSection}>
@@ -412,7 +395,7 @@ const styles = StyleSheet.create({
   },
 
   headerContainer: {
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.primary, // Будет заменен цветом категории
     paddingHorizontal: 16,
     paddingVertical: 12,
     flexDirection: 'row',
@@ -451,25 +434,7 @@ const styles = StyleSheet.create({
     padding: 4,
   },
 
-  // Компактный заголовок - появляется при скролле
-  compactHeader: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-
-  compactTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#fff',
-    textAlign: 'center',
-  },
-
-  // Заголовок на трех языках как на фото
+  // Заголовок на трех языках - внутри ScrollView
   categoryTitleContainer: {
     backgroundColor: '#fff',
     paddingVertical: 20,
@@ -477,6 +442,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderBottomWidth: 1,
     borderBottomColor: '#E5E5E5',
+    marginBottom: 0, // Убираем отступ снизу
   },
 
   chineseCategoryTitle: {
