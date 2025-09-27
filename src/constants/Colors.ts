@@ -1,4 +1,4 @@
-// src/constants/Colors.ts - С градиентными цветами
+// src/constants/Colors.ts - ИСПРАВЛЕННАЯ ВЕРСИЯ с border
 
 export const Colors = {
   // Primary colors
@@ -37,7 +37,8 @@ export const Colors = {
   
   // UI elements
   shadowColor: '#000000',
-  borderColor: '#E5E7EB',
+  border: '#E5E7EB',           // ✅ ДОБАВЛЕНО: border свойство
+  borderColor: '#E5E7EB',      // Альтернативное название
   divider: '#F3F4F6',
   overlay: '#000000',
   
