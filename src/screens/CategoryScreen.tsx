@@ -1,4 +1,4 @@
-// src/screens/CategoryScreen.tsx - ПОЛНАЯ ИСПРАВЛЕННАЯ ВЕРСИЯ
+// src/screens/CategoryScreen.tsx - ПОЛНАЯ ФИНАЛЬНАЯ ВЕРСИЯ
 
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import {
@@ -20,11 +20,11 @@ import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../constants/Colors';
 import { phrases } from '../data/phrases';
 import { getCategoryName, getSubcategoriesByParentId } from '../data/categories';
-import {
-  Phrase,
-  HomeStackParamList,
-  RootStackParamList,
-  SubCategory
+import { 
+  Phrase, 
+  HomeStackParamList, 
+  RootStackParamList, 
+  SubCategory 
 } from '../types';
 import { useFavorites } from '../hooks/useFavorites';
 import { useAppLanguage } from '../contexts/LanguageContext';
@@ -36,7 +36,7 @@ type CategoryScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
 const { width, height } = Dimensions.get('window');
 
-// ПРАВИЛЬНО ИСПРАВЛЕННЫЙ компонент для отображения фразы
+// ФИНАЛЬНЫЙ компонент фразы с треугольными кнопками
 const PhraseItem = React.memo<{
   phrase: Phrase;
   onPress: (phrase: Phrase) => void;
@@ -61,29 +61,23 @@ const PhraseItem = React.memo<{
     playText(phrase.turkmen, 'turkmen');
   }, [phrase.turkmen, playText]);
 
-  // ИСПРАВЛЕНО: Правильная логика отображения языков
+  // Правильная логика отображения языков
   const getSecondaryText = () => {
     if (config.mode === 'tk') {
-      // Туркменский интерфейс: Китайский → Туркменский → Русский
       return phrase.turkmen;
     } else if (config.mode === 'zh') {
-      // Китайский интерфейс: Китайский → Туркменский → Русский
-      return phrase.turkmen;  // ✅ НЕ китайский, а туркменский!
+      return phrase.turkmen;  // ✅ Туркменский для китайского интерфейса
     } else {
-      // Русский интерфейс: Китайский → Русский → Туркменский
       return phrase.russian;
     }
   };
 
   const getTertiaryText = () => {
     if (config.mode === 'tk') {
-      // Туркменский интерфейс: Китайский → Туркменский → Русский
       return phrase.russian;
     } else if (config.mode === 'zh') {
-      // Китайский интерфейс: Китайский → Туркменский → Русский
-      return phrase.russian;  // ✅ Русский всегда третий
+      return phrase.russian;  // ✅ Русский третий
     } else {
-      // Русский интерфейс: Китайский → Русский → Туркменский
       return phrase.turkmen;
     }
   };
@@ -97,22 +91,22 @@ const PhraseItem = React.memo<{
       <View style={styles.phraseContent}>
         {/* Левая часть - основной текст */}
         <View style={styles.phraseTextContainer}>
-          {/* 1. Китайский текст - ВСЕГДА ПЕРВЫЙ */}
+          {/* 1. Китайский текст */}
           <Text style={styles.chineseText} numberOfLines={1}>
             {phrase.chinese}
           </Text>
-
-          {/* 2. Пиньинь - ВСЕГДА ВТОРОЙ */}
+          
+          {/* 2. Пиньинь */}
           <Text style={styles.pinyinText} numberOfLines={1}>
             {phrase.pinyin}
           </Text>
-
-          {/* 3. Второй язык - ЗАВИСИТ ОТ ИНТЕРФЕЙСА */}
+          
+          {/* 3. Второй язык */}
           <Text style={styles.secondaryText} numberOfLines={1}>
             {getSecondaryText()}
           </Text>
-
-          {/* 4. Третий язык - ЗАВИСИТ ОТ ИНТЕРФЕЙСА */}
+          
+          {/* 4. Третий язык */}
           <Text style={styles.tertiaryText} numberOfLines={1}>
             {getTertiaryText()}
           </Text>
@@ -120,7 +114,7 @@ const PhraseItem = React.memo<{
 
         {/* Правая часть - кнопки */}
         <View style={styles.phraseActions}>
-          {/* Аудио кнопки */}
+          {/* ✅ ТРЕУГОЛЬНЫЕ аудио кнопки */}
           <View style={styles.audioButtons}>
             {/* Китайская кнопка */}
             <TouchableOpacity
@@ -128,15 +122,17 @@ const PhraseItem = React.memo<{
               onPress={handlePlayChinese}
               activeOpacity={0.7}
             >
+              <Text style={styles.audioTriangle}>▶</Text>
               <Text style={styles.chineseAudioButtonText}>中文</Text>
             </TouchableOpacity>
-
+            
             {/* Туркменская кнопка */}
             <TouchableOpacity
               style={[styles.audioButton, styles.turkmenAudioButton]}
               onPress={handlePlayTurkmen}
               activeOpacity={0.7}
             >
+              <Text style={styles.audioTriangle}>▶</Text>
               <Text style={styles.turkmenAudioButtonText}>TM</Text>
             </TouchableOpacity>
           </View>
@@ -165,7 +161,7 @@ export default function CategoryScreen() {
   const { config } = useAppLanguage();
   const [isLoading, setIsLoading] = useState(true);
   const [selectedSubcategory, setSelectedSubcategory] = useState<SubCategory | null>(null);
-
+  
   // Анимация скролла для заголовка
   const scrollY = useRef(new Animated.Value(0)).current;
   const { category } = route.params;
@@ -178,18 +174,18 @@ export default function CategoryScreen() {
   // Фильтрация фраз
   const filteredPhrases = useMemo(() => {
     let categoryPhrases = phrases.filter(phrase => phrase.categoryId === category.id);
-
+    
     // Если выбрана подкатегория, фильтруем по ней
     if (selectedSubcategory) {
       categoryPhrases = categoryPhrases.filter(phrase => phrase.subcategoryId === selectedSubcategory.id);
     }
-
+    
     return categoryPhrases;
   }, [category.id, selectedSubcategory]);
 
   // Функция для получения количества фраз в подкатегории
   const getPhrasesCountForSubcategory = useCallback((subcategoryId: string) => {
-    return phrases.filter(phrase =>
+    return phrases.filter(phrase => 
       phrase.categoryId === category.id && phrase.subcategoryId === subcategoryId
     ).length;
   }, [category.id]);
@@ -233,9 +229,9 @@ export default function CategoryScreen() {
 
   // Получаем название категории на текущем языке
   const categoryName = getCategoryName(category, config.mode);
-  const selectedSubcategoryName = selectedSubcategory
+  const selectedSubcategoryName = selectedSubcategory 
     ? (config.mode === 'tk' ? selectedSubcategory.nameTk :
-      config.mode === 'zh' ? selectedSubcategory.nameZh : selectedSubcategory.nameRu)
+       config.mode === 'zh' ? selectedSubcategory.nameZh : selectedSubcategory.nameRu)
     : null;
 
   if (isLoading) {
@@ -244,7 +240,7 @@ export default function CategoryScreen() {
         <ActivityIndicator size="large" color={Colors.primary} />
         <Text style={styles.loadingText}>
           {config.mode === 'tk' ? 'Ýüklenýär...' :
-            config.mode === 'zh' ? '加载中...' : 'Загрузка...'}
+           config.mode === 'zh' ? '加载中...' : 'Загрузка...'}
         </Text>
       </View>
     );
@@ -260,21 +256,21 @@ export default function CategoryScreen() {
         >
           <Ionicons name="chevron-back" size={28} color="#fff" />
         </TouchableOpacity>
-
+        
         <View style={styles.headerContent}>
           <Text style={styles.headerTitle}>
             {selectedSubcategoryName || categoryName}
           </Text>
           <Text style={styles.headerSubtitle}>
-            {selectedSubcategory
+            {selectedSubcategory 
               ? `${filteredPhrases.length} ${config.mode === 'tk' ? 'sözlem' :
-                config.mode === 'zh' ? '个短语' : 'фраз'}`
+                  config.mode === 'zh' ? '个短语' : 'фраз'}`
               : `${filteredPhrases.length} ${config.mode === 'tk' ? 'sözlem' :
-                config.mode === 'zh' ? '个短语' : 'фраз'}`
+                  config.mode === 'zh' ? '个短语' : 'фраз'}`
             }
           </Text>
         </View>
-
+        
         {selectedSubcategory && (
           <TouchableOpacity
             style={styles.backToCategoryButton}
@@ -294,10 +290,10 @@ export default function CategoryScreen() {
         )}
         scrollEventThrottle={16}
       >
-        {/* Заголовок на трех языках - АНИМИРОВАННЫЙ (исчезает при скролле) */}
+        {/* ✅ ИСПРАВЛЕННЫЙ заголовок на трех языках */}
         <Animated.View style={[
           styles.categoryTitleContainer,
-          {
+          { 
             opacity: categoryTitleOpacity,
             transform: [{ translateY: categoryTitleTranslateY }]
           }
@@ -306,17 +302,17 @@ export default function CategoryScreen() {
           <Text style={styles.chineseCategoryTitle}>
             {category.nameZh}
           </Text>
-
-          {/* ИСПРАВЛЕНО: Туркменский (средний) */}
+          
+          {/* ✅ ИСПРАВЛЕНО: Туркменский (средний) */}
           <Text style={styles.mainCategoryTitle}>
             {category.nameTk}
           </Text>
-
-          {/* ИСПРАВЛЕНО: Русский (маленький) + количество фраз */}
+          
+          {/* ✅ ИСПРАВЛЕНО: Русский (маленький) + количество фраз */}
           <Text style={styles.phrasesCountTitle}>
             {category.nameRu} • {filteredPhrases.length} {
               config.mode === 'tk' ? 'sözlem' :
-                config.mode === 'zh' ? '短语' : 'фраз'
+              config.mode === 'zh' ? '短语' : 'фраз'
             }
           </Text>
         </Animated.View>
@@ -326,7 +322,7 @@ export default function CategoryScreen() {
           <View style={styles.subcategoriesSection}>
             <Text style={styles.sectionTitle}>
               {config.mode === 'tk' ? 'Bölümler' :
-                config.mode === 'zh' ? '分类' : 'Разделы'}
+               config.mode === 'zh' ? '分类' : 'Разделы'}
             </Text>
             <SubCategoriesGrid
               subcategories={subcategories}
@@ -343,16 +339,16 @@ export default function CategoryScreen() {
             {subcategories.length > 0 && !selectedSubcategory && (
               <Text style={styles.sectionTitle}>
                 {config.mode === 'tk' ? 'Ähli sözlemler' :
-                  config.mode === 'zh' ? '所有短语' : 'Все фразы'}
+                 config.mode === 'zh' ? '所有短语' : 'Все фразы'}
               </Text>
             )}
 
             {/* Список фраз */}
             <View style={styles.phrasesList}>
               {filteredPhrases.map((phrase) => (
-                <PhraseItem
+                <PhraseItem 
                   key={phrase.id}
-                  phrase={phrase}
+                  phrase={phrase} 
                   onPress={handlePhrasePress}
                   config={config}
                 />
@@ -367,14 +363,14 @@ export default function CategoryScreen() {
             <Ionicons name="chatbubbles-outline" size={64} color={Colors.textLight} />
             <Text style={styles.emptyTitle}>
               {config.mode === 'tk' ? 'Sözlem tapylmady' :
-                config.mode === 'zh' ? '未找到短语' : 'Фразы не найдены'}
+               config.mode === 'zh' ? '未找到短语' : 'Фразы не найдены'}
             </Text>
             <Text style={styles.emptyText}>
-              {selectedSubcategory
+              {selectedSubcategory 
                 ? (config.mode === 'tk' ? 'Bu bölümde heniz sözlem ýok' :
-                  config.mode === 'zh' ? '此分类中暂无短语' : 'В этой подкатегории пока нет фраз')
+                   config.mode === 'zh' ? '此分类中暂无短语' : 'В этой подкатегории пока нет фраз')
                 : (config.mode === 'tk' ? 'Bu kategoriýada heniz sözlem ýok' :
-                  config.mode === 'zh' ? '此分类中暂无短语' : 'В этой категории пока нет фраз')
+                   config.mode === 'zh' ? '此分类中暂无短语' : 'В этой категории пока нет фраз')
               }
             </Text>
           </View>
@@ -391,7 +387,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.background,
   },
-
+  
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -449,7 +445,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  // Заголовок на трех языках - внутри ScrollView
+  // ✅ ИСПРАВЛЕННЫЙ заголовок на трех языках
   categoryTitleContainer: {
     backgroundColor: '#fff',
     paddingVertical: 20,
@@ -500,7 +496,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
 
-  // Стили для фразы
+  // ✅ ОБНОВЛЕННЫЕ стили для фразы
   phraseItem: {
     backgroundColor: '#fff',
     marginBottom: 12,
@@ -552,46 +548,69 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
 
+  // ✅ НОВЫЕ стили для треугольных кнопок
   phraseActions: {
     alignItems: 'flex-end',
+    justifyContent: 'space-between',
+    minHeight: 80, // Больше места для вертикальных кнопок
   },
 
   audioButtons: {
-    flexDirection: 'row',
+    flexDirection: 'column', // ✅ Вертикально как на фото
     marginBottom: 8,
+    gap: 6, // Промежуток между кнопками
   },
 
   audioButton: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 8,
-    marginLeft: 4,
-    minWidth: 40,
+    flexDirection: 'row', // ✅ Треугольник и текст в ряд
     alignItems: 'center',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 20, // ✅ Более округлые кнопки
+    minWidth: 60,
+    justifyContent: 'center',
+  },
+
+  audioTriangle: {
+    fontSize: 12,
+    color: '#fff',
+    marginRight: 4, // ✅ Отступ от треугольника до текста
+    fontWeight: 'bold',
   },
 
   chineseAudioButton: {
     backgroundColor: '#DC2626', // Красный для китайского
+    shadowColor: '#DC2626',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 3,
   },
 
   turkmenAudioButton: {
     backgroundColor: '#059669', // Зеленый для туркменского  
+    shadowColor: '#059669',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 3,
   },
 
   chineseAudioButtonText: {
     color: '#fff',
-    fontSize: 12,
+    fontSize: 14, // ✅ Немного больше
     fontWeight: 'bold',
   },
 
   turkmenAudioButtonText: {
-    color: '#fff',
-    fontSize: 12,
+    color: '#fff',  
+    fontSize: 14, // ✅ Немного больше
     fontWeight: 'bold',
   },
 
   favoriteButton: {
     padding: 4,
+    marginTop: 8, // ✅ Отступ сверху от аудио кнопок
   },
 
   emptyContainer: {
