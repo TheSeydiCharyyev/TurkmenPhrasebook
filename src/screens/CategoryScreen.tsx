@@ -497,121 +497,146 @@ const styles = StyleSheet.create({
   },
 
   // ✅ ОБНОВЛЕННЫЕ стили для фразы
-  phraseItem: {
-    backgroundColor: '#fff',
-    marginBottom: 12,
-    borderRadius: 12,
-    padding: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
-    elevation: 2,
-    borderWidth: 1,
-    borderColor: Colors.border,
-  },
+  // Новые стили для PhraseItem - заменить в CategoryScreen.tsx:
 
-  phraseContent: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-  },
+// ✅ НОВЫЕ стили с флаговыми цветами
+phraseItem: {
+  backgroundColor: Colors.cardBackground,
+  marginBottom: 16, // ✅ Больше spacing
+  borderRadius: 16, // ✅ Более округлый
+  padding: 20,      // ✅ Больше padding
+  shadowColor: Colors.shadowColor,
+  shadowOffset: { width: 0, height: 4 },
+  shadowOpacity: 0.15, // ✅ Более заметная тень
+  shadowRadius: 12,
+  elevation: 4,
+  borderWidth: 1,
+  borderColor: Colors.border,
+},
 
-  phraseTextContainer: {
-    flex: 1,
-    marginRight: 12,
-  },
+phraseContent: {
+  flexDirection: 'row',
+  alignItems: 'flex-start',
+},
 
-  chineseText: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: Colors.text,
-    marginBottom: 4,
-  },
+phraseTextContainer: {
+  flex: 1,
+  marginRight: 16, // ✅ Больше отступ
+},
 
-  pinyinText: {
-    fontSize: 14,
-    color: Colors.textLight,
-    fontStyle: 'italic',
-    marginBottom: 6,
-  },
+// ✅ Новый контейнер для китайского с флагом
+chineseContainer: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginBottom: 8, // ✅ Больше отступ
+},
 
-  secondaryText: {
-    fontSize: 16,
-    color: Colors.text,
-    marginBottom: 2,
-    fontWeight: '500',
-  },
+chineseText: {
+  fontSize: 24,           // ✅ Крупнее!
+  fontWeight: 'bold',
+  color: Colors.chineseRed, // ✅ Красный флага Китая
+  marginRight: 8,
+  flex: 1,
+},
 
-  tertiaryText: {
-    fontSize: 14,
-    color: Colors.textLight,
-    marginTop: 2,
-  },
+flagEmoji: {
+  fontSize: 16,
+  marginLeft: 4,
+},
 
-  // ✅ НОВЫЕ стили для треугольных кнопок
-  phraseActions: {
-    alignItems: 'flex-end',
-    justifyContent: 'space-between',
-    minHeight: 80, // Больше места для вертикальных кнопок
-  },
+pinyinText: {
+  fontSize: 16,           // ✅ Крупнее для читаемости
+  color: Colors.textLight,
+  fontStyle: 'italic',
+  marginBottom: 12,       // ✅ Больше отступ
+  letterSpacing: 1,       // ✅ Больше spacing
+  fontFamily: 'Courier New', // ✅ Моноширинный шрифт
+},
 
-  audioButtons: {
-    flexDirection: 'column', // ✅ Вертикально как на фото
-    marginBottom: 8,
-    gap: 6, // Промежуток между кнопками
-  },
+// ✅ Новый контейнер для переводов с флагами
+translationContainer: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginBottom: 6,
+},
 
-  audioButton: {
-    flexDirection: 'row', // ✅ Треугольник и текст в ряд
-    alignItems: 'center',
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: 20, // ✅ Более округлые кнопки
-    minWidth: 60,
-    justifyContent: 'center',
-  },
+secondaryText: {
+  fontSize: 18,           // ✅ Крупнее
+  color: Colors.turkmenGreen, // ✅ Зеленый туркменского флага
+  fontWeight: 'bold',     // ✅ Сделал bold для туркменского!
+  marginLeft: 8,
+  flex: 1,
+},
 
-  audioTriangle: {
-    fontSize: 12,
-    color: '#fff',
-    marginRight: 4, // ✅ Отступ от треугольника до текста
-    fontWeight: 'bold',
-  },
+tertiaryText: {
+  fontSize: 15,           // ✅ Средний размер
+  color: Colors.russianText, // ✅ Синий для русского
+  fontWeight: '500',
+  marginLeft: 8,
+  flex: 1,
+},
 
-  chineseAudioButton: {
-    backgroundColor: '#DC2626', // Красный для китайского
-    shadowColor: '#DC2626',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 3,
-  },
+phraseActions: {
+  alignItems: 'flex-end',
+  justifyContent: 'space-between',
+  minHeight: 100,         // ✅ Больше места
+},
 
-  turkmenAudioButton: {
-    backgroundColor: '#059669', // Зеленый для туркменского  
-    shadowColor: '#059669',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 3,
-  },
+audioButtons: {
+  flexDirection: 'column',
+  marginBottom: 12,       // ✅ Больше отступ
+  gap: 8,                 // ✅ Больше gap
+},
 
-  chineseAudioButtonText: {
-    color: '#fff',
-    fontSize: 14, // ✅ Немного больше
-    fontWeight: 'bold',
-  },
+audioButton: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  paddingHorizontal: 14,  // ✅ Больше padding
+  paddingVertical: 10,
+  borderRadius: 25,       // ✅ Более округлый
+  minWidth: 70,           // ✅ Шире кнопки
+  justifyContent: 'center',
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.3,
+  shadowRadius: 6,
+  elevation: 4,
+},
 
-  turkmenAudioButtonText: {
-    color: '#fff',  
-    fontSize: 14, // ✅ Немного больше
-    fontWeight: 'bold',
-  },
+audioTriangle: {
+  fontSize: 14,           // ✅ Крупнее треугольник
+  color: '#fff',
+  marginRight: 6,         // ✅ Больше отступ
+  fontWeight: 'bold',
+},
 
-  favoriteButton: {
-    padding: 4,
-    marginTop: 8, // ✅ Отступ сверху от аудио кнопок
-  },
+chineseAudioButton: {
+  backgroundColor: Colors.chineseRed,      // ✅ Точный красный флага
+  shadowColor: Colors.chineseRedDark,
+},
+
+turkmenAudioButton: {
+  backgroundColor: Colors.turkmenGreen,    // ✅ Точный зеленый флага
+  shadowColor: Colors.turkmenGreenDark,
+},
+
+chineseAudioButtonText: {
+  color: '#fff',
+  fontSize: 15,           // ✅ Крупнее текст
+  fontWeight: 'bold',
+  letterSpacing: 0.5,
+},
+
+turkmenAudioButtonText: {
+  color: '#fff',  
+  fontSize: 15,           // ✅ Крупнее текст
+  fontWeight: 'bold',
+  letterSpacing: 0.5,
+},
+
+favoriteButton: {
+  padding: 8,             // ✅ Больше область нажатия
+  marginTop: 8,
+},
 
   emptyContainer: {
     flex: 1,

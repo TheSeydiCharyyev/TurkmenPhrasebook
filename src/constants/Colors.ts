@@ -1,67 +1,94 @@
-// src/constants/Colors.ts - ИСПРАВЛЕННАЯ ВЕРСИЯ с border
+// src/constants/Colors.ts - НОВАЯ СХЕМА вдохновленная флагами
 
 export const Colors = {
-  // Primary colors
-  primary: '#E53935',
-  primaryLight: '#EF5350',
-  primaryDark: '#C62828',
+  // 🇨🇳 Китайские цвета (красные от флага)
+  chineseRed: '#DE2910',        // Точный красный с флага Китая
+  chineseRedLight: '#E53935',   // Светлее для hover
+  chineseRedDark: '#B71C1C',    // Темнее для shadows
+  chineseGold: '#FFDE00',       // Золотой от звезд на флаге
   
-  // Background colors
-  background: '#FAFAFA',
-  backgroundLight: '#F9FAFB',
-  backgroundDark: '#F3F4F6',
+  // 🇹🇲 Туркменские цвета (зеленые от флага)
+  turkmenGreen: '#00843D',      // Основной зеленый с флага Туркменистана
+  turkmenGreenLight: '#4CAF50', // Светлее
+  turkmenGreenDark: '#2E7D32',  // Темнее
+  turkmenCarpet: '#8B4513',     // Коричневый от ковровых узоров
+  
+  // Primary colors - теперь китайский красный
+  primary: '#DE2910',
+  primaryLight: '#E53935',
+  primaryDark: '#B71C1C',
+  
+  // Accent - туркменский зеленый
+  accent: '#00843D',
+  accentLight: '#4CAF50',
+  accentDark: '#2E7D32',
+  
+  // Background colors - более теплые, кремовые тона
+  background: '#FFFEF7',        // Кремово-белый
+  backgroundLight: '#F9F8F0',   // Светло-кремовый
+  backgroundDark: '#F5F4E8',    // Темно-кремовый
   
   // Card colors
   cardBackground: '#FFFFFF',
-  cardBorder: '#E5E7EB',
-  cardShadow: '#000000',
+  cardBorder: '#E8E6D9',
+  cardShadow: '#8B4513',        // Коричневая тень
   
-  // Text colors
-  text: '#1F2937',
-  textPrimary: '#1F2937',
-  textSecondary: '#6B7280',
-  textLight: '#9CA3AF',
-  textMuted: '#D1D5DB',
+  // Text colors - более контрастные
+  text: '#1A1A1A',              // Почти черный
+  textPrimary: '#1A1A1A',
+  textSecondary: '#424242',     // Темно-серый
+  textLight: '#757575',         // Средне-серый
+  textMuted: '#BDBDBD',         // Светло-серый
   textWhite: '#FFFFFF',
   
-  // Accent colors
-  accent: '#10B981',
-  accentLight: '#34D399',
-  accentDark: '#047857',
+  // Language-specific colors
+  chineseText: '#DE2910',       // Красный для китайского
+  turkmenText: '#00843D',       // Зеленый для туркменского
+  russianText: '#1565C0',       // Синий для русского
   
   // Status colors
-  success: '#10B981',
-  warning: '#F59E0B',
-  error: '#EF4444',
-  info: '#3B82F6',
+  success: '#00843D',           // Туркменский зеленый
+  warning: '#FF8F00',           // Золотисто-оранжевый
+  error: '#DE2910',             // Китайский красный
+  info: '#1565C0',              // Синий
   
   // UI elements
-  shadowColor: '#000000',
-  border: '#E5E7EB',           // ✅ ДОБАВЛЕНО: border свойство
-  borderColor: '#E5E7EB',      // Альтернативное название
-  divider: '#F3F4F6',
+  shadowColor: '#8B4513',       // Коричневые тени
+  border: '#E8E6D9',            // Кремовые границы
+  borderColor: '#E8E6D9',
+  divider: '#F5F4E8',
   overlay: '#000000',
   
   // Tab navigation
-  tabActive: '#E53935',
-  tabInactive: '#9CA3AF',
+  tabActive: '#DE2910',         // Китайский красный
+  tabInactive: '#757575',
   
   // Button colors
   buttonText: '#FFFFFF',
-  buttonTextSecondary: '#374151',
+  buttonTextSecondary: '#1A1A1A',
   
   // Input colors
-  inputText: '#111827',
-  inputPlaceholder: '#9CA3AF',
+  inputText: '#1A1A1A',
+  inputPlaceholder: '#757575',
+  
+  // Audio button colors
+  chineseAudio: '#DE2910',      // Красный флага Китая
+  chineseAudioShadow: '#B71C1C',
+  turkmenAudio: '#00843D',      // Зеленый флага Туркменистана
+  turkmenAudioShadow: '#2E7D32',
   
   // Offline status colors
-  offline: '#F59E0B',
-  online: '#10B981',
-  syncing: '#3B82F6',
+  offline: '#FF8F00',
+  online: '#00843D',
+  syncing: '#1565C0',
   
-  // Градиентные цвета для AnimatedButton
-  gradientStart: '#E53935', // primary
-  gradientEnd: '#C62828',   // primaryDark
+  // Градиенты для красивых переходов
+  gradientChineseStart: '#DE2910',
+  gradientChineseEnd: '#B71C1C',
+  gradientTurkmenStart: '#00843D',
+  gradientTurkmenEnd: '#2E7D32',
+  gradientGoldStart: '#FFDE00',
+  gradientGoldEnd: '#FFC107',
 } as const;
 
 export type ColorKey = keyof typeof Colors;
