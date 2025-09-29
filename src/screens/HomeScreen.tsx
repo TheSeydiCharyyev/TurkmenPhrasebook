@@ -1,6 +1,6 @@
-// src/screens/HomeScreen.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ с правильными языками
+// src/screens/HomeScreen.tsx - ПОЛНАЯ ВЕРСИЯ с исчезающей шапкой
 
-import React, { useCallback, useRef, useState, useMemo } from 'react';
+import React, { useCallback, useRef, useMemo } from 'react';
 import {
   View,
   Text,
@@ -22,50 +22,49 @@ import ErrorBoundary from '../components/ErrorBoundary';
 
 type HomeScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'CategoryScreen'>;
 
-// Высота заголовка для анимации
-const HEADER_HEIGHT = 140;
+// Высота заголовка
+const HEADER_MAX_HEIGHT = 140;
+const HEADER_MIN_HEIGHT = 0; // Полностью скрывается
 
 const AppHeader = React.memo<{ animatedValue: Animated.Value }>(({ animatedValue }) => {
   const { config } = useAppLanguage();
 
-  // Анимация высоты заголовка
+  // Анимация высоты заголовка - ИСЧЕЗАЕТ ПОЛНОСТЬЮ
   const headerHeight = animatedValue.interpolate({
     inputRange: [0, 100],
-    outputRange: [HEADER_HEIGHT, 60],
+    outputRange: [HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT],
     extrapolate: 'clamp',
   });
 
-  // Анимация прозрачности основного текста
+  // Анимация прозрачности - ИСЧЕЗАЕТ
   const headerOpacity = animatedValue.interpolate({
     inputRange: [0, 50],
     outputRange: [1, 0],
     extrapolate: 'clamp',
   });
 
-  // Анимация прозрачности компактного заголовка
-  const compactOpacity = animatedValue.interpolate({
-    inputRange: [30, 80],
-    outputRange: [0, 1],
-    extrapolate: 'clamp',
-  });
-
-  // ИСПРАВЛЕНО: Правильный порядок названий в зависимости от выбранного языка
+  // Заголовки в зависимости от языка
   const getAppTitles = () => {
     if (config.mode === 'zh') {
-      // Когда выбран китайский - китайский главный
       return {
-        mainTitle: '土库曼-中文会话手册',
-        secondaryTitle: 'TÜRKMEN-HYTAÝ GEPLEŞIK KITABY',
-        subtitle: 'Туркменско-китайский разговорник',
+        mainTitle: '中文会话手册',
+        secondaryTitle: 'Hytaý Kitaby',
+        subtitle: 'Китайский разговорник',
         selectText: '选择类别'
       };
-    } else {
-      // Когда выбран туркменский - туркменский главный
+    } else if (config.mode === 'tk') {
       return {
-        mainTitle: 'TÜRKMEN-HYTAÝ GEPLEŞIK KITABY',
-        secondaryTitle: '土库曼-中文会话手册',
-        subtitle: 'Туркменско-китайский разговорник',
-        selectText: 'Kategoriýa saýlaň'
+        mainTitle: 'HYTAÝ KITABY',
+        secondaryTitle: '中文会话',
+        subtitle: 'Китайский разговорник',
+        selectText: 'Kategoriýany saýlaň'
+      };
+    } else {
+      return {
+        mainTitle: 'Китайский разговорник',
+        secondaryTitle: '中文会话手册',
+        subtitle: 'Hytaý Kitaby',
+        selectText: 'Выберите категорию'
       };
     }
   };
@@ -73,69 +72,78 @@ const AppHeader = React.memo<{ animatedValue: Animated.Value }>(({ animatedValue
   const titles = getAppTitles();
 
   return (
-    <Animated.View style={[styles.headerContainer, { height: headerHeight }]}>
-      {/* Полный заголовок - исчезает при скролле */}
-      <Animated.View style={[styles.fullHeader, { opacity: headerOpacity }]}>
-        <Text style={styles.mainTitle}>
-          {titles.mainTitle}
-        </Text>
-        
-        <Text style={styles.secondaryTitle}>
-          {titles.secondaryTitle}
-        </Text>
-        
-        <Text style={styles.russianTitle}>
-          {titles.subtitle}
-        </Text>
-        
-        <Text style={styles.selectCategoryText}>
-          {titles.selectText}
-        </Text>
-      </Animated.View>
-
-      {/* Компактный заголовок - появляется при скролле */}
-      <Animated.View style={[styles.compactHeader, { opacity: compactOpacity }]}>
-        <Text style={styles.compactTitle}>
-          {config.mode === 'zh' ? '中文会话' : 'Hytaý Kitaby'}
-        </Text>
+    <Animated.View 
+      style={[
+        styles.headerContainer, 
+        { 
+          height: headerHeight,
+          opacity: headerOpacity,
+        }
+      ]}
+    >
+      <Animated.View style={styles.fullHeader}>
+        <Text style={styles.mainTitle}>{titles.mainTitle}</Text>
+        <Text style={styles.secondaryTitle}>{titles.secondaryTitle}</Text>
+        <Text style={styles.russianTitle}>{titles.subtitle}</Text>
+        <Text style={styles.selectCategoryText}>{titles.selectText}</Text>
       </Animated.View>
     </Animated.View>
   );
 });
 
-const CategoryGrid = React.memo<{ onScroll: (event: any) => void }>(({ onScroll }) => {
+interface CategoryPairItemProps {
+  item: [Category, Category | undefined];
+  onPress: (category: Category) => void;
+  languageMode: 'ru' | 'tk' | 'zh';
+}
+
+const CategoryPairItem = React.memo<CategoryPairItemProps>(({ item, onPress, languageMode }) => {
+  const [leftCategory, rightCategory] = item;
+
+  return (
+    <View style={styles.row}>
+      <View style={[styles.cardWrapper, styles.leftCard]}>
+        <CategoryCard 
+          category={leftCategory} 
+          onPress={() => onPress(leftCategory)}
+          languageMode={languageMode}
+        />
+      </View>
+      {rightCategory && (
+        <View style={[styles.cardWrapper, styles.rightCard]}>
+          <CategoryCard 
+            category={rightCategory} 
+            onPress={() => onPress(rightCategory)}
+            languageMode={languageMode}
+          />
+        </View>
+      )}
+    </View>
+  );
+});
+
+interface CategoryGridProps {
+  onScroll: (event: any) => void;
+  languageMode: 'ru' | 'tk' | 'zh';
+}
+
+const CategoryGrid = React.memo<CategoryGridProps>(({ onScroll, languageMode }) => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
-  const { config } = useAppLanguage();
 
   const handleCategoryPress = useCallback((category: Category) => {
     navigation.navigate('CategoryScreen', { category });
   }, [navigation]);
 
-  const renderCategoryPair: any = useCallback(({ item }: { item: [Category, Category?] }) => (
-    <View style={styles.row}>
-      <View style={[styles.cardWrapper, styles.leftCard]}>
-        <CategoryCard
-          category={item[0]}
-          onPress={handleCategoryPress}
-          languageMode={config.mode}
-        />
-      </View>
-      
-      {item[1] && (
-        <View style={[styles.cardWrapper, styles.rightCard]}>
-          <CategoryCard
-            category={item[1]}
-            onPress={handleCategoryPress}
-            languageMode={config.mode}
-          />
-        </View>
-      )}
-    </View>
-  ), [handleCategoryPress, config.mode]);
+  const renderCategoryPair = useCallback(({ item }: { item: [Category, Category | undefined] }) => (
+    <CategoryPairItem 
+      item={item} 
+      onPress={handleCategoryPress}
+      languageMode={languageMode}
+    />
+  ), [handleCategoryPress, languageMode]);
 
-  // Группируем категории по парам для 2-колоночной сетки
   const categoryPairs = useMemo(() => {
-    const pairs: Array<[Category, Category?]> = [];
+    const pairs: [Category, Category | undefined][] = [];
     for (let i = 0; i < categories.length; i += 2) {
       pairs.push([categories[i], categories[i + 1]]);
     }
@@ -161,6 +169,7 @@ const CategoryGrid = React.memo<{ onScroll: (event: any) => void }>(({ onScroll 
 
 export default function HomeScreen() {
   const scrollY = useRef(new Animated.Value(0)).current;
+  const { config } = useAppLanguage();
 
   const handleScroll = Animated.event(
     [{ nativeEvent: { contentOffset: { y: scrollY } } }],
@@ -176,10 +185,14 @@ export default function HomeScreen() {
           translucent={false}
         />
         
+        {/* ШАПКА КОТОРАЯ ИСЧЕЗАЕТ ПРИ СКРОЛЛЕ */}
         <AppHeader animatedValue={scrollY} />
         
         <View style={styles.contentContainer}>
-          <CategoryGrid onScroll={handleScroll} />
+          <CategoryGrid 
+            onScroll={handleScroll}
+            languageMode={config.mode}
+          />
         </View>
       </SafeAreaView>
     </ErrorBoundary>
@@ -192,39 +205,36 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   
-  // ИСПРАВЛЕНО: Лучшее центрирование header
+  // Контейнер заголовка - БУДЕТ ИСЧЕЗАТЬ
   headerContainer: {
     backgroundColor: Colors.primary,
-    paddingHorizontal: 20, // Уменьшили с 24 до 20
+    paddingHorizontal: 20,
     justifyContent: 'center',
-    alignItems: 'center', // Добавили для центрирования
+    alignItems: 'center',
     overflow: 'hidden',
   },
 
   // Полный заголовок
   fullHeader: {
-    position: 'absolute',
     width: '100%',
     alignItems: 'center',
-    justifyContent: 'center', // Добавили для лучшего центрирования
-    top: '50%',
-    transform: [{ translateY: -50 }], // Изменили для точного центрирования
+    justifyContent: 'center',
   },
   
-  // ИСПРАВЛЕНО: Главный заголовок - размер зависит от выбранного языка
+  // Главный заголовок
   mainTitle: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: '700',
     color: Colors.textWhite,
     textAlign: 'center',
     marginBottom: 6,
     letterSpacing: 0.5,
-    paddingHorizontal: 10, // Добавили padding для предотвращения обрезки
+    paddingHorizontal: 10,
   },
   
   // Вторичный заголовок
   secondaryTitle: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: '600',
     color: Colors.textWhite,
     textAlign: 'center',
@@ -250,23 +260,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     opacity: 0.9,
     paddingHorizontal: 10,
-  },
-
-  // Компактный заголовок
-  compactHeader: {
-    position: 'absolute',
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    top: '50%',
-    transform: [{ translateY: -10 }],
-  },
-
-  compactTitle: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: Colors.textWhite,
-    textAlign: 'center',
   },
   
   contentContainer: {

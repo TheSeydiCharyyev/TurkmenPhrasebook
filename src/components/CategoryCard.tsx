@@ -1,4 +1,4 @@
-// src/components/CategoryCard.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ с правильными языками
+// src/components/CategoryCard.tsx - МИНИМАЛЬНОЕ ИСПРАВЛЕНИЕ (только languageMode)
 
 import React, { useCallback } from 'react';
 import {
@@ -15,7 +15,7 @@ import { useAnimations } from '../hooks/useAnimations';
 interface CategoryCardProps {
   category: Category;
   onPress: (category: Category) => void;
-  languageMode: 'tk' | 'zh';
+  languageMode: 'ru' | 'tk' | 'zh'; // ИСПРАВЛЕНО: добавлен 'ru'
 }
 
 export default function CategoryCard({ category, onPress, languageMode }: CategoryCardProps) {
@@ -26,7 +26,7 @@ export default function CategoryCard({ category, onPress, languageMode }: Catego
     onPress(category);
   }, [category, onPress, hapticFeedback]);
 
-  // ИСПРАВЛЕНО: Правильный порядок названий в зависимости от выбранного языка
+  // ИСПРАВЛЕНО: добавлена логика для русского языка
   const getCategoryNames = () => {
     if (languageMode === 'zh') {
       // Когда выбран китайский - китайский сначала
@@ -34,6 +34,13 @@ export default function CategoryCard({ category, onPress, languageMode }: Catego
         primary: category.nameZh,
         secondary: category.nameTk,
         tertiary: category.nameRu
+      };
+    } else if (languageMode === 'ru') {
+      // Когда выбран русский - русский сначала
+      return {
+        primary: category.nameRu,
+        secondary: category.nameZh,
+        tertiary: category.nameTk
       };
     } else {
       // Когда выбран туркменский - туркменский сначала
@@ -83,6 +90,7 @@ export default function CategoryCard({ category, onPress, languageMode }: Catego
   );
 }
 
+// СТИЛИ БЕЗ ИЗМЕНЕНИЙ - оставлены как в оригинале
 const styles = StyleSheet.create({
   card: {
     borderRadius: 12,

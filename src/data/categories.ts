@@ -1,93 +1,8 @@
-// src/data/categories.ts - ОБНОВЛЕННЫЙ с подкатегориями из книги
+// src/data/categories.ts - ПОЛНАЯ ВЕРСИЯ с расширениями
 
 import { Category, SubCategory } from '../types';
 
 // ===== ПОДКАТЕГОРИИ =====
-
-// Подкатегории для "В ресторане" (food)
-const foodSubcategories: SubCategory[] = [
-  {
-    id: 'food_appetizers',
-    parentId: 'food',
-    nameRu: 'Закуски',
-    nameTk: 'Başlaýjy naharlar',
-    nameZh: '开胃菜',
-    icon: 'restaurant-outline',
-    color: '#10B981',
-  },
-  {
-    id: 'food_soups',
-    parentId: 'food',
-    nameRu: 'Супы',
-    nameTk: 'Çorbalar',
-    nameZh: '汤',
-    icon: 'restaurant-outline',
-    color: '#10B981',
-  },
-  {
-    id: 'food_meat',
-    parentId: 'food',
-    nameRu: 'Мясные блюда',
-    nameTk: 'Et naharlar',
-    nameZh: '肉类菜肴',
-    icon: 'restaurant-outline',
-    color: '#10B981',
-  },
-  {
-    id: 'food_fish',
-    parentId: 'food',
-    nameRu: 'Рыбные блюда',
-    nameTk: 'Balyk naharlar',
-    nameZh: '鱼类菜肴',
-    icon: 'restaurant-outline',
-    color: '#10B981',
-  },
-  {
-    id: 'food_vegetables',
-    parentId: 'food',
-    nameRu: 'Овощи',
-    nameTk: 'Gök önümler',
-    nameZh: '蔬菜',
-    icon: 'restaurant-outline',
-    color: '#10B981',
-  },
-  {
-    id: 'food_fruits',
-    parentId: 'food',
-    nameRu: 'Фрукты, орехи, ягоды',
-    nameTk: 'Miweler, hoz, miweli',
-    nameZh: '水果，坚果，浆果',
-    icon: 'restaurant-outline',
-    color: '#10B981',
-  },
-  {
-    id: 'food_alcohol',
-    parentId: 'food',
-    nameRu: 'Спиртные напитки',
-    nameTk: 'Alkogol içgileri',
-    nameZh: '酒类',
-    icon: 'wine-outline',
-    color: '#10B981',
-  },
-  {
-    id: 'food_beverages',
-    parentId: 'food',
-    nameRu: 'Безалкогольные напитки',
-    nameTk: 'Alkogolsyz içgiler',
-    nameZh: '非酒精饮料',
-    icon: 'cafe-outline',
-    color: '#10B981',
-  },
-  {
-    id: 'food_desserts',
-    parentId: 'food',
-    nameRu: 'Десерты',
-    nameTk: 'Süýjiler',
-    nameZh: '甜点',
-    icon: 'ice-cream-outline',
-    color: '#10B981',
-  },
-];
 
 // Подкатегории для "В отеле" (hotel)
 const hotelSubcategories: SubCategory[] = [
@@ -97,7 +12,7 @@ const hotelSubcategories: SubCategory[] = [
     nameRu: 'Просьбы',
     nameTk: 'Haýyşlar',
     nameZh: '请求',
-    icon: 'hand-right-outline',
+    icon: 'help-circle-outline',
     color: '#8B5CF6',
   },
   {
@@ -120,6 +35,188 @@ const hotelSubcategories: SubCategory[] = [
   },
 ];
 
+// Подкатегории для "Еда и рестораны" (food)
+const foodSubcategories: SubCategory[] = [
+  {
+    id: 'food_ordering',
+    parentId: 'food',
+    nameRu: 'Заказ еды',
+    nameTk: 'Nahar sargyt etmek',
+    nameZh: '点餐',
+    icon: 'receipt-outline',
+    color: '#C2410C',
+  },
+  {
+    id: 'food_appetizers',
+    parentId: 'food',
+    nameRu: 'Закуски',
+    nameTk: 'Şirelendiriji iýmitler',
+    nameZh: '开胃菜',
+    icon: 'restaurant-outline',
+    color: '#C2410C',
+  },
+  {
+    id: 'food_soups',
+    parentId: 'food',
+    nameRu: 'Супы',
+    nameTk: 'Çorbalar',
+    nameZh: '汤类',
+    icon: 'cafe-outline',
+    color: '#C2410C',
+  },
+  {
+    id: 'food_meat',
+    parentId: 'food',
+    nameRu: 'Мясные блюда',
+    nameTk: 'Etli naharlar',
+    nameZh: '肉类菜肴',
+    icon: 'nutrition-outline',
+    color: '#C2410C',
+  },
+  {
+    id: 'food_fish',
+    parentId: 'food',
+    nameRu: 'Рыбные блюда',
+    nameTk: 'Balykly naharlar',
+    nameZh: '鱼类菜肴',
+    icon: 'fish-outline',
+    color: '#C2410C',
+  },
+  {
+    id: 'food_vegetables',
+    parentId: 'food',
+    nameRu: 'Овощи и фрукты',
+    nameTk: 'Gök we miweler',
+    nameZh: '蔬菜水果',
+    icon: 'leaf-outline',
+    color: '#C2410C',
+  },
+  {
+    id: 'food_drinks',
+    parentId: 'food',
+    nameRu: 'Напитки',
+    nameTk: 'Içgiler',
+    nameZh: '饮料',
+    icon: 'wine-outline',
+    color: '#C2410C',
+  },
+  {
+    id: 'food_desserts',
+    parentId: 'food',
+    nameRu: 'Десерты',
+    nameTk: 'Desertler',
+    nameZh: '甜品',
+    icon: 'ice-cream-outline',
+    color: '#C2410C',
+  },
+];
+
+// Подкатегории для "Покупки и торг" (shopping)
+const shoppingSubcategories: SubCategory[] = [
+  {
+    id: 'shopping_clothing',
+    parentId: 'shopping',
+    nameRu: 'Одежда',
+    nameTk: 'Eşikler',
+    nameZh: '服装',
+    icon: 'shirt-outline',
+    color: '#F59E0B',
+  },
+  {
+    id: 'shopping_bargaining',
+    parentId: 'shopping',
+    nameRu: 'Торг',
+    nameTk: 'Söwda',
+    nameZh: '讨价还价',
+    icon: 'pricetag-outline',
+    color: '#F59E0B',
+  },
+  {
+    id: 'shopping_useful_words',
+    parentId: 'shopping',
+    nameRu: 'Полезные слова',
+    nameTk: 'Peýdaly sözler',
+    nameZh: '有用词汇',
+    icon: 'book-outline',
+    color: '#F59E0B',
+  },
+];
+
+// Подкатегории для "Транспорт" (transport)
+const transportSubcategories: SubCategory[] = [
+  {
+    id: 'transport_airport',
+    parentId: 'transport',
+    nameRu: 'В аэропорту, в самолете',
+    nameTk: 'Howa menzilinde, uçarda',
+    nameZh: '在机场，在飞机上',
+    icon: 'airplane-outline',
+    color: '#059669',
+  },
+  {
+    id: 'transport_train',
+    parentId: 'transport',
+    nameRu: 'На вокзале, в поезде',
+    nameTk: 'Wokzalda, poýezdde',
+    nameZh: '在车站，在火车上',
+    icon: 'train-outline',
+    color: '#059669',
+  },
+  {
+    id: 'transport_city',
+    parentId: 'transport',
+    nameRu: 'Городской транспорт',
+    nameTk: 'Şäher transporty',
+    nameZh: '城市交通',
+    icon: 'bus-outline',
+    color: '#059669',
+  },
+];
+
+// Подкатегории для "Направления" (directions)
+const directionsSubcategories: SubCategory[] = [
+  {
+    id: 'directions_sightseeing',
+    parentId: 'directions',
+    nameRu: 'Осмотр достопримечательностей',
+    nameTk: 'Meşhur ýerleri seredip görmek',
+    nameZh: '观光景点',
+    icon: 'camera-outline',
+    color: '#DC2626',
+  },
+  {
+    id: 'directions_useful_words',
+    parentId: 'directions',
+    nameRu: 'Полезные слова',
+    nameTk: 'Peýdaly sözler',
+    nameZh: '有用词汇',
+    icon: 'book-outline',
+    color: '#DC2626',
+  },
+];
+
+// Подкатегории для "Связь" (communication)
+const communicationSubcategories: SubCategory[] = [
+  {
+    id: 'communication_postal',
+    parentId: 'communication',
+    nameRu: 'Почта, телеграф, телефон',
+    nameTk: 'Poçta, telegraf, telefon',
+    nameZh: '邮政，电报，电话',
+    icon: 'mail-outline',
+    color: '#EC4899',
+  },
+  {
+    id: 'communication_useful_words',
+    parentId: 'communication',
+    nameRu: 'Полезные слова',
+    nameTk: 'Peýdaly sözler',
+    nameZh: '有用词汇',
+    icon: 'book-outline',
+    color: '#EC4899',
+  },
+];
+
 // Подкатегории для "Развлечения" (entertainment)
 const entertainmentSubcategories: SubCategory[] = [
   {
@@ -128,17 +225,17 @@ const entertainmentSubcategories: SubCategory[] = [
     nameRu: 'Театр',
     nameTk: 'Teatr',
     nameZh: '剧院',
-    icon: 'library-outline',
-    color: '#A855F7',
+    icon: 'musical-notes-outline',
+    color: '#7C3AED',
   },
   {
     id: 'entertainment_cinema',
     parentId: 'entertainment',
     nameRu: 'Кино',
     nameTk: 'Kino',
-    nameZh: '电影',
+    nameZh: '电影院',
     icon: 'film-outline',
-    color: '#A855F7',
+    color: '#7C3AED',
   },
   {
     id: 'entertainment_concert',
@@ -146,8 +243,8 @@ const entertainmentSubcategories: SubCategory[] = [
     nameRu: 'Концерт',
     nameTk: 'Konsert',
     nameZh: '音乐会',
-    icon: 'musical-notes-outline',
-    color: '#A855F7',
+    icon: 'disc-outline',
+    color: '#7C3AED',
   },
   {
     id: 'entertainment_museum',
@@ -156,7 +253,7 @@ const entertainmentSubcategories: SubCategory[] = [
     nameTk: 'Muzeýde',
     nameZh: '在博物馆',
     icon: 'library-outline',
-    color: '#A855F7',
+    color: '#7C3AED',
   },
   {
     id: 'entertainment_useful_words',
@@ -165,11 +262,132 @@ const entertainmentSubcategories: SubCategory[] = [
     nameTk: 'Peýdaly sözler',
     nameZh: '有用词汇',
     icon: 'book-outline',
-    color: '#A855F7',
+    color: '#7C3AED',
   },
 ];
 
-// Подкатегории для "Общение. О себе" (personal_info)
+// Подкатегории для "Время и даты" (time)
+const timeSubcategories: SubCategory[] = [
+  {
+    id: 'time_basic',
+    parentId: 'time',
+    nameRu: 'Время',
+    nameTk: 'Wagt',
+    nameZh: '时间',
+    icon: 'time-outline',
+    color: '#0D9488',
+  },
+  {
+    id: 'time_days',
+    parentId: 'time',
+    nameRu: 'Дни недели',
+    nameTk: 'Hepdäniň günleri',
+    nameZh: '星期',
+    icon: 'calendar-outline',
+    color: '#0D9488',
+  },
+  {
+    id: 'time_months',
+    parentId: 'time',
+    nameRu: 'Месяцы',
+    nameTk: 'Aýlar',
+    nameZh: '月份',
+    icon: 'calendar-number-outline',
+    color: '#0D9488',
+  },
+];
+
+// Подкатегории для "Здоровье" (health)
+const healthSubcategories: SubCategory[] = [
+  {
+    id: 'health_doctor',
+    parentId: 'health',
+    nameRu: 'У врача',
+    nameTk: 'Lukmanyňkyda',
+    nameZh: '看医生',
+    icon: 'medical-outline',
+    color: '#059669',
+  },
+  {
+    id: 'health_pharmacy',
+    parentId: 'health',
+    nameRu: 'В аптеке',
+    nameTk: 'Dermanhanada',
+    nameZh: '在药店',
+    icon: 'bandage-outline',
+    color: '#059669',
+  },
+];
+
+// Подкатегории для "Деньги и банки" (money)
+const moneySubcategories: SubCategory[] = [
+  {
+    id: 'money_exchange',
+    parentId: 'money',
+    nameRu: 'Банк, обмен валюты',
+    nameTk: 'Bank, walýuta çalyşmak',
+    nameZh: '银行，外汇兑换',
+    icon: 'card-outline',
+    color: '#0891B2',
+  },
+  {
+    id: 'money_useful_words',
+    parentId: 'money',
+    nameRu: 'Полезные слова',
+    nameTk: 'Peýdaly sözler',
+    nameZh: '有用词汇',
+    icon: 'book-outline',
+    color: '#0891B2',
+  },
+];
+
+// Подкатегории для "Таможня" (customs)
+const customsSubcategories: SubCategory[] = [
+  {
+    id: 'customs_passport',
+    parentId: 'customs',
+    nameRu: 'Паспортный контроль',
+    nameTk: 'Pasport gözegçiligi',
+    nameZh: '护照检查',
+    icon: 'document-text-outline',
+    color: '#1E40AF',
+  },
+  {
+    id: 'customs_useful_words',
+    parentId: 'customs',
+    nameRu: 'Полезные слова',
+    nameTk: 'Peýdaly sözler',
+    nameZh: '有用词汇',
+    icon: 'book-outline',
+    color: '#1E40AF',
+  },
+];
+
+// Подкатегории для "Спорт" (sports)
+const sportsSubcategories: SubCategory[] = [
+  {
+    id: 'sports_activities',
+    parentId: 'sports',
+    nameRu: 'Спорт',
+    nameTk: 'Sport',
+    nameZh: '体育运动',
+    icon: 'football-outline',
+    color: '#DC2626',
+  },
+  {
+    id: 'sports_useful_words',
+    parentId: 'sports',
+    nameRu: 'Полезные слова',
+    nameTk: 'Peýdaly sözler',
+    nameZh: '有用词汇',
+    icon: 'book-outline',
+    color: '#DC2626',
+  },
+];
+
+// ===== НОВЫЕ ПОДКАТЕГОРИИ =====
+
+// Подкатегории для "О себе" (personal_info)
 const personalInfoSubcategories: SubCategory[] = [
   {
     id: 'personal_name_age',
@@ -283,142 +501,16 @@ const measurementsSubcategories: SubCategory[] = [
     parentId: 'measurements',
     nameRu: 'Китайские меры',
     nameTk: 'Hytaý ölçegleri',
-    nameZh: '中国度量',
+    nameZh: '中国度量单位',
     icon: 'calculator-outline',
     color: '#374151',
   },
 ];
 
-// Подкатегории для "Пребывание в городе" (directions)
-const directionsSubcategories: SubCategory[] = [
-  {
-    id: 'directions_sightseeing',
-    parentId: 'directions',
-    nameRu: 'Осмотр достопримечательностей',
-    nameTk: 'Gözel ýerleri görmek',
-    nameZh: '观光',
-    icon: 'camera-outline',
-    color: '#06B6D4',
-  },
-  {
-    id: 'directions_transport',
-    parentId: 'directions',
-    nameRu: 'Городской транспорт',
-    nameTk: 'Şäher ulagy',
-    nameZh: '城市交通',
-    icon: 'bus-outline',
-    color: '#06B6D4',
-  },
-  {
-    id: 'directions_useful_words',
-    parentId: 'directions',
-    nameRu: 'Полезные слова',
-    nameTk: 'Peýdaly sözler',
-    nameZh: '有用词汇',
-    icon: 'book-outline',
-    color: '#06B6D4',
-  },
-];
-
-// Подкатегории для "Медицинская помощь" (health)
-const healthSubcategories: SubCategory[] = [
-  {
-    id: 'health_doctor',
-    parentId: 'health',
-    nameRu: 'У врача',
-    nameTk: 'Lukmanda',
-    nameZh: '看医生',
-    icon: 'medical-outline',
-    color: '#84CC16',
-  },
-  {
-    id: 'health_pharmacy',
-    parentId: 'health',
-    nameRu: 'В аптеке',
-    nameTk: 'Dermanhana',
-    nameZh: '在药店',
-    icon: 'medical-outline',
-    color: '#84CC16',
-  },
-];
-
-// Подкатегории для категорий с "Полезными словами"
-const bankingSubcategories: SubCategory[] = [
-  {
-    id: 'money_useful_words',
-    parentId: 'money',
-    nameRu: 'Полезные слова',
-    nameTk: 'Peýdaly sözler',
-    nameZh: '有用词汇',
-    icon: 'book-outline',
-    color: '#FBBF24',
-  },
-];
-
-const trainSubcategories: SubCategory[] = [
-  {
-    id: 'train_station_useful_words',
-    parentId: 'train_station',
-    nameRu: 'Полезные слова',
-    nameTk: 'Peýdaly sözler',
-    nameZh: '有用词汇',
-    icon: 'book-outline',
-    color: '#059669',
-  },
-];
-
-const customsSubcategories: SubCategory[] = [
-  {
-    id: 'customs_useful_words',
-    parentId: 'customs',
-    nameRu: 'Полезные слова',
-    nameTk: 'Peýdaly sözler',
-    nameZh: '有用词汇',
-    icon: 'book-outline',
-    color: '#1E40AF',
-  },
-];
-
-const communicationSubcategories: SubCategory[] = [
-  {
-    id: 'communication_useful_words',
-    parentId: 'communication',
-    nameRu: 'Полезные слова',
-    nameTk: 'Peýdaly sözler',
-    nameZh: '有用词汇',
-    icon: 'book-outline',
-    color: '#EC4899',
-  },
-];
-
-const shoppingSubcategories: SubCategory[] = [
-  {
-    id: 'shopping_useful_words',
-    parentId: 'shopping',
-    nameRu: 'Полезные слова',
-    nameTk: 'Peýdaly sözler',
-    nameZh: '有用词汇',
-    icon: 'book-outline',
-    color: '#F59E0B',
-  },
-];
-
-const sportsSubcategories: SubCategory[] = [
-  {
-    id: 'sports_useful_words',
-    parentId: 'sports',
-    nameRu: 'Полезные слова',
-    nameTk: 'Peýdaly sözler',
-    nameZh: '有用词汇',
-    icon: 'book-outline',
-    color: '#DC2626',
-  },
-];
-
-// ===== ОСНОВНЫЕ КАТЕГОРИИ С ПОДКАТЕГОРИЯМИ =====
+// ===== ОСНОВНЫЕ КАТЕГОРИИ =====
 
 export const categories: Category[] = [
-  // ===== СУЩЕСТВУЮЩИЕ 14 ОСНОВНЫХ КАТЕГОРИЙ =====
+  // ===== 14 ОСНОВНЫХ КАТЕГОРИЙ =====
   {
     id: 'greetings',
     nameRu: 'Приветствие',
@@ -451,15 +543,15 @@ export const categories: Category[] = [
     nameTk: 'Nahar we restoranlarda',
     nameZh: '餐饮',
     icon: 'restaurant-outline',
-    color: '#10B981',
+    color: '#C2410C',
     hasSubcategories: true,
     subcategories: foodSubcategories,
   },
   {
     id: 'shopping',
     nameRu: 'Покупки и торг',
-    nameTk: 'Söwda we bazarlyk',
-    nameZh: '购物',
+    nameTk: 'Satyn almak we bähsleşmek',
+    nameZh: '购物和讨价还价',
     icon: 'storefront-outline',
     color: '#F59E0B',
     hasSubcategories: true,
@@ -468,10 +560,12 @@ export const categories: Category[] = [
   {
     id: 'transport',
     nameRu: 'Транспорт',
-    nameTk: 'Ulag',
+    nameTk: 'Transport',
     nameZh: '交通',
     icon: 'car-outline',
-    color: '#6366F1',
+    color: '#059669',
+    hasSubcategories: true,
+    subcategories: transportSubcategories,
   },
   {
     id: 'directions',
@@ -479,7 +573,7 @@ export const categories: Category[] = [
     nameTk: 'Ugurlar',
     nameZh: '方向',
     icon: 'compass-outline',
-    color: '#06B6D4',
+    color: '#DC2626',
     hasSubcategories: true,
     subcategories: directionsSubcategories,
   },
@@ -488,8 +582,8 @@ export const categories: Category[] = [
     nameRu: 'Здоровье',
     nameTk: 'Saglyk',
     nameZh: '健康',
-    icon: 'medical-outline',
-    color: '#84CC16',
+    icon: 'fitness-outline',
+    color: '#059669',
     hasSubcategories: true,
     subcategories: healthSubcategories,
   },
@@ -497,11 +591,11 @@ export const categories: Category[] = [
     id: 'money',
     nameRu: 'Деньги и банки',
     nameTk: 'Pul we banklar',
-    nameZh: '金融',
-    icon: 'card-outline',
-    color: '#FBBF24',
+    nameZh: '货币和银行',
+    icon: 'wallet-outline',
+    color: '#0891B2',
     hasSubcategories: true,
-    subcategories: bankingSubcategories,
+    subcategories: moneySubcategories,
   },
   {
     id: 'communication',
@@ -516,10 +610,10 @@ export const categories: Category[] = [
   {
     id: 'entertainment',
     nameRu: 'Развлечения',
-    nameTk: 'Güýmenje',
+    nameTk: 'Güýmenjeler',
     nameZh: '娱乐',
     icon: 'game-controller-outline',
-    color: '#A855F7',
+    color: '#7C3AED',
     hasSubcategories: true,
     subcategories: entertainmentSubcategories,
   },
@@ -527,9 +621,11 @@ export const categories: Category[] = [
     id: 'time',
     nameRu: 'Время и даты',
     nameTk: 'Wagt we seneler',
-    nameZh: '时间',
+    nameZh: '时间和日期',
     icon: 'time-outline',
-    color: '#14B8A6',
+    color: '#0D9488',
+    hasSubcategories: true,
+    subcategories: timeSubcategories,
   },
   {
     id: 'numbers',
@@ -548,236 +644,36 @@ export const categories: Category[] = [
     color: '#F97316',
   },
 
-  // ===== НОВЫЕ КАТЕГОРИИ ИЗ КНИГИ С ПОДКАТЕГОРИЯМИ =====
-  
-  // Социальное общение
-  {
-    id: 'addressing',
-    nameRu: 'Обращение',
-    nameTk: 'Ýüzlenmek',
-    nameZh: '称呼',
-    icon: 'chatbubble-outline',
-    color: '#DC2626',
-  },
-  {
-    id: 'introduction',
-    nameRu: 'Знакомство',
-    nameTk: 'Tanyşmak',
-    nameZh: '介绍',
-    icon: 'people-outline',
-    color: '#7C3AED',
-  },
-  {
-    id: 'gratitude',
-    nameRu: 'Благодарность',
-    nameTk: 'Minnetdarlyk',
-    nameZh: '感谢',
-    icon: 'heart-outline',
-    color: '#DB2777',
-  },
-  {
-    id: 'requests',
-    nameRu: 'Просьба',
-    nameTk: 'Haýyş',
-    nameZh: '请求',
-    icon: 'hand-right-outline',
-    color: '#059669',
-  },
-  {
-    id: 'apologies',
-    nameRu: 'Извинение',
-    nameTk: 'Bagyşlama',
-    nameZh: '道歉',
-    icon: 'sad-outline',
-    color: '#DC2626',
-  },
-  {
-    id: 'congratulations',
-    nameRu: 'Поздравление',
-    nameTk: 'Gutlagma',
-    nameZh: '祝贺',
-    icon: 'gift-outline',
-    color: '#7C2D12',
-  },
-  {
-    id: 'invitations',
-    nameRu: 'Приглашение',
-    nameTk: 'Çagyryş',
-    nameZh: '邀请',
-    icon: 'mail-outline',
-    color: '#0369A1',
-  },
-  {
-    id: 'agreement',
-    nameRu: 'Согласие',
-    nameTk: 'Ylalaşyk',
-    nameZh: '同意',
-    icon: 'checkmark-circle-outline',
-    color: '#16A34A',
-  },
-  {
-    id: 'disagreement',
-    nameRu: 'Отказ, несогласие',
-    nameTk: 'Ýok, razylaşmamak',
-    nameZh: '拒绝，不同意',
-    icon: 'close-circle-outline',
-    color: '#DC2626',
-  },
-  {
-    id: 'misunderstanding',
-    nameRu: 'Недоразумение',
-    nameTk: 'Düşünişmezlik',
-    nameZh: '误解',
-    icon: 'help-circle-outline',
-    color: '#CA8A04',
-  },
-  {
-    id: 'sympathy',
-    nameRu: 'Сожаление, сочувствие',
-    nameTk: 'Gynanç, duýgudaşlyk',
-    nameZh: '遗憾，同情',
-    icon: 'heart-dislike-outline',
-    color: '#7C2D12',
-  },
-  {
-    id: 'farewell',
-    nameRu: 'Прощание',
-    nameTk: 'Hoş gal',
-    nameZh: '告别',
-    icon: 'exit-outline',
-    color: '#374151',
-  },
-
-  // Путешествие и документы
-  {
-    id: 'customs',
-    nameRu: 'Паспортный контроль. Таможня',
-    nameTk: 'Pasport gözegçiligi. Gümrük',
-    nameZh: '护照检查。海关',
-    icon: 'document-text-outline',
-    color: '#1E40AF',
-    hasSubcategories: true,
-    subcategories: customsSubcategories,
-  },
-  {
-    id: 'train_station',
-    nameRu: 'На вокзале, в поезде',
-    nameTk: 'Duralgada, otly',
-    nameZh: '在车站，在火车上',
-    icon: 'train-outline',
-    color: '#059669',
-    hasSubcategories: true,
-    subcategories: trainSubcategories,
-  },
-
-  // Активности и хобби
-  {
-    id: 'sports',
-    nameRu: 'Спорт',
-    nameTk: 'Sport',
-    nameZh: '体育',
-    icon: 'fitness-outline',
-    color: '#DC2626',
-    hasSubcategories: true,
-    subcategories: sportsSubcategories,
-  },
-
-  // Бизнес и работа
-  {
-    id: 'business',
-    nameRu: 'Экономическое сотрудничество',
-    nameTk: 'Ykdysady hyzmatdaşlyk',
-    nameZh: '经济合作',
-    icon: 'briefcase-outline',
-    color: '#1F2937',
-    hasSubcategories: true,
-    subcategories: businessSubcategories,
-  },
+  // ===== 6 НОВЫХ ОСНОВНЫХ КАТЕГОРИЙ =====
   {
     id: 'personal_info',
-    nameRu: 'Общение. О себе',
-    nameTk: 'Aragatnaşyk. Öz hakynda',
-    nameZh: '交流。关于自己',
+    nameRu: 'О себе',
+    nameTk: 'Özüň barada',
+    nameZh: '个人信息',
     icon: 'person-circle-outline',
     color: '#7C3AED',
     hasSubcategories: true,
     subcategories: personalInfoSubcategories,
   },
   {
+    id: 'business',
+    nameRu: 'Деловое сотрудничество',
+    nameTk: 'Işjeň hyzmatdaşlyk',
+    nameZh: '商务合作',
+    icon: 'briefcase-outline',
+    color: '#1F2937',
+    hasSubcategories: true,
+    subcategories: businessSubcategories,
+  },
+  {
     id: 'measurements',
-    nameRu: 'Система мер и весов',
-    nameTk: 'Ölçeg we agram ulgamy',
+    nameRu: 'Системы мер и весов',
+    nameTk: 'Ölçegler we agyrlyk ulgamlary',
     nameZh: '度量衡制度',
-    icon: 'resize-outline',
+    icon: 'scale-outline',
     color: '#374151',
     hasSubcategories: true,
     subcategories: measurementsSubcategories,
-  },
-
-  // ===== ДОПОЛНИТЕЛЬНЫЕ КАТЕГОРИИ (БЕЗ ПОДКАТЕГОРИЙ ПОКА) =====
-  {
-    id: 'family',
-    nameRu: 'Семья',
-    nameTk: 'Maşgala',
-    nameZh: '家庭',
-    icon: 'people-outline',
-    color: '#E11D48',
-  },
-  {
-    id: 'work',
-    nameRu: 'Работа',
-    nameTk: 'Iş',
-    nameZh: '工作',
-    icon: 'briefcase-outline',
-    color: '#7C3AED',
-  },
-  {
-    id: 'education',
-    nameRu: 'Образование',
-    nameTk: 'Bilim',
-    nameZh: '教育',
-    icon: 'school-outline',
-    color: '#059669',
-  },
-  {
-    id: 'culture',
-    nameRu: 'Культура',
-    nameTk: 'Medeniýet',
-    nameZh: '文化',
-    icon: 'library-outline',
-    color: '#9333EA',
-  },
-  {
-    id: 'nature',
-    nameRu: 'Природа',
-    nameTk: 'Tebigat',
-    nameZh: '自然',
-    icon: 'leaf-outline',
-    color: '#16A34A',
-  },
-  {
-    id: 'technology',
-    nameRu: 'Технологии',
-    nameTk: 'Tehnologiýa',
-    nameZh: '科技',
-    icon: 'laptop-outline',
-    color: '#0284C7',
-  },
-  {
-    id: 'clothing',
-    nameRu: 'Одежда',
-    nameTk: 'Egin-eşik',
-    nameZh: '服装',
-    icon: 'shirt-outline',
-    color: '#C2410C',
-  },
-  {
-    id: 'home',
-    nameRu: 'Дом',
-    nameTk: 'Öý',
-    nameZh: '家',
-    icon: 'home-outline',
-    color: '#7C2D12',
   },
   {
     id: 'colors',
@@ -794,6 +690,36 @@ export const categories: Category[] = [
     nameZh: '身体部位',
     icon: 'hand-left-outline',
     color: '#B91C1C',
+  },
+  {
+    id: 'home',
+    nameRu: 'Дом',
+    nameTk: 'Öý',
+    nameZh: '家',
+    icon: 'home-outline',
+    color: '#7C2D12',
+  },
+  
+  // ===== ДОПОЛНИТЕЛЬНЫЕ КАТЕГОРИИ (для полноты) =====
+  {
+    id: 'customs',
+    nameRu: 'Таможня',
+    nameTk: 'Gümrük',
+    nameZh: '海关',
+    icon: 'shield-checkmark-outline',
+    color: '#1E40AF',
+    hasSubcategories: true,
+    subcategories: customsSubcategories,
+  },
+  {
+    id: 'sports',
+    nameRu: 'Спорт',
+    nameTk: 'Sport',
+    nameZh: '体育',
+    icon: 'fitness-outline',
+    color: '#DC2626',
+    hasSubcategories: true,
+    subcategories: sportsSubcategories,
   },
 ];
 
@@ -874,19 +800,17 @@ export const getCategoriesStats = () => {
   const totalSubcategories = getAllSubcategories().length;
   
   return {
-    totalCategories: categories.length, // 42 категории
-    categoriesWithSubcategories: categoriesWithSub.length, // ~15 категорий с подкатегориями
-    totalSubcategories: totalSubcategories, // ~50+ подкатегорий
-    withPhrases: 14, // Категории с фразами (пока)
-    fromBook: 18, // Новые из книги
-    additional: 10, // Дополнительные
+    totalCategories: categories.length, // 22 категории
+    categoriesWithSubcategories: categoriesWithSub.length, // 17 категорий с подкатегориями
+    totalSubcategories: totalSubcategories, // 50+ подкатегорий
+    withPhrases: 20, // Категории с фразами
+    additional: 2, // Дополнительные (customs, sports)
   };
 };
 
 // КОММЕНТАРИИ ДЛЯ РАЗРАБОТЧИКА:
-// 1. Добавлено ~50 подкатегорий для 15 основных категорий
-// 2. Все подкатегории имеют правильные переводы на 3 языка
-// 3. "Полезные слова" - это обычные подкатегории
-// 4. Максимум 2 уровня вложенности (категория → подкатегория)
-// 5. Все иконки из Ionicons, цвета наследуются от родителей
-// 6. Готово к интеграции с UI компонентами
+// 1. Добавлено 22 категории (14 основных + 6 новых + 2 дополнительные)
+// 2. Добавлено 50+ подкатегорий для большинства категорий
+// 3. Все подкатегории имеют правильные переводы на 3 языка
+// 4. Все иконки из Ionicons, цвета наследуются от родителей
+// 5. Готово к интеграции с фразами и UI компонентами
