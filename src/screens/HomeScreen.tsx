@@ -1,6 +1,6 @@
-// src/screens/HomeScreen.tsx - ПОЛНАЯ ВЕРСИЯ с исчезающей шапкой
+// src/screens/HomeScreen.tsx - МИНИМАЛИСТИЧНАЯ ШАПКА
 
-import React, { useCallback, useRef, useMemo } from 'react';
+import React, { useCallback, useRef, useMemo, useState } from 'react';
 import {
   View,
   Text,
@@ -9,9 +9,12 @@ import {
   SafeAreaView,
   StatusBar,
   Animated,
+  TextInput,
+  TouchableOpacity,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
+import { Ionicons } from '@expo/vector-icons';
 
 import { Category, HomeStackParamList } from '../types';
 import { Colors } from '../constants/Colors';
@@ -22,125 +25,98 @@ import ErrorBoundary from '../components/ErrorBoundary';
 
 type HomeScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'CategoryScreen'>;
 
-// Высота заголовка
-const HEADER_MAX_HEIGHT = 140;
-const HEADER_MIN_HEIGHT = 0; // Полностью скрывается
+// Высота новой минималистичной шапки
+const HEADER_HEIGHT = 120;
 
-const AppHeader = React.memo<{ animatedValue: Animated.Value }>(({ animatedValue }) => {
-  const { config } = useAppLanguage();
+// Минималистичная шапка БЕЗ красного фона
+const MinimalHeader = React.memo<{ languageMode: 'ru' | 'tk' | 'zh'; onSearchPress: () => void }>(
+  ({ languageMode, onSearchPress }) => {
+    // Текст "Выберите категорию" на трех языках
+    const getHeaderText = () => {
+      if (languageMode === 'zh') {
+        return '选择类别'; // Китайский
+      } else if (languageMode === 'tk') {
+        return 'Kategoriýany saýlaň'; // Туркменский
+      } else {
+        return 'Выберите категорию'; // Русский
+      }
+    };
 
-  // Анимация высоты заголовка - ИСЧЕЗАЕТ ПОЛНОСТЬЮ
-  const headerHeight = animatedValue.interpolate({
-    inputRange: [0, 100],
-    outputRange: [HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT],
-    extrapolate: 'clamp',
-  });
+    return (
+      <View style={styles.headerContainer}>
+        {/* Заголовок на трех языках */}
+        <View style={styles.titleContainer}>
+          <Text style={styles.titleTurkmen}>Kategoriýany saýlaň</Text>
+          <Text style={styles.titleChinese}>选择类别</Text>
+          <Text style={styles.titleRussian}>Выберите категорию</Text>
+        </View>
 
-  // Анимация прозрачности - ИСЧЕЗАЕТ
-  const headerOpacity = animatedValue.interpolate({
-    inputRange: [0, 50],
-    outputRange: [1, 0],
-    extrapolate: 'clamp',
-  });
+        {/* Поле поиска */}
+        <TouchableOpacity 
+          style={styles.searchBar} 
+          onPress={onSearchPress}
+          activeOpacity={0.7}
+        >
+          <Ionicons name="search" size={20} color={Colors.textLight} />
+          <Text style={styles.searchPlaceholder}>
+            {languageMode === 'zh' ? '搜索短语...' :
+             languageMode === 'tk' ? 'Sözlemleri gözle...' :
+             'Поиск фраз...'}
+          </Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+);
 
-  // Заголовки в зависимости от языка
-  const getAppTitles = () => {
-    if (config.mode === 'zh') {
-      return {
-        mainTitle: '中文会话手册',
-        secondaryTitle: 'Hytaý Kitaby',
-        subtitle: 'Китайский разговорник',
-        selectText: '选择类别'
-      };
-    } else if (config.mode === 'tk') {
-      return {
-        mainTitle: 'HYTAÝ KITABY',
-        secondaryTitle: '中文会话',
-        subtitle: 'Китайский разговорник',
-        selectText: 'Kategoriýany saýlaň'
-      };
-    } else {
-      return {
-        mainTitle: 'Китайский разговорник',
-        secondaryTitle: '中文会话手册',
-        subtitle: 'Hytaý Kitaby',
-        selectText: 'Выберите категорию'
-      };
-    }
-  };
-
-  const titles = getAppTitles();
-
-  return (
-    <Animated.View 
-      style={[
-        styles.headerContainer, 
-        { 
-          height: headerHeight,
-          opacity: headerOpacity,
-        }
-      ]}
-    >
-      <Animated.View style={styles.fullHeader}>
-        <Text style={styles.mainTitle}>{titles.mainTitle}</Text>
-        <Text style={styles.secondaryTitle}>{titles.secondaryTitle}</Text>
-        <Text style={styles.russianTitle}>{titles.subtitle}</Text>
-        <Text style={styles.selectCategoryText}>{titles.selectText}</Text>
-      </Animated.View>
-    </Animated.View>
-  );
-});
-
-interface CategoryPairItemProps {
+// Компонент пары категорий
+const CategoryPairItem = React.memo<{
   item: [Category, Category | undefined];
   onPress: (category: Category) => void;
   languageMode: 'ru' | 'tk' | 'zh';
-}
-
-const CategoryPairItem = React.memo<CategoryPairItemProps>(({ item, onPress, languageMode }) => {
-  const [leftCategory, rightCategory] = item;
-
-  return (
-    <View style={styles.row}>
-      <View style={[styles.cardWrapper, styles.leftCard]}>
-        <CategoryCard 
-          category={leftCategory} 
-          onPress={() => onPress(leftCategory)}
+}>(({ item, onPress, languageMode }) => (
+  <View style={styles.row}>
+    <View style={[styles.cardWrapper, styles.leftCard]}>
+      <CategoryCard
+        category={item[0]}
+        onPress={onPress}
+        languageMode={languageMode}
+      />
+    </View>
+    {item[1] && (
+      <View style={[styles.cardWrapper, styles.rightCard]}>
+        <CategoryCard
+          category={item[1]}
+          onPress={onPress}
           languageMode={languageMode}
         />
       </View>
-      {rightCategory && (
-        <View style={[styles.cardWrapper, styles.rightCard]}>
-          <CategoryCard 
-            category={rightCategory} 
-            onPress={() => onPress(rightCategory)}
-            languageMode={languageMode}
-          />
-        </View>
-      )}
-    </View>
-  );
-});
+    )}
+  </View>
+));
 
+// Сетка категорий
 interface CategoryGridProps {
-  onScroll: (event: any) => void;
   languageMode: 'ru' | 'tk' | 'zh';
 }
 
-const CategoryGrid = React.memo<CategoryGridProps>(({ onScroll, languageMode }) => {
+const CategoryGrid = React.memo<CategoryGridProps>(({ languageMode }) => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
 
   const handleCategoryPress = useCallback((category: Category) => {
     navigation.navigate('CategoryScreen', { category });
   }, [navigation]);
 
-  const renderCategoryPair = useCallback(({ item }: { item: [Category, Category | undefined] }) => (
-    <CategoryPairItem 
-      item={item} 
-      onPress={handleCategoryPress}
-      languageMode={languageMode}
-    />
-  ), [handleCategoryPress, languageMode]);
+  const renderCategoryPair = useCallback(
+    ({ item }: { item: [Category, Category | undefined] }) => (
+      <CategoryPairItem
+        item={item}
+        onPress={handleCategoryPress}
+        languageMode={languageMode}
+      />
+    ),
+    [handleCategoryPress, languageMode]
+  );
 
   const categoryPairs = useMemo(() => {
     const pairs: [Category, Category | undefined][] = [];
@@ -151,14 +127,12 @@ const CategoryGrid = React.memo<CategoryGridProps>(({ onScroll, languageMode }) 
   }, []);
 
   return (
-    <Animated.FlatList
+    <FlatList
       data={categoryPairs}
       renderItem={renderCategoryPair}
       keyExtractor={(item, index) => `pair-${index}`}
       contentContainerStyle={styles.gridContainer}
       showsVerticalScrollIndicator={false}
-      onScroll={onScroll}
-      scrollEventThrottle={16}
       removeClippedSubviews={true}
       maxToRenderPerBatch={6}
       windowSize={10}
@@ -168,31 +142,34 @@ const CategoryGrid = React.memo<CategoryGridProps>(({ onScroll, languageMode }) 
 });
 
 export default function HomeScreen() {
-  const scrollY = useRef(new Animated.Value(0)).current;
   const { config } = useAppLanguage();
+  const navigation = useNavigation<any>();
 
-  const handleScroll = Animated.event(
-    [{ nativeEvent: { contentOffset: { y: scrollY } } }],
-    { useNativeDriver: false }
-  );
+  const handleSearchPress = useCallback(() => {
+    // Переход на экран поиска
+    navigation.navigate('AdditionalFeatures', {
+      screen: 'Search'
+    });
+  }, [navigation]);
 
   return (
     <ErrorBoundary>
       <SafeAreaView style={styles.container}>
-        <StatusBar 
-          barStyle="light-content" 
-          backgroundColor={Colors.primary} 
+        <StatusBar
+          barStyle="dark-content"
+          backgroundColor={Colors.background}
           translucent={false}
         />
-        
-        {/* ШАПКА КОТОРАЯ ИСЧЕЗАЕТ ПРИ СКРОЛЛЕ */}
-        <AppHeader animatedValue={scrollY} />
-        
+
+        {/* НОВАЯ МИНИМАЛИСТИЧНАЯ ШАПКА */}
+        <MinimalHeader 
+          languageMode={config.mode} 
+          onSearchPress={handleSearchPress}
+        />
+
+        {/* КАТЕГОРИИ - БЕЗ ИЗМЕНЕНИЙ */}
         <View style={styles.contentContainer}>
-          <CategoryGrid 
-            onScroll={handleScroll}
-            languageMode={config.mode}
-          />
+          <CategoryGrid languageMode={config.mode} />
         </View>
       </SafeAreaView>
     </ErrorBoundary>
@@ -204,89 +181,90 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.background,
   },
-  
-  // Контейнер заголовка - БУДЕТ ИСЧЕЗАТЬ
+
+  // НОВАЯ минималистичная шапка
   headerContainer: {
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.background,
     paddingHorizontal: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    overflow: 'hidden',
+    paddingTop: 16,
+    paddingBottom: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.border || '#E5E7EB',
   },
 
-  // Полный заголовок
-  fullHeader: {
-    width: '100%',
+  // Контейнер для заголовков
+  titleContainer: {
     alignItems: 'center',
-    justifyContent: 'center',
+    marginBottom: 12,
   },
-  
-  // Главный заголовок
-  mainTitle: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: Colors.textWhite,
-    textAlign: 'center',
-    marginBottom: 6,
-    letterSpacing: 0.5,
-    paddingHorizontal: 10,
-  },
-  
-  // Вторичный заголовок
-  secondaryTitle: {
+
+  // Туркменский заголовок
+  titleTurkmen: {
     fontSize: 18,
     fontWeight: '600',
-    color: Colors.textWhite,
-    textAlign: 'center',
+    color: Colors.text,
     marginBottom: 4,
-    opacity: 0.9,
-    paddingHorizontal: 10,
   },
-  
-  russianTitle: {
-    fontSize: 14,
-    fontWeight: '500',
-    color: Colors.textWhite,
-    textAlign: 'center',
-    marginBottom: 12,
-    opacity: 0.8,
-    paddingHorizontal: 10,
-  },
-  
-  selectCategoryText: {
+
+  // Китайский заголовок
+  titleChinese: {
     fontSize: 16,
-    fontWeight: '600',
-    color: Colors.textWhite,
-    textAlign: 'center',
-    opacity: 0.9,
-    paddingHorizontal: 10,
+    fontWeight: '500',
+    color: Colors.textSecondary || '#6B7280',
+    marginBottom: 4,
   },
-  
+
+  // Русский заголовок
+  titleRussian: {
+    fontSize: 14,
+    fontWeight: '400',
+    color: Colors.textLight,
+  },
+
+  // Поле поиска
+  searchBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: Colors.backgroundLight || '#F9FAFB',
+    borderRadius: 12,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderWidth: 1,
+    borderColor: Colors.border || '#E5E7EB',
+  },
+
+  searchPlaceholder: {
+    marginLeft: 10,
+    fontSize: 15,
+    color: Colors.textLight,
+  },
+
+  // Контейнер категорий
   contentContainer: {
     flex: 1,
     backgroundColor: Colors.background,
   },
-  
+
   gridContainer: {
     paddingHorizontal: 24,
     paddingVertical: 20,
     paddingBottom: 40,
   },
-  
+
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 16,
   },
-  
+
   cardWrapper: {
     width: '48%',
   },
-  
+
   leftCard: {
     marginRight: 8,
   },
-  
+
   rightCard: {
     marginLeft: 8,
   },
