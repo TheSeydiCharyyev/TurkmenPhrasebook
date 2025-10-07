@@ -1,4 +1,4 @@
-// src/components/CategoryCard.tsx - МИНИМАЛЬНОЕ ИСПРАВЛЕНИЕ (только languageMode)
+// src/components/CategoryCard.tsx - С PNG ИКОНКАМИ
 
 import React, { useCallback } from 'react';
 import {
@@ -6,8 +6,8 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
+  Image,
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 import { Category } from '../types';
 import { Colors } from '../constants/Colors';
 import { useAnimations } from '../hooks/useAnimations';
@@ -15,8 +15,34 @@ import { useAnimations } from '../hooks/useAnimations';
 interface CategoryCardProps {
   category: Category;
   onPress: (category: Category) => void;
-  languageMode: 'ru' | 'tk' | 'zh'; // ИСПРАВЛЕНО: добавлен 'ru'
+  languageMode: 'ru' | 'tk' | 'zh';
 }
+
+// Маппинг categoryId к PNG файлам
+const CATEGORY_ICONS: { [key: string]: any } = {
+  greetings: require('../../assets/icons/greetings.png'),
+  emergency: require('../../assets/icons/emergency.png'),
+  hotel: require('../../assets/icons/hotel.png'),
+  food: require('../../assets/icons/food.png'),
+  shopping: require('../../assets/icons/shopping.png'),
+  transport: require('../../assets/icons/transport.png'),
+  directions: require('../../assets/icons/directions.png'),
+  health: require('../../assets/icons/health.png'),
+  money: require('../../assets/icons/bank.png'), // используем bank.png для money
+  communication: require('../../assets/icons/communication.png'),
+  entertainment: require('../../assets/icons/entertainment.png'),
+  time: require('../../assets/icons/time.png'),
+  numbers: require('../../assets/icons/numbers.png'),
+  weather: require('../../assets/icons/weather.png'),
+  colors: require('../../assets/icons/colors.png'),
+  body: require('../../assets/icons/body.png'),
+  home: require('../../assets/icons/home.png'),
+  customs: require('../../assets/icons/customs.png'),
+  sports: require('../../assets/icons/sport.png'), // ИСПРАВЛЕНО: sports -> sport.png
+  measurements: require('../../assets/icons/scales.png'), // ИСПРАВЛЕНО: measurements -> scales.png
+  business: require('../../assets/icons/business.png'),
+  personal_info: require('../../assets/icons/aboutme.png'), // ИСПРАВЛЕНО: personal_info -> aboutme.png
+};
 
 export default function CategoryCard({ category, onPress, languageMode }: CategoryCardProps) {
   const { hapticFeedback } = useAnimations();
@@ -26,24 +52,20 @@ export default function CategoryCard({ category, onPress, languageMode }: Catego
     onPress(category);
   }, [category, onPress, hapticFeedback]);
 
-  // ИСПРАВЛЕНО: добавлена логика для русского языка
   const getCategoryNames = () => {
     if (languageMode === 'zh') {
-      // Когда выбран китайский - китайский сначала
       return {
         primary: category.nameZh,
         secondary: category.nameTk,
         tertiary: category.nameRu
       };
     } else if (languageMode === 'ru') {
-      // Когда выбран русский - русский сначала
       return {
         primary: category.nameRu,
         secondary: category.nameZh,
         tertiary: category.nameTk
       };
     } else {
-      // Когда выбран туркменский - туркменский сначала
       return {
         primary: category.nameTk,
         secondary: category.nameZh,
@@ -53,6 +75,9 @@ export default function CategoryCard({ category, onPress, languageMode }: Catego
   };
 
   const names = getCategoryNames();
+  
+  // Получаем PNG иконку для категории
+  const iconSource = CATEGORY_ICONS[category.id];
 
   return (
     <TouchableOpacity
@@ -60,28 +85,28 @@ export default function CategoryCard({ category, onPress, languageMode }: Catego
       onPress={handlePress}
       activeOpacity={0.8}
     >
-      {/* Иконка категории */}
+      {/* PNG Иконка категории */}
       <View style={[styles.iconContainer, { backgroundColor: category.color + '25' }]}>
-        <Ionicons 
-          name={category.icon as any} 
-          size={32} 
-          color={category.color} 
-        />
+        {iconSource ? (
+          <Image 
+            source={iconSource}
+            style={styles.iconImage}
+            resizeMode="contain"
+          />
+        ) : (
+          // Fallback если иконка не найдена
+          <Text style={{ color: category.color, fontSize: 24 }}>?</Text>
+        )}
       </View>
 
       {/* Названия категории */}
       <View style={styles.textContainer}>
-        {/* Главное название */}
         <Text style={styles.primaryName} numberOfLines={2}>
           {names.primary}
         </Text>
-
-        {/* Вторичное название */}
         <Text style={styles.secondaryName} numberOfLines={1}>
           {names.secondary}
         </Text>
-
-        {/* Третье название (русский) */}
         <Text style={styles.tertiaryName} numberOfLines={1}>
           {names.tertiary}
         </Text>
@@ -90,15 +115,14 @@ export default function CategoryCard({ category, onPress, languageMode }: Catego
   );
 }
 
-// СТИЛИ БЕЗ ИЗМЕНЕНИЙ - оставлены как в оригинале
 const styles = StyleSheet.create({
   card: {
     borderRadius: 12,
     padding: 16,
     alignItems: 'center',
     justifyContent: 'center',
-    height: 160, // Фиксированная высота для всех карточек
-    width: '100%', // Фиксированная ширина
+    height: 160,
+    width: '100%',
     backgroundColor: Colors.cardBackground,
   },
 
@@ -108,7 +132,12 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 16, // Увеличили отступ
+    marginBottom: 16,
+  },
+
+  iconImage: {
+    width: 36,
+    height: 36,
   },
 
   textContainer: {
@@ -116,10 +145,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    paddingHorizontal: 8, // Добавили внутренние отступы
+    paddingHorizontal: 8,
   },
 
-  // Стили для трех строк текста с одинаковыми размерами
   primaryName: {
     fontSize: 14,
     fontWeight: '700',
@@ -127,7 +155,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 6,
     lineHeight: 18,
-    minHeight: 18, // Минимальная высота для строки
+    minHeight: 18,
   },
 
   secondaryName: {
