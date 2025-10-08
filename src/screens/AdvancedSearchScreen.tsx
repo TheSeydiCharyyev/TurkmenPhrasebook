@@ -1,4 +1,4 @@
-// src/screens/AdvancedSearchScreen.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ
+// src/screens/AdvancedSearchScreen.tsx - ПОЛНАЯ ИСПРАВЛЕННАЯ ВЕРСИЯ
 
 import React, { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import {
@@ -23,8 +23,6 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../constants/Colors';
-import { TextStyles } from '../constants/Typography'; // ИСПРАВЛЕНО
-import { SearchResult } from '../utils/SearchEngine';
 import { Phrase, RootStackParamList } from '../types';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { useAdvancedSearch } from '../hooks/useAdvancedSearch';
@@ -48,7 +46,7 @@ const HighlightedText: React.FC<{ text: string; highlight: string; style?: any }
     <Text style={style}>
       {parts.map((part, index) => 
         regex.test(part) ? (
-          <Text key={index} style={[style, { backgroundColor: Colors.accent, fontWeight: 'bold' }]}>
+          <Text key={index} style={[style, { backgroundColor: Colors.accent + '40', fontWeight: 'bold' }]}>
             {part}
           </Text>
         ) : (
@@ -68,7 +66,7 @@ const SearchFilters: React.FC<{
 }> = ({ filters, onFiltersChange, onClearFilters, resultCount }) => {
   return (
     <View style={styles.filtersContainer}>
-      <Text style={styles.filtersTitle}>Фильтры ({resultCount || 0} результатов)</Text>
+      <Text style={styles.filtersTitle}>Фильтры активны</Text>
       <TouchableOpacity onPress={onClearFilters} style={styles.clearFiltersButton}>
         <Text style={styles.clearFiltersText}>Очистить</Text>
       </TouchableOpacity>
@@ -76,9 +74,9 @@ const SearchFilters: React.FC<{
   );
 };
 
-// Простой компонент предложений
+// Простой компонент подсказок
 const SearchSuggestions: React.FC<{
-  suggestions: any[];
+  suggestions: string[];
   onSuggestionPress: (suggestion: string) => void;
   currentQuery: string;
   isVisible: boolean;
@@ -87,22 +85,26 @@ const SearchSuggestions: React.FC<{
 
   return (
     <View style={styles.suggestionsContainer}>
-      {suggestions.slice(0, 3).map((suggestion, index) => (
+      {suggestions.map((suggestion, index) => (
         <TouchableOpacity
           key={index}
           style={styles.suggestionItem}
-          onPress={() => onSuggestionPress(suggestion.text || suggestion)}
+          onPress={() => onSuggestionPress(suggestion)}
         >
           <Ionicons name="search" size={16} color={Colors.textLight} />
-          <Text style={styles.suggestionText}>{suggestion.text || suggestion}</Text>
+          <HighlightedText
+            text={suggestion}
+            highlight={currentQuery}
+            style={styles.suggestionText}
+          />
         </TouchableOpacity>
       ))}
     </View>
   );
 };
 
-// Простой компонент голосового поиска
-const VoiceSearchButton: React.FC<{ onPress: () => void; isListening?: boolean }> = ({ 
+// Кнопка голосового поиска
+const VoiceSearchButton: React.FC<{ onPress: () => void; isListening: boolean }> = ({ 
   onPress, 
   isListening 
 }) => {
@@ -123,7 +125,6 @@ export default function AdvancedSearchScreen() {
   const navigation = useNavigation<SearchScreenNavigationProp>();
   const { config, getPhraseTexts } = useAppLanguage();
   
-  // Advanced search integration - ИСПРАВЛЕНО: используем только существующие методы
   const {
     searchQuery,
     setSearchQuery,
@@ -189,178 +190,134 @@ export default function AdvancedSearchScreen() {
       }
     };
 
-    return texts[config.mode]?.[key] || texts.ru[key] || key;
+    return texts[config.mode]?.[key] || texts.ru[key];
   }, [config.mode]);
 
   /**
-   * Handle search input changes with debouncing
+   * Handle search input change with debounce
    */
   const handleSearchChange = useCallback((text: string) => {
     setSearchQuery(text);
     
-    // Clear previous timeout
     if (debounceTimeoutRef.current) {
       clearTimeout(debounceTimeoutRef.current);
     }
     
-    // Set new timeout for search
     debounceTimeoutRef.current = setTimeout(() => {
       if (text.trim().length >= 2) {
         performSearch(text, activeFilters);
-        setShowSuggestions(true);
-      } else {
+      } else if (text.trim().length === 0) {
         clearSearch();
-        setShowSuggestions(false);
       }
     }, 300);
-  }, [setSearchQuery, performSearch, clearSearch, activeFilters]);
+  }, [activeFilters, performSearch, clearSearch, setSearchQuery]);
 
   /**
-   * Handle suggestion selection
+   * Handle clear search
    */
-  const handleSuggestionPress = useCallback((suggestionText: string) => {
-    setSearchQuery(suggestionText);
-    performSearch(suggestionText, activeFilters);
+  const handleClearSearch = useCallback(() => {
+    setSearchQuery('');
+    clearSearch();
+    setActiveFilters({});
     setShowSuggestions(false);
-    searchInputRef.current?.blur();
-  }, [setSearchQuery, performSearch, activeFilters]);
-
-  /**
-   * Handle voice search
-   */
-  const handleVoiceSearch = useCallback(() => {
-    setShowVoiceSearch(true);
-    // В реальном приложении здесь была бы интеграция с голосовым поиском
-    setTimeout(() => {
-      setShowVoiceSearch(false);
-      // Имитируем результат голосового поиска
-      const mockVoiceResult = "你好";
-      setSearchQuery(mockVoiceResult);
-      performSearch(mockVoiceResult, activeFilters);
-    }, 2000);
-  }, [setSearchQuery, performSearch, activeFilters]);
+    searchInputRef.current?.focus();
+  }, [setSearchQuery, clearSearch]);
 
   /**
    * Handle filters change
    */
   const handleFiltersChange = useCallback((newFilters: any) => {
     setActiveFilters(newFilters);
-    
-    // Re-search with new filters if we have a query
-    if (searchQuery.trim().length >= 2) {
+    if (searchQuery.trim()) {
       performSearch(searchQuery, newFilters);
     }
   }, [searchQuery, performSearch]);
-
-  /**
-   * Handle phrase selection
-   */
-  const handlePhrasePress = useCallback((phrase: Phrase) => {
-    navigation.navigate('PhraseDetail', { phrase });
-  }, [navigation]);
-
-  /**
-   * Clear all search state
-   */
-  const handleClearSearch = useCallback(() => {
-    clearSearch();
-    setActiveFilters({});
-    setShowSuggestions(false);
-    setShowVoiceSearch(false);
-  }, [clearSearch]);
 
   /**
    * Clear all filters
    */
   const clearAllFilters = useCallback(() => {
     setActiveFilters({});
-    if (searchQuery.trim().length >= 2) {
+    if (searchQuery.trim()) {
       performSearch(searchQuery, {});
     }
   }, [searchQuery, performSearch]);
 
   /**
-   * Keyboard visibility handling - ИСПРАВЛЕНО: завершен код
+   * Handle suggestion press
    */
-  useEffect(() => {
-    const keyboardDidShow = () => setIsKeyboardVisible(true);
-    const keyboardDidHide = () => setIsKeyboardVisible(false);
-
-    const showListener = Keyboard.addListener('keyboardDidShow', keyboardDidShow);
-    const hideListener = Keyboard.addListener('keyboardDidHide', keyboardDidHide);
-
-    return () => {
-      showListener.remove();
-      hideListener.remove(); // ИСПРАВЛЕНО: завершен вызов
-    };
-  }, []);
+  const handleSuggestionPress = useCallback((suggestion: string) => {
+    setSearchQuery(suggestion);
+    performSearch(suggestion, activeFilters);
+    setShowSuggestions(false);
+    Keyboard.dismiss();
+  }, [activeFilters, performSearch, setSearchQuery]);
 
   /**
-   * Cleanup debounce timeout
+   * Handle voice search
    */
-  useEffect(() => {
-    return () => {
-      if (debounceTimeoutRef.current) {
-        clearTimeout(debounceTimeoutRef.current);
-      }
-    };
-  }, []);
+  const handleVoiceSearch = useCallback(() => {
+    setShowVoiceSearch(!showVoiceSearch);
+  }, [showVoiceSearch]);
+
+  /**
+   * Handle phrase press
+   */
+  const handlePhrasePress = useCallback((phrase: Phrase) => {
+    navigation.navigate('PhraseDetail', { phrase });
+  }, [navigation]);
 
   /**
    * Render search result item
    */
-  const renderSearchResult: ListRenderItem<SearchResult> = useCallback(({ item }) => {
-    const phrase = item.phrase;
-    const phraseTexts = getPhraseTexts(phrase);
-    const category = categories.find(cat => cat.id === phrase.categoryId);
+  const renderSearchResult = useCallback(({ item }: { item: Phrase }) => {
+    const categoryName = config.mode === 'tk' ? 
+      categories.find(c => c.id === item.categoryId)?.nameTk :
+      config.mode === 'zh' ?
+      categories.find(c => c.id === item.categoryId)?.nameZh :
+      categories.find(c => c.id === item.categoryId)?.nameRu || '';
 
     return (
       <TouchableOpacity
         style={styles.resultItem}
-        onPress={() => handlePhrasePress(phrase)}
+        onPress={() => handlePhrasePress(item)}
+        activeOpacity={0.7}
       >
         <View style={styles.resultContent}>
-          <View style={styles.resultHeader}>
-            <HighlightedText
-              text={phraseTexts.primary}
-              highlight={searchQuery}
-              style={styles.resultPrimary}
-            />
-            {/* Remove or replace with correct property if available */}
-            {/* <Text style={styles.resultScore}>{Math.round(item.matchScore * 100)}%</Text> */}
-          </View>
-          
           <HighlightedText
-            text={phraseTexts.learning}
+            text={item.chinese}
             highlight={searchQuery}
-            style={styles.resultLearning}
+            style={styles.resultChinese}
           />
-          
-          <Text style={styles.resultHelper}>{phraseTexts.helper}</Text>
-          
-          {category && (
-            <View style={styles.resultCategory}>
-              <Text style={styles.categoryName}>
-                {config.mode === 'tk' ? category.nameTk :
-                 config.mode === 'zh' ? category.nameZh :
-                 category.nameRu}
-              </Text>
+          <Text style={styles.resultPinyin}>{item.pinyin}</Text>
+          <HighlightedText
+            text={config.mode === 'tk' ? item.turkmen : item.russian}
+            highlight={searchQuery}
+            style={styles.resultTranslation}
+          />
+          {categoryName && (
+            <View style={styles.categoryBadge}>
+              <Text style={styles.categoryBadgeText}>{categoryName}</Text>
             </View>
           )}
         </View>
       </TouchableOpacity>
     );
-  }, [getPhraseTexts, searchQuery, handlePhrasePress, config.mode]);
+  }, [searchQuery, handlePhrasePress, config.mode]);
 
   /**
-   * Render empty state
+   * Render empty state - ИСПРАВЛЕННАЯ ВЕРСИЯ С МНОГОЯЗЫЧНОСТЬЮ
    */
   const renderEmptyState = useCallback(() => {
     if (isSearching) {
       return (
         <View style={styles.emptyState}>
           <ActivityIndicator size="large" color={Colors.primary} />
-          <Text style={styles.emptyStateText}>Поиск...</Text>
+          <Text style={styles.emptyStateText}>
+            {config.mode === 'tk' ? 'Gözlenýär...' :
+             config.mode === 'zh' ? '搜索中...' :
+             'Поиск...'}
+          </Text>
         </View>
       );
     }
@@ -371,7 +328,9 @@ export default function AdvancedSearchScreen() {
           <Ionicons name="search" size={64} color={Colors.textLight} />
           <Text style={styles.emptyStateText}>{getText('noResults')}</Text>
           <Text style={styles.emptyStateSubtext}>
-            Попробуйте изменить запрос или очистить фильтры
+            {config.mode === 'tk' ? 'Gözleg sözüni üýtgediň ýa-da süzgüçleri arassalaň' :
+             config.mode === 'zh' ? '尝试更改查询或清除筛选' :
+             'Попробуйте изменить запрос или очистить фильтры'}
           </Text>
         </View>
       );
@@ -380,13 +339,41 @@ export default function AdvancedSearchScreen() {
     return (
       <View style={styles.emptyState}>
         <Ionicons name="book" size={64} color={Colors.textLight} />
-        <Text style={styles.emptyStateText}>Введите поисковый запрос</Text>
+        <Text style={styles.emptyStateText}>
+          {config.mode === 'tk' ? 'Gözleg sözlemini giriziň' :
+           config.mode === 'zh' ? '输入搜索查询' :
+           'Введите поисковый запрос'}
+        </Text>
         <Text style={styles.emptyStateSubtext}>
-          Найдите нужные фразы по китайскому, русскому или туркменскому тексту
+          {config.mode === 'tk' ? 'Hytaý, rus ýa-da türkmen dilinde zerur sözlemi tapyň' :
+           config.mode === 'zh' ? '按中文、俄文或土库曼文查找所需短语' :
+           'Найдите нужные фразы по китайскому, русскому или туркменскому тексту'}
         </Text>
       </View>
     );
-  }, [isSearching, searchQuery, searchResults.length, getText]);
+  }, [isSearching, searchQuery, searchResults.length, getText, config.mode]);
+
+  /**
+   * Cleanup on unmount
+   */
+  useEffect(() => {
+    return () => {
+      if (debounceTimeoutRef.current) {
+        clearTimeout(debounceTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  /**
+   * Focus search input on mount
+   */
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      searchInputRef.current?.focus();
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -397,7 +384,11 @@ export default function AdvancedSearchScreen() {
         {/* Header */}
         <View style={styles.header}>
           <View style={styles.headerContent}>
-            <Text style={styles.headerTitle}>Поиск</Text>
+            <Text style={styles.headerTitle}>
+              {config.mode === 'tk' ? 'Gözleg' :
+               config.mode === 'zh' ? '搜索' :
+               'Поиск'}
+            </Text>
             <View style={styles.headerActions}>
               <VoiceSearchButton 
                 onPress={handleVoiceSearch}
@@ -466,7 +457,7 @@ export default function AdvancedSearchScreen() {
         {/* Search Suggestions */}
         {showSuggestions && suggestions.length > 0 && (
           <SearchSuggestions
-            suggestions={suggestions}
+            suggestions={suggestions.map(s => typeof s === 'string' ? s : (s as any).text || String(s))}
             onSuggestionPress={handleSuggestionPress}
             currentQuery={searchQuery}
             isVisible={showSuggestions}
@@ -477,39 +468,16 @@ export default function AdvancedSearchScreen() {
         <View style={styles.mainContent}>
           {searchResults.length > 0 ? (
             <FlatList
-              data={searchResults}
+              data={searchResults.map(result => result.phrase || result)}
               renderItem={renderSearchResult}
-              keyExtractor={(item) => item.phrase.id}
-              showsVerticalScrollIndicator={false}
+              keyExtractor={(item) => item.id}
               contentContainerStyle={styles.resultsList}
-              ItemSeparatorComponent={() => <View style={styles.separator} />}
+              showsVerticalScrollIndicator={false}
             />
           ) : (
             renderEmptyState()
           )}
         </View>
-
-        {/* Voice Search Modal */}
-        <Modal
-          visible={showVoiceSearch}
-          transparent
-          animationType="fade"
-        >
-          <View style={styles.voiceModalOverlay}>
-            <View style={styles.voiceModalContent}>
-              <Animated.View style={[styles.micContainer, { opacity: fadeAnim }]}>
-                <Ionicons name="mic" size={64} color={Colors.primary} />
-              </Animated.View>
-              <Text style={styles.voiceModalText}>Говорите...</Text>
-              <TouchableOpacity
-                onPress={() => setShowVoiceSearch(false)}
-                style={styles.voiceModalClose}
-              >
-                <Text style={styles.voiceModalCloseText}>Отмена</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </Modal>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
@@ -533,16 +501,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerTitle: {
-    ...TextStyles.h1,
+    fontSize: 24,
+    fontWeight: 'bold',
     color: Colors.text,
   },
   headerActions: {
     flexDirection: 'row',
-    alignItems: 'center',
-    gap: 12,
+    gap: 8,
   },
   voiceButton: {
     padding: 8,
+    borderRadius: 8,
+    backgroundColor: Colors.background,
   },
   filterButton: {
     padding: 8,
@@ -570,7 +540,7 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     flex: 1,
-    ...TextStyles.body,
+    fontSize: 16,
     color: Colors.text,
     paddingVertical: 4,
   },
@@ -600,14 +570,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   filtersTitle: {
-    ...TextStyles.caption,
+    fontSize: 14,
     color: Colors.textLight,
   },
   clearFiltersButton: {
     padding: 4,
   },
   clearFiltersText: {
-    ...TextStyles.caption,
+    fontSize: 14,
     color: Colors.primary,
   },
   suggestionsContainer: {
@@ -623,7 +593,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   suggestionText: {
-    ...TextStyles.body,
+    fontSize: 16,
     color: Colors.text,
   },
   mainContent: {
@@ -636,51 +606,44 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.textWhite,
     borderRadius: 12,
     padding: 16,
-    shadowColor: Colors.text,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
+    marginBottom: 12,
     elevation: 2,
+    shadowColor: Colors.cardShadow,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
   resultContent: {
-    gap: 8,
+    gap: 4,
   },
-  resultHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-  },
-  resultPrimary: {
-    ...TextStyles.body,
+  resultChinese: {
+    fontSize: 20,
+    fontWeight: 'bold',
     color: Colors.text,
-    flex: 1,
   },
-  resultScore: {
-    ...TextStyles.caption,
-    color: Colors.textLight,
-    marginLeft: 8,
+  resultPinyin: {
+    fontSize: 14,
+    color: Colors.textSecondary,
   },
-  resultLearning: {
-    ...TextStyles.body,
-    color: Colors.primary,
+  resultTranslation: {
+    fontSize: 16,
+    color: Colors.text,
   },
-  resultHelper: {
-    ...TextStyles.caption,
-    color: Colors.textLight,
-  },
-  resultCategory: {
+  categoryBadge: {
     alignSelf: 'flex-start',
-    backgroundColor: Colors.background,
+    backgroundColor: Colors.primary + '20',
     paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: 6,
+    marginTop: 4,
   },
-  categoryName: {
-    ...TextStyles.caption,
-    color: Colors.textLight,
-  },
-  separator: {
-    height: 12,
+  categoryBadgeText: {
+    fontSize: 12,
+    color: Colors.primary,
+    fontWeight: '600',
   },
   emptyState: {
     flex: 1,
@@ -689,45 +652,17 @@ const styles = StyleSheet.create({
     padding: 32,
   },
   emptyStateText: {
-    ...TextStyles.body,
-    color: Colors.textLight,
+    fontSize: 18,
+    fontWeight: '600',
+    color: Colors.text,
     marginTop: 16,
     textAlign: 'center',
   },
   emptyStateSubtext: {
-    ...TextStyles.body,
+    fontSize: 14,
     color: Colors.textLight,
     marginTop: 8,
     textAlign: 'center',
-  },
-  voiceModalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  voiceModalContent: {
-    backgroundColor: Colors.textWhite,
-    borderRadius: 24,
-    padding: 32,
-    alignItems: 'center',
-    minWidth: 200,
-  },
-  micContainer: {
-    padding: 16,
-  },
-  voiceModalText: {
-    ...TextStyles.body,
-    color: Colors.text,
-    marginTop: 16,
-  },
-  voiceModalClose: {
-    marginTop: 16,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-  },
-  voiceModalCloseText: {
-    ...TextStyles.body,
-    color: Colors.primary,
+    lineHeight: 20,
   },
 });
