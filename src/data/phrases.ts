@@ -10,7 +10,8 @@ export const phrases: Phrase[] = [
     pinyin: 'nǐ hǎo',
     russian: 'Привет',
     turkmen: 'Salam',
-    audioFile: 'audio/phrase_001.mp3'
+    audioFileChinese: '1. Greetings/chinese/phrase_001.mp3',
+    audioFileTurkmen: '1. Greetings/turkmen/phrase_001.mp3',
   },
   {
     id: 'phrase_002',
@@ -18,8 +19,9 @@ export const phrases: Phrase[] = [
     chinese: '谢谢',
     pinyin: 'xiè xiè',
     russian: 'Спасибо',
-    turkmen: 'Sag bol',
-    audioFile: 'audio/phrase_002.mp3'
+    turkmen: 'Sag boluň',
+    audioFileChinese: '1. Greetings/chinese/phrase_002.mp3',
+    audioFileTurkmen: '1. Greetings/turkmen/phrase_002.mp3',
   },
   {
     id: 'phrase_003',
@@ -28,7 +30,8 @@ export const phrases: Phrase[] = [
     pinyin: 'zài jiàn',
     russian: 'До свидания',
     turkmen: 'Hoş gal',
-    audioFile: 'audio/phrase_003.mp3'
+    audioFileChinese: '1. Greetings/chinese/phrase_003.mp3',
+    audioFileTurkmen: '1. Greetings/turkmen/phrase_003.mp3',
   },
   {
     id: 'phrase_004',
@@ -37,7 +40,8 @@ export const phrases: Phrase[] = [
     pinyin: 'duì bù qǐ',
     russian: 'Извините',
     turkmen: 'Bagyşlaň',
-    audioFile: 'audio/phrase_004.mp3'
+    audioFileChinese: '1. Greetings/chinese/phrase_004.mp3',
+    audioFileTurkmen: '1. Greetings/turkmen/phrase_004.mp3',
   },
   {
     id: 'phrase_005',
@@ -45,8 +49,9 @@ export const phrases: Phrase[] = [
     chinese: '早上好',
     pinyin: 'zǎo shàng hǎo',
     russian: 'Доброе утро',
-    turkmen: 'Ertiriň haýyr',
-    audioFile: 'audio/phrase_005.mp3'
+    turkmen: 'Ertiriňiz haýyrly bolsun',
+    audioFileChinese: '1. Greetings/chinese/phrase_005.mp3',
+    audioFileTurkmen: '1. Greetings/turkmen/phrase_005.mp3',
   },
   {
     id: 'phrase_006',
@@ -54,17 +59,19 @@ export const phrases: Phrase[] = [
     chinese: '晚安',
     pinyin: 'wǎn ān',
     russian: 'Спокойной ночи',
-    turkmen: 'Gijäň rahat',
-    audioFile: 'audio/phrase_006.mp3'
+    turkmen: 'Gijäňiz rahat bolsun',
+    audioFileChinese: '1. Greetings/chinese/phrase_006.mp3',
+    audioFileTurkmen: '1. Greetings/turkmen/phrase_006.mp3',
   },
   {
     id: 'phrase_007',
     categoryId: 'greetings',
-    chinese: '我的名字是...',
-    pinyin: 'wǒ de míng zi shì...',
-    russian: 'Меня зовут...',
-    turkmen: 'Meniň adym...',
-    audioFile: 'audio/phrase_007.mp3'
+    chinese: '不客气',
+    pinyin: 'bú kè qi',
+    russian: 'Пожалуйста (ответ на спасибо)',
+    turkmen: 'Arzamok',
+    audioFileChinese: undefined, // ⚠️ Аудио пока нет
+    audioFileTurkmen: undefined,
   },
   {
     id: 'phrase_008',
@@ -72,8 +79,9 @@ export const phrases: Phrase[] = [
     chinese: '你叫什么名字？',
     pinyin: 'nǐ jiào shén me míng zi?',
     russian: 'Как вас зовут?',
-    turkmen: 'Siziň adyňyz näme?',
-    audioFile: 'audio/phrase_008.mp3'
+    turkmen: 'Adyňyz näme?',
+    audioFileChinese: undefined,
+    audioFileTurkmen: undefined,
   },
   {
     id: 'phrase_009',
@@ -81,26 +89,29 @@ export const phrases: Phrase[] = [
     chinese: '很高兴认识你',
     pinyin: 'hěn gāo xìng rèn shi nǐ',
     russian: 'Приятно познакомиться',
-    turkmen: 'Siz bilen tanyşmak begenýär',
-    audioFile: 'audio/phrase_009.mp3'
+    turkmen: 'Tanyşanyma şat',
+    audioFileChinese: undefined,
+    audioFileTurkmen: undefined,
   },
   {
     id: 'phrase_010',
     categoryId: 'greetings',
     chinese: '请',
     pinyin: 'qǐng',
-    russian: 'Пожалуйста',
+    russian: 'Пожалуйста (просьба)',
     turkmen: 'Haýyş edýärin',
-    audioFile: 'audio/phrase_010.mp3'
+    audioFileChinese: undefined,
+    audioFileTurkmen: undefined,
   },
   {
     id: 'phrase_011',
     categoryId: 'greetings',
-    chinese: '不客气',
-    pinyin: 'bú kè qi',
-    russian: 'Пожалуйста / Не за что',
-    turkmen: 'Hiç zat däl',
-    audioFile: 'audio/phrase_011.mp3'
+    chinese: '是的',
+    pinyin: 'shì de',
+    russian: 'Да',
+    turkmen: 'Hawa',
+    audioFileChinese: undefined,
+    audioFileTurkmen: undefined,
   },
   {
     id: 'phrase_012',
@@ -109,7 +120,8 @@ export const phrases: Phrase[] = [
     pinyin: 'nǐ hǎo ma?',
     russian: 'Как дела?',
     turkmen: 'Nähili?',
-    audioFile: 'audio/phrase_012.mp3'
+    audioFileChinese: undefined,
+    audioFileTurkmen: undefined,
   },
   {
     id: 'phrase_013',
@@ -118,7 +130,8 @@ export const phrases: Phrase[] = [
     pinyin: 'wǒ hěn hǎo',
     russian: 'У меня всё хорошо',
     turkmen: 'Men gowy',
-    audioFile: 'audio/phrase_013.mp3'
+    audioFileChinese: undefined,
+    audioFileTurkmen: undefined,
   },
   {
     id: 'phrase_014',
@@ -127,7 +140,8 @@ export const phrases: Phrase[] = [
     pinyin: 'huān yíng',
     russian: 'Добро пожаловать',
     turkmen: 'Hoş geldiňiz',
-    audioFile: 'audio/phrase_014.mp3'
+    audioFileChinese: undefined,
+    audioFileTurkmen: undefined,
   },
   {
     id: 'phrase_015',
@@ -136,7 +150,23 @@ export const phrases: Phrase[] = [
     pinyin: 'méi guān xi',
     russian: 'Ничего страшного',
     turkmen: 'Mesele ýok',
-    audioFile: 'audio/phrase_015.mp3'
+    audioFileChinese: undefined,
+    audioFileTurkmen: undefined,
+  },
+
+  // ===== ОСТАЛЬНЫЕ КАТЕГОРИИ =====
+  // ⚠️ Для всех остальных фраз пока ставим undefined
+  // Будем добавлять аудио постепенно
+  
+  {
+    id: 'phrase_016',
+    categoryId: 'emergency',
+    chinese: '救命！',
+    pinyin: 'jiù mìng!',
+    russian: 'Помогите!',
+    turkmen: 'Kömek ediň!',
+    audioFileChinese: undefined,
+    audioFileTurkmen: undefined,
   },
 
   // === Экстренные ситуации (10 фраз) ===

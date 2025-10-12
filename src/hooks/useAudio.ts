@@ -1,118 +1,173 @@
-import { useState, useCallback, useEffect } from 'react';
-import * as Speech from 'expo-speech';
+// src/hooks/useAudio.ts
+// ✅ ОБНОВЛЕНО: Offline audio playback через expo-av (БЕЗ Expo Speech)
+
+import { useState, useCallback, useEffect, useRef } from 'react';
+import { Audio } from 'expo-av';
 import { useErrorHandler } from './useErrorHandler';
+
+// ✅ ИСПРАВЛЕНО: Статический маппинг аудио файлов
+const AUDIO_FILES: Record<string, any> = {
+  // Категория Greetings - Китайский
+  '1. Greetings/chinese/phrase_001.mp3': require('../../assets/audio/1. Greetings/chinese/phrase_001.mp3'),
+  '1. Greetings/chinese/phrase_002.mp3': require('../../assets/audio/1. Greetings/chinese/phrase_002.mp3'),
+  '1. Greetings/chinese/phrase_003.mp3': require('../../assets/audio/1. Greetings/chinese/phrase_003.mp3'),
+  '1. Greetings/chinese/phrase_004.mp3': require('../../assets/audio/1. Greetings/chinese/phrase_004.mp3'),
+  '1. Greetings/chinese/phrase_005.mp3': require('../../assets/audio/1. Greetings/chinese/phrase_005.mp3'),
+  
+  // Категория Greetings - Туркменский
+  '1. Greetings/turkmen/phrase_001.mp3': require('../../assets/audio/1. Greetings/turkmen/phrase_001.mp3'),
+  '1. Greetings/turkmen/phrase_002.mp3': require('../../assets/audio/1. Greetings/turkmen/phrase_002.mp3'),
+  '1. Greetings/turkmen/phrase_003.mp3': require('../../assets/audio/1. Greetings/turkmen/phrase_003.mp3'),
+  '1. Greetings/turkmen/phrase_004.mp3': require('../../assets/audio/1. Greetings/turkmen/phrase_004.mp3'),
+  '1. Greetings/turkmen/phrase_005.mp3': require('../../assets/audio/1. Greetings/turkmen/phrase_005.mp3'),
+  '1. Greetings/turkmen/phrase_006.mp3': require('../../assets/audio/1. Greetings/turkmen/phrase_006.mp3'),
+  
+  // ℹ️ ДОБАВЛЯЙ СЮДА НОВЫЕ АУДИО ФАЙЛЫ ПО МЕРЕ ДОБАВЛЕНИЯ
+};
+
+/**
+ * Получить источник аудио по пути
+ */
+function getAudioSource(audioPath: string): any {
+  return AUDIO_FILES[audioPath] || null;
+}
 
 export function useAudio() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const soundRef = useRef<Audio.Sound | null>(null);
   const { handleError, showErrorAlert } = useErrorHandler();
 
-  const playText = useCallback(async (text: string, language: 'chinese' | 'turkmen') => {
+  // Инициализация аудио режима при монтировании
+  useEffect(() => {
+    const initAudio = async () => {
+      try {
+        await Audio.setAudioModeAsync({
+          allowsRecordingIOS: false,
+          playsInSilentModeIOS: true,
+          staysActiveInBackground: false,
+          shouldDuckAndroid: true,
+          playThroughEarpieceAndroid: false,
+        });
+      } catch (error) {
+        console.warn('Audio initialization failed:', error);
+      }
+    };
+
+    initAudio();
+  }, []);
+
+  // Очистка при размонтировании
+  useEffect(() => {
+    return () => {
+      if (soundRef.current) {
+        soundRef.current.unloadAsync().catch(console.warn);
+      }
+    };
+  }, []);
+
+  /**
+   * Воспроизведение MP3 файла
+   * @param audioPath - путь к аудио файлу, например: '1. Greetings/chinese/phrase_001.mp3'
+   * @param language - язык для отображения (опционально, для совместимости)
+   */
+  const playAudio = useCallback(async (audioPath: string, language?: 'chinese' | 'turkmen') => {
     if (isPlaying || isLoading) return;
 
     try {
       setIsLoading(true);
-      
-      // Проверяем доступность TTS
-      const voices = await Speech.getAvailableVoicesAsync();
-      if (voices.length === 0) {
-        throw new Error('TTS не поддерживается на этом устройстве');
+
+      // Останавливаем и выгружаем предыдущее аудио
+      if (soundRef.current) {
+        await soundRef.current.unloadAsync();
+        soundRef.current = null;
       }
 
-      // Останавливаем предыдущее воспроизведение
-      await Speech.stop();
+      // ✅ ИСПРАВЛЕНО: Используем маппинг аудио файлов
+      const audioSource = getAudioSource(audioPath);
       
-      setIsPlaying(true);
-      
-      const speechLanguage = language === 'chinese' ? 'zh-CN' : 'tr-TR';
-      
-      const options = {
-        language: speechLanguage,
-        pitch: 1.0,
-        rate: 0.75,
-        quality: Speech.VoiceQuality.Enhanced,
-        onDone: () => {
-          setIsPlaying(false);
-          setIsLoading(false);
-        },
-        onStopped: () => {
-          setIsPlaying(false);
-          setIsLoading(false);
-        },
-        onError: (error: any) => {
-          setIsPlaying(false);
-          setIsLoading(false);
-          handleError(error, 'TTS playback');
-          showErrorAlert('Ошибка воспроизведения', 'Не удалось воспроизвести аудио');
-        }
-      };
+      if (!audioSource) {
+        throw new Error(`Audio file not found: ${audioPath}`);
+      }
 
-      await Speech.speak(text, options);
-      
+      // Создаём новый Sound объект
+      const { sound } = await Audio.Sound.createAsync(
+        audioSource,
+        {
+          shouldPlay: true,
+          volume: 1.0,
+          rate: 1.0,
+        },
+        onPlaybackStatusUpdate
+      );
+
+      soundRef.current = sound;
+      setIsPlaying(true);
+      setIsLoading(false);
+
     } catch (error) {
       setIsPlaying(false);
       setIsLoading(false);
-      handleError(error, 'TTS initialization');
+      handleError(error, 'Audio playback');
       
-      // Показываем пользователю понятное сообщение об ошибке
-      if (error instanceof Error) {
-        if (error.message.includes('не поддерживается')) {
-          showErrorAlert('TTS недоступен', 'Функция озвучивания недоступна на вашем устройстве');
-        } else {
-          showErrorAlert('Ошибка озвучивания', 'Не удалось воспроизвести текст. Попробуйте позже.');
-        }
-      }
+      console.error('Audio playback error:', error);
+      showErrorAlert(
+        'Ошибка воспроизведения',
+        'Не удалось воспроизвести аудио файл. Убедитесь, что файл существует.'
+      );
     }
   }, [isPlaying, isLoading, handleError, showErrorAlert]);
 
-  const stopAudio = useCallback(async () => {
-    try {
-      await Speech.stop();
-      setIsPlaying(false);
-      setIsLoading(false);
-    } catch (error) {
-      handleError(error, 'TTS stop');
-      // Не показываем alert для ошибок остановки - это некритично
-      setIsPlaying(false);
-      setIsLoading(false);
+  /**
+   * Callback для обновления статуса воспроизведения
+   */
+  const onPlaybackStatusUpdate = useCallback((status: any) => {
+    if (status.isLoaded) {
+      if (status.didJustFinish) {
+        setIsPlaying(false);
+        setIsLoading(false);
+      }
+      if (status.error) {
+        console.error('Playback error:', status.error);
+        setIsPlaying(false);
+        setIsLoading(false);
+      }
     }
-  }, [handleError]);
-
-  useEffect(() => {
-    return () => {
-      Speech.stop();
-    };
   }, []);
 
-  const getAvailableVoices = useCallback(async () => {
+  /**
+   * Остановка воспроизведения
+   */
+  const stopAudio = useCallback(async () => {
     try {
-      setIsLoading(true);
-      const voices = await Speech.getAvailableVoicesAsync();
-      return voices;
+      if (soundRef.current) {
+        await soundRef.current.stopAsync();
+        await soundRef.current.unloadAsync();
+        soundRef.current = null;
+      }
+      setIsPlaying(false);
+      setIsLoading(false);
     } catch (error) {
-      handleError(error, 'TTS voices');
-      return [];
-    } finally {
+      handleError(error, 'Audio stop');
+      setIsPlaying(false);
       setIsLoading(false);
     }
   }, [handleError]);
 
-  const isTTSAvailable = useCallback(async () => {
-    try {
-      const voices = await Speech.getAvailableVoicesAsync();
-      return voices.length > 0;
-    } catch (error) {
-      handleError(error, 'TTS availability check');
-      return false;
-    }
-  }, [handleError]);
+  /**
+   * LEGACY: Поддержка старого API для совместимости
+   * Будет удалено после полного перехода на новую систему
+   */
+  const playText = useCallback(async (text: string, language: 'chinese' | 'turkmen') => {
+    console.warn('playText is deprecated. Use playAudio instead.');
+    // Временная заглушка - ничего не делаем
+  }, []);
 
   return {
     isPlaying,
     isLoading,
-    playText,
+    playAudio,      // ✅ Новый метод для MP3
     stopAudio,
-    getAvailableVoices,
-    isTTSAvailable,
+    playText,       // ⚠️ Legacy (deprecated)
   };
 }

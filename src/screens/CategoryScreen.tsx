@@ -37,13 +37,16 @@ type CategoryScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 const { width, height } = Dimensions.get('window');
 
 // ФИНАЛЬНЫЙ компонент фразы с треугольными кнопками
+// ✅ ИСПРАВЛЕННЫЙ компонент PhraseItem для CategoryScreen.tsx
+// Замени ТОЛЬКО этот компонент в файле src/screens/CategoryScreen.tsx
+
 const PhraseItem = React.memo<{
   phrase: Phrase;
   onPress: (phrase: Phrase) => void;
   config: any;
 }>(({ phrase, onPress, config }) => {
   const { isFavorite, toggleFavorite } = useFavorites();
-  const { playText, isPlaying } = useAudio();
+  const { playAudio, isPlaying } = useAudio(); // ✅ ИСПРАВЛЕНО: используем playAudio
 
   const handleToggleFavorite = useCallback(() => {
     toggleFavorite(phrase.id);
@@ -53,20 +56,25 @@ const PhraseItem = React.memo<{
     onPress(phrase);
   }, [phrase, onPress]);
 
+  // ✅ ИСПРАВЛЕНО: используем playAudio с путями к MP3
   const handlePlayChinese = useCallback(() => {
-    playText(phrase.chinese, 'chinese');
-  }, [phrase.chinese, playText]);
+    if (phrase.audioFileChinese) {
+      playAudio(phrase.audioFileChinese, 'chinese');
+    }
+  }, [phrase.audioFileChinese, playAudio]);
 
   const handlePlayTurkmen = useCallback(() => {
-    playText(phrase.turkmen, 'turkmen');
-  }, [phrase.turkmen, playText]);
+    if (phrase.audioFileTurkmen) {
+      playAudio(phrase.audioFileTurkmen, 'turkmen');
+    }
+  }, [phrase.audioFileTurkmen, playAudio]);
 
   // Правильная логика отображения языков
   const getSecondaryText = () => {
     if (config.mode === 'tk') {
       return phrase.turkmen;
     } else if (config.mode === 'zh') {
-      return phrase.turkmen;  // ✅ Туркменский для китайского интерфейса
+      return phrase.turkmen;
     } else {
       return phrase.russian;
     }
@@ -76,7 +84,7 @@ const PhraseItem = React.memo<{
     if (config.mode === 'tk') {
       return phrase.russian;
     } else if (config.mode === 'zh') {
-      return phrase.russian;  // ✅ Русский третий
+      return phrase.russian;
     } else {
       return phrase.turkmen;
     }

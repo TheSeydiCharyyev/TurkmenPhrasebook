@@ -1,4 +1,6 @@
 // src/screens/PhraseDetailScreen.tsx
+// ✅ ИСПРАВЛЕНО: Обновлен AudioPlayer для работы с MP3 файлами
+
 import React, { useEffect } from 'react';
 import {
   View,
@@ -18,7 +20,6 @@ import { Colors } from '../constants/Colors';
 import { categories } from '../data/categories';
 import { useHistory } from '../hooks/useHistory';
 import { useFavorites } from '../hooks/useFavorites';
-// В каждом файле, где используется useAppLanguage
 import { useAppLanguage } from '../contexts/LanguageContext';
 import AudioPlayer from '../components/AudioPlayer';
 
@@ -100,7 +101,7 @@ export default function PhraseDetailScreen() {
                 styles.translationText,
                 config.mode === 'tk' && styles.translationTextMain
               ]}>
-                {phraseTexts.primary === phrase.turkmen ? phraseTexts.primary : phrase.turkmen}
+                {phrase.turkmen}
               </Text>
             </View>
 
@@ -113,7 +114,7 @@ export default function PhraseDetailScreen() {
                 styles.translationText,
                 config.mode === 'zh' && styles.translationTextMain
               ]}>
-                {phraseTexts.learning === phrase.chinese ? phrase.chinese : phrase.chinese}
+                {phrase.chinese}
               </Text>
             </View>
 
@@ -127,10 +128,11 @@ export default function PhraseDetailScreen() {
           </View>
         </View>
 
-        {/* Кнопки аудио */}
+        {/* ✅ ИСПРАВЛЕНО: Кнопки аудио с новыми props */}
         <View style={styles.audioContainer}>
           <AudioPlayer
-            text={phrase.chinese}
+            audioFileChinese={phrase.audioFileChinese}
+            audioFileTurkmen={phrase.audioFileTurkmen}
             language="chinese"
             label={
               config.mode === 'tk' ? 'Hytaý sesi' : 
@@ -142,7 +144,8 @@ export default function PhraseDetailScreen() {
           />
           
           <AudioPlayer
-            text={phrase.turkmen}
+            audioFileChinese={phrase.audioFileChinese}
+            audioFileTurkmen={phrase.audioFileTurkmen}
             language="turkmen"
             label={
               config.mode === 'tk' ? 'Türkmen sesi' : 
@@ -243,8 +246,8 @@ const styles = StyleSheet.create({
   },
   categoryName: {
     color: Colors.textWhite,
-    fontSize: 14,
     fontWeight: '600',
+    fontSize: 14,
   },
   mainContent: {
     alignItems: 'center',
@@ -287,6 +290,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   audioContainer: {
+    gap: 12,
     marginBottom: 20,
   },
   actionsContainer: {

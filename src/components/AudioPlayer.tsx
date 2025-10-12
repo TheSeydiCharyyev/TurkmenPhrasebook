@@ -1,4 +1,6 @@
 // src/components/AudioPlayer.tsx
+// ✅ ОБНОВЛЕНО: Используем новую систему аудио с отдельными файлами
+
 import React from 'react';
 import {
   View,
@@ -10,11 +12,11 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../constants/Colors';
 import { useAudio } from '../hooks/useAudio';
-// В каждом файле, где используется useAppLanguage
 import { useAppLanguage } from '../contexts/LanguageContext';
 
 interface AudioPlayerProps {
-  text: string;
+  audioFileChinese?: string;  // ✅ Путь к китайскому аудио
+  audioFileTurkmen?: string;  // ✅ Путь к туркменскому аудио
   language: 'chinese' | 'turkmen';
   label: string;
   style: 'primary' | 'secondary';
@@ -23,21 +25,33 @@ interface AudioPlayerProps {
 }
 
 export default function AudioPlayer({ 
-  text, 
+  audioFileChinese,
+  audioFileTurkmen,
   language, 
   label, 
   style,
   size = 'large',
   disabled = false 
 }: AudioPlayerProps) {
-  const { isPlaying, playText, stopAudio } = useAudio();
+  const { isPlaying, isLoading, playAudio, stopAudio } = useAudio();
   const { config } = useAppLanguage();
 
-  const handlePress = () => {
+  // Определяем, какой аудио файл использовать
+  const audioFile = language === 'chinese' ? audioFileChinese : audioFileTurkmen;
+
+  // Проверяем доступность аудио
+  const hasAudio = !!audioFile;
+
+  const handlePress = async () => {
+    if (!hasAudio) {
+      // Если аудио нет - показываем сообщение (опционально)
+      return;
+    }
+
     if (isPlaying) {
-      stopAudio();
+      await stopAudio();
     } else {
-      playText(text, language);
+      await playAudio(audioFile, language);
     }
   };
 
@@ -65,19 +79,42 @@ export default function AudioPlayer({
     return 'Воспроизводится...';
   };
 
+  // Если аудио нет - показываем заблокированную кнопку
+  if (!hasAudio) {
+    return (
+      <View style={[getButtonStyle(), styles.disabled, styles.noAudio]}>
+        <Ionicons
+          name="volume-mute-outline"
+          size={getIconSize()}
+          color="#999"
+        />
+        {size === 'large' && (
+          <Text style={[getTextStyle(), styles.noAudioText]}>
+            {config.mode === 'tk' ? 'Audio ýok' : 
+             config.mode === 'zh' ? '无音频' : 
+             'Аудио нет'}
+          </Text>
+        )}
+      </View>
+    );
+  }
+
   return (
     <TouchableOpacity
-      style={[getButtonStyle(), disabled && styles.disabled]}
+      style={[getButtonStyle(), (disabled || isLoading) && styles.disabled]}
       onPress={handlePress}
-      disabled={disabled || isPlaying}
+      disabled={disabled || isPlaying || isLoading}
       activeOpacity={0.7}
     >
       <View style={styles.content}>
-        {isPlaying ? (
-          <ActivityIndicator size={size === 'small' ? 'small' : 'large'} color={Colors.textWhite} />
+        {isLoading ? (
+          <ActivityIndicator 
+            size={size === 'small' ? 'small' : 'large'} 
+            color={Colors.textWhite} 
+          />
         ) : (
           <Ionicons
-            name="play-circle"
+            name={isPlaying ? "pause-circle" : "play-circle"}
             size={getIconSize()}
             color={Colors.textWhite}
           />
@@ -88,33 +125,27 @@ export default function AudioPlayer({
           </Text>
         )}
       </View>
-      
-      {size === 'small' && (
-        <Text style={[getTextStyle(), styles.smallLabel]}>
-          {label}
-        </Text>
-      )}
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   buttonLarge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 14,
-    paddingHorizontal: 20,
+    paddingVertical: 16,
+    paddingHorizontal: 24,
     borderRadius: 12,
-    marginBottom: 12,
+    minWidth: 140,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
   buttonSmall: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 8,
-    paddingHorizontal: 12,
+    paddingVertical: 10,
+    paddingHorizontal: 16,
     borderRadius: 8,
-    marginBottom: 4,
+    minWidth: 80,
   },
   primaryButton: {
     backgroundColor: Colors.primary,
@@ -122,12 +153,10 @@ const styles = StyleSheet.create({
   secondaryButton: {
     backgroundColor: Colors.accent,
   },
-  disabled: {
-    opacity: 0.6,
-  },
   content: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     gap: 8,
   },
   buttonText: {
@@ -138,11 +167,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   labelSmall: {
-    fontSize: 10,
-    marginTop: 2,
+    fontSize: 14,
   },
-  smallLabel: {
-    color: Colors.textLight,
-    textAlign: 'center',
+  disabled: {
+    opacity: 0.5,
+  },
+  noAudio: {
+    backgroundColor: '#E0E0E0',
+  },
+  noAudioText: {
+    color: '#666',
+    fontStyle: 'italic',
   },
 });

@@ -1,19 +1,18 @@
-// src/services/AudioService.ts - Enhanced Audio Service
+// src/services/AudioService.ts
+// ✅ ОБНОВЛЕНО: Удален Expo Speech, только expo-av для MP3
 
 import { Audio } from 'expo-av';
-import * as Speech from 'expo-speech';
 import { IAudioService } from './index';
 import { AUDIO_CONFIG, ERROR_MESSAGES } from '../constants/AppConstants';
 
 /**
- * ✅ ENHANCED AUDIO SERVICE
- * Handles audio playback and text-to-speech functionality
+ * ✅ AUDIO SERVICE - Offline MP3 Playback Only
+ * Handles audio playback for pre-recorded MP3 files
  */
 class AudioServiceImpl implements IAudioService {
   private currentSound: Audio.Sound | null = null;
   private currentRate: number = AUDIO_CONFIG.DEFAULT_RATE;
   private currentVolume: number = AUDIO_CONFIG.DEFAULT_VOLUME;
-  private currentPitch: number = AUDIO_CONFIG.DEFAULT_PITCH;
   private isInitialized: boolean = false;
 
   constructor() {
@@ -39,15 +38,28 @@ class AudioServiceImpl implements IAudioService {
   }
 
   /**
-   * Play audio file
+   * Ensure audio service is initialized
    */
-  async play(audioFile: string): Promise<void> {
+  private async ensureInitialized(): Promise<void> {
+    if (!this.isInitialized) {
+      await this.initialize();
+    }
+  }
+
+  /**
+   * Play audio file from path
+   * @param audioPath - Path to MP3 file (e.g., '1. Greetings/chinese/phrase_001.mp3')
+   */
+  async play(audioPath: string): Promise<void> {
     try {
       await this.ensureInitialized();
       await this.stop(); // Stop any currently playing audio
 
+      // Load audio file
+      const audioFile = require(`../../assets/audio/${audioPath}`);
+
       const { sound } = await Audio.Sound.createAsync(
-        { uri: audioFile },
+        audioFile,
         {
           shouldPlay: true,
           volume: this.currentVolume,
@@ -71,27 +83,6 @@ class AudioServiceImpl implements IAudioService {
   }
 
   /**
-   * Play text using text-to-speech
-   */
-  async speak(text: string, language: string = 'zh-CN'): Promise<void> {
-    try {
-      await this.stopSpeaking();
-
-      const options: Speech.SpeechOptions = {
-        language,
-        pitch: this.currentPitch,
-        rate: this.currentRate,
-        volume: this.currentVolume,
-      };
-
-      await Speech.speak(text, options);
-    } catch (error) {
-      console.warn('AudioService.speak failed:', error);
-      throw new Error(ERROR_MESSAGES.AUDIO_ERROR);
-    }
-  }
-
-  /**
    * Stop audio playback
    */
   async stop(): Promise<void> {
@@ -102,17 +93,6 @@ class AudioServiceImpl implements IAudioService {
       }
     } catch (error) {
       console.warn('AudioService.stop failed:', error);
-    }
-  }
-
-  /**
-   * Stop text-to-speech
-   */
-  async stopSpeaking(): Promise<void> {
-    try {
-      await Speech.stop();
-    } catch (error) {
-      console.warn('AudioService.stopSpeaking failed:', error);
     }
   }
 
@@ -153,17 +133,10 @@ class AudioServiceImpl implements IAudioService {
   }
 
   /**
-   * Set volume
+   * Set volume (0.0 to 1.0)
    */
   setVolume(volume: number): void {
     this.currentVolume = Math.max(0, Math.min(1, volume));
-  }
-
-  /**
-   * Set pitch for text-to-speech
-   */
-  setPitch(pitch: number): void {
-    this.currentPitch = Math.max(0.5, Math.min(2, pitch));
   }
 
   /**
@@ -175,11 +148,14 @@ class AudioServiceImpl implements IAudioService {
     position?: number;
     duration?: number;
   }> {
-    try {
-      if (!this.currentSound) {
-        return { isPlaying: false, isLoaded: false };
-      }
+    if (!this.currentSound) {
+      return {
+        isPlaying: false,
+        isLoaded: false,
+      };
+    }
 
+    try {
       const status = await this.currentSound.getStatusAsync();
       
       if (status.isLoaded) {
@@ -190,50 +166,22 @@ class AudioServiceImpl implements IAudioService {
           duration: status.durationMillis || undefined,
         };
       }
-
-      return { isPlaying: false, isLoaded: false };
+      
+      return {
+        isPlaying: false,
+        isLoaded: false,
+      };
     } catch (error) {
       console.warn('AudioService.getStatus failed:', error);
-      return { isPlaying: false, isLoaded: false };
+      return {
+        isPlaying: false,
+        isLoaded: false,
+      };
     }
   }
 
   /**
-   * Check if text-to-speech is speaking
-   */
-  async isSpeaking(): Promise<boolean> {
-    try {
-      return await Speech.isSpeakingAsync();
-    } catch {
-      return false;
-    }
-  }
-
-  /**
-   * Get available voices for text-to-speech
-   */
-  async getAvailableVoices(): Promise<Speech.Voice[]> {
-    try {
-      return await Speech.getAvailableVoicesAsync();
-    } catch (error) {
-      console.warn('AudioService.getAvailableVoices failed:', error);
-      return [];
-    }
-  }
-
-  /**
-   * Check if speech synthesis is available
-   */
-  async isSpeechAvailable(): Promise<boolean> {
-    try {
-      return await Speech.isSpeakingAsync() !== undefined;
-    } catch {
-      return false;
-    }
-  }
-
-  /**
-   * Cleanup resources
+   * Cleanup audio resources
    */
   private cleanup(): void {
     if (this.currentSound) {
@@ -243,26 +191,14 @@ class AudioServiceImpl implements IAudioService {
   }
 
   /**
-   * Ensure service is initialized
-   */
-  private async ensureInitialized(): Promise<void> {
-    if (!this.isInitialized) {
-      await this.initialize();
-    }
-  }
-
-  /**
-   * Destroy service and cleanup
+   * Cleanup when service is destroyed
    */
   async destroy(): Promise<void> {
     await this.stop();
-    await this.stopSpeaking();
-    this.isInitialized = false;
+    this.cleanup();
   }
 }
 
 // Export singleton instance
 export const AudioService = new AudioServiceImpl();
-
-// Export class for testing or custom instances
-export { AudioServiceImpl };
+export default AudioService;
