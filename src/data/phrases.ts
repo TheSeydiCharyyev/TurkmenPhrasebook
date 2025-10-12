@@ -69,7 +69,7 @@ export const phrases: Phrase[] = [
     chinese: '不客气',
     pinyin: 'bú kè qi',
     russian: 'Пожалуйста (ответ на спасибо)',
-    turkmen: 'Arzamok',
+    turkmen: 'Zerur däl',
     audioFileChinese: undefined, // ⚠️ Аудио пока нет
     audioFileTurkmen: undefined,
   },
