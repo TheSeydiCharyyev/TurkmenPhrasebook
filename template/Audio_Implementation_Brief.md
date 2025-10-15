@@ -1,7 +1,7 @@
 # 🇨🇳🇹🇲 Chinese Phrasebook - Audio Implementation Brief
 
 **Дата:** 15 октября 2025  
-**Задача:** Реализация аудио системы с динамической загрузкой  
+**Задача:** Гибридная аудио система (MP3 + TTS)  
 **Статус:** Готов к реализации
 
 ---
@@ -17,38 +17,45 @@
 
 ---
 
-## 🎵 ТЕКУЩАЯ СИТУАЦИЯ С АУДИО
+## 🎵 НОВАЯ СТРАТЕГИЯ АУДИО (ГИБРИД!)
+
+### **Решение:**
+- ✅ **Туркменский (основной)** → MP3 файлы офлайн (447 файлов)
+- ✅ **Китайский** → Expo Speech TTS (генерация на лету!)
+- ✅ **Русский** → Expo Speech TTS
+
+### **Почему так:**
+1. 💾 **Размер APK:** ~30 MB вместо 150 MB (экономия 120 MB!)
+2. ⚡ **Быстро реализовать:** ~1.5 часа работы (вместо 12 часов)
+3. 🎯 **Туркменский главный:** качественное аудио для основного языка
+4. 🌍 **Легко добавить языки:** японский/корейский просто добавляются в TTS
+5. 🚀 **Не тормозит релиз:** можно билдить сегодня-завтра
 
 ### **Что есть сейчас:**
-- ✅ **Туркменские аудио:** ВСЕ 447 файлов готовы (но с НЕПРАВИЛЬНЫМИ именами!)
-- ✅ **Китайские аудио:** 3 категории готовы (1. Greetings, 2. Emergency, 3. Food)
-- ⏳ **Остальные китайские:** будут добавляться постепенно по 10-20 в день (ограничение TTS - 50 файлов/день)
+- ✅ **Туркменские аудио:** ВСЕ 447 файлов (с неправильными именами - нужно переименовать)
+- ❌ **Китайские MP3:** НЕ НУЖНЫ! Используем TTS
+- ❌ **Русские MP3:** НЕ НУЖНЫ! Используем TTS
 
-### **Структура папок уже создана:**
+### **Структура папок (УПРОЩЁННАЯ!):**
 ```
 assets/audio/
-├── 1. Greetings/          ✅ Готово (китайский + туркменский)
-│   ├── chinese/
-│   │   └── phrase_XXX.mp3
-│   └── turkmen/
-│       └── phrase_XXX.mp3
-├── 2. Emergency/          ✅ Готово (китайский + туркменский)
-├── 3. Food/               ✅ Готово (китайский + туркменский)
-├── 4. Transport/          ⏳ Будет добавлено позже
-├── 5. Shopping/           ⏳ Будет добавлено позже
-└── ... (всего 22 категории)
+└── turkmen/               ← ТОЛЬКО ТУРКМЕНСКИЙ!
+    ├── 1. Greetings/
+    │   └── phrase_001.mp3
+    ├── 2. Emergency/
+    │   └── phrase_007.mp3
+    ├── 3. Food/
+    │   └── phrase_017.mp3
+    └── ... (22 категории, 447 файлов)
 ```
+
+**Китайские и русские папки НЕ НУЖНЫ!** 🎉
 
 ### **Проблема с именами файлов:**
 - Туркменские файлы названы неправильно (например: `salam.mp3`, `hoş.mp3`)
-- Должны быть: `phrase_001.mp3`, `phrase_002.mp3`, `phrase_003.mp3` и т.д.
-- Имена должны **ТОЧНО совпадать** с путями в `src/data/phrases.ts`
-
-### **Стратегия пользователя:**
-1. ✅ Скопирует ОДНО китайское аудио (например "你好") во ВСЕ категории с правильными именами
-2. ✅ Постепенно будет ЗАМЕНЯТЬ временные файлы на настоящие TTS (10-20 в день)
-3. ✅ Переименует туркменские файлы в правильный формат
-4. ✅ Все файлы будут физически существовать → код будет работать всегда
+- Должны быть: `phrase_001.mp3`, `phrase_002.mp3` и т.д.
+- Имена должны **ТОЧНО совпадать** с полем `audioFileTurkmen` в `phrases.ts`
+- Пользователь переименует вручную
 
 ---
 
@@ -64,141 +71,35 @@ assets/audio/
 **Пользователь ХОЧЕТ:**
 - ✅ Чтобы ты ПРОСТО СДЕЛАЛ то, что написано ниже
 - ✅ Быстро, четко, без лишних слов
-- ✅ Работающий код
+- ✅ Работающий код за 1.5 часа
 
 ---
 
 ## 📝 ЧТО НУЖНО СДЕЛАТЬ (ПОШАГОВО)
 
-### **ШАГ 1: Создать файл `src/data/audioMapping.ts`** ⭐⭐⭐
+### **ШАГ 1: Установить Expo Speech** ⭐
 
-Этот файл делает маппинг аудио через **switch/case** для 22 категорий (вместо 894 строк ручного маппинга).
-
-**СОЗДАЙ НОВЫЙ ФАЙЛ:** `src/data/audioMapping.ts`
-
-```typescript
-// src/data/audioMapping.ts
-// 🤖 Динамический маппинг аудио файлов через switch/case
-// Вместо 894 строк ручного маппинга - всего 22 case!
-
-/**
- * Получить require() для аудио файла по пути
- * @param path - путь типа "1. Greetings/chinese/phrase_001.mp3"
- * @returns - require() модуль или null если файл не найден
- */
-export function getAudioSource(path: string): any {
-  // Парсим путь: "1. Greetings/chinese/phrase_001.mp3"
-  const match = path.match(/^(.+?)\/(chinese|turkmen)\/phrase_(\d+)\.mp3$/);
-  
-  if (!match) {
-    console.warn('[AudioMapping] Invalid audio path format:', path);
-    return null;
-  }
-
-  const [, category, lang, phraseId] = match;
-
-  // Switch для всех 22 категорий
-  try {
-    switch(category) {
-      case '1. Greetings':
-        return require(`../../assets/audio/1. Greetings/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '2. Emergency':
-        return require(`../../assets/audio/2. Emergency/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '3. Hotel':
-        return require(`../../assets/audio/3. Hotel/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '4. Food':
-        return require(`../../assets/audio/4. Food/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '5. Shopping':
-        return require(`../../assets/audio/5. Shopping/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '6. Transport':
-        return require(`../../assets/audio/6. Transport/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '7. Directions':
-        return require(`../../assets/audio/7. Directions/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '8. Health':
-        return require(`../../assets/audio/8. Health/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '9. Money':
-        return require(`../../assets/audio/9. Money/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '10. Communication':
-        return require(`../../assets/audio/10. Communication/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '11. Entertainment':
-        return require(`../../assets/audio/11. Entertainment/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '12. Time':
-        return require(`../../assets/audio/12. Time/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '13. Numbers':
-        return require(`../../assets/audio/13. Numbers/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '14. Weather':
-        return require(`../../assets/audio/14. Weather/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '15. Personal_info':
-        return require(`../../assets/audio/15. Personal_info/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '16. Business':
-        return require(`../../assets/audio/16. Business/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '17. Measurements':
-        return require(`../../assets/audio/17. Measurements/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '18. Colors':
-        return require(`../../assets/audio/18. Colors/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '19. Body':
-        return require(`../../assets/audio/19. Body/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '20. Home':
-        return require(`../../assets/audio/20. Home/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '21. Customs':
-        return require(`../../assets/audio/21. Customs/${lang}/phrase_${phraseId}.mp3`);
-      
-      case '22. Sport':
-        return require(`../../assets/audio/22. Sport/${lang}/phrase_${phraseId}.mp3`);
-      
-      default:
-        console.warn('[AudioMapping] Unknown category:', category);
-        return null;
-    }
-  } catch (error) {
-    // Файл не найден - это нормально, пользователь добавит позже
-    console.log(`[AudioMapping] Audio file not found: ${path}`);
-    return null;
-  }
-}
-
-/**
- * Проверить существование аудио файла
- */
-export function hasAudioFile(path: string): boolean {
-  return getAudioSource(path) !== null;
-}
+```bash
+npx expo install expo-speech
 ```
+
+Время: 2 минуты
 
 ---
 
-### **ШАГ 2: Переписать `src/hooks/useAudio.ts`** ⭐⭐
+### **ШАГ 2: Переписать `src/hooks/useAudio.ts`** ⭐⭐⭐
 
-**УДАЛИ:** Весь старый код с ручным `AUDIO_FILES` маппингом
+**УДАЛИ:** Весь старый код
 
 **ЗАМЕНИ НА:**
 
 ```typescript
 // src/hooks/useAudio.ts
-// ✅ ОБНОВЛЕНО: Используем динамический audioMapping
+// ✅ ГИБРИДНАЯ СИСТЕМА: MP3 (туркменский) + TTS (китайский, русский)
 
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { Audio } from 'expo-av';
+import * as Speech from 'expo-speech';
 import { getAudioSource } from '../data/audioMapping';
 
 export function useAudio() {
@@ -230,52 +131,76 @@ export function useAudio() {
       if (soundRef.current) {
         soundRef.current.unloadAsync().catch(console.warn);
       }
+      Speech.stop();
     };
   }, []);
 
   /**
-   * Воспроизведение MP3 файла
-   * @param audioPath - путь к аудио файлу, например: '1. Greetings/chinese/phrase_001.mp3'
+   * Воспроизведение аудио (гибрид MP3 + TTS)
+   * @param text - текст для произношения
+   * @param language - 'chinese' | 'turkmen' | 'russian'
+   * @param audioPath - путь к MP3 (только для туркменского!)
    */
-  const playAudio = useCallback(async (audioPath: string) => {
+  const playAudio = useCallback(async (text: string, language: 'chinese' | 'turkmen' | 'russian', audioPath?: string) => {
     if (isPlaying || isLoading) return;
 
     try {
       setIsLoading(true);
 
-      // Останавливаем предыдущее аудио
+      // Останавливаем предыдущее воспроизведение
       if (soundRef.current) {
         await soundRef.current.unloadAsync();
         soundRef.current = null;
       }
+      Speech.stop();
 
-      // ✅ Используем новый audioMapping
-      const audioSource = getAudioSource(audioPath);
-      
-      if (!audioSource) {
-        // Файл не найден - это нормально, пользователь добавит позже
-        setIsLoading(false);
-        return;
+      // ✅ ТУРКМЕНСКИЙ - используем MP3
+      if (language === 'turkmen' && audioPath) {
+        const audioSource = getAudioSource(audioPath);
+        
+        if (audioSource) {
+          const { sound } = await Audio.Sound.createAsync(
+            audioSource,
+            { shouldPlay: true, volume: 1.0, rate: 1.0 }
+          );
+
+          soundRef.current = sound;
+
+          // Callback на завершение
+          sound.setOnPlaybackStatusUpdate((status: any) => {
+            if (status.isLoaded && status.didJustFinish) {
+              setIsPlaying(false);
+              setIsLoading(false);
+            }
+          });
+
+          setIsPlaying(true);
+          setIsLoading(false);
+          return;
+        }
       }
 
-      // Создаём Sound и воспроизводим
-      const { sound } = await Audio.Sound.createAsync(
-        audioSource,
-        { shouldPlay: true, volume: 1.0, rate: 1.0 }
-      );
-
-      soundRef.current = sound;
-
-      // Callback на завершение
-      sound.setOnPlaybackStatusUpdate((status: any) => {
-        if (status.isLoaded && status.didJustFinish) {
-          setIsPlaying(false);
-          setIsLoading(false);
-        }
-      });
-
+      // ✅ КИТАЙСКИЙ и РУССКИЙ - используем TTS
+      const languageCode = language === 'chinese' ? 'zh-CN' : 'ru-RU';
+      
       setIsPlaying(true);
       setIsLoading(false);
+
+      await Speech.speak(text, {
+        language: languageCode,
+        rate: 0.85,        // Скорость речи
+        pitch: 1.0,        // Высота голоса
+        onDone: () => {
+          setIsPlaying(false);
+        },
+        onStopped: () => {
+          setIsPlaying(false);
+        },
+        onError: () => {
+          setIsPlaying(false);
+          console.warn(`TTS error for ${language}`);
+        },
+      });
 
     } catch (error) {
       console.error('[useAudio] Playback error:', error);
@@ -294,6 +219,7 @@ export function useAudio() {
         await soundRef.current.unloadAsync();
         soundRef.current = null;
       }
+      Speech.stop();
       setIsPlaying(false);
       setIsLoading(false);
     } catch (error) {
@@ -310,69 +236,132 @@ export function useAudio() {
 }
 ```
 
+Время: 30 минут
+
 ---
 
-### **ШАГ 3: Упростить `src/components/AudioPlayer.tsx`** ⭐
+### **ШАГ 3: Упростить `src/data/audioMapping.ts`** ⭐⭐
 
-**НАЙДИ и УДАЛИ:** Все проверки типа `if (!hasAudio) return <View>Аудио нет</View>`
+**УДАЛИ:** Все case для китайского
 
-**ПРИНЦИП:** Кнопки аудио ВСЕГДА видны и кликабельны. Если файла нет - просто ничего не происходит.
-
-**ОСНОВНЫЕ ИЗМЕНЕНИЯ:**
+**ОСТАВЬ:** Только туркменский
 
 ```typescript
-// src/components/AudioPlayer.tsx
+// src/data/audioMapping.ts
+// ✅ УПРОЩЕНО: Маппинг только для туркменского (MP3)
+// Китайский и русский используют TTS - файлы не нужны!
 
-// ❌ УДАЛИ эту проверку:
-if (!audioFile) {
-  return <View>Аудио недоступно</View>;
+/**
+ * Получить require() для туркменского MP3 файла
+ * @param path - путь типа "turkmen/1. Greetings/phrase_001.mp3"
+ * @returns - require() модуль или null если файл не найден
+ */
+export function getAudioSource(path: string): any {
+  // Проверяем что это туркменский
+  if (!path || !path.startsWith('turkmen/')) {
+    console.warn('[AudioMapping] Not a turkmen path:', path);
+    return null;
+  }
+
+  // Парсим путь: "turkmen/1. Greetings/phrase_001.mp3"
+  const match = path.match(/^turkmen\/(.+?)\/phrase_(\d+)\.mp3$/);
+  
+  if (!match) {
+    console.warn('[AudioMapping] Invalid path format:', path);
+    return null;
+  }
+
+  const [, category, phraseId] = match;
+
+  // Switch для всех 22 категорий (ТОЛЬКО ТУРКМЕНСКИЙ!)
+  try {
+    switch(category) {
+      case '1. Greetings':
+        return require(`../../assets/audio/turkmen/1. Greetings/phrase_${phraseId}.mp3`);
+      
+      case '2. Emergency':
+        return require(`../../assets/audio/turkmen/2. Emergency/phrase_${phraseId}.mp3`);
+      
+      case '3. Hotel':
+        return require(`../../assets/audio/turkmen/3. Hotel/phrase_${phraseId}.mp3`);
+      
+      case '4. Food':
+        return require(`../../assets/audio/turkmen/4. Food/phrase_${phraseId}.mp3`);
+      
+      case '5. Shopping':
+        return require(`../../assets/audio/turkmen/5. Shopping/phrase_${phraseId}.mp3`);
+      
+      case '6. Transport':
+        return require(`../../assets/audio/turkmen/6. Transport/phrase_${phraseId}.mp3`);
+      
+      case '7. Directions':
+        return require(`../../assets/audio/turkmen/7. Directions/phrase_${phraseId}.mp3`);
+      
+      case '8. Health':
+        return require(`../../assets/audio/turkmen/8. Health/phrase_${phraseId}.mp3`);
+      
+      case '9. Money':
+        return require(`../../assets/audio/turkmen/9. Money/phrase_${phraseId}.mp3`);
+      
+      case '10. Communication':
+        return require(`../../assets/audio/turkmen/10. Communication/phrase_${phraseId}.mp3`);
+      
+      case '11. Entertainment':
+        return require(`../../assets/audio/turkmen/11. Entertainment/phrase_${phraseId}.mp3`);
+      
+      case '12. Time':
+        return require(`../../assets/audio/turkmen/12. Time/phrase_${phraseId}.mp3`);
+      
+      case '13. Numbers':
+        return require(`../../assets/audio/turkmen/13. Numbers/phrase_${phraseId}.mp3`);
+      
+      case '14. Weather':
+        return require(`../../assets/audio/turkmen/14. Weather/phrase_${phraseId}.mp3`);
+      
+      case '15. Personal_info':
+        return require(`../../assets/audio/turkmen/15. Personal_info/phrase_${phraseId}.mp3`);
+      
+      case '16. Business':
+        return require(`../../assets/audio/turkmen/16. Business/phrase_${phraseId}.mp3`);
+      
+      case '17. Measurements':
+        return require(`../../assets/audio/turkmen/17. Measurements/phrase_${phraseId}.mp3`);
+      
+      case '18. Colors':
+        return require(`../../assets/audio/turkmen/18. Colors/phrase_${phraseId}.mp3`);
+      
+      case '19. Body':
+        return require(`../../assets/audio/turkmen/19. Body/phrase_${phraseId}.mp3`);
+      
+      case '20. Home':
+        return require(`../../assets/audio/turkmen/20. Home/phrase_${phraseId}.mp3`);
+      
+      case '21. Customs':
+        return require(`../../assets/audio/turkmen/21. Customs/phrase_${phraseId}.mp3`);
+      
+      case '22. Sport':
+        return require(`../../assets/audio/turkmen/22. Sport/phrase_${phraseId}.mp3`);
+      
+      default:
+        console.warn('[AudioMapping] Unknown category:', category);
+        return null;
+    }
+  } catch (error) {
+    // Файл не найден - пользователь добавит позже
+    console.log(`[AudioMapping] Turkmen audio not found: ${path}`);
+    return null;
+  }
 }
 
-// ✅ ЗАМЕНИ НА:
-const handlePress = async () => {
-  if (!audioFile) return; // Просто выходим, кнопка остаётся видимой
-  await playAudio(audioFile);
-};
-
-// Кнопка ВСЕГДА отображается
-return (
-  <TouchableOpacity onPress={handlePress} style={styles.button}>
-    <Ionicons name="play" size={24} color={Colors.primary} />
-  </TouchableOpacity>
-);
+/**
+ * Проверить существование туркменского аудио файла
+ */
+export function hasAudioFile(path: string): boolean {
+  return getAudioSource(path) !== null;
+}
 ```
 
----
-
-### **ШАГ 4: Упростить `src/screens/CategoryScreen.tsx`** ⭐
-
-**НАЙДИ компонент `PhraseItem`**
-
-**ИЗМЕНИ обработчики аудио:**
-
-```typescript
-// ✅ ИСПРАВЛЕННЫЙ код для CategoryScreen.tsx
-
-const handlePlayChinese = useCallback(() => {
-  if (phrase.audioFileChinese) {
-    playAudio(phrase.audioFileChinese);
-  }
-}, [phrase.audioFileChinese, playAudio]);
-
-const handlePlayTurkmen = useCallback(() => {
-  if (phrase.audioFileTurkmen) {
-    playAudio(phrase.audioFileTurkmen);
-  }
-}, [phrase.audioFileTurkmen, playAudio]);
-
-// Кнопки ВСЕГДА видны (не проверяем существование файла)
-```
-
----
-
-### **ШАГ 5: Упростить `src/screens/PhraseDetailScreen.tsx`** ⭐
-
-Аналогично CategoryScreen - убрать все проверки `hasAudio`, кнопки всегда видны.
+Время: 20 минутки `hasAudio`, кнопки всегда видны.
 
 ---
 
