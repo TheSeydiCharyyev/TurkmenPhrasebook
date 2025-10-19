@@ -10,8 +10,7 @@ export const phrases: Phrase[] = [
     pinyin: "nǐ hǎo",
     russian: "Привет",
     turkmen: "Salam",
-    audioFileChinese: "1. Greetings/chinese/phrase_001.mp3",
-    audioFileTurkmen: "1. Greetings/turkmen/phrase_001.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.1.mp3",
   },
   {
     id: "phrase_002",
@@ -20,8 +19,7 @@ export const phrases: Phrase[] = [
     pinyin: "xiè xiè",
     russian: "Спасибо",
     turkmen: "Sag boluň",
-    audioFileChinese: "1. Greetings/chinese/phrase_002.mp3",
-    audioFileTurkmen: "1. Greetings/turkmen/phrase_002.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.2.mp3",
   },
   {
     id: "phrase_003",
@@ -30,8 +28,7 @@ export const phrases: Phrase[] = [
     pinyin: "zài jiàn",
     russian: "До свидания",
     turkmen: "Hoş gal",
-    audioFileChinese: "1. Greetings/chinese/phrase_003.mp3",
-    audioFileTurkmen: "1. Greetings/turkmen/phrase_003.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.3.mp3",
   },
   {
     id: "phrase_004",
@@ -40,8 +37,7 @@ export const phrases: Phrase[] = [
     pinyin: "duì bù qǐ",
     russian: "Извините",
     turkmen: "Bagyşlaň",
-    audioFileChinese: "1. Greetings/chinese/phrase_004.mp3",
-    audioFileTurkmen: "1. Greetings/turkmen/phrase_004.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.4.mp3",
   },
   {
     id: "phrase_005",
@@ -50,8 +46,7 @@ export const phrases: Phrase[] = [
     pinyin: "zǎo shàng hǎo",
     russian: "Доброе утро",
     turkmen: "Ertiriňiz haýyrly bolsun",
-    audioFileChinese: "1. Greetings/chinese/phrase_005.mp3",
-    audioFileTurkmen: "1. Greetings/turkmen/phrase_005.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.5.mp3",
   },
   {
     id: "phrase_006",
@@ -60,8 +55,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǎn ān",
     russian: "Спокойной ночи",
     turkmen: "Gijäňiz rahat bolsun",
-    audioFileChinese: "1. Greetings/chinese/phrase_006.mp3",
-    audioFileTurkmen: "1. Greetings/turkmen/phrase_006.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.6.mp3",
   },
   {
     id: "phrase_007",
@@ -70,7 +64,6 @@ export const phrases: Phrase[] = [
     pinyin: "bú kè qi",
     russian: "Пожалуйста (ответ на спасибо)",
     turkmen: "Zerur däl",
-    audioFileChinese: undefined, // ⚠️ Аудио пока нет
     audioFileTurkmen: undefined,
   },
   {
@@ -80,7 +73,6 @@ export const phrases: Phrase[] = [
     pinyin: "nǐ jiào shén me míng zi?",
     russian: "Как вас зовут?",
     turkmen: "Adyňyz näme?",
-    audioFileChinese: undefined,
     audioFileTurkmen: undefined,
   },
   {
@@ -90,7 +82,7 @@ export const phrases: Phrase[] = [
     pinyin: "hěn gāo xìng rèn shi nǐ",
     russian: "Приятно познакомиться",
     turkmen: "Tanyşanyma şat",
-    audioFileChinese: undefined,
+
     audioFileTurkmen: undefined,
   },
   {
@@ -100,7 +92,7 @@ export const phrases: Phrase[] = [
     pinyin: "qǐng",
     russian: "Пожалуйста (просьба)",
     turkmen: "Haýyş edýärin",
-    audioFileChinese: undefined,
+
     audioFileTurkmen: undefined,
   },
   {
@@ -110,7 +102,7 @@ export const phrases: Phrase[] = [
     pinyin: "shì de",
     russian: "Да",
     turkmen: "Hawa",
-    audioFileChinese: undefined,
+
     audioFileTurkmen: undefined,
   },
   {
@@ -120,7 +112,7 @@ export const phrases: Phrase[] = [
     pinyin: "nǐ hǎo ma?",
     russian: "Как дела?",
     turkmen: "Nähili?",
-    audioFileChinese: undefined,
+
     audioFileTurkmen: undefined,
   },
   {
@@ -130,7 +122,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ hěn hǎo",
     russian: "У меня всё хорошо",
     turkmen: "Men gowy",
-    audioFileChinese: undefined,
+
     audioFileTurkmen: undefined,
   },
   {
@@ -140,7 +132,7 @@ export const phrases: Phrase[] = [
     pinyin: "huān yíng",
     russian: "Добро пожаловать",
     turkmen: "Hoş geldiňiz",
-    audioFileChinese: undefined,
+
     audioFileTurkmen: undefined,
   },
   {
@@ -150,7 +142,7 @@ export const phrases: Phrase[] = [
     pinyin: "méi guān xi",
     russian: "Ничего страшного",
     turkmen: "Mesele ýok",
-    audioFileChinese: undefined,
+
     audioFileTurkmen: undefined,
   },
 
@@ -161,7 +153,7 @@ export const phrases: Phrase[] = [
     pinyin: "qǐng jìn",
     russian: "Входите, пожалуйста",
     turkmen: "Giriň, bolýar",
-    audioFile: "phrase_421.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.7.mp3",
   },
   {
     id: "phrase_422",
@@ -170,7 +162,7 @@ export const phrases: Phrase[] = [
     pinyin: "qǐng zuò",
     russian: "Садитесь, пожалуйста",
     turkmen: "Haýyş edýärin, oturyň",
-    audioFile: "phrase_422.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.8.mp3",
   },
   {
     id: "phrase_423",
@@ -179,7 +171,7 @@ export const phrases: Phrase[] = [
     pinyin: "shì de",
     russian: "Да",
     turkmen: "Hawa",
-    audioFile: "phrase_423.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.9.mp3",
   },
   {
     id: "phrase_424",
@@ -188,7 +180,7 @@ export const phrases: Phrase[] = [
     pinyin: "bù shì",
     russian: "Нет",
     turkmen: "Ýok",
-    audioFile: "phrase_424.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.10.mp3",
   },
   {
     id: "phrase_425",
@@ -197,7 +189,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ tóngyì",
     russian: "Я согласен",
     turkmen: "Men ylalaşýaryn",
-    audioFile: "phrase_425.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.11.mp3",
   },
   {
     id: "phrase_319",
@@ -206,7 +198,7 @@ export const phrases: Phrase[] = [
     pinyin: "huānyíng!",
     russian: "Добро пожаловать!",
     turkmen: "Hoş geldiňiz!",
-    audioFile: "phrase_319.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.12.mp3",
   },
   {
     id: "phrase_320",
@@ -215,7 +207,7 @@ export const phrases: Phrase[] = [
     pinyin: "hěn gāoxìng jiàn dào nín",
     russian: "Очень рад Вас видеть",
     turkmen: "Sizi görenime örän şat!",
-    audioFile: "phrase_320.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.13.mp3",
   },
   {
     id: "phrase_321",
@@ -224,7 +216,7 @@ export const phrases: Phrase[] = [
     pinyin: "zhù nín lǚtú yúkuài!",
     russian: "С приездом!",
     turkmen: "Gelmegiňiz bilen!",
-    audioFile: "phrase_321.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.14.mp3",
   },
   {
     id: "phrase_322",
@@ -233,7 +225,7 @@ export const phrases: Phrase[] = [
     pinyin: "nín hǎo ma?",
     russian: "Как поживаете?",
     turkmen: "Nähili ýagdaýlaryňyz?",
-    audioFile: "phrase_322.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.15.mp3",
   },
   {
     id: "phrase_323",
@@ -242,7 +234,7 @@ export const phrases: Phrase[] = [
     pinyin: "ràng wǒ jièshào yíxià wǒ de péngyǒu",
     russian: "Разрешите представить вам моего друга",
     turkmen: "Size meniň dostumy teklip etmäge rugsat ediň",
-    audioFile: "phrase_323.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.16.mp3",
   },
   {
     id: "phrase_324",
@@ -251,7 +243,7 @@ export const phrases: Phrase[] = [
     pinyin: "hěn gāoxìng rènshí nín!",
     russian: "Рад с вами познакомиться!",
     turkmen: "Siz bilen tanyşanyma şat!",
-    audioFile: "phrase_324.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.17.mp3",
   },
   {
     id: "phrase_372",
@@ -260,7 +252,7 @@ export const phrases: Phrase[] = [
     pinyin: "fēicháng gǎnxiè nín de bāngzhù",
     russian: "Большое спасибо за помощь",
     turkmen: "Kömegiňiz üçin köp sag boluň",
-    audioFile: "phrase_372.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.18.mp3",
   },
   {
     id: "phrase_373",
@@ -269,7 +261,7 @@ export const phrases: Phrase[] = [
     pinyin: "fēicháng gǎnxiè nín de zhīchí",
     russian: "Большое спасибо за поддержку",
     turkmen: "Goldanyňyz üçin köp sag boluň",
-    audioFile: "phrase_373.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.19.mp3",
   },
   {
     id: "phrase_374",
@@ -278,7 +270,7 @@ export const phrases: Phrase[] = [
     pinyin: "gǎnxiè nín de lǐjiě",
     russian: "Большое спасибо за понимание",
     turkmen: "Düşüneniňiz üçin köp sag boluň",
-    audioFile: "phrase_374.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.20.mp3",
   },
   {
     id: "phrase_375",
@@ -287,7 +279,7 @@ export const phrases: Phrase[] = [
     pinyin: "bù kèqì",
     russian: "Не стоит",
     turkmen: "Degenok",
-    audioFile: "phrase_375.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.21.mp3",
   },
   {
     id: "phrase_376",
@@ -296,7 +288,7 @@ export const phrases: Phrase[] = [
     pinyin: "bù yòng xiè",
     russian: "Не за что",
     turkmen: "Hiç neneň",
-    audioFile: "phrase_376.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.22.mp3",
   },
 
   {
@@ -306,7 +298,7 @@ export const phrases: Phrase[] = [
     pinyin: "zhù nǐ hǎo yùn",
     russian: "Удачи!",
     turkmen: "Şowly bolsun!",
-    audioFile: "audio/phrase_157.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.23.mp3",
   },
   {
     id: "phrase_444",
@@ -315,7 +307,7 @@ export const phrases: Phrase[] = [
     pinyin: "zàijiàn!",
     russian: "До свидания!",
     turkmen: "Hoşlaşmak!",
-    audioFile: "phrase_444.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.24.mp3",
   },
   {
     id: "phrase_445",
@@ -324,7 +316,7 @@ export const phrases: Phrase[] = [
     pinyin: "míngtiān jiàn!",
     russian: "До встречи завтра!",
     turkmen: "Ertir görüşýäris!",
-    audioFile: "phrase_445.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.25.mp3",
   },
   {
     id: "phrase_446",
@@ -333,7 +325,7 @@ export const phrases: Phrase[] = [
     pinyin: "zhù nín lǚtú yúkuài!",
     russian: "Счастливого пути!",
     turkmen: "Ýoluňyz açyk bolsun!",
-    audioFile: "phrase_446.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.26.mp3",
   },
   {
     id: "phrase_447",
@@ -342,7 +334,7 @@ export const phrases: Phrase[] = [
     pinyin: "bǎozhòng!",
     russian: "Берегите себя!",
     turkmen: "Özüňize seretmek ediň!",
-    audioFile: "phrase_447.mp3",
+    audioFileTurkmen: "1. Greetings/turkmen/1.27.mp3",
   },
 
   //  Category 2: Emergency 11 phrases
@@ -353,18 +345,7 @@ export const phrases: Phrase[] = [
     pinyin: "jiù mìng!",
     russian: "Помогите!",
     turkmen: "Kömek ediň!",
-    audioFileChinese: undefined,
-    audioFileTurkmen: undefined,
-  },
-
-  {
-    id: "phrase_016",
-    categoryId: "emergency",
-    chinese: "救命！",
-    pinyin: "jiù mìng!",
-    russian: "Помогите!",
-    turkmen: "Kömek ediň!",
-    audioFile: "audio/phrase_016.mp3",
+    audioFileTurkmen: "2. Emergency/turkmen/2.1.mp3",
   },
   {
     id: "phrase_017",
@@ -373,7 +354,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ xū yào yī shēng",
     russian: "Мне нужен врач",
     turkmen: "Maňa lukman gerek",
-    audioFile: "audio/phrase_017.mp3",
+    audioFileTurkmen: "2. Emergency/turkmen/2.2.mp3",
   },
   {
     id: "phrase_018",
@@ -382,7 +363,7 @@ export const phrases: Phrase[] = [
     pinyin: "qǐng jiào jǐng chá",
     russian: "Вызовите полицию",
     turkmen: "Polisiýa çagyryň",
-    audioFile: "audio/phrase_018.mp3",
+    audioFileTurkmen: "2. Emergency/turkmen/2.3.mp3",
   },
   {
     id: "phrase_019",
@@ -391,7 +372,7 @@ export const phrases: Phrase[] = [
     pinyin: "huǒ jǐng!",
     russian: "Пожар!",
     turkmen: "Ýangyn!",
-    audioFile: "audio/phrase_019.mp3",
+    audioFileTurkmen: "2. Emergency/turkmen/2.4.mp3",
   },
   {
     id: "phrase_020",
@@ -400,7 +381,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ mí lù le",
     russian: "Я заблудился",
     turkmen: "Men ýolumy ýitirdim",
-    audioFile: "audio/phrase_020.mp3",
+    audioFileTurkmen: "2. Emergency/turkmen/2.5.mp3",
   },
   {
     id: "phrase_021",
@@ -409,7 +390,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ shēng bìng le",
     russian: "Я болен",
     turkmen: "Men keselländiм",
-    audioFile: "audio/phrase_021.mp3",
+    audioFileTurkmen: "2. Emergency/turkmen/2.6.mp3",
   },
   {
     id: "phrase_022",
@@ -418,7 +399,7 @@ export const phrases: Phrase[] = [
     pinyin: "jiào jiù hù chē",
     russian: "Вызовите скорую",
     turkmen: "Tiz kömek çagyryň",
-    audioFile: "audio/phrase_022.mp3",
+    audioFileTurkmen: "2. Emergency/turkmen/2.7.mp3",
   },
   {
     id: "phrase_023",
@@ -427,7 +408,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ de qián bāo bèi tōu le",
     russian: "У меня украли кошелек",
     turkmen: "Meniň pul gapjagy ogurlady",
-    audioFile: "audio/phrase_023.mp3",
+    audioFileTurkmen: "2. Emergency/turkmen/2.8.mp3",
   },
   {
     id: "phrase_024",
@@ -436,7 +417,7 @@ export const phrases: Phrase[] = [
     pinyin: "qǐng bāng wǒ",
     russian: "Помогите мне",
     turkmen: "Maňa kömek ediň",
-    audioFile: "audio/phrase_024.mp3",
+    audioFileTurkmen: "2. Emergency/turkmen/2.9.mp3",
   },
   {
     id: "phrase_025",
@@ -445,7 +426,7 @@ export const phrases: Phrase[] = [
     pinyin: "wēi xiǎn!",
     russian: "Опасно!",
     turkmen: "Howply!",
-    audioFile: "audio/phrase_025.mp3",
+    audioFileTurkmen: "2. Emergency/turkmen/2.10.mp3",
   },
   {
     id: "phrase_154",
@@ -454,7 +435,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ mí lù le",
     russian: "Я заблудился",
     turkmen: "Men ýoldan azdym",
-    audioFile: "audio/phrase_154.mp3",
+    audioFileTurkmen: "2. Emergency/turkmen/2.11.mp3",
   },
   {
     id: "phrase_349",
@@ -463,7 +444,7 @@ export const phrases: Phrase[] = [
     pinyin: "qǐng jiào yīshēng!",
     russian: "Вызовите врача!",
     turkmen: "Lukmany çagyryň!",
-    audioFile: "phrase_349.mp3",
+    audioFileTurkmen: "2. Emergency/turkmen/2.12.mp3",
   },
   {
     id: "phrase_350",
@@ -472,7 +453,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ mílù le",
     russian: "Я заблудился",
     turkmen: "Men ýoly ýitirdim",
-    audioFile: "phrase_350.mp3",
+    audioFileTurkmen: "2. Emergency/turkmen/2.13.mp3",
   },
 
   // Category 3: Hotel 12 phrases
@@ -483,7 +464,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ xiǎng yào yī gè fáng jiān",
     russian: "Я хочу номер",
     turkmen: "Maňa otag gerek",
-    audioFile: "audio/phrase_026.mp3",
+    audioFileTurkmen: "3. Hotel/turkmen/3.1.mp3",
   },
   {
     id: "phrase_027",
@@ -492,7 +473,7 @@ export const phrases: Phrase[] = [
     pinyin: "duō shǎo qián yī wǎn?",
     russian: "Сколько за ночь?",
     turkmen: "Bir gije näçe pul?",
-    audioFile: "audio/phrase_027.mp3",
+    audioFileTurkmen: "3. Hotel/turkmen/3.2.mp3",
   },
   {
     id: "phrase_028",
@@ -501,7 +482,7 @@ export const phrases: Phrase[] = [
     pinyin: "zhè lǐ yǒu WiFi ma?",
     russian: "Есть ли здесь WiFi?",
     turkmen: "Bu ýerde WiFi barmy?",
-    audioFile: "audio/phrase_028.mp3",
+    audioFileTurkmen: "3. Hotel/turkmen/3.3.mp3",
   },
   {
     id: "phrase_029",
@@ -510,7 +491,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ yǒu yù dìng",
     russian: "У меня есть бронь",
     turkmen: "Meniň bron bar",
-    audioFile: "audio/phrase_029.mp3",
+    audioFileTurkmen: "3. Hotel/turkmen/3.4.mp3",
   },
   {
     id: "phrase_030",
@@ -519,7 +500,7 @@ export const phrases: Phrase[] = [
     pinyin: "dān rén fáng",
     russian: "Одноместный номер",
     turkmen: "Bir adamlyk otag",
-    audioFile: "audio/phrase_030.mp3",
+    audioFileTurkmen: "3. Hotel/turkmen/3.5.mp3",
   },
   {
     id: "phrase_031",
@@ -528,7 +509,7 @@ export const phrases: Phrase[] = [
     pinyin: "shuāng rén fáng",
     russian: "Двухместный номер",
     turkmen: "Iki adamlyk otag",
-    audioFile: "audio/phrase_031.mp3",
+    audioFileTurkmen: "3. Hotel/turkmen/3.6.mp3",
   },
   {
     id: "phrase_032",
@@ -537,7 +518,7 @@ export const phrases: Phrase[] = [
     pinyin: "tuì fáng shí jiān shì jǐ diǎn?",
     russian: "Во сколько выселение?",
     turkmen: "Otagyň wagtýny näçede tabşyrmaly?",
-    audioFile: "audio/phrase_032.mp3",
+    audioFileTurkmen: "3. Hotel/turkmen/3.7.mp3",
   },
   {
     id: "phrase_033",
@@ -546,7 +527,7 @@ export const phrases: Phrase[] = [
     pinyin: "yào shi",
     russian: "Ключ",
     turkmen: "Açar",
-    audioFile: "audio/phrase_033.mp3",
+    audioFileTurkmen: "3. Hotel/turkmen/3.8.mp3",
   },
   {
     id: "phrase_034",
@@ -555,7 +536,7 @@ export const phrases: Phrase[] = [
     pinyin: "fáng jiān hào mǎ",
     russian: "Номер комнаты",
     turkmen: "Otagyň belgisi",
-    audioFile: "audio/phrase_034.mp3",
+    audioFileTurkmen: "3. Hotel/turkmen/3.9.mp3",
   },
   {
     id: "phrase_035",
@@ -564,7 +545,7 @@ export const phrases: Phrase[] = [
     pinyin: "zǎo cān bāo kuò ma?",
     russian: "Завтрак включен?",
     turkmen: "Ertirlik girýärmi?",
-    audioFile: "audio/phrase_035.mp3",
+    audioFileTurkmen: "3. Hotel/turkmen/3.10.mp3",
   },
   {
     id: "phrase_036",
@@ -573,7 +554,7 @@ export const phrases: Phrase[] = [
     pinyin: "qǐng dǎ sǎo fáng jiān",
     russian: "Пожалуйста, уберите номер",
     turkmen: "Otag arassalaň",
-    audioFile: "audio/phrase_036.mp3",
+    audioFileTurkmen: "3. Hotel/turkmen/3.11.mp3",
   },
   {
     id: "phrase_037",
@@ -582,7 +563,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ yào yán cháng zhù sù",
     russian: "Я хочу продлить проживание",
     turkmen: "Galmagy uzaltmak isleýärin",
-    audioFile: "audio/phrase_037.mp3",
+    audioFileTurkmen: "3. Hotel/turkmen/3.12.mp3",
   },
   {
     id: "phrase_351",
@@ -592,7 +573,7 @@ export const phrases: Phrase[] = [
     pinyin: "qǐng gěi wǒ éwài de máojīn",
     russian: "Дайте дополнительные полотенца",
     turkmen: "Goşmaça polotensa beriň",
-    audioFile: "phrase_351.mp3",
+    audioFileTurkmen: "3. Hotel/turkmen/3.13.mp3",
   },
   {
     id: "phrase_352",
@@ -602,7 +583,7 @@ export const phrases: Phrase[] = [
     pinyin: "kōngtiáo bù gōngzuò",
     russian: "Кондиционер не работает",
     turkmen: "Kondisioner işlemeýär",
-    audioFile: "phrase_352.mp3",
+    audioFileTurkmen: "3. Hotel/turkmen/3.14.mp3",
   },
 
   // Category 4: Food 43 phrases
@@ -614,7 +595,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ è le",
     russian: "Я голоден",
     turkmen: "Men aç",
-    audioFile: "audio/phrase_038.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.1.mp3",
   },
   {
     id: "phrase_039",
@@ -623,7 +604,7 @@ export const phrases: Phrase[] = [
     pinyin: "cài dān, qǐng",
     russian: "Меню, пожалуйста",
     turkmen: "Menýu, haýyş edýärin",
-    audioFile: "audio/phrase_039.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.2.mp3",
   },
   {
     id: "phrase_040",
@@ -632,7 +613,7 @@ export const phrases: Phrase[] = [
     pinyin: "hǎo chī",
     russian: "Вкусно",
     turkmen: "Tagamly",
-    audioFile: "audio/phrase_040.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.3.mp3",
   },
   {
     id: "phrase_041",
@@ -641,7 +622,7 @@ export const phrases: Phrase[] = [
     pinyin: "mǎi dān",
     russian: "Счет, пожалуйста",
     turkmen: "Hasaby getiriň",
-    audioFile: "audio/phrase_041.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.4.mp3",
   },
   {
     id: "phrase_042",
@@ -650,7 +631,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ shì sù shí zhǔ yì zhě",
     russian: "Я вегетарианец",
     turkmen: "Men wegetarian",
-    audioFile: "audio/phrase_042.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.5.mp3",
   },
   {
     id: "phrase_043",
@@ -659,7 +640,7 @@ export const phrases: Phrase[] = [
     pinyin: "bú yào là",
     russian: "Без острого",
     turkmen: "Ýakymly däl",
-    audioFile: "audio/phrase_043.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.6.mp3",
   },
   {
     id: "phrase_044",
@@ -668,7 +649,7 @@ export const phrases: Phrase[] = [
     pinyin: "shuǐ",
     russian: "Вода",
     turkmen: "Suw",
-    audioFile: "audio/phrase_044.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.7.mp3",
   },
   {
     id: "phrase_045",
@@ -677,7 +658,7 @@ export const phrases: Phrase[] = [
     pinyin: "chá",
     russian: "Чай",
     turkmen: "Çaý",
-    audioFile: "audio/phrase_045.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.8.mp3",
   },
   {
     id: "phrase_046",
@@ -686,7 +667,7 @@ export const phrases: Phrase[] = [
     pinyin: "mǐ fàn",
     russian: "Рис",
     turkmen: "Tüwi",
-    audioFile: "audio/phrase_046.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.9.mp3",
   },
   {
     id: "phrase_047",
@@ -695,7 +676,7 @@ export const phrases: Phrase[] = [
     pinyin: "miàn tiáo",
     russian: "Лапша",
     turkmen: "Aş",
-    audioFile: "audio/phrase_047.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.10.mp3",
   },
   {
     id: "phrase_048",
@@ -704,7 +685,7 @@ export const phrases: Phrase[] = [
     pinyin: "jī ròu",
     russian: "Курица",
     turkmen: "Towuk eti",
-    audioFile: "audio/phrase_048.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.11.mp3",
   },
   {
     id: "phrase_049",
@@ -713,7 +694,7 @@ export const phrases: Phrase[] = [
     pinyin: "niú ròu",
     russian: "Говядина",
     turkmen: "Sygyr eti",
-    audioFile: "audio/phrase_049.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.12.mp3",
   },
   {
     id: "phrase_050",
@@ -722,7 +703,7 @@ export const phrases: Phrase[] = [
     pinyin: "zhè ge duō shǎo qián?",
     russian: "Сколько это стоит?",
     turkmen: "Bu näçe pul?",
-    audioFile: "audio/phrase_050.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.13.mp3",
   },
   {
     id: "phrase_051",
@@ -731,7 +712,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ duì... guò mǐn",
     russian: "У меня аллергия на...",
     turkmen: "Maňa ... allergiýa",
-    audioFile: "audio/phrase_051.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.14.mp3",
   },
   {
     id: "phrase_052",
@@ -740,7 +721,7 @@ export const phrases: Phrase[] = [
     pinyin: "kě yǐ dǎ bāo ma?",
     russian: "Можно с собой?",
     turkmen: "Öz bilen alyp bolarmyka?",
-    audioFile: "audio/phrase_052.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.15.mp3",
   },
   {
     id: "phrase_426",
@@ -749,7 +730,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ shì sùshí zhǔyìzhě",
     russian: "Я вегетарианец",
     turkmen: "Men wegetarian",
-    audioFile: "phrase_426.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.16.mp3",
   },
   {
     id: "phrase_427",
@@ -758,7 +739,7 @@ export const phrases: Phrase[] = [
     pinyin: "yǒu sùshí càidān ma?",
     russian: "Есть вегетарианское меню?",
     turkmen: "Wegetarian menýu barmy?",
-    audioFile: "phrase_427.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.17.mp3",
   },
   {
     id: "phrase_428",
@@ -767,7 +748,7 @@ export const phrases: Phrase[] = [
     pinyin: "zhège cài là ma?",
     russian: "Это блюдо острое?",
     turkmen: "Bu nahar ýitimi?",
-    audioFile: "phrase_428.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.18.mp3",
   },
   {
     id: "phrase_429",
@@ -776,7 +757,7 @@ export const phrases: Phrase[] = [
     pinyin: "bù yào là de",
     russian: "Без острого",
     turkmen: "Ýitisiz",
-    audioFile: "phrase_429.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.19.mp3",
   },
 
   {
@@ -786,7 +767,7 @@ export const phrases: Phrase[] = [
     pinyin: "píngguǒ",
     russian: "Яблоко",
     turkmen: "Alma",
-    audioFile: "phrase_430.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.20.mp3",
   },
   {
     id: "phrase_431",
@@ -795,7 +776,7 @@ export const phrases: Phrase[] = [
     pinyin: "xiāngjiāo",
     russian: "Банан",
     turkmen: "Banan",
-    audioFile: "phrase_431.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.21.mp3",
   },
   {
     id: "phrase_432",
@@ -804,7 +785,7 @@ export const phrases: Phrase[] = [
     pinyin: "chéngzi",
     russian: "Апельсин",
     turkmen: "Apelsin",
-    audioFile: "phrase_432.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.22.mp3",
   },
   {
     id: "phrase_433",
@@ -813,7 +794,7 @@ export const phrases: Phrase[] = [
     pinyin: "pútáo",
     russian: "Виноград",
     turkmen: "Üzüm",
-    audioFile: "phrase_433.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.23.mp3",
   },
   {
     id: "phrase_434",
@@ -822,7 +803,7 @@ export const phrases: Phrase[] = [
     pinyin: "xīguā",
     russian: "Арбуз",
     turkmen: "Garpyz",
-    audioFile: "phrase_434.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.24.mp3",
   },
   {
     id: "phrase_435",
@@ -831,7 +812,7 @@ export const phrases: Phrase[] = [
     pinyin: "tǔdòu",
     russian: "Картофель",
     turkmen: "Kartoşka",
-    audioFile: "phrase_435.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.25.mp3",
   },
   {
     id: "phrase_436",
@@ -840,7 +821,7 @@ export const phrases: Phrase[] = [
     pinyin: "fānqié",
     russian: "Помидор",
     turkmen: "Pomidor",
-    audioFile: "phrase_436.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.26.mp3",
   },
   {
     id: "phrase_437",
@@ -849,7 +830,7 @@ export const phrases: Phrase[] = [
     pinyin: "huángguā",
     russian: "Огурец",
     turkmen: "Hyýar",
-    audioFile: "phrase_437.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.27.mp3",
   },
 
   {
@@ -859,7 +840,7 @@ export const phrases: Phrase[] = [
     pinyin: "fángzi",
     russian: "Дом",
     turkmen: "Öý",
-    audioFile: "phrase_438.mp3",
+    audioFileTurkmen: "20. Home/turkmen/20.1.mp3",
   },
   {
     id: "phrase_325",
@@ -869,7 +850,7 @@ export const phrases: Phrase[] = [
     pinyin: "kāiwèicài",
     russian: "Закуски",
     turkmen: "Şirelendiriji iýmitler",
-    audioFile: "phrase_325.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.28.mp3",
   },
   {
     id: "phrase_326",
@@ -879,7 +860,7 @@ export const phrases: Phrase[] = [
     pinyin: "huǒtuǐ",
     russian: "Ветчина",
     turkmen: "Bekon",
-    audioFile: "phrase_326.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.29.mp3",
   },
   {
     id: "phrase_327",
@@ -889,7 +870,7 @@ export const phrases: Phrase[] = [
     pinyin: "nǎilào pīnpán",
     russian: "Сырное ассорти",
     turkmen: "Peýnir garyndysy",
-    audioFile: "phrase_327.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.30.mp3",
   },
 
   {
@@ -900,7 +881,7 @@ export const phrases: Phrase[] = [
     pinyin: "tāng",
     russian: "Суп",
     turkmen: "Çorba",
-    audioFile: "phrase_328.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.31.mp3",
   },
   {
     id: "phrase_329",
@@ -910,7 +891,7 @@ export const phrases: Phrase[] = [
     pinyin: "luósòng tāng",
     russian: "Борщ",
     turkmen: "Borş",
-    audioFile: "phrase_329.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.32.mp3",
   },
   {
     id: "phrase_330",
@@ -920,7 +901,7 @@ export const phrases: Phrase[] = [
     pinyin: "jī tāng miàntiáo",
     russian: "Куриная лапша",
     turkmen: "Towuk lapadasy",
-    audioFile: "phrase_330.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.33.mp3",
   },
   {
     id: "phrase_331",
@@ -930,7 +911,7 @@ export const phrases: Phrase[] = [
     pinyin: "ròu tāng",
     russian: "Мясной бульон",
     turkmen: "Et çorbasy",
-    audioFile: "phrase_331.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.34.mp3",
   },
 
   {
@@ -941,7 +922,7 @@ export const phrases: Phrase[] = [
     pinyin: "ròulèi",
     russian: "Мясо",
     turkmen: "Et",
-    audioFile: "phrase_332.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.35.mp3",
   },
   {
     id: "phrase_333",
@@ -951,7 +932,7 @@ export const phrases: Phrase[] = [
     pinyin: "niúròu",
     russian: "Говядина",
     turkmen: "Sygyr eti",
-    audioFile: "phrase_333.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.36.mp3",
   },
   {
     id: "phrase_334",
@@ -961,7 +942,7 @@ export const phrases: Phrase[] = [
     pinyin: "yángròu",
     russian: "Баранина",
     turkmen: "Goýun eti",
-    audioFile: "phrase_334.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.37.mp3",
   },
   {
     id: "phrase_335",
@@ -971,7 +952,7 @@ export const phrases: Phrase[] = [
     pinyin: "zhūròu",
     russian: "Свинина",
     turkmen: "Doňuz eti",
-    audioFile: "phrase_335.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.38.mp3",
   },
   {
     id: "phrase_336",
@@ -981,7 +962,7 @@ export const phrases: Phrase[] = [
     pinyin: "jīròu",
     russian: "Курица",
     turkmen: "Towuk eti",
-    audioFile: "phrase_336.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.39.mp3",
   },
   {
     id: "phrase_337",
@@ -991,7 +972,7 @@ export const phrases: Phrase[] = [
     pinyin: "kǎo de",
     russian: "Жареная",
     turkmen: "Gowrulan",
-    audioFile: "phrase_337.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.40.mp3",
   },
   {
     id: "phrase_338",
@@ -1001,7 +982,7 @@ export const phrases: Phrase[] = [
     pinyin: "shuǐzhǔ de",
     russian: "Отварная",
     turkmen: "Gaýnadylan",
-    audioFile: "phrase_338.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.41.mp3",
   },
 
   {
@@ -1012,7 +993,7 @@ export const phrases: Phrase[] = [
     pinyin: "yúlèi càiyáo",
     russian: "Рыбные блюда",
     turkmen: "Balyk naharlar",
-    audioFile: "phrase_339.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.42.mp3",
   },
   {
     id: "phrase_340",
@@ -1022,7 +1003,7 @@ export const phrases: Phrase[] = [
     pinyin: "yú",
     russian: "Рыба",
     turkmen: "Balyk",
-    audioFile: "phrase_340.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.43.mp3",
   },
   {
     id: "phrase_341",
@@ -1032,7 +1013,7 @@ export const phrases: Phrase[] = [
     pinyin: "guīyú",
     russian: "Лосось",
     turkmen: "Losos",
-    audioFile: "phrase_341.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.44.mp3",
   },
   {
     id: "phrase_342",
@@ -1042,7 +1023,7 @@ export const phrases: Phrase[] = [
     pinyin: "xiā",
     russian: "Креветки",
     turkmen: "Krewetkalar",
-    audioFile: "phrase_342.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.45.mp3",
   },
   {
     id: "phrase_343",
@@ -1052,7 +1033,7 @@ export const phrases: Phrase[] = [
     pinyin: "pángxiè",
     russian: "Крабы",
     turkmen: "Krablar",
-    audioFile: "phrase_343.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.46.mp3",
   },
   {
     id: "phrase_155",
@@ -1061,7 +1042,7 @@ export const phrases: Phrase[] = [
     pinyin: "hěn hǎo chī",
     russian: "Очень вкусно",
     turkmen: "Örän tagamly",
-    audioFile: "audio/phrase_155.mp3",
+    audioFileTurkmen: "4. Food/turkmen/4.47.mp3",
   },
 
   // Category 5: Shopping 16 phrases
@@ -1073,7 +1054,7 @@ export const phrases: Phrase[] = [
     pinyin: "duō shǎo qián?",
     russian: "Сколько это стоит?",
     turkmen: "Bu näçe pul?",
-    audioFile: "audio/phrase_053.mp3",
+    audioFileTurkmen: "5. Shopping/turkmen/5.1.mp3",
   },
   {
     id: "phrase_054",
@@ -1082,7 +1063,7 @@ export const phrases: Phrase[] = [
     pinyin: "tài guì le",
     russian: "Слишком дорого",
     turkmen: "Gaty gymmat",
-    audioFile: "audio/phrase_054.mp3",
+    audioFileTurkmen: "5. Shopping/turkmen/5.2.mp3",
   },
   {
     id: "phrase_055",
@@ -1091,7 +1072,7 @@ export const phrases: Phrase[] = [
     pinyin: "pián yi yī diǎn",
     russian: "Можно дешевле?",
     turkmen: "Arzanlady bolarmyka?",
-    audioFile: "audio/phrase_055.mp3",
+    audioFileTurkmen: "5. Shopping/turkmen/5.3.mp3",
   },
   {
     id: "phrase_056",
@@ -1100,7 +1081,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ mǎi zhè ge",
     russian: "Я покупаю это",
     turkmen: "Men muny alýaryn",
-    audioFile: "audio/phrase_056.mp3",
+    audioFileTurkmen: "5. Shopping/turkmen/5.4.mp3",
   },
   {
     id: "phrase_057",
@@ -1109,7 +1090,7 @@ export const phrases: Phrase[] = [
     pinyin: "néng shì chuān ma?",
     russian: "Можно примерить?",
     turkmen: "Synap görüp bolarmyka?",
-    audioFile: "audio/phrase_057.mp3",
+    audioFileTurkmen: "5. Shopping/turkmen/5.5.mp3",
   },
   {
     id: "phrase_058",
@@ -1118,7 +1099,7 @@ export const phrases: Phrase[] = [
     pinyin: "dà yī diǎn",
     russian: "Больше размером",
     turkmen: "Has uly ölçegde",
-    audioFile: "audio/phrase_058.mp3",
+    audioFileTurkmen: "5. Shopping/turkmen/5.6.mp3",
   },
   {
     id: "phrase_059",
@@ -1127,7 +1108,7 @@ export const phrases: Phrase[] = [
     pinyin: "xiǎo yī diǎn",
     russian: "Меньше размером",
     turkmen: "Has kiçi ölçegde",
-    audioFile: "audio/phrase_059.mp3",
+    audioFileTurkmen: "5. Shopping/turkmen/5.7.mp3",
   },
   {
     id: "phrase_060",
@@ -1136,7 +1117,7 @@ export const phrases: Phrase[] = [
     pinyin: "xiàn jīn",
     russian: "Наличные",
     turkmen: "Nagt pul",
-    audioFile: "audio/phrase_060.mp3",
+    audioFileTurkmen: "5. Shopping/turkmen/5.8.mp3",
   },
   {
     id: "phrase_061",
@@ -1145,7 +1126,7 @@ export const phrases: Phrase[] = [
     pinyin: "xìn yòng kǎ",
     russian: "Кредитная карта",
     turkmen: "Kredit kartasy",
-    audioFile: "audio/phrase_061.mp3",
+    audioFileTurkmen: "5. Shopping/turkmen/5.9.mp3",
   },
   {
     id: "phrase_062",
@@ -1154,7 +1135,7 @@ export const phrases: Phrase[] = [
     pinyin: "shōu jù",
     russian: "Чек",
     turkmen: "Kwitansiýa",
-    audioFile: "audio/phrase_062.mp3",
+    audioFileTurkmen: "5. Shopping/turkmen/5.10.mp3",
   },
   {
     id: "phrase_063",
@@ -1163,7 +1144,7 @@ export const phrases: Phrase[] = [
     pinyin: "tuì huàn",
     russian: "Возврат/обмен",
     turkmen: "Yzyna gaýtarmak/çalşymak",
-    audioFile: "audio/phrase_063.mp3",
+    audioFileTurkmen: "5. Shopping/turkmen/5.11.mp3",
   },
   {
     id: "phrase_064",
@@ -1172,7 +1153,7 @@ export const phrases: Phrase[] = [
     pinyin: "shì chǎng zài nǎ lǐ?",
     russian: "Где находится рынок?",
     turkmen: "Bazar nirede?",
-    audioFile: "audio/phrase_064.mp3",
+    audioFileTurkmen: "5. Shopping/turkmen/5.12.mp3",
   },
   {
     id: "phrase_344",
@@ -1182,7 +1163,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ kěyǐ shìchuān ma?",
     russian: "Можно примерить?",
     turkmen: "Synapmaga bolarmy?",
-    audioFile: "phrase_344.mp3",
+    audioFileTurkmen: "5. Shopping/turkmen/5.13.mp3",
   },
   {
     id: "phrase_345",
@@ -1192,7 +1173,7 @@ export const phrases: Phrase[] = [
     pinyin: "nín chuān shénme chǐmǎ?",
     russian: "Какой у вас размер?",
     turkmen: "Siziň ölçegiňiz näçe?",
-    audioFile: "phrase_345.mp3",
+    audioFileTurkmen: "5. Shopping/turkmen/5.14.mp3",
   },
   {
     id: "phrase_346",
@@ -1202,7 +1183,7 @@ export const phrases: Phrase[] = [
     pinyin: "yǒu qítā yánsè ma?",
     russian: "Есть другие цвета?",
     turkmen: "Başga reňkleri barmy?",
-    audioFile: "phrase_346.mp3",
+    audioFileTurkmen: "5. Shopping/turkmen/5.15.mp3",
   },
   {
     id: "phrase_156",
@@ -1211,7 +1192,7 @@ export const phrases: Phrase[] = [
     pinyin: "yǒu zhé kòu ma?",
     russian: "Есть скидка?",
     turkmen: "Arzanladyş barmy?",
-    audioFile: "audio/phrase_156.mp3",
+    audioFileTurkmen: "5. Shopping/turkmen/5.16.mp3",
   },
 
   // Category 6: Transport 16 phrases ===
@@ -1223,7 +1204,7 @@ export const phrases: Phrase[] = [
     pinyin: "huǒ chē zhàn zài nǎ lǐ?",
     russian: "Где железнодорожный вокзал?",
     turkmen: "Demir ýol bekedi nirede?",
-    audioFile: "audio/phrase_065.mp3",
+    audioFileTurkmen: "6. Transport/turkmen/6.1.mp3",
   },
   {
     id: "phrase_066",
@@ -1232,7 +1213,7 @@ export const phrases: Phrase[] = [
     pinyin: "jī chǎng",
     russian: "Аэропорт",
     turkmen: "Aeroport",
-    audioFile: "audio/phrase_066.mp3",
+    audioFileTurkmen: "6. Transport/turkmen/6.2.mp3",
   },
   {
     id: "phrase_067",
@@ -1241,7 +1222,7 @@ export const phrases: Phrase[] = [
     pinyin: "chū zū chē",
     russian: "Такси",
     turkmen: "Taksi",
-    audioFile: "audio/phrase_067.mp3",
+    audioFileTurkmen: "6. Transport/turkmen/6.3.mp3",
   },
   {
     id: "phrase_068",
@@ -1250,7 +1231,7 @@ export const phrases: Phrase[] = [
     pinyin: "gōng gòng qì chē",
     russian: "Автобус",
     turkmen: "Awtobus",
-    audioFile: "audio/phrase_068.mp3",
+    audioFileTurkmen: "6. Transport/turkmen/6.4.mp3",
   },
   {
     id: "phrase_069",
@@ -1259,7 +1240,7 @@ export const phrases: Phrase[] = [
     pinyin: "dì tiě",
     russian: "Метро",
     turkmen: "Metro",
-    audioFile: "audio/phrase_069.mp3",
+    audioFileTurkmen: "6. Transport/turkmen/6.5.mp3",
   },
   {
     id: "phrase_070",
@@ -1268,7 +1249,7 @@ export const phrases: Phrase[] = [
     pinyin: "huǒ chē piào",
     russian: "Билет на поезд",
     turkmen: "Otly bileti",
-    audioFile: "audio/phrase_070.mp3",
+    audioFileTurkmen: "6. Transport/turkmen/6.6.mp3",
   },
   {
     id: "phrase_071",
@@ -1277,7 +1258,7 @@ export const phrases: Phrase[] = [
     pinyin: "shí kè biǎo",
     russian: "Расписание",
     turkmen: "Wagt tablosy",
-    audioFile: "audio/phrase_071.mp3",
+    audioFileTurkmen: "6. Transport/turkmen/6.7.mp3",
   },
   {
     id: "phrase_072",
@@ -1286,7 +1267,7 @@ export const phrases: Phrase[] = [
     pinyin: "zhàn tái",
     russian: "Платформа",
     turkmen: "Platforma",
-    audioFile: "audio/phrase_072.mp3",
+    audioFileTurkmen: "6. Transport/turkmen/6.8.mp3",
   },
   {
     id: "phrase_073",
@@ -1295,7 +1276,7 @@ export const phrases: Phrase[] = [
     pinyin: "xià yī zhàn",
     russian: "Следующая остановка",
     turkmen: "Indiki durak",
-    audioFile: "audio/phrase_073.mp3",
+    audioFileTurkmen: "6. Transport/turkmen/6.9.mp3",
   },
   {
     id: "phrase_074",
@@ -1304,7 +1285,7 @@ export const phrases: Phrase[] = [
     pinyin: "tíng chē",
     russian: "Остановитесь",
     turkmen: "Duruň",
-    audioFile: "audio/phrase_074.mp3",
+    audioFileTurkmen: "6. Transport/turkmen/6.10.mp3",
   },
   {
     id: "phrase_075",
@@ -1313,7 +1294,7 @@ export const phrases: Phrase[] = [
     pinyin: "dào... duō cháng shí jiān?",
     russian: "Сколько времени до...?",
     turkmen: "...a näçe wagt?",
-    audioFile: "audio/phrase_075.mp3",
+    audioFileTurkmen: "6. Transport/turkmen/6.11.mp3",
   },
   {
     id: "phrase_076",
@@ -1322,7 +1303,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ yào qù...",
     russian: "Мне нужно в...",
     turkmen: "Men ...a gitmeli",
-    audioFile: "audio/phrase_076.mp3",
+    audioFileTurkmen: "6. Transport/turkmen/6.12.mp3",
   },
   {
     id: "phrase_347",
@@ -1331,7 +1312,7 @@ export const phrases: Phrase[] = [
     pinyin: "xià yī bān gōngjiāochē shénme shíhòu lái?",
     russian: "Когда придет следующий автобус?",
     turkmen: "Indiki awtobus haçan geler?",
-    audioFile: "phrase_347.mp3",
+    audioFileTurkmen: "6. Transport/turkmen/6.13.mp3",
   },
   {
     id: "phrase_348",
@@ -1340,7 +1321,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ xiǎng qù jīchǎng",
     russian: "Я хочу поехать в аэропорт",
     turkmen: "Men howa menzilinde gitmek isleýärin",
-    audioFile: "phrase_348.mp3",
+    audioFileTurkmen: "6. Transport/turkmen/6.14.mp3",
   },
 
   // Category 7: Directions 10 phrases
@@ -1351,7 +1332,7 @@ export const phrases: Phrase[] = [
     pinyin: "zuǒ biān",
     russian: "Слева",
     turkmen: "Çep tarap",
-    audioFile: "audio/phrase_077.mp3",
+    audioFileTurkmen: "7. Directions/turkmen/7.1.mp3",
   },
   {
     id: "phrase_078",
@@ -1360,7 +1341,7 @@ export const phrases: Phrase[] = [
     pinyin: "yòu biān",
     russian: "Справа",
     turkmen: "Sag tarap",
-    audioFile: "audio/phrase_078.mp3",
+    audioFileTurkmen: "7. Directions/turkmen/7.2.mp3",
   },
   {
     id: "phrase_079",
@@ -1369,7 +1350,7 @@ export const phrases: Phrase[] = [
     pinyin: "zhí zǒu",
     russian: "Прямо",
     turkmen: "Göni git",
-    audioFile: "audio/phrase_079.mp3",
+    audioFileTurkmen: "7. Directions/turkmen/7.3.mp3",
   },
   {
     id: "phrase_080",
@@ -1378,7 +1359,7 @@ export const phrases: Phrase[] = [
     pinyin: "zhuǎn wān",
     russian: "Поворот",
     turkmen: "Öwrülmek",
-    audioFile: "audio/phrase_080.mp3",
+    audioFileTurkmen: "7. Directions/turkmen/7.4.mp3",
   },
   {
     id: "phrase_081",
@@ -1387,7 +1368,7 @@ export const phrases: Phrase[] = [
     pinyin: "lù kǒu",
     russian: "Перекресток",
     turkmen: "Kesiş ýoly",
-    audioFile: "audio/phrase_081.mp3",
+    audioFileTurkmen: "7. Directions/turkmen/7.5.mp3",
   },
   {
     id: "phrase_082",
@@ -1396,7 +1377,7 @@ export const phrases: Phrase[] = [
     pinyin: "hóng lǜ dēng",
     russian: "Светофор",
     turkmen: "Svetofor",
-    audioFile: "audio/phrase_082.mp3",
+    audioFileTurkmen: "7. Directions/turkmen/7.6.mp3",
   },
   {
     id: "phrase_083",
@@ -1405,7 +1386,7 @@ export const phrases: Phrase[] = [
     pinyin: "yuǎn",
     russian: "Далеко",
     turkmen: "Uzakda",
-    audioFile: "audio/phrase_083.mp3",
+    audioFileTurkmen: "7. Directions/turkmen/7.7.mp3",
   },
   {
     id: "phrase_084",
@@ -1414,7 +1395,7 @@ export const phrases: Phrase[] = [
     pinyin: "jìn",
     russian: "Близко",
     turkmen: "Golaýda",
-    audioFile: "audio/phrase_084.mp3",
+    audioFileTurkmen: "7. Directions/turkmen/7.8.mp3",
   },
   {
     id: "phrase_085",
@@ -1423,7 +1404,7 @@ export const phrases: Phrase[] = [
     pinyin: "dì tú",
     russian: "Карта",
     turkmen: "Karta",
-    audioFile: "audio/phrase_085.mp3",
+    audioFileTurkmen: "7. Directions/turkmen/7.9.mp3",
   },
   {
     id: "phrase_086",
@@ -1432,7 +1413,7 @@ export const phrases: Phrase[] = [
     pinyin: "...zài nǎ lǐ?",
     russian: "Где находится...?",
     turkmen: "... nirede?",
-    audioFile: "audio/phrase_086.mp3",
+    audioFileTurkmen: "7. Directions/turkmen/7.10.mp3",
   },
 
   // Category 8: Health 12 phrases
@@ -1444,7 +1425,7 @@ export const phrases: Phrase[] = [
     pinyin: "yī yuán",
     russian: "Больница",
     turkmen: "Hassahana",
-    audioFile: "audio/phrase_095.mp3",
+    audioFileTurkmen: "8. Health/turkmen/8.1.mp3",
   },
   {
     id: "phrase_096",
@@ -1453,7 +1434,7 @@ export const phrases: Phrase[] = [
     pinyin: "yào diàn",
     russian: "Аптека",
     turkmen: "Derman dükanı",
-    audioFile: "audio/phrase_096.mp3",
+    audioFileTurkmen: "8. Health/turkmen/8.2.mp3",
   },
   {
     id: "phrase_097",
@@ -1462,7 +1443,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ tóu tòng",
     russian: "У меня болит голова",
     turkmen: "Kellem agyryp dur",
-    audioFile: "audio/phrase_097.mp3",
+    audioFileTurkmen: "8. Health/turkmen/8.3.mp3",
   },
   {
     id: "phrase_098",
@@ -1471,7 +1452,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ wèi tòng",
     russian: "У меня болит живот",
     turkmen: "Garnym agyryp dur",
-    audioFile: "audio/phrase_098.mp3",
+    audioFileTurkmen: "8. Health/turkmen/8.4.mp3",
   },
   {
     id: "phrase_099",
@@ -1480,7 +1461,7 @@ export const phrases: Phrase[] = [
     pinyin: "fā shāo",
     russian: "Температура",
     turkmen: "Gyzzyrma",
-    audioFile: "audio/phrase_099.mp3",
+    audioFileTurkmen: "8. Health/turkmen/8.5.mp3",
   },
   {
     id: "phrase_100",
@@ -1489,7 +1470,7 @@ export const phrases: Phrase[] = [
     pinyin: "ké sou",
     russian: "Кашель",
     turkmen: "Üsgürme",
-    audioFile: "audio/phrase_100.mp3",
+    audioFileTurkmen: "8. Health/turkmen/8.6.mp3",
   },
   {
     id: "phrase_101",
@@ -1498,7 +1479,7 @@ export const phrases: Phrase[] = [
     pinyin: "yào",
     russian: "Лекарство",
     turkmen: "Derman",
-    audioFile: "audio/phrase_101.mp3",
+    audioFileTurkmen: "8. Health/turkmen/8.7.mp3",
   },
   {
     id: "phrase_102",
@@ -1507,7 +1488,7 @@ export const phrases: Phrase[] = [
     pinyin: "yī shēng",
     russian: "Врач",
     turkmen: "Lukman",
-    audioFile: "audio/phrase_102.mp3",
+    audioFileTurkmen: "8. Health/turkmen/8.8.mp3",
   },
   {
     id: "phrase_103",
@@ -1516,7 +1497,7 @@ export const phrases: Phrase[] = [
     pinyin: "hù shi",
     russian: "Медсестра",
     turkmen: "Şepagat uýasy",
-    audioFile: "audio/phrase_103.mp3",
+    audioFileTurkmen: "8. Health/turkmen/8.9.mp3",
   },
   {
     id: "phrase_104",
@@ -1525,7 +1506,7 @@ export const phrases: Phrase[] = [
     pinyin: "jí zhěn",
     russian: "Скорая помощь",
     turkmen: "Gyssagly kömek",
-    audioFile: "audio/phrase_104.mp3",
+    audioFileTurkmen: "8. Health/turkmen/8.10.mp3",
   },
   {
     id: "phrase_353",
@@ -1534,7 +1515,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ tóuténg",
     russian: "У меня болит голова",
     turkmen: "Başym agyrýar",
-    audioFile: "phrase_353.mp3",
+    audioFileTurkmen: "8. Health/turkmen/8.11.mp3",
   },
   {
     id: "phrase_354",
@@ -1543,7 +1524,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ xūyào zhǐtòngyào",
     russian: "Мне нужно обезболивающее",
     turkmen: "Maňa agyry kesiji gerek",
-    audioFile: "phrase_354.mp3",
+    audioFileTurkmen: "8. Health/turkmen/8.12.mp3",
   },
 
   // Category 9: Money 9 phrases
@@ -1554,7 +1535,7 @@ export const phrases: Phrase[] = [
     pinyin: "rén mín bì",
     russian: "Юани",
     turkmen: "Ýuan",
-    audioFile: "audio/phrase_087.mp3",
+    audioFileTurkmen: "9. Money/turkmen/9.1.mp3",
   },
   {
     id: "phrase_088",
@@ -1563,7 +1544,7 @@ export const phrases: Phrase[] = [
     pinyin: "shuā kǎ",
     russian: "Оплата картой",
     turkmen: "Karta bilen tölemek",
-    audioFile: "audio/phrase_088.mp3",
+    audioFileTurkmen: "9. Money/turkmen/9.2.mp3",
   },
   {
     id: "phrase_089",
@@ -1572,7 +1553,7 @@ export const phrases: Phrase[] = [
     pinyin: "yín háng",
     russian: "Банк",
     turkmen: "Bank",
-    audioFile: "audio/phrase_089.mp3",
+    audioFileTurkmen: "9. Money/turkmen/9.3.mp3",
   },
   {
     id: "phrase_090",
@@ -1581,7 +1562,7 @@ export const phrases: Phrase[] = [
     pinyin: "qǔ kuǎn jī",
     russian: "Банкомат",
     turkmen: "Bankomat",
-    audioFile: "audio/phrase_090.mp3",
+    audioFileTurkmen: "9. Money/turkmen/9.4.mp3",
   },
   {
     id: "phrase_091",
@@ -1590,7 +1571,7 @@ export const phrases: Phrase[] = [
     pinyin: "duì huàn",
     russian: "Обмен валют",
     turkmen: "Walýuta çalşymy",
-    audioFile: "audio/phrase_091.mp3",
+    audioFileTurkmen: "9. Money/turkmen/9.5.mp3",
   },
   {
     id: "phrase_092",
@@ -1599,7 +1580,7 @@ export const phrases: Phrase[] = [
     pinyin: "zhǎo líng",
     russian: "Сдача",
     turkmen: "Gaýtarym pul",
-    audioFile: "audio/phrase_092.mp3",
+    audioFileTurkmen: "9. Money/turkmen/9.6.mp3",
   },
   {
     id: "phrase_093",
@@ -1608,7 +1589,7 @@ export const phrases: Phrase[] = [
     pinyin: "miǎn fèi",
     russian: "Бесплатно",
     turkmen: "Mugt",
-    audioFile: "audio/phrase_093.mp3",
+    audioFileTurkmen: "9. Money/turkmen/9.7.mp3",
   },
   {
     id: "phrase_094",
@@ -1617,7 +1598,7 @@ export const phrases: Phrase[] = [
     pinyin: "jià gé",
     russian: "Цена",
     turkmen: "Baha",
-    audioFile: "audio/phrase_094.mp3",
+    audioFileTurkmen: "9. Money/turkmen/9.8.mp3",
   },
 
   //Category 10: Communication 4 phrases
@@ -1629,7 +1610,7 @@ export const phrases: Phrase[] = [
     pinyin: "shǒu jī",
     russian: "Мобильный телефон",
     turkmen: "Jübi telefon",
-    audioFile: "audio/phrase_105.mp3",
+    audioFileTurkmen: "10. Communication/turkmen/10.1.mp3",
   },
   {
     id: "phrase_106",
@@ -1638,7 +1619,7 @@ export const phrases: Phrase[] = [
     pinyin: "wú xiàn wǎng luò",
     russian: "Wi-Fi",
     turkmen: "Wi-Fi",
-    audioFile: "audio/phrase_106.mp3",
+    audioFileTurkmen: "10. Communication/turkmen/10.2.mp3",
   },
   {
     id: "phrase_107",
@@ -1647,7 +1628,7 @@ export const phrases: Phrase[] = [
     pinyin: "mì mǎ shì shén me?",
     russian: "Какой пароль?",
     turkmen: "Parol näme?",
-    audioFile: "audio/phrase_107.mp3",
+    audioFileTurkmen: "10. Communication/turkmen/10.3.mp3",
   },
   {
     id: "phrase_108",
@@ -1656,7 +1637,7 @@ export const phrases: Phrase[] = [
     pinyin: "fā duǎn xìn",
     russian: "Отправить SMS",
     turkmen: "SMS ibermek",
-    audioFile: "audio/phrase_108.mp3",
+    audioFileTurkmen: "10. Communication/turkmen/10.4.mp3",
   },
 
   // Category 11: Entertainment 10 phrases
@@ -1668,7 +1649,7 @@ export const phrases: Phrase[] = [
     pinyin: "diàn yǐng yuán",
     russian: "Кинотеатр",
     turkmen: "Kinoteatr",
-    audioFile: "audio/phrase_109.mp3",
+    audioFileTurkmen: "11. Entertainment/turkmen/11.1.mp3",
   },
   {
     id: "phrase_110",
@@ -1677,7 +1658,7 @@ export const phrases: Phrase[] = [
     pinyin: "bó wù guǎn",
     russian: "Музей",
     turkmen: "Muzeý",
-    audioFile: "audio/phrase_110.mp3",
+    audioFileTurkmen: "11. Entertainment/turkmen/11.2.mp3",
   },
   {
     id: "phrase_111",
@@ -1686,7 +1667,7 @@ export const phrases: Phrase[] = [
     pinyin: "gōng yuán",
     russian: "Парк",
     turkmen: "Seýilgäh",
-    audioFile: "audio/phrase_111.mp3",
+    audioFileTurkmen: "11. Entertainment/turkmen/11.3.mp3",
   },
   {
     id: "phrase_112",
@@ -1695,7 +1676,7 @@ export const phrases: Phrase[] = [
     pinyin: "yīn yuè huì",
     russian: "Концерт",
     turkmen: "Konsert",
-    audioFile: "audio/phrase_112.mp3",
+    audioFileTurkmen: "11. Entertainment/turkmen/11.4.mp3",
   },
   {
     id: "phrase_113",
@@ -1704,7 +1685,7 @@ export const phrases: Phrase[] = [
     pinyin: "gòu wù zhōng xīn",
     russian: "Торговый центр",
     turkmen: "Söwda merkezi",
-    audioFile: "audio/phrase_113.mp3",
+    audioFileTurkmen: "11. Entertainment/turkmen/11.5.mp3",
   },
   {
     id: "phrase_114",
@@ -1713,7 +1694,7 @@ export const phrases: Phrase[] = [
     pinyin: "yóu yǒng chí",
     russian: "Бассейн",
     turkmen: "Howuz",
-    audioFile: "audio/phrase_114.mp3",
+    audioFileTurkmen: "11. Entertainment/turkmen/11.6.mp3",
   },
   {
     id: "phrase_115",
@@ -1722,7 +1703,7 @@ export const phrases: Phrase[] = [
     pinyin: "jiàn shēn fáng",
     russian: "Спортзал",
     turkmen: "Sport zaly",
-    audioFile: "audio/phrase_115.mp3",
+    audioFileTurkmen: "11. Entertainment/turkmen/11.7.mp3",
   },
   {
     id: "phrase_116",
@@ -1731,7 +1712,7 @@ export const phrases: Phrase[] = [
     pinyin: "tú shū guǎn",
     russian: "Библиотека",
     turkmen: "Kitaphana",
-    audioFile: "audio/phrase_116.mp3",
+    audioFileTurkmen: "11. Entertainment/turkmen/11.8.mp3",
   },
   {
     id: "phrase_117",
@@ -1740,7 +1721,7 @@ export const phrases: Phrase[] = [
     pinyin: "yè shì",
     russian: "Ночной рынок",
     turkmen: "Gijeki bazar",
-    audioFile: "audio/phrase_117.mp3",
+    audioFileTurkmen: "11. Entertainment/turkmen/11.9.mp3",
   },
   {
     id: "phrase_118",
@@ -1749,7 +1730,7 @@ export const phrases: Phrase[] = [
     pinyin: "mén piào duō shǎo qián?",
     russian: "Сколько стоит билет?",
     turkmen: "Bilet näçe pul?",
-    audioFile: "audio/phrase_118.mp3",
+    audioFileTurkmen: "11. Entertainment/turkmen/11.10.mp3",
   },
 
   // Category 12: Time 29 phrases
@@ -1761,7 +1742,7 @@ export const phrases: Phrase[] = [
     pinyin: "xiàn zài jǐ diǎn?",
     russian: "Который час?",
     turkmen: "Sagat näçe?",
-    audioFile: "audio/phrase_119.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.1.mp3",
   },
   {
     id: "phrase_120",
@@ -1770,7 +1751,7 @@ export const phrases: Phrase[] = [
     pinyin: "jīn tiān",
     russian: "Сегодня",
     turkmen: "Şu gün",
-    audioFile: "audio/phrase_120.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.2.mp3",
   },
   {
     id: "phrase_121",
@@ -1779,7 +1760,7 @@ export const phrases: Phrase[] = [
     pinyin: "míng tiān",
     russian: "Завтра",
     turkmen: "Ertir",
-    audioFile: "audio/phrase_121.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.3.mp3",
   },
   {
     id: "phrase_122",
@@ -1788,7 +1769,7 @@ export const phrases: Phrase[] = [
     pinyin: "zuó tiān",
     russian: "Вчера",
     turkmen: "Düýn",
-    audioFile: "audio/phrase_122.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.4.mp3",
   },
   {
     id: "phrase_123",
@@ -1797,7 +1778,7 @@ export const phrases: Phrase[] = [
     pinyin: "xīng qī yī",
     russian: "Понедельник",
     turkmen: "Duşenbe",
-    audioFile: "audio/phrase_123.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.5.mp3",
   },
   {
     id: "phrase_124",
@@ -1806,7 +1787,7 @@ export const phrases: Phrase[] = [
     pinyin: "xīng qī tiān",
     russian: "Воскресенье",
     turkmen: "Ýekşenbe",
-    audioFile: "audio/phrase_124.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.6.mp3",
   },
   {
     id: "phrase_125",
@@ -1815,7 +1796,7 @@ export const phrases: Phrase[] = [
     pinyin: "zǎo shàng",
     russian: "Утром",
     turkmen: "Ertir",
-    audioFile: "audio/phrase_125.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.7.mp3",
   },
   {
     id: "phrase_126",
@@ -1824,7 +1805,7 @@ export const phrases: Phrase[] = [
     pinyin: "xià wǔ",
     russian: "После полудня",
     turkmen: "Günortadan soň",
-    audioFile: "audio/phrase_126.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.8.mp3",
   },
   {
     id: "phrase_127",
@@ -1833,7 +1814,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǎn shàng",
     russian: "Вечером",
     turkmen: "Agşam",
-    audioFile: "audio/phrase_127.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.9.mp3",
   },
   {
     id: "phrase_128",
@@ -1842,7 +1823,7 @@ export const phrases: Phrase[] = [
     pinyin: "jǐ yuè?",
     russian: "Какой месяц?",
     turkmen: "Haýsy aý?",
-    audioFile: "audio/phrase_128.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.10.mp3",
   },
   {
     id: "phrase_129",
@@ -1851,7 +1832,7 @@ export const phrases: Phrase[] = [
     pinyin: "yī yuè",
     russian: "Январь",
     turkmen: "Ýanwar",
-    audioFile: "audio/phrase_129.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.11.mp3",
   },
   {
     id: "phrase_130",
@@ -1860,7 +1841,7 @@ export const phrases: Phrase[] = [
     pinyin: "shí èr yuè",
     russian: "Декабрь",
     turkmen: "Dekabr",
-    audioFile: "audio/phrase_130.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.12.mp3",
   },
   {
     id: "phrase_397",
@@ -1870,7 +1851,7 @@ export const phrases: Phrase[] = [
     pinyin: "xīngqīyī",
     russian: "Понедельник",
     turkmen: "Duşenbe",
-    audioFile: "phrase_397.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.13.mp3",
   },
   {
     id: "phrase_398",
@@ -1880,7 +1861,7 @@ export const phrases: Phrase[] = [
     pinyin: "xīngqīèr",
     russian: "Вторник",
     turkmen: "Sişenbe",
-    audioFile: "phrase_398.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.14.mp3",
   },
   {
     id: "phrase_399",
@@ -1890,7 +1871,7 @@ export const phrases: Phrase[] = [
     pinyin: "xīngqīsān",
     russian: "Среда",
     turkmen: "Çarşenbe",
-    audioFile: "phrase_399.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.15.mp3",
   },
   {
     id: "phrase_400",
@@ -1900,7 +1881,7 @@ export const phrases: Phrase[] = [
     pinyin: "xīngqīsì",
     russian: "Четверг",
     turkmen: "Penşenbe",
-    audioFile: "phrase_400.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.16.mp3",
   },
   {
     id: "phrase_401",
@@ -1910,7 +1891,7 @@ export const phrases: Phrase[] = [
     pinyin: "xīngqīwǔ",
     russian: "Пятница",
     turkmen: "Anna",
-    audioFile: "phrase_401.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.17.mp3",
   },
   {
     id: "phrase_402",
@@ -1920,7 +1901,7 @@ export const phrases: Phrase[] = [
     pinyin: "xīngqīliù",
     russian: "Суббота",
     turkmen: "Şenbe",
-    audioFile: "phrase_402.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.18.mp3",
   },
   {
     id: "phrase_403",
@@ -1930,7 +1911,7 @@ export const phrases: Phrase[] = [
     pinyin: "xīngqīrì",
     russian: "Воскресенье",
     turkmen: "Ýekşenbe",
-    audioFile: "phrase_403.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.19.mp3",
   },
 
   {
@@ -1941,7 +1922,7 @@ export const phrases: Phrase[] = [
     pinyin: "yīyuè",
     russian: "Январь",
     turkmen: "Ýanwar",
-    audioFile: "phrase_404.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.20.mp3",
   },
   {
     id: "phrase_405",
@@ -1951,7 +1932,7 @@ export const phrases: Phrase[] = [
     pinyin: "èryuè",
     russian: "Февраль",
     turkmen: "Fewral",
-    audioFile: "phrase_405.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.21.mp3",
   },
   {
     id: "phrase_406",
@@ -1961,7 +1942,7 @@ export const phrases: Phrase[] = [
     pinyin: "sānyuè",
     russian: "Март",
     turkmen: "Mart",
-    audioFile: "phrase_406.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.22.mp3",
   },
   {
     id: "phrase_407",
@@ -1971,7 +1952,7 @@ export const phrases: Phrase[] = [
     pinyin: "sìyuè",
     russian: "Апрель",
     turkmen: "Aprel",
-    audioFile: "phrase_407.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.23.mp3",
   },
   {
     id: "phrase_408",
@@ -1981,7 +1962,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǔyuè",
     russian: "Май",
     turkmen: "Maý",
-    audioFile: "phrase_408.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.24.mp3",
   },
   {
     id: "phrase_409",
@@ -1991,7 +1972,7 @@ export const phrases: Phrase[] = [
     pinyin: "liùyuè",
     russian: "Июнь",
     turkmen: "Iýun",
-    audioFile: "phrase_409.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.25.mp3",
   },
   {
     id: "phrase_410",
@@ -2001,7 +1982,7 @@ export const phrases: Phrase[] = [
     pinyin: "qīyuè",
     russian: "Июль",
     turkmen: "Iýul",
-    audioFile: "phrase_410.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.26.mp3",
   },
   {
     id: "phrase_411",
@@ -2011,7 +1992,7 @@ export const phrases: Phrase[] = [
     pinyin: "bāyuè",
     russian: "Август",
     turkmen: "Awgust",
-    audioFile: "phrase_411.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.27.mp3",
   },
   {
     id: "phrase_412",
@@ -2021,7 +2002,7 @@ export const phrases: Phrase[] = [
     pinyin: "jiǔyuè",
     russian: "Сентябрь",
     turkmen: "Sentýabr",
-    audioFile: "phrase_412.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.28.mp3",
   },
   {
     id: "phrase_413",
@@ -2031,7 +2012,7 @@ export const phrases: Phrase[] = [
     pinyin: "shíyuè",
     russian: "Октябрь",
     turkmen: "Oktýabr",
-    audioFile: "phrase_413.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.29.mp3",
   },
   {
     id: "phrase_414",
@@ -2041,7 +2022,7 @@ export const phrases: Phrase[] = [
     pinyin: "shíyīyuè",
     russian: "Ноябрь",
     turkmen: "Noýabr",
-    audioFile: "phrase_414.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.30.mp3",
   },
   {
     id: "phrase_415",
@@ -2051,7 +2032,7 @@ export const phrases: Phrase[] = [
     pinyin: "shí èryuè",
     russian: "Декабрь",
     turkmen: "Dekabr",
-    audioFile: "phrase_415.mp3",
+    audioFileTurkmen: "12. Time/turkmen/12.31.mp3",
   },
 
   // Category 13: Numbers 20 phrases
@@ -2063,7 +2044,7 @@ export const phrases: Phrase[] = [
     pinyin: "yī",
     russian: "Один",
     turkmen: "Bir",
-    audioFile: "audio/phrase_131.mp3",
+    audioFileTurkmen: "13. Numbers/turkmen/13.1.mp3",
   },
   {
     id: "phrase_132",
@@ -2072,7 +2053,7 @@ export const phrases: Phrase[] = [
     pinyin: "èr",
     russian: "Два",
     turkmen: "Iki",
-    audioFile: "audio/phrase_132.mp3",
+    audioFileTurkmen: "13. Numbers/turkmen/13.2.mp3",
   },
   {
     id: "phrase_133",
@@ -2081,7 +2062,7 @@ export const phrases: Phrase[] = [
     pinyin: "sān",
     russian: "Три",
     turkmen: "Üç",
-    audioFile: "audio/phrase_133.mp3",
+    audioFileTurkmen: "13. Numbers/turkmen/13.3.mp3",
   },
   {
     id: "phrase_134",
@@ -2090,7 +2071,7 @@ export const phrases: Phrase[] = [
     pinyin: "sì",
     russian: "Четыре",
     turkmen: "Dört",
-    audioFile: "audio/phrase_134.mp3",
+    audioFileTurkmen: "13. Numbers/turkmen/13.4.mp3",
   },
   {
     id: "phrase_135",
@@ -2099,7 +2080,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǔ",
     russian: "Пять",
     turkmen: "Bäş",
-    audioFile: "audio/phrase_135.mp3",
+    audioFileTurkmen: "13. Numbers/turkmen/13.5.mp3",
   },
   {
     id: "phrase_136",
@@ -2108,7 +2089,7 @@ export const phrases: Phrase[] = [
     pinyin: "liù",
     russian: "Шесть",
     turkmen: "Alty",
-    audioFile: "audio/phrase_136.mp3",
+    audioFileTurkmen: "13. Numbers/turkmen/13.6.mp3",
   },
   {
     id: "phrase_137",
@@ -2117,7 +2098,7 @@ export const phrases: Phrase[] = [
     pinyin: "qī",
     russian: "Семь",
     turkmen: "Ýedi",
-    audioFile: "audio/phrase_137.mp3",
+    audioFileTurkmen: "13. Numbers/turkmen/13.7.mp3",
   },
   {
     id: "phrase_138",
@@ -2126,7 +2107,7 @@ export const phrases: Phrase[] = [
     pinyin: "bā",
     russian: "Восемь",
     turkmen: "Sekiz",
-    audioFile: "audio/phrase_138.mp3",
+    audioFileTurkmen: "13. Numbers/turkmen/13.8.mp3",
   },
   {
     id: "phrase_139",
@@ -2135,7 +2116,7 @@ export const phrases: Phrase[] = [
     pinyin: "jiǔ",
     russian: "Девять",
     turkmen: "Dokuz",
-    audioFile: "audio/phrase_139.mp3",
+    audioFileTurkmen: "13. Numbers/turkmen/13.9.mp3",
   },
   {
     id: "phrase_140",
@@ -2144,7 +2125,7 @@ export const phrases: Phrase[] = [
     pinyin: "shí",
     russian: "Десять",
     turkmen: "On",
-    audioFile: "audio/phrase_140.mp3",
+    audioFileTurkmen: "13. Numbers/turkmen/13.10.mp3",
   },
   {
     id: "phrase_141",
@@ -2153,7 +2134,7 @@ export const phrases: Phrase[] = [
     pinyin: "èr shí",
     russian: "Двадцать",
     turkmen: "Ýigrimi",
-    audioFile: "audio/phrase_141.mp3",
+    audioFileTurkmen: "13. Numbers/turkmen/13.11.mp3",
   },
   {
     id: "phrase_142",
@@ -2162,7 +2143,7 @@ export const phrases: Phrase[] = [
     pinyin: "yī bǎi",
     russian: "Сто",
     turkmen: "Ýüz",
-    audioFile: "audio/phrase_142.mp3",
+    audioFileTurkmen: "13. Numbers/turkmen/13.12.mp3",
   },
   {
     id: "phrase_143",
@@ -2171,7 +2152,7 @@ export const phrases: Phrase[] = [
     pinyin: "yī qiān",
     russian: "Тысяча",
     turkmen: "Müň",
-    audioFile: "audio/phrase_143.mp3",
+    audioFileTurkmen: "13. Numbers/turkmen/13.13.mp3",
   },
   {
     id: "phrase_144",
@@ -2180,7 +2161,7 @@ export const phrases: Phrase[] = [
     pinyin: "yī wàn",
     russian: "Десять тысяч",
     turkmen: "On müň",
-    audioFile: "audio/phrase_144.mp3",
+    audioFileTurkmen: "13. Numbers/turkmen/13.14.mp3",
   },
   {
     id: "phrase_145",
@@ -2189,7 +2170,7 @@ export const phrases: Phrase[] = [
     pinyin: "dì yī",
     russian: "Первый",
     turkmen: "Birinji",
-    audioFile: "audio/phrase_145.mp3",
+    audioFileTurkmen: "13. Numbers/turkmen/13.15.mp3",
   },
   {
     id: "phrase_416",
@@ -2198,7 +2179,7 @@ export const phrases: Phrase[] = [
     pinyin: "yīqiān",
     russian: "Тысяча",
     turkmen: "Müň",
-    audioFile: "phrase_416.mp3",
+    audioFileTurkmen: "13. Numbers/turkmen/13.16.mp3",
   },
   {
     id: "phrase_417",
@@ -2207,7 +2188,7 @@ export const phrases: Phrase[] = [
     pinyin: "liǎngqiān",
     russian: "Две тысячи",
     turkmen: "Iki müň",
-    audioFile: "phrase_417.mp3",
+    audioFileTurkmen: "13. Numbers/turkmen/13.17.mp3",
   },
   {
     id: "phrase_418",
@@ -2216,7 +2197,7 @@ export const phrases: Phrase[] = [
     pinyin: "yīwàn",
     russian: "Десять тысяч",
     turkmen: "On müň",
-    audioFile: "phrase_418.mp3",
+    audioFileTurkmen: "13. Numbers/turkmen/13.18.mp3",
   },
   {
     id: "phrase_419",
@@ -2225,7 +2206,7 @@ export const phrases: Phrase[] = [
     pinyin: "shíwàn",
     russian: "Сто тысяч",
     turkmen: "Ýüz müň",
-    audioFile: "phrase_419.mp3",
+    audioFileTurkmen: "13. Numbers/turkmen/13.19.mp3",
   },
   {
     id: "phrase_420",
@@ -2234,7 +2215,7 @@ export const phrases: Phrase[] = [
     pinyin: "yībǎiwàn",
     russian: "Один миллион",
     turkmen: "Bir million",
-    audioFile: "phrase_420.mp3",
+    audioFileTurkmen: "13. Numbers/turkmen/13.20.mp3",
   },
 
   // Category 14: Weather 8 phrases
@@ -2245,7 +2226,7 @@ export const phrases: Phrase[] = [
     pinyin: "jīn tiān tiān qì zěn me yàng?",
     russian: "Какая сегодня погода?",
     turkmen: "Şu gün howa nähili?",
-    audioFile: "audio/phrase_146.mp3",
+    audioFileTurkmen: "14. Weather/turkmen/14.1.mp3",
   },
   {
     id: "phrase_147",
@@ -2254,7 +2235,7 @@ export const phrases: Phrase[] = [
     pinyin: "xià yǔ",
     russian: "Дождь",
     turkmen: "Ýagyş",
-    audioFile: "audio/phrase_147.mp3",
+    audioFileTurkmen: "14. Weather/turkmen/14.2.mp3",
   },
   {
     id: "phrase_148",
@@ -2263,7 +2244,7 @@ export const phrases: Phrase[] = [
     pinyin: "qíng tiān",
     russian: "Солнечно",
     turkmen: "Güneşli",
-    audioFile: "audio/phrase_148.mp3",
+    audioFileTurkmen: "14. Weather/turkmen/14.3.mp3",
   },
   {
     id: "phrase_149",
@@ -2272,7 +2253,7 @@ export const phrases: Phrase[] = [
     pinyin: "duō yún",
     russian: "Облачно",
     turkmen: "Bulutly",
-    audioFile: "audio/phrase_149.mp3",
+    audioFileTurkmen: "14. Weather/turkmen/14.4.mp3",
   },
   {
     id: "phrase_150",
@@ -2281,7 +2262,7 @@ export const phrases: Phrase[] = [
     pinyin: "guā fēng",
     russian: "Ветрено",
     turkmen: "Şemally",
-    audioFile: "audio/phrase_150.mp3",
+    audioFileTurkmen: "14. Weather/turkmen/14.5.mp3",
   },
   {
     id: "phrase_151",
@@ -2290,7 +2271,7 @@ export const phrases: Phrase[] = [
     pinyin: "xià xuě",
     russian: "Снег",
     turkmen: "Gar",
-    audioFile: "audio/phrase_151.mp3",
+    audioFileTurkmen: "14. Weather/turkmen/14.6.mp3",
   },
   {
     id: "phrase_152",
@@ -2299,7 +2280,7 @@ export const phrases: Phrase[] = [
     pinyin: "rè",
     russian: "Жарко",
     turkmen: "Yssy",
-    audioFile: "audio/phrase_152.mp3",
+    audioFileTurkmen: "14. Weather/turkmen/14.7.mp3",
   },
   {
     id: "phrase_153",
@@ -2308,7 +2289,7 @@ export const phrases: Phrase[] = [
     pinyin: "lěng",
     russian: "Холодно",
     turkmen: "Sowuk",
-    audioFile: "audio/phrase_153.mp3",
+    audioFileTurkmen: "14. Weather/turkmen/14.8.mp3",
   },
   // addressing
   {
@@ -2420,7 +2401,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ jiào...",
     russian: "Меня зовут...",
     turkmen: "Meniň adym...",
-    audioFile: "phrase_301.mp3",
+    audioFileTurkmen: "15. Personal_info/turkmen/15.1.mp3",
   },
   {
     id: "phrase_302",
@@ -2430,7 +2411,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ de xìng shì...",
     russian: "Моя фамилия...",
     turkmen: "Meniň familiýam...",
-    audioFile: "phrase_302.mp3",
+    audioFileTurkmen: "15. Personal_info/turkmen/15.2.mp3",
   },
   {
     id: "phrase_303",
@@ -2440,7 +2421,7 @@ export const phrases: Phrase[] = [
     pinyin: "nín jiào shénme míngzì?",
     russian: "Как вас зовут?",
     turkmen: "Siziň adyňyz kim?",
-    audioFile: "phrase_303.mp3",
+    audioFileTurkmen: "15. Personal_info/turkmen/15.3.mp3",
   },
 
   {
@@ -2451,7 +2432,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ láizì tǔkùmànsītǎn",
     russian: "Я из Туркменистана",
     turkmen: "Men Türkmenistandan",
-    audioFile: "phrase_304.mp3",
+    audioFileTurkmen: "15. Personal_info/turkmen/15.4.mp3",
   },
   {
     id: "phrase_305",
@@ -2461,7 +2442,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ zhù zài āshíhābādé",
     russian: "Я живу в Ашхабаде",
     turkmen: "Men Aşgabatda ýaşaýaryn",
-    audioFile: "phrase_305.mp3",
+    audioFileTurkmen: "15. Personal_info/turkmen/15.5.mp3",
   },
 
   {
@@ -2472,7 +2453,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒmen jiā yǒu sì kǒu rén",
     russian: "В нашей семье 4 человека",
     turkmen: "Biziň maşgalada 4 adam bar",
-    audioFile: "phrase_306.mp3",
+    audioFileTurkmen: "15. Personal_info/turkmen/15.6.mp3",
   },
   {
     id: "phrase_307",
@@ -2482,7 +2463,7 @@ export const phrases: Phrase[] = [
     pinyin: "nín yǒu háizi ma?",
     russian: "У вас есть дети?",
     turkmen: "Siziň çagalaryňyz barmy?",
-    audioFile: "phrase_307.mp3",
+    audioFileTurkmen: "15. Personal_info/turkmen/15.7.mp3",
   },
   {
     id: "phrase_308",
@@ -2492,7 +2473,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ méiyǒu háizi",
     russian: "У меня нет детей",
     turkmen: "Mende çaga ýok",
-    audioFile: "phrase_308.mp3",
+    audioFileTurkmen: "15. Personal_info/turkmen/15.8.mp3",
   },
   {
     id: "phrase_309",
@@ -2502,7 +2483,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ yǒu yí gè háizi",
     russian: "У меня один ребенок",
     turkmen: "Mende bir çaga bar",
-    audioFile: "phrase_309.mp3",
+    audioFileTurkmen: "15. Personal_info/turkmen/15.9.mp3",
   },
   {
     id: "phrase_310",
@@ -2512,7 +2493,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ yǒu liǎng gè háizi",
     russian: "У меня двое детей",
     turkmen: "Mende iki çaga bar",
-    audioFile: "phrase_310.mp3",
+    audioFileTurkmen: "15. Personal_info/turkmen/15.10.mp3",
   },
 
   {
@@ -2523,7 +2504,7 @@ export const phrases: Phrase[] = [
     pinyin: "nín zuò shénme gōngzuò?",
     russian: "Чем вы занимаетесь?",
     turkmen: "Siz näme bilen meşgullanýarsyňyz?",
-    audioFile: "phrase_311.mp3",
+    audioFileTurkmen: "15. Personal_info/turkmen/15.11.mp3",
   },
   {
     id: "phrase_312",
@@ -2533,7 +2514,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ zài gōngchǎng gōngzuò",
     russian: "Я работаю на заводе",
     turkmen: "Men zawodda işleýärin",
-    audioFile: "phrase_312.mp3",
+    audioFileTurkmen: "15. Personal_info/turkmen/15.12.mp3",
   },
   {
     id: "phrase_313",
@@ -2543,7 +2524,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ zài yínháng gōngzuò",
     russian: "Я работаю в банке",
     turkmen: "Men bankda işleýärin",
-    audioFile: "phrase_313.mp3",
+    audioFileTurkmen: "15. Personal_info/turkmen/15.13.mp3",
   },
   {
     id: "phrase_314",
@@ -2553,7 +2534,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ zài yīyuàn gōngzuò",
     russian: "Я работаю в больнице",
     turkmen: "Men hassahanada işleýärin",
-    audioFile: "phrase_314.mp3",
+    audioFileTurkmen: "15. Personal_info/turkmen/15.14.mp3",
   },
 
   {
@@ -2564,7 +2545,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ xué wàiyǔ",
     russian: "Я изучаю иностранные языки",
     turkmen: "Men daşary ýurt dillerini öwrenýärin",
-    audioFile: "phrase_315.mp3",
+    audioFileTurkmen: "15. Personal_info/turkmen/15.15.mp3",
   },
   {
     id: "phrase_316",
@@ -2574,7 +2555,7 @@ export const phrases: Phrase[] = [
     pinyin: "nín huì shuō éyǔ ma?",
     russian: "Вы говорите по-русски?",
     turkmen: "Siz rusça gepleýärsiňizmi?",
-    audioFile: "phrase_316.mp3",
+    audioFileTurkmen: "15. Personal_info/turkmen/15.16.mp3",
   },
   {
     id: "phrase_317",
@@ -2584,7 +2565,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ bù huì shuō",
     russian: "Я не говорю",
     turkmen: "Men geplämok",
-    audioFile: "phrase_317.mp3",
+    audioFileTurkmen: "15. Personal_info/turkmen/15.17.mp3",
   },
   {
     id: "phrase_318",
@@ -2594,7 +2575,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ shuō yìdiǎndiǎn",
     russian: "Я немного говорю",
     turkmen: "Men az-kem gepleýän",
-    audioFile: "phrase_318.mp3",
+    audioFileTurkmen: "15. Personal_info/turkmen/15.18.mp3",
   },
   // Category 16: Business 11 phrases
   {
@@ -2605,7 +2586,7 @@ export const phrases: Phrase[] = [
     pinyin: "huìyì shénme shíhòu kāishǐ?",
     russian: "Когда начинается конференция?",
     turkmen: "Konferensiýa haçan başlaýar?",
-    audioFile: "phrase_377.mp3",
+    audioFileTurkmen: "16. Business/turkmen/16.1.mp3",
   },
   {
     id: "phrase_378",
@@ -2615,7 +2596,7 @@ export const phrases: Phrase[] = [
     pinyin: "fāyán guīdìng shì shénme?",
     russian: "Каков регламент выступлений?",
     turkmen: "Çykyş etmeleriň reglamenti nähili?",
-    audioFile: "phrase_378.mp3",
+    audioFileTurkmen: "16. Business/turkmen/16.2.mp3",
   },
   {
     id: "phrase_379",
@@ -2625,7 +2606,7 @@ export const phrases: Phrase[] = [
     pinyin: "yǒu éyǔ fānyì ma?",
     russian: "Будет перевод на русский язык?",
     turkmen: "Rus diline terjime bolarmy?",
-    audioFile: "phrase_379.mp3",
+    audioFileTurkmen: "16. Business/turkmen/16.3.mp3",
   },
   {
     id: "phrase_380",
@@ -2635,7 +2616,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ yòng éyǔ fāyán",
     russian: "Я буду выступать на русском языке",
     turkmen: "Men rus dilinde çykyş etjek",
-    audioFile: "phrase_380.mp3",
+    audioFileTurkmen: "16. Business/turkmen/16.4.mp3",
   },
 
   {
@@ -2646,7 +2627,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒmen xiǎng cānguān zhǎnlǎn",
     russian: "Мы хотим посмотреть выставку",
     turkmen: "Biz sergini görmek isleýäris",
-    audioFile: "phrase_381.mp3",
+    audioFileTurkmen: "16. Business/turkmen/16.5.mp3",
   },
   {
     id: "phrase_382",
@@ -2656,7 +2637,7 @@ export const phrases: Phrase[] = [
     pinyin: "zhǎnlǎn jǐ diǎn kāifàng?",
     russian: "Во сколько открывается выставка?",
     turkmen: "Sergi haýsy sagatlarda işleýär?",
-    audioFile: "phrase_382.mp3",
+    audioFileTurkmen: "16. Business/turkmen/16.6.mp3",
   },
   {
     id: "phrase_383",
@@ -2666,7 +2647,7 @@ export const phrases: Phrase[] = [
     pinyin: "yǒu duōshǎo gè guójiā cānjiā?",
     russian: "Сколько стран участвует?",
     turkmen: "Sergide näçe ýurt gatnaşýar?",
-    audioFile: "phrase_383.mp3",
+    audioFileTurkmen: "16. Business/turkmen/16.7.mp3",
   },
   {
     id: "phrase_384",
@@ -2676,7 +2657,7 @@ export const phrases: Phrase[] = [
     pinyin: "kěyǐ ná dào zhǎnlǎn mùlù ma?",
     russian: "Можно получить каталог выставки?",
     turkmen: "Serginiň katalogyny almak mümkinmi?",
-    audioFile: "phrase_384.mp3",
+    audioFileTurkmen: "16. Business/turkmen/16.8.mp3",
   },
 
   {
@@ -2687,7 +2668,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒ lái shāngtán yèwù",
     russian: "Я пришел обсудить дела",
     turkmen: "Men meseläni ara alyp maslahatlaşmaga geldim",
-    audioFile: "phrase_385.mp3",
+    audioFileTurkmen: "16. Business/turkmen/16.9.mp3",
   },
   {
     id: "phrase_386",
@@ -2697,7 +2678,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒmen xiǎng yǔ zǒng jīnglǐ tánhuà",
     russian: "Мы хотим поговорить с генеральным директором",
     turkmen: "Biz baş direktor bilen gürrüňdeş bolmagy isleýäris",
-    audioFile: "phrase_386.mp3",
+    audioFileTurkmen: "16. Business/turkmen/16.10.mp3",
   },
   {
     id: "phrase_387",
@@ -2707,7 +2688,7 @@ export const phrases: Phrase[] = [
     pinyin: "wǒmen xiǎng liǎojiě shēngchǎn qíngkuàng",
     russian: "Мы хотим познакомиться с производством",
     turkmen: "Biz önümçilik bilen tanyşasymyz gelýär",
-    audioFile: "phrase_387.mp3",
+    audioFileTurkmen: "16. Business/turkmen/16.11.mp3",
   },
   {
     id: "phrase_388",
@@ -2717,7 +2698,7 @@ export const phrases: Phrase[] = [
     pinyin: "nián chǎnliàng shì duōshǎo?",
     russian: "Каков общий объем производства?",
     turkmen: "Öndürilýän önümiň umumy göwrümi näçe?",
-    audioFile: "phrase_388.mp3",
+    audioFileTurkmen: "16. Business/turkmen/16.12.mp3",
   },
 
   // Category 17: Measurements 8 pharases
@@ -2729,7 +2710,7 @@ export const phrases: Phrase[] = [
     pinyin: "chángdù",
     russian: "Длина",
     turkmen: "Uzynlyk",
-    audioFile: "phrase_389.mp3",
+    audioFileTurkmen: "17. Measurements/turkmen/17.1.mp3",
   },
   {
     id: "phrase_390",
@@ -2739,7 +2720,7 @@ export const phrases: Phrase[] = [
     pinyin: "mǐ",
     russian: "Метр",
     turkmen: "Metr",
-    audioFile: "phrase_390.mp3",
+    audioFileTurkmen: "17. Measurements/turkmen/17.2.mp3",
   },
   {
     id: "phrase_391",
@@ -2749,7 +2730,7 @@ export const phrases: Phrase[] = [
     pinyin: "límǐ",
     russian: "Сантиметр",
     turkmen: "Santimetr",
-    audioFile: "phrase_391.mp3",
+    audioFileTurkmen: "17. Measurements/turkmen/17.3.mp3",
   },
 
   {
@@ -2760,7 +2741,7 @@ export const phrases: Phrase[] = [
     pinyin: "zhòngliàng",
     russian: "Вес",
     turkmen: "Agram",
-    audioFile: "phrase_392.mp3",
+    audioFileTurkmen: "17. Measurements/turkmen/17.4.mp3",
   },
   {
     id: "phrase_393",
@@ -2770,7 +2751,7 @@ export const phrases: Phrase[] = [
     pinyin: "gōngjīn",
     russian: "Килограмм",
     turkmen: "Kilogram",
-    audioFile: "phrase_393.mp3",
+    audioFileTurkmen: "17. Measurements/turkmen/17.5.mp3",
   },
   {
     id: "phrase_394",
@@ -2780,7 +2761,7 @@ export const phrases: Phrase[] = [
     pinyin: "kè",
     russian: "Грамм",
     turkmen: "Gram",
-    audioFile: "phrase_394.mp3",
+    audioFileTurkmen: "17. Measurements/turkmen/17.6.mp3",
   },
 
   {
@@ -2791,7 +2772,7 @@ export const phrases: Phrase[] = [
     pinyin: "tǐjī",
     russian: "Объем",
     turkmen: "Göwrüm",
-    audioFile: "phrase_395.mp3",
+    audioFileTurkmen: "17. Measurements/turkmen/17.7.mp3",
   },
   {
     id: "phrase_396",
@@ -2801,7 +2782,7 @@ export const phrases: Phrase[] = [
     pinyin: "shēng",
     russian: "Литр",
     turkmen: "Litr",
-    audioFile: "phrase_396.mp3",
+    audioFileTurkmen: "17. Measurements/turkmen/17.8.mp3",
   },
 
   // Category 18: Colors 10 phrases
@@ -2813,7 +2794,7 @@ export const phrases: Phrase[] = [
     pinyin: "báisè",
     russian: "Белый",
     turkmen: "Ak",
-    audioFile: "phrase_355.mp3",
+    audioFileTurkmen: "18. Colors/turkmen/18.1.mp3",
   },
   {
     id: "phrase_356",
@@ -2822,7 +2803,7 @@ export const phrases: Phrase[] = [
     pinyin: "huángsè",
     russian: "Желтый",
     turkmen: "Sary",
-    audioFile: "phrase_356.mp3",
+    audioFileTurkmen: "18. Colors/turkmen/18.2.mp3",
   },
   {
     id: "phrase_357",
@@ -2831,7 +2812,7 @@ export const phrases: Phrase[] = [
     pinyin: "lǜsè",
     russian: "Зеленый",
     turkmen: "Ýaşyl",
-    audioFile: "phrase_357.mp3",
+    audioFileTurkmen: "18. Colors/turkmen/18.3.mp3",
   },
   {
     id: "phrase_358",
@@ -2840,7 +2821,7 @@ export const phrases: Phrase[] = [
     pinyin: "lánsè",
     russian: "Синий",
     turkmen: "Gök",
-    audioFile: "phrase_358.mp3",
+    audioFileTurkmen: "18. Colors/turkmen/18.4.mp3",
   },
   {
     id: "phrase_359",
@@ -2849,7 +2830,7 @@ export const phrases: Phrase[] = [
     pinyin: "hóngsè",
     russian: "Красный",
     turkmen: "Gyzyl",
-    audioFile: "phrase_359.mp3",
+    audioFileTurkmen: "18. Colors/turkmen/18.5.mp3",
   },
   {
     id: "phrase_360",
@@ -2858,7 +2839,7 @@ export const phrases: Phrase[] = [
     pinyin: "hēisè",
     russian: "Черный",
     turkmen: "Gara",
-    audioFile: "phrase_360.mp3",
+    audioFileTurkmen: "18. Colors/turkmen/18.6.mp3",
   },
   {
     id: "phrase_361",
@@ -2867,7 +2848,7 @@ export const phrases: Phrase[] = [
     pinyin: "huīsè",
     russian: "Серый",
     turkmen: "Çal",
-    audioFile: "phrase_361.mp3",
+    audioFileTurkmen: "18. Colors/turkmen/18.7.mp3",
   },
   {
     id: "phrase_362",
@@ -2876,7 +2857,7 @@ export const phrases: Phrase[] = [
     pinyin: "zǐsè",
     russian: "Фиолетовый",
     turkmen: "Meňzeş",
-    audioFile: "phrase_362.mp3",
+    audioFileTurkmen: "18. Colors/turkmen/18.8.mp3",
   },
   {
     id: "phrase_363",
@@ -2885,7 +2866,7 @@ export const phrases: Phrase[] = [
     pinyin: "chéngsè",
     russian: "Оранжевый",
     turkmen: "Mämişi",
-    audioFile: "phrase_363.mp3",
+    audioFileTurkmen: "18. Colors/turkmen/18.9.mp3",
   },
   {
     id: "phrase_364",
@@ -2894,7 +2875,7 @@ export const phrases: Phrase[] = [
     pinyin: "fěnsè",
     russian: "Розовый",
     turkmen: "Al",
-    audioFile: "phrase_364.mp3",
+    audioFileTurkmen: "18. Colors/turkmen/18.10.mp3",
   },
 
   // Category 19: Body 8 phrases
@@ -2906,7 +2887,7 @@ export const phrases: Phrase[] = [
     pinyin: "tóu",
     russian: "Голова",
     turkmen: "Baş",
-    audioFile: "phrase_365.mp3",
+    audioFileTurkmen: "19. Body/turkmen/19.1.mp3",
   },
   {
     id: "phrase_366",
@@ -2915,7 +2896,7 @@ export const phrases: Phrase[] = [
     pinyin: "shǒu",
     russian: "Рука",
     turkmen: "El",
-    audioFile: "phrase_366.mp3",
+    audioFileTurkmen: "19. Body/turkmen/19.2.mp3",
   },
   {
     id: "phrase_367",
@@ -2924,7 +2905,7 @@ export const phrases: Phrase[] = [
     pinyin: "jiǎo",
     russian: "Нога",
     turkmen: "Aýak",
-    audioFile: "phrase_367.mp3",
+    audioFileTurkmen: "19. Body/turkmen/19.3.mp3",
   },
   {
     id: "phrase_368",
@@ -2933,7 +2914,7 @@ export const phrases: Phrase[] = [
     pinyin: "yǎnjīng",
     russian: "Глаза",
     turkmen: "Göz",
-    audioFile: "phrase_368.mp3",
+    audioFileTurkmen: "19. Body/turkmen/19.4.mp3",
   },
   {
     id: "phrase_369",
@@ -2942,7 +2923,7 @@ export const phrases: Phrase[] = [
     pinyin: "bízi",
     russian: "Нос",
     turkmen: "Burun",
-    audioFile: "phrase_369.mp3",
+    audioFileTurkmen: "19. Body/turkmen/19.5.mp3",
   },
   {
     id: "phrase_370",
@@ -2951,7 +2932,7 @@ export const phrases: Phrase[] = [
     pinyin: "zuǐ",
     russian: "Рот",
     turkmen: "Agyz",
-    audioFile: "phrase_370.mp3",
+    audioFileTurkmen: "19. Body/turkmen/19.6.mp3",
   },
   {
     id: "phrase_371",
@@ -2960,7 +2941,7 @@ export const phrases: Phrase[] = [
     pinyin: "ěrduǒ",
     russian: "Ухо",
     turkmen: "Gulak",
-    audioFile: "phrase_371.mp3",
+    audioFileTurkmen: "19. Body/turkmen/19.7.mp3",
   },
 
   // Category 20: home 6 phrases
@@ -2971,7 +2952,7 @@ export const phrases: Phrase[] = [
     pinyin: "mén",
     russian: "Дверь",
     turkmen: "Gapy",
-    audioFile: "phrase_439.mp3",
+    audioFileTurkmen: "20. Home/turkmen/20.2.mp3",
   },
   {
     id: "phrase_440",
@@ -2980,7 +2961,7 @@ export const phrases: Phrase[] = [
     pinyin: "chuānghu",
     russian: "Окно",
     turkmen: "Penjire",
-    audioFile: "phrase_440.mp3",
+    audioFileTurkmen: "20. Home/turkmen/20.3.mp3",
   },
   {
     id: "phrase_441",
@@ -2989,7 +2970,7 @@ export const phrases: Phrase[] = [
     pinyin: "zhuōzi",
     russian: "Стол",
     turkmen: "Stol",
-    audioFile: "phrase_441.mp3",
+    audioFileTurkmen: "20. Home/turkmen/20.4.mp3",
   },
   {
     id: "phrase_442",
@@ -2998,7 +2979,7 @@ export const phrases: Phrase[] = [
     pinyin: "yǐzi",
     russian: "Стул",
     turkmen: "Oturgyç",
-    audioFile: "phrase_442.mp3",
+    audioFileTurkmen: "20. Home/turkmen/20.5.mp3",
   },
   {
     id: "phrase_443",
@@ -3007,6 +2988,210 @@ export const phrases: Phrase[] = [
     pinyin: "chuáng",
     russian: "Кровать",
     turkmen: "Düşek",
-    audioFile: "phrase_443.mp3",
+    audioFileTurkmen: "20. Home/turkmen/20.6.mp3",
+  },
+
+  // Category 21: Customs - 10 phrases
+  {
+    id: "phrase_444",
+    categoryId: "customs",
+    subcategoryId: "customs_passport",
+    chinese: "护照检查在哪里？",
+    pinyin: "hùzhào jiǎnchá zài nǎlǐ?",
+    russian: "Где паспортный контроль?",
+    turkmen: "Pasport gözegçiligi nirede?",
+    audioFileTurkmen: "21. Customs/turkmen/21.1.mp3",
+  },
+  {
+    id: "phrase_445",
+    categoryId: "customs",
+    subcategoryId: "customs_passport",
+    chinese: "这是我的护照",
+    pinyin: "zhè shì wǒ de hùzhào",
+    russian: "Вот мой паспорт",
+    turkmen: "Ine meniň pasportym",
+    audioFileTurkmen: "21. Customs/turkmen/21.2.mp3",
+  },
+  {
+    id: "phrase_446",
+    categoryId: "customs",
+    subcategoryId: "customs_passport",
+    chinese: "我打算在中国停留一周",
+    pinyin: "wǒ dǎsuàn zài zhōngguó tíngliú yī zhōu",
+    russian: "Я намереваюсь пробыть в Китае неделю",
+    turkmen: "Men Hytaýda bir hepde bolmagy niýet edýärin",
+    audioFileTurkmen: "21. Customs/turkmen/21.3.mp3",
+  },
+  {
+    id: "phrase_447",
+    categoryId: "customs",
+    subcategoryId: "customs_passport",
+    chinese: "我有单次签证",
+    pinyin: "wǒ yǒu dān cì qiānzhèng",
+    russian: "У меня однократная виза",
+    turkmen: "Meniň bir gezeklik wizam bar",
+    audioFileTurkmen: "21. Customs/turkmen/21.4.mp3",
+  },
+  {
+    id: "phrase_448",
+    categoryId: "customs",
+    subcategoryId: "customs_passport",
+    chinese: "我在过境",
+    pinyin: "wǒ zài guòjìng",
+    russian: "Я в вашей стране проездом",
+    turkmen: "Men siziň ýurduňyzdan geçip gitmekçi",
+    audioFileTurkmen: "21. Customs/turkmen/21.5.mp3",
+  },
+  {
+    id: "phrase_449",
+    categoryId: "customs",
+    subcategoryId: "customs_baggage",
+    chinese: "这是我的海关申报单",
+    pinyin: "zhè shì wǒ de hǎiguān shēnbàodān",
+    russian: "Вот моя таможенная декларация",
+    turkmen: "Ine meniň gümrükhana deklarasiýam",
+    audioFileTurkmen: "21. Customs/turkmen/21.6.mp3",
+  },
+  {
+    id: "phrase_450",
+    categoryId: "customs",
+    subcategoryId: "customs_baggage",
+    chinese: "这是我的行李",
+    pinyin: "zhè shì wǒ de xíngli",
+    russian: "Вот мой багаж",
+    turkmen: "Ine meniň bagažym",
+    audioFileTurkmen: "21. Customs/turkmen/21.7.mp3",
+  },
+  {
+    id: "phrase_451",
+    categoryId: "customs",
+    subcategoryId: "customs_baggage",
+    chinese: "我没有违禁物品",
+    pinyin: "wǒ méiyǒu wéijìn wùpǐn",
+    russian: "В моем багаже нет запрещенных предметов",
+    turkmen: "Meniň bagažymda gadagan edilen zatlar ýok",
+    audioFileTurkmen: "21. Customs/turkmen/21.8.mp3",
+  },
+  {
+    id: "phrase_452",
+    categoryId: "customs",
+    subcategoryId: "customs_baggage",
+    chinese: "这些是我的个人物品",
+    pinyin: "zhèxiē shì wǒ de gèrén wùpǐn",
+    russian: "Это мои личные вещи",
+    turkmen: "Bular meniň şahsy zatlarym",
+    audioFileTurkmen: "21. Customs/turkmen/21.9.mp3",
+  },
+  {
+    id: "phrase_453",
+    categoryId: "customs",
+    subcategoryId: "customs_baggage",
+    chinese: "我需要缴税吗？",
+    pinyin: "wǒ xūyào jiǎoshuì ma?",
+    russian: "Какую пошлину надо уплатить?",
+    turkmen: "Näçe paç tölemeli?",
+    audioFileTurkmen: "21. Customs/turkmen/21.10.mp3",
+  },
+
+  // Category 22: Sport - 10 phrases
+  {
+    id: "phrase_454",
+    categoryId: "sport",
+    subcategoryId: "sports_activities",
+    chinese: "你喜欢什么运动？",
+    pinyin: "nǐ xǐhuān shénme yùndòng?",
+    russian: "Какой спорт вы любите?",
+    turkmen: "Siz haýsy sporty halaýarsyňyz?",
+    audioFileTurkmen: "22. Sport/turkmen/22.1.mp3",
+  },
+  {
+    id: "phrase_455",
+    categoryId: "sport",
+    subcategoryId: "sports_activities",
+    chinese: "我喜欢踢足球",
+    pinyin: "wǒ xǐhuān tī zúqiú",
+    russian: "Я люблю играть в футбол",
+    turkmen: "Men futbol oýnamagy halaýaryn",
+    audioFileTurkmen: "22. Sport/turkmen/22.2.mp3",
+  },
+  {
+    id: "phrase_456",
+    categoryId: "sport",
+    subcategoryId: "sports_activities",
+    chinese: "篮球",
+    pinyin: "lánqiú",
+    russian: "Баскетбол",
+    turkmen: "Basketbol",
+    audioFileTurkmen: "22. Sport/turkmen/22.3.mp3",
+  },
+  {
+    id: "phrase_457",
+    categoryId: "sport",
+    subcategoryId: "sports_activities",
+    chinese: "游泳",
+    pinyin: "yóuyǒng",
+    russian: "Плавание",
+    turkmen: "Suwda ýüzmek",
+    audioFileTurkmen: "22. Sport/turkmen/22.4.mp3",
+  },
+  {
+    id: "phrase_458",
+    categoryId: "sport",
+    subcategoryId: "sports_activities",
+    chinese: "跑步",
+    pinyin: "pǎobù",
+    russian: "Бег",
+    turkmen: "Ylgamak",
+    audioFileTurkmen: "22. Sport/turkmen/22.5.mp3",
+  },
+  {
+    id: "phrase_459",
+    categoryId: "sport",
+    subcategoryId: "sports_activities",
+    chinese: "健身房在哪里？",
+    pinyin: "jiànshēnfáng zài nǎlǐ?",
+    russian: "Где находится спортзал?",
+    turkmen: "Sport zaly nirede?",
+    audioFileTurkmen: "22. Sport/turkmen/22.6.mp3",
+  },
+  {
+    id: "phrase_460",
+    categoryId: "sport",
+    subcategoryId: "sports_activities",
+    chinese: "我想锻炼",
+    pinyin: "wǒ xiǎng duànliàn",
+    russian: "Я хочу тренироваться",
+    turkmen: "Men türgenleşik etmek isleýärin",
+    audioFileTurkmen: "22. Sport/turkmen/22.7.mp3",
+  },
+  {
+    id: "phrase_461",
+    categoryId: "sport",
+    subcategoryId: "sports_useful_words",
+    chinese: "教练",
+    pinyin: "jiàoliàn",
+    russian: "Тренер",
+    turkmen: "Tälimçi",
+    audioFileTurkmen: "22. Sport/turkmen/22.8.mp3",
+  },
+  {
+    id: "phrase_462",
+    categoryId: "sport",
+    subcategoryId: "sports_useful_words",
+    chinese: "比赛",
+    pinyin: "bǐsài",
+    russian: "Соревнование / Матч",
+    turkmen: "Ýaryş / Oýun",
+    audioFileTurkmen: "22. Sport/turkmen/22.9.mp3",
+  },
+  {
+    id: "phrase_463",
+    categoryId: "sport",
+    subcategoryId: "sports_useful_words",
+    chinese: "运动场",
+    pinyin: "yùndòngchǎng",
+    russian: "Стадион",
+    turkmen: "Stadion",
+    audioFileTurkmen: "22. Sport/turkmen/22.10.mp3",
   },
 ];

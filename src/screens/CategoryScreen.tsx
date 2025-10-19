@@ -1,5 +1,3 @@
-// src/screens/CategoryScreen.tsx - ПОЛНАЯ ФИНАЛЬНАЯ ВЕРСИЯ
-
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import {
   View,
@@ -56,18 +54,15 @@ const PhraseItem = React.memo<{
     onPress(phrase);
   }, [phrase, onPress]);
 
-  // ✅ ИСПРАВЛЕНО: используем playAudio с путями к MP3
-  const handlePlayChinese = useCallback(() => {
-    if (phrase.audioFileChinese) {
-      playAudio(phrase.audioFileChinese, 'chinese');
-    }
-  }, [phrase.audioFileChinese, playAudio]);
+ 
+  // ✅ ИСПРАВЛЕНО: Новый формат playAudio
+const handlePlayChinese = useCallback(() => {
+  playAudio(phrase.chinese, 'chinese'); // TTS
+}, [phrase.chinese, playAudio]);
 
-  const handlePlayTurkmen = useCallback(() => {
-    if (phrase.audioFileTurkmen) {
-      playAudio(phrase.audioFileTurkmen, 'turkmen');
-    }
-  }, [phrase.audioFileTurkmen, playAudio]);
+const handlePlayTurkmen = useCallback(() => {
+  playAudio(phrase.turkmen, 'turkmen', phrase.audioFileTurkmen); // MP3 + путь
+}, [phrase.turkmen, phrase.audioFileTurkmen, playAudio]);
 
   // Правильная логика отображения языков
   const getSecondaryText = () => {

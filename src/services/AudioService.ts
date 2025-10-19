@@ -1,13 +1,15 @@
 // src/services/AudioService.ts
-// ✅ ОБНОВЛЕНО: Удален Expo Speech, только expo-av для MP3
+// ✅ ОБНОВЛЕНО: Гибридная система MP3 + TTS
 
 import { Audio } from 'expo-av';
+import * as Speech from 'expo-speech';
+import { getAudioSource } from '../data/audioMapping';
 import { IAudioService } from './index';
 import { AUDIO_CONFIG, ERROR_MESSAGES } from '../constants/AppConstants';
 
 /**
- * ✅ AUDIO SERVICE - Offline MP3 Playback Only
- * Handles audio playback for pre-recorded MP3 files
+ * ✅ AUDIO SERVICE - Hybrid MP3 + TTS
+ * MP3 для туркменского, TTS для китайского и русского
  */
 class AudioServiceImpl implements IAudioService {
   private currentSound: Audio.Sound | null = null;
@@ -47,33 +49,50 @@ class AudioServiceImpl implements IAudioService {
   }
 
   /**
-   * Play audio file from path
-   * @param audioPath - Path to MP3 file (e.g., '1. Greetings/chinese/phrase_001.mp3')
+   * Play audio (hybrid MP3 + TTS)
+   * @param text - текст для произношения
+   * @param language - 'chinese' | 'turkmen' | 'russian'
+   * @param audioPath - путь к MP3 (только для туркменского)
    */
-  async play(audioPath: string): Promise<void> {
+  async play(text: string, language: 'chinese' | 'turkmen' | 'russian', audioPath?: string): Promise<void> {
     try {
       await this.ensureInitialized();
       await this.stop(); // Stop any currently playing audio
 
-      // Load audio file
-      const audioFile = require(`../../assets/audio/${audioPath}`);
+      // ✅ ТУРКМЕНСКИЙ - MP3
+      if (language === 'turkmen' && audioPath) {
+        const audioSource = getAudioSource(audioPath);
+        
+        if (audioSource) {
+          const { sound } = await Audio.Sound.createAsync(
+            audioSource,
+            {
+              shouldPlay: true,
+              volume: this.currentVolume,
+              rate: this.currentRate,
+            }
+          );
 
-      const { sound } = await Audio.Sound.createAsync(
-        audioFile,
-        {
-          shouldPlay: true,
-          volume: this.currentVolume,
-          rate: this.currentRate,
+          this.currentSound = sound;
+          
+          // Set up completion callback
+          sound.setOnPlaybackStatusUpdate((status) => {
+            if (status.isLoaded && status.didJustFinish) {
+              this.cleanup();
+            }
+          });
+          
+          return;
         }
-      );
+      }
 
-      this.currentSound = sound;
+      // ✅ КИТАЙСКИЙ и РУССКИЙ - TTS
+      const languageCode = language === 'chinese' ? 'zh-CN' : 'ru-RU';
       
-      // Set up completion callback
-      sound.setOnPlaybackStatusUpdate((status) => {
-        if (status.isLoaded && status.didJustFinish) {
-          this.cleanup();
-        }
+      await Speech.speak(text, {
+        language: languageCode,
+        rate: 0.85,
+        pitch: 1.0,
       });
 
     } catch (error) {
@@ -91,6 +110,7 @@ class AudioServiceImpl implements IAudioService {
         await this.currentSound.unloadAsync();
         this.currentSound = null;
       }
+      Speech.stop();
     } catch (error) {
       console.warn('AudioService.stop failed:', error);
     }
@@ -104,6 +124,7 @@ class AudioServiceImpl implements IAudioService {
       if (this.currentSound) {
         await this.currentSound.pauseAsync();
       }
+      // TTS не поддерживает паузу
     } catch (error) {
       console.warn('AudioService.pause failed:', error);
     }
@@ -117,6 +138,7 @@ class AudioServiceImpl implements IAudioService {
       if (this.currentSound) {
         await this.currentSound.playAsync();
       }
+      // TTS не поддерживает resume
     } catch (error) {
       console.warn('AudioService.resume failed:', error);
     }

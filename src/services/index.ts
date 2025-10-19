@@ -11,11 +11,21 @@ export interface IStorageService {
   clear(): Promise<boolean>;
 }
 
+// ✅ ОБНОВЛЕНО: Гибридная аудио система
 export interface IAudioService {
-  play(audioFile: string): Promise<void>;
+  play(text: string, language: 'chinese' | 'turkmen' | 'russian', audioPath?: string): Promise<void>;
   stop(): Promise<void>;
+  pause(): Promise<void>;
+  resume(): Promise<void>;
   setRate(rate: number): void;
   setVolume(volume: number): void;
+  getStatus(): Promise<{
+    isPlaying: boolean;
+    isLoaded: boolean;
+    position?: number;
+    duration?: number;
+  }>;
+  destroy(): Promise<void>;
 }
 
 export interface IAnalyticsService {

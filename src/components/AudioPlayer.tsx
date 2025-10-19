@@ -1,5 +1,5 @@
 // src/components/AudioPlayer.tsx
-// ✅ ОБНОВЛЕНО: Используем новую систему аудио с отдельными файлами
+// ✅ УПРОЩЕНО: Кнопки всегда видны, работают с гибридной системой
 
 import React from 'react';
 import {
@@ -15,9 +15,9 @@ import { useAudio } from '../hooks/useAudio';
 import { useAppLanguage } from '../contexts/LanguageContext';
 
 interface AudioPlayerProps {
-  audioFileChinese?: string;  // ✅ Путь к китайскому аудио
-  audioFileTurkmen?: string;  // ✅ Путь к туркменскому аудио
-  language: 'chinese' | 'turkmen';
+  text: string;                    // Текст для произношения (TTS)
+  language: 'chinese' | 'turkmen' | 'russian';
+  audioPath?: string;              // Путь к MP3 (только для туркменского)
   label: string;
   style: 'primary' | 'secondary';
   size?: 'small' | 'large';
@@ -25,9 +25,9 @@ interface AudioPlayerProps {
 }
 
 export default function AudioPlayer({ 
-  audioFileChinese,
-  audioFileTurkmen,
-  language, 
+  text,
+  language,
+  audioPath,
   label, 
   style,
   size = 'large',
@@ -36,22 +36,11 @@ export default function AudioPlayer({
   const { isPlaying, isLoading, playAudio, stopAudio } = useAudio();
   const { config } = useAppLanguage();
 
-  // Определяем, какой аудио файл использовать
-  const audioFile = language === 'chinese' ? audioFileChinese : audioFileTurkmen;
-
-  // Проверяем доступность аудио
-  const hasAudio = !!audioFile;
-
   const handlePress = async () => {
-    if (!hasAudio) {
-      // Если аудио нет - показываем сообщение (опционально)
-      return;
-    }
-
     if (isPlaying) {
       await stopAudio();
     } else {
-      await playAudio(audioFile, language);
+      await playAudio(text, language, audioPath);
     }
   };
 
@@ -79,31 +68,11 @@ export default function AudioPlayer({
     return 'Воспроизводится...';
   };
 
-  // Если аудио нет - показываем заблокированную кнопку
-  if (!hasAudio) {
-    return (
-      <View style={[getButtonStyle(), styles.disabled, styles.noAudio]}>
-        <Ionicons
-          name="volume-mute-outline"
-          size={getIconSize()}
-          color="#999"
-        />
-        {size === 'large' && (
-          <Text style={[getTextStyle(), styles.noAudioText]}>
-            {config.mode === 'tk' ? 'Audio ýok' : 
-             config.mode === 'zh' ? '无音频' : 
-             'Аудио нет'}
-          </Text>
-        )}
-      </View>
-    );
-  }
-
   return (
     <TouchableOpacity
       style={[getButtonStyle(), (disabled || isLoading) && styles.disabled]}
       onPress={handlePress}
-      disabled={disabled || isPlaying || isLoading}
+      disabled={disabled || isLoading}
       activeOpacity={0.7}
     >
       <View style={styles.content}>
@@ -171,12 +140,5 @@ const styles = StyleSheet.create({
   },
   disabled: {
     opacity: 0.5,
-  },
-  noAudio: {
-    backgroundColor: '#E0E0E0',
-  },
-  noAudioText: {
-    color: '#666',
-    fontStyle: 'italic',
   },
 });
