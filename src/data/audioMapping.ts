@@ -1,8 +1,9 @@
-// src/data/audioMapping.ts
-// ✅ ПОЛНЫЙ МАППИНГ для 295 туркменских аудио файлов
+// АВТОГЕНЕРИРОВАНО скриптом syncAudioFiles.js
+// Дата: 19.10.2025, 09:33:11
+// Всего файлов: 286
 
 const TURKMEN_AUDIO: Record<string, any> = {
-  // 1. Greetings (27 phrases)
+  // 1. Greetings (27 files)
   '1. Greetings/turkmen/1.1.mp3': require('../../assets/audio/1. Greetings/turkmen/1.1.mp3'),
   '1. Greetings/turkmen/1.2.mp3': require('../../assets/audio/1. Greetings/turkmen/1.2.mp3'),
   '1. Greetings/turkmen/1.3.mp3': require('../../assets/audio/1. Greetings/turkmen/1.3.mp3'),
@@ -31,7 +32,7 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '1. Greetings/turkmen/1.26.mp3': require('../../assets/audio/1. Greetings/turkmen/1.26.mp3'),
   '1. Greetings/turkmen/1.27.mp3': require('../../assets/audio/1. Greetings/turkmen/1.27.mp3'),
 
-  // 2. Emergency (13 phrases)
+  // 2. Emergency (11 files)
   '2. Emergency/turkmen/2.1.mp3': require('../../assets/audio/2. Emergency/turkmen/2.1.mp3'),
   '2. Emergency/turkmen/2.2.mp3': require('../../assets/audio/2. Emergency/turkmen/2.2.mp3'),
   '2. Emergency/turkmen/2.3.mp3': require('../../assets/audio/2. Emergency/turkmen/2.3.mp3'),
@@ -43,10 +44,8 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '2. Emergency/turkmen/2.9.mp3': require('../../assets/audio/2. Emergency/turkmen/2.9.mp3'),
   '2. Emergency/turkmen/2.10.mp3': require('../../assets/audio/2. Emergency/turkmen/2.10.mp3'),
   '2. Emergency/turkmen/2.11.mp3': require('../../assets/audio/2. Emergency/turkmen/2.11.mp3'),
-  '2. Emergency/turkmen/2.12.mp3': require('../../assets/audio/2. Emergency/turkmen/2.12.mp3'),
-  '2. Emergency/turkmen/2.13.mp3': require('../../assets/audio/2. Emergency/turkmen/2.13.mp3'),
 
-  // 3. Hotel (14 phrases)
+  // 3. Hotel (12 files)
   '3. Hotel/turkmen/3.1.mp3': require('../../assets/audio/3. Hotel/turkmen/3.1.mp3'),
   '3. Hotel/turkmen/3.2.mp3': require('../../assets/audio/3. Hotel/turkmen/3.2.mp3'),
   '3. Hotel/turkmen/3.3.mp3': require('../../assets/audio/3. Hotel/turkmen/3.3.mp3'),
@@ -59,10 +58,8 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '3. Hotel/turkmen/3.10.mp3': require('../../assets/audio/3. Hotel/turkmen/3.10.mp3'),
   '3. Hotel/turkmen/3.11.mp3': require('../../assets/audio/3. Hotel/turkmen/3.11.mp3'),
   '3. Hotel/turkmen/3.12.mp3': require('../../assets/audio/3. Hotel/turkmen/3.12.mp3'),
-  '3. Hotel/turkmen/3.13.mp3': require('../../assets/audio/3. Hotel/turkmen/3.13.mp3'),
-  '3. Hotel/turkmen/3.14.mp3': require('../../assets/audio/3. Hotel/turkmen/3.14.mp3'),
 
-  // 4. Food (47 phrases)
+  // 4. Food (43 files)
   '4. Food/turkmen/4.1.mp3': require('../../assets/audio/4. Food/turkmen/4.1.mp3'),
   '4. Food/turkmen/4.2.mp3': require('../../assets/audio/4. Food/turkmen/4.2.mp3'),
   '4. Food/turkmen/4.3.mp3': require('../../assets/audio/4. Food/turkmen/4.3.mp3'),
@@ -80,7 +77,6 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '4. Food/turkmen/4.15.mp3': require('../../assets/audio/4. Food/turkmen/4.15.mp3'),
   '4. Food/turkmen/4.16.mp3': require('../../assets/audio/4. Food/turkmen/4.16.mp3'),
   '4. Food/turkmen/4.17.mp3': require('../../assets/audio/4. Food/turkmen/4.17.mp3'),
-  '4. Food/turkmen/4.18.mp3': require('../../assets/audio/4. Food/turkmen/4.18.mp3'),
   '4. Food/turkmen/4.19.mp3': require('../../assets/audio/4. Food/turkmen/4.19.mp3'),
   '4. Food/turkmen/4.20.mp3': require('../../assets/audio/4. Food/turkmen/4.20.mp3'),
   '4. Food/turkmen/4.21.mp3': require('../../assets/audio/4. Food/turkmen/4.21.mp3'),
@@ -107,19 +103,8 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '4. Food/turkmen/4.42.mp3': require('../../assets/audio/4. Food/turkmen/4.42.mp3'),
   '4. Food/turkmen/4.43.mp3': require('../../assets/audio/4. Food/turkmen/4.43.mp3'),
   '4. Food/turkmen/4.44.mp3': require('../../assets/audio/4. Food/turkmen/4.44.mp3'),
-  '4. Food/turkmen/4.45.mp3': require('../../assets/audio/4. Food/turkmen/4.45.mp3'),
-  '4. Food/turkmen/4.46.mp3': require('../../assets/audio/4. Food/turkmen/4.46.mp3'),
-  '4. Food/turkmen/4.47.mp3': require('../../assets/audio/4. Food/turkmen/4.47.mp3'),
 
-  // 20. Home (6 phrases)
-  '20. Home/turkmen/20.1.mp3': require('../../assets/audio/20. Home/turkmen/20.1.mp3'),
-  '20. Home/turkmen/20.2.mp3': require('../../assets/audio/20. Home/turkmen/20.2.mp3'),
-  '20. Home/turkmen/20.3.mp3': require('../../assets/audio/20. Home/turkmen/20.3.mp3'),
-  '20. Home/turkmen/20.4.mp3': require('../../assets/audio/20. Home/turkmen/20.4.mp3'),
-  '20. Home/turkmen/20.5.mp3': require('../../assets/audio/20. Home/turkmen/20.5.mp3'),
-  '20. Home/turkmen/20.6.mp3': require('../../assets/audio/20. Home/turkmen/20.6.mp3'),
-
-  // 5. Shopping (16 phrases)
+  // 5. Shopping (16 files)
   '5. Shopping/turkmen/5.1.mp3': require('../../assets/audio/5. Shopping/turkmen/5.1.mp3'),
   '5. Shopping/turkmen/5.2.mp3': require('../../assets/audio/5. Shopping/turkmen/5.2.mp3'),
   '5. Shopping/turkmen/5.3.mp3': require('../../assets/audio/5. Shopping/turkmen/5.3.mp3'),
@@ -137,7 +122,7 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '5. Shopping/turkmen/5.15.mp3': require('../../assets/audio/5. Shopping/turkmen/5.15.mp3'),
   '5. Shopping/turkmen/5.16.mp3': require('../../assets/audio/5. Shopping/turkmen/5.16.mp3'),
 
-  // 6. Transport (14 phrases)
+  // 6. Transport (14 files)
   '6. Transport/turkmen/6.1.mp3': require('../../assets/audio/6. Transport/turkmen/6.1.mp3'),
   '6. Transport/turkmen/6.2.mp3': require('../../assets/audio/6. Transport/turkmen/6.2.mp3'),
   '6. Transport/turkmen/6.3.mp3': require('../../assets/audio/6. Transport/turkmen/6.3.mp3'),
@@ -153,7 +138,7 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '6. Transport/turkmen/6.13.mp3': require('../../assets/audio/6. Transport/turkmen/6.13.mp3'),
   '6. Transport/turkmen/6.14.mp3': require('../../assets/audio/6. Transport/turkmen/6.14.mp3'),
 
-  // 7. Directions (10 phrases)
+  // 7. Directions (10 files)
   '7. Directions/turkmen/7.1.mp3': require('../../assets/audio/7. Directions/turkmen/7.1.mp3'),
   '7. Directions/turkmen/7.2.mp3': require('../../assets/audio/7. Directions/turkmen/7.2.mp3'),
   '7. Directions/turkmen/7.3.mp3': require('../../assets/audio/7. Directions/turkmen/7.3.mp3'),
@@ -165,7 +150,7 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '7. Directions/turkmen/7.9.mp3': require('../../assets/audio/7. Directions/turkmen/7.9.mp3'),
   '7. Directions/turkmen/7.10.mp3': require('../../assets/audio/7. Directions/turkmen/7.10.mp3'),
 
-  // 8. Health (12 phrases)
+  // 8. Health (12 files)
   '8. Health/turkmen/8.1.mp3': require('../../assets/audio/8. Health/turkmen/8.1.mp3'),
   '8. Health/turkmen/8.2.mp3': require('../../assets/audio/8. Health/turkmen/8.2.mp3'),
   '8. Health/turkmen/8.3.mp3': require('../../assets/audio/8. Health/turkmen/8.3.mp3'),
@@ -179,7 +164,7 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '8. Health/turkmen/8.11.mp3': require('../../assets/audio/8. Health/turkmen/8.11.mp3'),
   '8. Health/turkmen/8.12.mp3': require('../../assets/audio/8. Health/turkmen/8.12.mp3'),
 
-  // 9. Money (8 phrases)
+  // 9. Money (9 files)
   '9. Money/turkmen/9.1.mp3': require('../../assets/audio/9. Money/turkmen/9.1.mp3'),
   '9. Money/turkmen/9.2.mp3': require('../../assets/audio/9. Money/turkmen/9.2.mp3'),
   '9. Money/turkmen/9.3.mp3': require('../../assets/audio/9. Money/turkmen/9.3.mp3'),
@@ -188,14 +173,15 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '9. Money/turkmen/9.6.mp3': require('../../assets/audio/9. Money/turkmen/9.6.mp3'),
   '9. Money/turkmen/9.7.mp3': require('../../assets/audio/9. Money/turkmen/9.7.mp3'),
   '9. Money/turkmen/9.8.mp3': require('../../assets/audio/9. Money/turkmen/9.8.mp3'),
+  '9. Money/turkmen/9.9.mp3': require('../../assets/audio/9. Money/turkmen/9.9.mp3'),
 
-  // 10. Communication (4 phrases)
+  // 10. Communication (4 files)
   '10. Communication/turkmen/10.1.mp3': require('../../assets/audio/10. Communication/turkmen/10.1.mp3'),
   '10. Communication/turkmen/10.2.mp3': require('../../assets/audio/10. Communication/turkmen/10.2.mp3'),
   '10. Communication/turkmen/10.3.mp3': require('../../assets/audio/10. Communication/turkmen/10.3.mp3'),
   '10. Communication/turkmen/10.4.mp3': require('../../assets/audio/10. Communication/turkmen/10.4.mp3'),
 
-  // 11. Entertainment (10 phrases)
+  // 11. Entertainment (10 files)
   '11. Entertainment/turkmen/11.1.mp3': require('../../assets/audio/11. Entertainment/turkmen/11.1.mp3'),
   '11. Entertainment/turkmen/11.2.mp3': require('../../assets/audio/11. Entertainment/turkmen/11.2.mp3'),
   '11. Entertainment/turkmen/11.3.mp3': require('../../assets/audio/11. Entertainment/turkmen/11.3.mp3'),
@@ -207,7 +193,7 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '11. Entertainment/turkmen/11.9.mp3': require('../../assets/audio/11. Entertainment/turkmen/11.9.mp3'),
   '11. Entertainment/turkmen/11.10.mp3': require('../../assets/audio/11. Entertainment/turkmen/11.10.mp3'),
 
-  // 12. Time (31 phrases)
+  // 12. Time (29 files)
   '12. Time/turkmen/12.1.mp3': require('../../assets/audio/12. Time/turkmen/12.1.mp3'),
   '12. Time/turkmen/12.2.mp3': require('../../assets/audio/12. Time/turkmen/12.2.mp3'),
   '12. Time/turkmen/12.3.mp3': require('../../assets/audio/12. Time/turkmen/12.3.mp3'),
@@ -218,8 +204,6 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '12. Time/turkmen/12.8.mp3': require('../../assets/audio/12. Time/turkmen/12.8.mp3'),
   '12. Time/turkmen/12.9.mp3': require('../../assets/audio/12. Time/turkmen/12.9.mp3'),
   '12. Time/turkmen/12.10.mp3': require('../../assets/audio/12. Time/turkmen/12.10.mp3'),
-  '12. Time/turkmen/12.11.mp3': require('../../assets/audio/12. Time/turkmen/12.11.mp3'),
-  '12. Time/turkmen/12.12.mp3': require('../../assets/audio/12. Time/turkmen/12.12.mp3'),
   '12. Time/turkmen/12.13.mp3': require('../../assets/audio/12. Time/turkmen/12.13.mp3'),
   '12. Time/turkmen/12.14.mp3': require('../../assets/audio/12. Time/turkmen/12.14.mp3'),
   '12. Time/turkmen/12.15.mp3': require('../../assets/audio/12. Time/turkmen/12.15.mp3'),
@@ -240,7 +224,7 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '12. Time/turkmen/12.30.mp3': require('../../assets/audio/12. Time/turkmen/12.30.mp3'),
   '12. Time/turkmen/12.31.mp3': require('../../assets/audio/12. Time/turkmen/12.31.mp3'),
 
-  // 13. Numbers (20 phrases)
+  // 13. Numbers (20 files)
   '13. Numbers/turkmen/13.1.mp3': require('../../assets/audio/13. Numbers/turkmen/13.1.mp3'),
   '13. Numbers/turkmen/13.2.mp3': require('../../assets/audio/13. Numbers/turkmen/13.2.mp3'),
   '13. Numbers/turkmen/13.3.mp3': require('../../assets/audio/13. Numbers/turkmen/13.3.mp3'),
@@ -262,7 +246,7 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '13. Numbers/turkmen/13.19.mp3': require('../../assets/audio/13. Numbers/turkmen/13.19.mp3'),
   '13. Numbers/turkmen/13.20.mp3': require('../../assets/audio/13. Numbers/turkmen/13.20.mp3'),
 
-  // 14. Weather (8 phrases)
+  // 14. Weather (8 files)
   '14. Weather/turkmen/14.1.mp3': require('../../assets/audio/14. Weather/turkmen/14.1.mp3'),
   '14. Weather/turkmen/14.2.mp3': require('../../assets/audio/14. Weather/turkmen/14.2.mp3'),
   '14. Weather/turkmen/14.3.mp3': require('../../assets/audio/14. Weather/turkmen/14.3.mp3'),
@@ -272,7 +256,7 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '14. Weather/turkmen/14.7.mp3': require('../../assets/audio/14. Weather/turkmen/14.7.mp3'),
   '14. Weather/turkmen/14.8.mp3': require('../../assets/audio/14. Weather/turkmen/14.8.mp3'),
 
-  // 15. Personal_info (18 phrases)
+  // 15. Personal_info (18 files)
   '15. Personal_info/turkmen/15.1.mp3': require('../../assets/audio/15. Personal_info/turkmen/15.1.mp3'),
   '15. Personal_info/turkmen/15.2.mp3': require('../../assets/audio/15. Personal_info/turkmen/15.2.mp3'),
   '15. Personal_info/turkmen/15.3.mp3': require('../../assets/audio/15. Personal_info/turkmen/15.3.mp3'),
@@ -292,7 +276,7 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '15. Personal_info/turkmen/15.17.mp3': require('../../assets/audio/15. Personal_info/turkmen/15.17.mp3'),
   '15. Personal_info/turkmen/15.18.mp3': require('../../assets/audio/15. Personal_info/turkmen/15.18.mp3'),
 
-  // 16. Business (12 phrases)
+  // 16. Business (11 files)
   '16. Business/turkmen/16.1.mp3': require('../../assets/audio/16. Business/turkmen/16.1.mp3'),
   '16. Business/turkmen/16.2.mp3': require('../../assets/audio/16. Business/turkmen/16.2.mp3'),
   '16. Business/turkmen/16.3.mp3': require('../../assets/audio/16. Business/turkmen/16.3.mp3'),
@@ -302,11 +286,10 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '16. Business/turkmen/16.7.mp3': require('../../assets/audio/16. Business/turkmen/16.7.mp3'),
   '16. Business/turkmen/16.8.mp3': require('../../assets/audio/16. Business/turkmen/16.8.mp3'),
   '16. Business/turkmen/16.9.mp3': require('../../assets/audio/16. Business/turkmen/16.9.mp3'),
-  '16. Business/turkmen/16.10.mp3': require('../../assets/audio/16. Business/turkmen/16.10.mp3'),
   '16. Business/turkmen/16.11.mp3': require('../../assets/audio/16. Business/turkmen/16.11.mp3'),
   '16. Business/turkmen/16.12.mp3': require('../../assets/audio/16. Business/turkmen/16.12.mp3'),
 
-  // 17. Measurements (8 phrases)
+  // 17. Measurements (8 files)
   '17. Measurements/turkmen/17.1.mp3': require('../../assets/audio/17. Measurements/turkmen/17.1.mp3'),
   '17. Measurements/turkmen/17.2.mp3': require('../../assets/audio/17. Measurements/turkmen/17.2.mp3'),
   '17. Measurements/turkmen/17.3.mp3': require('../../assets/audio/17. Measurements/turkmen/17.3.mp3'),
@@ -316,7 +299,7 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '17. Measurements/turkmen/17.7.mp3': require('../../assets/audio/17. Measurements/turkmen/17.7.mp3'),
   '17. Measurements/turkmen/17.8.mp3': require('../../assets/audio/17. Measurements/turkmen/17.8.mp3'),
 
-  // 18. Colors (10 phrases)
+  // 18. Colors (10 files)
   '18. Colors/turkmen/18.1.mp3': require('../../assets/audio/18. Colors/turkmen/18.1.mp3'),
   '18. Colors/turkmen/18.2.mp3': require('../../assets/audio/18. Colors/turkmen/18.2.mp3'),
   '18. Colors/turkmen/18.3.mp3': require('../../assets/audio/18. Colors/turkmen/18.3.mp3'),
@@ -328,7 +311,7 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '18. Colors/turkmen/18.9.mp3': require('../../assets/audio/18. Colors/turkmen/18.9.mp3'),
   '18. Colors/turkmen/18.10.mp3': require('../../assets/audio/18. Colors/turkmen/18.10.mp3'),
 
-  // 19. Body (7 phrases)
+  // 19. Body (8 files)
   '19. Body/turkmen/19.1.mp3': require('../../assets/audio/19. Body/turkmen/19.1.mp3'),
   '19. Body/turkmen/19.2.mp3': require('../../assets/audio/19. Body/turkmen/19.2.mp3'),
   '19. Body/turkmen/19.3.mp3': require('../../assets/audio/19. Body/turkmen/19.3.mp3'),
@@ -336,19 +319,26 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '19. Body/turkmen/19.5.mp3': require('../../assets/audio/19. Body/turkmen/19.5.mp3'),
   '19. Body/turkmen/19.6.mp3': require('../../assets/audio/19. Body/turkmen/19.6.mp3'),
   '19. Body/turkmen/19.7.mp3': require('../../assets/audio/19. Body/turkmen/19.7.mp3'),
+  '19. Body/turkmen/19.10.mp3': require('../../assets/audio/19. Body/turkmen/19.10.mp3'),
+
+  // 20. Home (6 files)
+  '20. Home/turkmen/20.1.mp3': require('../../assets/audio/20. Home/turkmen/20.1.mp3'),
+  '20. Home/turkmen/20.2.mp3': require('../../assets/audio/20. Home/turkmen/20.2.mp3'),
+  '20. Home/turkmen/20.3.mp3': require('../../assets/audio/20. Home/turkmen/20.3.mp3'),
+  '20. Home/turkmen/20.4.mp3': require('../../assets/audio/20. Home/turkmen/20.4.mp3'),
+  '20. Home/turkmen/20.5.mp3': require('../../assets/audio/20. Home/turkmen/20.5.mp3'),
+  '20. Home/turkmen/20.6.mp3': require('../../assets/audio/20. Home/turkmen/20.6.mp3'),
+
 };
 
-/**
- * Получить require() для туркменского MP3 файла
- */
-export function getAudioSource(path: string): any {
+export function getAudioSource(path: string | undefined): any {
   if (!path) return null;
   return TURKMEN_AUDIO[path] || null;
 }
 
-/**
- * Проверить существование аудио файла
- */
-export function hasAudioFile(path: string): boolean {
-  return !!TURKMEN_AUDIO[path];
+export function hasAudioFile(path: string | undefined): boolean {
+  if (!path) return false;
+  return path in TURKMEN_AUDIO;
 }
+
+export default TURKMEN_AUDIO;
