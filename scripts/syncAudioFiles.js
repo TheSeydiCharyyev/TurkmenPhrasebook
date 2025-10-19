@@ -25,7 +25,9 @@ const CATEGORY_FOLDERS = {
   'measurements': { folder: '17. Measurements', num: 17 },
   'colors': { folder: '18. Colors', num: 18 },
   'body': { folder: '19. Body', num: 19 },
-  'home': { folder: '20. Home', num: 20 }
+  'home': { folder: '20. Home', num: 20 },
+  'customs': { folder: '21. Customs', num: 21 },
+  'sport': { folder: '22. Sport', num: 22 }
 };
 
 // Шаг 1: Сканируем все реальные MP3 файлы

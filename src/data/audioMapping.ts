@@ -1,6 +1,6 @@
 // АВТОГЕНЕРИРОВАНО скриптом syncAudioFiles.js
-// Дата: 19.10.2025, 09:33:11
-// Всего файлов: 286
+// Дата: 19.10.2025, 10:49:30
+// Всего файлов: 306
 
 const TURKMEN_AUDIO: Record<string, any> = {
   // 1. Greetings (27 files)
@@ -328,6 +328,30 @@ const TURKMEN_AUDIO: Record<string, any> = {
   '20. Home/turkmen/20.4.mp3': require('../../assets/audio/20. Home/turkmen/20.4.mp3'),
   '20. Home/turkmen/20.5.mp3': require('../../assets/audio/20. Home/turkmen/20.5.mp3'),
   '20. Home/turkmen/20.6.mp3': require('../../assets/audio/20. Home/turkmen/20.6.mp3'),
+
+  // 21. Customs (10 files)
+  '21. Customs/turkmen/21.1.mp3': require('../../assets/audio/21. Customs/turkmen/21.1.mp3'),
+  '21. Customs/turkmen/21.2.mp3': require('../../assets/audio/21. Customs/turkmen/21.2.mp3'),
+  '21. Customs/turkmen/21.3.mp3': require('../../assets/audio/21. Customs/turkmen/21.3.mp3'),
+  '21. Customs/turkmen/21.4.mp3': require('../../assets/audio/21. Customs/turkmen/21.4.mp3'),
+  '21. Customs/turkmen/21.5.mp3': require('../../assets/audio/21. Customs/turkmen/21.5.mp3'),
+  '21. Customs/turkmen/21.6.mp3': require('../../assets/audio/21. Customs/turkmen/21.6.mp3'),
+  '21. Customs/turkmen/21.7.mp3': require('../../assets/audio/21. Customs/turkmen/21.7.mp3'),
+  '21. Customs/turkmen/21.8.mp3': require('../../assets/audio/21. Customs/turkmen/21.8.mp3'),
+  '21. Customs/turkmen/21.9.mp3': require('../../assets/audio/21. Customs/turkmen/21.9.mp3'),
+  '21. Customs/turkmen/21.10.mp3': require('../../assets/audio/21. Customs/turkmen/21.10.mp3'),
+
+  // 22. Sport (10 files)
+  '22. Sport/turkmen/22.1.mp3': require('../../assets/audio/22. Sport/turkmen/22.1.mp3'),
+  '22. Sport/turkmen/22.2.mp3': require('../../assets/audio/22. Sport/turkmen/22.2.mp3'),
+  '22. Sport/turkmen/22.3.mp3': require('../../assets/audio/22. Sport/turkmen/22.3.mp3'),
+  '22. Sport/turkmen/22.4.mp3': require('../../assets/audio/22. Sport/turkmen/22.4.mp3'),
+  '22. Sport/turkmen/22.5.mp3': require('../../assets/audio/22. Sport/turkmen/22.5.mp3'),
+  '22. Sport/turkmen/22.6.mp3': require('../../assets/audio/22. Sport/turkmen/22.6.mp3'),
+  '22. Sport/turkmen/22.7.mp3': require('../../assets/audio/22. Sport/turkmen/22.7.mp3'),
+  '22. Sport/turkmen/22.8.mp3': require('../../assets/audio/22. Sport/turkmen/22.8.mp3'),
+  '22. Sport/turkmen/22.9.mp3': require('../../assets/audio/22. Sport/turkmen/22.9.mp3'),
+  '22. Sport/turkmen/22.10.mp3': require('../../assets/audio/22. Sport/turkmen/22.10.mp3'),
 
 };
 
