@@ -5,15 +5,17 @@
     "description": "Изучайте китайский язык с помощью практичных фраз. Поддержка русского и туркменского языков.",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/chinese-phrasebook-icon-1024x1024.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "privacy": "public",
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "splash": {
-      "image": "./assets/chinese-phrasebook-icon-1024x1024.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#DC2626"
+      "backgroundColor": "#DC2626",
+      "resizeMode": "contain"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -33,7 +35,6 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/chinese-phrasebook-icon-192x192.png",
         "backgroundColor": "#DC2626"
       },
       "edgeToEdgeEnabled": true,
@@ -49,10 +50,8 @@
         "android.permission.ACCESS_COARSE_LOCATION"
       ]
     },
-    "web": {
-      "favicon": "./assets/chinese-phrasebook-icon-192x192.png"
-    },
-    "owner": "seydicharyyev",
+    "web": {},
+    "owner": "seydi_123",
     "keywords": [
       "chinese",
       "phrasebook",
@@ -65,6 +64,11 @@
       "education"
     ],
     "category": "education",
-    "githubUrl": "https://github.com/seydicharyyev/ChinesePhrasebook2"
+    "githubUrl": "https://github.com/seydicharyyev/ChinesePhrasebook2",
+    "extra": {
+      "eas": {
+        "projectId": "5e933cfd-7744-420b-9f10-fa3ee8a864ca"
+      }
+    }
   }
 }
