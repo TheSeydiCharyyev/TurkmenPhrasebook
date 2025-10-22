@@ -2,18 +2,17 @@
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { IStorageService } from './index';
-import { StorageResult } from '../types';
+import { StorageResult } from '../utils/SafeStorage';
 import { ERROR_MESSAGES } from '../constants/AppConstants';
 
 /**
  * ✅ ENHANCED STORAGE SERVICE
  * Provides type-safe, error-handled storage operations
+ * Note: No encryption is applied. For sensitive data, use expo-secure-store
  */
 class StorageServiceImpl implements IStorageService {
-  private readonly encryptionKey?: string;
-
-  constructor(encryptionKey?: string) {
-    this.encryptionKey = encryptionKey;
+  constructor() {
+    // Encryption removed for security compliance
   }
 
   /**
@@ -217,45 +216,21 @@ class StorageServiceImpl implements IStorageService {
   }
 
   /**
-   * Encrypt data if encryption key is provided
+   * No encryption - data stored as-is
+   * Note: For sensitive data, consider using expo-secure-store instead
    */
-  private encryptIfNeeded<T>(data: T): T | string {
-    if (!this.encryptionKey) return data;
-    
-    // Simple XOR encryption for demonstration
-    // In production, use a proper encryption library like crypto-js
-    try {
-      const jsonString = JSON.stringify(data);
-      let encrypted = '';
-      for (let i = 0; i < jsonString.length; i++) {
-        encrypted += String.fromCharCode(
-          jsonString.charCodeAt(i) ^ this.encryptionKey.charCodeAt(i % this.encryptionKey.length)
-        );
-      }
-      return btoa(encrypted); // Base64 encode
-    } catch {
-      return data; // Fallback to unencrypted
-    }
+  private encryptIfNeeded<T>(data: T): T {
+    // Encryption removed for security compliance
+    // The weak XOR encryption was not providing real security
+    return data;
   }
 
   /**
-   * Decrypt data if encryption key is provided
+   * No decryption needed - data retrieved as-is
    */
   private decryptIfNeeded<T>(data: T | string): T {
-    if (!this.encryptionKey || typeof data !== 'string') return data as T;
-    
-    try {
-      const encrypted = atob(data as string); // Base64 decode
-      let decrypted = '';
-      for (let i = 0; i < encrypted.length; i++) {
-        decrypted += String.fromCharCode(
-          encrypted.charCodeAt(i) ^ this.encryptionKey.charCodeAt(i % this.encryptionKey.length)
-        );
-      }
-      return JSON.parse(decrypted);
-    } catch {
-      return data as T; // Fallback to raw data
-    }
+    // Decryption removed (no longer encrypting)
+    return data as T;
   }
 }
 

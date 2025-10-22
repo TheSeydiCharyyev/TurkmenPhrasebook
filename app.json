@@ -27,8 +27,12 @@
       "infoPlist": {
         "CFBundleDisplayName": "Chinese Phrasebook",
         "CFBundleName": "Chinese Phrasebook",
-        "NSMicrophoneUsageDescription": "Это приложение использует микрофон для голосового поиска фраз.",
-        "NSSpeechRecognitionUsageDescription": "Это приложение использует распознавание речи для поиска фраз голосом."
+        "NSMicrophoneUsageDescription": "此应用程序使用麦克风进行语音搜索短语。",
+        "NSMicrophoneUsageDescription[ru]": "Это приложение использует микрофон для голосового поиска фраз.",
+        "NSMicrophoneUsageDescription[en]": "This app uses the microphone for voice phrase search.",
+        "NSSpeechRecognitionUsageDescription": "此应用程序使用语音识别功能通过语音搜索短语。",
+        "NSSpeechRecognitionUsageDescription[ru]": "Это приложение использует распознавание речи для поиска фраз голосом.",
+        "NSSpeechRecognitionUsageDescription[en]": "This app uses speech recognition to search phrases by voice."
       },
       "associatedDomains": [],
       "usesNonExemptEncryption": false
