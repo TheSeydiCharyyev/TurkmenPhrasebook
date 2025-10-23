@@ -5,8 +5,6 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  SafeAreaView,
-  StatusBar,
   Dimensions,
   Alert,
   Image,
@@ -15,6 +13,7 @@ import {
 import { AppLanguageMode } from '../hooks/useAppLanguage';
 import { Colors } from '../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
+import Screen from '../components/Screen';
 
 const { width, height } = Dimensions.get('window');
 
@@ -67,13 +66,11 @@ export default function LanguageSelectionScreen({ onLanguageSelect }: Props) {
   };
 
   return (
-    <>
-      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
-      <SafeAreaView style={styles.container}>
-        <ScrollView 
-          contentContainerStyle={styles.scrollContent}
-          showsVerticalScrollIndicator={false}
-        >
+    <Screen backgroundColor="#FFFFFF">
+      <ScrollView
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
           {/* ФОТО ВВЕРХУ */}
           <View style={styles.imageContainer}>
             <Image
@@ -133,16 +130,11 @@ export default function LanguageSelectionScreen({ onLanguageSelect }: Props) {
             </View>
           </View>
         </ScrollView>
-      </SafeAreaView>
-    </>
+    </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFFFFF',
-  },
   scrollContent: {
     flexGrow: 1,
     paddingBottom: 20,

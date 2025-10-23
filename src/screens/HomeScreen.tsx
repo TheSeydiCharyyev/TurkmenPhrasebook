@@ -6,8 +6,6 @@ import {
   Text,
   StyleSheet,
   FlatList,
-  SafeAreaView,
-  StatusBar,
   Animated,
   TextInput,
   TouchableOpacity,
@@ -22,6 +20,7 @@ import { useAppLanguage } from '../contexts/LanguageContext';
 import { categories } from '../data/categories';
 import CategoryCard from '../components/CategoryCard';
 import ErrorBoundary from '../components/ErrorBoundary';
+import { TabScreen } from '../components/Screen';
 
 type HomeScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'CategoryScreen'>;
 
@@ -154,16 +153,10 @@ export default function HomeScreen() {
 
   return (
     <ErrorBoundary>
-      <SafeAreaView style={styles.container}>
-        <StatusBar
-          barStyle="dark-content"
-          backgroundColor={Colors.background}
-          translucent={false}
-        />
-
+      <TabScreen backgroundColor={Colors.background}>
         {/* НОВАЯ МИНИМАЛИСТИЧНАЯ ШАПКА */}
-        <MinimalHeader 
-          languageMode={config.mode} 
+        <MinimalHeader
+          languageMode={config.mode}
           onSearchPress={handleSearchPress}
         />
 
@@ -171,17 +164,12 @@ export default function HomeScreen() {
         <View style={styles.contentContainer}>
           <CategoryGrid languageMode={config.mode} />
         </View>
-      </SafeAreaView>
+      </TabScreen>
     </ErrorBoundary>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.background,
-  },
-
   // НОВАЯ минималистичная шапка
   headerContainer: {
     backgroundColor: Colors.background,

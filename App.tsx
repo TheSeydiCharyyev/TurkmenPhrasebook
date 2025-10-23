@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import AppNavigator from './src/navigation/AppNavigator';
 import { LanguageProvider, useAppLanguage } from './src/contexts/LanguageContext';
 import { OfflineDataProvider } from './src/contexts/OfflineDataContext';
@@ -88,12 +89,14 @@ function AppContent() {
 
 export default function App() {
   return (
-    <ErrorBoundary>
-      <LanguageProvider>
-        <OfflineDataProvider>
-          <AppContent />
-        </OfflineDataProvider>
-      </LanguageProvider>
-    </ErrorBoundary>
+    <SafeAreaProvider>
+      <ErrorBoundary>
+        <LanguageProvider>
+          <OfflineDataProvider>
+            <AppContent />
+          </OfflineDataProvider>
+        </LanguageProvider>
+      </ErrorBoundary>
+    </SafeAreaProvider>
   );
 }
