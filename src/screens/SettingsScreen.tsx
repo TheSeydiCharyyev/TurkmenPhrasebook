@@ -19,6 +19,7 @@ import { useOffline } from '../hooks/useOffline';
 import { useHistory } from '../hooks/useHistory';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { useSearchHistory } from '../hooks/useSearchHistory';
+import TTSChecker from '../utils/TTSChecker';
 
 // Импортируем оптимизированный модальный компонент
 import FontSizeModal from '../components/FontSizeModal'; // Создадим отдельным файлом
@@ -212,6 +213,43 @@ export default function SettingsScreen() {
     }
   }, [config.mode, preferences.speechRate]);
 
+  const checkVoiceAvailability = useCallback(async () => {
+    try {
+      const result = await TTSChecker.checkChineseVoiceAvailability();
+      const recommendation = await TTSChecker.getRecommendations(config.mode);
+
+      const statusEmoji = recommendation.showWarning ? '⚠️' : '✅';
+      const voiceInfo = config.mode === 'tk'
+        ? `Hytaýça sesler: ${result.chineseVoices.length} sany\nJemi sesler: ${result.allVoices.length} sany`
+        : `中文语音: ${result.chineseVoices.length} 种\n总语音: ${result.allVoices.length} 种`;
+
+      Alert.alert(
+        `${statusEmoji} ${recommendation.title}`,
+        `${recommendation.message}\n\n${voiceInfo}`,
+        [
+          { text: config.mode === 'tk' ? 'Ýap' : '关闭', style: 'cancel' },
+          ...(recommendation.showWarning && recommendation.instructions ? [{
+            text: config.mode === 'tk' ? 'Görkezmeler' : '查看说明',
+            onPress: () => {
+              Alert.alert(
+                config.mode === 'tk' ? 'Nädip düzetmeli' : '如何解决',
+                recommendation.instructions?.join('\n\n') || ''
+              );
+            }
+          }] : [])
+        ]
+      );
+    } catch (error) {
+      console.warn('Ошибка проверки голосов:', error);
+      Alert.alert(
+        config.mode === 'tk' ? 'Ýalňyşlyk' : '错误',
+        config.mode === 'tk'
+          ? 'Ses barlamak başartmady'
+          : '检查语音失败'
+      );
+    }
+  }, [config.mode]);
+
   const handleAbout = useCallback(async () => {
     const cacheInfo = await getCacheInfo();
     const cacheText = cacheInfo
@@ -287,6 +325,15 @@ export default function SettingsScreen() {
               subtitle={`${availableVoices.length} ${config.mode === 'tk' ? 'ses elýeterli' : '种声音可用'}`}
               onPress={testTTS}
               rightComponent={<Ionicons name="play" size={20} color={Colors.textLight} />}
+            />
+
+            <SettingsItem
+              icon="checkmark-circle"
+              iconColor={Colors.primary}
+              title={config.mode === 'tk' ? 'Sesleri barlap gör' : '检查语音可用性'}
+              subtitle={config.mode === 'tk' ? 'Hytaýça sesleriň elýeterliligini barlap gör' : '检查中文语音是否可用'}
+              onPress={checkVoiceAvailability}
+              rightComponent={<Ionicons name="search" size={20} color={Colors.textLight} />}
             />
           </View>
 
