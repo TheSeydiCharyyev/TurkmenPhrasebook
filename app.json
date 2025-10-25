@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Chinese Phrasebook",
-    "slug": "chinese-phrasebook-tkm",
-    "description": "Изучайте китайский язык с помощью практичных фраз. Поддержка русского и туркменского языков.",
+    "name": "Turkmen Phrasebook",
+    "slug": "turkmen-phrasebook",
+    "description": "Learn Turkmen with 30 languages. Essential phrases for travelers, students, and language learners. Audio pronunciation included.",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
@@ -14,7 +14,7 @@
       "web"
     ],
     "splash": {
-      "backgroundColor": "#DC2626",
+      "backgroundColor": "#10B981",
       "resizeMode": "contain"
     },
     "assetBundlePatterns": [
@@ -22,27 +22,27 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.seydicharyyev.chinesephrasebook",
+      "bundleIdentifier": "com.seydicharyyev.turkmenphrasebook",
       "buildNumber": "1.0.0",
       "infoPlist": {
-        "CFBundleDisplayName": "Chinese Phrasebook",
-        "CFBundleName": "Chinese Phrasebook",
-        "NSMicrophoneUsageDescription": "此应用程序使用麦克风进行语音搜索短语。",
+        "CFBundleDisplayName": "Turkmen Phrasebook",
+        "CFBundleName": "Turkmen Phrasebook",
+        "NSMicrophoneUsageDescription": "This app uses the microphone for voice phrase search.",
         "NSMicrophoneUsageDescription[ru]": "Это приложение использует микрофон для голосового поиска фраз.",
-        "NSMicrophoneUsageDescription[en]": "This app uses the microphone for voice phrase search.",
-        "NSSpeechRecognitionUsageDescription": "此应用程序使用语音识别功能通过语音搜索短语。",
+        "NSMicrophoneUsageDescription[tk]": "Bu programma ses gözleg üçin mikrofon ulanýar.",
+        "NSSpeechRecognitionUsageDescription": "This app uses speech recognition to search phrases by voice.",
         "NSSpeechRecognitionUsageDescription[ru]": "Это приложение использует распознавание речи для поиска фраз голосом.",
-        "NSSpeechRecognitionUsageDescription[en]": "This app uses speech recognition to search phrases by voice."
+        "NSSpeechRecognitionUsageDescription[tk]": "Bu programma ses tanamak arkaly söz tapýar."
       },
       "associatedDomains": [],
       "usesNonExemptEncryption": false
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#DC2626"
+        "backgroundColor": "#10B981"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.seydicharyyev.chinesephrasebook",
+      "package": "com.seydicharyyev.turkmenphrasebook",
       "versionCode": 1,
       "permissions": [
         "RECORD_AUDIO",
@@ -57,22 +57,39 @@
     "web": {},
     "owner": "seydi_123",
     "keywords": [
-      "chinese",
+      "turkmen",
       "phrasebook",
       "language",
       "learning",
-      "mandarin",
-      "turkmen",
+      "multilingual",
+      "30 languages",
+      "chinese",
       "russian",
+      "english",
+      "japanese",
+      "korean",
       "travel",
-      "education"
+      "education",
+      "audio",
+      "pronunciation"
     ],
     "category": "education",
-    "githubUrl": "https://github.com/seydicharyyev/ChinesePhrasebook2",
+    "githubUrl": "https://github.com/seydicharyyev/TurkmenPhrasebook",
+    "updates": {
+      "enabled": true,
+      "checkAutomatically": "ON_LOAD",
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/5e933cfd-7744-420b-9f10-fa3ee8a864ca"
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
     "extra": {
       "eas": {
         "projectId": "5e933cfd-7744-420b-9f10-fa3ee8a864ca"
-      }
+      },
+      "translationsVersion": "1.0.0",
+      "supportedLanguages": ["zh", "ru", "en"]
     }
   }
 }

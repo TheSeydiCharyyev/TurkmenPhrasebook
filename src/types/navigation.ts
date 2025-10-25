@@ -6,10 +6,11 @@ import { Category, SubCategory, Phrase } from './index';
 export type RootStackParamList = {
   MainTabs: undefined;
   PhraseDetail: { phrase: Phrase };
-  SubCategoryScreen: { 
-    subcategory: SubCategory; 
+  SubCategoryScreen: {
+    subcategory: SubCategory;
     parentCategory: Category;
   };
+  LanguageSelection: undefined; // Экран выбора языка (Phase 4)
 };
 
 // Главные вкладки

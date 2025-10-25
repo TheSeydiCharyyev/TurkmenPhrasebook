@@ -1,6 +1,54 @@
 // src/types/index.ts
-// ✅ ОБНОВЛЕНО: Добавлены поля для аудио файлов + навигационные типы
+// ✅ ОБНОВЛЕНО: Добавлены поля для аудио файлов + навигационные типы + мультиязычность
 
+// ====================================
+// НОВЫЕ ТИПЫ ДЛЯ МУЛЬТИЯЗЫЧНОСТИ
+// ====================================
+
+/**
+ * Базовая фраза (туркменская версия)
+ */
+export interface BasePhrase {
+  id: string;                    // phrase_001, phrase_002...
+  categoryId: string;            // greetings, food, hotel...
+  subcategoryId?: string;        // greetings_basic, food_drinks...
+  turkmen: string;               // Туркменский текст
+  audioFileTurkmen?: string;     // Путь к MP3
+  order: number;                 // Порядковый номер
+}
+
+/**
+ * Перевод фразы на конкретный язык
+ */
+export interface LanguageTranslation {
+  phraseId: string;              // Ссылка на BasePhrase.id
+  text: string;                  // Переведенный текст
+  transcription?: string;        // Транскрипция (pinyin, romaji, etc.)
+}
+
+/**
+ * Конфигурация языка
+ */
+export interface LanguageConfig {
+  code: string;                  // ISO 639-1 (zh, ja, en...)
+  name: string;                  // Название на родном языке
+  nameEn: string;                // Название на английском
+  nameTk: string;                // Название на туркменском
+  flag: string;                  // Emoji флаг
+  isAvailable: boolean;          // Доступен ли язык
+  hasTranscription: boolean;     // Есть ли транскрипция
+  ttsCode: string;               // Код для TTS
+  direction: 'ltr' | 'rtl';      // Направление письма
+}
+
+// ====================================
+// СТАРЫЕ ТИПЫ (сохранены для совместимости)
+// ====================================
+
+/**
+ * Старый формат фразы - сохранен для обратной совместимости
+ * В Phase 2 будет заменен на PhraseWithTranslation
+ */
 export interface Phrase {
   id: string;
   categoryId: string;
@@ -16,6 +64,17 @@ export interface Phrase {
   
   // ⚠️ DEPRECATED: старое поле, оставлено для совместимости
   audioFile?: string;
+}
+
+/**
+ * Полная фраза с переводом (для нового UI)
+ * Используется в новых компонентах - объединяет BasePhrase + перевод на выбранный язык
+ */
+export interface PhraseWithTranslation extends BasePhrase {
+  translation: {
+    text: string;
+    transcription?: string;
+  };
 }
 
 export interface Category {
@@ -44,6 +103,7 @@ export interface SubCategory {
 export type RootStackParamList = {
   MainTabs: undefined;
   PhraseDetail: { phrase: Phrase };
+  LanguageSelection: undefined; // Экран выбора языка (Phase 4)
 };
 
 export type MainTabParamList = {

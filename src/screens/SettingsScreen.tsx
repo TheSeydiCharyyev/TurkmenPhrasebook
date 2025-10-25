@@ -1,4 +1,4 @@
-// Критичные исправления для SettingsScreen.tsx
+// src/screens/SettingsScreen.tsx - ОБНОВЛЕНО для мультиязычности (Phase 4)
 
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import {
@@ -14,12 +14,19 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import * as Speech from 'expo-speech';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import { Colors } from '../constants/Colors';
 import { useOffline } from '../hooks/useOffline';
 import { useHistory } from '../hooks/useHistory';
 import { useAppLanguage } from '../contexts/LanguageContext';
+import { useConfig } from '../contexts/ConfigContext';
+import { getLanguageByCode } from '../config/languages.config';
 import { useSearchHistory } from '../hooks/useSearchHistory';
+import { RootStackParamList } from '../types';
 import TTSChecker from '../utils/TTSChecker';
+
+type SettingsScreenNavigationProp = StackNavigationProp<RootStackParamList, 'LanguageSelection'>;
 
 // Импортируем оптимизированный модальный компонент
 import FontSizeModal from '../components/FontSizeModal'; // Создадим отдельным файлом
@@ -90,6 +97,7 @@ const SectionHeader = React.memo(({ title }: { title: string }) => (
 ));
 
 export default function SettingsScreen() {
+  const navigation = useNavigation<SettingsScreenNavigationProp>();
   const [preferences, setPreferences] = useState<AppPreferences>(DEFAULT_PREFERENCES);
   const [availableVoices, setAvailableVoices] = useState<any[]>([]);
   const [showFontSizeModal, setShowFontSizeModal] = useState(false);
@@ -98,6 +106,7 @@ export default function SettingsScreen() {
 
   const { isOnline, isDataCached, refreshCache, getCacheInfo } = useOffline();
   const { clearHistory, getStats } = useHistory();
+  const { selectedLanguage } = useConfig();
   const { clearSearchHistory } = useSearchHistory();
   const { getTexts, config, switchMode, getLanguageName, resetLanguageSettings } = useAppLanguage();
 
@@ -162,27 +171,9 @@ export default function SettingsScreen() {
 
   // Мемоизированные обработчики событий
   const handleLanguageToggle = useCallback(() => {
-    const newModeName = config.mode === 'tk' ? getLanguageName('zh') : getLanguageName('tk');
-    const currentModeName = getLanguageName(config.primaryLanguage);
-
-    Alert.alert(
-      '🌐 ' + texts.languageInterface,
-      `${texts.switchLanguage}?\n\n${currentModeName} → ${newModeName}`,
-      [
-        { text: config.mode === 'tk' ? 'Ýatyr' : '取消', style: 'cancel' },
-        {
-          text: config.mode === 'tk' ? 'Üýtget' : '切换',
-          onPress: async () => {
-            await switchMode();
-            Alert.alert(
-              '✅ ' + (config.mode === 'tk' ? 'Üýtgedildi' : '已切换'),
-              config.mode === 'tk' ? 'Interfeýs hytaýça üýtgedildi' : '界面已切换为土库曼语'
-            );
-          }
-        }
-      ]
-    );
-  }, [config, texts, getLanguageName, switchMode]);
+    // ОБНОВЛЕНО: Открываем экран выбора языка (Phase 4)
+    navigation.navigate('LanguageSelection');
+  }, [navigation]);
 
   const handleTogglePreference = useCallback(async (key: keyof AppPreferences) => {
     const newValue = !preferences[key];
@@ -293,7 +284,7 @@ export default function SettingsScreen() {
               icon="language"
               iconColor={Colors.primary}
               title={texts.switchLanguage}
-              subtitle={`${config.mode === 'tk' ? 'Häzirki: ' : '当前: '}${getLanguageName(config.primaryLanguage)}`}
+              subtitle={`${config.mode === 'tk' ? 'Häzirki: ' : '当前: '}${getLanguageByCode(selectedLanguage)?.name || selectedLanguage}`}
               onPress={handleLanguageToggle}
               rightComponent={<Ionicons name="chevron-forward" size={20} color={Colors.textLight} />}
             />

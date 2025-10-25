@@ -1,4 +1,4 @@
-// src/navigation/AppNavigator.tsx - ИСПРАВЛЕННАЯ ВЕРСИЯ без дублирования шапок
+// src/navigation/AppNavigator.tsx - ОБНОВЛЕНО для мультиязычности (Phase 4)
 
 import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
@@ -25,6 +25,7 @@ import PhraseDetailScreen from '../screens/PhraseDetailScreen';
 import { RootStackParamList, MainTabParamList, HomeStackParamList } from '../types';
 import { Colors } from '../constants/Colors';
 import { useAppLanguage, AppLanguageMode } from '../contexts/LanguageContext';
+import { useConfig } from '../contexts/ConfigContext';
 
 const RootStack = createStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<MainTabParamList>();
@@ -169,11 +170,12 @@ function MainTabs() {
 
 // Главный навигатор
 export default function AppNavigator() {
-  const { isLoading, isFirstLaunch, setLanguageMode, getTexts, config } = useAppLanguage();
+  const { getTexts, config } = useAppLanguage();
+  const { isLoading: configLoading, isFirstLaunch } = useConfig();
   const texts = getTexts();
 
   // Показываем лоадер пока загружаются настройки
-  if (isLoading) {
+  if (configLoading) {
     return (
       <View style={{
         flex: 1,
@@ -187,14 +189,11 @@ export default function AppNavigator() {
   }
 
   // Показываем экран выбора языка при первом запуске
+  // Используем старый метод setLanguageMode для обратной совместимости
   if (isFirstLaunch) {
-    const handleLanguageSelect = (language: AppLanguageMode, shouldSave: boolean) => {
-      setLanguageMode(language, shouldSave);
-    };
-
     return (
       <NavigationContainer>
-        <LanguageSelectionScreen onLanguageSelect={handleLanguageSelect} />
+        <LanguageSelectionScreen />
       </NavigationContainer>
     );
   }
@@ -213,8 +212,23 @@ export default function AppNavigator() {
           component={PhraseDetailScreen}
           options={{
             title: config.mode === 'tk' ? 'Sözlem jikme-jiklikleri' :
-                   config.mode === 'zh' ? '短语详情' : 
+                   config.mode === 'zh' ? '短语详情' :
                    'Детали фразы',
+            headerStyle: {
+              backgroundColor: Colors.primary,
+            },
+            headerTintColor: Colors.textWhite,
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+        />
+        {/* Добавляем экран выбора языка в основную навигацию */}
+        <RootStack.Screen
+          name="LanguageSelection"
+          component={LanguageSelectionScreen}
+          options={{
+            title: 'Select Language',
             headerStyle: {
               backgroundColor: Colors.primary,
             },

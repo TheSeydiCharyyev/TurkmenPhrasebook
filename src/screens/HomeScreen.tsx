@@ -1,4 +1,4 @@
-// src/screens/HomeScreen.tsx - МИНИМАЛИСТИЧНАЯ ШАПКА
+// src/screens/HomeScreen.tsx - ОБНОВЛЕНО для мультиязычности (Phase 3)
 
 import React, { useCallback, useRef, useMemo, useState } from 'react';
 import {
@@ -17,6 +17,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { Category, HomeStackParamList } from '../types';
 import { Colors } from '../constants/Colors';
 import { useAppLanguage } from '../contexts/LanguageContext';
+import { useConfig } from '../contexts/ConfigContext';
+import { getLanguageByCode } from '../config/languages.config';
 import { categories } from '../data/categories';
 import CategoryCard from '../components/CategoryCard';
 import ErrorBoundary from '../components/ErrorBoundary';
@@ -27,22 +29,41 @@ type HomeScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'Categor
 // Высота новой минималистичной шапки
 const HEADER_HEIGHT = 120;
 
-// Минималистичная шапка БЕЗ красного фона
-const MinimalHeader = React.memo<{ languageMode: 'ru' | 'tk' | 'zh'; onSearchPress: () => void }>(
-  ({ languageMode, onSearchPress }) => {
-    // Текст "Выберите категорию" на трех языках
-    const getHeaderText = () => {
-      if (languageMode === 'zh') {
-        return '选择类别'; // Китайский
-      } else if (languageMode === 'tk') {
-        return 'Kategoriýany saýlaň'; // Туркменский
-      } else {
-        return 'Выберите категорию'; // Русский
-      }
-    };
+// Минималистичная шапка с индикатором языка
+const MinimalHeader = React.memo<{
+  languageMode: 'ru' | 'tk' | 'zh';
+  onSearchPress: () => void;
+  onLanguagePress: () => void;
+  selectedLanguageCode: string;
+}>(
+  ({ languageMode, onSearchPress, onLanguagePress, selectedLanguageCode }) => {
+    const selectedLang = getLanguageByCode(selectedLanguageCode);
+    const turkmenFlag = '🇹🇲';
 
     return (
       <View style={styles.headerContainer}>
+        {/* Индикатор языка */}
+        <View style={styles.languageHeader}>
+          <View style={styles.languageIndicator}>
+            <Text style={styles.flagLarge}>{selectedLang?.flag || '🌍'}</Text>
+            <Text style={styles.languageCode}>{selectedLang?.name || 'Language'}</Text>
+          </View>
+
+          <Ionicons name="swap-horizontal" size={24} color="#6B7280" />
+
+          <View style={styles.languageIndicator}>
+            <Text style={styles.flagLarge}>{turkmenFlag}</Text>
+            <Text style={styles.languageCode}>Türkmen</Text>
+          </View>
+
+          <TouchableOpacity
+            style={styles.changeLanguageButton}
+            onPress={onLanguagePress}
+          >
+            <Ionicons name="settings-outline" size={20} color="#6B7280" />
+          </TouchableOpacity>
+        </View>
+
         {/* Заголовок на трех языках */}
         <View style={styles.titleContainer}>
           <Text style={styles.titleTurkmen}>Kategoriýany saýlaň</Text>
@@ -51,8 +72,8 @@ const MinimalHeader = React.memo<{ languageMode: 'ru' | 'tk' | 'zh'; onSearchPre
         </View>
 
         {/* Поле поиска */}
-        <TouchableOpacity 
-          style={styles.searchBar} 
+        <TouchableOpacity
+          style={styles.searchBar}
           onPress={onSearchPress}
           activeOpacity={0.7}
         >
@@ -142,6 +163,7 @@ const CategoryGrid = React.memo<CategoryGridProps>(({ languageMode }) => {
 
 export default function HomeScreen() {
   const { config } = useAppLanguage();
+  const { selectedLanguage } = useConfig();
   const navigation = useNavigation<any>();
 
   const handleSearchPress = useCallback(() => {
@@ -151,13 +173,20 @@ export default function HomeScreen() {
     });
   }, [navigation]);
 
+  const handleLanguagePress = useCallback(() => {
+    // Переход к экрану выбора языка
+    navigation.navigate('LanguageSelection');
+  }, [navigation]);
+
   return (
     <ErrorBoundary>
       <TabScreen backgroundColor={Colors.background}>
-        {/* НОВАЯ МИНИМАЛИСТИЧНАЯ ШАПКА */}
+        {/* НОВАЯ МИНИМАЛИСТИЧНАЯ ШАПКА С ИНДИКАТОРОМ ЯЗЫКА */}
         <MinimalHeader
           languageMode={config.mode}
           onSearchPress={handleSearchPress}
+          onLanguagePress={handleLanguagePress}
+          selectedLanguageCode={selectedLanguage}
         />
 
         {/* КАТЕГОРИИ - БЕЗ ИЗМЕНЕНИЙ */}
@@ -178,6 +207,38 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
     borderBottomWidth: 1,
     borderBottomColor: Colors.border || '#E5E7EB',
+  },
+
+  // Индикатор языка
+  languageHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    backgroundColor: '#F9FAFB',
+    borderRadius: 12,
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
+  },
+  languageIndicator: {
+    alignItems: 'center',
+    marginHorizontal: 12,
+  },
+  flagLarge: {
+    fontSize: 28,
+  },
+  languageCode: {
+    fontSize: 11,
+    color: '#6B7280',
+    marginTop: 4,
+    fontWeight: '500',
+  },
+  changeLanguageButton: {
+    position: 'absolute',
+    right: 12,
+    padding: 8,
   },
 
   // Контейнер для заголовков
