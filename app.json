@@ -5,6 +5,7 @@
     "description": "Learn Turkmen with 30 languages. Essential phrases for travelers, students, and language learners. Audio pronunciation included.",
     "version": "1.0.0",
     "orientation": "portrait",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "privacy": "public",
@@ -14,6 +15,7 @@
       "web"
     ],
     "splash": {
+      "image": "./assets/splash.png",
       "backgroundColor": "#10B981",
       "resizeMode": "contain"
     },
@@ -39,6 +41,7 @@
     },
     "android": {
       "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#10B981"
       },
       "edgeToEdgeEnabled": true,
