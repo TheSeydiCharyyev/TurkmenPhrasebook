@@ -1,7 +1,6 @@
 // AUTO-GENERATED: Английские переводы
-// Generated: 2025-10-25T10:19:10.420Z
+// Generated: 2025-10-25T10:27:46.790Z
 // Total translations: 305
-// NOTE: Переводы помеченные [TODO:...] требуют ручного перевода
 import { LanguageTranslation } from '../../../types';
 
 export const englishTranslations: LanguageTranslation[] = [
@@ -37,17 +36,17 @@ export const englishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_007",
-    text: "[TODO: Меня зовут...]",
+    text: "My name is...",
     transcription: undefined
   },
   {
     phraseId: "phrase_008",
-    text: "[TODO: Как вас зовут?]",
+    text: "What is your name?",
     transcription: undefined
   },
   {
     phraseId: "phrase_009",
-    text: "[TODO: Приятно познакомиться]",
+    text: "Nice to meet you",
     transcription: undefined
   },
   {
@@ -57,7 +56,7 @@ export const englishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_011",
-    text: "[TODO: Пожалуйста / Не за что]",
+    text: "You're welcome",
     transcription: undefined
   },
   {
@@ -67,47 +66,47 @@ export const englishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_013",
-    text: "[TODO: Удачи!]",
+    text: "Good luck!",
     transcription: undefined
   },
   {
     phraseId: "phrase_014",
-    text: "[TODO: Добро пожаловать!]",
+    text: "Welcome!",
     transcription: undefined
   },
   {
     phraseId: "phrase_015",
-    text: "[TODO: Очень рад Вас видеть]",
+    text: "Very glad to see you",
     transcription: undefined
   },
   {
     phraseId: "phrase_016",
-    text: "[TODO: С приездом!]",
+    text: "Welcome! (arrival greeting)",
     transcription: undefined
   },
   {
     phraseId: "phrase_017",
-    text: "[TODO: Как поживаете?]",
+    text: "How are you doing?",
     transcription: undefined
   },
   {
     phraseId: "phrase_018",
-    text: "[TODO: Разрешите представить вам моего друга]",
+    text: "Let me introduce my friend",
     transcription: undefined
   },
   {
     phraseId: "phrase_019",
-    text: "[TODO: Рад с вами познакомиться!]",
+    text: "Pleased to meet you!",
     transcription: undefined
   },
   {
     phraseId: "phrase_020",
-    text: "[TODO: Входите, пожалуйста]",
+    text: "Please come in",
     transcription: undefined
   },
   {
     phraseId: "phrase_021",
-    text: "[TODO: Садитесь, пожалуйста]",
+    text: "Please sit down",
     transcription: undefined
   },
   {
@@ -122,547 +121,547 @@ export const englishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_024",
-    text: "[TODO: Я согласен]",
+    text: "I agree",
     transcription: undefined
   },
   {
     phraseId: "phrase_025",
-    text: "[TODO: Большое спасибо за помощь]",
+    text: "Thank you very much for your help",
     transcription: undefined
   },
   {
     phraseId: "phrase_026",
-    text: "[TODO: Большое спасибо за поддержку]",
+    text: "Thank you very much for your support",
     transcription: undefined
   },
   {
     phraseId: "phrase_027",
-    text: "[TODO: Большое спасибо за понимание]",
+    text: "Thank you very much for your understanding",
     transcription: undefined
   },
   {
     phraseId: "phrase_028",
-    text: "[TODO: Помогите!]",
+    text: "Help!",
     transcription: undefined
   },
   {
     phraseId: "phrase_029",
-    text: "[TODO: Мне нужен врач]",
+    text: "I need a doctor",
     transcription: undefined
   },
   {
     phraseId: "phrase_030",
-    text: "[TODO: Вызовите полицию]",
+    text: "Call the police",
     transcription: undefined
   },
   {
     phraseId: "phrase_031",
-    text: "[TODO: Пожар!]",
+    text: "Fire!",
     transcription: undefined
   },
   {
     phraseId: "phrase_032",
-    text: "[TODO: Я заблудился]",
+    text: "I am lost",
     transcription: undefined
   },
   {
     phraseId: "phrase_033",
-    text: "[TODO: Я болен]",
+    text: "I am sick",
     transcription: undefined
   },
   {
     phraseId: "phrase_034",
-    text: "[TODO: Вызовите скорую]",
+    text: "Call an ambulance",
     transcription: undefined
   },
   {
     phraseId: "phrase_035",
-    text: "[TODO: У меня украли кошелек]",
+    text: "My wallet was stolen",
     transcription: undefined
   },
   {
     phraseId: "phrase_036",
-    text: "[TODO: Помогите мне]",
+    text: "Help me",
     transcription: undefined
   },
   {
     phraseId: "phrase_037",
-    text: "[TODO: Опасно!]",
+    text: "Danger!",
     transcription: undefined
   },
   {
     phraseId: "phrase_038",
-    text: "[TODO: Вызовите врача!]",
+    text: "Call a doctor!",
     transcription: undefined
   },
   {
     phraseId: "phrase_039",
-    text: "[TODO: Я хочу номер]",
+    text: "I want a room",
     transcription: undefined
   },
   {
     phraseId: "phrase_040",
-    text: "[TODO: Сколько за ночь?]",
+    text: "How much per night?",
     transcription: undefined
   },
   {
     phraseId: "phrase_041",
-    text: "[TODO: Есть ли здесь WiFi?]",
+    text: "Is there WiFi here?",
     transcription: undefined
   },
   {
     phraseId: "phrase_042",
-    text: "[TODO: У меня есть бронь]",
+    text: "I have a reservation",
     transcription: undefined
   },
   {
     phraseId: "phrase_043",
-    text: "[TODO: Одноместный номер]",
+    text: "Single room",
     transcription: undefined
   },
   {
     phraseId: "phrase_044",
-    text: "[TODO: Двухместный номер]",
+    text: "Double room",
     transcription: undefined
   },
   {
     phraseId: "phrase_045",
-    text: "[TODO: Во сколько выселение?]",
+    text: "What time is check-out?",
     transcription: undefined
   },
   {
     phraseId: "phrase_046",
-    text: "[TODO: Ключ]",
+    text: "Key",
     transcription: undefined
   },
   {
     phraseId: "phrase_047",
-    text: "[TODO: Номер комнаты]",
+    text: "Room number",
     transcription: undefined
   },
   {
     phraseId: "phrase_048",
-    text: "[TODO: Завтрак включен?]",
+    text: "Is breakfast included?",
     transcription: undefined
   },
   {
     phraseId: "phrase_049",
-    text: "[TODO: Пожалуйста, уберите номер]",
+    text: "Please clean the room",
     transcription: undefined
   },
   {
     phraseId: "phrase_050",
-    text: "[TODO: Я хочу продлить проживание]",
+    text: "I want to extend my stay",
     transcription: undefined
   },
   {
     phraseId: "phrase_051",
-    text: "[TODO: Я голоден]",
+    text: "I am hungry",
     transcription: undefined
   },
   {
     phraseId: "phrase_052",
-    text: "[TODO: Меню, пожалуйста]",
+    text: "Menu, please",
     transcription: undefined
   },
   {
     phraseId: "phrase_053",
-    text: "[TODO: Вкусно]",
+    text: "Delicious",
     transcription: undefined
   },
   {
     phraseId: "phrase_054",
-    text: "[TODO: Счет, пожалуйста]",
+    text: "Bill, please",
     transcription: undefined
   },
   {
     phraseId: "phrase_055",
-    text: "[TODO: Я вегетарианец]",
+    text: "I am vegetarian",
     transcription: undefined
   },
   {
     phraseId: "phrase_056",
-    text: "[TODO: Без острого]",
+    text: "Not spicy",
     transcription: undefined
   },
   {
     phraseId: "phrase_057",
-    text: "[TODO: Вода]",
+    text: "Water",
     transcription: undefined
   },
   {
     phraseId: "phrase_058",
-    text: "[TODO: Чай]",
+    text: "Tea",
     transcription: undefined
   },
   {
     phraseId: "phrase_059",
-    text: "[TODO: Рис]",
+    text: "Rice",
     transcription: undefined
   },
   {
     phraseId: "phrase_060",
-    text: "[TODO: Лапша]",
+    text: "Noodles",
     transcription: undefined
   },
   {
     phraseId: "phrase_061",
-    text: "[TODO: Курица]",
+    text: "Chicken",
     transcription: undefined
   },
   {
     phraseId: "phrase_062",
-    text: "[TODO: Говядина]",
+    text: "Beef",
     transcription: undefined
   },
   {
     phraseId: "phrase_063",
-    text: "[TODO: Сколько это стоит?]",
+    text: "How much does it cost?",
     transcription: undefined
   },
   {
     phraseId: "phrase_064",
-    text: "[TODO: У меня аллергия на...]",
+    text: "I am allergic to...",
     transcription: undefined
   },
   {
     phraseId: "phrase_065",
-    text: "[TODO: Можно с собой?]",
+    text: "Can I take it to go?",
     transcription: undefined
   },
   {
     phraseId: "phrase_066",
-    text: "[TODO: Очень вкусно]",
+    text: "Very delicious",
     transcription: undefined
   },
   {
     phraseId: "phrase_067",
-    text: "[TODO: Закуски]",
+    text: "Appetizers",
     transcription: undefined
   },
   {
     phraseId: "phrase_068",
-    text: "[TODO: Ветчина]",
+    text: "Ham",
     transcription: undefined
   },
   {
     phraseId: "phrase_069",
-    text: "[TODO: Сырное ассорти]",
+    text: "Cheese platter",
     transcription: undefined
   },
   {
     phraseId: "phrase_070",
-    text: "[TODO: Суп]",
+    text: "Soup",
     transcription: undefined
   },
   {
     phraseId: "phrase_071",
-    text: "[TODO: Борщ]",
+    text: "Borscht",
     transcription: undefined
   },
   {
     phraseId: "phrase_072",
-    text: "[TODO: Куриная лапша]",
+    text: "Chicken noodle soup",
     transcription: undefined
   },
   {
     phraseId: "phrase_073",
-    text: "[TODO: Мясной бульон]",
+    text: "Meat broth",
     transcription: undefined
   },
   {
     phraseId: "phrase_074",
-    text: "[TODO: Мясо]",
+    text: "Meat",
     transcription: undefined
   },
   {
     phraseId: "phrase_075",
-    text: "[TODO: Баранина]",
+    text: "Lamb",
     transcription: undefined
   },
   {
     phraseId: "phrase_076",
-    text: "[TODO: Свинина]",
+    text: "Pork",
     transcription: undefined
   },
   {
     phraseId: "phrase_077",
-    text: "[TODO: Жареная]",
+    text: "Fried",
     transcription: undefined
   },
   {
     phraseId: "phrase_078",
-    text: "[TODO: Отварная]",
+    text: "Boiled",
     transcription: undefined
   },
   {
     phraseId: "phrase_079",
-    text: "[TODO: Рыбные блюда]",
+    text: "Fish dishes",
     transcription: undefined
   },
   {
     phraseId: "phrase_080",
-    text: "[TODO: Рыба]",
+    text: "Fish",
     transcription: undefined
   },
   {
     phraseId: "phrase_081",
-    text: "[TODO: Лосось]",
+    text: "Salmon",
     transcription: undefined
   },
   {
     phraseId: "phrase_082",
-    text: "[TODO: Креветки]",
+    text: "Shrimp",
     transcription: undefined
   },
   {
     phraseId: "phrase_083",
-    text: "[TODO: Крабы]",
+    text: "Crabs",
     transcription: undefined
   },
   {
     phraseId: "phrase_084",
-    text: "[TODO: Есть вегетарианское меню?]",
+    text: "Is there a vegetarian menu?",
     transcription: undefined
   },
   {
     phraseId: "phrase_085",
-    text: "[TODO: Это блюдо острое?]",
+    text: "Is this dish spicy?",
     transcription: undefined
   },
   {
     phraseId: "phrase_086",
-    text: "[TODO: Без острого]",
+    text: "Not spicy",
     transcription: undefined
   },
   {
     phraseId: "phrase_087",
-    text: "[TODO: Яблоко]",
+    text: "Apple",
     transcription: undefined
   },
   {
     phraseId: "phrase_088",
-    text: "[TODO: Банан]",
+    text: "Banana",
     transcription: undefined
   },
   {
     phraseId: "phrase_089",
-    text: "[TODO: Апельсин]",
+    text: "Orange",
     transcription: undefined
   },
   {
     phraseId: "phrase_090",
-    text: "[TODO: Виноград]",
+    text: "Grapes",
     transcription: undefined
   },
   {
     phraseId: "phrase_091",
-    text: "[TODO: Арбуз]",
+    text: "Watermelon",
     transcription: undefined
   },
   {
     phraseId: "phrase_092",
-    text: "[TODO: Картофель]",
+    text: "Potato",
     transcription: undefined
   },
   {
     phraseId: "phrase_093",
-    text: "[TODO: Помидор]",
+    text: "Tomato",
     transcription: undefined
   },
   {
     phraseId: "phrase_094",
-    text: "[TODO: Сколько это стоит?]",
+    text: "How much does it cost?",
     transcription: undefined
   },
   {
     phraseId: "phrase_095",
-    text: "[TODO: Слишком дорого]",
+    text: "Too expensive",
     transcription: undefined
   },
   {
     phraseId: "phrase_096",
-    text: "[TODO: Можно дешевле?]",
+    text: "Can it be cheaper?",
     transcription: undefined
   },
   {
     phraseId: "phrase_097",
-    text: "[TODO: Я покупаю это]",
+    text: "I will buy this",
     transcription: undefined
   },
   {
     phraseId: "phrase_098",
-    text: "[TODO: Можно примерить?]",
+    text: "Can I try it on?",
     transcription: undefined
   },
   {
     phraseId: "phrase_099",
-    text: "[TODO: Больше размером]",
+    text: "Bigger size",
     transcription: undefined
   },
   {
     phraseId: "phrase_100",
-    text: "[TODO: Меньше размером]",
+    text: "Smaller size",
     transcription: undefined
   },
   {
     phraseId: "phrase_101",
-    text: "[TODO: Наличные]",
+    text: "Cash",
     transcription: undefined
   },
   {
     phraseId: "phrase_102",
-    text: "[TODO: Кредитная карта]",
+    text: "Credit card",
     transcription: undefined
   },
   {
     phraseId: "phrase_103",
-    text: "[TODO: Чек]",
+    text: "Receipt",
     transcription: undefined
   },
   {
     phraseId: "phrase_104",
-    text: "[TODO: Возврат/обмен]",
+    text: "Return/Exchange",
     transcription: undefined
   },
   {
     phraseId: "phrase_105",
-    text: "[TODO: Где находится рынок?]",
+    text: "Where is the market?",
     transcription: undefined
   },
   {
     phraseId: "phrase_106",
-    text: "[TODO: Есть скидка?]",
+    text: "Is there a discount?",
     transcription: undefined
   },
   {
     phraseId: "phrase_107",
-    text: "[TODO: Можно примерить?]",
+    text: "Can I try it on?",
     transcription: undefined
   },
   {
     phraseId: "phrase_108",
-    text: "[TODO: Какой у вас размер?]",
+    text: "What is your size?",
     transcription: undefined
   },
   {
     phraseId: "phrase_109",
-    text: "[TODO: Есть другие цвета?]",
+    text: "Are there other colors?",
     transcription: undefined
   },
   {
     phraseId: "phrase_110",
-    text: "[TODO: Где железнодорожный вокзал?]",
+    text: "Where is the train station?",
     transcription: undefined
   },
   {
     phraseId: "phrase_111",
-    text: "[TODO: Аэропорт]",
+    text: "Airport",
     transcription: undefined
   },
   {
     phraseId: "phrase_112",
-    text: "[TODO: Такси]",
+    text: "Taxi",
     transcription: undefined
   },
   {
     phraseId: "phrase_113",
-    text: "[TODO: Автобус]",
+    text: "Bus",
     transcription: undefined
   },
   {
     phraseId: "phrase_114",
-    text: "[TODO: Метро]",
+    text: "Metro",
     transcription: undefined
   },
   {
     phraseId: "phrase_115",
-    text: "[TODO: Билет на поезд]",
+    text: "Train ticket",
     transcription: undefined
   },
   {
     phraseId: "phrase_116",
-    text: "[TODO: Расписание]",
+    text: "Schedule",
     transcription: undefined
   },
   {
     phraseId: "phrase_117",
-    text: "[TODO: Платформа]",
+    text: "Platform",
     transcription: undefined
   },
   {
     phraseId: "phrase_118",
-    text: "[TODO: Следующая остановка]",
+    text: "Next stop",
     transcription: undefined
   },
   {
     phraseId: "phrase_119",
-    text: "[TODO: Остановитесь]",
+    text: "Stop",
     transcription: undefined
   },
   {
     phraseId: "phrase_120",
-    text: "[TODO: Сколько времени до...?]",
+    text: "How long until...?",
     transcription: undefined
   },
   {
     phraseId: "phrase_121",
-    text: "[TODO: Мне нужно в...]",
+    text: "I need to go to...",
     transcription: undefined
   },
   {
     phraseId: "phrase_122",
-    text: "[TODO: Когда придет следующий автобус?]",
+    text: "When will the next bus arrive?",
     transcription: undefined
   },
   {
     phraseId: "phrase_123",
-    text: "[TODO: Я хочу поехать в аэропорт]",
+    text: "I want to go to the airport",
     transcription: undefined
   },
   {
     phraseId: "phrase_124",
-    text: "[TODO: Слева]",
+    text: "On the left",
     transcription: undefined
   },
   {
     phraseId: "phrase_125",
-    text: "[TODO: Справа]",
+    text: "On the right",
     transcription: undefined
   },
   {
     phraseId: "phrase_126",
-    text: "[TODO: Прямо]",
+    text: "Straight",
     transcription: undefined
   },
   {
     phraseId: "phrase_127",
-    text: "[TODO: Поворот]",
+    text: "Turn",
     transcription: undefined
   },
   {
     phraseId: "phrase_128",
-    text: "[TODO: Перекресток]",
+    text: "Intersection",
     transcription: undefined
   },
   {
     phraseId: "phrase_129",
-    text: "[TODO: Светофор]",
+    text: "Traffic light",
     transcription: undefined
   },
   {
     phraseId: "phrase_130",
-    text: "[TODO: Далеко]",
+    text: "Far",
     transcription: undefined
   },
   {
     phraseId: "phrase_131",
-    text: "[TODO: Близко]",
+    text: "Near",
     transcription: undefined
   },
   {
     phraseId: "phrase_132",
-    text: "[TODO: Карта]",
+    text: "Map",
     transcription: undefined
   },
   {
@@ -672,862 +671,862 @@ export const englishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_134",
-    text: "[TODO: Больница]",
+    text: "Hospital",
     transcription: undefined
   },
   {
     phraseId: "phrase_135",
-    text: "[TODO: Аптека]",
+    text: "Pharmacy",
     transcription: undefined
   },
   {
     phraseId: "phrase_136",
-    text: "[TODO: У меня болит голова]",
+    text: "I have a headache",
     transcription: undefined
   },
   {
     phraseId: "phrase_137",
-    text: "[TODO: У меня болит живот]",
+    text: "I have a stomachache",
     transcription: undefined
   },
   {
     phraseId: "phrase_138",
-    text: "[TODO: Температура]",
+    text: "Temperature",
     transcription: undefined
   },
   {
     phraseId: "phrase_139",
-    text: "[TODO: Кашель]",
+    text: "Cough",
     transcription: undefined
   },
   {
     phraseId: "phrase_140",
-    text: "[TODO: Лекарство]",
+    text: "Medicine",
     transcription: undefined
   },
   {
     phraseId: "phrase_141",
-    text: "[TODO: Врач]",
+    text: "Doctor",
     transcription: undefined
   },
   {
     phraseId: "phrase_142",
-    text: "[TODO: Медсестра]",
+    text: "Nurse",
     transcription: undefined
   },
   {
     phraseId: "phrase_143",
-    text: "[TODO: Скорая помощь]",
+    text: "Ambulance",
     transcription: undefined
   },
   {
     phraseId: "phrase_144",
-    text: "[TODO: У меня болит голова]",
+    text: "I have a headache",
     transcription: undefined
   },
   {
     phraseId: "phrase_145",
-    text: "[TODO: Мне нужно обезболивающее]",
+    text: "I need a painkiller",
     transcription: undefined
   },
   {
     phraseId: "phrase_146",
-    text: "[TODO: Юани]",
+    text: "Yuan",
     transcription: undefined
   },
   {
     phraseId: "phrase_147",
-    text: "[TODO: Манат]",
+    text: "Manat",
     transcription: undefined
   },
   {
     phraseId: "phrase_148",
-    text: "[TODO: Оплата картой]",
+    text: "Card payment",
     transcription: undefined
   },
   {
     phraseId: "phrase_149",
-    text: "[TODO: Банк]",
+    text: "Bank",
     transcription: undefined
   },
   {
     phraseId: "phrase_150",
-    text: "[TODO: Банкомат]",
+    text: "ATM",
     transcription: undefined
   },
   {
     phraseId: "phrase_151",
-    text: "[TODO: Обмен валют]",
+    text: "Currency exchange",
     transcription: undefined
   },
   {
     phraseId: "phrase_152",
-    text: "[TODO: Сдача]",
+    text: "Change",
     transcription: undefined
   },
   {
     phraseId: "phrase_153",
-    text: "[TODO: Бесплатно]",
+    text: "Free",
     transcription: undefined
   },
   {
     phraseId: "phrase_154",
-    text: "[TODO: Цена]",
+    text: "Price",
     transcription: undefined
   },
   {
     phraseId: "phrase_155",
-    text: "[TODO: Мобильный телефон]",
+    text: "Mobile phone",
     transcription: undefined
   },
   {
     phraseId: "phrase_156",
-    text: "[TODO: Wi-Fi]",
+    text: "Wi-Fi",
     transcription: undefined
   },
   {
     phraseId: "phrase_157",
-    text: "[TODO: Какой пароль?]",
+    text: "What is the password?",
     transcription: undefined
   },
   {
     phraseId: "phrase_158",
-    text: "[TODO: Отправить SMS]",
+    text: "Send SMS",
     transcription: undefined
   },
   {
     phraseId: "phrase_159",
-    text: "[TODO: Кинотеатр]",
+    text: "Cinema",
     transcription: undefined
   },
   {
     phraseId: "phrase_160",
-    text: "[TODO: Музей]",
+    text: "Museum",
     transcription: undefined
   },
   {
     phraseId: "phrase_161",
-    text: "[TODO: Парк]",
+    text: "Park",
     transcription: undefined
   },
   {
     phraseId: "phrase_162",
-    text: "[TODO: Концерт]",
+    text: "Concert",
     transcription: undefined
   },
   {
     phraseId: "phrase_163",
-    text: "[TODO: Торговый центр]",
+    text: "Shopping mall",
     transcription: undefined
   },
   {
     phraseId: "phrase_164",
-    text: "[TODO: Бассейн]",
+    text: "Swimming pool",
     transcription: undefined
   },
   {
     phraseId: "phrase_165",
-    text: "[TODO: Спортзал]",
+    text: "Gym",
     transcription: undefined
   },
   {
     phraseId: "phrase_166",
-    text: "[TODO: Библиотека]",
+    text: "Library",
     transcription: undefined
   },
   {
     phraseId: "phrase_167",
-    text: "[TODO: Ночной рынок]",
+    text: "Night market",
     transcription: undefined
   },
   {
     phraseId: "phrase_168",
-    text: "[TODO: Сколько стоит билет?]",
+    text: "How much is the ticket?",
     transcription: undefined
   },
   {
     phraseId: "phrase_169",
-    text: "[TODO: Который час?]",
+    text: "What time is it?",
     transcription: undefined
   },
   {
     phraseId: "phrase_170",
-    text: "[TODO: Сегодня]",
+    text: "Today",
     transcription: undefined
   },
   {
     phraseId: "phrase_171",
-    text: "[TODO: Завтра]",
+    text: "Tomorrow",
     transcription: undefined
   },
   {
     phraseId: "phrase_172",
-    text: "[TODO: Вчера]",
+    text: "Yesterday",
     transcription: undefined
   },
   {
     phraseId: "phrase_173",
-    text: "[TODO: Понедельник]",
+    text: "Monday",
     transcription: undefined
   },
   {
     phraseId: "phrase_174",
-    text: "[TODO: Воскресенье]",
+    text: "Sunday",
     transcription: undefined
   },
   {
     phraseId: "phrase_175",
-    text: "[TODO: Утром]",
+    text: "In the morning",
     transcription: undefined
   },
   {
     phraseId: "phrase_176",
-    text: "[TODO: После полудня]",
+    text: "In the afternoon",
     transcription: undefined
   },
   {
     phraseId: "phrase_177",
-    text: "[TODO: Вечером]",
+    text: "In the evening",
     transcription: undefined
   },
   {
     phraseId: "phrase_178",
-    text: "[TODO: Какой месяц?]",
+    text: "What month?",
     transcription: undefined
   },
   {
     phraseId: "phrase_179",
-    text: "[TODO: Понедельник]",
+    text: "Monday",
     transcription: undefined
   },
   {
     phraseId: "phrase_180",
-    text: "[TODO: Вторник]",
+    text: "Tuesday",
     transcription: undefined
   },
   {
     phraseId: "phrase_181",
-    text: "[TODO: Среда]",
+    text: "Wednesday",
     transcription: undefined
   },
   {
     phraseId: "phrase_182",
-    text: "[TODO: Четверг]",
+    text: "Thursday",
     transcription: undefined
   },
   {
     phraseId: "phrase_183",
-    text: "[TODO: Пятница]",
+    text: "Friday",
     transcription: undefined
   },
   {
     phraseId: "phrase_184",
-    text: "[TODO: Суббота]",
+    text: "Saturday",
     transcription: undefined
   },
   {
     phraseId: "phrase_185",
-    text: "[TODO: Воскресенье]",
+    text: "Sunday",
     transcription: undefined
   },
   {
     phraseId: "phrase_186",
-    text: "[TODO: Январь]",
+    text: "January",
     transcription: undefined
   },
   {
     phraseId: "phrase_187",
-    text: "[TODO: Февраль]",
+    text: "February",
     transcription: undefined
   },
   {
     phraseId: "phrase_188",
-    text: "[TODO: Март]",
+    text: "March",
     transcription: undefined
   },
   {
     phraseId: "phrase_189",
-    text: "[TODO: Апрель]",
+    text: "April",
     transcription: undefined
   },
   {
     phraseId: "phrase_190",
-    text: "[TODO: Май]",
+    text: "May",
     transcription: undefined
   },
   {
     phraseId: "phrase_191",
-    text: "[TODO: Июнь]",
+    text: "June",
     transcription: undefined
   },
   {
     phraseId: "phrase_192",
-    text: "[TODO: Июль]",
+    text: "July",
     transcription: undefined
   },
   {
     phraseId: "phrase_193",
-    text: "[TODO: Август]",
+    text: "August",
     transcription: undefined
   },
   {
     phraseId: "phrase_194",
-    text: "[TODO: Сентябрь]",
+    text: "September",
     transcription: undefined
   },
   {
     phraseId: "phrase_195",
-    text: "[TODO: Октябрь]",
+    text: "October",
     transcription: undefined
   },
   {
     phraseId: "phrase_196",
-    text: "[TODO: Ноябрь]",
+    text: "November",
     transcription: undefined
   },
   {
     phraseId: "phrase_197",
-    text: "[TODO: Декабрь]",
+    text: "December",
     transcription: undefined
   },
   {
     phraseId: "phrase_198",
-    text: "[TODO: Один]",
+    text: "One",
     transcription: undefined
   },
   {
     phraseId: "phrase_199",
-    text: "[TODO: Два]",
+    text: "Two",
     transcription: undefined
   },
   {
     phraseId: "phrase_200",
-    text: "[TODO: Три]",
+    text: "Three",
     transcription: undefined
   },
   {
     phraseId: "phrase_201",
-    text: "[TODO: Четыре]",
+    text: "Four",
     transcription: undefined
   },
   {
     phraseId: "phrase_202",
-    text: "[TODO: Пять]",
+    text: "Five",
     transcription: undefined
   },
   {
     phraseId: "phrase_203",
-    text: "[TODO: Шесть]",
+    text: "Six",
     transcription: undefined
   },
   {
     phraseId: "phrase_204",
-    text: "[TODO: Семь]",
+    text: "Seven",
     transcription: undefined
   },
   {
     phraseId: "phrase_205",
-    text: "[TODO: Восемь]",
+    text: "Eight",
     transcription: undefined
   },
   {
     phraseId: "phrase_206",
-    text: "[TODO: Девять]",
+    text: "Nine",
     transcription: undefined
   },
   {
     phraseId: "phrase_207",
-    text: "[TODO: Десять]",
+    text: "Ten",
     transcription: undefined
   },
   {
     phraseId: "phrase_208",
-    text: "[TODO: Двадцать]",
+    text: "Twenty",
     transcription: undefined
   },
   {
     phraseId: "phrase_209",
-    text: "[TODO: Сто]",
+    text: "One hundred",
     transcription: undefined
   },
   {
     phraseId: "phrase_210",
-    text: "[TODO: Тысяча]",
+    text: "One thousand",
     transcription: undefined
   },
   {
     phraseId: "phrase_211",
-    text: "[TODO: Десять тысяч]",
+    text: "Ten thousand",
     transcription: undefined
   },
   {
     phraseId: "phrase_212",
-    text: "[TODO: Первый]",
+    text: "First",
     transcription: undefined
   },
   {
     phraseId: "phrase_213",
-    text: "[TODO: Тысяча]",
+    text: "One thousand",
     transcription: undefined
   },
   {
     phraseId: "phrase_214",
-    text: "[TODO: Две тысячи]",
+    text: "Two thousand",
     transcription: undefined
   },
   {
     phraseId: "phrase_215",
-    text: "[TODO: Десять тысяч]",
+    text: "Ten thousand",
     transcription: undefined
   },
   {
     phraseId: "phrase_216",
-    text: "[TODO: Сто тысяч]",
+    text: "One hundred thousand",
     transcription: undefined
   },
   {
     phraseId: "phrase_217",
-    text: "[TODO: Один миллион]",
+    text: "One million",
     transcription: undefined
   },
   {
     phraseId: "phrase_218",
-    text: "[TODO: Какая сегодня погода?]",
+    text: "What is the weather today?",
     transcription: undefined
   },
   {
     phraseId: "phrase_219",
-    text: "[TODO: Дождь]",
+    text: "Rain",
     transcription: undefined
   },
   {
     phraseId: "phrase_220",
-    text: "[TODO: Солнечно]",
+    text: "Sunny",
     transcription: undefined
   },
   {
     phraseId: "phrase_221",
-    text: "[TODO: Облачно]",
+    text: "Cloudy",
     transcription: undefined
   },
   {
     phraseId: "phrase_222",
-    text: "[TODO: Ветрено]",
+    text: "Windy",
     transcription: undefined
   },
   {
     phraseId: "phrase_223",
-    text: "[TODO: Снег]",
+    text: "Snow",
     transcription: undefined
   },
   {
     phraseId: "phrase_224",
-    text: "[TODO: Жарко]",
+    text: "Hot",
     transcription: undefined
   },
   {
     phraseId: "phrase_225",
-    text: "[TODO: Холодно]",
+    text: "Cold",
     transcription: undefined
   },
   {
     phraseId: "phrase_226",
-    text: "[TODO: Меня зовут...]",
+    text: "My name is...",
     transcription: undefined
   },
   {
     phraseId: "phrase_227",
-    text: "[TODO: Моя фамилия...]",
+    text: "My last name is...",
     transcription: undefined
   },
   {
     phraseId: "phrase_228",
-    text: "[TODO: Как вас зовут?]",
+    text: "What is your name?",
     transcription: undefined
   },
   {
     phraseId: "phrase_229",
-    text: "[TODO: Я из Туркменистана]",
+    text: "I am from Turkmenistan",
     transcription: undefined
   },
   {
     phraseId: "phrase_230",
-    text: "[TODO: Я живу в Ашхабаде]",
+    text: "I live in Ashgabat",
     transcription: undefined
   },
   {
     phraseId: "phrase_231",
-    text: "[TODO: В нашей семье 4 человека]",
+    text: "There are 4 people in our family",
     transcription: undefined
   },
   {
     phraseId: "phrase_232",
-    text: "[TODO: У вас есть дети?]",
+    text: "Do you have children?",
     transcription: undefined
   },
   {
     phraseId: "phrase_233",
-    text: "[TODO: У меня нет детей]",
+    text: "I have no children",
     transcription: undefined
   },
   {
     phraseId: "phrase_234",
-    text: "[TODO: У меня один ребенок]",
+    text: "I have one child",
     transcription: undefined
   },
   {
     phraseId: "phrase_235",
-    text: "[TODO: У меня двое детей]",
+    text: "I have two children",
     transcription: undefined
   },
   {
     phraseId: "phrase_236",
-    text: "[TODO: Чем вы занимаетесь?]",
+    text: "What do you do?",
     transcription: undefined
   },
   {
     phraseId: "phrase_237",
-    text: "[TODO: Я работаю на заводе]",
+    text: "I work at a factory",
     transcription: undefined
   },
   {
     phraseId: "phrase_238",
-    text: "[TODO: Я работаю в банке]",
+    text: "I work at a bank",
     transcription: undefined
   },
   {
     phraseId: "phrase_239",
-    text: "[TODO: Я работаю в больнице]",
+    text: "I work at a hospital",
     transcription: undefined
   },
   {
     phraseId: "phrase_240",
-    text: "[TODO: Я изучаю иностранные языки]",
+    text: "I study foreign languages",
     transcription: undefined
   },
   {
     phraseId: "phrase_241",
-    text: "[TODO: Вы говорите по-русски?]",
+    text: "Do you speak Russian?",
     transcription: undefined
   },
   {
     phraseId: "phrase_242",
-    text: "[TODO: Я не говорю]",
+    text: "I don't speak",
     transcription: undefined
   },
   {
     phraseId: "phrase_243",
-    text: "[TODO: Я немного говорю]",
+    text: "I speak a little",
     transcription: undefined
   },
   {
     phraseId: "phrase_244",
-    text: "[TODO: Когда начинается конференция?]",
+    text: "When does the conference start?",
     transcription: undefined
   },
   {
     phraseId: "phrase_245",
-    text: "[TODO: Каков регламент выступлений?]",
+    text: "What is the schedule for presentations?",
     transcription: undefined
   },
   {
     phraseId: "phrase_246",
-    text: "[TODO: Будет перевод на русский язык?]",
+    text: "Will there be translation to Russian?",
     transcription: undefined
   },
   {
     phraseId: "phrase_247",
-    text: "[TODO: Я буду выступать на русском языке]",
+    text: "I will speak in Russian",
     transcription: undefined
   },
   {
     phraseId: "phrase_248",
-    text: "[TODO: Мы хотим посмотреть выставку]",
+    text: "We want to see the exhibition",
     transcription: undefined
   },
   {
     phraseId: "phrase_249",
-    text: "[TODO: Во сколько открывается выставка?]",
+    text: "What time does the exhibition open?",
     transcription: undefined
   },
   {
     phraseId: "phrase_250",
-    text: "[TODO: Сколько стран участвует?]",
+    text: "How many countries are participating?",
     transcription: undefined
   },
   {
     phraseId: "phrase_251",
-    text: "[TODO: Можно получить каталог выставки?]",
+    text: "Can I get the exhibition catalog?",
     transcription: undefined
   },
   {
     phraseId: "phrase_252",
-    text: "[TODO: Я пришел обсудить дела]",
+    text: "I came to discuss business",
     transcription: undefined
   },
   {
     phraseId: "phrase_253",
-    text: "[TODO: Мы хотим поговорить с генеральным директором]",
+    text: "We want to speak with the general director",
     transcription: undefined
   },
   {
     phraseId: "phrase_254",
-    text: "[TODO: Мы хотим познакомиться с производством]",
+    text: "We want to learn about the production",
     transcription: undefined
   },
   {
     phraseId: "phrase_255",
-    text: "[TODO: Длина]",
+    text: "Length",
     transcription: undefined
   },
   {
     phraseId: "phrase_256",
-    text: "[TODO: Метр]",
+    text: "Meter",
     transcription: undefined
   },
   {
     phraseId: "phrase_257",
-    text: "[TODO: Сантиметр]",
+    text: "Centimeter",
     transcription: undefined
   },
   {
     phraseId: "phrase_258",
-    text: "[TODO: Вес]",
+    text: "Weight",
     transcription: undefined
   },
   {
     phraseId: "phrase_259",
-    text: "[TODO: Килограмм]",
+    text: "Kilogram",
     transcription: undefined
   },
   {
     phraseId: "phrase_260",
-    text: "[TODO: Грамм]",
+    text: "Gram",
     transcription: undefined
   },
   {
     phraseId: "phrase_261",
-    text: "[TODO: Объем]",
+    text: "Volume",
     transcription: undefined
   },
   {
     phraseId: "phrase_262",
-    text: "[TODO: Литр]",
+    text: "Liter",
     transcription: undefined
   },
   {
     phraseId: "phrase_263",
-    text: "[TODO: Белый]",
+    text: "White",
     transcription: undefined
   },
   {
     phraseId: "phrase_264",
-    text: "[TODO: Желтый]",
+    text: "Yellow",
     transcription: undefined
   },
   {
     phraseId: "phrase_265",
-    text: "[TODO: Зеленый]",
+    text: "Green",
     transcription: undefined
   },
   {
     phraseId: "phrase_266",
-    text: "[TODO: Синий]",
+    text: "Blue",
     transcription: undefined
   },
   {
     phraseId: "phrase_267",
-    text: "[TODO: Красный]",
+    text: "Red",
     transcription: undefined
   },
   {
     phraseId: "phrase_268",
-    text: "[TODO: Черный]",
+    text: "Black",
     transcription: undefined
   },
   {
     phraseId: "phrase_269",
-    text: "[TODO: Серый]",
+    text: "Gray",
     transcription: undefined
   },
   {
     phraseId: "phrase_270",
-    text: "[TODO: Фиолетовый]",
+    text: "Purple",
     transcription: undefined
   },
   {
     phraseId: "phrase_271",
-    text: "[TODO: Оранжевый]",
+    text: "Orange",
     transcription: undefined
   },
   {
     phraseId: "phrase_272",
-    text: "[TODO: Розовый]",
+    text: "Pink",
     transcription: undefined
   },
   {
     phraseId: "phrase_273",
-    text: "[TODO: Голова]",
+    text: "Head",
     transcription: undefined
   },
   {
     phraseId: "phrase_274",
-    text: "[TODO: Рука]",
+    text: "Arm",
     transcription: undefined
   },
   {
     phraseId: "phrase_275",
-    text: "[TODO: Нога]",
+    text: "Leg",
     transcription: undefined
   },
   {
     phraseId: "phrase_276",
-    text: "[TODO: Глаза]",
+    text: "Eyes",
     transcription: undefined
   },
   {
     phraseId: "phrase_277",
-    text: "[TODO: Нос]",
+    text: "Nose",
     transcription: undefined
   },
   {
     phraseId: "phrase_278",
-    text: "[TODO: Рот]",
+    text: "Mouth",
     transcription: undefined
   },
   {
     phraseId: "phrase_279",
-    text: "[TODO: Ухо]",
+    text: "Ear",
     transcription: undefined
   },
   {
     phraseId: "phrase_280",
-    text: "[TODO: Дом]",
+    text: "House",
     transcription: undefined
   },
   {
     phraseId: "phrase_281",
-    text: "[TODO: Дверь]",
+    text: "Door",
     transcription: undefined
   },
   {
     phraseId: "phrase_282",
-    text: "[TODO: Окно]",
+    text: "Window",
     transcription: undefined
   },
   {
     phraseId: "phrase_283",
-    text: "[TODO: Стол]",
+    text: "Table",
     transcription: undefined
   },
   {
     phraseId: "phrase_284",
-    text: "[TODO: Стул]",
+    text: "Chair",
     transcription: undefined
   },
   {
     phraseId: "phrase_285",
-    text: "[TODO: Кровать]",
+    text: "Bed",
     transcription: undefined
   },
   {
     phraseId: "phrase_286",
-    text: "[TODO: Где паспортный контроль?]",
+    text: "Where is passport control?",
     transcription: undefined
   },
   {
     phraseId: "phrase_287",
-    text: "[TODO: Вот мой паспорт]",
+    text: "Here is my passport",
     transcription: undefined
   },
   {
     phraseId: "phrase_288",
-    text: "[TODO: Я намереваюсь пробыть в Китае неделю]",
+    text: "I intend to stay in China for a week",
     transcription: undefined
   },
   {
     phraseId: "phrase_289",
-    text: "[TODO: У меня однократная виза]",
+    text: "I have a single-entry visa",
     transcription: undefined
   },
   {
     phraseId: "phrase_290",
-    text: "[TODO: Я в вашей стране проездом]",
+    text: "I am in transit in your country",
     transcription: undefined
   },
   {
     phraseId: "phrase_291",
-    text: "[TODO: Вот моя таможенная декларация]",
+    text: "Here is my customs declaration",
     transcription: undefined
   },
   {
     phraseId: "phrase_292",
-    text: "[TODO: Вот мой багаж]",
+    text: "Here is my luggage",
     transcription: undefined
   },
   {
     phraseId: "phrase_293",
-    text: "[TODO: В моем багаже нет запрещенных предметов]",
+    text: "There are no prohibited items in my luggage",
     transcription: undefined
   },
   {
     phraseId: "phrase_294",
-    text: "[TODO: Это мои личные вещи]",
+    text: "These are my personal belongings",
     transcription: undefined
   },
   {
     phraseId: "phrase_295",
-    text: "[TODO: Какую пошлину надо уплатить?]",
+    text: "What duty do I need to pay?",
     transcription: undefined
   },
   {
     phraseId: "phrase_296",
-    text: "[TODO: Какой спорт вы любите?]",
+    text: "What sport do you like?",
     transcription: undefined
   },
   {
     phraseId: "phrase_297",
-    text: "[TODO: Я люблю играть в футбол]",
+    text: "I like to play football",
     transcription: undefined
   },
   {
     phraseId: "phrase_298",
-    text: "[TODO: Баскетбол]",
+    text: "Basketball",
     transcription: undefined
   },
   {
     phraseId: "phrase_299",
-    text: "[TODO: Плавание]",
+    text: "Swimming",
     transcription: undefined
   },
   {
     phraseId: "phrase_300",
-    text: "[TODO: Бег]",
+    text: "Running",
     transcription: undefined
   },
   {
     phraseId: "phrase_301",
-    text: "[TODO: Где находится спортзал?]",
+    text: "Where is the gym?",
     transcription: undefined
   },
   {
     phraseId: "phrase_302",
-    text: "[TODO: Я хочу тренироваться]",
+    text: "I want to work out",
     transcription: undefined
   },
   {
     phraseId: "phrase_303",
-    text: "[TODO: Тренер]",
+    text: "Coach",
     transcription: undefined
   },
   {
     phraseId: "phrase_304",
-    text: "[TODO: Соревнование / Матч]",
+    text: "Competition / Match",
     transcription: undefined
   },
   {
     phraseId: "phrase_305",
-    text: "[TODO: Стадион]",
+    text: "Stadium",
     transcription: undefined
   }
 ];

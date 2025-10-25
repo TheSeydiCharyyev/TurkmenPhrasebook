@@ -5,1527 +5,1527 @@
     {
       "id": "phrase_001",
       "russian": "Привет",
-      "english": ""
+      "english": "Hello"
     },
     {
       "id": "phrase_002",
       "russian": "Спасибо",
-      "english": ""
+      "english": "Thank you"
     },
     {
       "id": "phrase_003",
       "russian": "До свидания",
-      "english": ""
+      "english": "Goodbye"
     },
     {
       "id": "phrase_004",
       "russian": "Извините",
-      "english": ""
+      "english": "Excuse me"
     },
     {
       "id": "phrase_005",
       "russian": "Доброе утро",
-      "english": ""
+      "english": "Good morning"
     },
     {
       "id": "phrase_006",
       "russian": "Спокойной ночи",
-      "english": ""
+      "english": "Good night"
     },
     {
       "id": "phrase_007",
       "russian": "Меня зовут...",
-      "english": ""
+      "english": "My name is..."
     },
     {
       "id": "phrase_008",
       "russian": "Как вас зовут?",
-      "english": ""
+      "english": "What is your name?"
     },
     {
       "id": "phrase_009",
       "russian": "Приятно познакомиться",
-      "english": ""
+      "english": "Nice to meet you"
     },
     {
       "id": "phrase_010",
       "russian": "Пожалуйста",
-      "english": ""
+      "english": "Please"
     },
     {
       "id": "phrase_011",
       "russian": "Пожалуйста / Не за что",
-      "english": ""
+      "english": "You're welcome"
     },
     {
       "id": "phrase_012",
       "russian": "Как дела?",
-      "english": ""
+      "english": "How are you?"
     },
     {
       "id": "phrase_013",
       "russian": "Удачи!",
-      "english": ""
+      "english": "Good luck!"
     },
     {
       "id": "phrase_014",
       "russian": "Добро пожаловать!",
-      "english": ""
+      "english": "Welcome!"
     },
     {
       "id": "phrase_015",
       "russian": "Очень рад Вас видеть",
-      "english": ""
+      "english": "Very glad to see you"
     },
     {
       "id": "phrase_016",
       "russian": "С приездом!",
-      "english": ""
+      "english": "Welcome! (arrival greeting)"
     },
     {
       "id": "phrase_017",
       "russian": "Как поживаете?",
-      "english": ""
+      "english": "How are you doing?"
     },
     {
       "id": "phrase_018",
       "russian": "Разрешите представить вам моего друга",
-      "english": ""
+      "english": "Let me introduce my friend"
     },
     {
       "id": "phrase_019",
       "russian": "Рад с вами познакомиться!",
-      "english": ""
+      "english": "Pleased to meet you!"
     },
     {
       "id": "phrase_020",
       "russian": "Входите, пожалуйста",
-      "english": ""
+      "english": "Please come in"
     },
     {
       "id": "phrase_021",
       "russian": "Садитесь, пожалуйста",
-      "english": ""
+      "english": "Please sit down"
     },
     {
       "id": "phrase_022",
       "russian": "Да",
-      "english": ""
+      "english": "Yes"
     },
     {
       "id": "phrase_023",
       "russian": "Нет",
-      "english": ""
+      "english": "No"
     },
     {
       "id": "phrase_024",
       "russian": "Я согласен",
-      "english": ""
+      "english": "I agree"
     },
     {
       "id": "phrase_025",
       "russian": "Большое спасибо за помощь",
-      "english": ""
+      "english": "Thank you very much for your help"
     },
     {
       "id": "phrase_026",
       "russian": "Большое спасибо за поддержку",
-      "english": ""
+      "english": "Thank you very much for your support"
     },
     {
       "id": "phrase_027",
       "russian": "Большое спасибо за понимание",
-      "english": ""
+      "english": "Thank you very much for your understanding"
     },
     {
       "id": "phrase_028",
       "russian": "Помогите!",
-      "english": ""
+      "english": "Help!"
     },
     {
       "id": "phrase_029",
       "russian": "Мне нужен врач",
-      "english": ""
+      "english": "I need a doctor"
     },
     {
       "id": "phrase_030",
       "russian": "Вызовите полицию",
-      "english": ""
+      "english": "Call the police"
     },
     {
       "id": "phrase_031",
       "russian": "Пожар!",
-      "english": ""
+      "english": "Fire!"
     },
     {
       "id": "phrase_032",
       "russian": "Я заблудился",
-      "english": ""
+      "english": "I am lost"
     },
     {
       "id": "phrase_033",
       "russian": "Я болен",
-      "english": ""
+      "english": "I am sick"
     },
     {
       "id": "phrase_034",
       "russian": "Вызовите скорую",
-      "english": ""
+      "english": "Call an ambulance"
     },
     {
       "id": "phrase_035",
       "russian": "У меня украли кошелек",
-      "english": ""
+      "english": "My wallet was stolen"
     },
     {
       "id": "phrase_036",
       "russian": "Помогите мне",
-      "english": ""
+      "english": "Help me"
     },
     {
       "id": "phrase_037",
       "russian": "Опасно!",
-      "english": ""
+      "english": "Danger!"
     },
     {
       "id": "phrase_038",
       "russian": "Вызовите врача!",
-      "english": ""
+      "english": "Call a doctor!"
     },
     {
       "id": "phrase_039",
       "russian": "Я хочу номер",
-      "english": ""
+      "english": "I want a room"
     },
     {
       "id": "phrase_040",
       "russian": "Сколько за ночь?",
-      "english": ""
+      "english": "How much per night?"
     },
     {
       "id": "phrase_041",
       "russian": "Есть ли здесь WiFi?",
-      "english": ""
+      "english": "Is there WiFi here?"
     },
     {
       "id": "phrase_042",
       "russian": "У меня есть бронь",
-      "english": ""
+      "english": "I have a reservation"
     },
     {
       "id": "phrase_043",
       "russian": "Одноместный номер",
-      "english": ""
+      "english": "Single room"
     },
     {
       "id": "phrase_044",
       "russian": "Двухместный номер",
-      "english": ""
+      "english": "Double room"
     },
     {
       "id": "phrase_045",
       "russian": "Во сколько выселение?",
-      "english": ""
+      "english": "What time is check-out?"
     },
     {
       "id": "phrase_046",
       "russian": "Ключ",
-      "english": ""
+      "english": "Key"
     },
     {
       "id": "phrase_047",
       "russian": "Номер комнаты",
-      "english": ""
+      "english": "Room number"
     },
     {
       "id": "phrase_048",
       "russian": "Завтрак включен?",
-      "english": ""
+      "english": "Is breakfast included?"
     },
     {
       "id": "phrase_049",
       "russian": "Пожалуйста, уберите номер",
-      "english": ""
+      "english": "Please clean the room"
     },
     {
       "id": "phrase_050",
       "russian": "Я хочу продлить проживание",
-      "english": ""
+      "english": "I want to extend my stay"
     },
     {
       "id": "phrase_051",
       "russian": "Я голоден",
-      "english": ""
+      "english": "I am hungry"
     },
     {
       "id": "phrase_052",
       "russian": "Меню, пожалуйста",
-      "english": ""
+      "english": "Menu, please"
     },
     {
       "id": "phrase_053",
       "russian": "Вкусно",
-      "english": ""
+      "english": "Delicious"
     },
     {
       "id": "phrase_054",
       "russian": "Счет, пожалуйста",
-      "english": ""
+      "english": "Bill, please"
     },
     {
       "id": "phrase_055",
       "russian": "Я вегетарианец",
-      "english": ""
+      "english": "I am vegetarian"
     },
     {
       "id": "phrase_056",
       "russian": "Без острого",
-      "english": ""
+      "english": "Not spicy"
     },
     {
       "id": "phrase_057",
       "russian": "Вода",
-      "english": ""
+      "english": "Water"
     },
     {
       "id": "phrase_058",
       "russian": "Чай",
-      "english": ""
+      "english": "Tea"
     },
     {
       "id": "phrase_059",
       "russian": "Рис",
-      "english": ""
+      "english": "Rice"
     },
     {
       "id": "phrase_060",
       "russian": "Лапша",
-      "english": ""
+      "english": "Noodles"
     },
     {
       "id": "phrase_061",
       "russian": "Курица",
-      "english": ""
+      "english": "Chicken"
     },
     {
       "id": "phrase_062",
       "russian": "Говядина",
-      "english": ""
+      "english": "Beef"
     },
     {
       "id": "phrase_063",
       "russian": "Сколько это стоит?",
-      "english": ""
+      "english": "How much does it cost?"
     },
     {
       "id": "phrase_064",
       "russian": "У меня аллергия на...",
-      "english": ""
+      "english": "I am allergic to..."
     },
     {
       "id": "phrase_065",
       "russian": "Можно с собой?",
-      "english": ""
+      "english": "Can I take it to go?"
     },
     {
       "id": "phrase_066",
       "russian": "Очень вкусно",
-      "english": ""
+      "english": "Very delicious"
     },
     {
       "id": "phrase_067",
       "russian": "Закуски",
-      "english": ""
+      "english": "Appetizers"
     },
     {
       "id": "phrase_068",
       "russian": "Ветчина",
-      "english": ""
+      "english": "Ham"
     },
     {
       "id": "phrase_069",
       "russian": "Сырное ассорти",
-      "english": ""
+      "english": "Cheese platter"
     },
     {
       "id": "phrase_070",
       "russian": "Суп",
-      "english": ""
+      "english": "Soup"
     },
     {
       "id": "phrase_071",
       "russian": "Борщ",
-      "english": ""
+      "english": "Borscht"
     },
     {
       "id": "phrase_072",
       "russian": "Куриная лапша",
-      "english": ""
+      "english": "Chicken noodle soup"
     },
     {
       "id": "phrase_073",
       "russian": "Мясной бульон",
-      "english": ""
+      "english": "Meat broth"
     },
     {
       "id": "phrase_074",
       "russian": "Мясо",
-      "english": ""
+      "english": "Meat"
     },
     {
       "id": "phrase_075",
       "russian": "Баранина",
-      "english": ""
+      "english": "Lamb"
     },
     {
       "id": "phrase_076",
       "russian": "Свинина",
-      "english": ""
+      "english": "Pork"
     },
     {
       "id": "phrase_077",
       "russian": "Жареная",
-      "english": ""
+      "english": "Fried"
     },
     {
       "id": "phrase_078",
       "russian": "Отварная",
-      "english": ""
+      "english": "Boiled"
     },
     {
       "id": "phrase_079",
       "russian": "Рыбные блюда",
-      "english": ""
+      "english": "Fish dishes"
     },
     {
       "id": "phrase_080",
       "russian": "Рыба",
-      "english": ""
+      "english": "Fish"
     },
     {
       "id": "phrase_081",
       "russian": "Лосось",
-      "english": ""
+      "english": "Salmon"
     },
     {
       "id": "phrase_082",
       "russian": "Креветки",
-      "english": ""
+      "english": "Shrimp"
     },
     {
       "id": "phrase_083",
       "russian": "Крабы",
-      "english": ""
+      "english": "Crabs"
     },
     {
       "id": "phrase_084",
       "russian": "Есть вегетарианское меню?",
-      "english": ""
+      "english": "Is there a vegetarian menu?"
     },
     {
       "id": "phrase_085",
       "russian": "Это блюдо острое?",
-      "english": ""
+      "english": "Is this dish spicy?"
     },
     {
       "id": "phrase_086",
       "russian": "Без острого",
-      "english": ""
+      "english": "Not spicy"
     },
     {
       "id": "phrase_087",
       "russian": "Яблоко",
-      "english": ""
+      "english": "Apple"
     },
     {
       "id": "phrase_088",
       "russian": "Банан",
-      "english": ""
+      "english": "Banana"
     },
     {
       "id": "phrase_089",
       "russian": "Апельсин",
-      "english": ""
+      "english": "Orange"
     },
     {
       "id": "phrase_090",
       "russian": "Виноград",
-      "english": ""
+      "english": "Grapes"
     },
     {
       "id": "phrase_091",
       "russian": "Арбуз",
-      "english": ""
+      "english": "Watermelon"
     },
     {
       "id": "phrase_092",
       "russian": "Картофель",
-      "english": ""
+      "english": "Potato"
     },
     {
       "id": "phrase_093",
       "russian": "Помидор",
-      "english": ""
+      "english": "Tomato"
     },
     {
       "id": "phrase_094",
       "russian": "Сколько это стоит?",
-      "english": ""
+      "english": "How much does it cost?"
     },
     {
       "id": "phrase_095",
       "russian": "Слишком дорого",
-      "english": ""
+      "english": "Too expensive"
     },
     {
       "id": "phrase_096",
       "russian": "Можно дешевле?",
-      "english": ""
+      "english": "Can it be cheaper?"
     },
     {
       "id": "phrase_097",
       "russian": "Я покупаю это",
-      "english": ""
+      "english": "I will buy this"
     },
     {
       "id": "phrase_098",
       "russian": "Можно примерить?",
-      "english": ""
+      "english": "Can I try it on?"
     },
     {
       "id": "phrase_099",
       "russian": "Больше размером",
-      "english": ""
+      "english": "Bigger size"
     },
     {
       "id": "phrase_100",
       "russian": "Меньше размером",
-      "english": ""
+      "english": "Smaller size"
     },
     {
       "id": "phrase_101",
       "russian": "Наличные",
-      "english": ""
+      "english": "Cash"
     },
     {
       "id": "phrase_102",
       "russian": "Кредитная карта",
-      "english": ""
+      "english": "Credit card"
     },
     {
       "id": "phrase_103",
       "russian": "Чек",
-      "english": ""
+      "english": "Receipt"
     },
     {
       "id": "phrase_104",
       "russian": "Возврат/обмен",
-      "english": ""
+      "english": "Return/Exchange"
     },
     {
       "id": "phrase_105",
       "russian": "Где находится рынок?",
-      "english": ""
+      "english": "Where is the market?"
     },
     {
       "id": "phrase_106",
       "russian": "Есть скидка?",
-      "english": ""
+      "english": "Is there a discount?"
     },
     {
       "id": "phrase_107",
       "russian": "Можно примерить?",
-      "english": ""
+      "english": "Can I try it on?"
     },
     {
       "id": "phrase_108",
       "russian": "Какой у вас размер?",
-      "english": ""
+      "english": "What is your size?"
     },
     {
       "id": "phrase_109",
       "russian": "Есть другие цвета?",
-      "english": ""
+      "english": "Are there other colors?"
     },
     {
       "id": "phrase_110",
       "russian": "Где железнодорожный вокзал?",
-      "english": ""
+      "english": "Where is the train station?"
     },
     {
       "id": "phrase_111",
       "russian": "Аэропорт",
-      "english": ""
+      "english": "Airport"
     },
     {
       "id": "phrase_112",
       "russian": "Такси",
-      "english": ""
+      "english": "Taxi"
     },
     {
       "id": "phrase_113",
       "russian": "Автобус",
-      "english": ""
+      "english": "Bus"
     },
     {
       "id": "phrase_114",
       "russian": "Метро",
-      "english": ""
+      "english": "Metro"
     },
     {
       "id": "phrase_115",
       "russian": "Билет на поезд",
-      "english": ""
+      "english": "Train ticket"
     },
     {
       "id": "phrase_116",
       "russian": "Расписание",
-      "english": ""
+      "english": "Schedule"
     },
     {
       "id": "phrase_117",
       "russian": "Платформа",
-      "english": ""
+      "english": "Platform"
     },
     {
       "id": "phrase_118",
       "russian": "Следующая остановка",
-      "english": ""
+      "english": "Next stop"
     },
     {
       "id": "phrase_119",
       "russian": "Остановитесь",
-      "english": ""
+      "english": "Stop"
     },
     {
       "id": "phrase_120",
       "russian": "Сколько времени до...?",
-      "english": ""
+      "english": "How long until...?"
     },
     {
       "id": "phrase_121",
       "russian": "Мне нужно в...",
-      "english": ""
+      "english": "I need to go to..."
     },
     {
       "id": "phrase_122",
       "russian": "Когда придет следующий автобус?",
-      "english": ""
+      "english": "When will the next bus arrive?"
     },
     {
       "id": "phrase_123",
       "russian": "Я хочу поехать в аэропорт",
-      "english": ""
+      "english": "I want to go to the airport"
     },
     {
       "id": "phrase_124",
       "russian": "Слева",
-      "english": ""
+      "english": "On the left"
     },
     {
       "id": "phrase_125",
       "russian": "Справа",
-      "english": ""
+      "english": "On the right"
     },
     {
       "id": "phrase_126",
       "russian": "Прямо",
-      "english": ""
+      "english": "Straight"
     },
     {
       "id": "phrase_127",
       "russian": "Поворот",
-      "english": ""
+      "english": "Turn"
     },
     {
       "id": "phrase_128",
       "russian": "Перекресток",
-      "english": ""
+      "english": "Intersection"
     },
     {
       "id": "phrase_129",
       "russian": "Светофор",
-      "english": ""
+      "english": "Traffic light"
     },
     {
       "id": "phrase_130",
       "russian": "Далеко",
-      "english": ""
+      "english": "Far"
     },
     {
       "id": "phrase_131",
       "russian": "Близко",
-      "english": ""
+      "english": "Near"
     },
     {
       "id": "phrase_132",
       "russian": "Карта",
-      "english": ""
+      "english": "Map"
     },
     {
       "id": "phrase_133",
       "russian": "Где находится...?",
-      "english": ""
+      "english": "Where is...?"
     },
     {
       "id": "phrase_134",
       "russian": "Больница",
-      "english": ""
+      "english": "Hospital"
     },
     {
       "id": "phrase_135",
       "russian": "Аптека",
-      "english": ""
+      "english": "Pharmacy"
     },
     {
       "id": "phrase_136",
       "russian": "У меня болит голова",
-      "english": ""
+      "english": "I have a headache"
     },
     {
       "id": "phrase_137",
       "russian": "У меня болит живот",
-      "english": ""
+      "english": "I have a stomachache"
     },
     {
       "id": "phrase_138",
       "russian": "Температура",
-      "english": ""
+      "english": "Temperature"
     },
     {
       "id": "phrase_139",
       "russian": "Кашель",
-      "english": ""
+      "english": "Cough"
     },
     {
       "id": "phrase_140",
       "russian": "Лекарство",
-      "english": ""
+      "english": "Medicine"
     },
     {
       "id": "phrase_141",
       "russian": "Врач",
-      "english": ""
+      "english": "Doctor"
     },
     {
       "id": "phrase_142",
       "russian": "Медсестра",
-      "english": ""
+      "english": "Nurse"
     },
     {
       "id": "phrase_143",
       "russian": "Скорая помощь",
-      "english": ""
+      "english": "Ambulance"
     },
     {
       "id": "phrase_144",
       "russian": "У меня болит голова",
-      "english": ""
+      "english": "I have a headache"
     },
     {
       "id": "phrase_145",
       "russian": "Мне нужно обезболивающее",
-      "english": ""
+      "english": "I need a painkiller"
     },
     {
       "id": "phrase_146",
       "russian": "Юани",
-      "english": ""
+      "english": "Yuan"
     },
     {
       "id": "phrase_147",
       "russian": "Манат",
-      "english": ""
+      "english": "Manat"
     },
     {
       "id": "phrase_148",
       "russian": "Оплата картой",
-      "english": ""
+      "english": "Card payment"
     },
     {
       "id": "phrase_149",
       "russian": "Банк",
-      "english": ""
+      "english": "Bank"
     },
     {
       "id": "phrase_150",
       "russian": "Банкомат",
-      "english": ""
+      "english": "ATM"
     },
     {
       "id": "phrase_151",
       "russian": "Обмен валют",
-      "english": ""
+      "english": "Currency exchange"
     },
     {
       "id": "phrase_152",
       "russian": "Сдача",
-      "english": ""
+      "english": "Change"
     },
     {
       "id": "phrase_153",
       "russian": "Бесплатно",
-      "english": ""
+      "english": "Free"
     },
     {
       "id": "phrase_154",
       "russian": "Цена",
-      "english": ""
+      "english": "Price"
     },
     {
       "id": "phrase_155",
       "russian": "Мобильный телефон",
-      "english": ""
+      "english": "Mobile phone"
     },
     {
       "id": "phrase_156",
       "russian": "Wi-Fi",
-      "english": ""
+      "english": "Wi-Fi"
     },
     {
       "id": "phrase_157",
       "russian": "Какой пароль?",
-      "english": ""
+      "english": "What is the password?"
     },
     {
       "id": "phrase_158",
       "russian": "Отправить SMS",
-      "english": ""
+      "english": "Send SMS"
     },
     {
       "id": "phrase_159",
       "russian": "Кинотеатр",
-      "english": ""
+      "english": "Cinema"
     },
     {
       "id": "phrase_160",
       "russian": "Музей",
-      "english": ""
+      "english": "Museum"
     },
     {
       "id": "phrase_161",
       "russian": "Парк",
-      "english": ""
+      "english": "Park"
     },
     {
       "id": "phrase_162",
       "russian": "Концерт",
-      "english": ""
+      "english": "Concert"
     },
     {
       "id": "phrase_163",
       "russian": "Торговый центр",
-      "english": ""
+      "english": "Shopping mall"
     },
     {
       "id": "phrase_164",
       "russian": "Бассейн",
-      "english": ""
+      "english": "Swimming pool"
     },
     {
       "id": "phrase_165",
       "russian": "Спортзал",
-      "english": ""
+      "english": "Gym"
     },
     {
       "id": "phrase_166",
       "russian": "Библиотека",
-      "english": ""
+      "english": "Library"
     },
     {
       "id": "phrase_167",
       "russian": "Ночной рынок",
-      "english": ""
+      "english": "Night market"
     },
     {
       "id": "phrase_168",
       "russian": "Сколько стоит билет?",
-      "english": ""
+      "english": "How much is the ticket?"
     },
     {
       "id": "phrase_169",
       "russian": "Который час?",
-      "english": ""
+      "english": "What time is it?"
     },
     {
       "id": "phrase_170",
       "russian": "Сегодня",
-      "english": ""
+      "english": "Today"
     },
     {
       "id": "phrase_171",
       "russian": "Завтра",
-      "english": ""
+      "english": "Tomorrow"
     },
     {
       "id": "phrase_172",
       "russian": "Вчера",
-      "english": ""
+      "english": "Yesterday"
     },
     {
       "id": "phrase_173",
       "russian": "Понедельник",
-      "english": ""
+      "english": "Monday"
     },
     {
       "id": "phrase_174",
       "russian": "Воскресенье",
-      "english": ""
+      "english": "Sunday"
     },
     {
       "id": "phrase_175",
       "russian": "Утром",
-      "english": ""
+      "english": "In the morning"
     },
     {
       "id": "phrase_176",
       "russian": "После полудня",
-      "english": ""
+      "english": "In the afternoon"
     },
     {
       "id": "phrase_177",
       "russian": "Вечером",
-      "english": ""
+      "english": "In the evening"
     },
     {
       "id": "phrase_178",
       "russian": "Какой месяц?",
-      "english": ""
+      "english": "What month?"
     },
     {
       "id": "phrase_179",
       "russian": "Понедельник",
-      "english": ""
+      "english": "Monday"
     },
     {
       "id": "phrase_180",
       "russian": "Вторник",
-      "english": ""
+      "english": "Tuesday"
     },
     {
       "id": "phrase_181",
       "russian": "Среда",
-      "english": ""
+      "english": "Wednesday"
     },
     {
       "id": "phrase_182",
       "russian": "Четверг",
-      "english": ""
+      "english": "Thursday"
     },
     {
       "id": "phrase_183",
       "russian": "Пятница",
-      "english": ""
+      "english": "Friday"
     },
     {
       "id": "phrase_184",
       "russian": "Суббота",
-      "english": ""
+      "english": "Saturday"
     },
     {
       "id": "phrase_185",
       "russian": "Воскресенье",
-      "english": ""
+      "english": "Sunday"
     },
     {
       "id": "phrase_186",
       "russian": "Январь",
-      "english": ""
+      "english": "January"
     },
     {
       "id": "phrase_187",
       "russian": "Февраль",
-      "english": ""
+      "english": "February"
     },
     {
       "id": "phrase_188",
       "russian": "Март",
-      "english": ""
+      "english": "March"
     },
     {
       "id": "phrase_189",
       "russian": "Апрель",
-      "english": ""
+      "english": "April"
     },
     {
       "id": "phrase_190",
       "russian": "Май",
-      "english": ""
+      "english": "May"
     },
     {
       "id": "phrase_191",
       "russian": "Июнь",
-      "english": ""
+      "english": "June"
     },
     {
       "id": "phrase_192",
       "russian": "Июль",
-      "english": ""
+      "english": "July"
     },
     {
       "id": "phrase_193",
       "russian": "Август",
-      "english": ""
+      "english": "August"
     },
     {
       "id": "phrase_194",
       "russian": "Сентябрь",
-      "english": ""
+      "english": "September"
     },
     {
       "id": "phrase_195",
       "russian": "Октябрь",
-      "english": ""
+      "english": "October"
     },
     {
       "id": "phrase_196",
       "russian": "Ноябрь",
-      "english": ""
+      "english": "November"
     },
     {
       "id": "phrase_197",
       "russian": "Декабрь",
-      "english": ""
+      "english": "December"
     },
     {
       "id": "phrase_198",
       "russian": "Один",
-      "english": ""
+      "english": "One"
     },
     {
       "id": "phrase_199",
       "russian": "Два",
-      "english": ""
+      "english": "Two"
     },
     {
       "id": "phrase_200",
       "russian": "Три",
-      "english": ""
+      "english": "Three"
     },
     {
       "id": "phrase_201",
       "russian": "Четыре",
-      "english": ""
+      "english": "Four"
     },
     {
       "id": "phrase_202",
       "russian": "Пять",
-      "english": ""
+      "english": "Five"
     },
     {
       "id": "phrase_203",
       "russian": "Шесть",
-      "english": ""
+      "english": "Six"
     },
     {
       "id": "phrase_204",
       "russian": "Семь",
-      "english": ""
+      "english": "Seven"
     },
     {
       "id": "phrase_205",
       "russian": "Восемь",
-      "english": ""
+      "english": "Eight"
     },
     {
       "id": "phrase_206",
       "russian": "Девять",
-      "english": ""
+      "english": "Nine"
     },
     {
       "id": "phrase_207",
       "russian": "Десять",
-      "english": ""
+      "english": "Ten"
     },
     {
       "id": "phrase_208",
       "russian": "Двадцать",
-      "english": ""
+      "english": "Twenty"
     },
     {
       "id": "phrase_209",
       "russian": "Сто",
-      "english": ""
+      "english": "One hundred"
     },
     {
       "id": "phrase_210",
       "russian": "Тысяча",
-      "english": ""
+      "english": "One thousand"
     },
     {
       "id": "phrase_211",
       "russian": "Десять тысяч",
-      "english": ""
+      "english": "Ten thousand"
     },
     {
       "id": "phrase_212",
       "russian": "Первый",
-      "english": ""
+      "english": "First"
     },
     {
       "id": "phrase_213",
       "russian": "Тысяча",
-      "english": ""
+      "english": "One thousand"
     },
     {
       "id": "phrase_214",
       "russian": "Две тысячи",
-      "english": ""
+      "english": "Two thousand"
     },
     {
       "id": "phrase_215",
       "russian": "Десять тысяч",
-      "english": ""
+      "english": "Ten thousand"
     },
     {
       "id": "phrase_216",
       "russian": "Сто тысяч",
-      "english": ""
+      "english": "One hundred thousand"
     },
     {
       "id": "phrase_217",
       "russian": "Один миллион",
-      "english": ""
+      "english": "One million"
     },
     {
       "id": "phrase_218",
       "russian": "Какая сегодня погода?",
-      "english": ""
+      "english": "What is the weather today?"
     },
     {
       "id": "phrase_219",
       "russian": "Дождь",
-      "english": ""
+      "english": "Rain"
     },
     {
       "id": "phrase_220",
       "russian": "Солнечно",
-      "english": ""
+      "english": "Sunny"
     },
     {
       "id": "phrase_221",
       "russian": "Облачно",
-      "english": ""
+      "english": "Cloudy"
     },
     {
       "id": "phrase_222",
       "russian": "Ветрено",
-      "english": ""
+      "english": "Windy"
     },
     {
       "id": "phrase_223",
       "russian": "Снег",
-      "english": ""
+      "english": "Snow"
     },
     {
       "id": "phrase_224",
       "russian": "Жарко",
-      "english": ""
+      "english": "Hot"
     },
     {
       "id": "phrase_225",
       "russian": "Холодно",
-      "english": ""
+      "english": "Cold"
     },
     {
       "id": "phrase_226",
       "russian": "Меня зовут...",
-      "english": ""
+      "english": "My name is..."
     },
     {
       "id": "phrase_227",
       "russian": "Моя фамилия...",
-      "english": ""
+      "english": "My last name is..."
     },
     {
       "id": "phrase_228",
       "russian": "Как вас зовут?",
-      "english": ""
+      "english": "What is your name?"
     },
     {
       "id": "phrase_229",
       "russian": "Я из Туркменистана",
-      "english": ""
+      "english": "I am from Turkmenistan"
     },
     {
       "id": "phrase_230",
       "russian": "Я живу в Ашхабаде",
-      "english": ""
+      "english": "I live in Ashgabat"
     },
     {
       "id": "phrase_231",
       "russian": "В нашей семье 4 человека",
-      "english": ""
+      "english": "There are 4 people in our family"
     },
     {
       "id": "phrase_232",
       "russian": "У вас есть дети?",
-      "english": ""
+      "english": "Do you have children?"
     },
     {
       "id": "phrase_233",
       "russian": "У меня нет детей",
-      "english": ""
+      "english": "I have no children"
     },
     {
       "id": "phrase_234",
       "russian": "У меня один ребенок",
-      "english": ""
+      "english": "I have one child"
     },
     {
       "id": "phrase_235",
       "russian": "У меня двое детей",
-      "english": ""
+      "english": "I have two children"
     },
     {
       "id": "phrase_236",
       "russian": "Чем вы занимаетесь?",
-      "english": ""
+      "english": "What do you do?"
     },
     {
       "id": "phrase_237",
       "russian": "Я работаю на заводе",
-      "english": ""
+      "english": "I work at a factory"
     },
     {
       "id": "phrase_238",
       "russian": "Я работаю в банке",
-      "english": ""
+      "english": "I work at a bank"
     },
     {
       "id": "phrase_239",
       "russian": "Я работаю в больнице",
-      "english": ""
+      "english": "I work at a hospital"
     },
     {
       "id": "phrase_240",
       "russian": "Я изучаю иностранные языки",
-      "english": ""
+      "english": "I study foreign languages"
     },
     {
       "id": "phrase_241",
       "russian": "Вы говорите по-русски?",
-      "english": ""
+      "english": "Do you speak Russian?"
     },
     {
       "id": "phrase_242",
       "russian": "Я не говорю",
-      "english": ""
+      "english": "I don't speak"
     },
     {
       "id": "phrase_243",
       "russian": "Я немного говорю",
-      "english": ""
+      "english": "I speak a little"
     },
     {
       "id": "phrase_244",
       "russian": "Когда начинается конференция?",
-      "english": ""
+      "english": "When does the conference start?"
     },
     {
       "id": "phrase_245",
       "russian": "Каков регламент выступлений?",
-      "english": ""
+      "english": "What is the schedule for presentations?"
     },
     {
       "id": "phrase_246",
       "russian": "Будет перевод на русский язык?",
-      "english": ""
+      "english": "Will there be translation to Russian?"
     },
     {
       "id": "phrase_247",
       "russian": "Я буду выступать на русском языке",
-      "english": ""
+      "english": "I will speak in Russian"
     },
     {
       "id": "phrase_248",
       "russian": "Мы хотим посмотреть выставку",
-      "english": ""
+      "english": "We want to see the exhibition"
     },
     {
       "id": "phrase_249",
       "russian": "Во сколько открывается выставка?",
-      "english": ""
+      "english": "What time does the exhibition open?"
     },
     {
       "id": "phrase_250",
       "russian": "Сколько стран участвует?",
-      "english": ""
+      "english": "How many countries are participating?"
     },
     {
       "id": "phrase_251",
       "russian": "Можно получить каталог выставки?",
-      "english": ""
+      "english": "Can I get the exhibition catalog?"
     },
     {
       "id": "phrase_252",
       "russian": "Я пришел обсудить дела",
-      "english": ""
+      "english": "I came to discuss business"
     },
     {
       "id": "phrase_253",
       "russian": "Мы хотим поговорить с генеральным директором",
-      "english": ""
+      "english": "We want to speak with the general director"
     },
     {
       "id": "phrase_254",
       "russian": "Мы хотим познакомиться с производством",
-      "english": ""
+      "english": "We want to learn about the production"
     },
     {
       "id": "phrase_255",
       "russian": "Длина",
-      "english": ""
+      "english": "Length"
     },
     {
       "id": "phrase_256",
       "russian": "Метр",
-      "english": ""
+      "english": "Meter"
     },
     {
       "id": "phrase_257",
       "russian": "Сантиметр",
-      "english": ""
+      "english": "Centimeter"
     },
     {
       "id": "phrase_258",
       "russian": "Вес",
-      "english": ""
+      "english": "Weight"
     },
     {
       "id": "phrase_259",
       "russian": "Килограмм",
-      "english": ""
+      "english": "Kilogram"
     },
     {
       "id": "phrase_260",
       "russian": "Грамм",
-      "english": ""
+      "english": "Gram"
     },
     {
       "id": "phrase_261",
       "russian": "Объем",
-      "english": ""
+      "english": "Volume"
     },
     {
       "id": "phrase_262",
       "russian": "Литр",
-      "english": ""
+      "english": "Liter"
     },
     {
       "id": "phrase_263",
       "russian": "Белый",
-      "english": ""
+      "english": "White"
     },
     {
       "id": "phrase_264",
       "russian": "Желтый",
-      "english": ""
+      "english": "Yellow"
     },
     {
       "id": "phrase_265",
       "russian": "Зеленый",
-      "english": ""
+      "english": "Green"
     },
     {
       "id": "phrase_266",
       "russian": "Синий",
-      "english": ""
+      "english": "Blue"
     },
     {
       "id": "phrase_267",
       "russian": "Красный",
-      "english": ""
+      "english": "Red"
     },
     {
       "id": "phrase_268",
       "russian": "Черный",
-      "english": ""
+      "english": "Black"
     },
     {
       "id": "phrase_269",
       "russian": "Серый",
-      "english": ""
+      "english": "Gray"
     },
     {
       "id": "phrase_270",
       "russian": "Фиолетовый",
-      "english": ""
+      "english": "Purple"
     },
     {
       "id": "phrase_271",
       "russian": "Оранжевый",
-      "english": ""
+      "english": "Orange"
     },
     {
       "id": "phrase_272",
       "russian": "Розовый",
-      "english": ""
+      "english": "Pink"
     },
     {
       "id": "phrase_273",
       "russian": "Голова",
-      "english": ""
+      "english": "Head"
     },
     {
       "id": "phrase_274",
       "russian": "Рука",
-      "english": ""
+      "english": "Arm"
     },
     {
       "id": "phrase_275",
       "russian": "Нога",
-      "english": ""
+      "english": "Leg"
     },
     {
       "id": "phrase_276",
       "russian": "Глаза",
-      "english": ""
+      "english": "Eyes"
     },
     {
       "id": "phrase_277",
       "russian": "Нос",
-      "english": ""
+      "english": "Nose"
     },
     {
       "id": "phrase_278",
       "russian": "Рот",
-      "english": ""
+      "english": "Mouth"
     },
     {
       "id": "phrase_279",
       "russian": "Ухо",
-      "english": ""
+      "english": "Ear"
     },
     {
       "id": "phrase_280",
       "russian": "Дом",
-      "english": ""
+      "english": "House"
     },
     {
       "id": "phrase_281",
       "russian": "Дверь",
-      "english": ""
+      "english": "Door"
     },
     {
       "id": "phrase_282",
       "russian": "Окно",
-      "english": ""
+      "english": "Window"
     },
     {
       "id": "phrase_283",
       "russian": "Стол",
-      "english": ""
+      "english": "Table"
     },
     {
       "id": "phrase_284",
       "russian": "Стул",
-      "english": ""
+      "english": "Chair"
     },
     {
       "id": "phrase_285",
       "russian": "Кровать",
-      "english": ""
+      "english": "Bed"
     },
     {
       "id": "phrase_286",
       "russian": "Где паспортный контроль?",
-      "english": ""
+      "english": "Where is passport control?"
     },
     {
       "id": "phrase_287",
       "russian": "Вот мой паспорт",
-      "english": ""
+      "english": "Here is my passport"
     },
     {
       "id": "phrase_288",
       "russian": "Я намереваюсь пробыть в Китае неделю",
-      "english": ""
+      "english": "I intend to stay in China for a week"
     },
     {
       "id": "phrase_289",
       "russian": "У меня однократная виза",
-      "english": ""
+      "english": "I have a single-entry visa"
     },
     {
       "id": "phrase_290",
       "russian": "Я в вашей стране проездом",
-      "english": ""
+      "english": "I am in transit in your country"
     },
     {
       "id": "phrase_291",
       "russian": "Вот моя таможенная декларация",
-      "english": ""
+      "english": "Here is my customs declaration"
     },
     {
       "id": "phrase_292",
       "russian": "Вот мой багаж",
-      "english": ""
+      "english": "Here is my luggage"
     },
     {
       "id": "phrase_293",
       "russian": "В моем багаже нет запрещенных предметов",
-      "english": ""
+      "english": "There are no prohibited items in my luggage"
     },
     {
       "id": "phrase_294",
       "russian": "Это мои личные вещи",
-      "english": ""
+      "english": "These are my personal belongings"
     },
     {
       "id": "phrase_295",
       "russian": "Какую пошлину надо уплатить?",
-      "english": ""
+      "english": "What duty do I need to pay?"
     },
     {
       "id": "phrase_296",
       "russian": "Какой спорт вы любите?",
-      "english": ""
+      "english": "What sport do you like?"
     },
     {
       "id": "phrase_297",
       "russian": "Я люблю играть в футбол",
-      "english": ""
+      "english": "I like to play football"
     },
     {
       "id": "phrase_298",
       "russian": "Баскетбол",
-      "english": ""
+      "english": "Basketball"
     },
     {
       "id": "phrase_299",
       "russian": "Плавание",
-      "english": ""
+      "english": "Swimming"
     },
     {
       "id": "phrase_300",
       "russian": "Бег",
-      "english": ""
+      "english": "Running"
     },
     {
       "id": "phrase_301",
       "russian": "Где находится спортзал?",
-      "english": ""
+      "english": "Where is the gym?"
     },
     {
       "id": "phrase_302",
       "russian": "Я хочу тренироваться",
-      "english": ""
+      "english": "I want to work out"
     },
     {
       "id": "phrase_303",
       "russian": "Тренер",
-      "english": ""
+      "english": "Coach"
     },
     {
       "id": "phrase_304",
       "russian": "Соревнование / Матч",
-      "english": ""
+      "english": "Competition / Match"
     },
     {
       "id": "phrase_305",
       "russian": "Стадион",
-      "english": ""
+      "english": "Stadium"
     }
   ]
 }
