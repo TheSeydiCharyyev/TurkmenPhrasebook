@@ -2788,7 +2788,7 @@ export const phrases: Phrase[] = [
   // Category 22: Sport - 10 phrases (ОБНОВЛЕНО)
 {
   id: "phrase_296",
-  categoryId: "sport",
+  categoryId: "sports",
   subcategoryId: "sports_activities",
   chinese: "你喜欢什么运动？",
   pinyin: "nǐ xǐhuān shénme yùndòng?",
@@ -2798,7 +2798,7 @@ export const phrases: Phrase[] = [
 },
 {
   id: "phrase_297",
-  categoryId: "sport",
+  categoryId: "sports",
   subcategoryId: "sports_activities",
   chinese: "我喜欢踢足球",
   pinyin: "wǒ xǐhuān tī zúqiú",
@@ -2808,7 +2808,7 @@ export const phrases: Phrase[] = [
 },
 {
   id: "phrase_298",
-  categoryId: "sport",
+  categoryId: "sports",
   subcategoryId: "sports_activities",
   chinese: "篮球",
   pinyin: "lánqiú",
@@ -2818,7 +2818,7 @@ export const phrases: Phrase[] = [
 },
 {
   id: "phrase_299",
-  categoryId: "sport",
+  categoryId: "sports",
   subcategoryId: "sports_activities",
   chinese: "游泳",
   pinyin: "yóuyǒng",
@@ -2828,7 +2828,7 @@ export const phrases: Phrase[] = [
 },
 {
   id: "phrase_300",
-  categoryId: "sport",
+  categoryId: "sports",
   subcategoryId: "sports_activities",
   chinese: "跑步",
   pinyin: "pǎobù",
@@ -2838,7 +2838,7 @@ export const phrases: Phrase[] = [
 },
 {
   id: "phrase_301",
-  categoryId: "sport",
+  categoryId: "sports",
   subcategoryId: "sports_activities",
   chinese: "健身房在哪里？",
   pinyin: "jiànshēnfáng zài nǎlǐ?",
@@ -2848,7 +2848,7 @@ export const phrases: Phrase[] = [
 },
 {
   id: "phrase_302",
-  categoryId: "sport",
+  categoryId: "sports",
   subcategoryId: "sports_activities",
   chinese: "我想锻炼",
   pinyin: "wǒ xiǎng duànliàn",
@@ -2858,7 +2858,7 @@ export const phrases: Phrase[] = [
 },
 {
   id: "phrase_303",
-  categoryId: "sport",
+  categoryId: "sports",
   subcategoryId: "sports_useful_words",
   chinese: "教练",
   pinyin: "jiàoliàn",
@@ -2868,7 +2868,7 @@ export const phrases: Phrase[] = [
 },
 {
   id: "phrase_304",
-  categoryId: "sport",
+  categoryId: "sports",
   subcategoryId: "sports_useful_words",
   chinese: "比赛",
   pinyin: "bǐsài",
@@ -2878,7 +2878,7 @@ export const phrases: Phrase[] = [
 },
 {
   id: "phrase_305",
-  categoryId: "sport",
+  categoryId: "sports",
   subcategoryId: "sports_useful_words",
   chinese: "运动场",
   pinyin: "yùndòngchǎng",

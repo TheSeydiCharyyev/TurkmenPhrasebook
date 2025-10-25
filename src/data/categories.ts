@@ -712,7 +712,7 @@ export const categories: Category[] = [
     subcategories: customsSubcategories,
   },
   {
-    id: 'sport',
+    id: 'sports',
     nameRu: 'Спорт',
     nameTk: 'Sport',
     nameZh: '体育',

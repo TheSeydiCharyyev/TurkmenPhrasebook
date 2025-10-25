@@ -2157,7 +2157,7 @@ export const basePhrases: BasePhrase[] = [
   },
   {
     id: "phrase_296",
-    categoryId: "sport",
+    categoryId: "sports",
     subcategoryId: "sports_activities",
     turkmen: "Siz haýsy sporty halaýarsyňyz?",
     audioFileTurkmen: "sport/turkmen/22.1.mp3",
@@ -2165,7 +2165,7 @@ export const basePhrases: BasePhrase[] = [
   },
   {
     id: "phrase_297",
-    categoryId: "sport",
+    categoryId: "sports",
     subcategoryId: "sports_activities",
     turkmen: "Men futbol oýnamagy halaýaryn",
     audioFileTurkmen: "sport/turkmen/22.2.mp3",
@@ -2173,7 +2173,7 @@ export const basePhrases: BasePhrase[] = [
   },
   {
     id: "phrase_298",
-    categoryId: "sport",
+    categoryId: "sports",
     subcategoryId: "sports_activities",
     turkmen: "Basketbol",
     audioFileTurkmen: "sport/turkmen/22.3.mp3",
@@ -2181,7 +2181,7 @@ export const basePhrases: BasePhrase[] = [
   },
   {
     id: "phrase_299",
-    categoryId: "sport",
+    categoryId: "sports",
     subcategoryId: "sports_activities",
     turkmen: "Suwda ýüzmek",
     audioFileTurkmen: "sport/turkmen/22.4.mp3",
@@ -2189,7 +2189,7 @@ export const basePhrases: BasePhrase[] = [
   },
   {
     id: "phrase_300",
-    categoryId: "sport",
+    categoryId: "sports",
     subcategoryId: "sports_activities",
     turkmen: "Ylgamak",
     audioFileTurkmen: "sport/turkmen/22.5.mp3",
@@ -2197,7 +2197,7 @@ export const basePhrases: BasePhrase[] = [
   },
   {
     id: "phrase_301",
-    categoryId: "sport",
+    categoryId: "sports",
     subcategoryId: "sports_activities",
     turkmen: "Sport zaly nirede?",
     audioFileTurkmen: "sport/turkmen/22.6.mp3",
@@ -2205,7 +2205,7 @@ export const basePhrases: BasePhrase[] = [
   },
   {
     id: "phrase_302",
-    categoryId: "sport",
+    categoryId: "sports",
     subcategoryId: "sports_activities",
     turkmen: "Men türgenleşik etmek isleýärin",
     audioFileTurkmen: "sport/turkmen/22.7.mp3",
@@ -2213,7 +2213,7 @@ export const basePhrases: BasePhrase[] = [
   },
   {
     id: "phrase_303",
-    categoryId: "sport",
+    categoryId: "sports",
     subcategoryId: "sports_useful_words",
     turkmen: "Tälimçi",
     audioFileTurkmen: "sport/turkmen/22.8.mp3",
@@ -2221,7 +2221,7 @@ export const basePhrases: BasePhrase[] = [
   },
   {
     id: "phrase_304",
-    categoryId: "sport",
+    categoryId: "sports",
     subcategoryId: "sports_useful_words",
     turkmen: "Ýaryş / Oýun",
     audioFileTurkmen: "sport/turkmen/22.9.mp3",
@@ -2229,7 +2229,7 @@ export const basePhrases: BasePhrase[] = [
   },
   {
     id: "phrase_305",
-    categoryId: "sport",
+    categoryId: "sports",
     subcategoryId: "sports_useful_words",
     turkmen: "Stadion",
     audioFileTurkmen: "sport/turkmen/22.10.mp3",
