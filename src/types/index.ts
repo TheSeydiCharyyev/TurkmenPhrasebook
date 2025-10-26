@@ -84,6 +84,7 @@ export interface Category {
   nameRu: string;
   nameTk: string;
   nameZh: string;
+  nameEn: string;  // ✅ ДОБАВЛЕНО: английское название
   hasSubcategories?: boolean;
   subcategories?: SubCategory[];
 }
@@ -94,6 +95,7 @@ export interface SubCategory {
   nameRu: string;
   nameTk: string;
   nameZh: string;
+  nameEn: string;  // ✅ ДОБАВЛЕНО: английское название
   icon: string;
   color: string;
 }
@@ -102,7 +104,7 @@ export interface SubCategory {
 
 export type RootStackParamList = {
   MainTabs: undefined;
-  PhraseDetail: { phrase: Phrase };
+  PhraseDetail: { phrase: PhraseWithTranslation };  // ✅ ОБНОВЛЕНО: используем мультиязычную систему
   LanguageSelection: undefined; // Экран выбора языка (Phase 4)
 };
 

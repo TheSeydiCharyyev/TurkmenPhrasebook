@@ -51,10 +51,10 @@ class AudioServiceImpl implements IAudioService {
   /**
    * Play audio (hybrid MP3 + TTS)
    * @param text - текст для произношения
-   * @param language - 'chinese' | 'turkmen' | 'russian'
+   * @param language - 'chinese' | 'turkmen' | 'russian' | 'english'
    * @param audioPath - путь к MP3 (только для туркменского)
    */
-  async play(text: string, language: 'chinese' | 'turkmen' | 'russian', audioPath?: string): Promise<void> {
+  async play(text: string, language: 'chinese' | 'turkmen' | 'russian' | 'english', audioPath?: string): Promise<void> {
     try {
       await this.ensureInitialized();
       await this.stop(); // Stop any currently playing audio
@@ -86,9 +86,14 @@ class AudioServiceImpl implements IAudioService {
         }
       }
 
-      // ✅ КИТАЙСКИЙ и РУССКИЙ - TTS
-      const languageCode = language === 'chinese' ? 'zh-CN' : 'ru-RU';
-      
+      // ✅ КИТАЙСКИЙ, РУССКИЙ и АНГЛИЙСКИЙ - TTS
+      let languageCode = 'en-US'; // По умолчанию английский
+      if (language === 'chinese') {
+        languageCode = 'zh-CN';
+      } else if (language === 'russian') {
+        languageCode = 'ru-RU';
+      }
+
       await Speech.speak(text, {
         language: languageCode,
         rate: 0.85,

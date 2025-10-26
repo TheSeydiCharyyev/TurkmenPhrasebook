@@ -31,7 +31,7 @@ const HEADER_HEIGHT = 120;
 
 // Минималистичная шапка с индикатором языка
 const MinimalHeader = React.memo<{
-  languageMode: 'ru' | 'tk' | 'zh';
+  languageMode: 'ru' | 'tk' | 'zh' | 'en';  // ✅ ДОБАВЛЕНО: поддержка английского
   onSearchPress: () => void;
   onLanguagePress: () => void;
   selectedLanguageCode: string;
@@ -64,10 +64,16 @@ const MinimalHeader = React.memo<{
           </TouchableOpacity>
         </View>
 
-        {/* Заголовок на трех языках */}
+        {/* ✅ ОБНОВЛЕНО: Заголовок динамически меняется в зависимости от языка */}
         <View style={styles.titleContainer}>
           <Text style={styles.titleTurkmen}>Kategoriýany saýlaň</Text>
-          <Text style={styles.titleChinese}>选择类别</Text>
+          {languageMode === 'en' ? (
+            // Английский выбран: показываем английский вместо китайского
+            <Text style={styles.titleChinese}>Select a category</Text>
+          ) : (
+            // Китайский или русский: показываем китайский
+            <Text style={styles.titleChinese}>选择类别</Text>
+          )}
           <Text style={styles.titleRussian}>Выберите категорию</Text>
         </View>
 
@@ -81,6 +87,7 @@ const MinimalHeader = React.memo<{
           <Text style={styles.searchPlaceholder}>
             {languageMode === 'zh' ? '搜索短语...' :
              languageMode === 'tk' ? 'Sözlemleri gözle...' :
+             languageMode === 'en' ? 'Search phrases...' :  // ✅ ДОБАВЛЕНО: английский
              'Поиск фраз...'}
           </Text>
         </TouchableOpacity>
@@ -93,7 +100,7 @@ const MinimalHeader = React.memo<{
 const CategoryPairItem = React.memo<{
   item: [Category, Category | undefined];
   onPress: (category: Category) => void;
-  languageMode: 'ru' | 'tk' | 'zh';
+  languageMode: 'ru' | 'tk' | 'zh' | 'en';  // ✅ ДОБАВЛЕНО: поддержка английского
 }>(({ item, onPress, languageMode }) => (
   <View style={styles.row}>
     <View style={[styles.cardWrapper, styles.leftCard]}>
@@ -117,7 +124,7 @@ const CategoryPairItem = React.memo<{
 
 // Сетка категорий
 interface CategoryGridProps {
-  languageMode: 'ru' | 'tk' | 'zh';
+  languageMode: 'ru' | 'tk' | 'zh' | 'en';  // ✅ ДОБАВЛЕНО: поддержка английского
 }
 
 const CategoryGrid = React.memo<CategoryGridProps>(({ languageMode }) => {
@@ -166,6 +173,13 @@ export default function HomeScreen() {
   const { selectedLanguage } = useConfig();
   const navigation = useNavigation<any>();
 
+  // ✅ ДОБАВЛЕНО: Маппинг selectedLanguage для languageMode
+  const languageMode: 'ru' | 'tk' | 'zh' | 'en' =
+    selectedLanguage === 'zh' ? 'zh' :
+    selectedLanguage === 'ru' ? 'ru' :
+    selectedLanguage === 'en' ? 'en' :
+    'tk';  // по умолчанию туркменский
+
   const handleSearchPress = useCallback(() => {
     // Переход на экран поиска
     navigation.navigate('AdditionalFeatures', {
@@ -183,7 +197,7 @@ export default function HomeScreen() {
       <TabScreen backgroundColor={Colors.background}>
         {/* НОВАЯ МИНИМАЛИСТИЧНАЯ ШАПКА С ИНДИКАТОРОМ ЯЗЫКА */}
         <MinimalHeader
-          languageMode={config.mode}
+          languageMode={languageMode}  // ✅ ОБНОВЛЕНО: используем languageMode
           onSearchPress={handleSearchPress}
           onLanguagePress={handleLanguagePress}
           selectedLanguageCode={selectedLanguage}
@@ -191,7 +205,7 @@ export default function HomeScreen() {
 
         {/* КАТЕГОРИИ - БЕЗ ИЗМЕНЕНИЙ */}
         <View style={styles.contentContainer}>
-          <CategoryGrid languageMode={config.mode} />
+          <CategoryGrid languageMode={languageMode} />  {/* ✅ ОБНОВЛЕНО: используем languageMode */}
         </View>
       </TabScreen>
     </ErrorBoundary>

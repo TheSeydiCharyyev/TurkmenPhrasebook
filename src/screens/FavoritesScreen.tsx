@@ -14,9 +14,9 @@ import { Ionicons } from '@expo/vector-icons';
 
 // Импорты
 import { Colors } from '../constants/Colors';
-import { phrases } from '../data/phrases';
+import { usePhrases } from '../hooks/usePhrases';
 import { categories } from '../data/categories';
-import { Phrase, RootStackParamList } from '../types';
+import { PhraseWithTranslation, RootStackParamList } from '../types';
 import { useFavorites } from '../hooks/useFavorites';
 // В каждом файле, где используется useAppLanguage
 import { useAppLanguage } from '../contexts/LanguageContext';
@@ -24,16 +24,15 @@ import { useAppLanguage } from '../contexts/LanguageContext';
 type FavoritesScreenNavigationProp = StackNavigationProp<RootStackParamList, 'PhraseDetail'>;
 
 interface FavoritePhraseItemProps {
-  phrase: Phrase;
-  onPress: (phrase: Phrase) => void;
+  phrase: PhraseWithTranslation;
+  onPress: (phrase: PhraseWithTranslation) => void;
   onRemove: (phraseId: string) => void;
 }
 
 // Компонент элемента избранной фразы
 function FavoritePhraseItem({ phrase, onPress, onRemove }: FavoritePhraseItemProps) {
   const category = categories.find(cat => cat.id === phrase.categoryId);
-  const { config, getPhraseTexts } = useAppLanguage();
-  const phraseTexts = getPhraseTexts(phrase);
+  const { config } = useAppLanguage();
 
   // Название категории в зависимости от режима
   const categoryName = category ? (
@@ -49,7 +48,7 @@ function FavoritePhraseItem({ phrase, onPress, onRemove }: FavoritePhraseItemPro
     >
       <View style={styles.phraseContent}>
         <View style={styles.phraseHeader}>
-          <Text style={styles.chineseText}>{phrase.chinese}</Text>
+          <Text style={styles.chineseText}>{phrase.translation.text}</Text>
           {category && (
             <View style={[styles.categoryBadge, { backgroundColor: category.color }]}>
               <Text style={styles.categoryIcon}>{category.icon}</Text>
@@ -57,16 +56,17 @@ function FavoritePhraseItem({ phrase, onPress, onRemove }: FavoritePhraseItemPro
           )}
         </View>
 
-        <Text style={styles.pinyinText}>{phrase.pinyin}</Text>
-        
-        {/* Показываем в правильном порядке */}
+        {phrase.translation.transcription && (
+          <Text style={styles.pinyinText}>{phrase.translation.transcription}</Text>
+        )}
+
+        {/* Показываем туркменский всегда */}
         <Text style={[
           styles.primaryText,
           config.mode === 'tk' && styles.turkmenMainText
         ]}>
-          {phraseTexts.primary}
+          {phrase.turkmen}
         </Text>
-        <Text style={styles.secondaryText}>{phraseTexts.helper}</Text>
         
         {category && (
           <Text style={styles.categoryText}>{categoryName}</Text>
@@ -90,6 +90,7 @@ export default function FavoritesScreen() {
   const { getFavoritesPhrases, toggleFavorite, loading } = useFavorites();
   const { getTexts, config } = useAppLanguage();
   const texts = getTexts();
+  const { phrases } = usePhrases();
 
   // Локальное состояние для принудительного обновления
   const [refreshTrigger, setRefreshTrigger] = useState(0);
@@ -104,7 +105,7 @@ export default function FavoritesScreen() {
     }, [])
   );
 
-  const handlePhrasePress = (phrase: Phrase) => {
+  const handlePhrasePress = (phrase: PhraseWithTranslation) => {
     navigation.navigate('PhraseDetail', { phrase });
   };
 
@@ -112,7 +113,7 @@ export default function FavoritesScreen() {
     toggleFavorite(phraseId);
   };
 
-  const renderFavoritePhrase = ({ item }: { item: Phrase }) => (
+  const renderFavoritePhrase = ({ item }: { item: PhraseWithTranslation }) => (
     <FavoritePhraseItem
       phrase={item}
       onPress={handlePhrasePress}

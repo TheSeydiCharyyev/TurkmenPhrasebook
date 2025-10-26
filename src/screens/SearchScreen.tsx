@@ -21,11 +21,10 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../constants/Colors';
 import { TextStyles } from '../constants/Typography'; // ИСПРАВЛЕНО: заменен Typography на TextStyles
-import { Phrase, RootStackParamList, Category } from '../types';
+import { PhraseWithTranslation, RootStackParamList, Category } from '../types';
 import { useAppLanguage } from '../contexts/LanguageContext';
-import { useAdvancedSearch } from '../hooks/useAdvancedSearch'; // ИСПРАВЛЕНО: убраны несуществующие импорты
+import { usePhrases } from '../hooks/usePhrases';
 import { categories } from '../data/categories'; // ИСПРАВЛЕНО: добавлен импорт categories
-import { phrases } from '../data/phrases'; // ИСПРАВЛЕНО: добавлен импорт phrases
 
 type SearchScreenNavigationProp = StackNavigationProp<RootStackParamList, 'PhraseDetail'>;
 
@@ -66,11 +65,11 @@ const HighlightedText: React.FC<{
 
 // Мемоизированный компонент результата поиска
 const SearchResultItem = React.memo<{
-  phrase: Phrase;
+  phrase: PhraseWithTranslation;
   searchQuery: string;
-  onPress: (phrase: Phrase) => void;
+  onPress: (phrase: PhraseWithTranslation) => void;
   config: { mode: 'tk' | 'zh' };
-  getPhraseTexts: (phrase: Phrase) => { primary: string; learning: string; helper: string };
+  getPhraseTexts: (phrase: PhraseWithTranslation) => { primary: string; learning: string; helper: string };
 }>(({ phrase, searchQuery, onPress, config, getPhraseTexts }) => {
   const category = categories.find(cat => cat.id === phrase.categoryId);
   const phraseTexts = getPhraseTexts(phrase);
@@ -83,9 +82,9 @@ const SearchResultItem = React.memo<{
   const matchIndicators = useMemo(() => {
     const lowerQuery = searchQuery.toLowerCase();
     const matches = {
-      chinese: phrase.chinese.toLowerCase().includes(lowerQuery),
+      translation: phrase.translation.text.toLowerCase().includes(lowerQuery),
       turkmen: phrase.turkmen.toLowerCase().includes(lowerQuery),
-      russian: phrase.russian.toLowerCase().includes(lowerQuery),
+      transcription: phrase.translation.transcription?.toLowerCase().includes(lowerQuery) || false,
     };
     return matches;
   }, [phrase, searchQuery]);
@@ -148,11 +147,11 @@ const SearchResultItem = React.memo<{
       </View>
 
       <View style={styles.resultActions}>
-        {(matchIndicators.chinese || matchIndicators.turkmen || matchIndicators.russian) && (
+        {(matchIndicators.translation || matchIndicators.turkmen || matchIndicators.transcription) && (
           <View style={styles.matchIndicators}>
-            {matchIndicators.chinese && <View style={[styles.matchDot, { backgroundColor: Colors.primary }]} />}
+            {matchIndicators.translation && <View style={[styles.matchDot, { backgroundColor: Colors.primary }]} />}
             {matchIndicators.turkmen && <View style={[styles.matchDot, { backgroundColor: Colors.accent }]} />}
-            {matchIndicators.russian && <View style={[styles.matchDot, { backgroundColor: Colors.warning }]} />}
+            {matchIndicators.transcription && <View style={[styles.matchDot, { backgroundColor: Colors.warning }]} />}
           </View>
         )}
         <Ionicons name="chevron-forward" size={20} color={Colors.textLight} />
@@ -228,25 +227,31 @@ const CategoryFilter = React.memo<{
 export default function SearchScreen() {
   const navigation = useNavigation<SearchScreenNavigationProp>();
   const { getTexts, config, getPhraseTexts } = useAppLanguage();
-  
-  // ИСПРАВЛЕНО: используем только существующие методы из useAdvancedSearch
-  const {
-    searchQuery,
-    setSearchQuery,
-    searchResults,
-    suggestions,
-    isSearching,
-    performSearch,
-    clearSearch,
-  } = useAdvancedSearch();
-  
+  const { searchPhrases } = usePhrases();
+
+  // Search state
+  const [searchQuery, setSearchQuery] = useState('');
+  const [debouncedQuery, setDebouncedQuery] = useState('');
+  const [isSearching, setIsSearching] = useState(false);
+
   // UI state
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [debouncedQuery, setDebouncedQuery] = useState('');
   const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
-  
+
   const searchInputRef = useRef<TextInput>(null);
   const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Search results using usePhrases
+  const searchResults = useMemo(() => {
+    if (!debouncedQuery.trim()) return [];
+    const results = searchPhrases(debouncedQuery);
+
+    // Filter by category if selected
+    if (selectedCategory) {
+      return results.filter(phrase => phrase.categoryId === selectedCategory);
+    }
+    return results;
+  }, [debouncedQuery, selectedCategory, searchPhrases]);
   
   const texts = getTexts();
 
@@ -277,56 +282,27 @@ export default function SearchScreen() {
   // Дебаунсированный поиск
   const handleSearchChange = useCallback((text: string) => {
     setSearchQuery(text);
-    
+    setIsSearching(true);
+
     // Очищаем предыдущий таймер
     if (searchTimeoutRef.current) {
       clearTimeout(searchTimeoutRef.current);
     }
-    
+
     // Устанавливаем новый таймер для дебаунса
     searchTimeoutRef.current = setTimeout(() => {
       setDebouncedQuery(text);
-      
+      setIsSearching(false);
+
       // Добавляем в историю только если есть результаты
-      if (text.trim().length >= 2) {
-        const results = getSearchResults(text, selectedCategory);
-        if (results.length > 0) {
-          addToSearchHistory(text, results.length);
-        }
+      if (text.trim().length >= 2 && searchResults.length > 0) {
+        addToSearchHistory(text, searchResults.length);
       }
     }, SEARCH_DEBOUNCE_MS);
-  }, [selectedCategory, addToSearchHistory]);
-
-  // Оптимизированная функция поиска
-  const getSearchResults = useCallback((query: string, categoryFilter: string | null) => {
-    if (!query.trim()) return [];
-
-    let filteredPhrases = phrases;
-
-    // Сначала фильтруем по категории (быстрее)
-    if (categoryFilter) {
-      filteredPhrases = filteredPhrases.filter(phrase => phrase.categoryId === categoryFilter);
-    }
-
-    // Затем фильтруем по поисковому запросу
-    const lowerQuery = query.toLowerCase();
-    return filteredPhrases.filter(phrase => {
-      return (
-        phrase.chinese.toLowerCase().includes(lowerQuery) ||
-        phrase.pinyin.toLowerCase().includes(lowerQuery) ||
-        phrase.russian.toLowerCase().includes(lowerQuery) ||
-        phrase.turkmen.toLowerCase().includes(lowerQuery)
-      );
-    });
-  }, []);
-
-  // Мемоизация результатов поиска
-  const localSearchResults = useMemo(() => {
-    return getSearchResults(debouncedQuery, selectedCategory);
-  }, [debouncedQuery, selectedCategory, getSearchResults]);
+  }, [searchResults.length, addToSearchHistory]);
 
   // Мемоизированные обработчики
-  const handlePhrasePress = useCallback((phrase: Phrase) => {
+  const handlePhrasePress = useCallback((phrase: PhraseWithTranslation) => {
     navigation.navigate('PhraseDetail', { phrase });
   }, [navigation]);
 
@@ -500,7 +476,7 @@ export default function SearchScreen() {
               </View>
             )}
           </View>
-        ) : localSearchResults.length === 0 ? (
+        ) : searchResults.length === 0 ? (
           // Нет результатов
           <View style={styles.emptyContainer}>
             <Ionicons name="sad-outline" size={64} color={Colors.textLight} />
@@ -522,10 +498,10 @@ export default function SearchScreen() {
               <Text style={styles.resultsCount}>
                 {config.mode === 'tk' ? 'Tapylan:' :
                  config.mode === 'zh' ? '找到:' :
-                 'Найдено:'} {localSearchResults.length} {
+                 'Найдено:'} {searchResults.length} {
                 config.mode === 'tk' ? 'sözlem' :
                 config.mode === 'zh' ? '个短语' :
-                localSearchResults.length === 1 ? 'фраза' : 'фраз'
+                searchResults.length === 1 ? 'фраза' : 'фраз'
                 }
                 {selectedCategory && (
                   <Text style={styles.filterInfo}>
@@ -536,7 +512,7 @@ export default function SearchScreen() {
             </View>
 
             <FlatList
-              data={localSearchResults}
+              data={searchResults}
               renderItem={renderSearchResult}
               keyExtractor={keyExtractor}
               getItemLayout={getItemLayout}

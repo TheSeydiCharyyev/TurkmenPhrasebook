@@ -19,7 +19,7 @@ import { TextStyles } from '../constants/Typography';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { useAnimations } from '../hooks/useAnimations';
 import { useHistory } from '../hooks/useHistory';
-import { phrases } from '../data/phrases';
+import { usePhrases } from '../hooks/usePhrases';
 
 const { width } = Dimensions.get('window');
 const cardWidth = (width - 60) / 2; // 2 columns with margins
@@ -65,6 +65,7 @@ export default function AdditionalFeaturesScreen() {
   const { config, getTexts } = useAppLanguage();
   const { getRecentPhrases, stats } = useHistory();
   const texts = getTexts();
+  const { phrases } = usePhrases();
 
   // Get recent phrases for the recent feature
   const recentPhrases = getRecentPhrases(phrases, 10);

@@ -15,7 +15,7 @@ import { useAnimations } from '../hooks/useAnimations';
 interface CategoryCardProps {
   category: Category;
   onPress: (category: Category) => void;
-  languageMode: 'ru' | 'tk' | 'zh';
+  languageMode: 'ru' | 'tk' | 'zh' | 'en';  // ✅ ДОБАВЛЕНО: поддержка английского
 }
 
 // Маппинг categoryId к PNG файлам
@@ -65,7 +65,15 @@ export default function CategoryCard({ category, onPress, languageMode }: Catego
         secondary: category.nameZh,
         tertiary: category.nameTk
       };
+    } else if (languageMode === 'en') {
+      // ✅ АНГЛИЙСКИЙ: Английский → Туркменский → Русский
+      return {
+        primary: category.nameEn,
+        secondary: category.nameTk,
+        tertiary: category.nameRu
+      };
     } else {
+      // Туркменский по умолчанию
       return {
         primary: category.nameTk,
         secondary: category.nameZh,

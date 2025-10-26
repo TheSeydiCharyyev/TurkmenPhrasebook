@@ -13,6 +13,7 @@ import { SubCategory } from '../types';
 import { Colors } from '../constants/Colors';
 import { getSubcategoryName } from '../data/categories';
 import { useAppLanguage } from '../contexts/LanguageContext';
+import { useConfig } from '../contexts/ConfigContext';  // ✅ ДОБАВЛЕНО: для мультиязычности
 
 const { width } = Dimensions.get('window');
 const cardWidth = (width - 48) / 2; // 2 колонки с отступами как в основных категориях
@@ -24,13 +25,14 @@ interface SubCategoryCardProps {
   style?: any;
 }
 
-export default function SubCategoryCard({ 
-  subcategory, 
-  onPress, 
+export default function SubCategoryCard({
+  subcategory,
+  onPress,
   phrasesCount = 0,
-  style 
+  style
 }: SubCategoryCardProps) {
   const { config } = useAppLanguage();
+  const { selectedLanguage } = useConfig();  // ✅ ДОБАВЛЕНО: для английского
 
   const handlePress = () => {
     onPress(subcategory);
@@ -39,18 +41,42 @@ export default function SubCategoryCard({
   // Получаем название на текущем языке
   const subcategoryName = getSubcategoryName(subcategory, config.mode);
 
+  // ✅ ОБНОВЛЕНО: Поддержка английского языка
   // Получаем названия для всех языков (как в основных категориях)
-  const primaryName = config.mode === 'tk' ? subcategory.nameTk :
-                     config.mode === 'zh' ? subcategory.nameZh :
-                     subcategory.nameRu;
+  const getSubcategoryNames = () => {
+    if (selectedLanguage === 'zh') {
+      return {
+        primary: subcategory.nameZh,
+        secondary: subcategory.nameTk,
+        tertiary: subcategory.nameRu
+      };
+    } else if (selectedLanguage === 'en') {
+      // ✅ АНГЛИЙСКИЙ: Английский → Туркменский → Русский
+      return {
+        primary: subcategory.nameEn,
+        secondary: subcategory.nameTk,
+        tertiary: subcategory.nameRu
+      };
+    } else if (selectedLanguage === 'ru') {
+      return {
+        primary: subcategory.nameRu,
+        secondary: subcategory.nameZh,
+        tertiary: subcategory.nameTk
+      };
+    } else {
+      // Туркменский по умолчанию
+      return {
+        primary: subcategory.nameTk,
+        secondary: subcategory.nameZh,
+        tertiary: subcategory.nameRu
+      };
+    }
+  };
 
-  const secondaryName = config.mode === 'tk' ? subcategory.nameZh :
-                       config.mode === 'zh' ? subcategory.nameTk :
-                       subcategory.nameTk;
-
-  const tertiaryName = config.mode === 'tk' ? subcategory.nameRu :
-                      config.mode === 'zh' ? subcategory.nameRu :
-                      subcategory.nameZh;
+  const names = getSubcategoryNames();
+  const primaryName = names.primary;
+  const secondaryName = names.secondary;
+  const tertiaryName = names.tertiary;
 
   return (
     <TouchableOpacity

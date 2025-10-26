@@ -13,7 +13,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../constants/Colors';
-import { phrases } from '../data/phrases';
+import { usePhrases } from '../hooks/usePhrases';
 import { categories } from '../data/categories';
 import { useHistory } from '../hooks/useHistory';
 import { useAppLanguage } from '../contexts/LanguageContext';
@@ -129,17 +129,18 @@ const CategoryProgressItem = React.memo<CategoryProgressProps>(({ category, tota
 
 export default function StatsScreen() {
   const [selectedPeriod, setSelectedPeriod] = useState<'week' | 'month'>('week');
-  const { 
-    stats, 
-    loading, 
-    getCategoryStats, 
-    getLearningTrends, 
+  const {
+    stats,
+    loading,
+    getCategoryStats,
+    getLearningTrends,
     setDailyGoal,
     currentSession,
     clearHistory
   } = useHistory();
   const { config, getTexts } = useAppLanguage();
   const texts = getTexts();
+  const { phrases } = usePhrases();
 
   // Мемоизированные вычисления
   const categoryStats = useMemo(() => {

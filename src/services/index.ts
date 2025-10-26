@@ -11,9 +11,9 @@ export interface IStorageService {
   clear(): Promise<boolean>;
 }
 
-// ✅ ОБНОВЛЕНО: Гибридная аудио система
+// ✅ ОБНОВЛЕНО: Гибридная аудио система (китайский, русский, английский - TTS, туркменский - MP3)
 export interface IAudioService {
-  play(text: string, language: 'chinese' | 'turkmen' | 'russian', audioPath?: string): Promise<void>;
+  play(text: string, language: 'chinese' | 'turkmen' | 'russian' | 'english', audioPath?: string): Promise<void>;
   stop(): Promise<void>;
   pause(): Promise<void>;
   resume(): Promise<void>;

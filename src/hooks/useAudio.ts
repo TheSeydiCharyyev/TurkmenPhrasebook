@@ -42,10 +42,10 @@ export function useAudio() {
   /**
    * Воспроизведение аудио (гибрид MP3 + TTS)
    * @param text - текст для произношения
-   * @param language - 'chinese' | 'turkmen' | 'russian'
+   * @param language - 'chinese' | 'turkmen' | 'russian' | 'english'
    * @param audioPath - путь к MP3 (только для туркменского!)
    */
-  const playAudio = useCallback(async (text: string, language: 'chinese' | 'turkmen' | 'russian', audioPath?: string) => {
+  const playAudio = useCallback(async (text: string, language: 'chinese' | 'turkmen' | 'russian' | 'english', audioPath?: string) => {
     if (isPlaying || isLoading) return;
 
     try {
@@ -84,9 +84,14 @@ export function useAudio() {
         }
       }
 
-      // ✅ КИТАЙСКИЙ и РУССКИЙ - используем TTS
-      const languageCode = language === 'chinese' ? 'zh-CN' : 'ru-RU';
-      
+      // ✅ КИТАЙСКИЙ, РУССКИЙ и АНГЛИЙСКИЙ - используем TTS
+      let languageCode = 'en-US'; // По умолчанию английский
+      if (language === 'chinese') {
+        languageCode = 'zh-CN';
+      } else if (language === 'russian') {
+        languageCode = 'ru-RU';
+      }
+
       setIsPlaying(true);
       setIsLoading(false);
 

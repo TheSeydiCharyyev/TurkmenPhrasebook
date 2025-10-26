@@ -16,16 +16,17 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../constants/Colors';
-import { phrases } from '../data/phrases';
+import { usePhrases } from '../hooks/usePhrases';
 import { getCategoryName, getSubcategoriesByParentId } from '../data/categories';
-import { 
-  Phrase, 
-  HomeStackParamList, 
-  RootStackParamList, 
-  SubCategory 
+import {
+  PhraseWithTranslation,
+  HomeStackParamList,
+  RootStackParamList,
+  SubCategory
 } from '../types';
 import { useFavorites } from '../hooks/useFavorites';
 import { useAppLanguage } from '../contexts/LanguageContext';
+import { useConfig } from '../contexts/ConfigContext';  // ✅ ДОБАВЛЕНО: для английского
 import { useAudio } from '../hooks/useAudio';
 import { SubCategoriesGrid } from '../components/SubCategoryCard';
 
@@ -39,12 +40,13 @@ const { width, height } = Dimensions.get('window');
 // Замени ТОЛЬКО этот компонент в файле src/screens/CategoryScreen.tsx
 
 const PhraseItem = React.memo<{
-  phrase: Phrase;
-  onPress: (phrase: Phrase) => void;
+  phrase: PhraseWithTranslation;
+  onPress: (phrase: PhraseWithTranslation) => void;
   config: any;
 }>(({ phrase, onPress, config }) => {
   const { isFavorite, toggleFavorite } = useFavorites();
-  const { playAudio, isPlaying } = useAudio(); // ✅ ИСПРАВЛЕНО: используем playAudio
+  const { playAudio, isPlaying } = useAudio();
+  const { selectedLanguage } = useConfig();
 
   const handleToggleFavorite = useCallback(() => {
     toggleFavorite(phrase.id);
@@ -54,35 +56,31 @@ const PhraseItem = React.memo<{
     onPress(phrase);
   }, [phrase, onPress]);
 
- 
-  // ✅ ИСПРАВЛЕНО: Новый формат playAudio
-const handlePlayChinese = useCallback(() => {
-  playAudio(phrase.chinese, 'chinese'); // TTS
-}, [phrase.chinese, playAudio]);
-
-const handlePlayTurkmen = useCallback(() => {
-  playAudio(phrase.turkmen, 'turkmen', phrase.audioFileTurkmen); // MP3 + путь
-}, [phrase.turkmen, phrase.audioFileTurkmen, playAudio]);
-
-  // Правильная логика отображения языков
-  const getSecondaryText = () => {
-    if (config.mode === 'tk') {
-      return phrase.turkmen;
-    } else if (config.mode === 'zh') {
-      return phrase.turkmen;
-    } else {
-      return phrase.russian;
-    }
+  // Map language code to audio language type
+  const getAudioLanguage = (langCode: string): 'chinese' | 'russian' | 'english' => {
+    if (langCode === 'zh') return 'chinese';
+    if (langCode === 'ru') return 'russian';
+    if (langCode === 'en') return 'english';
+    return 'english'; // default
   };
 
-  const getTertiaryText = () => {
-    if (config.mode === 'tk') {
-      return phrase.russian;
-    } else if (config.mode === 'zh') {
-      return phrase.russian;
-    } else {
-      return phrase.turkmen;
-    }
+  // Play audio for translation (Chinese/Russian/English)
+  const handlePlayTranslation = useCallback(() => {
+    const audioLang = getAudioLanguage(selectedLanguage);
+    playAudio(phrase.translation.text, audioLang);
+  }, [phrase.translation.text, selectedLanguage, playAudio]);
+
+  // Play audio for Turkmen
+  const handlePlayTurkmen = useCallback(() => {
+    playAudio(phrase.turkmen, 'turkmen', phrase.audioFileTurkmen);
+  }, [phrase.turkmen, phrase.audioFileTurkmen, playAudio]);
+
+  // Get language display name for button
+  const getLanguageLabel = () => {
+    if (selectedLanguage === 'zh') return '中文';
+    if (selectedLanguage === 'ru') return 'РУС';
+    if (selectedLanguage === 'en') return 'ENG';
+    return selectedLanguage.toUpperCase();
   };
 
   return (
@@ -94,24 +92,21 @@ const handlePlayTurkmen = useCallback(() => {
       <View style={styles.phraseContent}>
         {/* Левая часть - основной текст */}
         <View style={styles.phraseTextContainer}>
-          {/* 1. Китайский текст */}
+          {/* 1. Translation (Chinese/Russian/English based on selectedLanguage) */}
           <Text style={styles.chineseText} numberOfLines={1}>
-            {phrase.chinese}
+            {phrase.translation.text}
           </Text>
-          
-          {/* 2. Пиньинь */}
-          <Text style={styles.pinyinText} numberOfLines={1}>
-            {phrase.pinyin}
-          </Text>
-          
-          {/* 3. Второй язык */}
+
+          {/* 2. Transcription (pinyin for Chinese, undefined for others) */}
+          {phrase.translation.transcription && (
+            <Text style={styles.pinyinText} numberOfLines={1}>
+              {phrase.translation.transcription}
+            </Text>
+          )}
+
+          {/* 3. Turkmen (always shown) */}
           <Text style={styles.secondaryText} numberOfLines={1}>
-            {getSecondaryText()}
-          </Text>
-          
-          {/* 4. Третий язык */}
-          <Text style={styles.tertiaryText} numberOfLines={1}>
-            {getTertiaryText()}
+            {phrase.turkmen}
           </Text>
         </View>
 
@@ -119,16 +114,16 @@ const handlePlayTurkmen = useCallback(() => {
         <View style={styles.phraseActions}>
           {/* ✅ ТРЕУГОЛЬНЫЕ аудио кнопки */}
           <View style={styles.audioButtons}>
-            {/* Китайская кнопка */}
+            {/* Translation language button (Chinese/Russian/English) */}
             <TouchableOpacity
               style={[styles.audioButton, styles.chineseAudioButton]}
-              onPress={handlePlayChinese}
+              onPress={handlePlayTranslation}
               activeOpacity={0.7}
             >
               <Text style={styles.audioTriangle}>▶</Text>
-              <Text style={styles.chineseAudioButtonText}>中文</Text>
+              <Text style={styles.chineseAudioButtonText}>{getLanguageLabel()}</Text>
             </TouchableOpacity>
-            
+
             {/* Туркменская кнопка */}
             <TouchableOpacity
               style={[styles.audioButton, styles.turkmenAudioButton]}
@@ -164,7 +159,10 @@ export default function CategoryScreen() {
   const { config } = useAppLanguage();
   const [isLoading, setIsLoading] = useState(true);
   const [selectedSubcategory, setSelectedSubcategory] = useState<SubCategory | null>(null);
-  
+
+  // Use multilingual phrases
+  const { getPhrasesByCategory, getPhrasesBySubcategory } = usePhrases();
+
   // Анимация скролла для заголовка
   const scrollY = useRef(new Animated.Value(0)).current;
   const { category } = route.params;
@@ -176,22 +174,19 @@ export default function CategoryScreen() {
 
   // Фильтрация фраз
   const filteredPhrases = useMemo(() => {
-    let categoryPhrases = phrases.filter(phrase => phrase.categoryId === category.id);
-    
     // Если выбрана подкатегория, фильтруем по ней
     if (selectedSubcategory) {
-      categoryPhrases = categoryPhrases.filter(phrase => phrase.subcategoryId === selectedSubcategory.id);
+      return getPhrasesBySubcategory(selectedSubcategory.id);
     }
-    
-    return categoryPhrases;
-  }, [category.id, selectedSubcategory]);
+
+    // Иначе показываем все фразы категории
+    return getPhrasesByCategory(category.id);
+  }, [category.id, selectedSubcategory, getPhrasesByCategory, getPhrasesBySubcategory]);
 
   // Функция для получения количества фраз в подкатегории
   const getPhrasesCountForSubcategory = useCallback((subcategoryId: string) => {
-    return phrases.filter(phrase => 
-      phrase.categoryId === category.id && phrase.subcategoryId === subcategoryId
-    ).length;
-  }, [category.id]);
+    return getPhrasesBySubcategory(subcategoryId).length;
+  }, [getPhrasesBySubcategory]);
 
   // Имитация загрузки
   useEffect(() => {
@@ -205,7 +200,7 @@ export default function CategoryScreen() {
   }, [category.id]);
 
   // Навигация на PhraseDetail
-  const handlePhrasePress = useCallback((phrase: Phrase) => {
+  const handlePhrasePress = useCallback((phrase: PhraseWithTranslation) => {
     navigation.navigate('PhraseDetail', { phrase });
   }, [navigation]);
 
@@ -230,11 +225,15 @@ export default function CategoryScreen() {
     extrapolate: 'clamp',
   });
 
-  // Получаем название категории на текущем языке
+  // ✅ ОБНОВЛЕНО: Получаем название категории на текущем языке с поддержкой английского
+  const { selectedLanguage } = useConfig();
   const categoryName = getCategoryName(category, config.mode);
-  const selectedSubcategoryName = selectedSubcategory 
-    ? (config.mode === 'tk' ? selectedSubcategory.nameTk :
-       config.mode === 'zh' ? selectedSubcategory.nameZh : selectedSubcategory.nameRu)
+
+  const selectedSubcategoryName = selectedSubcategory
+    ? (selectedLanguage === 'en' ? selectedSubcategory.nameEn :
+       selectedLanguage === 'zh' ? selectedSubcategory.nameZh :
+       selectedLanguage === 'ru' ? selectedSubcategory.nameRu :
+       selectedSubcategory.nameTk)  // туркменский по умолчанию
     : null;
 
   if (isLoading) {
@@ -301,23 +300,40 @@ export default function CategoryScreen() {
             transform: [{ translateY: categoryTitleTranslateY }]
           }
         ]}>
-          {/* Китайский (всегда показываем) */}
-          <Text style={styles.chineseCategoryTitle}>
-            {category.nameZh}
-          </Text>
-          
-          {/* ✅ ИСПРАВЛЕНО: Туркменский (средний) */}
-          <Text style={styles.mainCategoryTitle}>
-            {category.nameTk}
-          </Text>
-          
-          {/* ✅ ИСПРАВЛЕНО: Русский (маленький) + количество фраз */}
-          <Text style={styles.phrasesCountTitle}>
-            {category.nameRu} • {filteredPhrases.length} {
-              config.mode === 'tk' ? 'sözlem' :
-              config.mode === 'zh' ? '短语' : 'фраз'
-            }
-          </Text>
+          {/* ✅ ОБНОВЛЕНО: Динамическое отображение в зависимости от языка */}
+          {selectedLanguage === 'en' ? (
+            <>
+              <Text style={styles.chineseCategoryTitle}>{category.nameEn}</Text>
+              <Text style={styles.mainCategoryTitle}>{category.nameTk}</Text>
+              <Text style={styles.phrasesCountTitle}>
+                {category.nameRu} • {filteredPhrases.length} phrases
+              </Text>
+            </>
+          ) : selectedLanguage === 'zh' ? (
+            <>
+              <Text style={styles.chineseCategoryTitle}>{category.nameZh}</Text>
+              <Text style={styles.mainCategoryTitle}>{category.nameTk}</Text>
+              <Text style={styles.phrasesCountTitle}>
+                {category.nameRu} • {filteredPhrases.length} 短语
+              </Text>
+            </>
+          ) : selectedLanguage === 'ru' ? (
+            <>
+              <Text style={styles.chineseCategoryTitle}>{category.nameRu}</Text>
+              <Text style={styles.mainCategoryTitle}>{category.nameTk}</Text>
+              <Text style={styles.phrasesCountTitle}>
+                {category.nameZh} • {filteredPhrases.length} фраз
+              </Text>
+            </>
+          ) : (
+            <>
+              <Text style={styles.chineseCategoryTitle}>{category.nameTk}</Text>
+              <Text style={styles.mainCategoryTitle}>{category.nameZh}</Text>
+              <Text style={styles.phrasesCountTitle}>
+                {category.nameRu} • {filteredPhrases.length} sözlem
+              </Text>
+            </>
+          )}
         </Animated.View>
 
         {/* ПОДКАТЕГОРИИ - показываем ПЕРВЫМИ если есть и не выбрана конкретная */}

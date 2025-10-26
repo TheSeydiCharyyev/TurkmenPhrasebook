@@ -1,5 +1,5 @@
 // src/screens/PhraseDetailScreen.tsx
-// ✅ ИСПРАВЛЕНО: Обновлен AudioPlayer для работы с MP3 файлами
+// Updated for multilingual system with PhraseWithTranslation
 
 import React, { useEffect } from 'react';
 import {
@@ -14,13 +14,15 @@ import {
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 
-// Импортируем типы и данные
+// Import types and data
 import { RootStackParamList } from '../types';
 import { Colors } from '../constants/Colors';
 import { categories } from '../data/categories';
 import { useHistory } from '../hooks/useHistory';
 import { useFavorites } from '../hooks/useFavorites';
 import { useAppLanguage } from '../contexts/LanguageContext';
+import { useConfig } from '../contexts/ConfigContext';
+import { getTranslationsForLanguage } from '../data/languages';
 import AudioPlayer from '../components/AudioPlayer';
 
 type PhraseDetailScreenRouteProp = RouteProp<RootStackParamList, 'PhraseDetail'>;
@@ -29,20 +31,25 @@ export default function PhraseDetailScreen() {
   const route = useRoute<PhraseDetailScreenRouteProp>();
   const { phrase } = route.params;
 
-  // Хуки
+  // Hooks
   const { addToHistory } = useHistory();
   const { isFavorite, toggleFavorite } = useFavorites();
-  const { getTexts, config, getPhraseTexts } = useAppLanguage();
+  const { getTexts, config: appConfig, getPhraseTexts } = useAppLanguage();
+  const { selectedLanguage } = useConfig();
 
   const texts = getTexts();
-  const phraseTexts = getPhraseTexts(phrase);
 
-  // Добавляем фразу в историю при открытии экрана
+  // Add phrase to history when screen opens
   useEffect(() => {
     addToHistory(phrase.id);
   }, [phrase.id, addToHistory]);
 
-  // Находим категорию фразы
+  // Get all language translations
+  const russianTrans = getTranslationsForLanguage('ru').find(t => t.phraseId === phrase.id);
+  const chineseTrans = getTranslationsForLanguage('zh').find(t => t.phraseId === phrase.id);
+  const englishTrans = getTranslationsForLanguage('en').find(t => t.phraseId === phrase.id);
+
+  // Find category
   const category = categories.find(cat => cat.id === phrase.categoryId);
 
   const handleToggleFavorite = () => {
@@ -50,8 +57,8 @@ export default function PhraseDetailScreen() {
     toggleFavorite(phrase.id);
 
     const message = wasInFavorites
-      ? (config.mode === 'tk' ? 'Halanýanlardan aýryldy' : config.mode === 'zh' ? '已从收藏中移除' : 'Удалено из избранного')
-      : (config.mode === 'tk' ? 'Halanýanlara goşuldy' : config.mode === 'zh' ? '已添加到收藏' : 'Добавлено в избранное');
+      ? (appConfig.mode === 'tk' ? 'Halanýanlardan aýryldy' : appConfig.mode === 'zh' ? '已从收藏中移除' : 'Удалено из избранного')
+      : (appConfig.mode === 'tk' ? 'Halanýanlara goşuldy' : appConfig.mode === 'zh' ? '已添加到收藏' : 'Добавлено в избранное');
 
     const icon = wasInFavorites ? '💔' : '❤️';
 
@@ -61,104 +68,202 @@ export default function PhraseDetailScreen() {
   const handleShare = () => {
     Alert.alert(
       '📤 ' + texts.share,
-      config.mode === 'tk' ? 'Bu funksiýa öňe gidişlikde!' :
-        config.mode === 'zh' ? '此功能正在开发中！' : 'Функция в разработке!'
+      appConfig.mode === 'tk' ? 'Bu funksiýa öňe gidişlikde!' :
+        appConfig.mode === 'zh' ? '此功能正在开发中！' : 'Функция в разработке!'
     );
   };
+
+  // Determine main text and transcription based on selected language
+  let mainText = '';
+  let transcription = '';
+  let audioLanguage: 'english' | 'chinese' | 'russian' | 'turkmen' = 'turkmen';
+
+  if (selectedLanguage === 'en') {
+    mainText = phrase.translation.text; // English translation
+    transcription = phrase.translation.transcription || '';
+    audioLanguage = 'english';
+  } else if (selectedLanguage === 'zh') {
+    mainText = phrase.translation.text; // Chinese translation
+    transcription = phrase.translation.transcription || ''; // Pinyin
+    audioLanguage = 'chinese';
+  } else if (selectedLanguage === 'ru') {
+    mainText = phrase.translation.text; // Russian translation
+    transcription = phrase.translation.transcription || '';
+    audioLanguage = 'russian';
+  }
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
 
-        {/* Карточка с фразой */}
+        {/* Phrase card */}
         <View style={styles.phraseCard}>
-          {/* Категория */}
+          {/* Category */}
           {category && (
             <View style={[styles.categoryBadge, { backgroundColor: category.color }]}>
               <Text style={styles.categoryIcon}>{category.icon}</Text>
               <Text style={styles.categoryName}>
-                {config.mode === 'tk' ? category.nameTk :
-                  config.mode === 'zh' ? category.nameZh :
+                {appConfig.mode === 'tk' ? category.nameTk :
+                  appConfig.mode === 'zh' ? category.nameZh :
                     category.nameRu}
               </Text>
             </View>
           )}
 
-          {/* Основной текст */}
+          {/* Main text - selected language */}
           <View style={styles.mainContent}>
-            <Text style={styles.chineseText}>{phrase.chinese}</Text>
-            <Text style={styles.pinyinText}>{phrase.pinyin}</Text>
+            <Text style={styles.mainText}>{mainText}</Text>
+            {transcription ? (
+              <Text style={styles.transcriptionText}>{transcription}</Text>
+            ) : null}
           </View>
 
-          {/* Переводы в правильном порядке */}
+          {/* Translations in proper order based on selected language */}
           <View style={styles.translationsContainer}>
-            <View style={styles.translationRow}>
-              <Text style={styles.languageLabel}>
-                {config.mode === 'tk' ? '🇹🇲 Türkmençe:' :
-                  config.mode === 'zh' ? '🇹🇲 土库曼语:' : '🇹🇲 Туркменский:'}
-              </Text>
-              <Text style={[
-                styles.translationText,
-                config.mode === 'tk' && styles.translationTextMain
-              ]}>
-                {phrase.turkmen}
-              </Text>
-            </View>
+            {selectedLanguage === 'en' && (
+              <>
+                {/* English → Turkmen → Russian */}
+                <View style={styles.translationRow}>
+                  <Text style={styles.languageLabel}>
+                    {appConfig.mode === 'tk' ? '🇬🇧 Iňlis dili:' :
+                      appConfig.mode === 'zh' ? '🇬🇧 英语:' : '🇬🇧 Английский:'}
+                  </Text>
+                  <Text style={[styles.translationText, styles.translationTextMain]}>
+                    {englishTrans?.text || phrase.translation.text}
+                  </Text>
+                </View>
 
-            <View style={styles.translationRow}>
-              <Text style={styles.languageLabel}>
-                {config.mode === 'tk' ? '🇨🇳 Hytaýça:' :
-                  config.mode === 'zh' ? '🇨🇳 中文:' : '🇨🇳 Китайский:'}
-              </Text>
-              <Text style={[
-                styles.translationText,
-                config.mode === 'zh' && styles.translationTextMain
-              ]}>
-                {phrase.chinese}
-              </Text>
-            </View>
+                <View style={styles.translationRow}>
+                  <Text style={styles.languageLabel}>
+                    {appConfig.mode === 'tk' ? '🇹🇲 Türkmençe:' :
+                      appConfig.mode === 'zh' ? '🇹🇲 土库曼语:' : '🇹🇲 Туркменский:'}
+                  </Text>
+                  <Text style={styles.translationText}>
+                    {phrase.turkmen}
+                  </Text>
+                </View>
 
-            <View style={styles.translationRow}>
-              <Text style={styles.languageLabel}>
-                {config.mode === 'tk' ? '🇷🇺 Rusça:' :
-                  config.mode === 'zh' ? '🇷🇺 俄语:' : '🇷🇺 Русский:'}
-              </Text>
-              <Text style={styles.translationText}>{phrase.russian}</Text>
-            </View>
+                <View style={styles.translationRow}>
+                  <Text style={styles.languageLabel}>
+                    {appConfig.mode === 'tk' ? '🇷🇺 Rusça:' :
+                      appConfig.mode === 'zh' ? '🇷🇺 俄语:' : '🇷🇺 Русский:'}
+                  </Text>
+                  <Text style={styles.translationText}>
+                    {russianTrans?.text || ''}
+                  </Text>
+                </View>
+              </>
+            )}
+
+            {selectedLanguage === 'zh' && (
+              <>
+                {/* Chinese → Turkmen → Russian */}
+                <View style={styles.translationRow}>
+                  <Text style={styles.languageLabel}>
+                    {appConfig.mode === 'tk' ? '🇨🇳 Hytaýça:' :
+                      appConfig.mode === 'zh' ? '🇨🇳 中文:' : '🇨🇳 Китайский:'}
+                  </Text>
+                  <Text style={[styles.translationText, styles.translationTextMain]}>
+                    {chineseTrans?.text || phrase.translation.text}
+                  </Text>
+                </View>
+
+                <View style={styles.translationRow}>
+                  <Text style={styles.languageLabel}>
+                    {appConfig.mode === 'tk' ? '🇹🇲 Türkmençe:' :
+                      appConfig.mode === 'zh' ? '🇹🇲 土库曼语:' : '🇹🇲 Туркменский:'}
+                  </Text>
+                  <Text style={styles.translationText}>
+                    {phrase.turkmen}
+                  </Text>
+                </View>
+
+                <View style={styles.translationRow}>
+                  <Text style={styles.languageLabel}>
+                    {appConfig.mode === 'tk' ? '🇷🇺 Rusça:' :
+                      appConfig.mode === 'zh' ? '🇷🇺 俄语:' : '🇷🇺 Русский:'}
+                  </Text>
+                  <Text style={styles.translationText}>
+                    {russianTrans?.text || ''}
+                  </Text>
+                </View>
+              </>
+            )}
+
+            {selectedLanguage === 'ru' && (
+              <>
+                {/* Russian → Turkmen → Chinese */}
+                <View style={styles.translationRow}>
+                  <Text style={styles.languageLabel}>
+                    {appConfig.mode === 'tk' ? '🇷🇺 Rusça:' :
+                      appConfig.mode === 'zh' ? '🇷🇺 俄语:' : '🇷🇺 Русский:'}
+                  </Text>
+                  <Text style={[styles.translationText, styles.translationTextMain]}>
+                    {russianTrans?.text || phrase.translation.text}
+                  </Text>
+                </View>
+
+                <View style={styles.translationRow}>
+                  <Text style={styles.languageLabel}>
+                    {appConfig.mode === 'tk' ? '🇹🇲 Türkmençe:' :
+                      appConfig.mode === 'zh' ? '🇹🇲 土库曼语:' : '🇹🇲 Туркменский:'}
+                  </Text>
+                  <Text style={styles.translationText}>
+                    {phrase.turkmen}
+                  </Text>
+                </View>
+
+                <View style={styles.translationRow}>
+                  <Text style={styles.languageLabel}>
+                    {appConfig.mode === 'tk' ? '🇨🇳 Hytaýça:' :
+                      appConfig.mode === 'zh' ? '🇨🇳 中文:' : '🇨🇳 Китайский:'}
+                  </Text>
+                  <Text style={styles.translationText}>
+                    {chineseTrans?.text || ''}
+                  </Text>
+                </View>
+              </>
+            )}
           </View>
         </View>
 
+        {/* Audio button for selected language (TTS) */}
+        {selectedLanguage !== 'tk' && (
+          <AudioPlayer
+            text={mainText}
+            language={audioLanguage}
+            label={
+              selectedLanguage === 'en' ?
+                (appConfig.mode === 'tk' ? 'Iňlis sesi' :
+                  appConfig.mode === 'zh' ? '英语发音' : 'Английское произношение')
+                : selectedLanguage === 'zh' ?
+                  (appConfig.mode === 'tk' ? 'Hytaý sesi' :
+                    appConfig.mode === 'zh' ? '中文发音' : 'Китайское произношение')
+                  : (appConfig.mode === 'tk' ? 'Rus sesi' :
+                    appConfig.mode === 'zh' ? '俄语发音' : 'Русское произношение')
+            }
+            style="primary"
+            size="large"
+          />
+        )}
 
-        {/* ✅ КИТАЙСКАЯ КНОПКА - TTS */}
-        <AudioPlayer
-          text={phrase.chinese}
-          language="chinese"
-          label={
-            config.mode === 'tk' ? 'Hytaý sesi' :
-              config.mode === 'zh' ? '中文发音' :
-                'Китайское произношение'
-          }
-          style="primary"
-          size="large"
-        />
-
-        {/* ✅ ТУРКМЕНСКАЯ КНОПКА - MP3 */}
+        {/* Turkmen audio button (MP3) */}
         <AudioPlayer
           text={phrase.turkmen}
           language="turkmen"
           audioPath={phrase.audioFileTurkmen}
           label={
-            config.mode === 'tk' ? 'Türkmen sesi' :
-              config.mode === 'zh' ? '土库曼发音' :
+            appConfig.mode === 'tk' ? 'Türkmen sesi' :
+              appConfig.mode === 'zh' ? '土库曼发音' :
                 'Туркменское произношение'
           }
           style="secondary"
           size="large"
         />
 
-        {/* Кнопки действий */}
+        {/* Action buttons */}
         <View style={styles.actionsContainer}>
-          {/* Кнопка избранного */}
+          {/* Favorite button */}
           <TouchableOpacity
             style={[styles.actionButton, styles.favoriteButton]}
             onPress={handleToggleFavorite}
@@ -176,7 +281,7 @@ export default function PhraseDetailScreen() {
             </Text>
           </TouchableOpacity>
 
-          {/* Кнопка поделиться */}
+          {/* Share button */}
           <TouchableOpacity
             style={[styles.actionButton, styles.shareButton]}
             onPress={handleShare}
@@ -186,16 +291,16 @@ export default function PhraseDetailScreen() {
           </TouchableOpacity>
         </View>
 
-        {/* Дополнительная информация */}
+        {/* Additional information */}
         <View style={styles.infoContainer}>
           <Text style={styles.infoTitle}>
-            {config.mode === 'tk' ? '💡 Aýdylyş maslahat' :
-              config.mode === 'zh' ? '💡 发音建议' : '💡 Совет по произношению'}
+            {appConfig.mode === 'tk' ? '💡 Aýdylyş maslahat' :
+              appConfig.mode === 'zh' ? '💡 发音建议' : '💡 Совет по произношению'}
           </Text>
           <Text style={styles.infoText}>
-            {config.mode === 'tk' ?
+            {appConfig.mode === 'tk' ?
               'Sesli faýly birnäçe gezek diňläň we gaýtalaň. Hytaý dili ton dilidir, şonuň üçin intonasiýa möhümdir.' :
-              config.mode === 'zh' ?
+              appConfig.mode === 'zh' ?
                 '多次听音频并重复。中文是声调语言，所以语调很重要。' :
                 'Слушайте аудио несколько раз и повторяйте. Китайский - тональный язык, поэтому важно обращать внимание на интонацию.'
             }
@@ -252,14 +357,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 24,
   },
-  chineseText: {
+  mainText: {
     fontSize: 48,
     fontWeight: 'bold',
     color: Colors.text,
     marginBottom: 8,
     textAlign: 'center',
   },
-  pinyinText: {
+  transcriptionText: {
     fontSize: 20,
     color: Colors.primary,
     fontStyle: 'italic',
@@ -287,10 +392,6 @@ const styles = StyleSheet.create({
   translationTextMain: {
     fontSize: 18,
     fontWeight: '600',
-  },
-  audioContainer: {
-    gap: 12,
-    marginBottom: 20,
   },
   actionsContainer: {
     gap: 12,

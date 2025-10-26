@@ -16,7 +16,7 @@ import { useAppLanguage } from '../contexts/LanguageContext';
 
 interface AudioPlayerProps {
   text: string;                    // Текст для произношения (TTS)
-  language: 'chinese' | 'turkmen' | 'russian';
+  language: 'chinese' | 'turkmen' | 'russian' | 'english';
   audioPath?: string;              // Путь к MP3 (только для туркменского)
   label: string;
   style: 'primary' | 'secondary';
