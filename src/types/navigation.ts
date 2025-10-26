@@ -1,64 +1,119 @@
-// src/types/navigation.ts - Обновленные типы навигации с подкатегориями
+// src/types/navigation.ts - Обновленные типы навигации (Hub Architecture)
+// ✅ Phase 1 & Phase 2 - Полностью обновлено
 
-import { Category, SubCategory, Phrase } from './index';
+import type { Category, SubCategory, Phrase, PhraseWithTranslation } from './index';
+import type { TranslationResult } from '../features/visual-translator/types/visual-translator.types';
 
-// Основной стек навигации
+/**
+ * ГЛАВНЫЙ СТЕК НАВИГАЦИИ (Hub Architecture)
+ * После выбора языка пользователь попадает на MainHub,
+ * откуда может перейти в любой из модулей
+ */
 export type RootStackParamList = {
-  MainTabs: undefined;
-  PhraseDetail: { phrase: Phrase };
-  SubCategoryScreen: {
+  // Main Hub - центральный экран со всеми модулями
+  MainHub: undefined;
+
+  // Language Selection - выбор языка интерфейса
+  LanguageSelection: undefined;
+
+  // Phrasebook Module (Phase 1 - Ready)
+  Home: undefined;  // Phrasebook Home Stack
+  PhraseDetail: { phrase: Phrase | PhraseWithTranslation };
+
+  // Visual Translator Module (Phase 2 - Ready)
+  VisualTranslator: undefined;
+  TranslationResult: { result: TranslationResult };
+
+  // Text Translator Module (Phase 3 - Coming Soon)
+  // TextTranslator: undefined;
+
+  // AI Assistants Module (Phase 4 - Coming Soon)
+  // AIAssistants: undefined;
+
+  // Dictionary Module (v2.0 - Coming Soon)
+  // Dictionary: undefined;
+
+  // Additional Features (Search, Favorites, Stats)
+  AdditionalFeatures: undefined;
+
+  // Settings
+  Settings: undefined;
+};
+
+/**
+ * PHRASEBOOK HOME STACK
+ * Навигация внутри модуля Phrasebook
+ */
+export type HomeStackParamList = {
+  HomeScreen: undefined;
+  CategoryScreen: { category: Category };
+  SubCategoryScreen?: {
     subcategory: SubCategory;
     parentCategory: Category;
   };
-  LanguageSelection: undefined; // Экран выбора языка (Phase 4)
 };
 
-// Главные вкладки
+/**
+ * ADDITIONAL FEATURES STACK
+ * Search, Favorites, Stats, Recent
+ */
+export type AdditionalFeaturesStackParamList = {
+  AdditionalFeaturesMain: undefined;
+  Search: undefined;
+  Favorites: undefined;
+  Stats: undefined;
+  Recent?: undefined;
+};
+
+/**
+ * VISUAL TRANSLATOR STACK (Phase 2)
+ */
+export type VisualTranslatorStackParamList = {
+  VisualTranslatorHome: undefined;
+  Camera?: { targetLanguage: string };
+  TranslationResult: { result: TranslationResult };
+};
+
+// ===== DEPRECATED (Старые типы - оставлены для обратной совместимости) =====
+
+/**
+ * @deprecated Используйте RootStackParamList
+ * Старые bottom tabs были заменены на Hub-архитектуру
+ */
 export type MainTabParamList = {
   Home: undefined;
   AdditionalFeatures: undefined;
   Settings: undefined;
 };
 
-// Стек главной вкладки
-export type HomeStackParamList = {
-  HomeScreen: undefined;
-  CategoryScreen: { category: Category };
-  SubCategoryScreen: { 
-    subcategory: SubCategory; 
-    parentCategory: Category;
-  };
-};
+// ===== ВСПОМОГАТЕЛЬНЫЕ ТИПЫ =====
 
-// Стек дополнительных возможностей
-export type AdditionalFeaturesStackParamList = {
-  AdditionalFeaturesMain: undefined;
-  Search: undefined;
-  Favorites: undefined;
-  Stats: undefined;
-  Recent: undefined;
-  InterestingFacts: undefined;
-  RandomPhrases: undefined;
-};
-
-// Типы для хуков навигации
+/**
+ * Типы для хуков навигации
+ */
 export type NavigationProp<T extends keyof RootStackParamList> = {
   navigate: (screen: T, params?: RootStackParamList[T]) => void;
   goBack: () => void;
   push: (screen: T, params?: RootStackParamList[T]) => void;
   replace: (screen: T, params?: RootStackParamList[T]) => void;
+  reset: (state: any) => void;
 };
 
-// Типы для route параметров
+/**
+ * Типы для route параметров
+ */
 export type RouteProp<T extends keyof RootStackParamList> = {
   params: RootStackParamList[T];
   key: string;
   name: T;
 };
 
-// Экспорт для обратной совместимости
-export type { 
-  RootStackParamList as LegacyRootStackParamList,
-  MainTabParamList as LegacyMainTabParamList,
-  HomeStackParamList as LegacyHomeStackParamList
+// ===== ЭКСПОРТ =====
+
+export type {
+  Category,
+  SubCategory,
+  Phrase,
+  PhraseWithTranslation,
+  TranslationResult,
 };
