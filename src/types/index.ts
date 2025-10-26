@@ -102,16 +102,18 @@ export interface SubCategory {
 
 // ===== НАВИГАЦИОННЫЕ ТИПЫ =====
 
-export type RootStackParamList = {
-  MainTabs: undefined;
-  PhraseDetail: { phrase: PhraseWithTranslation };  // ✅ ОБНОВЛЕНО: используем мультиязычную систему
-  LanguageSelection: undefined; // Экран выбора языка (Phase 4)
-};
+// Import Visual Translator types
+import type { TranslationResult } from '../features/visual-translator/types/visual-translator.types';
 
-export type MainTabParamList = {
-  Home: undefined;
-  AdditionalFeatures: undefined;
+export type RootStackParamList = {
+  MainHub: undefined;  // ✅ НОВЫЙ: главный Hub после выбора языка
+  Home: undefined;  // Phrasebook Stack
   Settings: undefined;
+  AdditionalFeatures: undefined;
+  PhraseDetail: { phrase: PhraseWithTranslation };
+  LanguageSelection: undefined;
+  VisualTranslator: undefined;  // ✅ Phase 2: Visual Translator home
+  TranslationResult: { result: TranslationResult };  // ✅ Phase 2: Translation results
 };
 
 export type HomeStackParamList = {

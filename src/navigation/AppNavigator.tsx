@@ -1,15 +1,15 @@
-// src/navigation/AppNavigator.tsx - ОБНОВЛЕНО для мультиязычности (Phase 4)
+// src/navigation/AppNavigator.tsx - ОБНОВЛЕНО для Hub-архитектуры (Phase 1)
 
 import React from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 
 // Импортируем компоненты
 import OfflineIndicator from '../components/OfflineIndicator';
 import LanguageSelectionScreen from '../screens/LanguageSelectionScreen';
+import MainHubScreen from '../screens/MainHubScreen';
 
 // Импортируем экраны
 import HomeScreen from '../screens/HomeScreen';
@@ -21,21 +21,22 @@ import StatsScreen from '../screens/StatsScreen';
 import AdditionalFeaturesScreen from '../screens/AdditionalFeaturesScreen';
 import PhraseDetailScreen from '../screens/PhraseDetailScreen';
 
+// Visual Translator screens (Phase 2)
+import VisualTranslatorHomeScreen from '../features/visual-translator/screens/VisualTranslatorHomeScreen';
+import TranslationResultScreen from '../features/visual-translator/screens/TranslationResultScreen';
+
 // Импортируем типы
-import { RootStackParamList, MainTabParamList, HomeStackParamList } from '../types';
+import { RootStackParamList, HomeStackParamList } from '../types';
 import { Colors } from '../constants/Colors';
 import { useAppLanguage, AppLanguageMode } from '../contexts/LanguageContext';
 import { useConfig } from '../contexts/ConfigContext';
 
 const RootStack = createStackNavigator<RootStackParamList>();
-const Tab = createBottomTabNavigator<MainTabParamList>();
 const HomeStack = createStackNavigator<HomeStackParamList>();
 const AdditionalFeaturesStack = createStackNavigator();
 
-// Стек для главной вкладки
+// Стек для Phrasebook (категории фраз)
 function HomeStackNavigator() {
-  const { config } = useAppLanguage();
-
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen
@@ -43,7 +44,6 @@ function HomeStackNavigator() {
         component={HomeScreen}
         options={{ headerShown: false }}
       />
-      {/* ИСПРАВЛЕНО: отключена стандартная шапка для CategoryScreen */}
       <HomeStack.Screen
         name="CategoryScreen"
         component={CategoryScreen}
@@ -53,7 +53,7 @@ function HomeStackNavigator() {
   );
 }
 
-// Стек для дополнительных возможностей
+// Стек для дополнительных возможностей (Search, Favorites, Stats)
 function AdditionalFeaturesStackNavigator() {
   const { config } = useAppLanguage();
 
@@ -104,75 +104,10 @@ function AdditionalFeaturesStackNavigator() {
   );
 }
 
-// Обновленные вкладки - 3 основные вкладки
-function MainTabs() {
-  const { getTexts } = useAppLanguage();
-  const texts = getTexts();
-
-  return (
-    <>
-      <OfflineIndicator />
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName: keyof typeof Ionicons.glyphMap;
-
-            if (route.name === 'Home') {
-              iconName = focused ? 'home' : 'home-outline';
-            } else if (route.name === 'AdditionalFeatures') {
-              iconName = focused ? 'apps' : 'apps-outline';
-            } else if (route.name === 'Settings') {
-              iconName = focused ? 'settings' : 'settings-outline';
-            } else {
-              iconName = 'home-outline';
-            }
-
-            return <Ionicons name={iconName} size={size} color={color} />;
-          },
-          tabBarActiveTintColor: Colors.tabActive,
-          tabBarInactiveTintColor: Colors.tabInactive,
-          tabBarStyle: {
-            backgroundColor: Colors.background,
-            borderTopColor: Colors.cardBorder,
-          },
-          headerShown: false,
-        })}
-        key={texts.home} // Принудительный ререндер при смене языка
-      >
-        <Tab.Screen 
-          name="Home" 
-          component={HomeStackNavigator}
-          options={{ 
-            title: texts.home,
-            tabBarLabel: texts.home,
-          }}
-        />
-        <Tab.Screen 
-          name="AdditionalFeatures" 
-          component={AdditionalFeaturesStackNavigator}
-          options={{ 
-            title: texts.additionalFeatures,
-            tabBarLabel: texts.additionalFeatures,
-          }}
-        />
-        <Tab.Screen 
-          name="Settings" 
-          component={SettingsScreen}
-          options={{ 
-            title: texts.settings,
-            tabBarLabel: texts.settings,
-          }}
-        />
-      </Tab.Navigator>
-    </>
-  );
-}
-
 // Главный навигатор
 export default function AppNavigator() {
-  const { getTexts, config } = useAppLanguage();
+  const { config } = useAppLanguage();
   const { isLoading: configLoading, isFirstLaunch } = useConfig();
-  const texts = getTexts();
 
   // Показываем лоадер пока загружаются настройки
   if (configLoading) {
@@ -189,7 +124,6 @@ export default function AppNavigator() {
   }
 
   // Показываем экран выбора языка при первом запуске
-  // Используем старый метод setLanguageMode для обратной совместимости
   if (isFirstLaunch) {
     return (
       <NavigationContainer>
@@ -198,15 +132,62 @@ export default function AppNavigator() {
     );
   }
 
-  // Обычная навигация
+  // Обычная навигация с Hub-архитектурой
   return (
     <NavigationContainer>
+      <OfflineIndicator />
       <RootStack.Navigator>
+        {/* Main Hub - главный экран после выбора языка */}
         <RootStack.Screen
-          name="MainTabs"
-          component={MainTabs}
+          name="MainHub"
+          component={MainHubScreen}
           options={{ headerShown: false }}
         />
+
+        {/* Phrasebook Stack */}
+        <RootStack.Screen
+          name="Home"
+          component={HomeStackNavigator}
+          options={{ headerShown: false }}
+        />
+
+        {/* Visual Translator (Phase 2) */}
+        <RootStack.Screen
+          name="VisualTranslator"
+          component={VisualTranslatorHomeScreen}
+          options={{ headerShown: false }}
+        />
+        <RootStack.Screen
+          name="TranslationResult"
+          component={TranslationResultScreen}
+          options={{ headerShown: false }}
+        />
+
+        {/* Settings */}
+        <RootStack.Screen
+          name="Settings"
+          component={SettingsScreen}
+          options={{
+            title: config.mode === 'tk' ? 'Sazlamalar' :
+                   config.mode === 'zh' ? '设置' : 'Настройки',
+            headerStyle: {
+              backgroundColor: Colors.primary,
+            },
+            headerTintColor: Colors.textWhite,
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+        />
+
+        {/* Additional Features (Search, Favorites, Stats) */}
+        <RootStack.Screen
+          name="AdditionalFeatures"
+          component={AdditionalFeaturesStackNavigator}
+          options={{ headerShown: false }}
+        />
+
+        {/* Phrase Detail */}
         <RootStack.Screen
           name="PhraseDetail"
           component={PhraseDetailScreen}
@@ -223,7 +204,8 @@ export default function AppNavigator() {
             },
           }}
         />
-        {/* Добавляем экран выбора языка в основную навигацию */}
+
+        {/* Language Selection (доступен из Hub) */}
         <RootStack.Screen
           name="LanguageSelection"
           component={LanguageSelectionScreen}
