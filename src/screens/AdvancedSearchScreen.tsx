@@ -160,7 +160,7 @@ export default function AdvancedSearchScreen() {
     | 'voiceSearch';
 
   const getText = useCallback((key: TextKey) => {
-    const texts: Record<'tk' | 'zh' | 'ru', Record<TextKey, string>> = {
+    const texts: Record<'tk' | 'zh' | 'ru' | 'en', Record<TextKey, string>> = {
       tk: {
         searchPlaceholder: 'Gözleg...',
         searchResults: 'Netijeler',
@@ -187,10 +187,19 @@ export default function AdvancedSearchScreen() {
         filters: 'Фильтры',
         clearFilters: 'Очистить',
         voiceSearch: 'Голосовой поиск',
+      },
+      en: {
+        searchPlaceholder: 'Search...',
+        searchResults: 'Search Results',
+        noResults: 'No results found',
+        suggestions: 'Suggestions',
+        filters: 'Filters',
+        clearFilters: 'Clear',
+        voiceSearch: 'Voice Search',
       }
     };
 
-    return texts[config.mode]?.[key] || texts.ru[key];
+    return texts[config.mode]?.[key] || texts.en[key];
   }, [config.mode]);
 
   /**

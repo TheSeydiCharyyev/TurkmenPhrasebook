@@ -27,11 +27,16 @@ export type RootStackParamList = {
   // Text Translator Module (Phase 3 - Ready)
   TextTranslator: undefined;
 
-  // AI Assistants Module (Phase 4 - Coming Soon)
-  // AIAssistants: undefined;
+  // AI Assistants Module (Phase 4 - Ready)
+  AIAssistantsHome: undefined;
+  ContextualTips: undefined;
+  ConversationTrainer: undefined;
+  GrammarHelper: undefined;
+  CulturalAdvisor: undefined;
+  GeneralAssistant: undefined;
 
-  // Dictionary Module (v2.0 - Coming Soon)
-  // Dictionary: undefined;
+  // Dictionary Module (v2.0 - Coming Soon Placeholder)
+  Dictionary: undefined;
 
   // Additional Features (Search, Favorites, Stats)
   AdditionalFeatures: undefined;
@@ -45,6 +50,7 @@ export type RootStackParamList = {
  * Навигация внутри модуля Phrasebook
  */
 export type HomeStackParamList = {
+  LanguagePairSelection: undefined; // Выбор языковой пары при первом запуске
   HomeScreen: undefined;
   CategoryScreen: { category: Category };
   SubCategoryScreen?: {

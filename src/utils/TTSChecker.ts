@@ -93,7 +93,7 @@ export class TTSChecker {
   /**
    * Получить рекомендации для пользователя
    */
-  static async getRecommendations(languageMode: 'tk' | 'zh'): Promise<{
+  static async getRecommendations(languageMode: 'tk' | 'zh' | 'ru' | 'en'): Promise<{
     title: string;
     message: string;
     showWarning: boolean;
@@ -125,6 +125,39 @@ export class TTSChecker {
       return {
         title: '✅ Ähli sesler elýeterli',
         message: `Hytaýça ses tapyldy: ${result.chineseVoices.length} sany`,
+        showWarning: false,
+      };
+    } else if (languageMode === 'ru') {
+      // Russian interface - check Russian voices
+      if (!result.hasRussianVoice) {
+        return {
+          title: '⚠️ Нет русского голоса',
+          message: 'Для воспроизведения фраз требуется интернет',
+          showWarning: true,
+          instructions: Platform.OS === 'android' ? [
+            '1. Откройте настройки',
+            '2. "Система" → "Язык и ввод"',
+            '3. "Синтез речи" → "Выбрать язык"',
+            '4. Скачайте русский язык',
+          ] : [
+            '1. Откройте настройки',
+            '2. "Универсальный доступ"',
+            '3. "Голосовой контент"',
+            '4. Добавьте русский язык',
+          ]
+        };
+      }
+
+      return {
+        title: '✅ Все голоса доступны',
+        message: `Найдено голосов: ${result.allVoices.length}`,
+        showWarning: false,
+      };
+    } else if (languageMode === 'en') {
+      // English interface - usually no issues
+      return {
+        title: '✅ All voices available',
+        message: 'Text-to-speech is ready',
         showWarning: false,
       };
     } else {

@@ -17,6 +17,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
 import { useConfig } from '../contexts/ConfigContext';
+import { useAppLanguage } from '../contexts/LanguageContext';
 import { getLanguageByCode } from '../config/languages.config';
 import type { RootStackParamList } from '../types';
 
@@ -31,11 +32,12 @@ interface ModuleCard {
   size: 'large' | 'medium' | 'small';
 }
 
-const MODULES: ModuleCard[] = [
+// Helper function to get modules with translations
+const getModules = (texts: any): ModuleCard[] => [
   {
     id: 'phrasebook',
-    title: 'Phrasebook',
-    subtitle: '305 phrases in 22 categories',
+    title: texts.phrasebookTitle,
+    subtitle: texts.phrasebookSubtitle,
     icon: '📚',
     gradient: ['#10B981', '#059669'],
     route: 'Phrasebook',
@@ -43,8 +45,8 @@ const MODULES: ModuleCard[] = [
   },
   {
     id: 'visual-translator',
-    title: 'Visual Translator',
-    subtitle: 'Scan text with camera',
+    title: texts.visualTranslatorTitle,
+    subtitle: texts.visualTranslatorSubtitle,
     icon: '📸',
     gradient: ['#6366F1', '#4F46E5'],
     route: 'VisualTranslator',
@@ -52,8 +54,8 @@ const MODULES: ModuleCard[] = [
   },
   {
     id: 'text-translator',
-    title: 'Text Translator',
-    subtitle: 'Type and translate',
+    title: texts.textTranslatorTitle,
+    subtitle: texts.textTranslatorSubtitle,
     icon: '🌍',
     gradient: ['#3B82F6', '#2563EB'],
     route: 'TextTranslator',
@@ -61,28 +63,26 @@ const MODULES: ModuleCard[] = [
   },
   {
     id: 'dictionary',
-    title: 'Dictionary',
-    subtitle: 'Coming in v2.0',
+    title: texts.dictionaryTitle,
+    subtitle: texts.dictionarySubtitle,
     icon: '📖',
     gradient: ['#9CA3AF', '#6B7280'],
     route: 'Dictionary',
     size: 'small',
-    isLocked: true,
   },
   {
     id: 'ai-assistants',
-    title: 'AI Assistants',
-    subtitle: 'Smart helpers & tips',
+    title: texts.aiAssistantsTitle,
+    subtitle: texts.aiAssistantsSubtitle,
     icon: '🤖',
     gradient: ['#8B5CF6', '#7C3AED'],
-    route: 'AIAssistants',
+    route: 'AIAssistantsHome',
     size: 'large',
-    isLocked: true, // Временно заблокирован - будет реализован в Phase 4
   },
   {
     id: 'favorites',
-    title: 'My Favorites',
-    subtitle: 'Saved items',
+    title: texts.myFavoritesTitle,
+    subtitle: texts.myFavoritesSubtitle,
     icon: '⭐',
     gradient: ['#F59E0B', '#D97706'],
     route: 'Favorites',
@@ -95,7 +95,10 @@ type MainHubScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 export default function MainHubScreen() {
   const navigation = useNavigation<MainHubScreenNavigationProp>();
   const { selectedLanguage } = useConfig();
+  const { getTexts } = useAppLanguage();
   const currentLanguage = getLanguageByCode(selectedLanguage);
+  const texts = getTexts();
+  const modules = getModules(texts);
 
   const handleModulePress = (module: ModuleCard) => {
     if (module.isLocked) {
@@ -114,6 +117,10 @@ export default function MainHubScreen() {
       navigation.navigate('VisualTranslator');
     } else if (module.id === 'text-translator') {
       navigation.navigate('TextTranslator');
+    } else if (module.id === 'ai-assistants') {
+      navigation.navigate('AIAssistantsHome');
+    } else if (module.id === 'dictionary') {
+      navigation.navigate('Dictionary');
     } else if (module.id === 'favorites') {
       navigation.navigate('AdditionalFeatures');
     } else {
@@ -145,7 +152,7 @@ export default function MainHubScreen() {
           <Text style={styles.languageName}>{currentLanguage?.name || 'Language'}</Text>
         </TouchableOpacity>
 
-        <Text style={styles.appTitle}>Turkmen Phrasebook</Text>
+        <Text style={styles.appTitle}>{texts.appTitle}</Text>
 
         <TouchableOpacity
           style={styles.settingsButton}
@@ -158,8 +165,8 @@ export default function MainHubScreen() {
 
       {/* Welcome Section */}
       <View style={styles.welcome}>
-        <Text style={styles.welcomeTitle}>Welcome back! 👋</Text>
-        <Text style={styles.welcomeSubtitle}>Choose what you need</Text>
+        <Text style={styles.welcomeTitle}>{texts.appSubtitle}</Text>
+        <Text style={styles.welcomeSubtitle}>{texts.selectCategory}</Text>
       </View>
 
       {/* Modules Grid */}
@@ -167,7 +174,7 @@ export default function MainHubScreen() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {MODULES.map((module) => (
+        {modules.map((module) => (
           <ModuleCardComponent
             key={module.id}
             module={module}

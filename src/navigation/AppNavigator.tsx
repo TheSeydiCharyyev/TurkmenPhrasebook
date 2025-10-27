@@ -28,6 +28,20 @@ import TranslationResultScreen from '../features/visual-translator/screens/Trans
 // Text Translator screens (Phase 3)
 import TextTranslatorScreen from '../features/text-translator/screens/TextTranslatorScreen';
 
+// AI Assistants screens (Phase 4)
+import AIAssistantsHomeScreen from '../features/ai-assistants/screens/AIAssistantsHomeScreen';
+import ContextualTipsScreen from '../features/ai-assistants/screens/ContextualTipsScreen';
+import ConversationTrainerScreen from '../features/ai-assistants/screens/ConversationTrainerScreen';
+import GrammarHelperScreen from '../features/ai-assistants/screens/GrammarHelperScreen';
+import CulturalAdvisorScreen from '../features/ai-assistants/screens/CulturalAdvisorScreen';
+import GeneralAssistantScreen from '../features/ai-assistants/screens/GeneralAssistantScreen';
+
+// Dictionary screen (Phase 5)
+import DictionaryScreen from '../screens/DictionaryScreen';
+
+// Language Pair Selection screen
+import LanguagePairSelectionScreen from '../screens/LanguagePairSelectionScreen';
+
 // Импортируем типы
 import { RootStackParamList, HomeStackParamList } from '../types';
 import { Colors } from '../constants/Colors';
@@ -40,8 +54,36 @@ const AdditionalFeaturesStack = createStackNavigator();
 
 // Стек для Phrasebook (категории фраз)
 function HomeStackNavigator() {
+  const [hasLanguagePair, setHasLanguagePair] = React.useState<boolean | null>(null);
+
+  React.useEffect(() => {
+    // Check if user has selected a language pair
+    const checkLanguagePair = async () => {
+      try {
+        const saved = await import('@react-native-async-storage/async-storage').then(m => m.default);
+        const pair = await saved.getItem('@phrasebook:language_pair');
+        setHasLanguagePair(!!pair);
+      } catch (error) {
+        console.error('Failed to check language pair:', error);
+        setHasLanguagePair(false);
+      }
+    };
+
+    checkLanguagePair();
+  }, []);
+
+  // Show loading while checking
+  if (hasLanguagePair === null) {
+    return null;
+  }
+
   return (
-    <HomeStack.Navigator>
+    <HomeStack.Navigator initialRouteName={hasLanguagePair ? 'HomeScreen' : 'LanguagePairSelection'}>
+      <HomeStack.Screen
+        name="LanguagePairSelection"
+        component={LanguagePairSelectionScreen}
+        options={{ headerShown: false }}
+      />
       <HomeStack.Screen
         name="HomeScreen"
         component={HomeScreen}
@@ -165,6 +207,45 @@ export default function AppNavigator() {
         <RootStack.Screen
           name="TextTranslator"
           component={TextTranslatorScreen}
+          options={{ headerShown: false }}
+        />
+
+        {/* AI Assistants (Phase 4) */}
+        <RootStack.Screen
+          name="AIAssistantsHome"
+          component={AIAssistantsHomeScreen}
+          options={{ headerShown: false }}
+        />
+        <RootStack.Screen
+          name="ContextualTips"
+          component={ContextualTipsScreen}
+          options={{ headerShown: false }}
+        />
+        <RootStack.Screen
+          name="ConversationTrainer"
+          component={ConversationTrainerScreen}
+          options={{ headerShown: false }}
+        />
+        <RootStack.Screen
+          name="GrammarHelper"
+          component={GrammarHelperScreen}
+          options={{ headerShown: false }}
+        />
+        <RootStack.Screen
+          name="CulturalAdvisor"
+          component={CulturalAdvisorScreen}
+          options={{ headerShown: false }}
+        />
+        <RootStack.Screen
+          name="GeneralAssistant"
+          component={GeneralAssistantScreen}
+          options={{ headerShown: false }}
+        />
+
+        {/* Dictionary (Phase 5 - Coming Soon) */}
+        <RootStack.Screen
+          name="Dictionary"
+          component={DictionaryScreen}
           options={{ headerShown: false }}
         />
 

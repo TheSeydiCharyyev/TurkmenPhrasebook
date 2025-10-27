@@ -68,7 +68,7 @@ const SearchResultItem = React.memo<{
   phrase: PhraseWithTranslation;
   searchQuery: string;
   onPress: (phrase: PhraseWithTranslation) => void;
-  config: { mode: 'tk' | 'zh' };
+  config: { mode: 'tk' | 'zh' | 'ru' | 'en' };
   getPhraseTexts: (phrase: PhraseWithTranslation) => { primary: string; learning: string; helper: string };
 }>(({ phrase, searchQuery, onPress, config, getPhraseTexts }) => {
   const category = categories.find(cat => cat.id === phrase.categoryId);

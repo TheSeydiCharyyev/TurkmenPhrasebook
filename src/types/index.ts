@@ -102,25 +102,16 @@ export interface SubCategory {
 
 // ===== НАВИГАЦИОННЫЕ ТИПЫ =====
 
-// Import Visual Translator types
-import type { TranslationResult } from '../features/visual-translator/types/visual-translator.types';
-
-export type RootStackParamList = {
-  MainHub: undefined;  // ✅ НОВЫЙ: главный Hub после выбора языка
-  Home: undefined;  // Phrasebook Stack
-  Settings: undefined;
-  AdditionalFeatures: undefined;
-  PhraseDetail: { phrase: PhraseWithTranslation };
-  LanguageSelection: undefined;
-  VisualTranslator: undefined;  // ✅ Phase 2: Visual Translator home
-  TranslationResult: { result: TranslationResult };  // ✅ Phase 2: Translation results
-  TextTranslator: undefined;  // ✅ Phase 3: Text Translator
-};
-
-export type HomeStackParamList = {
-  HomeScreen: undefined;
-  CategoryScreen: { category: Category };
-};
+// Re-export navigation types from navigation.ts (single source of truth)
+export type {
+  RootStackParamList,
+  HomeStackParamList,
+  AdditionalFeaturesStackParamList,
+  VisualTranslatorStackParamList,
+  MainTabParamList,
+  NavigationProp,
+  RouteProp,
+} from './navigation';
 
 // ===== ОСТАЛЬНЫЕ ТИПЫ =====
 

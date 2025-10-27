@@ -85,11 +85,22 @@ export default function VoiceSearch({
         error: 'Ошибка распознавания речи',
         noSpeech: 'Речь не обнаружена',
         tryAgain: 'Повторить',
+      },
+      en: {
+        tapToSpeak: 'Tap to speak',
+        listening: 'Listening...',
+        processing: 'Processing...',
+        speak: 'Speak',
+        stop: 'Stop',
+        permission: 'Microphone permission denied',
+        error: 'Speech recognition error',
+        noSpeech: 'No speech detected',
+        tryAgain: 'Try again',
       }
     };
 
-    const lang = config.mode === 'tk' ? 'tk' : config.mode === 'zh' ? 'zh' : 'ru';
-    return texts[lang][key as keyof typeof texts['ru']] || key;
+    const lang = config.mode;
+    return texts[lang]?.[key as keyof typeof texts['en']] || key;
   }, [config.mode]);
 
   /**
@@ -100,6 +111,7 @@ export default function VoiceSearch({
       tk: 'tr-TR', // Turkmen uses Turkish as closest match
       zh: 'zh-CN',
       ru: 'ru-RU',
+      en: 'en-US',
     };
     return codes[config.mode] || 'en-US';
   }, [config.mode]);

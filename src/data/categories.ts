@@ -830,10 +830,11 @@ export const getSubcategoryById = (id: string): SubCategory | undefined => {
 /**
  * Получить название категории на нужном языке
  */
-export function getCategoryName(category: Category, language: 'ru' | 'tk' | 'zh'): string {
+export function getCategoryName(category: Category, language: 'ru' | 'tk' | 'zh' | 'en'): string {
   switch (language) {
     case 'tk': return category.nameTk;
     case 'zh': return category.nameZh;
+    case 'en': return category.nameEn;
     default: return category.nameRu;
   }
 }
@@ -841,10 +842,11 @@ export function getCategoryName(category: Category, language: 'ru' | 'tk' | 'zh'
 /**
  * Получить название подкатегории на нужном языке
  */
-export function getSubcategoryName(subcategory: SubCategory, language: 'ru' | 'tk' | 'zh'): string {
+export function getSubcategoryName(subcategory: SubCategory, language: 'ru' | 'tk' | 'zh' | 'en'): string {
   switch (language) {
     case 'tk': return subcategory.nameTk;
     case 'zh': return subcategory.nameZh;
+    case 'en': return subcategory.nameEn;
     default: return subcategory.nameRu;
   }
 }
