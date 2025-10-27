@@ -12,7 +12,6 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
-import { StackNavigationProp } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../../../constants/Colors';
@@ -20,14 +19,12 @@ import { FavoritesService } from '../services/FavoritesService';
 import { FavoriteTab, FavoriteTranslation } from '../types/favorites.types';
 import { usePhrases } from '../../../hooks/usePhrases';
 import { useAppLanguage } from '../../../contexts/LanguageContext';
-import { PhraseWithTranslation, RootStackParamList } from '../../../types';
+import { PhraseWithTranslation } from '../../../types';
 import { categories } from '../../../data/categories';
 import { TextTranslationResult } from '../../text-translator/types/text-translator.types';
 
-type FavoritesHubNavigationProp = StackNavigationProp<RootStackParamList, 'Favorites'>;
-
 export default function FavoritesHubScreen() {
-  const navigation = useNavigation<FavoritesHubNavigationProp>();
+  const navigation = useNavigation<any>();
   const { phrases } = usePhrases();
   const { config } = useAppLanguage();
 

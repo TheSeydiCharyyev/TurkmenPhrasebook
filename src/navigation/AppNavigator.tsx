@@ -15,7 +15,7 @@ import MainHubScreen from '../screens/MainHubScreen';
 import HomeScreen from '../screens/HomeScreen';
 import CategoryScreen from '../screens/CategoryScreen';
 import AdvancedSearchScreen from '../screens/AdvancedSearchScreen';
-import FavoritesScreen from '../screens/FavoritesScreen';
+import FavoritesHubScreen from '../features/favorites/screens/FavoritesHubScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import StatsScreen from '../screens/StatsScreen';
 import AdditionalFeaturesScreen from '../screens/AdditionalFeaturesScreen';
@@ -81,14 +81,9 @@ function AdditionalFeaturesStackNavigator() {
       />
       <AdditionalFeaturesStack.Screen
         name="Favorites"
-        component={FavoritesScreen}
+        component={FavoritesHubScreen}
         options={{
-          title: config.mode === 'tk' ? 'Halanýanlar' :
-                 config.mode === 'zh' ? '收藏' : 'Избранное',
-          headerStyle: {
-            backgroundColor: Colors.primary,
-          },
-          headerTintColor: Colors.textWhite,
+          headerShown: false,
         }}
       />
       <AdditionalFeaturesStack.Screen

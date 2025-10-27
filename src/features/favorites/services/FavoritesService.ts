@@ -150,7 +150,7 @@ class FavoritesServiceClass {
   /**
    * Получить все избранные фразы
    */
-  getFavoritePhrases(allPhrases: Phrase[]): Phrase[] {
+  getFavoritePhrases(allPhrases: any[]): any[] {
     return allPhrases.filter(phrase =>
       this.cachedPhrases.includes(phrase.id)
     );
