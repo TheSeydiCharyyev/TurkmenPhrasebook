@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Turkmen Phrasebook",
-    "slug": "turkmen-phrasebook",
+    "slug": "chinese-phrasebook-tkm",
     "description": "Learn Turkmen with 30 languages. Essential phrases for travelers, students, and language learners. Audio pronunciation included.",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -48,11 +48,14 @@
       "package": "com.seydicharyyev.turkmenphrasebook",
       "versionCode": 1,
       "permissions": [
+        "CAMERA",
         "RECORD_AUDIO",
+        "READ_EXTERNAL_STORAGE",
+        "READ_MEDIA_IMAGES",
+        "INTERNET",
         "ACCESS_NETWORK_STATE"
       ],
       "blockedPermissions": [
-        "android.permission.CAMERA",
         "android.permission.ACCESS_FINE_LOCATION",
         "android.permission.ACCESS_COARSE_LOCATION"
       ]
