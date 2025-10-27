@@ -54,28 +54,16 @@ const AdditionalFeaturesStack = createStackNavigator();
 
 // Стек для Phrasebook (категории фраз)
 function HomeStackNavigator() {
-  const [hasLanguagePair, setHasLanguagePair] = React.useState<boolean | null>(null);
+  const { selectedLanguage, isLoading } = useConfig();
 
-  React.useEffect(() => {
-    // Check if user has selected a language pair
-    const checkLanguagePair = async () => {
-      try {
-        const saved = await import('@react-native-async-storage/async-storage').then(m => m.default);
-        const pair = await saved.getItem('@phrasebook:language_pair');
-        setHasLanguagePair(!!pair);
-      } catch (error) {
-        console.error('Failed to check language pair:', error);
-        setHasLanguagePair(false);
-      }
-    };
-
-    checkLanguagePair();
-  }, []);
-
-  // Show loading while checking
-  if (hasLanguagePair === null) {
+  // Show loading while checking config
+  if (isLoading) {
     return null;
   }
+
+  // Check if user has selected a language pair
+  // Default is 'zh', so if it's anything valid, they've made a choice
+  const hasLanguagePair = selectedLanguage && ['zh', 'ru', 'en'].includes(selectedLanguage);
 
   return (
     <HomeStack.Navigator initialRouteName={hasLanguagePair ? 'HomeScreen' : 'LanguagePairSelection'}>

@@ -175,6 +175,11 @@ export default function SettingsScreen() {
     navigation.navigate('LanguageSelection');
   }, [navigation]);
 
+  const handlePhrasebookLanguageChange = useCallback(() => {
+    // Navigate to phrasebook and show language pair selection
+    navigation.navigate('Home', { screen: 'LanguagePairSelection' } as any);
+  }, [navigation]);
+
   const handleTogglePreference = useCallback(async (key: keyof AppPreferences) => {
     const newValue = !preferences[key];
     await savePreference(key, newValue);
@@ -280,12 +285,23 @@ export default function SettingsScreen() {
           <View style={styles.section}>
             <SectionHeader title={texts.languageInterface} />
 
+            {/* Interface Language */}
             <SettingsItem
               icon="language"
               iconColor={Colors.primary}
               title={texts.switchLanguage}
-              subtitle={`${config.mode === 'tk' ? 'Häzirki: ' : '当前: '}${getLanguageByCode(selectedLanguage)?.name || selectedLanguage}`}
+              subtitle={`${config.mode === 'tk' ? 'Häzirki: ' : '当前: '}${getLanguageByCode(config.mode)?.name || config.mode}`}
               onPress={handleLanguageToggle}
+              rightComponent={<Ionicons name="chevron-forward" size={20} color={Colors.textLight} />}
+            />
+
+            {/* Phrasebook Language */}
+            <SettingsItem
+              icon="book"
+              iconColor={Colors.accent}
+              title={config.mode === 'tk' ? 'Gepleşik kitaby dili' : config.mode === 'zh' ? '会话手册语言' : config.mode === 'ru' ? 'Язык разговорника' : 'Phrasebook Language'}
+              subtitle={`${config.mode === 'tk' ? 'Häzirki: ' : '当前: '}${getLanguageByCode(selectedLanguage)?.nameEn || selectedLanguage}-Turkmen`}
+              onPress={handlePhrasebookLanguageChange}
               rightComponent={<Ionicons name="chevron-forward" size={20} color={Colors.textLight} />}
             />
           </View>

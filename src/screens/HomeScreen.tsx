@@ -188,8 +188,8 @@ export default function HomeScreen() {
   }, [navigation]);
 
   const handleLanguagePress = useCallback(() => {
-    // Переход к экрану выбора языка
-    navigation.navigate('LanguageSelection');
+    // Переход к экрану выбора языковой пары разговорника
+    navigation.navigate('LanguagePairSelection');
   }, [navigation]);
 
   return (

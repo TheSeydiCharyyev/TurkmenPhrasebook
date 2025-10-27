@@ -14,6 +14,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { LANGUAGES, getLanguageProgress } from '../config/languages.config';
 import { useConfig } from '../contexts/ConfigContext';
+import { useAppLanguage } from '../contexts/LanguageContext';
 
 type AppLanguageMode = 'tk' | 'zh'; // Старый тип для обратной совместимости
 
@@ -24,6 +25,7 @@ interface LanguageSelectionScreenProps {
 
 export default function LanguageSelectionScreen({ navigation, onLanguageSelect }: LanguageSelectionScreenProps) {
   const { setSelectedLanguage, selectedLanguage } = useConfig();
+  const { setLanguageMode, config } = useAppLanguage();
   const [isChanging, setIsChanging] = useState(false);
   const progress = getLanguageProgress();
 
@@ -58,23 +60,49 @@ export default function LanguageSelectionScreen({ navigation, onLanguageSelect }
         return;
       }
 
-      // Иначе используем новый API
-      await setSelectedLanguage(code);
+      // НОВАЯ ЛОГИКА: Scenario A
+      // 1. Устанавливаем язык интерфейса
+      await setLanguageMode(code as any, true);
 
-      // Показать успешное уведомление
+      // 2. Если НЕ туркменский - устанавливаем тот же язык для разговорника
+      if (code !== 'tk') {
+        await setSelectedLanguage(code);
+      }
+      // Если туркменский - разговорник выберут позже в LanguagePairSelectionScreen
+
+      // 3. Навигация
       const lang = LANGUAGES.find(l => l.code === code);
-      Alert.alert(
-        '✅ Language Changed',
-        `Language switched to ${lang?.name} (${lang?.nameEn})`,
-        [{
-          text: 'OK',
-          onPress: () => {
-            if (navigation) {
-              navigation.navigate('Home');
+
+      if (code === 'tk') {
+        // Туркменский интерфейс - направляем в Phrasebook где покажется выбор пары
+        Alert.alert(
+          '✅ ' + (lang?.name || 'Language Selected'),
+          'Now select your phrasebook language pair',
+          [{
+            text: 'OK',
+            onPress: () => {
+              if (navigation) {
+                // Navigate to Home stack, which will show LanguagePairSelectionScreen
+                navigation.replace('MainHub');
+              }
             }
-          }
-        }]
-      );
+          }]
+        );
+      } else {
+        // Другие языки - интерфейс и разговорник установлены
+        Alert.alert(
+          '✅ Language Changed',
+          `Interface: ${lang?.name}\nPhrasebook: ${lang?.nameEn}-Turkmen`,
+          [{
+            text: 'OK',
+            onPress: () => {
+              if (navigation) {
+                navigation.replace('MainHub');
+              }
+            }
+          }]
+        );
+      }
     } catch (error) {
       console.error('Failed to select language:', error);
       Alert.alert(
@@ -89,7 +117,8 @@ export default function LanguageSelectionScreen({ navigation, onLanguageSelect }
 
   const renderLanguageItem = ({ item }: { item: typeof LANGUAGES[0] }) => {
     const isAvailable = item.isAvailable;
-    const isSelected = item.code === selectedLanguage;
+    // Check against interface language (config.mode), not phrasebook language
+    const isSelected = item.code === config.mode;
 
     return (
       <TouchableOpacity

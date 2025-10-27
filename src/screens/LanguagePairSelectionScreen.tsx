@@ -14,14 +14,12 @@ import {
   SafeAreaView,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
 import { useAppLanguage } from '../contexts/LanguageContext';
+import { useConfig } from '../contexts/ConfigContext';
 import { getLanguageByCode } from '../config/languages.config';
 import type { HomeStackParamList } from '../types';
-
-const STORAGE_KEY = '@phrasebook:language_pair';
 
 interface LanguagePair {
   id: string;
@@ -37,8 +35,10 @@ type LanguagePairNavigationProp = StackNavigationProp<HomeStackParamList, 'Langu
 const LanguagePairSelectionScreen: React.FC = () => {
   const navigation = useNavigation<LanguagePairNavigationProp>();
   const { getTexts, config } = useAppLanguage();
+  const { setSelectedLanguage } = useConfig();
   const texts = getTexts();
   const [selectedPair, setSelectedPair] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Available language pairs (all active languages except Turkmen)
   const availablePairs: LanguagePair[] = [
@@ -69,17 +69,22 @@ const LanguagePairSelectionScreen: React.FC = () => {
   ];
 
   const handleSelect = async (pair: LanguagePair) => {
-    setSelectedPair(pair.code);
+    if (isLoading) return;
 
-    // Save selection to AsyncStorage
+    setSelectedPair(pair.code);
+    setIsLoading(true);
+
     try {
-      await AsyncStorage.setItem(STORAGE_KEY, pair.code);
+      // Save selection using ConfigContext
+      await setSelectedLanguage(pair.code);
+
       // Navigate to HomeScreen after selection
       setTimeout(() => {
         navigation.navigate('HomeScreen');
       }, 300);
     } catch (error) {
       console.error('Failed to save language pair:', error);
+      setIsLoading(false);
     }
   };
 
