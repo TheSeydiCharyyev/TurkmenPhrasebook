@@ -171,14 +171,13 @@ export default function AdditionalFeaturesScreen() {
         // Показываем случайную фразу
         const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
         const randomTitle = config.mode === 'tk' ? 'Tötänleýin sözlem' :
-                           config.mode === 'zh' ? '随机短语' : 'Случайная фраза';
-        
-        const randomContent = config.mode === 'tk' ? 
-          `${randomPhrase.turkmen}\n\n${randomPhrase.chinese}` :
-          config.mode === 'zh' ?
-          `${randomPhrase.chinese}\n\n${randomPhrase.russian}` :
-          `${randomPhrase.russian}\n\n${randomPhrase.chinese}`;
-        
+                           config.mode === 'zh' ? '随机短语' :
+                           config.mode === 'ru' ? 'Случайная фраза' :
+                           'Random Phrase';
+
+        // Формируем контент с переводом и туркменским текстом
+        const randomContent = `${randomPhrase.translation.text}\n${randomPhrase.translation.transcription ? randomPhrase.translation.transcription + '\n' : ''}\n${randomPhrase.turkmen}`;
+
         Alert.alert(randomTitle, randomContent);
         break;
       default:

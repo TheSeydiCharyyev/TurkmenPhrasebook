@@ -1,6 +1,6 @@
 // src/hooks/useHistory.ts - Расширенная версия с аналитикой
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { Phrase, Category } from '../types';
+import { PhraseWithTranslation, Category } from '../types';
 import { SafeStorage } from '../utils/SafeStorage';
 import { useErrorHandler } from './useErrorHandler';
 
@@ -385,13 +385,13 @@ export function useHistory() {
   }, [stats, saveStats]);
 
   // Получить недавние фразы
-  const getRecentPhrases = useCallback((allPhrases: Phrase[], limit: number = 10): Phrase[] => {
+  const getRecentPhrases = useCallback((allPhrases: PhraseWithTranslation[], limit: number = 10): PhraseWithTranslation[] => {
     return history
       .slice(0, limit)
-      .map(historyItem => 
+      .map(historyItem =>
         allPhrases.find(phrase => phrase.id === historyItem.phraseId)
       )
-      .filter(phrase => phrase !== undefined) as Phrase[];
+      .filter(phrase => phrase !== undefined) as PhraseWithTranslation[];
   }, [history]);
 
   // Получить статистику по категориям
@@ -496,7 +496,7 @@ export function useHistory() {
     setDailyGoal,
     
     // Устаревшие методы для совместимости
-    getHistoryPhrases: (allPhrases: Phrase[]) => getRecentPhrases(allPhrases, history.length),
+    getHistoryPhrases: (allPhrases: PhraseWithTranslation[]) => getRecentPhrases(allPhrases, history.length),
     getStats: () => memoizedStats,
   };
 }

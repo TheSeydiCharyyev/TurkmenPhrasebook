@@ -1,6 +1,6 @@
 // src/hooks/useFavorites.ts - ИСПРАВЛЕННАЯ ВЕРСИЯ
 import { useState, useEffect, useCallback } from 'react';
-import { Phrase } from '../types';
+import { PhraseWithTranslation } from '../types';
 import { SafeStorage } from '../utils/SafeStorage';
 import { useErrorHandler } from './useErrorHandler';
 
@@ -81,7 +81,7 @@ export function useFavorites() {
     }
   }, [isFavorite, removeFromFavorites, addToFavorites]);
 
-  const getFavoritesPhrases = useCallback((allPhrases: Phrase[]): Phrase[] => {
+  const getFavoritesPhrases = useCallback((allPhrases: PhraseWithTranslation[]): PhraseWithTranslation[] => {
     return allPhrases.filter(phrase => favorites.includes(phrase.id));
   }, [favorites]);
 

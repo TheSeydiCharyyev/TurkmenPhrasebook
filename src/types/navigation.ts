@@ -18,7 +18,7 @@ export type RootStackParamList = {
 
   // Phrasebook Module (Phase 1 - Ready)
   Home: undefined;  // Phrasebook Home Stack
-  PhraseDetail: { phrase: Phrase | PhraseWithTranslation };
+  PhraseDetail: { phrase: PhraseWithTranslation };
 
   // Visual Translator Module (Phase 2 - Ready)
   VisualTranslator: undefined;

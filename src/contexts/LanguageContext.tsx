@@ -359,7 +359,7 @@ interface LanguageContextValue {
   resetLanguageSettings: () => Promise<void>;
   getTexts: () => InterfaceTexts;
   getLanguageName: (lang: 'tk' | 'zh' | 'ru') => string;
-  getPhraseTexts: (phrase: { chinese: string; turkmen: string; russian: string }) => {
+  getPhraseTexts: (phrase: { translation: { text: string; transcription?: string }; turkmen: string }) => {
     primary: string;
     learning: string;
     helper: string;
@@ -478,29 +478,29 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
     return names[lang] || lang;
   };
 
-  const getPhraseTexts = (phrase: { chinese: string; turkmen: string; russian: string }) => {
+  const getPhraseTexts = (phrase: { translation: { text: string; transcription?: string }; turkmen: string }) => {
     try {
       if (config.mode === 'tk') {
-        // Туркмен изучает китайский
+        // Туркмен изучает выбранный язык (китайский/русский/английский)
         return {
-          primary: phrase.chinese,     // Китайский - основной для изучения
-          learning: phrase.turkmen,    // Туркменский - родной язык
-          helper: phrase.russian       // Русский - дополнительная помощь
+          primary: phrase.translation.text,  // Выбранный язык - основной для изучения
+          learning: phrase.turkmen,          // Туркменский - родной язык
+          helper: phrase.translation.transcription || ''  // Транскрипция если есть
         };
       } else {
-        // Китаец изучает туркменский
+        // Носитель другого языка изучает туркменский
         return {
-          primary: phrase.turkmen,     // Туркменский - основной для изучения
-          learning: phrase.chinese,    // Китайский - родной язык
-          helper: phrase.russian       // Русский - дополнительная помощь
+          primary: phrase.turkmen,           // Туркменский - основной для изучения
+          learning: phrase.translation.text, // Выбранный язык - родной язык
+          helper: phrase.translation.transcription || ''  // Транскрипция если есть
         };
       }
     } catch (error) {
       console.warn('Ошибка получения текстов фразы:', error);
       return {
-        primary: phrase.chinese,
+        primary: phrase.translation.text,
         learning: phrase.turkmen,
-        helper: phrase.russian
+        helper: ''
       };
     }
   };

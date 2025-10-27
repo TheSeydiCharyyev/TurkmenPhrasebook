@@ -23,7 +23,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../constants/Colors';
-import { Phrase, RootStackParamList } from '../types';
+import { PhraseWithTranslation, RootStackParamList } from '../types';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { useAdvancedSearch } from '../hooks/useAdvancedSearch';
 import { useAnimations } from '../hooks/useAnimations';
@@ -140,7 +140,7 @@ export default function AdvancedSearchScreen() {
   const [showFilters, setShowFilters] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
-  const [personalizedRecommendations, setPersonalizedRecommendations] = useState<Phrase[]>([]);
+  const [personalizedRecommendations, setPersonalizedRecommendations] = useState<PhraseWithTranslation[]>([]);
   const [activeFilters, setActiveFilters] = useState<any>({});
   
   const searchInputRef = useRef<TextInput>(null);
@@ -272,14 +272,14 @@ export default function AdvancedSearchScreen() {
   /**
    * Handle phrase press
    */
-  const handlePhrasePress = useCallback((phrase: Phrase) => {
+  const handlePhrasePress = useCallback((phrase: PhraseWithTranslation) => {
     navigation.navigate('PhraseDetail', { phrase });
   }, [navigation]);
 
   /**
    * Render search result item
    */
-  const renderSearchResult = useCallback(({ item }: { item: Phrase }) => {
+  const renderSearchResult = useCallback(({ item }: { item: PhraseWithTranslation }) => {
     const categoryName = config.mode === 'tk' ? 
       categories.find(c => c.id === item.categoryId)?.nameTk :
       config.mode === 'zh' ?
@@ -294,13 +294,15 @@ export default function AdvancedSearchScreen() {
       >
         <View style={styles.resultContent}>
           <HighlightedText
-            text={item.chinese}
+            text={item.translation.text}
             highlight={searchQuery}
             style={styles.resultChinese}
           />
-          <Text style={styles.resultPinyin}>{item.pinyin}</Text>
+          {item.translation.transcription && (
+            <Text style={styles.resultPinyin}>{item.translation.transcription}</Text>
+          )}
           <HighlightedText
-            text={config.mode === 'tk' ? item.turkmen : item.russian}
+            text={item.turkmen}
             highlight={searchQuery}
             style={styles.resultTranslation}
           />
@@ -477,7 +479,7 @@ export default function AdvancedSearchScreen() {
         <View style={styles.mainContent}>
           {searchResults.length > 0 ? (
             <FlatList
-              data={searchResults.map(result => result.phrase || result)}
+              data={searchResults.map(result => (result.phrase || result) as any as PhraseWithTranslation)}
               renderItem={renderSearchResult}
               keyExtractor={(item) => item.id}
               contentContainerStyle={styles.resultsList}

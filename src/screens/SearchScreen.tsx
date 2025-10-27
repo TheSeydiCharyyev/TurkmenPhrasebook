@@ -105,7 +105,7 @@ const SearchResultItem = React.memo<{
       <View style={styles.resultContent}>
         <View style={styles.resultHeader}>
           <HighlightedText
-            text={phrase.chinese}
+            text={phrase.translation.text}
             searchQuery={searchQuery}
             style={styles.chineseText}
             language="chinese"
@@ -117,12 +117,14 @@ const SearchResultItem = React.memo<{
           )}
         </View>
 
-        <HighlightedText
-          text={phrase.pinyin}
-          searchQuery={searchQuery}
-          style={styles.pinyinText}
-          language="chinese"
-        />
+        {phrase.translation.transcription && (
+          <HighlightedText
+            text={phrase.translation.transcription}
+            searchQuery={searchQuery}
+            style={styles.pinyinText}
+            language="chinese"
+          />
+        )}
         
         <HighlightedText
           text={phraseTexts.primary}
@@ -326,7 +328,7 @@ export default function SearchScreen() {
   }, [removeFromSearchHistory]);
 
   // Оптимизированная функция рендера результатов
-  const renderSearchResult: ListRenderItem<Phrase> = useCallback(({ item }) => (
+  const renderSearchResult: ListRenderItem<PhraseWithTranslation> = useCallback(({ item }) => (
     <SearchResultItem
       phrase={item}
       searchQuery={debouncedQuery}
@@ -343,7 +345,7 @@ export default function SearchScreen() {
     index,
   }), []);
 
-  const keyExtractor = useCallback((item: Phrase) => item.id, []);
+  const keyExtractor = useCallback((item: PhraseWithTranslation) => item.id, []);
 
   // Мемоизированные данные истории
   const recentSearches = useMemo(() => getRecentSearches(5), [getRecentSearches]);

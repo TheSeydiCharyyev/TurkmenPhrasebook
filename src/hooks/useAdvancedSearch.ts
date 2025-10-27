@@ -2,9 +2,9 @@
 
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { SearchEngine, SearchResult, SearchOptions, SearchDifficulty, getPhraseDifficulty } from '../utils/SearchEngine';
-import { phrases } from '../data/phrases';
+import { usePhrases } from './usePhrases';
 import { categories } from '../data/categories';
-import { Phrase } from '../types';
+import { PhraseWithTranslation } from '../types';
 import { useSearchHistory } from './useSearchHistory';
 import { useHistory } from './useHistory';
 
@@ -32,8 +32,12 @@ export interface SearchAnalytics {
 }
 
 export function useAdvancedSearch() {
+  // Get phrases from usePhrases hook (with current language translations)
+  const { phrases: phrasesWithTranslations } = usePhrases();
+
   // Core search engine instance (memoized for performance)
-  const searchEngine = useMemo(() => new SearchEngine(phrases, categories), []);
+  // Note: SearchEngine still uses old Phrase type internally, but we convert later
+  const searchEngine = useMemo(() => new SearchEngine(phrasesWithTranslations as any, categories), [phrasesWithTranslations]);
   
   // Search state
   const [isSearching, setIsSearching] = useState(false);
@@ -222,7 +226,8 @@ export function useAdvancedSearch() {
     });
     fuzzyMatches.forEach(match => {
       // Extract the best matching word from the phrase
-      const bestMatch = extractBestMatch(partialQuery, match.phrase);
+      // TODO: Update SearchEngine to use PhraseWithTranslation
+      const bestMatch = extractBestMatch(partialQuery, match.phrase as any as PhraseWithTranslation);
       if (bestMatch && bestMatch !== partialQuery) {
         suggestions.push({
           text: bestMatch,
@@ -262,8 +267,12 @@ export function useAdvancedSearch() {
   /**
    * Extract the best matching word from a phrase for suggestions
    */
-  const extractBestMatch = (query: string, phrase: Phrase): string | null => {
-    const allText = [phrase.chinese, phrase.pinyin, phrase.russian, phrase.turkmen].join(' ');
+  const extractBestMatch = (query: string, phrase: PhraseWithTranslation): string | null => {
+    const allText = [
+      phrase.translation.text,
+      phrase.translation.transcription || '',
+      phrase.turkmen
+    ].join(' ');
     const words = allText.toLowerCase().split(/\s+/);
     
     let bestMatch = '';
@@ -368,10 +377,11 @@ export function useAdvancedSearch() {
   /**
    * Get personalized recommendations
    */
-  const getPersonalizedRecommendations = useCallback(async (maxResults: number = 5): Promise<Phrase[]> => {
+  const getPersonalizedRecommendations = useCallback(async (maxResults: number = 5): Promise<PhraseWithTranslation[]> => {
     try {
       const userHistory = await getUserHistoryData();
-      return searchEngine.getPersonalizedRecommendations(userHistory, maxResults);
+      // TODO: Update SearchEngine to use PhraseWithTranslation
+      return searchEngine.getPersonalizedRecommendations(userHistory, maxResults) as any as PhraseWithTranslation[];
     } catch (error) {
       console.error('Failed to get personalized recommendations:', error);
       return [];
