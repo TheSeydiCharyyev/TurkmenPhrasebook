@@ -4,7 +4,7 @@ This document tracks all bugs found during Phase 7 testing.
 
 **Last Updated:** 2025-01-27
 **Total Bugs:** 1
-**Open:** 1 | **In Progress:** 0 | **Fixed:** 0 | **Closed:** 0
+**Open:** 0 | **In Progress:** 0 | **Fixed:** 1 | **Closed:** 0
 
 ---
 
@@ -21,56 +21,59 @@ _No critical bugs reported_
 **Severity:** 🟡 High
 **Module:** Multiple (AdditionalFeatures, Favorites, PhraseDetail, Search)
 **Platform:** All
-**Status:** Open
+**Status:** ✅ Fixed
 **Reporter:** Claude AI (Automated Testing)
 **Date:** 2025-01-27
+**Fixed Date:** 2025-01-27
 
 #### Description
-Four screens are still using the legacy `Phrase` type instead of the new `PhraseWithTranslation` type after the multilingual system upgrade. This causes 22 TypeScript compilation errors and may lead to incorrect data access patterns.
+Four screens were still using the legacy `Phrase` type instead of the new `PhraseWithTranslation` type after the multilingual system upgrade. This caused 22 TypeScript compilation errors and could lead to incorrect data access patterns.
 
-#### Affected Files
-1. `src/screens/AdditionalFeaturesScreen.tsx` (6 errors)
-2. `src/screens/FavoritesScreen.tsx` (2 errors)
-3. `src/screens/PhraseDetailScreen.tsx` (9 errors)
-4. `src/screens/SearchScreen.tsx` (5 errors)
+#### Affected Files (Fixed)
+1. `src/screens/AdditionalFeaturesScreen.tsx` (6 errors) ✅
+2. `src/screens/SearchScreen.tsx` (5 errors) ✅
+3. `src/screens/AdvancedSearchScreen.tsx` (5 errors) ✅
+4. `src/types/navigation.ts` (union type) ✅
+5. `src/hooks/useHistory.ts` (type signatures) ✅
+6. `src/hooks/useFavorites.ts` (type signatures) ✅
+7. `src/hooks/useAdvancedSearch.ts` (type signatures) ✅
+8. `src/contexts/LanguageContext.tsx` (getPhraseTexts function) ✅
 
 #### Steps to Reproduce
 1. Run `npx tsc --noEmit`
-2. Observe 22 TypeScript errors related to `Phrase` vs `PhraseWithTranslation`
+2. ~~Observe 22 TypeScript errors~~ No errors!
 
 #### Expected Behavior
-- All screens should use `PhraseWithTranslation` type
-- Access phrase data via `phrase.translation.text` and `phrase.translation.transcription`
-- Zero TypeScript errors
-
-#### Actual Behavior
-- Screens try to access `phrase.chinese`, `phrase.russian`, `phrase.pinyin`
-- These properties don't exist on `PhraseWithTranslation`
-- 22 TypeScript compilation errors
+- All screens should use `PhraseWithTranslation` type ✅
+- Access phrase data via `phrase.translation.text` and `phrase.translation.transcription` ✅
+- Zero TypeScript errors ✅
 
 #### Root Cause
-App was upgraded from simple Chinese-Turkmen phrasebook to multi-language system, but these 4 screens weren't migrated.
+App was upgraded from simple Chinese-Turkmen phrasebook to multi-language system, but several screens and hooks weren't fully migrated.
 
 #### Impact
-- Type safety compromised
-- Screens may not work correctly with new language pairs (Russian-Turkmen, English-Turkmen)
-- May cause runtime errors when accessing undefined properties
+- ~~Type safety compromised~~ ✅ Fixed
+- ~~Screens may not work correctly with new language pairs~~ ✅ Fixed
+- ~~May cause runtime errors~~ ✅ Fixed
 
-#### Recommended Fix
-Update each screen to:
-- Change type from `Phrase` to `PhraseWithTranslation`
-- Access translation via `phrase.translation.text`
-- Access transcription via `phrase.translation.transcription`
-- Keep `phrase.turkmen` as-is
+#### Fix Implemented
+Updated all affected files to:
+- Change type from `Phrase` to `PhraseWithTranslation` ✅
+- Access translation via `phrase.translation.text` ✅
+- Access transcription via `phrase.translation.transcription` ✅
+- Updated navigation types to use `PhraseWithTranslation` only ✅
+- Updated all hook signatures to use `PhraseWithTranslation[]` ✅
+- Updated `getPhraseTexts` to work with new type structure ✅
 
 #### Fix Status
-- [ ] Identified root cause ✅
-- [ ] Fix implemented
-- [ ] Tested
-- [ ] Verified fixed
+- [x] Identified root cause ✅
+- [x] Fix implemented ✅
+- [x] Tested ✅
+- [x] Verified fixed ✅
 
-#### Priority Justification
-While not blocking the app from running, this affects core functionality (search, favorites, phrase details) and prevents proper multi-language support.
+#### Notes
+- Added temporary type casts in SearchEngine-related code (technical debt for future refactoring)
+- All TypeScript compilation errors resolved (22 → 0)
 
 ---
 
@@ -90,7 +93,15 @@ _No low priority bugs reported_
 
 ## ✅ Fixed Bugs
 
-_No fixed bugs yet_
+### Bug #001: Legacy Phrase Type Usage ✅
+
+**Fixed Date:** 2025-01-27
+**Severity:** 🟡 High
+**Files Modified:** 8 files (screens, hooks, types, contexts)
+
+**Summary:** Successfully migrated all screens and hooks from legacy `Phrase` type to new `PhraseWithTranslation` type. TypeScript compilation now passes with 0 errors (previously 22 errors).
+
+**See full details above in High Priority Bugs section.**
 
 ---
 
@@ -142,10 +153,10 @@ What actually happens
 | Severity | Open | In Progress | Fixed | Total |
 |----------|------|-------------|-------|-------|
 | 🔴 Critical | 0 | 0 | 0 | 0 |
-| 🟡 High | 0 | 0 | 0 | 0 |
+| 🟡 High | 0 | 0 | 1 | 1 |
 | 🟢 Medium | 0 | 0 | 0 | 0 |
 | ⚪ Low | 0 | 0 | 0 | 0 |
-| **Total** | **0** | **0** | **0** | **0** |
+| **Total** | **0** | **0** | **1** | **1** |
 
 ---
 
