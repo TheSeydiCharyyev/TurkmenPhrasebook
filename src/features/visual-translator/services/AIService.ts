@@ -1,6 +1,7 @@
 // src/features/visual-translator/services/AIService.ts
 // Сервис для AI анализа изображений (Hugging Face Inference API)
 
+import * as FileSystem from 'expo-file-system';
 import {
   AIDescription,
   ImageCategory,
@@ -177,26 +178,12 @@ class AIService {
    */
   private async imageToBase64(imageUri: string): Promise<string> {
     try {
-      // Для React Native используем fetch API для загрузки изображения
-      const response = await fetch(imageUri);
-      const blob = await response.blob();
-
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-
-        reader.onloadend = () => {
-          const base64 = reader.result as string;
-          // Убираем data:image/...;base64, префикс если есть
-          const base64Data = base64.includes(',') ? base64.split(',')[1] : base64;
-          resolve(base64Data);
-        };
-
-        reader.onerror = () => {
-          reject(new Error('Failed to convert image to base64'));
-        };
-
-        reader.readAsDataURL(blob);
+      // Используем expo-file-system для конвертации в base64
+      const base64 = await FileSystem.readAsStringAsync(imageUri, {
+        encoding: 'base64' as any, // TypeScript workaround
       });
+
+      return base64;
     } catch (error) {
       console.error('[AIService] Image to base64 error:', error);
       throw new Error('Failed to process image');

@@ -1,15 +1,12 @@
 // src/features/visual-translator/services/OCRService.ts
 // Сервис для распознавания текста (Google ML Kit Text Recognition)
 
-// TODO: Установить пакет:
-// npm install @react-native-ml-kit/text-recognition
-// или
-// npx expo install @react-native-ml-kit/text-recognition
-
+import TextRecognition from '@react-native-ml-kit/text-recognition';
 import { OCRResult, TextBlock } from '../types/visual-translator.types';
 
-// Для разработки используем mock
-const USE_MOCK = true; // Изменить на false после установки ML Kit
+// Переключатель между mock и production режимами
+// Установить USE_MOCK = true для тестирования без реального OCR
+const USE_MOCK = false; // ML Kit установлен и готов к использованию
 
 class OCRService {
   /**
@@ -25,43 +22,55 @@ class OCRService {
       }
 
       // Реальная реализация с ML Kit
-      // const vision = require('@react-native-ml-kit/text-recognition');
-      // const result = await vision.default.recognize(imagePath);
+      console.log('[OCRService] Recognizing text from:', imagePath);
+      const result = await TextRecognition.recognize(imagePath);
 
-      // return {
-      //   text: result.text,
-      //   language: result.recognizedLanguages?.[0] || 'unknown',
-      //   confidence: this.calculateConfidence(result.blocks),
-      //   blocks: result.blocks.map(block => ({
-      //     text: block.text,
-      //     boundingBox: {
-      //       x: block.frame.x,
-      //       y: block.frame.y,
-      //       width: block.frame.width,
-      //       height: block.frame.height,
-      //     },
-      //     lines: block.lines.map(line => ({
-      //       text: line.text,
-      //       boundingBox: {
-      //         x: line.frame.x,
-      //         y: line.frame.y,
-      //         width: line.frame.width,
-      //         height: line.frame.height,
-      //       },
-      //       elements: line.elements.map(elem => ({
-      //         text: elem.text,
-      //         boundingBox: {
-      //           x: elem.frame.x,
-      //           y: elem.frame.y,
-      //           width: elem.frame.width,
-      //           height: elem.frame.height,
-      //         },
-      //       })),
-      //     })),
-      //   })),
-      // };
+      // Извлекаем текст из всех блоков
+      const fullText = result.blocks.map(block => block.text).join('\n');
 
-      throw new Error('ML Kit not implemented yet');
+      // Определяем язык на основе содержимого
+      const detectedLanguage = this.detectLanguage(fullText);
+
+      // Рассчитываем уверенность
+      const confidence = this.calculateConfidence(result.blocks);
+
+      // Преобразуем блоки в нашу типизацию
+      const blocks: TextBlock[] = result.blocks.map(block => ({
+        text: block.text,
+        boundingBox: {
+          x: (block.frame as any)?.x ?? 0,
+          y: (block.frame as any)?.y ?? 0,
+          width: (block.frame as any)?.width ?? 0,
+          height: (block.frame as any)?.height ?? 0,
+        },
+        lines: block.lines.map(line => ({
+          text: line.text,
+          boundingBox: {
+            x: (line.frame as any)?.x ?? 0,
+            y: (line.frame as any)?.y ?? 0,
+            width: (line.frame as any)?.width ?? 0,
+            height: (line.frame as any)?.height ?? 0,
+          },
+          elements: line.elements.map(elem => ({
+            text: elem.text,
+            boundingBox: {
+              x: (elem.frame as any)?.x ?? 0,
+              y: (elem.frame as any)?.y ?? 0,
+              width: (elem.frame as any)?.width ?? 0,
+              height: (elem.frame as any)?.height ?? 0,
+            },
+          })),
+        })),
+      }));
+
+      console.log('[OCRService] Text recognized:', fullText.substring(0, 100));
+
+      return {
+        text: fullText,
+        language: detectedLanguage,
+        confidence,
+        blocks,
+      };
     } catch (error) {
       console.error('[OCRService] Recognition error:', error);
       throw new Error('Failed to recognize text. Please try again.');
@@ -201,12 +210,10 @@ class OCRService {
         return true;
       }
 
-      // Проверка что ML Kit установлен
-      // const vision = require('@react-native-ml-kit/text-recognition');
-      // return vision !== null;
-
-      return false;
+      // Проверка что ML Kit установлен и доступен
+      return TextRecognition !== undefined && TextRecognition !== null;
     } catch (error) {
+      console.error('[OCRService] Availability check error:', error);
       return false;
     }
   }

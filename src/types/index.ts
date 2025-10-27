@@ -114,6 +114,7 @@ export type RootStackParamList = {
   LanguageSelection: undefined;
   VisualTranslator: undefined;  // ✅ Phase 2: Visual Translator home
   TranslationResult: { result: TranslationResult };  // ✅ Phase 2: Translation results
+  TextTranslator: undefined;  // ✅ Phase 3: Text Translator
 };
 
 export type HomeStackParamList = {

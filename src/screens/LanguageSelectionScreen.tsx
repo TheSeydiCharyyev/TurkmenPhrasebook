@@ -7,10 +7,10 @@ import {
   FlatList,
   TouchableOpacity,
   StyleSheet,
-  SafeAreaView,
   StatusBar,
   Alert,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { LANGUAGES, getLanguageProgress } from '../config/languages.config';
 import { useConfig } from '../contexts/ConfigContext';

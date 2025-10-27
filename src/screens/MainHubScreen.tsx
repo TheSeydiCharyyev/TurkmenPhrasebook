@@ -8,10 +8,10 @@ import {
   ScrollView,
   TouchableOpacity,
   StyleSheet,
-  SafeAreaView,
   StatusBar,
   Alert,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -58,7 +58,6 @@ const MODULES: ModuleCard[] = [
     gradient: ['#3B82F6', '#2563EB'],
     route: 'TextTranslator',
     size: 'medium',
-    isLocked: true, // Временно заблокирован - будет реализован в Phase 3
   },
   {
     id: 'dictionary',
@@ -113,6 +112,8 @@ export default function MainHubScreen() {
       navigation.navigate('Home');
     } else if (module.id === 'visual-translator') {
       navigation.navigate('VisualTranslator');
+    } else if (module.id === 'text-translator') {
+      navigation.navigate('TextTranslator');
     } else if (module.id === 'favorites') {
       navigation.navigate('AdditionalFeatures');
     } else {

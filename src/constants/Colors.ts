@@ -13,15 +13,15 @@ export const Colors = {
   turkmenGreenDark: '#2E7D32',  // Темнее
   turkmenCarpet: '#8B4513',     // Коричневый от ковровых узоров
   
-  // Primary colors - теперь китайский красный
-  primary: '#DE2910',
-  primaryLight: '#E53935',
-  primaryDark: '#B71C1C',
-  
-  // Accent - туркменский зеленый
-  accent: '#00843D',
-  accentLight: '#4CAF50',
-  accentDark: '#2E7D32',
+  // Primary colors - туркменский зеленый (цвет флага Туркменистана)
+  primary: '#00843D',
+  primaryLight: '#4CAF50',
+  primaryDark: '#2E7D32',
+
+  // Accent - китайский красный (для дополнительных элементов)
+  accent: '#DE2910',
+  accentLight: '#E53935',
+  accentDark: '#B71C1C',
   
   // Background colors - более теплые, кремовые тона
   background: '#FFFEF7',        // Кремово-белый
@@ -60,7 +60,7 @@ export const Colors = {
   overlay: '#000000',
   
   // Tab navigation
-  tabActive: '#DE2910',         // Китайский красный
+  tabActive: '#00843D',         // Туркменский зеленый
   tabInactive: '#757575',
   
   // Button colors

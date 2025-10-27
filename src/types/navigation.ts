@@ -24,8 +24,8 @@ export type RootStackParamList = {
   VisualTranslator: undefined;
   TranslationResult: { result: TranslationResult };
 
-  // Text Translator Module (Phase 3 - Coming Soon)
-  // TextTranslator: undefined;
+  // Text Translator Module (Phase 3 - Ready)
+  TextTranslator: undefined;
 
   // AI Assistants Module (Phase 4 - Coming Soon)
   // AIAssistants: undefined;

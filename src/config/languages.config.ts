@@ -12,6 +12,17 @@ export const LANGUAGES: LanguageConfig[] = [
   // АКТИВНЫЕ ЯЗЫКИ (isAvailable: true)
   // ====================================
   {
+    code: 'tk',
+    name: 'Türkmençe',
+    nameEn: 'Turkmen',
+    nameTk: 'Türkmen dili',
+    flag: '🇹🇲',
+    isAvailable: true,
+    hasTranscription: false,
+    ttsCode: 'tr-TR', // Используем турецкий TTS как близкий
+    direction: 'ltr'
+  },
+  {
     code: 'zh',
     name: '中文',
     nameEn: 'Chinese',

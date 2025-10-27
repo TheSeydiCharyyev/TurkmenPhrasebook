@@ -25,6 +25,9 @@ import PhraseDetailScreen from '../screens/PhraseDetailScreen';
 import VisualTranslatorHomeScreen from '../features/visual-translator/screens/VisualTranslatorHomeScreen';
 import TranslationResultScreen from '../features/visual-translator/screens/TranslationResultScreen';
 
+// Text Translator screens (Phase 3)
+import TextTranslatorScreen from '../features/text-translator/screens/TextTranslatorScreen';
+
 // Импортируем типы
 import { RootStackParamList, HomeStackParamList } from '../types';
 import { Colors } from '../constants/Colors';
@@ -160,6 +163,13 @@ export default function AppNavigator() {
         <RootStack.Screen
           name="TranslationResult"
           component={TranslationResultScreen}
+          options={{ headerShown: false }}
+        />
+
+        {/* Text Translator (Phase 3) */}
+        <RootStack.Screen
+          name="TextTranslator"
+          component={TextTranslatorScreen}
           options={{ headerShown: false }}
         />
 
