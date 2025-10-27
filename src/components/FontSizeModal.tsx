@@ -10,7 +10,7 @@ interface FontSizeModalProps {
   onClose: () => void;
   currentFontSize: number;
   onSave: (fontSize: number) => Promise<void>;
-  config: { mode: 'tk' | 'zh' };
+  config: { mode: 'tk' | 'zh' | 'ru' | 'en' };
 }
 
 const FontSizeModal = React.memo(({ 

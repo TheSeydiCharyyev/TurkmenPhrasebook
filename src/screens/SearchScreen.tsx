@@ -165,11 +165,12 @@ const CategoryFilter = React.memo<{
   categories: Category[];
   selectedCategory: string | null;
   onSelectCategory: (categoryId: string | null) => void;
-  config: { mode: 'tk' | 'zh' };
+  config: { mode: 'tk' | 'zh' | 'ru' | 'en' };
 }>(({ categories, selectedCategory, onSelectCategory, config }) => {
   const allText = useMemo(() => {
-    return config.mode === 'tk' ? 'Hemmesi' : 
-           config.mode === 'zh' ? '全部' : 'Все';
+    return config.mode === 'tk' ? 'Hemmesi' :
+           config.mode === 'zh' ? '全部' :
+           config.mode === 'en' ? 'All' : 'Все';
   }, [config.mode]);
 
   return (
