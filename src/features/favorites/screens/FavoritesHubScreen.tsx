@@ -9,12 +9,14 @@ import {
   TouchableOpacity,
   FlatList,
   ScrollView,
+  StatusBar,
+  Platform,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../../../constants/Colors';
+import { DesignColors } from '../../../constants/Design';
 import { FavoritesService } from '../services/FavoritesService';
 import { FavoriteTab, FavoriteTranslation } from '../types/favorites.types';
 import { usePhrases } from '../../../hooks/usePhrases';
@@ -346,7 +348,12 @@ export default function FavoritesHubScreen() {
   };
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
+    <View style={styles.container}>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={DesignColors.background}
+        translucent={false}
+      />
       <ScrollView
         style={styles.scrollView}
         contentContainerStyle={styles.scrollContent}
@@ -358,14 +365,15 @@ export default function FavoritesHubScreen() {
           {renderTabContent()}
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.background,
+    backgroundColor: DesignColors.background,
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   scrollView: {
     flex: 1,

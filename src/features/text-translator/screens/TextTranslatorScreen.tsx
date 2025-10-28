@@ -16,8 +16,8 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
+import { DesignColors } from '../../../constants/Design';
 import * as Speech from 'expo-speech';
 import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
@@ -155,8 +155,12 @@ export default function TextTranslatorScreen() {
   const targetLang = getLanguageByCode(targetLanguage);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" />
+    <View style={styles.container}>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="#3B82F6"
+        translucent={false}
+      />
 
       {/* Header */}
       <View style={styles.header}>
@@ -328,7 +332,7 @@ export default function TextTranslatorScreen() {
         onClose={() => setShowTargetPicker(false)}
         title="Target Language"
       />
-    </SafeAreaView>
+    </View>
   );
 }
 
