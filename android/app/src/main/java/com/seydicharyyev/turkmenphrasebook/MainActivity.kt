@@ -1,4 +1,4 @@
-package com.seydicharyyev.chinesephrasebook
+package com.seydicharyyev.turkmenphrasebook
 
 import android.os.Build
 import android.os.Bundle
