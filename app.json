@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Turkmen Phrasebook",
-    "slug": "chinese-phrasebook-tkm",
+    "slug": "turkmen-phrasebook",
     "description": "Learn Turkmen with 30 languages. Essential phrases for travelers, students, and language learners. Audio pronunciation included.",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -84,18 +84,24 @@
     "updates": {
       "enabled": true,
       "checkAutomatically": "ON_LOAD",
-      "fallbackToCacheTimeout": 0,
-      "url": "https://u.expo.dev/5e933cfd-7744-420b-9f10-fa3ee8a864ca"
+      "fallbackToCacheTimeout": 0
     },
     "runtimeVersion": {
       "policy": "appVersion"
     },
     "extra": {
-      "eas": {
-        "projectId": "5e933cfd-7744-420b-9f10-fa3ee8a864ca"
-      },
       "translationsVersion": "1.0.0",
-      "supportedLanguages": ["zh", "ru", "en"]
+      "supportedLanguages": [
+        "zh",
+        "ru",
+        "en",
+        "zh",
+        "ru",
+        "en"
+      ],
+      "eas": {
+        "projectId": "50365790-2271-49f2-80c0-f6c65d0e6416"
+      }
     }
   }
 }
