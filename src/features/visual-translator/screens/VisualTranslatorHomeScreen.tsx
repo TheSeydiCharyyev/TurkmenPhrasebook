@@ -190,8 +190,12 @@ export default function VisualTranslatorHomeScreen() {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" />
+    <View style={styles.container}>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="#6366F1"
+        translucent={false}
+      />
 
       {/* Header */}
       <View style={styles.header}>
@@ -302,7 +306,7 @@ export default function VisualTranslatorHomeScreen() {
           </View>
         )}
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -328,7 +332,8 @@ const FeatureItem: React.FC<FeatureItemProps> = ({ icon, title, description }) =
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: DesignColors.background,
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   loadingContainer: {
     flex: 1,
