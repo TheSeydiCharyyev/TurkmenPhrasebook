@@ -10,10 +10,12 @@ import {
   StyleSheet,
   FlatList,
   TextInput,
+  StatusBar,
+  Platform,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import type { TranslatorLanguage } from '../types/text-translator.types';
+import { DesignColors } from '../../../constants/Design';
 
 interface LanguagePickerProps {
   visible: boolean;
@@ -79,7 +81,12 @@ export default function LanguagePicker({
       presentationStyle="pageSheet"
       onRequestClose={onClose}
     >
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
+        <StatusBar
+          barStyle="dark-content"
+          backgroundColor={DesignColors.background}
+          translucent={false}
+        />
         {/* Header */}
         <View style={styles.header}>
           <Text style={styles.title}>{title}</Text>
@@ -137,7 +144,7 @@ export default function LanguagePicker({
             {filteredLanguages.length} language{filteredLanguages.length !== 1 ? 's' : ''} available
           </Text>
         </View>
-      </SafeAreaView>
+      </View>
     </Modal>
   );
 }
@@ -145,7 +152,8 @@ export default function LanguagePicker({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: DesignColors.background,
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   header: {
     flexDirection: 'row',
