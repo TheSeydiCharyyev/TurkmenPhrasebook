@@ -14,7 +14,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   ActivityIndicator,
-  SafeAreaView,
+  StatusBar,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useAppLanguage } from '../../../contexts/LanguageContext';
@@ -26,6 +26,7 @@ import {
   MessageRole,
   ConversationContext,
 } from '../types/ai-assistant.types';
+import { DesignColors } from '../../../constants/Design';
 
 interface ChatScreenProps {
   assistantType: AssistantType;
@@ -164,7 +165,12 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
   };
 
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <View style={styles.safeArea}>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor={assistantConfig.color}
+        translucent={false}
+      />
       <KeyboardAvoidingView
         style={styles.container}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
@@ -244,7 +250,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -268,7 +274,8 @@ function adjustColor(color: string, amount: number): string {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: DesignColors.backgroundGray,
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   container: {
     flex: 1,

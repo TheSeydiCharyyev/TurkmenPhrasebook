@@ -9,14 +9,16 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  SafeAreaView,
   TouchableOpacity,
+  StatusBar,
+  Platform,
 } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../../types/navigation';
 import AIAssistantService from '../services/AIAssistantService';
 import AssistantCard from '../components/AssistantCard';
 import { AssistantType } from '../types/ai-assistant.types';
+import { DesignColors, Spacing, Typography } from '../../../constants/Design';
 
 type AIAssistantsHomeScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -52,7 +54,12 @@ const AIAssistantsHomeScreen: React.FC<Props> = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <View style={styles.safeArea}>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={DesignColors.background}
+        translucent={false}
+      />
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.content}
@@ -98,14 +105,15 @@ const AIAssistantsHomeScreen: React.FC<Props> = ({ navigation }) => {
         {/* Bottom Padding */}
         <View style={styles.bottomPadding} />
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: DesignColors.backgroundGray,
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   container: {
     flex: 1,

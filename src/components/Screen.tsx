@@ -1,10 +1,10 @@
 // src/components/Screen.tsx
-// Централизованный Screen компонент с правильной обработкой safe areas
+// ОБНОВЛЕНО - Исправлена проблема с отступами на Android
 
 import React from 'react';
 import { View, StyleSheet, ViewStyle, Platform, StatusBar as RNStatusBar } from 'react-native';
 import { SafeAreaView, Edge } from 'react-native-safe-area-context';
-import { Colors } from '../constants/Colors';
+import { DesignColors } from '../constants/Design';
 
 interface ScreenProps {
   children: React.ReactNode;
@@ -17,10 +17,8 @@ interface ScreenProps {
 /**
  * Универсальный Screen компонент
  *
- * Решает проблемы:
- * - Конфликт между expo-status-bar и react-native StatusBar
- * - Неправильные safe area insets при сворачивании/разворачивании
- * - Разное поведение на разных Android устройствах
+ * ИСПРАВЛЕНИЕ: На Android используем обычный View с правильным padding вместо SafeAreaView,
+ * чтобы избежать проблем с отступами на устройствах типа Redmi Note 12 Pro+
  *
  * Использование:
  * <Screen edges={['top', 'bottom']}>
@@ -31,7 +29,7 @@ export default function Screen({
   children,
   style,
   edges = ['top', 'bottom', 'left', 'right'], // По умолчанию защищаем все края
-  backgroundColor = Colors.background,
+  backgroundColor = DesignColors.background,
   withoutSafeArea = false,
 }: ScreenProps) {
 
@@ -49,7 +47,25 @@ export default function Screen({
     );
   }
 
-  // Стандартный экран с safe area
+  // ✅ ИСПРАВЛЕНИЕ: На Android используем обычный View с paddingTop
+  if (Platform.OS === 'android') {
+    const androidStyle: ViewStyle = {
+      ...containerStyle,
+    };
+
+    // Добавляем padding только если top edge включен
+    if (edges.includes('top')) {
+      androidStyle.paddingTop = RNStatusBar.currentHeight || 0;
+    }
+
+    return (
+      <View style={[androidStyle, style]}>
+        {children}
+      </View>
+    );
+  }
+
+  // iOS - используем SafeAreaView как обычно
   return (
     <SafeAreaView
       style={[containerStyle, style]}
@@ -67,7 +83,7 @@ export default function Screen({
 export function ModalScreen({
   children,
   style,
-  backgroundColor = Colors.background,
+  backgroundColor = DesignColors.background,
 }: Omit<ScreenProps, 'edges' | 'withoutSafeArea'>) {
   return (
     <Screen
@@ -87,7 +103,7 @@ export function ModalScreen({
 export function TabScreen({
   children,
   style,
-  backgroundColor = Colors.background,
+  backgroundColor = DesignColors.background,
 }: Omit<ScreenProps, 'edges' | 'withoutSafeArea'>) {
   return (
     <Screen

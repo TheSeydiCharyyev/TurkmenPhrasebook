@@ -1,5 +1,5 @@
 // src/screens/MainHubScreen.tsx
-// НОВЫЙ экран - Hub-архитектура для всех модулей приложения
+// ОБНОВЛЕНО - Минималистичный дизайн
 
 import React from 'react';
 import {
@@ -10,9 +10,8 @@ import {
   StyleSheet,
   StatusBar,
   Alert,
+  Platform,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
@@ -20,16 +19,16 @@ import { useConfig } from '../contexts/ConfigContext';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { getLanguageByCode } from '../config/languages.config';
 import type { RootStackParamList } from '../types';
+import { DesignColors, Spacing, Typography, BorderRadius, Shadows } from '../constants/Design';
 
 interface ModuleCard {
   id: string;
   title: string;
   subtitle: string;
   icon: string;
-  gradient: readonly [string, string];
+  color: string;  // Используем один цвет вместо градиента
   route: string;
   isLocked?: boolean;
-  size: 'large' | 'medium' | 'small';
 }
 
 // Helper function to get modules with translations
@@ -39,54 +38,48 @@ const getModules = (texts: any): ModuleCard[] => [
     title: texts.phrasebookTitle,
     subtitle: texts.phrasebookSubtitle,
     icon: '📚',
-    gradient: ['#10B981', '#059669'],
+    color: DesignColors.modulePhrasebook,
     route: 'Phrasebook',
-    size: 'large',
   },
   {
     id: 'visual-translator',
     title: texts.visualTranslatorTitle,
     subtitle: texts.visualTranslatorSubtitle,
     icon: '📸',
-    gradient: ['#6366F1', '#4F46E5'],
+    color: DesignColors.moduleVisual,
     route: 'VisualTranslator',
-    size: 'large',
   },
   {
     id: 'text-translator',
     title: texts.textTranslatorTitle,
     subtitle: texts.textTranslatorSubtitle,
     icon: '🌍',
-    gradient: ['#3B82F6', '#2563EB'],
+    color: DesignColors.moduleText,
     route: 'TextTranslator',
-    size: 'medium',
   },
   {
     id: 'dictionary',
     title: texts.dictionaryTitle,
     subtitle: texts.dictionarySubtitle,
     icon: '📖',
-    gradient: ['#9CA3AF', '#6B7280'],
+    color: DesignColors.moduleDictionary,
     route: 'Dictionary',
-    size: 'small',
   },
   {
     id: 'ai-assistants',
     title: texts.aiAssistantsTitle,
     subtitle: texts.aiAssistantsSubtitle,
     icon: '🤖',
-    gradient: ['#8B5CF6', '#7C3AED'],
+    color: DesignColors.moduleAI,
     route: 'AIAssistantsHome',
-    size: 'large',
   },
   {
     id: 'favorites',
     title: texts.myFavoritesTitle,
     subtitle: texts.myFavoritesSubtitle,
     icon: '⭐',
-    gradient: ['#F59E0B', '#D97706'],
+    color: DesignColors.moduleFavorites,
     route: 'Favorites',
-    size: 'medium',
   },
 ];
 
@@ -124,7 +117,6 @@ export default function MainHubScreen() {
     } else if (module.id === 'favorites') {
       navigation.navigate('AdditionalFeatures');
     } else {
-      // Для будущих модулей - игнорируем TypeScript для неизвестных роутов
       (navigation as any).navigate(module.route);
     }
   };
@@ -138,15 +130,20 @@ export default function MainHubScreen() {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
+    <View style={styles.container}>
+      {/* StatusBar - правильная настройка для Android */}
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={DesignColors.background}
+        translucent={false}
+      />
 
-      {/* Header */}
+      {/* Header - единый стиль */}
       <View style={styles.header}>
         <TouchableOpacity
           style={styles.languageBadge}
           onPress={handleLanguagePress}
-          activeOpacity={0.7}
+          activeOpacity={0.6}
         >
           <Text style={styles.languageFlag}>{currentLanguage?.flag || '🌍'}</Text>
           <Text style={styles.languageName}>{currentLanguage?.name || 'Language'}</Text>
@@ -157,9 +154,9 @@ export default function MainHubScreen() {
         <TouchableOpacity
           style={styles.settingsButton}
           onPress={handleSettingsPress}
-          activeOpacity={0.7}
+          activeOpacity={0.6}
         >
-          <Ionicons name="settings-outline" size={24} color="#111827" />
+          <Ionicons name="settings-outline" size={24} color={DesignColors.text} />
         </TouchableOpacity>
       </View>
 
@@ -169,7 +166,7 @@ export default function MainHubScreen() {
         <Text style={styles.welcomeSubtitle}>{texts.selectCategory}</Text>
       </View>
 
-      {/* Modules Grid */}
+      {/* Modules List */}
       <ScrollView
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
@@ -182,51 +179,44 @@ export default function MainHubScreen() {
           />
         ))}
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 
-// Компонент карточки модуля
+// Компонент карточки модуля - простой и минималистичный
 interface ModuleCardProps {
   module: ModuleCard;
   onPress: () => void;
 }
 
 const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => {
-  const height = module.size === 'large' ? 120 : module.size === 'medium' ? 100 : 80;
-
   return (
     <TouchableOpacity
-      style={[styles.moduleCard, { height }]}
+      style={[
+        styles.moduleCard,
+        module.isLocked && styles.moduleCardLocked
+      ]}
       onPress={onPress}
-      activeOpacity={module.isLocked ? 1 : 0.7}
+      activeOpacity={module.isLocked ? 1 : 0.6}
       disabled={module.isLocked}
     >
+      {/* Цветная полоса слева */}
+      <View style={[styles.moduleColorBar, { backgroundColor: module.color }]} />
+
+      {/* Иконка */}
+      <Text style={styles.moduleIcon}>{module.icon}</Text>
+
+      {/* Текст */}
+      <View style={styles.moduleInfo}>
+        <Text style={styles.moduleTitle}>{module.title}</Text>
+        <Text style={styles.moduleSubtitle}>{module.subtitle}</Text>
+      </View>
+
+      {/* Стрелка или замок */}
       {module.isLocked ? (
-        // Locked (disabled) card
-        <View style={styles.lockedCard}>
-          <Text style={styles.moduleIcon}>{module.icon}</Text>
-          <View style={styles.moduleInfo}>
-            <Text style={styles.moduleTitle}>{module.title}</Text>
-            <Text style={styles.moduleSubtitle}>{module.subtitle}</Text>
-          </View>
-          <Ionicons name="lock-closed" size={20} color="#9CA3AF" />
-        </View>
+        <Ionicons name="lock-closed" size={20} color={DesignColors.textLight} />
       ) : (
-        // Active card with gradient
-        <LinearGradient
-          colors={module.gradient}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={styles.gradientCard}
-        >
-          <Text style={styles.moduleIconWhite}>{module.icon}</Text>
-          <View style={styles.moduleInfo}>
-            <Text style={styles.moduleTitleWhite}>{module.title}</Text>
-            <Text style={styles.moduleSubtitleWhite}>{module.subtitle}</Text>
-          </View>
-          <Ionicons name="chevron-forward" size={24} color="rgba(255,255,255,0.7)" />
-        </LinearGradient>
+        <Ionicons name="chevron-forward" size={20} color={DesignColors.textSecondary} />
       )}
     </TouchableOpacity>
   );
@@ -235,120 +225,132 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: DesignColors.background,
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
+
+  // Header - единый стиль
   header: {
+    height: 56,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingTop: 16,
-    paddingBottom: 12,
+    paddingHorizontal: Spacing.md,
+    backgroundColor: DesignColors.background,
     borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
+    borderBottomColor: DesignColors.border,
   },
+
   languageBadge: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F0F4FF',
+    backgroundColor: DesignColors.backgroundGray,
     paddingHorizontal: 12,
     paddingVertical: 6,
-    borderRadius: 20,
+    borderRadius: BorderRadius.xl,
     gap: 6,
   },
+
   languageFlag: {
     fontSize: 16,
   },
+
   languageName: {
     fontSize: 13,
-    fontWeight: '600',
-    color: '#6366F1',
+    fontWeight: Typography.semibold,
+    color: DesignColors.text,
+    fontFamily: Typography.fontFamily,
   },
+
   appTitle: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: '#111827',
+    fontSize: Typography.h4,
+    fontWeight: Typography.bold,
+    color: DesignColors.text,
     flex: 1,
     textAlign: 'center',
+    fontFamily: Typography.fontFamily,
   },
+
   settingsButton: {
     padding: 4,
   },
+
+  // Welcome Section
   welcome: {
-    paddingHorizontal: 20,
-    paddingTop: 24,
-    paddingBottom: 16,
+    paddingHorizontal: Spacing.md,
+    paddingTop: Spacing.lg,
+    paddingBottom: Spacing.md,
   },
+
   welcomeTitle: {
-    fontSize: 28,
-    fontWeight: '700',
-    color: '#111827',
+    fontSize: Typography.h2,
+    fontWeight: Typography.bold,
+    color: DesignColors.text,
     marginBottom: 4,
+    fontFamily: Typography.fontFamily,
   },
+
   welcomeSubtitle: {
-    fontSize: 16,
-    color: '#64748B',
+    fontSize: Typography.body,
+    color: DesignColors.textSecondary,
+    fontFamily: Typography.fontFamily,
   },
+
+  // Scroll Content
   scrollContent: {
-    paddingHorizontal: 20,
-    paddingBottom: 40,
+    paddingHorizontal: Spacing.md,
+    paddingBottom: Spacing.xl,
   },
+
+  // Module Card - минималистичный дизайн
   moduleCard: {
-    borderRadius: 20,
-    marginBottom: 16,
-    overflow: 'hidden',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 3,
-  },
-  gradientCard: {
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 20,
-    gap: 16,
+    backgroundColor: DesignColors.card,
+    borderRadius: BorderRadius.lg,
+    borderWidth: 1,
+    borderColor: DesignColors.cardBorder,
+    padding: Spacing.md,
+    marginBottom: Spacing.md,
+    gap: Spacing.md,
+    ...Shadows.small,
   },
-  lockedCard: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 20,
-    gap: 16,
-    backgroundColor: '#F9FAFB',
-    borderWidth: 2,
-    borderColor: '#E5E7EB',
-    borderStyle: 'dashed',
-    opacity: 0.7,
+
+  moduleCardLocked: {
+    opacity: 0.5,
   },
+
+  moduleColorBar: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    bottom: 0,
+    width: 4,
+    borderTopLeftRadius: BorderRadius.lg,
+    borderBottomLeftRadius: BorderRadius.lg,
+  },
+
   moduleIcon: {
     fontSize: 32,
+    marginLeft: 8,
   },
-  moduleIconWhite: {
-    fontSize: 32,
-  },
+
   moduleInfo: {
     flex: 1,
   },
+
   moduleTitle: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: '#111827',
-    marginBottom: 4,
+    fontSize: Typography.h4,
+    fontWeight: Typography.semibold,
+    color: DesignColors.text,
+    marginBottom: 2,
+    fontFamily: Typography.fontFamily,
   },
-  moduleTitleWhite: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: '#FFFFFF',
-    marginBottom: 4,
-  },
+
+  // Все подзаголовки одного цвета
   moduleSubtitle: {
-    fontSize: 14,
-    color: '#64748B',
-  },
-  moduleSubtitleWhite: {
-    fontSize: 14,
-    color: 'rgba(255, 255, 255, 0.85)',
+    fontSize: Typography.bodySmall,
+    color: DesignColors.textSecondary,
+    fontFamily: Typography.fontFamily,
   },
 });
