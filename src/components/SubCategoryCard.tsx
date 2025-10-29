@@ -60,14 +60,14 @@ export default function SubCategoryCard({
     } else if (selectedLanguage === 'ru') {
       return {
         primary: subcategory.nameRu,
-        secondary: subcategory.nameZh,
-        tertiary: subcategory.nameTk
+        secondary: subcategory.nameTk,
+        tertiary: subcategory.nameEn
       };
     } else {
       // Туркменский по умолчанию
       return {
         primary: subcategory.nameTk,
-        secondary: subcategory.nameZh,
+        secondary: subcategory.nameEn,
         tertiary: subcategory.nameRu
       };
     }

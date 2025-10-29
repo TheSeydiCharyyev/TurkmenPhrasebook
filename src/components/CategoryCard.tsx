@@ -62,8 +62,8 @@ export default function CategoryCard({ category, onPress, languageMode }: Catego
     } else if (languageMode === 'ru') {
       return {
         primary: category.nameRu,
-        secondary: category.nameZh,
-        tertiary: category.nameTk
+        secondary: category.nameTk,
+        tertiary: category.nameEn
       };
     } else if (languageMode === 'en') {
       // ✅ АНГЛИЙСКИЙ: Английский → Туркменский → Русский
@@ -76,7 +76,7 @@ export default function CategoryCard({ category, onPress, languageMode }: Catego
       // Туркменский по умолчанию
       return {
         primary: category.nameTk,
-        secondary: category.nameZh,
+        secondary: category.nameEn,
         tertiary: category.nameRu
       };
     }

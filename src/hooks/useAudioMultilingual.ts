@@ -117,10 +117,14 @@ export function useAudioMultilingual() {
 
       console.log(`[useAudioMultilingual] Playing TTS for ${language.name} (${language.ttsCode}): "${text.substring(0, 30)}..."`);
 
+      // Оптимизированные параметры для более естественного звучания
+      const ttsRate = languageCode === 'ru' ? 0.92 : 0.85;  // Русский быстрее
+      const ttsPitch = languageCode === 'ru' ? 0.95 : 1.0;  // Русский чуть ниже
+
       await Speech.speak(text, {
         language: language.ttsCode,
-        rate: 0.85,        // Скорость речи
-        pitch: 1.0,        // Высота голоса
+        rate: ttsRate,
+        pitch: ttsPitch,
         onDone: () => {
           setIsPlaying(false);
           console.log('[useAudioMultilingual] TTS playback finished');

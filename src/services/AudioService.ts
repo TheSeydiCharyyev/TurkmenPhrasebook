@@ -94,10 +94,14 @@ class AudioServiceImpl implements IAudioService {
         languageCode = 'ru-RU';
       }
 
+      // Оптимизированные параметры для более естественного звучания
+      const ttsRate = language === 'russian' ? 0.92 : 0.85;  // Русский быстрее
+      const ttsPitch = language === 'russian' ? 0.95 : 1.0;  // Русский чуть ниже
+
       await Speech.speak(text, {
         language: languageCode,
-        rate: 0.85,
-        pitch: 1.0,
+        rate: ttsRate,
+        pitch: ttsPitch,
       });
 
     } catch (error) {
