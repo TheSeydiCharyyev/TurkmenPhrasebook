@@ -117,9 +117,60 @@ export function useAudioMultilingual() {
 
       console.log(`[useAudioMultilingual] Playing TTS for ${language.name} (${language.ttsCode}): "${text.substring(0, 30)}..."`);
 
-      // Оптимизированные параметры для более естественного звучания
-      const ttsRate = languageCode === 'ru' ? 0.92 : 0.85;  // Русский быстрее
-      const ttsPitch = languageCode === 'ru' ? 0.95 : 1.0;  // Русский чуть ниже
+      // Оптимизированные параметры для более естественного звучания каждого языка
+      let ttsRate = 0.9;   // Базовая скорость
+      let ttsPitch = 1.0;  // Базовая высота
+
+      // Индивидуальные настройки для каждого языка
+      switch (languageCode) {
+        case 'ru':
+          ttsRate = 0.92;
+          ttsPitch = 0.95;
+          break;
+        case 'zh':
+          ttsRate = 0.88;
+          ttsPitch = 1.0;
+          break;
+        case 'tr':  // Турецкий
+          ttsRate = 0.95;
+          ttsPitch = 1.0;
+          break;
+        case 'uz':  // Узбекский
+          ttsRate = 0.95;
+          ttsPitch = 1.0;
+          break;
+        case 'de':  // Немецкий
+          ttsRate = 0.90;
+          ttsPitch = 0.98;
+          break;
+        case 'fr':  // Французский
+          ttsRate = 0.92;
+          ttsPitch = 1.02;
+          break;
+        case 'es':  // Испанский
+          ttsRate = 0.93;
+          ttsPitch = 1.0;
+          break;
+        case 'it':  // Итальянский
+          ttsRate = 0.93;
+          ttsPitch = 1.01;
+          break;
+        case 'ja':  // Японский
+          ttsRate = 0.88;
+          ttsPitch = 1.0;
+          break;
+        case 'ko':  // Корейский
+          ttsRate = 0.90;
+          ttsPitch = 1.0;
+          break;
+        case 'en':
+          ttsRate = 0.92;
+          ttsPitch = 1.0;
+          break;
+        default:
+          ttsRate = 0.9;
+          ttsPitch = 1.0;
+      }
 
       await Speech.speak(text, {
         language: language.ttsCode,
