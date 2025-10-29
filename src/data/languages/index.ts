@@ -1,5 +1,5 @@
 // AUTO-GENERATED: Агрегация переводов
-// Updated: 2025-10-29 - Added Turkish, Uzbek, German, French, Spanish, Italian
+// Updated: 2025-10-29 - Phase 1 Complete: Added 8 languages (tr, uz, de, fr, es, it, ja, ko)
 import { chineseTranslations } from './translations/chinese';
 import { russianTranslations } from './translations/russian';
 import { englishTranslations } from './translations/english';
@@ -9,6 +9,8 @@ import { germanTranslations } from './translations/german';
 import { frenchTranslations } from './translations/french';
 import { spanishTranslations } from './translations/spanish';
 import { italianTranslations } from './translations/italian';
+import { japaneseTranslations } from './translations/japanese';
+import { koreanTranslations } from './translations/korean';
 import { LanguageTranslation } from '../../types';
 
 const translationsMap: Record<string, LanguageTranslation[]> = {
@@ -21,6 +23,8 @@ const translationsMap: Record<string, LanguageTranslation[]> = {
   fr: frenchTranslations,
   es: spanishTranslations,
   it: italianTranslations,
+  ja: japaneseTranslations,
+  ko: koreanTranslations,
 };
 
 /**
