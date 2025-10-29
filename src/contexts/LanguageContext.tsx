@@ -6,7 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const APP_LANGUAGE_KEY = 'chinese_phrasebook_app_language';
 const LANGUAGE_VERSION = '1.0';
 
-export type AppLanguageMode = 'tk' | 'zh' | 'ru' | 'en';
+export type AppLanguageMode = 'tk' | 'zh' | 'ru' | 'en' | 'tr' | 'de' | 'fr' | 'es' | 'it' | 'pt' | 'nl' | 'pl' | 'uk';
 
 export interface AppLanguageConfig {
   mode: AppLanguageMode;
@@ -314,13 +314,535 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     error: 'Error',
     success: 'Success',
   },
+
+  tr: {
+    // Turkish mode: Turkish speaker learning Turkmen
+    home: 'Ana Sayfa',
+    search: 'Ara',
+    favorites: 'Favoriler',
+    settings: 'Ayarlar',
+    additionalFeatures: 'Daha Fazla Özellik',
+    statistics: 'İstatistikler',
+
+    appTitle: 'TÜRKMEN DİLİ UYGULAMASI',
+    appSubtitle: 'Dil öğrenimi için tüm araçlar',
+    selectCategory: 'Kategori seçin',
+    recentlyStudied: 'Son çalışılanlar',
+    study: 'Çalış',
+
+    // Main Hub Modules
+    phrasebookTitle: 'Konuşma Kılavuzu',
+    phrasebookSubtitle: '22 kategoride 305 ifade',
+    visualTranslatorTitle: 'Görsel Çevirmen',
+    visualTranslatorSubtitle: 'Kamera ile metin tarama',
+    textTranslatorTitle: 'Metin Çevirmen',
+    textTranslatorSubtitle: 'Metin yazıp çevir',
+    dictionaryTitle: 'Sözlük',
+    dictionarySubtitle: 'v2.0\'da gelecek',
+    aiAssistantsTitle: 'AI Asistanlar',
+    aiAssistantsSubtitle: 'Akıllı ipuçları ve destek',
+    myFavoritesTitle: 'Favorilerim',
+    myFavoritesSubtitle: 'Kaydedilen öğeler',
+
+    pronunciation: 'Telaffuz',
+    addToFavorites: 'Favorilere ekle',
+    inFavorites: 'Favorilerde',
+    share: 'Paylaş',
+
+    settingsTitle: '⚙️ Ayarlar',
+    languageInterface: 'Arayüz dili',
+    switchLanguage: 'Dili değiştir',
+    audio: 'Ses',
+    soundEffects: 'Ses efektleri',
+    data: 'Veri',
+    clearHistory: 'Geçmişi temizle',
+    offlineMode: 'Çevrimdışı mod',
+    about: 'Uygulama hakkında',
+    feedback: 'Geri bildirim',
+
+    searchPlaceholder: 'Herhangi bir dilde ifade girin...',
+    noResults: 'Sonuç bulunamadı',
+    searchHistory: 'Arama geçmişi',
+
+    cancel: 'İptal',
+    save: 'Kaydet',
+    delete: 'Sil',
+    confirm: 'Onayla',
+    loading: 'Yükleniyor...',
+    error: 'Hata',
+    success: 'Başarılı',
+  },
+
+  de: {
+    // German mode: German speaker learning Turkmen
+    home: 'Startseite',
+    search: 'Suchen',
+    favorites: 'Favoriten',
+    settings: 'Einstellungen',
+    additionalFeatures: 'Weitere Funktionen',
+    statistics: 'Statistiken',
+
+    appTitle: 'TURKMENISCHE SPRACH-APP',
+    appSubtitle: 'Alle Werkzeuge zum Sprachenlernen',
+    selectCategory: 'Kategorie wählen',
+    recentlyStudied: 'Kürzlich gelernt',
+    study: 'Lernen',
+
+    // Main Hub Modules
+    phrasebookTitle: 'Sprachführer',
+    phrasebookSubtitle: '305 Phrasen in 22 Kategorien',
+    visualTranslatorTitle: 'Visueller Übersetzer',
+    visualTranslatorSubtitle: 'Text mit Kamera scannen',
+    textTranslatorTitle: 'Textübersetzer',
+    textTranslatorSubtitle: 'Text eingeben und übersetzen',
+    dictionaryTitle: 'Wörterbuch',
+    dictionarySubtitle: 'Kommt in v2.0',
+    aiAssistantsTitle: 'KI-Assistenten',
+    aiAssistantsSubtitle: 'Intelligente Tipps und Unterstützung',
+    myFavoritesTitle: 'Meine Favoriten',
+    myFavoritesSubtitle: 'Gespeicherte Elemente',
+
+    pronunciation: 'Aussprache',
+    addToFavorites: 'Zu Favoriten hinzufügen',
+    inFavorites: 'In Favoriten',
+    share: 'Teilen',
+
+    settingsTitle: '⚙️ Einstellungen',
+    languageInterface: 'Oberflächensprache',
+    switchLanguage: 'Sprache wechseln',
+    audio: 'Audio',
+    soundEffects: 'Soundeffekte',
+    data: 'Daten',
+    clearHistory: 'Verlauf löschen',
+    offlineMode: 'Offline-Modus',
+    about: 'Über die App',
+    feedback: 'Feedback',
+
+    searchPlaceholder: 'Phrase in beliebiger Sprache eingeben...',
+    noResults: 'Keine Ergebnisse gefunden',
+    searchHistory: 'Suchverlauf',
+
+    cancel: 'Abbrechen',
+    save: 'Speichern',
+    delete: 'Löschen',
+    confirm: 'Bestätigen',
+    loading: 'Laden...',
+    error: 'Fehler',
+    success: 'Erfolg',
+  },
+
+  fr: {
+    // French mode: French speaker learning Turkmen
+    home: 'Accueil',
+    search: 'Rechercher',
+    favorites: 'Favoris',
+    settings: 'Paramètres',
+    additionalFeatures: 'Plus de fonctionnalités',
+    statistics: 'Statistiques',
+
+    appTitle: 'APPLICATION DE LANGUE TURKMÈNE',
+    appSubtitle: 'Tous les outils pour apprendre la langue',
+    selectCategory: 'Sélectionner une catégorie',
+    recentlyStudied: 'Récemment étudié',
+    study: 'Étudier',
+
+    // Main Hub Modules
+    phrasebookTitle: 'Guide de conversation',
+    phrasebookSubtitle: '305 phrases dans 22 catégories',
+    visualTranslatorTitle: 'Traducteur visuel',
+    visualTranslatorSubtitle: 'Scanner le texte avec la caméra',
+    textTranslatorTitle: 'Traducteur de texte',
+    textTranslatorSubtitle: 'Taper et traduire le texte',
+    dictionaryTitle: 'Dictionnaire',
+    dictionarySubtitle: 'Arrive dans v2.0',
+    aiAssistantsTitle: 'Assistants IA',
+    aiAssistantsSubtitle: 'Conseils intelligents et support',
+    myFavoritesTitle: 'Mes favoris',
+    myFavoritesSubtitle: 'Éléments sauvegardés',
+
+    pronunciation: 'Prononciation',
+    addToFavorites: 'Ajouter aux favoris',
+    inFavorites: 'Dans les favoris',
+    share: 'Partager',
+
+    settingsTitle: '⚙️ Paramètres',
+    languageInterface: 'Langue de l\'interface',
+    switchLanguage: 'Changer de langue',
+    audio: 'Audio',
+    soundEffects: 'Effets sonores',
+    data: 'Données',
+    clearHistory: 'Effacer l\'historique',
+    offlineMode: 'Mode hors ligne',
+    about: 'À propos de l\'application',
+    feedback: 'Commentaires',
+
+    searchPlaceholder: 'Entrer une phrase dans n\'importe quelle langue...',
+    noResults: 'Aucun résultat trouvé',
+    searchHistory: 'Historique de recherche',
+
+    cancel: 'Annuler',
+    save: 'Enregistrer',
+    delete: 'Supprimer',
+    confirm: 'Confirmer',
+    loading: 'Chargement...',
+    error: 'Erreur',
+    success: 'Succès',
+  },
+
+  es: {
+    // Spanish mode: Spanish speaker learning Turkmen
+    home: 'Inicio',
+    search: 'Buscar',
+    favorites: 'Favoritos',
+    settings: 'Configuración',
+    additionalFeatures: 'Más funciones',
+    statistics: 'Estadísticas',
+
+    appTitle: 'APLICACIÓN DE LENGUA TURCOMANA',
+    appSubtitle: 'Todas las herramientas para aprender idiomas',
+    selectCategory: 'Seleccionar categoría',
+    recentlyStudied: 'Estudiado recientemente',
+    study: 'Estudiar',
+
+    // Main Hub Modules
+    phrasebookTitle: 'Guía de conversación',
+    phrasebookSubtitle: '305 frases en 22 categorías',
+    visualTranslatorTitle: 'Traductor visual',
+    visualTranslatorSubtitle: 'Escanear texto con cámara',
+    textTranslatorTitle: 'Traductor de texto',
+    textTranslatorSubtitle: 'Escribir y traducir texto',
+    dictionaryTitle: 'Diccionario',
+    dictionarySubtitle: 'Próximamente en v2.0',
+    aiAssistantsTitle: 'Asistentes IA',
+    aiAssistantsSubtitle: 'Consejos inteligentes y soporte',
+    myFavoritesTitle: 'Mis favoritos',
+    myFavoritesSubtitle: 'Elementos guardados',
+
+    pronunciation: 'Pronunciación',
+    addToFavorites: 'Añadir a favoritos',
+    inFavorites: 'En favoritos',
+    share: 'Compartir',
+
+    settingsTitle: '⚙️ Configuración',
+    languageInterface: 'Idioma de la interfaz',
+    switchLanguage: 'Cambiar idioma',
+    audio: 'Audio',
+    soundEffects: 'Efectos de sonido',
+    data: 'Datos',
+    clearHistory: 'Borrar historial',
+    offlineMode: 'Modo sin conexión',
+    about: 'Acerca de la aplicación',
+    feedback: 'Comentarios',
+
+    searchPlaceholder: 'Introducir frase en cualquier idioma...',
+    noResults: 'No se encontraron resultados',
+    searchHistory: 'Historial de búsqueda',
+
+    cancel: 'Cancelar',
+    save: 'Guardar',
+    delete: 'Eliminar',
+    confirm: 'Confirmar',
+    loading: 'Cargando...',
+    error: 'Error',
+    success: 'Éxito',
+  },
+
+  it: {
+    // Italian mode: Italian speaker learning Turkmen
+    home: 'Home',
+    search: 'Cerca',
+    favorites: 'Preferiti',
+    settings: 'Impostazioni',
+    additionalFeatures: 'Altre funzionalità',
+    statistics: 'Statistiche',
+
+    appTitle: 'APP LINGUA TURKMENA',
+    appSubtitle: 'Tutti gli strumenti per imparare la lingua',
+    selectCategory: 'Seleziona una categoria',
+    recentlyStudied: 'Studiato di recente',
+    study: 'Studiare',
+
+    // Main Hub Modules
+    phrasebookTitle: 'Frasario',
+    phrasebookSubtitle: '305 frasi in 22 categorie',
+    visualTranslatorTitle: 'Traduttore visivo',
+    visualTranslatorSubtitle: 'Scansiona testo con la fotocamera',
+    textTranslatorTitle: 'Traduttore di testo',
+    textTranslatorSubtitle: 'Scrivi e traduci testo',
+    dictionaryTitle: 'Dizionario',
+    dictionarySubtitle: 'In arrivo nella v2.0',
+    aiAssistantsTitle: 'Assistenti IA',
+    aiAssistantsSubtitle: 'Suggerimenti intelligenti e supporto',
+    myFavoritesTitle: 'I miei preferiti',
+    myFavoritesSubtitle: 'Elementi salvati',
+
+    pronunciation: 'Pronuncia',
+    addToFavorites: 'Aggiungi ai preferiti',
+    inFavorites: 'Nei preferiti',
+    share: 'Condividi',
+
+    settingsTitle: '⚙️ Impostazioni',
+    languageInterface: 'Lingua dell\'interfaccia',
+    switchLanguage: 'Cambia lingua',
+    audio: 'Audio',
+    soundEffects: 'Effetti sonori',
+    data: 'Dati',
+    clearHistory: 'Cancella cronologia',
+    offlineMode: 'Modalità offline',
+    about: 'Informazioni sull\'app',
+    feedback: 'Feedback',
+
+    searchPlaceholder: 'Inserisci frase in qualsiasi lingua...',
+    noResults: 'Nessun risultato trovato',
+    searchHistory: 'Cronologia ricerche',
+
+    cancel: 'Annulla',
+    save: 'Salva',
+    delete: 'Elimina',
+    confirm: 'Conferma',
+    loading: 'Caricamento...',
+    error: 'Errore',
+    success: 'Successo',
+  },
+
+  pt: {
+    // Portuguese mode: Portuguese speaker learning Turkmen
+    home: 'Início',
+    search: 'Pesquisar',
+    favorites: 'Favoritos',
+    settings: 'Configurações',
+    additionalFeatures: 'Mais recursos',
+    statistics: 'Estatísticas',
+
+    appTitle: 'APLICATIVO DE LÍNGUA TURCOMANA',
+    appSubtitle: 'Todas as ferramentas para aprender idiomas',
+    selectCategory: 'Selecionar categoria',
+    recentlyStudied: 'Estudado recentemente',
+    study: 'Estudar',
+
+    // Main Hub Modules
+    phrasebookTitle: 'Guia de conversação',
+    phrasebookSubtitle: '305 frases em 22 categorias',
+    visualTranslatorTitle: 'Tradutor visual',
+    visualTranslatorSubtitle: 'Digitalizar texto com câmera',
+    textTranslatorTitle: 'Tradutor de texto',
+    textTranslatorSubtitle: 'Digitar e traduzir texto',
+    dictionaryTitle: 'Dicionário',
+    dictionarySubtitle: 'Em breve na v2.0',
+    aiAssistantsTitle: 'Assistentes IA',
+    aiAssistantsSubtitle: 'Dicas inteligentes e suporte',
+    myFavoritesTitle: 'Meus favoritos',
+    myFavoritesSubtitle: 'Itens salvos',
+
+    pronunciation: 'Pronúncia',
+    addToFavorites: 'Adicionar aos favoritos',
+    inFavorites: 'Nos favoritos',
+    share: 'Compartilhar',
+
+    settingsTitle: '⚙️ Configurações',
+    languageInterface: 'Idioma da interface',
+    switchLanguage: 'Mudar idioma',
+    audio: 'Áudio',
+    soundEffects: 'Efeitos sonoros',
+    data: 'Dados',
+    clearHistory: 'Limpar histórico',
+    offlineMode: 'Modo offline',
+    about: 'Sobre o aplicativo',
+    feedback: 'Feedback',
+
+    searchPlaceholder: 'Digite frase em qualquer idioma...',
+    noResults: 'Nenhum resultado encontrado',
+    searchHistory: 'Histórico de pesquisa',
+
+    cancel: 'Cancelar',
+    save: 'Salvar',
+    delete: 'Excluir',
+    confirm: 'Confirmar',
+    loading: 'Carregando...',
+    error: 'Erro',
+    success: 'Sucesso',
+  },
+
+  nl: {
+    // Dutch mode: Dutch speaker learning Turkmen
+    home: 'Home',
+    search: 'Zoeken',
+    favorites: 'Favorieten',
+    settings: 'Instellingen',
+    additionalFeatures: 'Meer functies',
+    statistics: 'Statistieken',
+
+    appTitle: 'TURKMEENSE TAAL APP',
+    appSubtitle: 'Alle tools voor het leren van talen',
+    selectCategory: 'Selecteer een categorie',
+    recentlyStudied: 'Recent bestudeerd',
+    study: 'Studeren',
+
+    // Main Hub Modules
+    phrasebookTitle: 'Taalgids',
+    phrasebookSubtitle: '305 zinnen in 22 categorieën',
+    visualTranslatorTitle: 'Visuele vertaler',
+    visualTranslatorSubtitle: 'Scan tekst met camera',
+    textTranslatorTitle: 'Tekstvertaler',
+    textTranslatorSubtitle: 'Typ en vertaal tekst',
+    dictionaryTitle: 'Woordenboek',
+    dictionarySubtitle: 'Komt in v2.0',
+    aiAssistantsTitle: 'AI-assistenten',
+    aiAssistantsSubtitle: 'Slimme tips en ondersteuning',
+    myFavoritesTitle: 'Mijn favorieten',
+    myFavoritesSubtitle: 'Opgeslagen items',
+
+    pronunciation: 'Uitspraak',
+    addToFavorites: 'Toevoegen aan favorieten',
+    inFavorites: 'In favorieten',
+    share: 'Delen',
+
+    settingsTitle: '⚙️ Instellingen',
+    languageInterface: 'Interface taal',
+    switchLanguage: 'Wissel van taal',
+    audio: 'Audio',
+    soundEffects: 'Geluidseffecten',
+    data: 'Gegevens',
+    clearHistory: 'Geschiedenis wissen',
+    offlineMode: 'Offline modus',
+    about: 'Over de app',
+    feedback: 'Feedback',
+
+    searchPlaceholder: 'Voer zin in elke taal in...',
+    noResults: 'Geen resultaten gevonden',
+    searchHistory: 'Zoekgeschiedenis',
+
+    cancel: 'Annuleren',
+    save: 'Opslaan',
+    delete: 'Verwijderen',
+    confirm: 'Bevestigen',
+    loading: 'Laden...',
+    error: 'Fout',
+    success: 'Succes',
+  },
+
+  pl: {
+    // Polish mode: Polish speaker learning Turkmen
+    home: 'Strona główna',
+    search: 'Szukaj',
+    favorites: 'Ulubione',
+    settings: 'Ustawienia',
+    additionalFeatures: 'Więcej funkcji',
+    statistics: 'Statystyki',
+
+    appTitle: 'APLIKACJA DO NAUKI JĘZYKA TURKMEŃSKIEGO',
+    appSubtitle: 'Wszystkie narzędzia do nauki języka',
+    selectCategory: 'Wybierz kategorię',
+    recentlyStudied: 'Ostatnio studiowane',
+    study: 'Studiować',
+
+    // Main Hub Modules
+    phrasebookTitle: 'Rozmówki',
+    phrasebookSubtitle: '305 zwrotów w 22 kategoriach',
+    visualTranslatorTitle: 'Tłumacz wizualny',
+    visualTranslatorSubtitle: 'Skanuj tekst aparatem',
+    textTranslatorTitle: 'Tłumacz tekstu',
+    textTranslatorSubtitle: 'Wpisz i przetłumacz tekst',
+    dictionaryTitle: 'Słownik',
+    dictionarySubtitle: 'Wkrótce w v2.0',
+    aiAssistantsTitle: 'Asystenci AI',
+    aiAssistantsSubtitle: 'Inteligentne wskazówki i wsparcie',
+    myFavoritesTitle: 'Moje ulubione',
+    myFavoritesSubtitle: 'Zapisane elementy',
+
+    pronunciation: 'Wymowa',
+    addToFavorites: 'Dodaj do ulubionych',
+    inFavorites: 'W ulubionych',
+    share: 'Udostępnij',
+
+    settingsTitle: '⚙️ Ustawienia',
+    languageInterface: 'Język interfejsu',
+    switchLanguage: 'Zmień język',
+    audio: 'Audio',
+    soundEffects: 'Efekty dźwiękowe',
+    data: 'Dane',
+    clearHistory: 'Wyczyść historię',
+    offlineMode: 'Tryb offline',
+    about: 'O aplikacji',
+    feedback: 'Opinie',
+
+    searchPlaceholder: 'Wprowadź frazę w dowolnym języku...',
+    noResults: 'Nie znaleziono wyników',
+    searchHistory: 'Historia wyszukiwania',
+
+    cancel: 'Anuluj',
+    save: 'Zapisz',
+    delete: 'Usuń',
+    confirm: 'Potwierdź',
+    loading: 'Ładowanie...',
+    error: 'Błąd',
+    success: 'Sukces',
+  },
+
+  uk: {
+    // Ukrainian mode: Ukrainian speaker learning Turkmen
+    home: 'Головна',
+    search: 'Пошук',
+    favorites: 'Вибране',
+    settings: 'Налаштування',
+    additionalFeatures: 'Додаткові функції',
+    statistics: 'Статистика',
+
+    appTitle: 'ТУРКМЕНСЬКИЙ МОВНИЙ ДОДАТОК',
+    appSubtitle: 'Всі інструменти для вивчення мови',
+    selectCategory: 'Виберіть категорію',
+    recentlyStudied: 'Нещодавно вивчене',
+    study: 'Вивчати',
+
+    // Main Hub Modules
+    phrasebookTitle: 'Розмовник',
+    phrasebookSubtitle: '305 фраз у 22 категоріях',
+    visualTranslatorTitle: 'Візуальний перекладач',
+    visualTranslatorSubtitle: 'Сканування тексту камерою',
+    textTranslatorTitle: 'Текстовий перекладач',
+    textTranslatorSubtitle: 'Введення і переклад тексту',
+    dictionaryTitle: 'Словник',
+    dictionarySubtitle: 'Вийде у v2.0',
+    aiAssistantsTitle: 'AI помічники',
+    aiAssistantsSubtitle: 'Розумні підказки та підтримка',
+    myFavoritesTitle: 'Моє вибране',
+    myFavoritesSubtitle: 'Збережені елементи',
+
+    pronunciation: 'Вимова',
+    addToFavorites: 'Додати до вибраного',
+    inFavorites: 'У вибраному',
+    share: 'Поділитися',
+
+    settingsTitle: '⚙️ Налаштування',
+    languageInterface: 'Мова інтерфейсу',
+    switchLanguage: 'Змінити мову',
+    audio: 'Аудіо',
+    soundEffects: 'Звукові ефекти',
+    data: 'Дані',
+    clearHistory: 'Очистити історію',
+    offlineMode: 'Офлайн режим',
+    about: 'Про додаток',
+    feedback: 'Зворотний зв\'язок',
+
+    searchPlaceholder: 'Введіть фразу будь-якою мовою...',
+    noResults: 'Нічого не знайдено',
+    searchHistory: 'Історія пошуку',
+
+    cancel: 'Скасувати',
+    save: 'Зберегти',
+    delete: 'Видалити',
+    confirm: 'Підтвердити',
+    loading: 'Завантаження...',
+    error: 'Помилка',
+    success: 'Успішно',
+  },
 };
 
 const validateConfig = (config: any): config is AppLanguageConfig => {
   return (
     config &&
     typeof config === 'object' &&
-    ['tk', 'zh', 'ru', 'en'].includes(config.mode) &&
+    ['tk', 'zh', 'ru', 'en', 'tr', 'de', 'fr', 'es', 'it', 'pt', 'nl', 'pl', 'uk'].includes(config.mode) &&
     ['tk', 'zh'].includes(config.primaryLanguage) &&
     ['tk', 'zh'].includes(config.learningLanguage) &&
     config.helperLanguage === 'ru' &&
@@ -329,7 +851,7 @@ const validateConfig = (config: any): config is AppLanguageConfig => {
 };
 
 const createConfig = (mode: AppLanguageMode): AppLanguageConfig => {
-  // Для ru и en интерфейса - используем tk-zh пару по умолчанию
+  // Для интерфейсных языков (ru, en, tr, de, fr, es, it, pt, nl, pl, uk) - используем tk-zh пару по умолчанию
   let primaryLanguage: 'tk' | 'zh' = 'tk';
   let learningLanguage: 'tk' | 'zh' = 'zh';
 
@@ -340,7 +862,7 @@ const createConfig = (mode: AppLanguageMode): AppLanguageConfig => {
     primaryLanguage = 'zh';
     learningLanguage = 'tk';
   }
-  // Для 'ru' и 'en' используем значения по умолчанию (tk-zh)
+  // Для всех остальных языков используем значения по умолчанию (tk-zh)
 
   return {
     mode,

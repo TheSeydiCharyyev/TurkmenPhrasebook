@@ -160,7 +160,7 @@ export default function AdvancedSearchScreen() {
     | 'voiceSearch';
 
   const getText = useCallback((key: TextKey) => {
-    const texts: Record<'tk' | 'zh' | 'ru' | 'en', Record<TextKey, string>> = {
+    const texts: Record<'tk' | 'zh' | 'ru' | 'en' | 'tr' | 'de' | 'fr' | 'es' | 'it' | 'pt' | 'nl' | 'pl' | 'uk', Record<TextKey, string>> = {
       tk: {
         searchPlaceholder: 'Gözleg...',
         searchResults: 'Netijeler',
@@ -196,7 +196,88 @@ export default function AdvancedSearchScreen() {
         filters: 'Filters',
         clearFilters: 'Clear',
         voiceSearch: 'Voice Search',
-      }
+      },
+      tr: {
+        searchPlaceholder: 'Ara...',
+        searchResults: 'Arama Sonuçları',
+        noResults: 'Sonuç bulunamadı',
+        suggestions: 'Öneriler',
+        filters: 'Filtreler',
+        clearFilters: 'Temizle',
+        voiceSearch: 'Sesli Arama',
+      },
+      de: {
+        searchPlaceholder: 'Suchen...',
+        searchResults: 'Suchergebnisse',
+        noResults: 'Keine Ergebnisse gefunden',
+        suggestions: 'Vorschläge',
+        filters: 'Filter',
+        clearFilters: 'Löschen',
+        voiceSearch: 'Sprachsuche',
+      },
+      fr: {
+        searchPlaceholder: 'Rechercher...',
+        searchResults: 'Résultats de recherche',
+        noResults: 'Aucun résultat trouvé',
+        suggestions: 'Suggestions',
+        filters: 'Filtres',
+        clearFilters: 'Effacer',
+        voiceSearch: 'Recherche vocale',
+      },
+      es: {
+        searchPlaceholder: 'Buscar...',
+        searchResults: 'Resultados de búsqueda',
+        noResults: 'No se encontraron resultados',
+        suggestions: 'Sugerencias',
+        filters: 'Filtros',
+        clearFilters: 'Limpiar',
+        voiceSearch: 'Búsqueda por voz',
+      },
+      it: {
+        searchPlaceholder: 'Cerca...',
+        searchResults: 'Risultati della ricerca',
+        noResults: 'Nessun risultato trovato',
+        suggestions: 'Suggerimenti',
+        filters: 'Filtri',
+        clearFilters: 'Cancella',
+        voiceSearch: 'Ricerca vocale',
+      },
+      pt: {
+        searchPlaceholder: 'Pesquisar...',
+        searchResults: 'Resultados da pesquisa',
+        noResults: 'Nenhum resultado encontrado',
+        suggestions: 'Sugestões',
+        filters: 'Filtros',
+        clearFilters: 'Limpar',
+        voiceSearch: 'Pesquisa por voz',
+      },
+      nl: {
+        searchPlaceholder: 'Zoeken...',
+        searchResults: 'Zoekresultaten',
+        noResults: 'Geen resultaten gevonden',
+        suggestions: 'Suggesties',
+        filters: 'Filters',
+        clearFilters: 'Wissen',
+        voiceSearch: 'Spraakzoeken',
+      },
+      pl: {
+        searchPlaceholder: 'Szukaj...',
+        searchResults: 'Wyniki wyszukiwania',
+        noResults: 'Nie znaleziono wyników',
+        suggestions: 'Sugestie',
+        filters: 'Filtry',
+        clearFilters: 'Wyczyść',
+        voiceSearch: 'Wyszukiwanie głosowe',
+      },
+      uk: {
+        searchPlaceholder: 'Пошук...',
+        searchResults: 'Результати пошуку',
+        noResults: 'Результатів не знайдено',
+        suggestions: 'Пропозиції',
+        filters: 'Фільтри',
+        clearFilters: 'Очистити',
+        voiceSearch: 'Голосовий пошук',
+      },
     };
 
     return texts[config.mode]?.[key] || texts.en[key];

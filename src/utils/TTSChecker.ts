@@ -93,7 +93,7 @@ export class TTSChecker {
   /**
    * Получить рекомендации для пользователя
    */
-  static async getRecommendations(languageMode: 'tk' | 'zh' | 'ru' | 'en'): Promise<{
+  static async getRecommendations(languageMode: 'tk' | 'zh' | 'ru' | 'en' | 'tr' | 'de' | 'fr' | 'es' | 'it' | 'pt' | 'nl' | 'pl' | 'uk'): Promise<{
     title: string;
     message: string;
     showWarning: boolean;
@@ -158,6 +158,69 @@ export class TTSChecker {
       return {
         title: '✅ All voices available',
         message: 'Text-to-speech is ready',
+        showWarning: false,
+      };
+    } else if (languageMode === 'tr') {
+      // Turkish interface
+      return {
+        title: '✅ Tüm sesler mevcut',
+        message: 'Metin okuma hazır',
+        showWarning: false,
+      };
+    } else if (languageMode === 'de') {
+      // German interface
+      return {
+        title: '✅ Alle Stimmen verfügbar',
+        message: 'Text-zu-Sprache ist bereit',
+        showWarning: false,
+      };
+    } else if (languageMode === 'fr') {
+      // French interface
+      return {
+        title: '✅ Toutes les voix disponibles',
+        message: 'La synthèse vocale est prête',
+        showWarning: false,
+      };
+    } else if (languageMode === 'es') {
+      // Spanish interface
+      return {
+        title: '✅ Todas las voces disponibles',
+        message: 'El texto a voz está listo',
+        showWarning: false,
+      };
+    } else if (languageMode === 'it') {
+      // Italian interface
+      return {
+        title: '✅ Tutte le voci disponibili',
+        message: 'La sintesi vocale è pronta',
+        showWarning: false,
+      };
+    } else if (languageMode === 'pt') {
+      // Portuguese interface
+      return {
+        title: '✅ Todas as vozes disponíveis',
+        message: 'Texto para fala está pronto',
+        showWarning: false,
+      };
+    } else if (languageMode === 'nl') {
+      // Dutch interface
+      return {
+        title: '✅ Alle stemmen beschikbaar',
+        message: 'Tekst-naar-spraak is klaar',
+        showWarning: false,
+      };
+    } else if (languageMode === 'pl') {
+      // Polish interface
+      return {
+        title: '✅ Wszystkie głosy dostępne',
+        message: 'Zamiana tekstu na mowę jest gotowa',
+        showWarning: false,
+      };
+    } else if (languageMode === 'uk') {
+      // Ukrainian interface
+      return {
+        title: '✅ Всі голоси доступні',
+        message: 'Синтез мовлення готовий',
         showWarning: false,
       };
     } else {

@@ -21,7 +21,7 @@ interface TTSWarningModalProps {
   message: string;
   instructions?: string[];
   onTestVoice?: () => void;
-  languageMode: 'tk' | 'zh' | 'ru' | 'en';
+  languageMode: 'tk' | 'zh' | 'ru' | 'en' | 'tr' | 'de' | 'fr' | 'es' | 'it' | 'pt' | 'nl' | 'pl' | 'uk';
 }
 
 export default function TTSWarningModal({
