@@ -52,7 +52,7 @@ export default function LanguageSelectionScreen({ navigation, onLanguageSelect }
       // Для обратной совместимости: используем onLanguageSelect если передан
       if (onLanguageSelect) {
         // Конвертируем код в AppLanguageMode (все языки поддерживаются)
-        const validLanguages: AppLanguageMode[] = ['tk', 'zh', 'ru', 'en', 'tr', 'de', 'fr', 'es', 'it', 'pt', 'nl', 'pl', 'uk'];
+        const validLanguages: AppLanguageMode[] = ['tk', 'zh', 'ru', 'en', 'tr', 'de', 'fr', 'es', 'it', 'pt', 'nl', 'pl', 'uk', 'ja', 'ko', 'th', 'vi', 'id', 'ms', 'hi', 'ur', 'fa', 'ps', 'uz', 'kk', 'az', 'ky', 'tg', 'hy', 'ka', 'ar'];
         if (validLanguages.includes(code as AppLanguageMode)) {
           onLanguageSelect(code as AppLanguageMode, true);
         }

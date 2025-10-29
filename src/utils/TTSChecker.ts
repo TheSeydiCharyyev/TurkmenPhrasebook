@@ -3,6 +3,7 @@
 
 import * as Speech from 'expo-speech';
 import { Platform } from 'react-native';
+import { AppLanguageMode } from '../contexts/LanguageContext';
 
 export interface VoiceInfo {
   identifier: string;
@@ -93,7 +94,7 @@ export class TTSChecker {
   /**
    * Получить рекомендации для пользователя
    */
-  static async getRecommendations(languageMode: 'tk' | 'zh' | 'ru' | 'en' | 'tr' | 'de' | 'fr' | 'es' | 'it' | 'pt' | 'nl' | 'pl' | 'uk'): Promise<{
+  static async getRecommendations(languageMode: AppLanguageMode): Promise<{
     title: string;
     message: string;
     showWarning: boolean;
@@ -221,6 +222,132 @@ export class TTSChecker {
       return {
         title: '✅ Всі голоси доступні',
         message: 'Синтез мовлення готовий',
+        showWarning: false,
+      };
+    } else if (languageMode === 'ja') {
+      // Japanese interface
+      return {
+        title: '✅ すべての音声が利用可能',
+        message: 'テキスト読み上げの準備ができました',
+        showWarning: false,
+      };
+    } else if (languageMode === 'ko') {
+      // Korean interface
+      return {
+        title: '✅ 모든 음성 사용 가능',
+        message: '텍스트 음성 변환 준비 완료',
+        showWarning: false,
+      };
+    } else if (languageMode === 'th') {
+      // Thai interface
+      return {
+        title: '✅ เสียงทั้งหมดพร้อมใช้งาน',
+        message: 'การแปลงข้อความเป็นเสียงพร้อมแล้ว',
+        showWarning: false,
+      };
+    } else if (languageMode === 'vi') {
+      // Vietnamese interface
+      return {
+        title: '✅ Tất cả giọng nói có sẵn',
+        message: 'Chuyển văn bản thành giọng nói đã sẵn sàng',
+        showWarning: false,
+      };
+    } else if (languageMode === 'id') {
+      // Indonesian interface
+      return {
+        title: '✅ Semua suara tersedia',
+        message: 'Teks ke ucapan siap',
+        showWarning: false,
+      };
+    } else if (languageMode === 'ms') {
+      // Malay interface
+      return {
+        title: '✅ Semua suara tersedia',
+        message: 'Teks ke pertuturan sedia',
+        showWarning: false,
+      };
+    } else if (languageMode === 'hi') {
+      // Hindi interface
+      return {
+        title: '✅ सभी आवाज़ें उपलब्ध',
+        message: 'टेक्स्ट टू स्पीच तैयार है',
+        showWarning: false,
+      };
+    } else if (languageMode === 'ur') {
+      // Urdu interface
+      return {
+        title: '✅ تمام آوازیں دستیاب',
+        message: 'ٹیکسٹ ٹو اسپیچ تیار ہے',
+        showWarning: false,
+      };
+    } else if (languageMode === 'fa') {
+      // Persian interface
+      return {
+        title: '✅ همه صداها موجود است',
+        message: 'متن به گفتار آماده است',
+        showWarning: false,
+      };
+    } else if (languageMode === 'ps') {
+      // Pashto interface
+      return {
+        title: '✅ ټول غږونه شتون لري',
+        message: 'متن ته وینا چمتو ده',
+        showWarning: false,
+      };
+    } else if (languageMode === 'uz') {
+      // Uzbek interface
+      return {
+        title: '✅ Barcha ovozlar mavjud',
+        message: 'Matnni nutqqa aylantirish tayyor',
+        showWarning: false,
+      };
+    } else if (languageMode === 'kk') {
+      // Kazakh interface
+      return {
+        title: '✅ Барлық дауыстар қолжетімді',
+        message: 'Мәтінді сөйлеуге айналдыру дайын',
+        showWarning: false,
+      };
+    } else if (languageMode === 'az') {
+      // Azerbaijani interface
+      return {
+        title: '✅ Bütün səslər mövcuddur',
+        message: 'Mətn nitqə hazırdır',
+        showWarning: false,
+      };
+    } else if (languageMode === 'ky') {
+      // Kyrgyz interface
+      return {
+        title: '✅ Бардык үндөр жеткиликтүү',
+        message: 'Текстти сүйлөөгө айлантуу даяр',
+        showWarning: false,
+      };
+    } else if (languageMode === 'tg') {
+      // Tajik interface
+      return {
+        title: '✅ Ҳамаи садоҳо мавҷуданд',
+        message: 'Матн ба садо табдил шудан омода аст',
+        showWarning: false,
+      };
+    } else if (languageMode === 'hy') {
+      // Armenian interface
+      return {
+        title: '✅ Բոլոր ձայները հասանելի են',
+        message: 'Տեքստի արտասանությունը պատրաստ է',
+        showWarning: false,
+      };
+    } else if (languageMode === 'ka') {
+      // Georgian interface
+      return {
+        title: '✅ ყველა ხმა ხელმისაწვდომია',
+        message: 'ტექსტის წაკითხვა მზადაა',
+        showWarning: false,
+      };
+    } else if (languageMode === 'ar') {
+      // Arabic interface
+      return {
+        title: '✅ جميع الأصوات متاحة',
+        message: 'تحويل النص إلى كلام جاهز',
         showWarning: false,
       };
     } else {

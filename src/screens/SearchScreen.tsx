@@ -22,7 +22,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../constants/Colors';
 import { TextStyles } from '../constants/Typography'; // ИСПРАВЛЕНО: заменен Typography на TextStyles
 import { PhraseWithTranslation, RootStackParamList, Category } from '../types';
-import { useAppLanguage } from '../contexts/LanguageContext';
+import { useAppLanguage, AppLanguageMode } from '../contexts/LanguageContext';
 import { usePhrases } from '../hooks/usePhrases';
 import { categories } from '../data/categories'; // ИСПРАВЛЕНО: добавлен импорт categories
 
@@ -68,7 +68,7 @@ const SearchResultItem = React.memo<{
   phrase: PhraseWithTranslation;
   searchQuery: string;
   onPress: (phrase: PhraseWithTranslation) => void;
-  config: { mode: 'tk' | 'zh' | 'ru' | 'en' | 'tr' | 'de' | 'fr' | 'es' | 'it' | 'pt' | 'nl' | 'pl' | 'uk' };
+  config: { mode: AppLanguageMode };
   getPhraseTexts: (phrase: PhraseWithTranslation) => { primary: string; learning: string; helper: string };
 }>(({ phrase, searchQuery, onPress, config, getPhraseTexts }) => {
   const category = categories.find(cat => cat.id === phrase.categoryId);
@@ -167,7 +167,7 @@ const CategoryFilter = React.memo<{
   categories: Category[];
   selectedCategory: string | null;
   onSelectCategory: (categoryId: string | null) => void;
-  config: { mode: 'tk' | 'zh' | 'ru' | 'en' | 'tr' | 'de' | 'fr' | 'es' | 'it' | 'pt' | 'nl' | 'pl' | 'uk' };
+  config: { mode: AppLanguageMode };
 }>(({ categories, selectedCategory, onSelectCategory, config }) => {
   const allText = useMemo(() => {
     return config.mode === 'tk' ? 'Hemmesi' :

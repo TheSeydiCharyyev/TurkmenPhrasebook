@@ -24,7 +24,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../constants/Colors';
 import { PhraseWithTranslation, RootStackParamList } from '../types';
-import { useAppLanguage } from '../contexts/LanguageContext';
+import { useAppLanguage, AppLanguageMode } from '../contexts/LanguageContext';
 import { useAdvancedSearch } from '../hooks/useAdvancedSearch';
 import { useAnimations } from '../hooks/useAnimations';
 import { categories } from '../data/categories';
@@ -160,7 +160,7 @@ export default function AdvancedSearchScreen() {
     | 'voiceSearch';
 
   const getText = useCallback((key: TextKey) => {
-    const texts: Record<'tk' | 'zh' | 'ru' | 'en' | 'tr' | 'de' | 'fr' | 'es' | 'it' | 'pt' | 'nl' | 'pl' | 'uk', Record<TextKey, string>> = {
+    const texts: Partial<Record<AppLanguageMode, Record<TextKey, string>>> = {
       tk: {
         searchPlaceholder: 'Gözleg...',
         searchResults: 'Netijeler',
@@ -280,7 +280,7 @@ export default function AdvancedSearchScreen() {
       },
     };
 
-    return texts[config.mode]?.[key] || texts.en[key];
+    return texts[config.mode]?.[key] || texts.en?.[key] || key;
   }, [config.mode]);
 
   /**

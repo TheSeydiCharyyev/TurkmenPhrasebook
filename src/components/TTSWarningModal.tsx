@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../constants/Colors';
+import { AppLanguageMode } from '../contexts/LanguageContext';
 
 interface TTSWarningModalProps {
   visible: boolean;
@@ -21,7 +22,7 @@ interface TTSWarningModalProps {
   message: string;
   instructions?: string[];
   onTestVoice?: () => void;
-  languageMode: 'tk' | 'zh' | 'ru' | 'en' | 'tr' | 'de' | 'fr' | 'es' | 'it' | 'pt' | 'nl' | 'pl' | 'uk';
+  languageMode: AppLanguageMode;
 }
 
 export default function TTSWarningModal({

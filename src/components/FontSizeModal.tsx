@@ -4,13 +4,14 @@ import React, { useState, useCallback, useMemo } from 'react';
 import { Modal, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Slider from '@react-native-community/slider';
 import { Colors } from '../constants/Colors';
+import { AppLanguageMode } from '../contexts/LanguageContext';
 
 interface FontSizeModalProps {
   visible: boolean;
   onClose: () => void;
   currentFontSize: number;
   onSave: (fontSize: number) => Promise<void>;
-  config: { mode: 'tk' | 'zh' | 'ru' | 'en' | 'tr' | 'de' | 'fr' | 'es' | 'it' | 'pt' | 'nl' | 'pl' | 'uk' };
+  config: { mode: AppLanguageMode };
 }
 
 const FontSizeModal = React.memo(({ 
