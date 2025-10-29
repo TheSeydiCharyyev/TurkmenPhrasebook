@@ -52,10 +52,12 @@ export default function TranslationResultScreen() {
       setIsSpeaking(true);
 
       // Озвучиваем переведенный текст
+      // Оптимизированные параметры для более естественного звучания
+      const isRussian = result.targetLanguage === 'ru-RU' || result.targetLanguage === 'ru';
       const options = {
         language: result.targetLanguage,
-        pitch: 1.0,
-        rate: 0.9,
+        pitch: isRussian ? 0.95 : 1.0,  // Русский чуть ниже
+        rate: isRussian ? 0.92 : 0.9,    // Русский немного быстрее
         onDone: () => setIsSpeaking(false),
         onError: () => setIsSpeaking(false),
       };
