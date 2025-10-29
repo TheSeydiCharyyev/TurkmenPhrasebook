@@ -110,10 +110,12 @@ export default function TextTranslatorScreen() {
 
       setIsSpeaking(true);
 
+      // Оптимизированные параметры для более естественного звучания
+      const isRussian = targetLanguage === 'ru-RU' || targetLanguage === 'ru';
       const options = {
         language: targetLanguage,
-        pitch: 1.0,
-        rate: 0.9,
+        pitch: isRussian ? 0.95 : 1.0,  // Русский чуть ниже
+        rate: isRussian ? 0.92 : 0.9,    // Русский немного быстрее
         onDone: () => setIsSpeaking(false),
         onError: () => setIsSpeaking(false),
       };
