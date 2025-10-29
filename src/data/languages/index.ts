@@ -1,14 +1,26 @@
 // AUTO-GENERATED: Агрегация переводов
-// Generated: 2025-10-25T02:36:38.470Z
+// Updated: 2025-10-29 - Added Turkish, Uzbek, German, French, Spanish, Italian
 import { chineseTranslations } from './translations/chinese';
 import { russianTranslations } from './translations/russian';
 import { englishTranslations } from './translations/english';
+import { turkishTranslations } from './translations/turkish';
+import { uzbekTranslations } from './translations/uzbek';
+import { germanTranslations } from './translations/german';
+import { frenchTranslations } from './translations/french';
+import { spanishTranslations } from './translations/spanish';
+import { italianTranslations } from './translations/italian';
 import { LanguageTranslation } from '../../types';
 
 const translationsMap: Record<string, LanguageTranslation[]> = {
   zh: chineseTranslations,
   ru: russianTranslations,
   en: englishTranslations,
+  tr: turkishTranslations,
+  uz: uzbekTranslations,
+  de: germanTranslations,
+  fr: frenchTranslations,
+  es: spanishTranslations,
+  it: italianTranslations,
 };
 
 /**
