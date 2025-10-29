@@ -86,7 +86,7 @@ class AudioServiceImpl implements IAudioService {
         }
       }
 
-      // ✅ КИТАЙСКИЙ, РУССКИЙ и АНГЛИЙСКИЙ - TTS
+      // ✅ TTS для всех языков
       let languageCode = 'en-US'; // По умолчанию английский
       if (language === 'chinese') {
         languageCode = 'zh-CN';
@@ -94,9 +94,28 @@ class AudioServiceImpl implements IAudioService {
         languageCode = 'ru-RU';
       }
 
-      // Оптимизированные параметры для более естественного звучания
-      const ttsRate = language === 'russian' ? 0.92 : 0.85;  // Русский быстрее
-      const ttsPitch = language === 'russian' ? 0.95 : 1.0;  // Русский чуть ниже
+      // Оптимизированные параметры для более естественного звучания каждого языка
+      let ttsRate = 0.9;   // Базовая скорость
+      let ttsPitch = 1.0;  // Базовая высота
+
+      // Индивидуальные настройки для каждого языка
+      switch (language) {
+        case 'russian':
+          ttsRate = 0.92;
+          ttsPitch = 0.95;
+          break;
+        case 'chinese':
+          ttsRate = 0.88;
+          ttsPitch = 1.0;
+          break;
+        case 'english':
+          ttsRate = 0.92;
+          ttsPitch = 1.0;
+          break;
+        default:
+          ttsRate = 0.9;
+          ttsPitch = 1.0;
+      }
 
       await Speech.speak(text, {
         language: languageCode,
