@@ -938,7 +938,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
 
   const setLanguageMode = async (mode: AppLanguageMode, shouldSave: boolean = true) => {
     try {
-      if (!['tk', 'zh', 'ru', 'en'].includes(mode)) {
+      if (!['tk', 'zh', 'ru', 'en', 'tr', 'de', 'fr', 'es', 'it', 'pt', 'nl', 'pl', 'uk'].includes(mode)) {
         throw new Error(`Invalid language mode: ${mode}`);
       }
 
