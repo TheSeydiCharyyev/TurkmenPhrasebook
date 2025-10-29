@@ -14,13 +14,11 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { LANGUAGES, getLanguageProgress } from '../config/languages.config';
 import { useConfig } from '../contexts/ConfigContext';
-import { useAppLanguage } from '../contexts/LanguageContext';
-
-type AppLanguageMode = 'tk' | 'zh'; // Старый тип для обратной совместимости
+import { useAppLanguage, AppLanguageMode } from '../contexts/LanguageContext';
 
 interface LanguageSelectionScreenProps {
   navigation?: any;
-  onLanguageSelect?: (language: AppLanguageMode, shouldSave: boolean) => void; // Для обратной совместимости
+  onLanguageSelect?: (language: AppLanguageMode, shouldSave: boolean) => void;
 }
 
 export default function LanguageSelectionScreen({ navigation, onLanguageSelect }: LanguageSelectionScreenProps) {
@@ -53,8 +51,9 @@ export default function LanguageSelectionScreen({ navigation, onLanguageSelect }
 
       // Для обратной совместимости: используем onLanguageSelect если передан
       if (onLanguageSelect) {
-        // Конвертируем код в AppLanguageMode (только 'tk' или 'zh' поддерживается)
-        if (code === 'tk' || code === 'zh') {
+        // Конвертируем код в AppLanguageMode (все языки поддерживаются)
+        const validLanguages: AppLanguageMode[] = ['tk', 'zh', 'ru', 'en', 'tr', 'de', 'fr', 'es', 'it', 'pt', 'nl', 'pl', 'uk'];
+        if (validLanguages.includes(code as AppLanguageMode)) {
           onLanguageSelect(code as AppLanguageMode, true);
         }
         return;
