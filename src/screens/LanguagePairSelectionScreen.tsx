@@ -274,6 +274,14 @@ const LanguagePairSelectionScreen: React.FC = () => {
       flag: '🇦🇲',
       gradient: ['#D90012', '#0033A0'],
     },
+    {
+      id: 'ka-tk',
+      code: 'ka',
+      name: 'ქართული',
+      nameEn: 'Georgian',
+      flag: '🇬🇪',
+      gradient: ['#FFFFFF', '#FF0000'],
+    },
   ];
 
   const handleSelect = async (pair: LanguagePair) => {
@@ -442,6 +450,12 @@ const LanguagePairSelectionScreen: React.FC = () => {
         zh: '亚美尼亚语 - 土库曼语',
         ru: 'Армянский - Туркменский',
         en: 'Armenian - Turkmen',
+      },
+      ka: {
+        tk: 'Gruzin - Türkmen',
+        zh: '格鲁吉亚语 - 土库曼语',
+        ru: 'Грузинский - Туркменский',
+        en: 'Georgian - Turkmen',
       },
     };
 
