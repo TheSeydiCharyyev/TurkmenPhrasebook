@@ -4,13 +4,13 @@ This document tracks the progress of creating phrasebook content (phrase transla
 
 **Goal:** Create **30 phrasebooks** (30 languages paired with Turkmen)
 
-**Current Progress:** 18/30 phrasebooks (60%)
+**Current Progress:** 19/30 phrasebooks (63%)
 
 **Total Phrases per Language:** 305 phrases
 
 ---
 
-## ✅ Completed Phrasebooks (18)
+## ✅ Completed Phrasebooks (19)
 
 | # | Code | Language Pair | Native Names | Phrases | Status | Completed Date |
 |---|------|---------------|--------------|---------|--------|----------------|
@@ -32,6 +32,7 @@ This document tracks the progress of creating phrasebook content (phrase transla
 | 16 | `kk` | Kazakh-Turkmen | Қазақ ↔ Türkmençe | 305/305 | ✅ Ready | 2025-10-31 |
 | 17 | `ky` | Kyrgyz-Turkmen | Кыргыз ↔ Türkmençe | 305/305 | ✅ Ready | 2025-10-31 |
 | 18 | `tg` | Tajik-Turkmen | Тоҷикӣ ↔ Türkmençe | 305/305 | ✅ Ready | 2025-10-31 |
+| 19 | `uk` | Ukrainian-Turkmen | Українська ↔ Türkmençe | 305/305 | ✅ Ready | 2025-10-31 |
 
 **Files:**
 - `src/data/languages/base.ts` - Base Turkmen phrases (305)
@@ -53,6 +54,7 @@ This document tracks the progress of creating phrasebook content (phrase transla
 - `src/data/languages/translations/kazakh.ts` - Kazakh translations
 - `src/data/languages/translations/kyrgyz.ts` - Kyrgyz translations
 - `src/data/languages/translations/tajik.ts` - Tajik translations
+- `src/data/languages/translations/ukrainian.ts` - Ukrainian translations
 
 ---
 
@@ -62,7 +64,7 @@ _No phrasebooks currently in progress_
 
 ---
 
-## 📋 Pending Phrasebooks (12)
+## 📋 Pending Phrasebooks (11)
 
 ### Asian Languages (7)
 
@@ -83,11 +85,10 @@ _No phrasebooks currently in progress_
 | 13 | `fa` | Persian-Turkmen | فارسی ↔ Türkmençe | 0/305 | Medium | RTL + romanization |
 | 14 | `ps` | Pashto-Turkmen | پښتو ↔ Türkmençe | 0/305 | Low | RTL + romanization |
 
-### Caucasus & Eastern Europe (3)
+### Caucasus & Eastern Europe (2)
 
 | # | Code | Language Pair | Native Names | Phrases | Priority | Notes |
 |---|------|---------------|--------------|---------|----------|-------|
-| 23 | `uk` | Ukrainian-Turkmen | Українська ↔ Türkmençe | 0/305 | Medium | Needs romanization |
 | 24 | `hy` | Armenian-Turkmen | Հայերեն ↔ Türkmençe | 0/305 | Low | Needs romanization |
 | 25 | `ka` | Georgian-Turkmen | ქართული ↔ Türkmençe | 0/305 | Low | Needs romanization |
 
@@ -176,22 +177,22 @@ Set `isAvailable: true` in `src/config/languages.config.ts`
 - **Asia:** 2/9 completed, 7 pending (22%)
 - **Middle East:** 0/2 completed, 2 pending (0%)
 - **Europe:** 8/8 completed, 0 pending (100%) ✅ **COMPLETE!**
-- **Caucasus/Eastern Europe:** 0/3 completed, 3 pending (0%)
+- **Caucasus/Eastern Europe:** 1/3 completed, 2 pending (33%)
 - **Central Asia:** 5/5 completed, 0 pending (100%) ✅ **COMPLETE!**
 
 ### By Priority
 - **High Priority:** 9/9 completed, 0 pending (100%) ✅ **COMPLETE!**
-- **Medium Priority:** 4/11 completed, 7 pending (36%)
+- **Medium Priority:** 5/11 completed, 6 pending (45%)
 - **Low Priority:** 2/7 completed, 5 pending (29%)
 
 ### Total Progress
-**Completed:** 18/30 (60%)
+**Completed:** 19/30 (63%)
 **In Progress:** 0/30 (0%)
-**Pending:** 12/30 (40%)
+**Pending:** 11/30 (37%)
 
 **Total Phrases:**
-- **Completed:** 5,490/9,150 phrases (60%)
-- **Pending:** 3,660/9,150 phrases (40%)
+- **Completed:** 5,795/9,150 phrases (63%)
+- **Pending:** 3,355/9,150 phrases (37%)
 
 ---
 
@@ -214,13 +215,13 @@ Set `isAvailable: true` in `src/config/languages.config.ts`
 ### Phase 3: Medium Priority Languages (7 languages)
 3. ✅ Kyrgyz-Turkmen (ky-tk) - 305 phrases
 4. ✅ Tajik-Turkmen (tg-tk) - 305 phrases
-5. Thai-Turkmen (th-tk)
-6. Vietnamese-Turkmen (vi-tk)
-7. Indonesian-Turkmen (id-tk)
-8. Hindi-Turkmen (hi-tk)
-9. Arabic-Turkmen (ar-tk)
-10. Persian-Turkmen (fa-tk)
-11. Ukrainian-Turkmen (uk-tk)
+5. ✅ Ukrainian-Turkmen (uk-tk) - 305 phrases
+6. Thai-Turkmen (th-tk)
+7. Vietnamese-Turkmen (vi-tk)
+8. Indonesian-Turkmen (id-tk)
+9. Hindi-Turkmen (hi-tk)
+10. Arabic-Turkmen (ar-tk)
+11. Persian-Turkmen (fa-tk)
 
 ### Phase 4: Low Priority Languages (7 languages)
 13. Malay-Turkmen (ms-tk)
@@ -323,3 +324,8 @@ Each phrase should eventually have:
 - 18/30 languages completed (60%)
 - 5,490/9,150 phrases translated
 - 2 out of 3 regional groups fully complete!
+
+**UKRAINIAN ADDED!** 🇺🇦
+- 19/30 languages completed (63%)
+- 5,795/9,150 phrases translated
+- First Eastern European language added!
