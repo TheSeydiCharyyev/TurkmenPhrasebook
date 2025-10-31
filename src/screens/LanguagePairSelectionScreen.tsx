@@ -202,6 +202,14 @@ const LanguagePairSelectionScreen: React.FC = () => {
       flag: '🇹🇭',
       gradient: ['#ED1C24', '#FFFFFF'],
     },
+    {
+      id: 'vi-tk',
+      code: 'vi',
+      name: 'Tiếng Việt',
+      nameEn: 'Vietnamese',
+      flag: '🇻🇳',
+      gradient: ['#DA251D', '#FFCD00'],
+    },
   ];
 
   const handleSelect = async (pair: LanguagePair) => {

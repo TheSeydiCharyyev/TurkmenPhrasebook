@@ -4,13 +4,13 @@ This document tracks the progress of creating phrasebook content (phrase transla
 
 **Goal:** Create **30 phrasebooks** (30 languages paired with Turkmen)
 
-**Current Progress:** 20/30 phrasebooks (67%)
+**Current Progress:** 21/30 phrasebooks (70%)
 
 **Total Phrases per Language:** 305 phrases
 
 ---
 
-## ✅ Completed Phrasebooks (20)
+## ✅ Completed Phrasebooks (21)
 
 | # | Code | Language Pair | Native Names | Phrases | Status | Completed Date |
 |---|------|---------------|--------------|---------|--------|----------------|
@@ -34,6 +34,7 @@ This document tracks the progress of creating phrasebook content (phrase transla
 | 18 | `tg` | Tajik-Turkmen | Тоҷикӣ ↔ Türkmençe | 305/305 | ✅ Ready | 2025-10-31 |
 | 19 | `uk` | Ukrainian-Turkmen | Українська ↔ Türkmençe | 305/305 | ✅ Ready | 2025-10-31 |
 | 20 | `th` | Thai-Turkmen | ไทย ↔ Türkmençe | 305/305 | ✅ Ready | 2025-10-31 |
+| 21 | `vi` | Vietnamese-Turkmen | Tiếng Việt ↔ Türkmençe | 305/305 | ✅ Ready | 2025-10-31 |
 
 **Files:**
 - `src/data/languages/base.ts` - Base Turkmen phrases (305)
@@ -57,6 +58,7 @@ This document tracks the progress of creating phrasebook content (phrase transla
 - `src/data/languages/translations/tajik.ts` - Tajik translations
 - `src/data/languages/translations/ukrainian.ts` - Ukrainian translations
 - `src/data/languages/translations/thai.ts` - Thai translations
+- `src/data/languages/translations/vietnamese.ts` - Vietnamese translations
 
 ---
 
@@ -66,13 +68,12 @@ _No phrasebooks currently in progress_
 
 ---
 
-## 📋 Pending Phrasebooks (10)
+## 📋 Pending Phrasebooks (9)
 
-### Asian Languages (6)
+### Asian Languages (5)
 
 | # | Code | Language Pair | Native Names | Phrases | Priority | Notes |
 |---|------|---------------|--------------|---------|----------|-------|
-| 13 | `vi` | Vietnamese-Turkmen | Tiếng Việt ↔ Türkmençe | 0/305 | Medium | - |
 | 14 | `id` | Indonesian-Turkmen | Bahasa Indonesia ↔ Türkmençe | 0/305 | Medium | - |
 | 15 | `ms` | Malay-Turkmen | Bahasa Melayu ↔ Türkmençe | 0/305 | Low | - |
 | 16 | `hi` | Hindi-Turkmen | हिन्दी ↔ Türkmençe | 0/305 | Medium | Needs Devanagari + romanization |
@@ -175,7 +176,7 @@ Set `isAvailable: true` in `src/config/languages.config.ts`
 ## 📊 Progress Tracking
 
 ### By Region
-- **Asia:** 3/9 completed, 6 pending (33%)
+- **Asia:** 4/9 completed, 5 pending (44%)
 - **Middle East:** 0/2 completed, 2 pending (0%)
 - **Europe:** 8/8 completed, 0 pending (100%) ✅ **COMPLETE!**
 - **Caucasus/Eastern Europe:** 1/3 completed, 2 pending (33%)
@@ -183,17 +184,17 @@ Set `isAvailable: true` in `src/config/languages.config.ts`
 
 ### By Priority
 - **High Priority:** 9/9 completed, 0 pending (100%) ✅ **COMPLETE!**
-- **Medium Priority:** 6/11 completed, 5 pending (55%)
+- **Medium Priority:** 7/11 completed, 4 pending (64%)
 - **Low Priority:** 2/7 completed, 5 pending (29%)
 
 ### Total Progress
-**Completed:** 20/30 (67%)
+**Completed:** 21/30 (70%)
 **In Progress:** 0/30 (0%)
-**Pending:** 10/30 (33%)
+**Pending:** 9/30 (30%)
 
 **Total Phrases:**
-- **Completed:** 6,100/9,150 phrases (67%)
-- **Pending:** 3,050/9,150 phrases (33%)
+- **Completed:** 6,405/9,150 phrases (70%)
+- **Pending:** 2,745/9,150 phrases (30%)
 
 ---
 
@@ -218,7 +219,7 @@ Set `isAvailable: true` in `src/config/languages.config.ts`
 4. ✅ Tajik-Turkmen (tg-tk) - 305 phrases
 5. ✅ Ukrainian-Turkmen (uk-tk) - 305 phrases
 6. ✅ Thai-Turkmen (th-tk) - 305 phrases
-7. Vietnamese-Turkmen (vi-tk)
+7. ✅ Vietnamese-Turkmen (vi-tk) - 305 phrases
 8. Indonesian-Turkmen (id-tk)
 9. Hindi-Turkmen (hi-tk)
 10. Arabic-Turkmen (ar-tk)
@@ -336,3 +337,9 @@ Each phrase should eventually have:
 - 6,100/9,150 phrases translated
 - First Southeast Asian language added!
 - 2/3 of project complete!
+
+**VIETNAMESE ADDED!** 🇻🇳
+- 21/30 languages completed (70%)
+- 6,405/9,150 phrases translated
+- 70% MILESTONE REACHED!
+- Only 9 languages left!
