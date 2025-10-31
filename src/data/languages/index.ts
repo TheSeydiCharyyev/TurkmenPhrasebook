@@ -1,5 +1,5 @@
 // AUTO-GENERATED: Агрегация переводов
-// Updated: 2025-10-30 - European languages complete: Added 3 languages (pl, pt, nl)
+// Updated: 2025-10-31 - Added Azerbaijani (az), Kazakh (kk), and Kyrgyz (ky)
 import { chineseTranslations } from './translations/chinese';
 import { russianTranslations } from './translations/russian';
 import { englishTranslations } from './translations/english';
@@ -14,6 +14,9 @@ import { koreanTranslations } from './translations/korean';
 import { polishTranslations } from './translations/polish';
 import { portugueseTranslations } from './translations/portuguese';
 import { dutchTranslations } from './translations/dutch';
+import { azerbaijaniTranslations } from './translations/azerbaijani';
+import { kazakhTranslations } from './translations/kazakh';
+import { kyrgyzTranslations } from './translations/kyrgyz';
 import { LanguageTranslation } from '../../types';
 
 const translationsMap: Record<string, LanguageTranslation[]> = {
@@ -31,6 +34,9 @@ const translationsMap: Record<string, LanguageTranslation[]> = {
   pl: polishTranslations,
   pt: portugueseTranslations,
   nl: dutchTranslations,
+  az: azerbaijaniTranslations,
+  kk: kazakhTranslations,
+  ky: kyrgyzTranslations,
 };
 
 /**
