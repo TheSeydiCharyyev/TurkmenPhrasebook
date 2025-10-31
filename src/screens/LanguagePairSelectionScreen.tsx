@@ -210,6 +210,30 @@ const LanguagePairSelectionScreen: React.FC = () => {
       flag: '🇻🇳',
       gradient: ['#DA251D', '#FFCD00'],
     },
+    {
+      id: 'id-tk',
+      code: 'id',
+      name: 'Bahasa Indonesia',
+      nameEn: 'Indonesian',
+      flag: '🇮🇩',
+      gradient: ['#FF0000', '#FFFFFF'],
+    },
+    {
+      id: 'hi-tk',
+      code: 'hi',
+      name: 'हिन्दी',
+      nameEn: 'Hindi',
+      flag: '🇮🇳',
+      gradient: ['#FF9933', '#138808'],
+    },
+    {
+      id: 'ar-tk',
+      code: 'ar',
+      name: 'العربية',
+      nameEn: 'Arabic',
+      flag: '🇸🇦',
+      gradient: ['#006C35', '#FFFFFF'],
+    },
   ];
 
   const handleSelect = async (pair: LanguagePair) => {
@@ -330,6 +354,24 @@ const LanguagePairSelectionScreen: React.FC = () => {
         zh: '韩语 - 土库曼语',
         ru: 'Корейский - Туркменский',
         en: 'Korean - Turkmen',
+      },
+      id: {
+        tk: 'Indoneziýa - Türkmen',
+        zh: '印尼语 - 土库曼语',
+        ru: 'Индонезийский - Туркменский',
+        en: 'Indonesian - Turkmen',
+      },
+      hi: {
+        tk: 'Hindi - Türkmen',
+        zh: '印地语 - 土库曼语',
+        ru: 'Хинди - Туркменский',
+        en: 'Hindi - Turkmen',
+      },
+      ar: {
+        tk: 'Arap - Türkmen',
+        zh: '阿拉伯语 - 土库曼语',
+        ru: 'Арабский - Туркменский',
+        en: 'Arabic - Turkmen',
       },
     };
 

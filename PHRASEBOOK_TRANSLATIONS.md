@@ -4,13 +4,13 @@ This document tracks the progress of creating phrasebook content (phrase transla
 
 **Goal:** Create **30 phrasebooks** (30 languages paired with Turkmen)
 
-**Current Progress:** 21/30 phrasebooks (70%)
+**Current Progress:** 24/30 phrasebooks (80%)
 
 **Total Phrases per Language:** 305 phrases
 
 ---
 
-## ✅ Completed Phrasebooks (21)
+## ✅ Completed Phrasebooks (24)
 
 | # | Code | Language Pair | Native Names | Phrases | Status | Completed Date |
 |---|------|---------------|--------------|---------|--------|----------------|
@@ -35,6 +35,9 @@ This document tracks the progress of creating phrasebook content (phrase transla
 | 19 | `uk` | Ukrainian-Turkmen | Українська ↔ Türkmençe | 305/305 | ✅ Ready | 2025-10-31 |
 | 20 | `th` | Thai-Turkmen | ไทย ↔ Türkmençe | 305/305 | ✅ Ready | 2025-10-31 |
 | 21 | `vi` | Vietnamese-Turkmen | Tiếng Việt ↔ Türkmençe | 305/305 | ✅ Ready | 2025-10-31 |
+| 22 | `id` | Indonesian-Turkmen | Bahasa Indonesia ↔ Türkmençe | 305/305 | ✅ Ready | 2025-10-31 |
+| 23 | `hi` | Hindi-Turkmen | हिन्दी ↔ Türkmençe | 305/305 | ✅ Ready | 2025-10-31 |
+| 24 | `ar` | Arabic-Turkmen | العربية ↔ Türkmençe | 305/305 | ✅ Ready | 2025-10-31 |
 
 **Files:**
 - `src/data/languages/base.ts` - Base Turkmen phrases (305)
@@ -59,6 +62,9 @@ This document tracks the progress of creating phrasebook content (phrase transla
 - `src/data/languages/translations/ukrainian.ts` - Ukrainian translations
 - `src/data/languages/translations/thai.ts` - Thai translations
 - `src/data/languages/translations/vietnamese.ts` - Vietnamese translations
+- `src/data/languages/translations/indonesian.ts` - Indonesian translations
+- `src/data/languages/translations/hindi.ts` - Hindi translations
+- `src/data/languages/translations/arabic.ts` - Arabic translations
 
 ---
 
@@ -68,17 +74,14 @@ _No phrasebooks currently in progress_
 
 ---
 
-## 📋 Pending Phrasebooks (9)
+## 📋 Pending Phrasebooks (6)
 
-### Asian Languages (5)
+### Asian Languages (2)
 
 | # | Code | Language Pair | Native Names | Phrases | Priority | Notes |
 |---|------|---------------|--------------|---------|----------|-------|
-| 14 | `id` | Indonesian-Turkmen | Bahasa Indonesia ↔ Türkmençe | 0/305 | Medium | - |
-| 15 | `ms` | Malay-Turkmen | Bahasa Melayu ↔ Türkmençe | 0/305 | Low | - |
-| 16 | `hi` | Hindi-Turkmen | हिन्दी ↔ Türkmençe | 0/305 | Medium | Needs Devanagari + romanization |
-| 17 | `ur` | Urdu-Turkmen | اردو ↔ Türkmençe | 0/305 | Low | RTL + romanization |
-| 18 | `ar` | Arabic-Turkmen | العربية ↔ Türkmençe | 0/305 | Medium | RTL + romanization |
+| 14 | `ms` | Malay-Turkmen | Bahasa Melayu ↔ Türkmençe | 0/305 | Low | - |
+| 15 | `ur` | Urdu-Turkmen | اردو ↔ Türkmençe | 0/305 | Low | RTL + romanization |
 
 ### Middle Eastern Languages (2)
 
@@ -176,25 +179,25 @@ Set `isAvailable: true` in `src/config/languages.config.ts`
 ## 📊 Progress Tracking
 
 ### By Region
-- **Asia:** 4/9 completed, 5 pending (44%)
-- **Middle East:** 0/2 completed, 2 pending (0%)
+- **Asia:** 6/9 completed, 3 pending (67%)
+- **Middle East:** 1/2 completed, 1 pending (50%)
 - **Europe:** 8/8 completed, 0 pending (100%) ✅ **COMPLETE!**
 - **Caucasus/Eastern Europe:** 1/3 completed, 2 pending (33%)
 - **Central Asia:** 5/5 completed, 0 pending (100%) ✅ **COMPLETE!**
 
 ### By Priority
 - **High Priority:** 9/9 completed, 0 pending (100%) ✅ **COMPLETE!**
-- **Medium Priority:** 7/11 completed, 4 pending (64%)
+- **Medium Priority:** 10/11 completed, 1 pending (91%)
 - **Low Priority:** 2/7 completed, 5 pending (29%)
 
 ### Total Progress
-**Completed:** 21/30 (70%)
+**Completed:** 24/30 (80%)
 **In Progress:** 0/30 (0%)
-**Pending:** 9/30 (30%)
+**Pending:** 6/30 (20%)
 
 **Total Phrases:**
-- **Completed:** 6,405/9,150 phrases (70%)
-- **Pending:** 2,745/9,150 phrases (30%)
+- **Completed:** 7,320/9,150 phrases (80%)
+- **Pending:** 1,830/9,150 phrases (20%)
 
 ---
 
@@ -220,9 +223,9 @@ Set `isAvailable: true` in `src/config/languages.config.ts`
 5. ✅ Ukrainian-Turkmen (uk-tk) - 305 phrases
 6. ✅ Thai-Turkmen (th-tk) - 305 phrases
 7. ✅ Vietnamese-Turkmen (vi-tk) - 305 phrases
-8. Indonesian-Turkmen (id-tk)
-9. Hindi-Turkmen (hi-tk)
-10. Arabic-Turkmen (ar-tk)
+8. ✅ Indonesian-Turkmen (id-tk) - 305 phrases
+9. ✅ Hindi-Turkmen (hi-tk) - 305 phrases
+10. ✅ Arabic-Turkmen (ar-tk) - 305 phrases
 11. Persian-Turkmen (fa-tk)
 
 ### Phase 4: Low Priority Languages (7 languages)
@@ -296,7 +299,7 @@ Each phrase should eventually have:
 ---
 
 **Last Updated:** 2025-10-31
-**Next Review:** After starting Phase 3 (Medium Priority Languages)
+**Next Review:** After completing Phase 3 (Medium Priority Languages)
 
 ---
 
@@ -343,3 +346,24 @@ Each phrase should eventually have:
 - 6,405/9,150 phrases translated
 - 70% MILESTONE REACHED!
 - Only 9 languages left!
+
+**INDONESIAN ADDED!** 🇮🇩
+- 22/30 languages completed (73%)
+- 6,710/9,150 phrases translated
+- First Southeast Asian language added (Indonesian)!
+- Over 2/3 of project complete!
+- Only 8 languages left!
+
+**HINDI ADDED!** 🇮🇳
+- 23/30 languages completed (77%)
+- 7,015/9,150 phrases translated
+- Hindi with Devanagari script + romanization!
+- Over 3/4 of project complete!
+- Only 7 languages left!
+
+**ARABIC ADDED!** 🇸🇦
+- 24/30 languages completed (80%)
+- 7,320/9,150 phrases translated
+- Arabic with RTL script + romanization!
+- 80% MILESTONE REACHED!
+- Only 6 languages left!
