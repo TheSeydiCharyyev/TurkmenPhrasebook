@@ -194,6 +194,14 @@ const LanguagePairSelectionScreen: React.FC = () => {
       flag: '🇺🇦',
       gradient: ['#0057B7', '#FFD700'],
     },
+    {
+      id: 'th-tk',
+      code: 'th',
+      name: 'ไทย',
+      nameEn: 'Thai',
+      flag: '🇹🇭',
+      gradient: ['#ED1C24', '#FFFFFF'],
+    },
   ];
 
   const handleSelect = async (pair: LanguagePair) => {
