@@ -1,5 +1,5 @@
 // AUTO-GENERATED: Агрегация переводов
-// Updated: 2025-10-31 - Added Persian
+// Updated: 2025-10-31 - Added Malay
 import { chineseTranslations } from './translations/chinese';
 import { russianTranslations } from './translations/russian';
 import { englishTranslations } from './translations/english';
@@ -25,6 +25,7 @@ import { indonesianTranslations } from './translations/indonesian';
 import { hindiTranslations } from './translations/hindi';
 import { arabicTranslations } from './translations/arabic';
 import { persianTranslations } from './translations/persian';
+import { malayTranslations } from './translations/malay';
 import { LanguageTranslation } from '../../types';
 
 const translationsMap: Record<string, LanguageTranslation[]> = {
@@ -53,6 +54,7 @@ const translationsMap: Record<string, LanguageTranslation[]> = {
   hi: hindiTranslations,
   ar: arabicTranslations,
   fa: persianTranslations,
+  ms: malayTranslations,
 };
 
 /**

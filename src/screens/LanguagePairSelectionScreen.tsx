@@ -242,6 +242,14 @@ const LanguagePairSelectionScreen: React.FC = () => {
       flag: '🇮🇷',
       gradient: ['#239F40', '#DA0000'],
     },
+    {
+      id: 'ms-tk',
+      code: 'ms',
+      name: 'Bahasa Melayu',
+      nameEn: 'Malay',
+      flag: '🇲🇾',
+      gradient: ['#010066', '#CC0001'],
+    },
   ];
 
   const handleSelect = async (pair: LanguagePair) => {
@@ -386,6 +394,12 @@ const LanguagePairSelectionScreen: React.FC = () => {
         zh: '波斯语 - 土库曼语',
         ru: 'Персидский - Туркменский',
         en: 'Persian - Turkmen',
+      },
+      ms: {
+        tk: 'Malaý - Türkmen',
+        zh: '马来语 - 土库曼语',
+        ru: 'Малайский - Туркменский',
+        en: 'Malay - Turkmen',
       },
     };
 
