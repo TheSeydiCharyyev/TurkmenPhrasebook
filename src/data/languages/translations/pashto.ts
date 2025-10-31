@@ -305,7 +305,7 @@ export const pashtoTranslations: LanguageTranslation[] = [
   { phraseId: "phrase_273", text: "نارنجي", transcription: "Naaranji" },
   { phraseId: "phrase_274", text: "ګلابي", transcription: "Gulaabi" },
   { phraseId: "phrase_275", text: "نسواري", transcription: "Naswaari" },
-  { phraseId: "phrase_276", text: "ارغواني", transcription:: "Arghwaani" },
+  { phraseId: "phrase_276", text: "ارغواني", transcription: "Arghwaani" },
   { phraseId: "phrase_277", text: "خاکستري", transcription: "Khaakistari" },
 
   // Directions (18 phrases)
