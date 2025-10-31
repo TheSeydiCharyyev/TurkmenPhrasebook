@@ -1,5 +1,5 @@
 // AUTO-GENERATED: Агрегация переводов
-// Updated: 2025-10-31 - Added Azerbaijani (az), Kazakh (kk), and Kyrgyz (ky)
+// Updated: 2025-10-31 - Central Asia complete: Added Azerbaijani, Kazakh, Kyrgyz, Tajik
 import { chineseTranslations } from './translations/chinese';
 import { russianTranslations } from './translations/russian';
 import { englishTranslations } from './translations/english';
@@ -17,6 +17,7 @@ import { dutchTranslations } from './translations/dutch';
 import { azerbaijaniTranslations } from './translations/azerbaijani';
 import { kazakhTranslations } from './translations/kazakh';
 import { kyrgyzTranslations } from './translations/kyrgyz';
+import { tajikTranslations } from './translations/tajik';
 import { LanguageTranslation } from '../../types';
 
 const translationsMap: Record<string, LanguageTranslation[]> = {
@@ -37,6 +38,7 @@ const translationsMap: Record<string, LanguageTranslation[]> = {
   az: azerbaijaniTranslations,
   kk: kazakhTranslations,
   ky: kyrgyzTranslations,
+  tg: tajikTranslations,
 };
 
 /**
