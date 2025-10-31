@@ -1,5 +1,5 @@
 // AUTO-GENERATED: Агрегация переводов
-// Updated: 2025-10-31 - Added Ukrainian
+// Updated: 2025-10-31 - Added Thai
 import { chineseTranslations } from './translations/chinese';
 import { russianTranslations } from './translations/russian';
 import { englishTranslations } from './translations/english';
@@ -19,6 +19,7 @@ import { kazakhTranslations } from './translations/kazakh';
 import { kyrgyzTranslations } from './translations/kyrgyz';
 import { tajikTranslations } from './translations/tajik';
 import { ukrainianTranslations } from './translations/ukrainian';
+import { thaiTranslations } from './translations/thai';
 import { LanguageTranslation } from '../../types';
 
 const translationsMap: Record<string, LanguageTranslation[]> = {
@@ -41,6 +42,7 @@ const translationsMap: Record<string, LanguageTranslation[]> = {
   ky: kyrgyzTranslations,
   tg: tajikTranslations,
   uk: ukrainianTranslations,
+  th: thaiTranslations,
 };
 
 /**
