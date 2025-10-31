@@ -250,6 +250,30 @@ const LanguagePairSelectionScreen: React.FC = () => {
       flag: '🇲🇾',
       gradient: ['#010066', '#CC0001'],
     },
+    {
+      id: 'ur-tk',
+      code: 'ur',
+      name: 'اردو',
+      nameEn: 'Urdu',
+      flag: '🇵🇰',
+      gradient: ['#01411C', '#115740'],
+    },
+    {
+      id: 'ps-tk',
+      code: 'ps',
+      name: 'پښتو',
+      nameEn: 'Pashto',
+      flag: '🇦🇫',
+      gradient: ['#000000', '#D32011'],
+    },
+    {
+      id: 'hy-tk',
+      code: 'hy',
+      name: 'Հայերեն',
+      nameEn: 'Armenian',
+      flag: '🇦🇲',
+      gradient: ['#D90012', '#0033A0'],
+    },
   ];
 
   const handleSelect = async (pair: LanguagePair) => {
@@ -400,6 +424,24 @@ const LanguagePairSelectionScreen: React.FC = () => {
         zh: '马来语 - 土库曼语',
         ru: 'Малайский - Туркменский',
         en: 'Malay - Turkmen',
+      },
+      ur: {
+        tk: 'Urdu - Türkmen',
+        zh: '乌尔都语 - 土库曼语',
+        ru: 'Урду - Туркменский',
+        en: 'Urdu - Turkmen',
+      },
+      ps: {
+        tk: 'Pашto - Türkmen',
+        zh: '普什图语 - 土库曼语',
+        ru: 'Пушту - Туркменский',
+        en: 'Pashto - Turkmen',
+      },
+      hy: {
+        tk: 'Ermeni - Türkmen',
+        zh: '亚美尼亚语 - 土库曼语',
+        ru: 'Армянский - Туркменский',
+        en: 'Armenian - Turkmen',
       },
     };
 

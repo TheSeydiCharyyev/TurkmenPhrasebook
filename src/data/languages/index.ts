@@ -26,6 +26,9 @@ import { hindiTranslations } from './translations/hindi';
 import { arabicTranslations } from './translations/arabic';
 import { persianTranslations } from './translations/persian';
 import { malayTranslations } from './translations/malay';
+import { urduTranslations } from './translations/urdu';
+import { pashtoTranslations } from './translations/pashto';
+import { armenianTranslations } from './translations/armenian';
 import { LanguageTranslation } from '../../types';
 
 const translationsMap: Record<string, LanguageTranslation[]> = {
@@ -55,6 +58,9 @@ const translationsMap: Record<string, LanguageTranslation[]> = {
   ar: arabicTranslations,
   fa: persianTranslations,
   ms: malayTranslations,
+  ur: urduTranslations,
+  ps: pashtoTranslations,
+  hy: armenianTranslations,
 };
 
 /**
