@@ -234,6 +234,14 @@ const LanguagePairSelectionScreen: React.FC = () => {
       flag: '🇸🇦',
       gradient: ['#006C35', '#FFFFFF'],
     },
+    {
+      id: 'fa-tk',
+      code: 'fa',
+      name: 'فارسی',
+      nameEn: 'Persian',
+      flag: '🇮🇷',
+      gradient: ['#239F40', '#DA0000'],
+    },
   ];
 
   const handleSelect = async (pair: LanguagePair) => {
@@ -372,6 +380,12 @@ const LanguagePairSelectionScreen: React.FC = () => {
         zh: '阿拉伯语 - 土库曼语',
         ru: 'Арабский - Туркменский',
         en: 'Arabic - Turkmen',
+      },
+      fa: {
+        tk: 'Pars - Türkmen',
+        zh: '波斯语 - 土库曼语',
+        ru: 'Персидский - Туркменский',
+        en: 'Persian - Turkmen',
       },
     };
 
