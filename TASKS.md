@@ -1,36 +1,45 @@
 # 📋 TASKS - TurkmenPhrasebook
 
 **Last Updated:** November 2, 2025
-**Status:** Phase 1-7 UI Improvements → Phase 8-9 Testing & Production
+**Status:** Phase 1 ✅ 90% (Language Selection + Onboarding) → Phase 2-7 UI Improvements → Phase 8-9 Testing & Production
 
 ---
 
 ## 🎯 WHAT'S LEFT TO DO
 
-### **PHASE 1: Исправить начальный экран выбора языка** (⏳ 0%)
+### **PHASE 1: Исправить начальный экран выбора языка + Onboarding** (✅ 90%)
 
-**Проблемы:**
+**✅ Выполнено:**
 
-1. **Показывает "31/31 languages available"** - но в документации сказано 30 языков
-   - Файл: `src/screens/LanguageSelectionScreen.tsx` (строка 203)
-   - Непонятно сколько языков на самом деле: 30 или 31?
+1. ✅ **Убран прогресс бар** "31/31 languages available"
+   - 31 язык = язык интерфейса (правильно)
+   - 30 языков = пары разговорника Turkmen-X (правильно)
 
-2. **Footer внизу экрана устарел**
-   - Файл: `src/screens/LanguageSelectionScreen.tsx` (строка 222)
-   - Текст: "New languages are added regularly via OTA updates"
-   - Проблема: Все языки уже добавлены, сообщение неактуально
+2. ✅ **Убран устаревший footer** "New languages are added regularly via OTA updates"
 
-3. **Комментарии в коде не совпадают с реальностью**
-   - Файл: `src/config/languages.config.ts` (строки 2, 6)
-   - Написано: "Конфигурация всех 30 поддерживаемых языков"
-   - В массиве LANGUAGES реально 31 язык
+3. ✅ **Улучшен дизайн Language Selection Screen:**
+   - Добавлен поиск языков
+   - Увеличены флаги (44px)
+   - Белые карточки с тенями
+   - Более яркие цвета и анимации
 
-**Файлы для проверки:**
-- `src/screens/LanguageSelectionScreen.tsx`
-- `src/config/languages.config.ts`
-- `src/data/languages/translations/` (30 файлов переводов)
+4. ✅ **БОНУС: Создан Onboarding Screen:**
+   - 5 интерактивных слайдов с градиентами
+   - Демо всех функций (Phrasebook, Translator, Dictionary, AI)
+   - Интеграция в навигацию (Language Selection → Onboarding → MainHub)
+   - AsyncStorage для отслеживания первого запуска
 
-**Оценка времени:** 30 минут
+**⏳ TODO (улучшение дизайна):**
+- ⚠️ Улучшить дизайн Language Selection Screen
+- ⚠️ Улучшить дизайн Onboarding Screen
+- ⏳ Обновить комментарии в `src/config/languages.config.ts`
+
+**Измененные файлы:**
+- `src/screens/LanguageSelectionScreen.tsx` (обновлен)
+- `src/screens/OnboardingScreen.tsx` (создан)
+- `src/contexts/ConfigContext.tsx` (добавлен onboardingCompleted)
+- `src/navigation/AppNavigator.tsx` (добавлена логика onboarding)
+- `babel.config.js` (добавлен reanimated plugin)
 
 ---
 
@@ -410,10 +419,15 @@ eas build --platform ios --profile production
 
 ### **UI/UX Improvements (PHASE 1-7):**
 
-1. **PHASE 1: Language Selection Screen** (30 min) 🔴 HIGH PRIORITY
-   - Исправить количество языков (31 vs 30)
-   - Обновить комментарии в коде
-   - Убрать устаревший footer текст
+1. **PHASE 1: Language Selection Screen + Onboarding** ✅ 90% DONE 🟢
+   - ✅ Убран устаревший footer текст
+   - ✅ Убран прогресс бар (31 язык правильно)
+   - ✅ Добавлен поиск языков
+   - ✅ Улучшен дизайн (белые карточки, тени, большие флаги)
+   - ✅ Создан Onboarding Screen (5 интерактивных слайдов)
+   - ⚠️ **TODO:** Улучшить дизайн Language Selection Screen
+   - ⚠️ **TODO:** Улучшить дизайн Onboarding Screen
+   - ⏳ Обновить комментарии в коде
 
 2. **PHASE 2: MainHubScreen UI** (TBD) 🔴 HIGH PRIORITY
    - Обсудить новый дизайн главного экрана с 6 модулями
@@ -451,11 +465,12 @@ eas build --platform ios --profile production
 
 ---
 
-**Status:** Phase 1-7 UI improvements needed, then testing and production 🚀
+**Status:** Phase 1 ✅ 90% Complete → Phase 2-7 UI improvements needed → Phase 8-9 Testing & Production 🚀
 **Goal:** Launch v1.0 with all 30/31 languages by mid-November 2025
 
 **Next Steps:**
-1. PHASE 1: Fix Language Selection Screen (30 min)
-2. PHASE 2-7: UI/UX improvements (TBD)
-3. PHASE 8: Testing
-4. PHASE 9: Production Build
+1. ⚠️ PHASE 1: Улучшить дизайн Language Selection + Onboarding (опционально)
+2. 🔴 PHASE 2: MainHubScreen UI redesign (HIGH PRIORITY)
+3. PHASE 3-7: UI/UX improvements (TBD)
+4. PHASE 8: Testing
+5. PHASE 9: Production Build
