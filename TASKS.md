@@ -1,7 +1,7 @@
 # 📋 TASKS - TurkmenPhrasebook
 
 **Last Updated:** November 2, 2025
-**Status:** 95% Complete - Ready for Final Testing & Production Build
+**Status:** Phase 1-7 UI Improvements → Phase 8-9 Testing & Production
 
 ---
 
@@ -34,7 +34,102 @@
 
 ---
 
-### **PHASE 7: Testing** (⏳ 90% Complete)
+### **PHASE 2: Изменить UI MainHubScreen** (⏳ 0%)
+
+**Задача:** Улучшить дизайн главного экрана с 6 модулями
+
+**Файл:**
+- `src/screens/MainHubScreen.tsx`
+
+**Что нужно сделать:**
+- Изменить UI/дизайн главного экрана
+- Детали дизайна будут обсуждаться отдельно
+
+**Оценка времени:** TBD (зависит от объема изменений)
+
+---
+
+### **PHASE 3: Улучшить дизайн разговорника** (⏳ 0%)
+
+**Задача:** Улучшить дизайн разговорника и его категорий
+
+**Файлы:**
+- `src/screens/HomeScreen.tsx` - список категорий
+- `src/screens/CategoryScreen.tsx` - список фраз в категории
+- `src/screens/PhraseDetailScreen.tsx` - детальный вид фразы (опционально)
+
+**Что нужно сделать:**
+- Улучшить дизайн списка категорий разговорника
+- Улучшить дизайн списка фраз в категории
+- Детали дизайна будут обсуждаться отдельно
+
+**Оценка времени:** TBD (зависит от объема изменений)
+
+---
+
+### **PHASE 4: Поработать с Visual Translator** (⏳ 0%)
+
+**Задача:** Улучшить дизайн и функционал визуального переводчика
+
+**Файлы:**
+- `src/features/visual-translator/screens/VisualTranslatorHomeScreen.tsx`
+- `src/features/visual-translator/screens/TranslationResultScreen.tsx`
+
+**Что нужно сделать:**
+- Улучшить дизайн Visual Translator
+- Детали будут обсуждаться отдельно
+
+**Оценка времени:** TBD
+
+---
+
+### **PHASE 5: Поработать с онлайн переводчиком** (⏳ 0%)
+
+**Задача:** Улучшить дизайн и функционал текстового переводчика
+
+**Файлы:**
+- `src/features/text-translator/screens/TextTranslatorScreen.tsx`
+
+**Что нужно сделать:**
+- Улучшить дизайн Text Translator
+- Детали будут обсуждаться отдельно
+
+**Оценка времени:** TBD
+
+---
+
+### **PHASE 6: Поработать со словарем** (⏳ 0%)
+
+**Задача:** Улучшить или доработать словарь
+
+**Файлы:**
+- `src/screens/DictionaryScreen.tsx`
+
+**Что нужно сделать:**
+- Поработать с дизайном/функционалом словаря
+- Детали будут обсуждаться отдельно
+
+**Оценка времени:** TBD
+
+---
+
+### **PHASE 7: Поработать с ИИ** (⏳ 0%)
+
+**Задача:** Улучшить дизайн и функционал AI ассистентов
+
+**Файлы:**
+- `src/features/ai-assistants/screens/AIAssistantsHomeScreen.tsx`
+- AI ассистенты экраны (5 штук)
+
+**Что нужно сделать:**
+- Улучшить дизайн AI Assistants
+- Детали будут обсуждаться отдельно
+
+**Оценка времени:** TBD
+
+---
+
+### **PHASE 8: Testing** (⏳ 90% Complete)
 
 #### 1. ✅ Hugging Face API Testing
 - [x] API key configured in .env file (`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`)
@@ -77,7 +172,7 @@ npx expo start
 
 ---
 
-### **PHASE 8: Production Build** (⏳ 0% Complete)
+### **PHASE 9: Production Build** (⏳ 0% Complete)
 
 #### 1. ⏳ Update Configuration Files
 
@@ -212,10 +307,23 @@ eas build --platform ios --profile production
 | **Phase 1: Fix Welcome Screen** | | | |
 | - Fix language count | 31 vs 30 languages inconsistency | 15 min | ⏳ |
 | - Update footer text | Remove "OTA updates" message | 15 min | ⏳ |
-| **Phase 7: Testing** | | | |
+| **Phase 2: MainHubScreen UI** | | | |
+| - Redesign main screen | Update design of 6 modules screen | TBD | ⏳ |
+| **Phase 3: Phrasebook UI** | | | |
+| - Redesign categories list | Improve HomeScreen design | TBD | ⏳ |
+| - Redesign phrases list | Improve CategoryScreen design | TBD | ⏳ |
+| **Phase 4: Visual Translator** | | | |
+| - Improve Visual Translator | UI/UX improvements | TBD | ⏳ |
+| **Phase 5: Text Translator** | | | |
+| - Improve Text Translator | UI/UX improvements | TBD | ⏳ |
+| **Phase 6: Dictionary** | | | |
+| - Work on Dictionary | Design/functionality | TBD | ⏳ |
+| **Phase 7: AI Assistants** | | | |
+| - Improve AI features | UI/UX improvements | TBD | ⏳ |
+| **Phase 8: Testing** | | | |
 | - Hugging Face API Test | AI Assistants + Visual Translator | 1 hour | ⏳ |
 | - iOS Testing | Full app testing on iOS | 2-3 hours | ⏳ |
-| **Phase 8: Production** | | | |
+| **Phase 9: Production** | | | |
 | - Configuration | app.json, package.json | 1 hour | ⏳ |
 | - Icon & Splash | Design + implementation | 2-4 hours | ⏳ |
 | - Builds | Android + iOS builds + testing | 4-6 hours | ⏳ |
@@ -246,51 +354,80 @@ eas build --platform ios --profile production
 
 **Today (Day 1):**
 - [ ] **PHASE 1:** Fix Language Selection Screen (30 min)
-- [ ] Test Hugging Face API (AI Assistants) (30 min)
+- [ ] **PHASE 2:** Redesign MainHubScreen (TBD)
+- [ ] **PHASE 3:** Redesign Phrasebook screens (TBD)
+- [ ] **PHASE 4:** Visual Translator improvements (TBD)
+- [ ] **PHASE 5:** Text Translator improvements (TBD)
+- [ ] **PHASE 6:** Dictionary improvements (TBD)
+- [ ] **PHASE 7:** AI Assistants improvements (TBD)
 
 **Tomorrow (Day 2):**
-- [ ] iOS testing (if available)
-- [ ] Update app.json and package.json
-- [ ] Create app icon and splash screen
+- [ ] **PHASE 8:** Test Hugging Face API (30 min)
+- [ ] **PHASE 8:** iOS testing (if available)
 
-**Day 3-5:**
-- [ ] Build Android + iOS
-- [ ] Test builds on real devices
+**Day 3-4:**
+- [ ] **PHASE 9:** Update app.json and package.json
+- [ ] **PHASE 9:** Create app icon and splash screen
 
-**Day 6-7:**
-- [ ] Prepare store listings
-- [ ] Submit to Google Play
-- [ ] Submit to App Store
+**Day 5-6:**
+- [ ] **PHASE 9:** Build Android + iOS
+- [ ] **PHASE 9:** Test builds on real devices
+
+**Day 7:**
+- [ ] **PHASE 9:** Prepare store listings
+- [ ] **PHASE 9:** Submit to Google Play
+- [ ] **PHASE 9:** Submit to App Store
 
 ---
 
 ## 🎯 NEXT SESSION PRIORITIES
 
-1. **FIX PHASE 1: Language Selection Screen** (30 min) 🔴 HIGH PRIORITY
-   - Count exact number of languages in LANGUAGES array
-   - Update comments to match actual count
-   - Fix footer text (remove "OTA updates" message)
-   - Verify all languages have translation files
+### **UI/UX Improvements (PHASE 1-7):**
 
-2. **Test Hugging Face API** (30 min)
-   - Open AI Assistants
-   - Send test messages to all 5 assistants
-   - Verify responses are from AI (not fallback)
-   - Test Visual Translator AI description (photo without text)
+1. **PHASE 1: Language Selection Screen** (30 min) 🔴 HIGH PRIORITY
+   - Исправить количество языков (31 vs 30)
+   - Обновить комментарии в коде
+   - Убрать устаревший footer текст
 
-3. **Start Production Prep** (2 hours)
+2. **PHASE 2: MainHubScreen UI** (TBD) 🔴 HIGH PRIORITY
+   - Обсудить новый дизайн главного экрана с 6 модулями
+
+3. **PHASE 3: Phrasebook UI** (TBD) 🔴 HIGH PRIORITY
+   - Улучшить дизайн списка категорий (HomeScreen)
+   - Улучшить дизайн списка фраз (CategoryScreen)
+
+4. **PHASE 4: Visual Translator** (TBD)
+   - Улучшить дизайн визуального переводчика
+
+5. **PHASE 5: Text Translator** (TBD)
+   - Улучшить дизайн текстового переводчика
+
+6. **PHASE 6: Dictionary** (TBD)
+   - Поработать со словарем
+
+7. **PHASE 7: AI Assistants** (TBD)
+   - Улучшить дизайн AI ассистентов
+
+### **Testing & Production (PHASE 8-9):**
+
+8. **PHASE 8: Testing** (30 min)
+   - Test Hugging Face API
+   - iOS testing
+
+9. **PHASE 9: Production Build** (2 hours)
    - Review app.json
    - Update version to 1.0.0
    - Configure permissions
    - Plan icon design
    - Check EAS Build setup
 
-3. **iOS Testing** (if Mac available)
-   - Test all modules
-   - Verify permissions work
-
 ---
 
-**Status:** Phase 1 fixes needed, then ready for final testing and production build 🚀
+**Status:** Phase 1-7 UI improvements needed, then testing and production 🚀
 **Goal:** Launch v1.0 with all 30/31 languages by mid-November 2025
-**Next Step:** Fix Language Selection Screen (30 min)
+
+**Next Steps:**
+1. PHASE 1: Fix Language Selection Screen (30 min)
+2. PHASE 2-7: UI/UX improvements (TBD)
+3. PHASE 8: Testing
+4. PHASE 9: Production Build
