@@ -13,6 +13,7 @@ interface ConfigContextType {
   isLoading: boolean;
   isFirstLaunch: boolean;
   onboardingCompleted: boolean;
+  setOnboardingCompleted: (completed: boolean) => Promise<void>;
 }
 
 const ConfigContext = createContext<ConfigContextType | undefined>(undefined);
@@ -114,13 +115,25 @@ export const ConfigProvider: React.FC<ConfigProviderProps> = ({ children }) => {
     }
   };
 
+  const setOnboardingCompletedFunc = async (completed: boolean) => {
+    try {
+      await AsyncStorage.setItem(STORAGE_KEY_ONBOARDING, completed ? 'true' : 'false');
+      setOnboardingCompleted(completed);
+      console.log(`✅ Onboarding completed: ${completed}`);
+    } catch (error) {
+      console.error('Failed to save onboarding status:', error);
+      throw error;
+    }
+  };
+
   const contextValue: ConfigContextType = {
     selectedLanguage,
     setSelectedLanguage,
     turkmenLanguage: 'tk', // Всегда туркменский
     isLoading,
     isFirstLaunch,
-    onboardingCompleted
+    onboardingCompleted,
+    setOnboardingCompleted: setOnboardingCompletedFunc
   };
 
   return (

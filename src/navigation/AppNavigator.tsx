@@ -137,7 +137,6 @@ function AdditionalFeaturesStackNavigator() {
 export default function AppNavigator() {
   const { config } = useAppLanguage();
   const { isLoading: configLoading, isFirstLaunch, onboardingCompleted } = useConfig();
-  const [showOnboarding, setShowOnboarding] = React.useState(!onboardingCompleted);
 
   // Показываем лоадер пока загружаются настройки
   if (configLoading) {
@@ -153,35 +152,36 @@ export default function AppNavigator() {
     );
   }
 
-  // Показываем экран выбора языка при первом запуске (СНАЧАЛА)
-  if (isFirstLaunch) {
-    return (
-      <NavigationContainer>
-        <LanguageSelectionScreen />
-      </NavigationContainer>
-    );
-  }
+  // Определяем начальный экран
+  const getInitialRouteName = () => {
+    if (isFirstLaunch) {
+      return 'LanguageSelection';
+    }
+    if (!onboardingCompleted) {
+      return 'Onboarding';
+    }
+    return 'MainHub';
+  };
 
-  // Показываем Onboarding ПОСЛЕ выбора языка (если не пройден)
-  if (showOnboarding && !onboardingCompleted) {
-    return (
-      <NavigationContainer>
-        <OnboardingScreen
-          navigation={undefined}
-          onComplete={() => {
-            // Onboarding завершен, скрываем его
-            setShowOnboarding(false);
-          }}
-        />
-      </NavigationContainer>
-    );
-  }
-
-  // Обычная навигация с Hub-архитектурой
+  // Единая навигация для всех сценариев
   return (
     <NavigationContainer>
       <OfflineIndicator />
-      <RootStack.Navigator>
+      <RootStack.Navigator initialRouteName={getInitialRouteName()}>
+        {/* Language Selection (первый запуск) */}
+        <RootStack.Screen
+          name="LanguageSelection"
+          component={LanguageSelectionScreen}
+          options={{ headerShown: false }}
+        />
+
+        {/* Onboarding (после выбора языка, если первый запуск) */}
+        <RootStack.Screen
+          name="Onboarding"
+          component={OnboardingScreen}
+          options={{ headerShown: false }}
+        />
+
         {/* Main Hub - главный экран после выбора языка */}
         <RootStack.Screen
           name="MainHub"
@@ -286,22 +286,6 @@ export default function AppNavigator() {
             title: config.mode === 'tk' ? 'Sözlem jikme-jiklikleri' :
                    config.mode === 'zh' ? '短语详情' :
                    'Детали фразы',
-            headerStyle: {
-              backgroundColor: Colors.primary,
-            },
-            headerTintColor: Colors.textWhite,
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          }}
-        />
-
-        {/* Language Selection (доступен из Hub) */}
-        <RootStack.Screen
-          name="LanguageSelection"
-          component={LanguageSelectionScreen}
-          options={{
-            title: 'Select Language',
             headerStyle: {
               backgroundColor: Colors.primary,
             },

@@ -1,4 +1,5 @@
 // src/screens/OnboardingScreen.tsx
+// HERO + GRID DESIGN - Modern 2025 UI
 import React, { useRef, useState } from 'react';
 import {
   View,
@@ -8,11 +9,12 @@ import {
   TouchableOpacity,
   Dimensions,
   Animated,
+  Platform,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useConfig } from '../contexts/ConfigContext';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 
@@ -31,6 +33,7 @@ interface OnboardingScreenProps {
 }
 
 export default function OnboardingScreen({ navigation, onComplete }: OnboardingScreenProps) {
+  const { setOnboardingCompleted } = useConfig();
   const [currentIndex, setCurrentIndex] = useState(0);
   const flatListRef = useRef<FlatList>(null);
   const scrollX = useRef(new Animated.Value(0)).current;
@@ -110,11 +113,12 @@ export default function OnboardingScreen({ navigation, onComplete }: OnboardingS
 
   async function handleComplete() {
     try {
-      await AsyncStorage.setItem('@onboarding_completed', 'true');
-      if (onComplete) {
+      await setOnboardingCompleted(true);
+      if (navigation) {
+        // После завершения onboarding переходим на MainHub
+        navigation.replace('MainHub');
+      } else if (onComplete) {
         onComplete();
-      } else if (navigation) {
-        navigation.replace('LanguageSelection');
       }
     } catch (error) {
       console.error('Failed to save onboarding completion:', error);
@@ -348,7 +352,7 @@ function ReadySlide({ onGetStarted }: { onGetStarted: () => void }) {
 
       <TouchableOpacity style={styles.getStartedButton} onPress={onGetStarted}>
         <Text style={styles.getStartedButtonText}>Get Started</Text>
-        <Ionicons name="rocket" size={24} color="#FFF" />
+        <Ionicons name="rocket" size={26} color="#7C3AED" />
       </TouchableOpacity>
 
       <View style={styles.featuresGrid}>
@@ -385,15 +389,20 @@ const styles = StyleSheet.create({
     top: 60,
     right: 20,
     zIndex: 10,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    borderRadius: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    borderRadius: 24,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.4)',
   },
   skipText: {
     color: '#FFF',
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: 'bold',
+    textShadowColor: 'rgba(0, 0, 0, 0.2)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 2,
   },
   content: {
     flex: 1,
@@ -443,16 +452,32 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    paddingVertical: 16,
-    paddingHorizontal: 32,
-    borderRadius: 30,
-    gap: 8,
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    paddingVertical: 18,
+    paddingHorizontal: 40,
+    borderRadius: 32,
+    gap: 10,
+    borderWidth: 2,
+    borderColor: 'rgba(255, 255, 255, 0.5)',
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowRadius: 8,
+      },
+      android: {
+        elevation: 6,
+      },
+    }),
   },
   nextButtonText: {
     color: '#FFF',
-    fontSize: 18,
-    fontWeight: '600',
+    fontSize: 19,
+    fontWeight: 'bold',
+    textShadowColor: 'rgba(0, 0, 0, 0.2)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 2,
   },
   // Demo Components
   demoBox: {
@@ -576,17 +601,28 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
-    paddingVertical: 18,
+    backgroundColor: '#FFF',
+    paddingVertical: 20,
     paddingHorizontal: 48,
-    borderRadius: 30,
+    borderRadius: 32,
     gap: 12,
     marginTop: 32,
     marginBottom: 32,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 8 },
+        shadowOpacity: 0.4,
+        shadowRadius: 16,
+      },
+      android: {
+        elevation: 10,
+      },
+    }),
   },
   getStartedButtonText: {
-    color: '#FFF',
-    fontSize: 20,
+    color: '#7C3AED',
+    fontSize: 22,
     fontWeight: 'bold',
   },
   featuresGrid: {

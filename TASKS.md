@@ -1,13 +1,13 @@
 # 📋 TASKS - TurkmenPhrasebook
 
 **Last Updated:** November 2, 2025
-**Status:** Phase 1 ✅ 90% (Language Selection + Onboarding) → Phase 2-7 UI Improvements → Phase 8-9 Testing & Production
+**Status:** Phase 1 ✅ 100% (Language Selection + Onboarding Hero+Grid) → Phase 2 ✅ 100% (MainHub Hero+Grid) → Phase 3-7 UI Improvements → Phase 8-9 Testing & Production
 
 ---
 
 ## 🎯 WHAT'S LEFT TO DO
 
-### **PHASE 1: Исправить начальный экран выбора языка + Onboarding** (✅ 90%)
+### **PHASE 1: Исправить начальный экран выбора языка + Onboarding** (✅ 100%)
 
 **✅ Выполнено:**
 
@@ -17,44 +17,63 @@
 
 2. ✅ **Убран устаревший footer** "New languages are added regularly via OTA updates"
 
-3. ✅ **Улучшен дизайн Language Selection Screen:**
+3. ✅ **Hero + Grid дизайн для Language Selection Screen:**
+   - Градиентный header (Purple gradient)
+   - Современный search с белым фоном и тенями
+   - Увеличены флаги (48px)
+   - Белые карточки с мощными тенями (elevation 4)
+   - Скругления 20px
+   - Selected карточка: border 3px purple + elevation 8
    - Добавлен поиск языков
-   - Увеличены флаги (44px)
-   - Белые карточки с тенями
-   - Более яркие цвета и анимации
 
-4. ✅ **БОНУС: Создан Onboarding Screen:**
+4. ✅ **Onboarding Screen с Hero + Grid дизайном:**
    - 5 интерактивных слайдов с градиентами
    - Демо всех функций (Phrasebook, Translator, Dictionary, AI)
-   - Интеграция в навигацию (Language Selection → Onboarding → MainHub)
+   - Обновленный дизайн кнопок:
+     - Skip button с border и прозрачным фоном
+     - Next button с тенями и border
+     - Get Started button с белым фоном и purple текстом
    - AsyncStorage для отслеживания первого запуска
 
-**⏳ TODO (улучшение дизайна):**
-- ⚠️ Улучшить дизайн Language Selection Screen
-- ⚠️ Улучшить дизайн Onboarding Screen
-- ⏳ Обновить комментарии в `src/config/languages.config.ts`
+5. ✅ **Исправлена навигация:**
+   - Единая навигационная структура в AppNavigator
+   - Правильный порядок: LanguageSelection → Onboarding → MainHub
+   - Убраны Alert диалоги, прямой переход через navigation.replace()
+   - Добавлен setOnboardingCompleted в ConfigContext
+
+**Дизайн стиль:** Hero + Grid (современный 2025) - градиенты, тени, яркие цвета
 
 **Измененные файлы:**
-- `src/screens/LanguageSelectionScreen.tsx` (обновлен)
-- `src/screens/OnboardingScreen.tsx` (создан)
-- `src/contexts/ConfigContext.tsx` (добавлен onboardingCompleted)
-- `src/navigation/AppNavigator.tsx` (добавлена логика onboarding)
+- `src/screens/LanguageSelectionScreen.tsx` (Hero + Grid дизайн)
+- `src/screens/OnboardingScreen.tsx` (Hero + Grid дизайн)
+- `src/contexts/ConfigContext.tsx` (добавлен setOnboardingCompleted)
+- `src/navigation/AppNavigator.tsx` (исправлена логика навигации)
 - `babel.config.js` (добавлен reanimated plugin)
+
+**Время:** ~2 часа
 
 ---
 
-### **PHASE 2: Изменить UI MainHubScreen** (⏳ 0%)
+### **PHASE 2: Изменить UI MainHubScreen** (✅ 100%)
 
 **Задача:** Улучшить дизайн главного экрана с 6 модулями
 
 **Файл:**
 - `src/screens/MainHubScreen.tsx`
 
-**Что нужно сделать:**
-- Изменить UI/дизайн главного экрана
-- Детали дизайна будут обсуждаться отдельно
+**✅ Выполнено:**
+- ✅ Реализован **Hero + Grid** дизайн
+- ✅ Hero Card (Phrasebook) - большая карточка 200px на всю ширину
+- ✅ Остальные 5 модулей в Grid 2 колонки
+- ✅ Яркие градиенты для каждого модуля
+- ✅ Ionicons иконки (56px hero, 40px regular)
+- ✅ Белый текст с тенями
+- ✅ Мощные тени (elevation 12 hero, elevation 8 regular)
+- ✅ Современные скругления (24px hero, 20px regular)
 
-**Оценка времени:** TBD (зависит от объема изменений)
+**Дизайн стиль:** Hero + Grid (App Store/Spotify-like) - визуально интересный с акцентом на главную функцию
+
+**Время:** ~30 минут
 
 ---
 
@@ -419,20 +438,22 @@ eas build --platform ios --profile production
 
 ### **UI/UX Improvements (PHASE 1-7):**
 
-1. **PHASE 1: Language Selection Screen + Onboarding** ✅ 90% DONE 🟢
+1. **PHASE 1: Language Selection Screen + Onboarding** ✅ 100% DONE 🟢
    - ✅ Убран устаревший footer текст
    - ✅ Убран прогресс бар (31 язык правильно)
-   - ✅ Добавлен поиск языков
-   - ✅ Улучшен дизайн (белые карточки, тени, большие флаги)
-   - ✅ Создан Onboarding Screen (5 интерактивных слайдов)
-   - ⚠️ **TODO:** Улучшить дизайн Language Selection Screen
-   - ⚠️ **TODO:** Улучшить дизайн Onboarding Screen
-   - ⏳ Обновить комментарии в коде
+   - ✅ Hero + Grid дизайн для Language Selection Screen
+   - ✅ Hero + Grid дизайн для Onboarding Screen
+   - ✅ Исправлена навигация (LanguageSelection → Onboarding → MainHub)
+   - ✅ Градиентный header, современные карточки, тени
+   - ✅ Обновленные кнопки (Skip, Next, Get Started)
 
-2. **PHASE 2: MainHubScreen UI** (TBD) 🔴 HIGH PRIORITY
-   - Обсудить новый дизайн главного экрана с 6 модулями
+2. **PHASE 2: MainHubScreen UI** ✅ 100% DONE 🟢
+   - ✅ Реализован Hero + Grid дизайн
+   - ✅ Hero Card (Phrasebook) - большая карточка на всю ширину
+   - ✅ Grid 2x3 для остальных 5 модулей
+   - ✅ Яркие градиенты, Ionicons иконки, современные тени
 
-3. **PHASE 3: Phrasebook UI** (TBD) 🔴 HIGH PRIORITY
+3. **PHASE 3: Phrasebook UI** (TBD) 🔴 HIGH PRIORITY - NEXT
    - Улучшить дизайн списка категорий (HomeScreen)
    - Улучшить дизайн списка фраз (CategoryScreen)
 
@@ -465,12 +486,13 @@ eas build --platform ios --profile production
 
 ---
 
-**Status:** Phase 1 ✅ 90% Complete → Phase 2-7 UI improvements needed → Phase 8-9 Testing & Production 🚀
+**Status:** Phase 1 ✅ 100% Complete → Phase 2 ✅ 100% Complete → Phase 3-7 UI improvements needed → Phase 8-9 Testing & Production 🚀
 **Goal:** Launch v1.0 with all 30/31 languages by mid-November 2025
 
 **Next Steps:**
-1. ⚠️ PHASE 1: Улучшить дизайн Language Selection + Onboarding (опционально)
-2. 🔴 PHASE 2: MainHubScreen UI redesign (HIGH PRIORITY)
-3. PHASE 3-7: UI/UX improvements (TBD)
-4. PHASE 8: Testing
-5. PHASE 9: Production Build
+1. ✅ PHASE 1: Language Selection + Onboarding Hero+Grid - DONE
+2. ✅ PHASE 2: MainHubScreen UI Hero+Grid - DONE
+3. 🔴 PHASE 3: Phrasebook UI redesign (HIGH PRIORITY - NEXT)
+4. PHASE 4-7: UI/UX improvements (TBD)
+5. PHASE 8: Testing
+6. PHASE 9: Production Build

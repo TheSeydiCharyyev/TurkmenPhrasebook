@@ -1,5 +1,5 @@
 // src/screens/LanguageSelectionScreen.tsx
-// ОБНОВЛЕНО для мультиязычной системы (Phase 3)
+// HERO + GRID DESIGN - Modern 2025 UI
 import React, { useState } from 'react';
 import {
   View,
@@ -10,8 +10,10 @@ import {
   StatusBar,
   Alert,
   TextInput,
+  Platform,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { LANGUAGES, getLanguageProgress } from '../config/languages.config';
 import { useConfig } from '../contexts/ConfigContext';
@@ -23,7 +25,7 @@ interface LanguageSelectionScreenProps {
 }
 
 export default function LanguageSelectionScreen({ navigation, onLanguageSelect }: LanguageSelectionScreenProps) {
-  const { setSelectedLanguage, selectedLanguage } = useConfig();
+  const { setSelectedLanguage, selectedLanguage, onboardingCompleted } = useConfig();
   const { setLanguageMode, config } = useAppLanguage();
   const [isChanging, setIsChanging] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -77,38 +79,11 @@ export default function LanguageSelectionScreen({ navigation, onLanguageSelect }
       }
       // Если туркменский - разговорник выберут позже в LanguagePairSelectionScreen
 
-      // 3. Навигация
-      const lang = LANGUAGES.find(l => l.code === code);
-
-      if (code === 'tk') {
-        // Туркменский интерфейс - направляем в Phrasebook где покажется выбор пары
-        Alert.alert(
-          '✅ ' + (lang?.name || 'Language Selected'),
-          'Now select your phrasebook language pair',
-          [{
-            text: 'OK',
-            onPress: () => {
-              if (navigation) {
-                // Navigate to Home stack, which will show LanguagePairSelectionScreen
-                navigation.replace('MainHub');
-              }
-            }
-          }]
-        );
-      } else {
-        // Другие языки - интерфейс и разговорник установлены
-        Alert.alert(
-          '✅ Language Changed',
-          `Interface: ${lang?.name}\nPhrasebook: ${lang?.nameEn}-Turkmen`,
-          [{
-            text: 'OK',
-            onPress: () => {
-              if (navigation) {
-                navigation.replace('MainHub');
-              }
-            }
-          }]
-        );
+      // 3. Навигация - переходим на Onboarding или MainHub
+      if (navigation) {
+        // Проверяем, нужен ли onboarding
+        const nextScreen = onboardingCompleted ? 'MainHub' : 'Onboarding';
+        navigation.replace(nextScreen);
       }
     } catch (error) {
       console.error('Failed to select language:', error);
@@ -175,47 +150,51 @@ export default function LanguageSelectionScreen({ navigation, onLanguageSelect }
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
+    <View style={styles.container}>
+      <StatusBar barStyle="dark-content" backgroundColor="#f8f9fa" />
 
-      {/* Header */}
-      <View style={styles.header}>
-        <View style={styles.headerTop}>
+      {/* Gradient Header */}
+      <LinearGradient
+        colors={['#667eea', '#764ba2']}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={styles.headerGradient}
+      >
+        <SafeAreaView edges={['top']} style={styles.safeArea}>
           {navigation && (
             <TouchableOpacity
               style={styles.backButton}
               onPress={() => navigation.goBack()}
             >
-              <Ionicons name="arrow-back" size={24} color="#111827" />
+              <Ionicons name="arrow-back" size={28} color="#fff" />
             </TouchableOpacity>
           )}
-          <Text style={styles.title}>Select Language</Text>
-          <View style={styles.placeholder} />
-        </View>
 
-        <Text style={styles.subtitle}>
-          Choose a language to start learning Turkmen
-        </Text>
+          <Text style={styles.title}>Choose Your Language</Text>
+          <Text style={styles.subtitle}>
+            Select interface language for the app
+          </Text>
 
-        {/* Search Input */}
-        <View style={styles.searchContainer}>
-          <Ionicons name="search" size={20} color="#9CA3AF" style={styles.searchIcon} />
-          <TextInput
-            style={styles.searchInput}
-            placeholder="Search languages..."
-            placeholderTextColor="#9CA3AF"
-            value={searchQuery}
-            onChangeText={setSearchQuery}
-            autoCapitalize="none"
-            autoCorrect={false}
-          />
-          {searchQuery.length > 0 && (
-            <TouchableOpacity onPress={() => setSearchQuery('')} style={styles.clearButton}>
-              <Ionicons name="close-circle" size={20} color="#9CA3AF" />
-            </TouchableOpacity>
-          )}
-        </View>
-      </View>
+          {/* Search Input */}
+          <View style={styles.searchContainer}>
+            <Ionicons name="search" size={20} color="#667eea" style={styles.searchIcon} />
+            <TextInput
+              style={styles.searchInput}
+              placeholder="Search languages..."
+              placeholderTextColor="#9CA3AF"
+              value={searchQuery}
+              onChangeText={setSearchQuery}
+              autoCapitalize="none"
+              autoCorrect={false}
+            />
+            {searchQuery.length > 0 && (
+              <TouchableOpacity onPress={() => setSearchQuery('')} style={styles.clearButton}>
+                <Ionicons name="close-circle" size={20} color="#9CA3AF" />
+              </TouchableOpacity>
+            )}
+          </View>
+        </SafeAreaView>
+      </LinearGradient>
 
       {/* Language List */}
       <FlatList
@@ -224,56 +203,69 @@ export default function LanguageSelectionScreen({ navigation, onLanguageSelect }
         keyExtractor={item => item.code}
         contentContainerStyle={styles.listContent}
         showsVerticalScrollIndicator={false}
-        ItemSeparatorComponent={() => <View style={{ height: 12 }} />}
+        style={styles.list}
       />
-
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#f8f9fa',
   },
-  header: {
+
+  // Gradient Header
+  headerGradient: {
+    paddingBottom: 24,
+  },
+
+  safeArea: {
     paddingHorizontal: 20,
-    paddingTop: 12,
-    paddingBottom: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
   },
-  headerTop: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 8,
-  },
+
   backButton: {
+    alignSelf: 'flex-start',
     padding: 8,
     marginLeft: -8,
-  },
-  placeholder: {
-    width: 40,
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#111827',
-    flex: 1,
-    textAlign: 'center',
-  },
-  subtitle: {
-    fontSize: 14,
-    color: '#6B7280',
-    textAlign: 'center',
     marginBottom: 16,
   },
+
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#fff',
+    marginBottom: 8,
+    textShadowColor: 'rgba(0, 0, 0, 0.2)',
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 4,
+  },
+
+  subtitle: {
+    fontSize: 16,
+    color: 'rgba(255, 255, 255, 0.9)',
+    marginBottom: 20,
+    textShadowColor: 'rgba(0, 0, 0, 0.15)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 2,
+  },
+
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F9FAFB',
-    borderRadius: 12,
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.15,
+        shadowRadius: 8,
+      },
+      android: {
+        elevation: 4,
+      },
+    }),
     paddingHorizontal: 16,
     paddingVertical: 12,
     marginTop: 12,
@@ -283,93 +275,129 @@ const styles = StyleSheet.create({
   searchIcon: {
     marginRight: 8,
   },
+
   searchInput: {
     flex: 1,
     fontSize: 16,
     color: '#111827',
     padding: 0,
   },
+
   clearButton: {
     padding: 4,
     marginLeft: 8,
   },
-  listContent: {
-    padding: 16,
+
+  list: {
+    flex: 1,
   },
+
+  listContent: {
+    padding: 20,
+    paddingTop: 24,
+  },
+
+  // Modern Language Card
   languageItem: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 18,
+    padding: 20,
     backgroundColor: '#FFFFFF',
-    borderRadius: 16,
-    borderWidth: 1,
-    borderColor: '#E5E7EB',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
-    elevation: 2,
+    borderRadius: 20,
+    marginBottom: 16,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.1,
+        shadowRadius: 12,
+      },
+      android: {
+        elevation: 4,
+      },
+    }),
   },
+
   languageItemDisabled: {
     opacity: 0.5,
-    backgroundColor: '#F3F4F6',
+    backgroundColor: '#F9FAFB',
   },
+
   languageItemSelected: {
-    backgroundColor: '#ECFDF5',
-    borderColor: '#10B981',
-    borderWidth: 2,
-    shadowColor: '#10B981',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.15,
-    shadowRadius: 12,
-    elevation: 4,
+    backgroundColor: '#fff',
+    borderWidth: 3,
+    borderColor: '#667eea',
+    ...Platform.select({
+      ios: {
+        shadowColor: '#667eea',
+        shadowOffset: { width: 0, height: 8 },
+        shadowOpacity: 0.3,
+        shadowRadius: 16,
+      },
+      android: {
+        elevation: 8,
+      },
+    }),
   },
+
   languageContent: {
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
   },
+
   flag: {
-    fontSize: 44,
+    fontSize: 48,
     marginRight: 16,
   },
+
   languageInfo: {
     flex: 1,
   },
+
   languageName: {
-    fontSize: 18,
-    fontWeight: '600',
+    fontSize: 19,
+    fontWeight: 'bold',
     color: '#111827',
-    marginBottom: 2,
+    marginBottom: 4,
   },
+
   languageNameEn: {
-    fontSize: 14,
+    fontSize: 15,
     color: '#6B7280',
   },
+
   textDisabled: {
     color: '#9CA3AF',
   },
+
   textSelected: {
-    color: '#059669',
+    color: '#667eea',
+    fontWeight: 'bold',
   },
+
   selectedBadge: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 4,
+    gap: 6,
   },
+
   selectedText: {
-    fontSize: 12,
-    color: '#10B981',
-    fontWeight: '600',
+    fontSize: 13,
+    color: '#667eea',
+    fontWeight: 'bold',
   },
+
   comingSoon: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 4,
+    gap: 6,
   },
+
   comingSoonText: {
-    fontSize: 12,
+    fontSize: 13,
     color: '#9CA3AF',
+    fontWeight: '500',
   },
 });

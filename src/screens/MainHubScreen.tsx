@@ -1,5 +1,5 @@
 // src/screens/MainHubScreen.tsx
-// ОБНОВЛЕНО - Минималистичный дизайн
+// HERO + GRID DESIGN - Modern 2025 UI
 
 import React from 'react';
 import {
@@ -11,7 +11,9 @@ import {
   StatusBar,
   Alert,
   Platform,
+  Dimensions,
 } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
@@ -21,64 +23,68 @@ import { getLanguageByCode } from '../config/languages.config';
 import type { RootStackParamList } from '../types';
 import { DesignColors, Spacing, Typography, BorderRadius, Shadows } from '../constants/Design';
 
+const { width } = Dimensions.get('window');
+
 interface ModuleCard {
   id: string;
   title: string;
   subtitle: string;
-  icon: string;
-  color: string;  // Используем один цвет вместо градиента
+  iconName: keyof typeof Ionicons.glyphMap;
+  gradientColors: string[];
   route: string;
+  isHero?: boolean;
   isLocked?: boolean;
 }
 
-// Helper function to get modules with translations
+// Helper function to get modules with translations - Hero + Grid
 const getModules = (texts: any): ModuleCard[] => [
   {
     id: 'phrasebook',
     title: texts.phrasebookTitle,
     subtitle: texts.phrasebookSubtitle,
-    icon: '📚',
-    color: DesignColors.modulePhrasebook,
+    iconName: 'book',
+    gradientColors: ['#667eea', '#764ba2'],
     route: 'Phrasebook',
+    isHero: true,  // Hero card - большая на всю ширину
   },
   {
     id: 'visual-translator',
     title: texts.visualTranslatorTitle,
     subtitle: texts.visualTranslatorSubtitle,
-    icon: '📸',
-    color: DesignColors.moduleVisual,
+    iconName: 'camera',
+    gradientColors: ['#f093fb', '#f5576c'],
     route: 'VisualTranslator',
   },
   {
     id: 'text-translator',
     title: texts.textTranslatorTitle,
     subtitle: texts.textTranslatorSubtitle,
-    icon: '🌍',
-    color: DesignColors.moduleText,
+    iconName: 'language',
+    gradientColors: ['#4facfe', '#00f2fe'],
     route: 'TextTranslator',
   },
   {
     id: 'dictionary',
     title: texts.dictionaryTitle,
     subtitle: texts.dictionarySubtitle,
-    icon: '📖',
-    color: DesignColors.moduleDictionary,
+    iconName: 'library',
+    gradientColors: ['#43e97b', '#38f9d7'],
     route: 'Dictionary',
   },
   {
     id: 'ai-assistants',
     title: texts.aiAssistantsTitle,
     subtitle: texts.aiAssistantsSubtitle,
-    icon: '🤖',
-    color: DesignColors.moduleAI,
+    iconName: 'sparkles',
+    gradientColors: ['#fa709a', '#fee140'],
     route: 'AIAssistantsHome',
   },
   {
     id: 'favorites',
     title: texts.myFavoritesTitle,
     subtitle: texts.myFavoritesSubtitle,
-    icon: '⭐',
-    color: DesignColors.moduleFavorites,
+    iconName: 'star',
+    gradientColors: ['#ff9a56', '#ff6a88'],
     route: 'Favorites',
   },
 ];
@@ -131,93 +137,131 @@ export default function MainHubScreen() {
 
   return (
     <View style={styles.container}>
-      {/* StatusBar - правильная настройка для Android */}
+      {/* StatusBar - dark для светлого фона */}
       <StatusBar
         barStyle="dark-content"
         backgroundColor={DesignColors.background}
         translucent={false}
       />
 
-      {/* Header - единый стиль */}
+      {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity
-          style={styles.languageBadge}
-          onPress={handleLanguagePress}
-          activeOpacity={0.6}
-        >
-          <Text style={styles.languageFlag}>{currentLanguage?.flag || '🌍'}</Text>
-          <Text style={styles.languageName}>{currentLanguage?.name || 'Language'}</Text>
-        </TouchableOpacity>
-
-        <Text style={styles.appTitle}>{texts.appTitle}</Text>
+        <View style={styles.headerLeft}>
+          <TouchableOpacity
+            style={styles.languageBadge}
+            onPress={handleLanguagePress}
+            activeOpacity={0.7}
+          >
+            <Text style={styles.languageFlag}>{currentLanguage?.flag || '🌍'}</Text>
+            <Text style={styles.languageName}>{currentLanguage?.name || 'Language'}</Text>
+          </TouchableOpacity>
+        </View>
 
         <TouchableOpacity
           style={styles.settingsButton}
           onPress={handleSettingsPress}
-          activeOpacity={0.6}
+          activeOpacity={0.7}
         >
-          <Ionicons name="settings-outline" size={24} color={DesignColors.text} />
+          <Ionicons name="settings-outline" size={26} color={DesignColors.text} />
         </TouchableOpacity>
       </View>
 
       {/* Welcome Section */}
       <View style={styles.welcome}>
-        <Text style={styles.welcomeTitle}>{texts.appSubtitle}</Text>
+        <Text style={styles.welcomeTitle}>{texts.appTitle}</Text>
         <Text style={styles.welcomeSubtitle}>{texts.selectCategory}</Text>
       </View>
 
-      {/* Modules List */}
+      {/* Modules - Hero + Grid */}
       <ScrollView
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {modules.map((module) => (
-          <ModuleCardComponent
-            key={module.id}
-            module={module}
-            onPress={() => handleModulePress(module)}
-          />
-        ))}
+        {/* Hero Card - Phrasebook */}
+        {modules
+          .filter((m) => m.isHero)
+          .map((module) => (
+            <ModuleCardComponent
+              key={module.id}
+              module={module}
+              onPress={() => handleModulePress(module)}
+            />
+          ))}
+
+        {/* Grid - Остальные модули */}
+        <View style={styles.grid}>
+          {modules
+            .filter((m) => !m.isHero)
+            .map((module) => (
+              <ModuleCardComponent
+                key={module.id}
+                module={module}
+                onPress={() => handleModulePress(module)}
+              />
+            ))}
+        </View>
       </ScrollView>
     </View>
   );
 }
 
-// Компонент карточки модуля - простой и минималистичный
+// Hero + Grid Module Card Component
 interface ModuleCardProps {
   module: ModuleCard;
   onPress: () => void;
 }
 
 const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => {
+  const isHero = module.isHero;
+
   return (
     <TouchableOpacity
       style={[
-        styles.moduleCard,
+        isHero ? styles.heroCard : styles.moduleCard,
         module.isLocked && styles.moduleCardLocked
       ]}
       onPress={onPress}
-      activeOpacity={module.isLocked ? 1 : 0.6}
+      activeOpacity={0.85}
       disabled={module.isLocked}
     >
-      {/* Цветная полоса слева */}
-      <View style={[styles.moduleColorBar, { backgroundColor: module.color }]} />
+      <LinearGradient
+        colors={module.gradientColors}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={isHero ? styles.heroGradient : styles.moduleGradient}
+      >
+        {/* Icon */}
+        <View style={isHero ? styles.heroIconContainer : styles.iconContainer}>
+          <Ionicons
+            name={module.iconName}
+            size={isHero ? 56 : 40}
+            color="#fff"
+          />
+        </View>
 
-      {/* Иконка */}
-      <Text style={styles.moduleIcon}>{module.icon}</Text>
+        {/* Module info */}
+        <View style={styles.moduleTextContainer}>
+          <Text
+            style={isHero ? styles.heroTitle : styles.moduleTitle}
+            numberOfLines={1}
+          >
+            {module.title}
+          </Text>
+          <Text
+            style={isHero ? styles.heroSubtitle : styles.moduleSubtitle}
+            numberOfLines={isHero ? 3 : 2}
+          >
+            {module.subtitle}
+          </Text>
+        </View>
 
-      {/* Текст */}
-      <View style={styles.moduleInfo}>
-        <Text style={styles.moduleTitle}>{module.title}</Text>
-        <Text style={styles.moduleSubtitle}>{module.subtitle}</Text>
-      </View>
-
-      {/* Стрелка или замок */}
-      {module.isLocked ? (
-        <Ionicons name="lock-closed" size={20} color={DesignColors.textLight} />
-      ) : (
-        <Ionicons name="chevron-forward" size={20} color={DesignColors.textSecondary} />
-      )}
+        {/* Lock icon if locked */}
+        {module.isLocked && (
+          <View style={styles.lockBadge}>
+            <Ionicons name="lock-closed" size={16} color="#fff" />
+          </View>
+        )}
+      </LinearGradient>
     </TouchableOpacity>
   );
 };
@@ -225,65 +269,62 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: DesignColors.background,
+    backgroundColor: '#f8f9fa',
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
 
-  // Header - единый стиль
+  // Clean Header
   header: {
-    height: 56,
+    height: 64,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: Spacing.md,
-    backgroundColor: DesignColors.background,
+    paddingHorizontal: Spacing.lg,
+    backgroundColor: '#ffffff',
     borderBottomWidth: 1,
-    borderBottomColor: DesignColors.border,
+    borderBottomColor: '#e9ecef',
+  },
+
+  headerLeft: {
+    flex: 1,
   },
 
   languageBadge: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: DesignColors.backgroundGray,
+    backgroundColor: '#f1f3f5',
     paddingHorizontal: 12,
-    paddingVertical: 6,
+    paddingVertical: 8,
     borderRadius: BorderRadius.xl,
-    gap: 6,
+    gap: 8,
+    alignSelf: 'flex-start',
   },
 
   languageFlag: {
-    fontSize: 16,
+    fontSize: 20,
   },
 
   languageName: {
-    fontSize: 13,
-    fontWeight: Typography.semibold,
-    color: DesignColors.text,
-    fontFamily: Typography.fontFamily,
-  },
-
-  appTitle: {
-    fontSize: Typography.h4,
+    fontSize: 15,
     fontWeight: Typography.bold,
     color: DesignColors.text,
-    flex: 1,
-    textAlign: 'center',
     fontFamily: Typography.fontFamily,
   },
 
   settingsButton: {
-    padding: 4,
+    padding: 8,
   },
 
   // Welcome Section
   welcome: {
-    paddingHorizontal: Spacing.md,
-    paddingTop: Spacing.lg,
+    paddingHorizontal: Spacing.lg,
+    paddingTop: Spacing.xl,
     paddingBottom: Spacing.md,
+    backgroundColor: '#ffffff',
   },
 
   welcomeTitle: {
-    fontSize: Typography.h2,
+    fontSize: 28,
     fontWeight: Typography.bold,
     color: DesignColors.text,
     marginBottom: 4,
@@ -291,66 +332,140 @@ const styles = StyleSheet.create({
   },
 
   welcomeSubtitle: {
-    fontSize: Typography.body,
+    fontSize: 15,
     color: DesignColors.textSecondary,
     fontFamily: Typography.fontFamily,
   },
 
   // Scroll Content
   scrollContent: {
-    paddingHorizontal: Spacing.md,
+    paddingHorizontal: Spacing.lg,
+    paddingTop: Spacing.lg,
     paddingBottom: Spacing.xl,
   },
 
-  // Module Card - минималистичный дизайн
-  moduleCard: {
+  // Grid Layout (2 columns)
+  grid: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+
+  // Hero Card - Большая карточка
+  heroCard: {
+    width: '100%',
+    height: 200,
+    marginBottom: Spacing.lg,
+    borderRadius: 24,
+    overflow: 'hidden',
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 12 },
+        shadowOpacity: 0.3,
+        shadowRadius: 20,
+      },
+      android: {
+        elevation: 12,
+      },
+    }),
+  },
+
+  heroGradient: {
+    flex: 1,
+    padding: Spacing.xl,
+    justifyContent: 'space-between',
+  },
+
+  heroIconContainer: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
     alignItems: 'center',
-    backgroundColor: DesignColors.card,
-    borderRadius: BorderRadius.lg,
-    borderWidth: 1,
-    borderColor: DesignColors.cardBorder,
-    padding: Spacing.md,
-    marginBottom: Spacing.md,
-    gap: Spacing.md,
-    ...Shadows.small,
+    justifyContent: 'center',
+  },
+
+  heroTitle: {
+    fontSize: 28,
+    fontWeight: Typography.bold,
+    color: '#fff',
+    fontFamily: Typography.fontFamily,
+    marginBottom: 6,
+  },
+
+  heroSubtitle: {
+    fontSize: 16,
+    color: 'rgba(255, 255, 255, 0.95)',
+    fontFamily: Typography.fontFamily,
+    lineHeight: 22,
+  },
+
+  // Regular Module Card - Grid карточки
+  moduleCard: {
+    width: (width - Spacing.lg * 3) / 2,
+    marginBottom: Spacing.lg,
+    borderRadius: 20,
+    overflow: 'hidden',
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 8 },
+        shadowOpacity: 0.25,
+        shadowRadius: 16,
+      },
+      android: {
+        elevation: 8,
+      },
+    }),
+  },
+
+  moduleGradient: {
+    width: '100%',
+    aspectRatio: 1,
+    padding: Spacing.lg,
+    justifyContent: 'space-between',
   },
 
   moduleCardLocked: {
-    opacity: 0.5,
+    opacity: 0.6,
   },
 
-  moduleColorBar: {
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    bottom: 0,
-    width: 4,
-    borderTopLeftRadius: BorderRadius.lg,
-    borderBottomLeftRadius: BorderRadius.lg,
+  iconContainer: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
-  moduleIcon: {
-    fontSize: 32,
-    marginLeft: 8,
-  },
-
-  moduleInfo: {
+  moduleTextContainer: {
     flex: 1,
+    justifyContent: 'flex-end',
   },
 
   moduleTitle: {
-    fontSize: Typography.h4,
-    fontWeight: Typography.semibold,
-    color: DesignColors.text,
-    marginBottom: 2,
+    fontSize: 17,
+    fontWeight: Typography.bold,
+    color: '#fff',
     fontFamily: Typography.fontFamily,
+    marginBottom: 4,
   },
 
-  // Все подзаголовки одного цвета
   moduleSubtitle: {
-    fontSize: Typography.bodySmall,
-    color: DesignColors.textSecondary,
+    fontSize: 13,
+    color: 'rgba(255, 255, 255, 0.9)',
     fontFamily: Typography.fontFamily,
+    lineHeight: 18,
+  },
+
+  lockBadge: {
+    position: 'absolute',
+    top: 16,
+    right: 16,
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    padding: 6,
+    borderRadius: BorderRadius.md,
   },
 });
