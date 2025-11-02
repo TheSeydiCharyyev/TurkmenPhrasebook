@@ -9,6 +9,7 @@ import {
   StyleSheet,
   StatusBar,
   Alert,
+  TextInput,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -25,7 +26,14 @@ export default function LanguageSelectionScreen({ navigation, onLanguageSelect }
   const { setSelectedLanguage, selectedLanguage } = useConfig();
   const { setLanguageMode, config } = useAppLanguage();
   const [isChanging, setIsChanging] = useState(false);
-  const progress = getLanguageProgress();
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // Filter languages based on search query
+  const filteredLanguages = LANGUAGES.filter(lang =>
+    lang.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    lang.nameEn.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    lang.code.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   const handleLanguageSelect = async (code: string, isAvailable: boolean) => {
     // Если язык недоступен - показать toast
@@ -189,25 +197,29 @@ export default function LanguageSelectionScreen({ navigation, onLanguageSelect }
           Choose a language to start learning Turkmen
         </Text>
 
-        {/* Progress Bar */}
-        <View style={styles.progressContainer}>
-          <View style={styles.progressBar}>
-            <View
-              style={[
-                styles.progressFill,
-                { width: `${progress.percentage}%` }
-              ]}
-            />
-          </View>
-          <Text style={styles.progressText}>
-            {progress.available} / {progress.total} languages available
-          </Text>
+        {/* Search Input */}
+        <View style={styles.searchContainer}>
+          <Ionicons name="search" size={20} color="#9CA3AF" style={styles.searchIcon} />
+          <TextInput
+            style={styles.searchInput}
+            placeholder="Search languages..."
+            placeholderTextColor="#9CA3AF"
+            value={searchQuery}
+            onChangeText={setSearchQuery}
+            autoCapitalize="none"
+            autoCorrect={false}
+          />
+          {searchQuery.length > 0 && (
+            <TouchableOpacity onPress={() => setSearchQuery('')} style={styles.clearButton}>
+              <Ionicons name="close-circle" size={20} color="#9CA3AF" />
+            </TouchableOpacity>
+          )}
         </View>
       </View>
 
       {/* Language List */}
       <FlatList
-        data={LANGUAGES}
+        data={filteredLanguages}
         renderItem={renderLanguageItem}
         keyExtractor={item => item.code}
         contentContainerStyle={styles.listContent}
@@ -215,13 +227,6 @@ export default function LanguageSelectionScreen({ navigation, onLanguageSelect }
         ItemSeparatorComponent={() => <View style={{ height: 12 }} />}
       />
 
-      {/* Footer Info */}
-      <View style={styles.footer}>
-        <Ionicons name="information-circle-outline" size={16} color="#6B7280" />
-        <Text style={styles.footerText}>
-          New languages are added regularly via OTA updates
-        </Text>
-      </View>
     </SafeAreaView>
   );
 }
@@ -264,26 +269,29 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 16,
   },
-  progressContainer: {
-    marginTop: 8,
+  searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#F9FAFB',
+    borderRadius: 12,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    marginTop: 12,
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
   },
-  progressBar: {
-    height: 8,
-    backgroundColor: '#E5E7EB',
-    borderRadius: 4,
-    overflow: 'hidden',
+  searchIcon: {
+    marginRight: 8,
   },
-  progressFill: {
-    height: '100%',
-    backgroundColor: '#10B981',
-    borderRadius: 4,
+  searchInput: {
+    flex: 1,
+    fontSize: 16,
+    color: '#111827',
+    padding: 0,
   },
-  progressText: {
-    fontSize: 12,
-    color: '#6B7280',
-    marginTop: 8,
-    textAlign: 'center',
-    fontWeight: '500',
+  clearButton: {
+    padding: 4,
+    marginLeft: 8,
   },
   listContent: {
     padding: 16,
@@ -292,11 +300,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 16,
-    backgroundColor: '#F9FAFB',
-    borderRadius: 12,
+    padding: 18,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: '#E5E7EB',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 8,
+    elevation: 2,
   },
   languageItemDisabled: {
     opacity: 0.5,
@@ -306,6 +319,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#ECFDF5',
     borderColor: '#10B981',
     borderWidth: 2,
+    shadowColor: '#10B981',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 12,
+    elevation: 4,
   },
   languageContent: {
     flexDirection: 'row',
@@ -313,7 +331,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   flag: {
-    fontSize: 32,
+    fontSize: 44,
     marginRight: 16,
   },
   languageInfo: {
@@ -353,19 +371,5 @@ const styles = StyleSheet.create({
   comingSoonText: {
     fontSize: 12,
     color: '#9CA3AF',
-  },
-  footer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 8,
-    paddingVertical: 16,
-    paddingHorizontal: 20,
-    borderTopWidth: 1,
-    borderTopColor: '#E5E7EB',
-  },
-  footerText: {
-    fontSize: 12,
-    color: '#6B7280',
   },
 });

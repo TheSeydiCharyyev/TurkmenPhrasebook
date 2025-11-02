@@ -12,12 +12,14 @@ interface ConfigContextType {
   turkmenLanguage: string;       // Всегда 'tk' (фиксированный)
   isLoading: boolean;
   isFirstLaunch: boolean;
+  onboardingCompleted: boolean;
 }
 
 const ConfigContext = createContext<ConfigContextType | undefined>(undefined);
 
 const STORAGE_KEY_LANGUAGE = '@turkmen_phrasebook:selected_language';
 const STORAGE_KEY_FIRST_LAUNCH = '@turkmen_phrasebook:first_launch';
+const STORAGE_KEY_ONBOARDING = '@onboarding_completed';
 
 interface ConfigProviderProps {
   children: ReactNode;
@@ -27,6 +29,7 @@ export const ConfigProvider: React.FC<ConfigProviderProps> = ({ children }) => {
   const [selectedLanguage, setSelectedLanguageState] = useState<string>('zh'); // Default китайский
   const [isLoading, setIsLoading] = useState(true);
   const [isFirstLaunch, setIsFirstLaunch] = useState(true);
+  const [onboardingCompleted, setOnboardingCompleted] = useState(false);
 
   // Загрузка сохранённого языка при запуске
   useEffect(() => {
@@ -35,10 +38,14 @@ export const ConfigProvider: React.FC<ConfigProviderProps> = ({ children }) => {
 
   const loadConfig = async () => {
     try {
-      const [savedLanguage, firstLaunch] = await Promise.all([
+      const [savedLanguage, firstLaunch, onboardingStatus] = await Promise.all([
         AsyncStorage.getItem(STORAGE_KEY_LANGUAGE),
-        AsyncStorage.getItem(STORAGE_KEY_FIRST_LAUNCH)
+        AsyncStorage.getItem(STORAGE_KEY_FIRST_LAUNCH),
+        AsyncStorage.getItem(STORAGE_KEY_ONBOARDING)
       ]);
+
+      // Проверяем статус onboarding
+      setOnboardingCompleted(onboardingStatus === 'true');
 
       if (savedLanguage) {
         // Проверяем что язык доступен
@@ -112,7 +119,8 @@ export const ConfigProvider: React.FC<ConfigProviderProps> = ({ children }) => {
     setSelectedLanguage,
     turkmenLanguage: 'tk', // Всегда туркменский
     isLoading,
-    isFirstLaunch
+    isFirstLaunch,
+    onboardingCompleted
   };
 
   return (

@@ -9,6 +9,7 @@ import { Ionicons } from '@expo/vector-icons';
 // Импортируем компоненты
 import OfflineIndicator from '../components/OfflineIndicator';
 import LanguageSelectionScreen from '../screens/LanguageSelectionScreen';
+import OnboardingScreen from '../screens/OnboardingScreen';
 import MainHubScreen from '../screens/MainHubScreen';
 
 // Импортируем экраны
@@ -135,7 +136,8 @@ function AdditionalFeaturesStackNavigator() {
 // Главный навигатор
 export default function AppNavigator() {
   const { config } = useAppLanguage();
-  const { isLoading: configLoading, isFirstLaunch } = useConfig();
+  const { isLoading: configLoading, isFirstLaunch, onboardingCompleted } = useConfig();
+  const [showOnboarding, setShowOnboarding] = React.useState(!onboardingCompleted);
 
   // Показываем лоадер пока загружаются настройки
   if (configLoading) {
@@ -151,11 +153,26 @@ export default function AppNavigator() {
     );
   }
 
-  // Показываем экран выбора языка при первом запуске
+  // Показываем экран выбора языка при первом запуске (СНАЧАЛА)
   if (isFirstLaunch) {
     return (
       <NavigationContainer>
         <LanguageSelectionScreen />
+      </NavigationContainer>
+    );
+  }
+
+  // Показываем Onboarding ПОСЛЕ выбора языка (если не пройден)
+  if (showOnboarding && !onboardingCompleted) {
+    return (
+      <NavigationContainer>
+        <OnboardingScreen
+          navigation={undefined}
+          onComplete={() => {
+            // Onboarding завершен, скрываем его
+            setShowOnboarding(false);
+          }}
+        />
       </NavigationContainer>
     );
   }
