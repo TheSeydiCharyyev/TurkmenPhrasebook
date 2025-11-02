@@ -100,16 +100,41 @@
 
 ### **PHASE 6: Поработать со словарем** (⏳ 0%)
 
-**Задача:** Улучшить или доработать словарь
+**Задача:** Найти и интегрировать бесплатный туркменский словарь
 
 **Файлы:**
 - `src/screens/DictionaryScreen.tsx`
 
 **Что нужно сделать:**
-- Поработать с дизайном/функционалом словаря
-- Детали будут обсуждаться отдельно
 
-**Оценка времени:** TBD
+#### 6.1 Поиск словаря
+- [ ] Скачать Peace Corps Turkmenistan Dictionary (PDF)
+  - Туркменский ↔ Английский
+  - Бесплатно для образовательных целей
+- [ ] Проверить другие источники:
+  - Glosbe.com (онлайн база)
+  - Мобильные приложения (18,000 - 100,000+ слов)
+- [ ] Проверить лицензии на использование
+
+#### 6.2 Подготовка данных
+- [ ] Конвертировать PDF в текст
+- [ ] Создать структуру базы данных (JSON/SQLite)
+- [ ] Добавить транскрипции (если есть)
+- [ ] Добавить примеры использования (опционально)
+
+#### 6.3 Интеграция в приложение
+- [ ] Создать базу данных словаря
+- [ ] Реализовать поиск по словарю
+- [ ] Добавить фильтры (Turkmen→English, English→Turkmen)
+- [ ] Добавить избранное для слов
+- [ ] Обновить дизайн DictionaryScreen
+
+**Источники:**
+- Peace Corps Turkmenistan Dictionary (PDF) - приоритет
+- Glosbe: https://glosbe.com/en/tk
+- Другие мобильные приложения (для сравнения)
+
+**Оценка времени:** 4-6 часов (поиск + интеграция)
 
 ---
 
@@ -317,7 +342,8 @@ eas build --platform ios --profile production
 | **Phase 5: Text Translator** | | | |
 | - Improve Text Translator | UI/UX improvements | TBD | ⏳ |
 | **Phase 6: Dictionary** | | | |
-| - Work on Dictionary | Design/functionality | TBD | ⏳ |
+| - Find dictionary source | Peace Corps PDF / Glosbe | 1-2 hours | ⏳ |
+| - Convert & integrate | Create database, add search | 3-4 hours | ⏳ |
 | **Phase 7: AI Assistants** | | | |
 | - Improve AI features | UI/UX improvements | TBD | ⏳ |
 | **Phase 8: Testing** | | | |
@@ -402,8 +428,10 @@ eas build --platform ios --profile production
 5. **PHASE 5: Text Translator** (TBD)
    - Улучшить дизайн текстового переводчика
 
-6. **PHASE 6: Dictionary** (TBD)
-   - Поработать со словарем
+6. **PHASE 6: Dictionary** (4-6 hours)
+   - Найти бесплатный словарь (Peace Corps PDF)
+   - Конвертировать в базу данных
+   - Интегрировать в приложение
 
 7. **PHASE 7: AI Assistants** (TBD)
    - Улучшить дизайн AI ассистентов
