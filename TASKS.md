@@ -7,6 +7,33 @@
 
 ## 🎯 WHAT'S LEFT TO DO
 
+### **PHASE 1: Исправить начальный экран выбора языка** (⏳ 0%)
+
+**Проблемы:**
+
+1. **Показывает "31/31 languages available"** - но в документации сказано 30 языков
+   - Файл: `src/screens/LanguageSelectionScreen.tsx` (строка 203)
+   - Непонятно сколько языков на самом деле: 30 или 31?
+
+2. **Footer внизу экрана устарел**
+   - Файл: `src/screens/LanguageSelectionScreen.tsx` (строка 222)
+   - Текст: "New languages are added regularly via OTA updates"
+   - Проблема: Все языки уже добавлены, сообщение неактуально
+
+3. **Комментарии в коде не совпадают с реальностью**
+   - Файл: `src/config/languages.config.ts` (строки 2, 6)
+   - Написано: "Конфигурация всех 30 поддерживаемых языков"
+   - В массиве LANGUAGES реально 31 язык
+
+**Файлы для проверки:**
+- `src/screens/LanguageSelectionScreen.tsx`
+- `src/config/languages.config.ts`
+- `src/data/languages/translations/` (30 файлов переводов)
+
+**Оценка времени:** 30 минут
+
+---
+
 ### **PHASE 7: Testing** (⏳ 90% Complete)
 
 #### 1. ✅ Hugging Face API Testing
@@ -182,6 +209,9 @@ eas build --platform ios --profile production
 
 | Phase | Tasks | Time | Status |
 |-------|-------|------|--------|
+| **Phase 1: Fix Welcome Screen** | | | |
+| - Fix language count | 31 vs 30 languages inconsistency | 15 min | ⏳ |
+| - Update footer text | Remove "OTA updates" message | 15 min | ⏳ |
 | **Phase 7: Testing** | | | |
 | - Hugging Face API Test | AI Assistants + Visual Translator | 1 hour | ⏳ |
 | - iOS Testing | Full app testing on iOS | 2-3 hours | ⏳ |
@@ -191,7 +221,7 @@ eas build --platform ios --profile production
 | - Builds | Android + iOS builds + testing | 4-6 hours | ⏳ |
 | - Store Prep | Screenshots, descriptions, listings | 6-8 hours | ⏳ |
 | - Final Checks | QA before release | 2 hours | ⏳ |
-| **TOTAL** | | **17-27 hours** | |
+| **TOTAL** | | **17.5-27.5 hours** | |
 
 **Optimistic:** 3-4 days (full-time work)
 **Realistic:** 1 week (part-time work)
@@ -215,10 +245,11 @@ eas build --platform ios --profile production
 ## ✅ QUICK START CHECKLIST
 
 **Today (Day 1):**
-- [ ] Test Hugging Face API (AI Assistants)
-- [ ] iOS testing (if available)
+- [ ] **PHASE 1:** Fix Language Selection Screen (30 min)
+- [ ] Test Hugging Face API (AI Assistants) (30 min)
 
 **Tomorrow (Day 2):**
+- [ ] iOS testing (if available)
 - [ ] Update app.json and package.json
 - [ ] Create app icon and splash screen
 
@@ -235,13 +266,19 @@ eas build --platform ios --profile production
 
 ## 🎯 NEXT SESSION PRIORITIES
 
-1. **Test Hugging Face API** (30 min)
+1. **FIX PHASE 1: Language Selection Screen** (30 min) 🔴 HIGH PRIORITY
+   - Count exact number of languages in LANGUAGES array
+   - Update comments to match actual count
+   - Fix footer text (remove "OTA updates" message)
+   - Verify all languages have translation files
+
+2. **Test Hugging Face API** (30 min)
    - Open AI Assistants
    - Send test messages to all 5 assistants
    - Verify responses are from AI (not fallback)
    - Test Visual Translator AI description (photo without text)
 
-2. **Start Production Prep** (2 hours)
+3. **Start Production Prep** (2 hours)
    - Review app.json
    - Update version to 1.0.0
    - Configure permissions
@@ -254,5 +291,6 @@ eas build --platform ios --profile production
 
 ---
 
-**Status:** Ready for final testing and production build 🚀
-**Goal:** Launch v1.0 with all 30 languages by mid-November 2025
+**Status:** Phase 1 fixes needed, then ready for final testing and production build 🚀
+**Goal:** Launch v1.0 with all 30/31 languages by mid-November 2025
+**Next Step:** Fix Language Selection Screen (30 min)
