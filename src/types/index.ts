@@ -81,10 +81,38 @@ export interface Category {
   id: string;
   icon: string;
   color: string;
-  nameRu: string;
-  nameTk: string;
-  nameZh: string;
-  nameEn: string;  // ✅ ДОБАВЛЕНО: английское название
+  // ✅ ОБНОВЛЕНО: Названия на всех 31 языках
+  nameTk: string;   // Turkmen
+  nameZh: string;   // Chinese
+  nameRu: string;   // Russian
+  nameEn: string;   // English
+  nameJa: string;   // Japanese
+  nameKo: string;   // Korean
+  nameTh: string;   // Thai
+  nameVi: string;   // Vietnamese
+  nameId: string;   // Indonesian
+  nameMs: string;   // Malay
+  nameHi: string;   // Hindi
+  nameUr: string;   // Urdu
+  nameFa: string;   // Persian
+  namePs: string;   // Pashto
+  nameDe: string;   // German
+  nameFr: string;   // French
+  nameEs: string;   // Spanish
+  nameIt: string;   // Italian
+  nameTr: string;   // Turkish
+  namePl: string;   // Polish
+  nameUk: string;   // Ukrainian
+  nameHy: string;   // Armenian
+  nameKa: string;   // Georgian
+  nameAr: string;   // Arabic
+  nameUz: string;   // Uzbek
+  nameKk: string;   // Kazakh
+  nameAz: string;   // Azerbaijani
+  nameKy: string;   // Kyrgyz
+  nameTg: string;   // Tajik
+  namePt: string;   // Portuguese
+  nameNl: string;   // Dutch
   hasSubcategories?: boolean;
   subcategories?: SubCategory[];
 }
@@ -92,10 +120,38 @@ export interface Category {
 export interface SubCategory {
   id: string;
   parentId: string;
-  nameRu: string;
-  nameTk: string;
-  nameZh: string;
-  nameEn: string;  // ✅ ДОБАВЛЕНО: английское название
+  // ✅ ОБНОВЛЕНО: Названия на всех 31 языках (новые поля optional для обратной совместимости)
+  nameTk: string;    // Turkmen
+  nameZh: string;    // Chinese
+  nameRu: string;    // Russian
+  nameEn: string;    // English
+  nameJa?: string;   // Japanese - optional
+  nameKo?: string;   // Korean - optional
+  nameTh?: string;   // Thai - optional
+  nameVi?: string;   // Vietnamese - optional
+  nameId?: string;   // Indonesian - optional
+  nameMs?: string;   // Malay - optional
+  nameHi?: string;   // Hindi - optional
+  nameUr?: string;   // Urdu - optional
+  nameFa?: string;   // Persian - optional
+  namePs?: string;   // Pashto - optional
+  nameDe?: string;   // German - optional
+  nameFr?: string;   // French - optional
+  nameEs?: string;   // Spanish - optional
+  nameIt?: string;   // Italian - optional
+  nameTr?: string;   // Turkish - optional
+  namePl?: string;   // Polish - optional
+  nameUk?: string;   // Ukrainian - optional
+  nameHy?: string;   // Armenian - optional
+  nameKa?: string;   // Georgian - optional
+  nameAr?: string;   // Arabic - optional
+  nameUz?: string;   // Uzbek - optional
+  nameKk?: string;   // Kazakh - optional
+  nameAz?: string;   // Azerbaijani - optional
+  nameKy?: string;   // Kyrgyz - optional
+  nameTg?: string;   // Tajik - optional
+  namePt?: string;   // Portuguese - optional
+  nameNl?: string;   // Dutch - optional
   icon: string;
   color: string;
 }

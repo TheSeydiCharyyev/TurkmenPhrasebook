@@ -31,7 +31,7 @@ const HEADER_HEIGHT = 120;
 
 // Минималистичная шапка с индикатором языка
 const MinimalHeader = React.memo<{
-  languageMode: 'ru' | 'tk' | 'zh' | 'en';  // ✅ ДОБАВЛЕНО: поддержка английского
+  languageMode: string;  // ✅ ОБНОВЛЕНО: поддержка всех 30 языков
   onSearchPress: () => void;
   onLanguagePress: () => void;
   selectedLanguageCode: string;
@@ -64,17 +64,19 @@ const MinimalHeader = React.memo<{
           </TouchableOpacity>
         </View>
 
-        {/* ✅ ОБНОВЛЕНО: Заголовок динамически меняется в зависимости от языка */}
+        {/* ✅ ИСПРАВЛЕНО: Универсальный заголовок для ВСЕХ 30 языков */}
         <View style={styles.titleContainer}>
-          <Text style={styles.titleTurkmen}>Kategoriýany saýlaň</Text>
-          {languageMode === 'en' ? (
-            // Английский выбран: показываем английский вместо китайского
-            <Text style={styles.titleChinese}>Select a category</Text>
+          {languageMode === 'tk' ? (
+            <>
+              <Text style={styles.titlePrimary}>Kategoriýany saýlaň</Text>
+              <Text style={styles.titleSecondary}>Select a category</Text>
+            </>
           ) : (
-            // Китайский или русский: показываем китайский
-            <Text style={styles.titleChinese}>选择类别</Text>
+            <>
+              <Text style={styles.titlePrimary}>{getTitleByLanguage(languageMode)}</Text>
+              <Text style={styles.titleSecondary}>Kategoriýany saýlaň</Text>
+            </>
           )}
-          <Text style={styles.titleRussian}>Выберите категорию</Text>
         </View>
 
         {/* Поле поиска */}
@@ -85,10 +87,20 @@ const MinimalHeader = React.memo<{
         >
           <Ionicons name="search" size={20} color={Colors.textLight} />
           <Text style={styles.searchPlaceholder}>
-            {languageMode === 'zh' ? '搜索短语...' :
-             languageMode === 'tk' ? 'Sözlemleri gözle...' :
-             languageMode === 'en' ? 'Search phrases...' :  // ✅ ДОБАВЛЕНО: английский
-             'Поиск фраз...'}
+            {(() => {
+              const searchTexts: { [key: string]: string } = {
+                'tk': 'Sözlemleri gözle...',
+                'zh': '搜索短语...',
+                'ru': 'Поиск фраз...',
+                'en': 'Search phrases...',
+                'tr': 'Cümleleri ara...',  // Турецкий
+                'ar': 'البحث عن العبارات...',  // Арабский
+                'de': 'Phrasen suchen...',  // Немецкий
+                'fr': 'Rechercher des phrases...',  // Французский
+                'es': 'Buscar frases...',  // Испанский
+              };
+              return searchTexts[languageMode] || searchTexts['en'];
+            })()}
           </Text>
         </TouchableOpacity>
       </View>
@@ -100,7 +112,7 @@ const MinimalHeader = React.memo<{
 const CategoryPairItem = React.memo<{
   item: [Category, Category | undefined];
   onPress: (category: Category) => void;
-  languageMode: 'ru' | 'tk' | 'zh' | 'en';  // ✅ ДОБАВЛЕНО: поддержка английского
+  languageMode: string;  // ✅ ОБНОВЛЕНО: поддержка всех 30 языков
 }>(({ item, onPress, languageMode }) => (
   <View style={styles.row}>
     <View style={[styles.cardWrapper, styles.leftCard]}>
@@ -124,7 +136,7 @@ const CategoryPairItem = React.memo<{
 
 // Сетка категорий
 interface CategoryGridProps {
-  languageMode: 'ru' | 'tk' | 'zh' | 'en';  // ✅ ДОБАВЛЕНО: поддержка английского
+  languageMode: string;  // ✅ ОБНОВЛЕНО: поддержка всех 30 языков
 }
 
 const CategoryGrid = React.memo<CategoryGridProps>(({ languageMode }) => {
@@ -168,17 +180,32 @@ const CategoryGrid = React.memo<CategoryGridProps>(({ languageMode }) => {
   );
 });
 
+// Helper функция для получения текста на выбранном языке или fallback на английский
+const getTitleByLanguage = (langCode: string): string => {
+  const titles: { [key: string]: string } = {
+    'tk': 'Kategoriýany saýlaň',
+    'zh': '选择类别',
+    'ru': 'Выберите категорию',
+    'en': 'Select a category',
+    // Добавляем другие языки
+    'tr': 'Bir kategori seçin',  // Турецкий
+    'ar': 'اختر فئة',  // Арабский
+    'de': 'Wähle eine Kategorie',  // Немецкий
+    'fr': 'Choisir une catégorie',  // Французский
+    'es': 'Selecciona una categoría',  // Испанский
+  };
+
+  // Возвращаем перевод если есть, иначе английский fallback
+  return titles[langCode] || titles['en'];
+};
+
 export default function HomeScreen() {
   const { config } = useAppLanguage();
   const { selectedLanguage } = useConfig();
   const navigation = useNavigation<any>();
 
-  // ✅ ДОБАВЛЕНО: Маппинг selectedLanguage для languageMode
-  const languageMode: 'ru' | 'tk' | 'zh' | 'en' =
-    selectedLanguage === 'zh' ? 'zh' :
-    selectedLanguage === 'ru' ? 'ru' :
-    selectedLanguage === 'en' ? 'en' :
-    'tk';  // по умолчанию туркменский
+  // ✅ ОБНОВЛЕНО: Используем selectedLanguage напрямую (поддержка всех 30 языков)
+  const languageMode: string = selectedLanguage;
 
   const handleSearchPress = useCallback(() => {
     // Переход на экран поиска
@@ -261,27 +288,19 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
 
-  // Туркменский заголовок
-  titleTurkmen: {
-    fontSize: 18,
-    fontWeight: '600',
+  // Основной заголовок (выбранный язык)
+  titlePrimary: {
+    fontSize: 20,
+    fontWeight: '700',
     color: Colors.text,
-    marginBottom: 4,
+    marginBottom: 6,
   },
 
-  // Китайский заголовок
-  titleChinese: {
+  // Вторичный заголовок (туркменский или второй язык пары)
+  titleSecondary: {
     fontSize: 16,
     fontWeight: '500',
     color: Colors.textSecondary || '#6B7280',
-    marginBottom: 4,
-  },
-
-  // Русский заголовок
-  titleRussian: {
-    fontSize: 14,
-    fontWeight: '400',
-    color: Colors.textLight,
   },
 
   // Поле поиска
@@ -309,15 +328,15 @@ const styles = StyleSheet.create({
   },
 
   gridContainer: {
-    paddingHorizontal: 24,
-    paddingVertical: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 24,
     paddingBottom: 40,
   },
 
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 16,
+    marginBottom: 20,
   },
 
   cardWrapper: {
@@ -325,10 +344,10 @@ const styles = StyleSheet.create({
   },
 
   leftCard: {
-    marginRight: 8,
+    marginRight: 6,
   },
 
   rightCard: {
-    marginLeft: 8,
+    marginLeft: 6,
   },
 });

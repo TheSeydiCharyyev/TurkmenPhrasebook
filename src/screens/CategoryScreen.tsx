@@ -225,15 +225,25 @@ export default function CategoryScreen() {
     extrapolate: 'clamp',
   });
 
-  // ✅ ОБНОВЛЕНО: Получаем название категории на текущем языке с поддержкой английского
+  // ✅ ОБНОВЛЕНО: Получаем название категории на текущем языке с поддержкой всех 30 языков
   const { selectedLanguage } = useConfig();
-  const categoryName = getCategoryName(category, config.mode);
+
+  // ✅ УНИВЕРСАЛЬНАЯ функция для ВСЕХ 31 языков - Category
+  const getCategoryNameByLanguage = (langCode: string): string => {
+    const fieldName = `name${langCode.charAt(0).toUpperCase() + langCode.slice(1)}` as keyof typeof category;
+    const name = category[fieldName];
+    return (typeof name === 'string' ? name : category.nameEn);
+  };
+
+  // ✅ УНИВЕРСАЛЬНАЯ функция для ВСЕХ 31 языков - SubCategory
+  const getSubcategoryNameByLanguage = (subcategory: SubCategory, langCode: string): string => {
+    const fieldName = `name${langCode.charAt(0).toUpperCase() + langCode.slice(1)}` as keyof SubCategory;
+    const name = subcategory[fieldName];
+    return (typeof name === 'string' ? name : subcategory.nameEn);
+  };
 
   const selectedSubcategoryName = selectedSubcategory
-    ? (selectedLanguage === 'en' ? selectedSubcategory.nameEn :
-       selectedLanguage === 'zh' ? selectedSubcategory.nameZh :
-       selectedLanguage === 'ru' ? selectedSubcategory.nameRu :
-       selectedSubcategory.nameTk)  // туркменский по умолчанию
+    ? getSubcategoryNameByLanguage(selectedSubcategory, selectedLanguage)
     : null;
 
   if (isLoading) {
@@ -261,7 +271,7 @@ export default function CategoryScreen() {
         
         <View style={styles.headerContent}>
           <Text style={styles.headerTitle}>
-            {selectedSubcategoryName || categoryName}
+            {selectedSubcategoryName || getCategoryNameByLanguage(selectedLanguage)}
           </Text>
           <Text style={styles.headerSubtitle}>
             {selectedSubcategory 
@@ -292,45 +302,43 @@ export default function CategoryScreen() {
         )}
         scrollEventThrottle={16}
       >
-        {/* ✅ ИСПРАВЛЕННЫЙ заголовок на трех языках */}
+        {/* ✅ ИСПРАВЛЕНО: Универсальный заголовок для ВСЕХ 30 языков */}
         <Animated.View style={[
           styles.categoryTitleContainer,
-          { 
+          {
             opacity: categoryTitleOpacity,
             transform: [{ translateY: categoryTitleTranslateY }]
           }
         ]}>
-          {/* ✅ ОБНОВЛЕНО: Динамическое отображение в зависимости от языка */}
-          {selectedLanguage === 'en' ? (
+          {selectedLanguage === 'tk' ? (
             <>
-              <Text style={styles.chineseCategoryTitle}>{category.nameEn}</Text>
-              <Text style={styles.mainCategoryTitle}>{category.nameTk}</Text>
+              <Text style={styles.primaryCategoryTitle}>{category.nameTk}</Text>
+              <Text style={styles.secondaryCategoryTitle}>{category.nameEn}</Text>
               <Text style={styles.phrasesCountTitle}>
-                {category.nameRu} • {filteredPhrases.length} phrases
-              </Text>
-            </>
-          ) : selectedLanguage === 'zh' ? (
-            <>
-              <Text style={styles.chineseCategoryTitle}>{category.nameZh}</Text>
-              <Text style={styles.mainCategoryTitle}>{category.nameTk}</Text>
-              <Text style={styles.phrasesCountTitle}>
-                {category.nameRu} • {filteredPhrases.length} 短语
-              </Text>
-            </>
-          ) : selectedLanguage === 'ru' ? (
-            <>
-              <Text style={styles.chineseCategoryTitle}>{category.nameRu}</Text>
-              <Text style={styles.mainCategoryTitle}>{category.nameTk}</Text>
-              <Text style={styles.phrasesCountTitle}>
-                {category.nameZh} • {filteredPhrases.length} фраз
+                {filteredPhrases.length} sözlem
               </Text>
             </>
           ) : (
             <>
-              <Text style={styles.chineseCategoryTitle}>{category.nameTk}</Text>
-              <Text style={styles.mainCategoryTitle}>{category.nameZh}</Text>
+              <Text style={styles.primaryCategoryTitle}>
+                {getCategoryNameByLanguage(selectedLanguage)}
+              </Text>
+              <Text style={styles.secondaryCategoryTitle}>{category.nameTk}</Text>
               <Text style={styles.phrasesCountTitle}>
-                {category.nameRu} • {filteredPhrases.length} sözlem
+                {(() => {
+                  const phrasesText: { [key: string]: string } = {
+                    'zh': '短语',
+                    'ru': 'фраз',
+                    'en': 'phrases',
+                    'tr': 'cümle',  // Турецкий
+                    'ar': 'عبارات',  // Арабский
+                    'de': 'Phrasen',  // Немецкий
+                    'fr': 'phrases',  // Французский
+                    'es': 'frases',  // Испанский
+                  };
+                  const text = phrasesText[selectedLanguage] || phrasesText['en'];
+                  return `${filteredPhrases.length} ${text}`;
+                })()}
               </Text>
             </>
           )}
@@ -464,33 +472,36 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  // ✅ ИСПРАВЛЕННЫЙ заголовок на трех языках
+  // ✅ ИСПРАВЛЕННЫЙ заголовок - только языковая пара
   categoryTitleContainer: {
     backgroundColor: '#fff',
-    paddingVertical: 20,
+    paddingVertical: 24,
     paddingHorizontal: 16,
     alignItems: 'center',
     borderBottomWidth: 1,
     borderBottomColor: Colors.border,
   },
 
-  chineseCategoryTitle: {
-    fontSize: 28,
+  primaryCategoryTitle: {
+    fontSize: 30,
     fontWeight: 'bold',
     color: Colors.text,
-    marginBottom: 4,
+    marginBottom: 8,
+    textAlign: 'center',
   },
 
-  mainCategoryTitle: {
-    fontSize: 20,
+  secondaryCategoryTitle: {
+    fontSize: 22,
     fontWeight: '600',
-    color: Colors.textLight,
-    marginBottom: 4,
+    color: Colors.textSecondary || '#6B7280',
+    marginBottom: 8,
+    textAlign: 'center',
   },
 
   phrasesCountTitle: {
-    fontSize: 14,
+    fontSize: 15,
     color: Colors.textLight,
+    fontWeight: '500',
   },
 
   subcategoriesSection: {

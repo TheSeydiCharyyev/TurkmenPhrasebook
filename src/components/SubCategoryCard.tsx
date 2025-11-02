@@ -41,34 +41,28 @@ export default function SubCategoryCard({
   // Получаем название на текущем языке
   const subcategoryName = getSubcategoryName(subcategory, config.mode);
 
-  // ✅ ОБНОВЛЕНО: Поддержка английского языка
-  // Получаем названия для всех языков (как в основных категориях)
+  // ✅ УНИВЕРСАЛЬНАЯ функция для ВСЕХ 31 языков
+  const getSubcategoryNameByLanguage = (langCode: string): string => {
+    // Динамический доступ к полю с названием по коду языка
+    const fieldName = `name${langCode.charAt(0).toUpperCase() + langCode.slice(1)}` as keyof SubCategory;
+    const name = subcategory[fieldName];
+
+    // Если есть перевод, возвращаем его, иначе fallback на английский
+    return (typeof name === 'string' ? name : subcategory.nameEn);
+  };
+
   const getSubcategoryNames = () => {
-    if (selectedLanguage === 'zh') {
-      return {
-        primary: subcategory.nameZh,
-        secondary: subcategory.nameTk,
-        tertiary: subcategory.nameRu
-      };
-    } else if (selectedLanguage === 'en') {
-      // ✅ АНГЛИЙСКИЙ: Английский → Туркменский → Русский
-      return {
-        primary: subcategory.nameEn,
-        secondary: subcategory.nameTk,
-        tertiary: subcategory.nameRu
-      };
-    } else if (selectedLanguage === 'ru') {
-      return {
-        primary: subcategory.nameRu,
-        secondary: subcategory.nameTk,
-        tertiary: subcategory.nameEn
-      };
-    } else {
-      // Туркменский по умолчанию
+    if (selectedLanguage === 'tk') {
+      // Туркменский режим: Туркменский + Английский
       return {
         primary: subcategory.nameTk,
         secondary: subcategory.nameEn,
-        tertiary: subcategory.nameRu
+      };
+    } else {
+      // Любой другой язык: Выбранный язык + Туркменский
+      return {
+        primary: getSubcategoryNameByLanguage(selectedLanguage),
+        secondary: subcategory.nameTk,
       };
     }
   };
@@ -76,7 +70,6 @@ export default function SubCategoryCard({
   const names = getSubcategoryNames();
   const primaryName = names.primary;
   const secondaryName = names.secondary;
-  const tertiaryName = names.tertiary;
 
   return (
     <TouchableOpacity
@@ -93,21 +86,16 @@ export default function SubCategoryCard({
         />
       </View>
 
-      {/* Текстовый контейнер - точно как в основных категориях */}
+      {/* Текстовый контейнер - только 2 названия (языковая пара) */}
       <View style={styles.textContainer}>
         {/* Основное название */}
         <Text style={styles.primaryName} numberOfLines={2}>
           {primaryName}
         </Text>
-        
+
         {/* Вторичное название */}
-        <Text style={styles.secondaryName} numberOfLines={1}>
+        <Text style={styles.secondaryName} numberOfLines={2}>
           {secondaryName}
-        </Text>
-        
-        {/* Третичное название */}
-        <Text style={styles.tertiaryName} numberOfLines={1}>
-          {tertiaryName}
         </Text>
       </View>
 
@@ -160,34 +148,22 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8, // Добавили внутренние отступы
   },
 
-  // Стили для трех строк текста с одинаковыми размерами - ТОЧНО КАК В ОСНОВНЫХ
+  // Стили для двух строк текста (языковая пара) - ОБНОВЛЕНО
   primaryName: {
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: '700',
     color: Colors.text,
     textAlign: 'center',
-    marginBottom: 6,
-    lineHeight: 18,
-    minHeight: 18, // Минимальная высота для строки
+    marginBottom: 8,
+    lineHeight: 20,
   },
 
   secondaryName: {
-    fontSize: 12,
+    fontSize: 13,
     fontWeight: '500',
     color: Colors.textSecondary,
     textAlign: 'center',
-    marginBottom: 4,
-    lineHeight: 16,
-    minHeight: 16,
-  },
-
-  tertiaryName: {
-    fontSize: 11,
-    fontWeight: '400',
-    color: Colors.textLight,
-    textAlign: 'center',
-    lineHeight: 14,
-    minHeight: 14,
+    lineHeight: 18,
   },
 
   // Индикатор количества фраз в правом верхнем углу
@@ -280,13 +256,40 @@ const gridStyles = StyleSheet.create({
 });
 
 // Компонент для отображения одной подкатегории в списке (альтернативный вид)
-export function SubCategoryListItem({ 
-  subcategory, 
-  onPress, 
-  phrasesCount = 0 
+export function SubCategoryListItem({
+  subcategory,
+  onPress,
+  phrasesCount = 0
 }: SubCategoryCardProps) {
-  const { config } = useAppLanguage();
-  const subcategoryName = getSubcategoryName(subcategory, config.mode);
+  const { selectedLanguage } = useConfig();
+
+  // ✅ УНИВЕРСАЛЬНАЯ функция для ВСЕХ 31 языков
+  const getSubcategoryNameByLanguage = (langCode: string): string => {
+    // Динамический доступ к полю с названием по коду языка
+    const fieldName = `name${langCode.charAt(0).toUpperCase() + langCode.slice(1)}` as keyof SubCategory;
+    const name = subcategory[fieldName];
+
+    // Если есть перевод, возвращаем его, иначе fallback на английский
+    return (typeof name === 'string' ? name : subcategory.nameEn);
+  };
+
+  const subcategoryName = getSubcategoryNameByLanguage(selectedLanguage);
+
+  // Helper для текста количества фраз
+  const getPhrasesText = (count: number, langCode: string): string => {
+    const phrasesTexts: { [key: string]: string } = {
+      'tk': 'sözlem',
+      'zh': '短语',
+      'ru': 'фраз',
+      'en': 'phrases',
+      'tr': 'cümle',
+      'ar': 'عبارات',
+      'de': 'Phrasen',
+      'fr': 'phrases',
+      'es': 'frases',
+    };
+    return `${count} ${phrasesTexts[langCode] || phrasesTexts['en']}`;
+  };
 
   return (
     <TouchableOpacity
@@ -296,26 +299,25 @@ export function SubCategoryListItem({
     >
       <View style={listStyles.leftContent}>
         <View style={[listStyles.iconContainer, { backgroundColor: subcategory.color + '20' }]}>
-          <Ionicons 
-            name={subcategory.icon as any} 
-            size={24} 
-            color={subcategory.color} 
+          <Ionicons
+            name={subcategory.icon as any}
+            size={24}
+            color={subcategory.color}
           />
         </View>
-        
+
         <View style={listStyles.textContainer}>
           <Text style={listStyles.title}>{subcategoryName}</Text>
           <Text style={listStyles.subtitle}>
-            {phrasesCount} {config.mode === 'tk' ? 'sözlem' :
-                          config.mode === 'zh' ? '短语' : 'фраз'}
+            {getPhrasesText(phrasesCount, selectedLanguage)}
           </Text>
         </View>
       </View>
 
-      <Ionicons 
-        name="chevron-forward" 
-        size={20} 
-        color={Colors.textLight} 
+      <Ionicons
+        name="chevron-forward"
+        size={20}
+        color={Colors.textLight}
       />
     </TouchableOpacity>
   );
