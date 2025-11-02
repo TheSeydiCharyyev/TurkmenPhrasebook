@@ -24,7 +24,8 @@ import { useConfig } from '../../../contexts/ConfigContext';
 import OCRService from '../services/OCRService';
 import TranslationService from '../services/TranslationService';
 import AIService from '../services/AIService';
-import type { TranslationResult } from '../types/visual-translator.types';
+import OCREngineSelector from '../components/OCREngineSelector';
+import type { TranslationResult, OCREngine } from '../types/visual-translator.types';
 import type { RootStackParamList } from '../../../types';
 
 type VisualTranslatorNavigationProp = StackNavigationProp<RootStackParamList, 'VisualTranslator'>;
@@ -34,6 +35,8 @@ export default function VisualTranslatorHomeScreen() {
   const { selectedLanguage } = useConfig();
   const [hasPermissions, setHasPermissions] = useState<boolean | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
+  const [showEngineSelector, setShowEngineSelector] = useState(false);
+  const [selectedEngine, setSelectedEngine] = useState<OCREngine>(OCRService.getSelectedEngine());
 
   useEffect(() => {
     requestPermissions();
@@ -264,6 +267,29 @@ export default function VisualTranslatorHomeScreen() {
           </View>
         )}
 
+        {/* OCR Engine Selector */}
+        <View style={styles.ocrEngineSection}>
+          <Text style={styles.ocrEngineTitle}>⚙️ OCR Engine</Text>
+          <TouchableOpacity
+            style={styles.ocrEngineCard}
+            onPress={() => setShowEngineSelector(true)}
+            activeOpacity={0.7}
+          >
+            <View style={styles.ocrEngineInfo}>
+              <Text style={styles.ocrEngineName}>
+                {getEngineName(selectedEngine)}
+              </Text>
+              <Text style={styles.ocrEngineSubtext}>
+                {getEngineDescription(selectedEngine)}
+              </Text>
+            </View>
+            <Ionicons name="chevron-forward" size={20} color="#9CA3AF" />
+          </TouchableOpacity>
+          <Text style={styles.ocrEngineHint}>
+            💡 Auto-fallback enabled if selected engine fails
+          </Text>
+        </View>
+
         {/* Features List */}
         <View style={styles.featuresSection}>
           <Text style={styles.featuresTitle}>✨ Features</Text>
@@ -306,8 +332,42 @@ export default function VisualTranslatorHomeScreen() {
           </View>
         )}
       </ScrollView>
+
+      {/* OCR Engine Selector Modal */}
+      <OCREngineSelector
+        visible={showEngineSelector}
+        onClose={() => setShowEngineSelector(false)}
+        onEngineSelect={(engine) => setSelectedEngine(engine)}
+      />
     </View>
   );
+}
+
+// Helper functions for OCR Engine display
+function getEngineName(engine: OCREngine): string {
+  switch (engine) {
+    case 'ml_kit':
+      return 'ML Kit (Recommended) 🔒';
+    case 'ocr_space':
+      return 'OCR.space 🌐';
+    case 'google_vision':
+      return 'Google Cloud Vision ⭐';
+    default:
+      return 'ML Kit';
+  }
+}
+
+function getEngineDescription(engine: OCREngine): string {
+  switch (engine) {
+    case 'ml_kit':
+      return 'Fast, offline, works without internet';
+    case 'ocr_space':
+      return 'Free online OCR, 25K requests/month';
+    case 'google_vision':
+      return 'Premium, most accurate, requires API key';
+    default:
+      return 'Offline text recognition';
+  }
 }
 
 // Feature Item Component
@@ -515,5 +575,52 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     color: '#FFFFFF',
+  },
+  // OCR Engine Selector styles
+  ocrEngineSection: {
+    marginHorizontal: 20,
+    marginTop: 24,
+    marginBottom: 8,
+  },
+  ocrEngineTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#111827',
+    marginBottom: 12,
+  },
+  ocrEngineCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 12,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05,
+    shadowRadius: 3,
+    elevation: 2,
+  },
+  ocrEngineInfo: {
+    flex: 1,
+  },
+  ocrEngineName: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#111827',
+    marginBottom: 4,
+  },
+  ocrEngineSubtext: {
+    fontSize: 13,
+    color: '#6B7280',
+    lineHeight: 18,
+  },
+  ocrEngineHint: {
+    marginTop: 8,
+    fontSize: 12,
+    color: '#9CA3AF',
+    textAlign: 'center',
   },
 });

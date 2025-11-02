@@ -1,233 +1,286 @@
 // src/features/visual-translator/services/OCRService.ts
-// Сервис для распознавания текста (Google ML Kit Text Recognition)
+// Роутер для OCR движков: ML Kit, OCR.space, Google Cloud Vision
 
 import TextRecognition from '@react-native-ml-kit/text-recognition';
-import { OCRResult, TextBlock } from '../types/visual-translator.types';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { OCR_SPACE_API_KEY, GOOGLE_VISION_API_KEY } from '@env';
+import {
+  OCRResult,
+  OCREngine,
+  OCREngineInfo,
+} from '../types/visual-translator.types';
+import OCRSpaceService from './OCRSpaceService';
+import GoogleVisionService from './GoogleVisionService';
 
-// Переключатель между mock и production режимами
-// Установить USE_MOCK = true для тестирования без реального OCR
-const USE_MOCK = false; // ML Kit установлен и готов к использованию
+const STORAGE_KEY_SELECTED_ENGINE = '@visual_translator_ocr_engine';
 
 class OCRService {
+  private selectedEngine: OCREngine = OCREngine.ML_KIT;
+
+  constructor() {
+    // Загружаем сохранённый выбор движка
+    this.loadSelectedEngine();
+  }
+
   /**
-   * Распознает текст на изображении
-   * @param imagePath - путь к изображению (file:// URI)
-   * @returns OCRResult с распознанным текстом
+   * Распознаёт текст на изображении используя выбранный движок
    */
   async recognizeText(imagePath: string): Promise<OCRResult> {
-    try {
-      if (USE_MOCK) {
-        // Mock для разработки
-        return this.mockRecognizeText(imagePath);
-      }
+    console.log(`[OCRService] Using engine: ${this.selectedEngine}`);
 
-      // Реальная реализация с ML Kit
-      console.log('[OCRService] Recognizing text from:', imagePath);
+    try {
+      switch (this.selectedEngine) {
+        case OCREngine.ML_KIT:
+          return await this.recognizeWithMLKit(imagePath);
+
+        case OCREngine.OCR_SPACE:
+          return await OCRSpaceService.recognizeText(imagePath, OCR_SPACE_API_KEY);
+
+        case OCREngine.GOOGLE_VISION:
+          return await GoogleVisionService.recognizeText(imagePath, GOOGLE_VISION_API_KEY);
+
+        default:
+          throw new Error(`Unknown OCR engine: ${this.selectedEngine}`);
+      }
+    } catch (error) {
+      console.error(`[OCRService] ${this.selectedEngine} failed:`, error);
+
+      // Автоматический fallback
+      return await this.fallbackRecognition(imagePath, error);
+    }
+  }
+
+  /**
+   * Fallback: пробуем другие движки если выбранный не сработал
+   */
+  private async fallbackRecognition(imagePath: string, originalError: any): Promise<OCRResult> {
+    console.log('[OCRService] Attempting fallback recognition...');
+
+    // Порядок fallback: ML Kit → OCR.space → Google Vision
+    const fallbackEngines = this.getFallbackOrder();
+
+    for (const engine of fallbackEngines) {
+      if (engine === this.selectedEngine) continue; // Пропускаем уже упавший движок
+
+      try {
+        console.log(`[OCRService] Trying fallback: ${engine}`);
+
+        switch (engine) {
+          case OCREngine.ML_KIT:
+            return await this.recognizeWithMLKit(imagePath);
+
+          case OCREngine.OCR_SPACE:
+            return await OCRSpaceService.recognizeText(imagePath, OCR_SPACE_API_KEY);
+
+          case OCREngine.GOOGLE_VISION:
+            return await GoogleVisionService.recognizeText(imagePath, GOOGLE_VISION_API_KEY);
+        }
+      } catch (fallbackError) {
+        console.warn(`[OCRService] Fallback ${engine} also failed:`, fallbackError);
+        continue;
+      }
+    }
+
+    // Все движки упали
+    throw new Error(
+      `All OCR engines failed. Original error: ${
+        originalError instanceof Error ? originalError.message : 'Unknown error'
+      }`
+    );
+  }
+
+  /**
+   * Порядок fallback движков
+   */
+  private getFallbackOrder(): OCREngine[] {
+    // Приоритет: офлайн → бесплатный онлайн → премиум
+    return [OCREngine.ML_KIT, OCREngine.OCR_SPACE, OCREngine.GOOGLE_VISION];
+  }
+
+  /**
+   * Распознавание с Google ML Kit (офлайн)
+   */
+  private async recognizeWithMLKit(imagePath: string): Promise<OCRResult> {
+    try {
+      console.log('[OCRService/MLKit] Recognizing text...');
       const result = await TextRecognition.recognize(imagePath);
 
-      // Извлекаем текст из всех блоков
       const fullText = result.blocks.map(block => block.text).join('\n');
 
-      // Определяем язык на основе содержимого
-      const detectedLanguage = this.detectLanguage(fullText);
+      if (!fullText.trim()) {
+        throw new Error('No text found in image');
+      }
 
-      // Рассчитываем уверенность
+      const detectedLanguage = this.detectLanguage(fullText);
       const confidence = this.calculateConfidence(result.blocks);
 
-      // Преобразуем блоки в нашу типизацию
-      const blocks: TextBlock[] = result.blocks.map(block => ({
-        text: block.text,
-        boundingBox: {
-          x: (block.frame as any)?.x ?? 0,
-          y: (block.frame as any)?.y ?? 0,
-          width: (block.frame as any)?.width ?? 0,
-          height: (block.frame as any)?.height ?? 0,
-        },
-        lines: block.lines.map(line => ({
-          text: line.text,
-          boundingBox: {
-            x: (line.frame as any)?.x ?? 0,
-            y: (line.frame as any)?.y ?? 0,
-            width: (line.frame as any)?.width ?? 0,
-            height: (line.frame as any)?.height ?? 0,
-          },
-          elements: line.elements.map(elem => ({
-            text: elem.text,
-            boundingBox: {
-              x: (elem.frame as any)?.x ?? 0,
-              y: (elem.frame as any)?.y ?? 0,
-              width: (elem.frame as any)?.width ?? 0,
-              height: (elem.frame as any)?.height ?? 0,
-            },
-          })),
-        })),
-      }));
-
-      console.log('[OCRService] Text recognized:', fullText.substring(0, 100));
+      console.log('[OCRService/MLKit] ✅ Text recognized:', fullText.substring(0, 100));
 
       return {
         text: fullText,
         language: detectedLanguage,
         confidence,
-        blocks,
+        engine: OCREngine.ML_KIT,
+        blocks: result.blocks.map((block: any) => ({
+          text: block.text,
+          boundingBox: {
+            x: block.frame?.x ?? 0,
+            y: block.frame?.y ?? 0,
+            width: block.frame?.width ?? 0,
+            height: block.frame?.height ?? 0,
+          },
+          lines: block.lines.map((line: any) => ({
+            text: line.text,
+            boundingBox: {
+              x: line.frame?.x ?? 0,
+              y: line.frame?.y ?? 0,
+              width: line.frame?.width ?? 0,
+              height: line.frame?.height ?? 0,
+            },
+            elements: line.elements.map((elem: any) => ({
+              text: elem.text,
+              boundingBox: {
+                x: elem.frame?.x ?? 0,
+                y: elem.frame?.y ?? 0,
+                width: elem.frame?.width ?? 0,
+                height: elem.frame?.height ?? 0,
+              },
+            })),
+          })),
+        })),
       };
     } catch (error) {
-      console.error('[OCRService] Recognition error:', error);
-      throw new Error('Failed to recognize text. Please try again.');
+      console.error('[OCRService/MLKit] Error:', error);
+      throw new Error(
+        'ML Kit unavailable. Try OCR.space or Google Vision in settings.'
+      );
     }
   }
 
   /**
-   * Mock версия для разработки без ML Kit
+   * Определяет язык текста
    */
-  private async mockRecognizeText(imagePath: string): Promise<OCRResult> {
-    // Симуляция задержки API
-    await new Promise(resolve => setTimeout(resolve, 1500));
-
-    // Возвращаем mock данные
-    const mockTexts = [
-      {
-        text: 'Hello, how are you?',
-        language: 'en',
-      },
-      {
-        text: '你好，你好吗？',
-        language: 'zh',
-      },
-      {
-        text: 'Привет, как дела?',
-        language: 'ru',
-      },
-      {
-        text: 'Salam, ýagdaýyňyz nähili?',
-        language: 'tk',
-      },
-    ];
-
-    // Случайный выбор
-    const mock = mockTexts[Math.floor(Math.random() * mockTexts.length)];
-
-    return {
-      text: mock.text,
-      language: mock.language,
-      confidence: 0.92,
-      blocks: [
-        {
-          text: mock.text,
-          boundingBox: { x: 10, y: 10, width: 200, height: 50 },
-          lines: [
-            {
-              text: mock.text,
-              boundingBox: { x: 10, y: 10, width: 200, height: 50 },
-              elements: [
-                {
-                  text: mock.text,
-                  boundingBox: { x: 10, y: 10, width: 200, height: 50 },
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    };
+  private detectLanguage(text: string): string {
+    if (/[\u4e00-\u9fa5]/.test(text)) return 'zh';
+    if (/[\u0400-\u04FF]/.test(text)) return 'ru';
+    if (/[\u0600-\u06FF]/.test(text)) return 'ar';
+    if (/[\u3040-\u309F\u30A0-\u30FF]/.test(text)) return 'ja';
+    if (/[\uAC00-\uD7AF]/.test(text)) return 'ko';
+    if (/[\u0E00-\u0E7F]/.test(text)) return 'th';
+    return 'en';
   }
 
   /**
-   * Проверяет, содержит ли изображение текст
-   * @param imagePath - путь к изображению
-   * @returns true если текст найден
+   * Вычисляет confidence
+   */
+  private calculateConfidence(blocks: any[]): number {
+    if (!blocks || blocks.length === 0) return 0;
+    return Math.min(0.5 + blocks.length * 0.1, 0.95);
+  }
+
+  /**
+   * Проверяет наличие текста на изображении
    */
   async hasText(imagePath: string): Promise<boolean> {
     try {
       const result = await this.recognizeText(imagePath);
       return result.text.trim().length > 0;
-    } catch (error) {
-      console.error('[OCRService] hasText error:', error);
+    } catch {
       return false;
     }
   }
 
   /**
-   * Рассчитывает среднюю уверенность распознавания
+   * Установить выбранный движок
    */
-  private calculateConfidence(blocks: any[]): number {
-    if (!blocks || blocks.length === 0) return 0;
-
-    // Google ML Kit не всегда предоставляет confidence
-    // Используем эвристику на основе количества распознанных блоков
-    // Больше блоков = выше уверенность (до максимума 0.95)
-    const confidence = Math.min(0.5 + blocks.length * 0.1, 0.95);
-
-    return confidence;
+  async setSelectedEngine(engine: OCREngine): Promise<void> {
+    this.selectedEngine = engine;
+    await AsyncStorage.setItem(STORAGE_KEY_SELECTED_ENGINE, engine);
+    console.log(`[OCRService] Engine set to: ${engine}`);
   }
 
   /**
-   * Определяет язык распознанного текста (эвристика)
+   * Получить текущий выбранный движок
    */
-  detectLanguage(text: string): string {
-    // Простая эвристика на основе символов
-    if (/[\u4e00-\u9fa5]/.test(text)) return 'zh'; // Китайский
-    if (/[\u0400-\u04FF]/.test(text)) return 'ru'; // Русский
-    if (/[\u0600-\u06FF]/.test(text)) return 'ar'; // Арабский
-    if (/[\u3040-\u309F\u30A0-\u30FF]/.test(text)) return 'ja'; // Японский
-    if (/[\uAC00-\uD7AF]/.test(text)) return 'ko'; // Корейский
-    if (/[\u0E00-\u0E7F]/.test(text)) return 'th'; // Тайский
-
-    // По умолчанию английский или латиница
-    return 'en';
+  getSelectedEngine(): OCREngine {
+    return this.selectedEngine;
   }
 
   /**
-   * Получить поддерживаемые языки для OCR
+   * Загружает сохранённый выбор движка
+   */
+  private async loadSelectedEngine(): Promise<void> {
+    try {
+      const saved = await AsyncStorage.getItem(STORAGE_KEY_SELECTED_ENGINE);
+      if (saved && Object.values(OCREngine).includes(saved as OCREngine)) {
+        this.selectedEngine = saved as OCREngine;
+        console.log(`[OCRService] Loaded saved engine: ${saved}`);
+      }
+    } catch (error) {
+      console.warn('[OCRService] Failed to load saved engine:', error);
+    }
+  }
+
+  /**
+   * Получить информацию о всех доступных движках
+   */
+  async getAvailableEngines(): Promise<OCREngineInfo[]> {
+    const engines: OCREngineInfo[] = [
+      {
+        id: OCREngine.ML_KIT,
+        name: 'ML Kit (Recommended)',
+        description: 'Fast, offline, works without internet',
+        icon: '🔒',
+        isOnline: false,
+        isPremium: false,
+        isAvailable: await this.checkMLKitAvailability(),
+        requiresApiKey: false,
+      },
+      {
+        id: OCREngine.OCR_SPACE,
+        name: 'OCR.space',
+        description: 'Free online OCR, 25K requests/month',
+        icon: '🌐',
+        isOnline: true,
+        isPremium: false,
+        isAvailable: await OCRSpaceService.isAvailable(),
+        requiresApiKey: false, // Используем публичный ключ
+      },
+      {
+        id: OCREngine.GOOGLE_VISION,
+        name: 'Google Cloud Vision',
+        description: 'Premium, most accurate, requires API key',
+        icon: '⭐',
+        isOnline: true,
+        isPremium: true,
+        isAvailable: await GoogleVisionService.isAvailable(GOOGLE_VISION_API_KEY),
+        requiresApiKey: true,
+      },
+    ];
+
+    return engines;
+  }
+
+  /**
+   * Проверяет доступность ML Kit
+   */
+  private async checkMLKitAvailability(): Promise<boolean> {
+    try {
+      return TextRecognition !== undefined && TextRecognition !== null;
+    } catch {
+      return false;
+    }
+  }
+
+  /**
+   * Получить поддерживаемые языки
    */
   getSupportedLanguages(): string[] {
     return [
-      'en', // English
-      'zh', // Chinese (Simplified & Traditional)
-      'ru', // Russian
-      'ja', // Japanese
-      'ko', // Korean
-      'ar', // Arabic
-      'th', // Thai
-      'vi', // Vietnamese
-      'fr', // French
-      'de', // German
-      'es', // Spanish
-      'it', // Italian
-      'pt', // Portuguese
-      'tr', // Turkish
-      'hi', // Hindi
-      'tk', // Turkmen (латиница)
+      'en', 'zh', 'ru', 'ja', 'ko', 'ar', 'th', 'vi',
+      'fr', 'de', 'es', 'it', 'pt', 'tr', 'hi', 'tk',
     ];
-  }
-
-  /**
-   * Проверить доступность сервиса
-   */
-  async checkAvailability(): Promise<boolean> {
-    try {
-      if (USE_MOCK) {
-        return true;
-      }
-
-      // Проверка что ML Kit установлен и доступен
-      return TextRecognition !== undefined && TextRecognition !== null;
-    } catch (error) {
-      console.error('[OCRService] Availability check error:', error);
-      return false;
-    }
-  }
-
-  /**
-   * Получить информацию о версии и режиме
-   */
-  getServiceInfo(): { version: string; mode: 'mock' | 'production' } {
-    return {
-      version: '1.0.0',
-      mode: USE_MOCK ? 'mock' : 'production',
-    };
   }
 }
 
-// Экспортируем singleton
 export default new OCRService();

@@ -2,6 +2,7 @@
 // Сервис для AI анализа изображений (Hugging Face Inference API)
 
 import * as FileSystem from 'expo-file-system';
+import { HUGGINGFACE_API_KEY } from '@env';
 import {
   AIDescription,
   ImageCategory,
@@ -9,11 +10,11 @@ import {
   HuggingFaceCLIPResponse,
 } from '../types/visual-translator.types';
 
-const HF_API_BASE = 'https://api-inference.huggingface.co/models/';
+// Updated to new Inference Providers API (November 2025)
+const HF_API_BASE = 'https://router.huggingface.co/hf-inference/models/';
 
-// Можно добавить API токен для более высоких лимитов
-// Получить токен: https://huggingface.co/settings/tokens
-const HF_API_TOKEN = ''; // Оставляем пустым - используем бесплатный tier
+// API токен загружается из .env файла
+const HF_API_TOKEN = HUGGINGFACE_API_KEY;
 
 // Модели
 const BLIP_MODEL = 'Salesforce/blip-image-captioning-base'; // Описание изображений

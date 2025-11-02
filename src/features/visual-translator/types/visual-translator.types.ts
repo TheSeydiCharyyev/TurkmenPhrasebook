@@ -2,6 +2,29 @@
 // TypeScript типы для Visual Translator модуля
 
 /**
+ * OCR Engine типы
+ */
+export enum OCREngine {
+  ML_KIT = 'ml_kit',                    // Google ML Kit (offline, бесплатно)
+  OCR_SPACE = 'ocr_space',              // OCR.space API (online, бесплатно)
+  GOOGLE_VISION = 'google_vision',      // Google Cloud Vision (online, премиум)
+}
+
+/**
+ * Информация о OCR движке
+ */
+export interface OCREngineInfo {
+  id: OCREngine;
+  name: string;
+  description: string;
+  icon: string;
+  isOnline: boolean;
+  isPremium: boolean;
+  isAvailable: boolean;                 // Доступен ли в текущем окружении
+  requiresApiKey?: boolean;
+}
+
+/**
  * Результат OCR распознавания текста
  */
 export interface OCRResult {
@@ -10,6 +33,7 @@ export interface OCRResult {
   confidence: number;          // Уверенность распознавания (0-1)
   boundingBox?: BoundingBox;   // Общая область текста
   blocks?: TextBlock[];        // Блоки текста
+  engine: OCREngine;           // Какой движок использовался
 }
 
 /**

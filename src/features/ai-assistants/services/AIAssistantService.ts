@@ -4,6 +4,7 @@
  */
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { HUGGINGFACE_API_KEY } from '@env';
 import {
   AssistantType,
   ChatMessage,
@@ -18,12 +19,8 @@ import {
 } from '../types/ai-assistant.types';
 
 // Hugging Face API Configuration
-const HUGGINGFACE_API_URL = 'https://api-inference.huggingface.co/models';
-
-// ⚠️ ВАЖНО: Замените на ваш реальный API ключ
-// Получить бесплатный ключ: https://huggingface.co/settings/tokens
-// Для production используйте переменные окружения (см. .env.example)
-const HUGGINGFACE_API_KEY = process.env.HUGGINGFACE_API_KEY || 'YOUR_HUGGINGFACE_API_KEY_HERE';
+// Updated to new Inference Providers API (November 2025)
+const HUGGINGFACE_API_URL = 'https://router.huggingface.co/hf-inference/models';
 
 // Model Selection (you can use different models for different assistants)
 const MODELS = {
