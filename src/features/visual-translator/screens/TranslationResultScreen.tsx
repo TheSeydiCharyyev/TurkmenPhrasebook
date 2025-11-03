@@ -20,6 +20,7 @@ import { DesignColors } from '../../../constants/Design';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
 import type { RouteProp } from '@react-navigation/native';
+import { useAppLanguage } from '../../../contexts/LanguageContext';
 import * as Speech from 'expo-speech';
 import type { TranslationResult } from '../types/visual-translator.types';
 import type { RootStackParamList } from '../../../types';
@@ -30,6 +31,8 @@ type TranslationResultRouteProp = RouteProp<RootStackParamList, 'TranslationResu
 export default function TranslationResultScreen() {
   const navigation = useNavigation<TranslationResultNavigationProp>();
   const route = useRoute<TranslationResultRouteProp>();
+  const { getTexts } = useAppLanguage();
+  const texts = getTexts();
   const [isSpeaking, setIsSpeaking] = useState(false);
 
   // Получаем результат из параметров навигации
@@ -66,13 +69,13 @@ export default function TranslationResultScreen() {
     } catch (error) {
       console.error('Speech error:', error);
       setIsSpeaking(false);
-      Alert.alert('Error', 'Failed to speak text');
+      Alert.alert(texts.error, 'Failed to speak text');
     }
   };
 
   const handleCopy = () => {
     Clipboard.setString(result.translatedText);
-    Alert.alert('✅ Copied', 'Translation copied to clipboard');
+    Alert.alert(texts.vtCopied, texts.vtCopiedMessage);
   };
 
   const handleShare = async () => {
@@ -151,7 +154,7 @@ export default function TranslationResultScreen() {
         >
           <Text style={styles.headerEmoji}>⬅️</Text>
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Result</Text>
+        <Text style={styles.headerTitle}>{texts.vtResult}</Text>
         <TouchableOpacity
           style={styles.shareButton}
           onPress={handleShare}
@@ -207,11 +210,11 @@ export default function TranslationResultScreen() {
           <View style={styles.card}>
             <View style={styles.cardHeader}>
               <Text style={styles.cardEmoji}>📝</Text>
-              <Text style={styles.cardTitle}>Recognized Text</Text>
+              <Text style={styles.cardTitle}>{texts.vtRecognizedText}</Text>
             </View>
             <Text style={styles.originalText}>{result.originalText}</Text>
             <Text style={styles.languageLabel}>
-              Language: {result.sourceLanguage.toUpperCase()}
+              {texts.vtLanguageLabel}{result.sourceLanguage.toUpperCase()}
             </Text>
           </View>
         )}
@@ -221,7 +224,7 @@ export default function TranslationResultScreen() {
           <View style={styles.card}>
             <View style={styles.cardHeader}>
               <Text style={styles.cardEmoji}>✨</Text>
-              <Text style={styles.cardTitle}>AI Analysis</Text>
+              <Text style={styles.cardTitle}>{texts.vtAiAnalysis}</Text>
             </View>
             <Text style={styles.aiDescription}>{result.aiDescription.description}</Text>
           </View>
@@ -231,11 +234,11 @@ export default function TranslationResultScreen() {
         <View style={[styles.card, styles.translationCard]}>
           <View style={styles.cardHeader}>
             <Text style={styles.cardEmoji}>🌍</Text>
-            <Text style={styles.cardTitle}>Translation</Text>
+            <Text style={styles.cardTitle}>{texts.vtTranslation}</Text>
           </View>
           <Text style={styles.translatedText}>{result.translatedText}</Text>
           <Text style={styles.languageLabel}>
-            Target: {result.targetLanguage.toUpperCase()}
+            {texts.vtTargetLabel}{result.targetLanguage.toUpperCase()}
           </Text>
         </View>
 
@@ -250,7 +253,7 @@ export default function TranslationResultScreen() {
               {isSpeaking ? '⏹️' : '🔊'}
             </Text>
             <Text style={styles.actionButtonText}>
-              {isSpeaking ? 'Stop' : 'Play'}
+              {isSpeaking ? texts.vtStop : texts.vtPlay}
             </Text>
           </TouchableOpacity>
 
@@ -260,7 +263,7 @@ export default function TranslationResultScreen() {
             activeOpacity={0.7}
           >
             <Text style={styles.actionEmojiSecondary}>📋</Text>
-            <Text style={styles.actionButtonTextSecondary}>Copy</Text>
+            <Text style={styles.actionButtonTextSecondary}>{texts.vtCopy}</Text>
           </TouchableOpacity>
 
           {/* Save будет в Phase 6 (Favorites Hub) */}
@@ -273,7 +276,7 @@ export default function TranslationResultScreen() {
           activeOpacity={0.8}
         >
           <Text style={styles.newPhotoEmoji}>📷</Text>
-          <Text style={styles.newPhotoButtonText}>Translate Another</Text>
+          <Text style={styles.newPhotoButtonText}>{texts.vtTranslateAnother}</Text>
         </TouchableOpacity>
       </ScrollView>
     </View>

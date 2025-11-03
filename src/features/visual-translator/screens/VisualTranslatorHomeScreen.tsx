@@ -21,6 +21,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
 import { useConfig } from '../../../contexts/ConfigContext';
+import { useAppLanguage } from '../../../contexts/LanguageContext';
 import OCRService from '../services/OCRService';
 import TranslationService from '../services/TranslationService';
 import AIService from '../services/AIService';
@@ -33,6 +34,8 @@ type VisualTranslatorNavigationProp = StackNavigationProp<RootStackParamList, 'V
 export default function VisualTranslatorHomeScreen() {
   const navigation = useNavigation<VisualTranslatorNavigationProp>();
   const { selectedLanguage } = useConfig();
+  const { getTexts } = useAppLanguage();
+  const texts = getTexts();
   const [hasPermissions, setHasPermissions] = useState<boolean | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [showEngineSelector, setShowEngineSelector] = useState(false);
@@ -187,7 +190,7 @@ export default function VisualTranslatorHomeScreen() {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#6366F1" />
-        <Text style={styles.loadingText}>Requesting permissions...</Text>
+        <Text style={styles.loadingText}>{texts.vtRequestingPermissions}</Text>
       </View>
     );
   }
@@ -209,7 +212,7 @@ export default function VisualTranslatorHomeScreen() {
         >
           <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Visual Translator</Text>
+        <Text style={styles.headerTitle}>{texts.visualTranslatorTitle}</Text>
         <View style={styles.placeholder} />
       </View>
 
@@ -227,9 +230,9 @@ export default function VisualTranslatorHomeScreen() {
           <View style={styles.iconContainer}>
             <Text style={styles.heroIcon}>📸</Text>
           </View>
-          <Text style={styles.heroTitle}>Translate with AI</Text>
+          <Text style={styles.heroTitle}>{texts.vtTranslateWithAI}</Text>
           <Text style={styles.heroSubtitle}>
-            Point your camera at any text and get instant translation
+            {texts.vtCameraSubtitle}
           </Text>
         </LinearGradient>
 
@@ -242,7 +245,7 @@ export default function VisualTranslatorHomeScreen() {
             activeOpacity={0.8}
           >
             <Text style={styles.buttonEmoji}>📷</Text>
-            <Text style={styles.actionButtonText}>Take Photo</Text>
+            <Text style={styles.actionButtonText}>{texts.vtTakePhoto}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -252,7 +255,7 @@ export default function VisualTranslatorHomeScreen() {
             activeOpacity={0.8}
           >
             <Text style={styles.buttonEmojiSecondary}>🖼️</Text>
-            <Text style={styles.actionButtonTextSecondary}>Choose from Gallery</Text>
+            <Text style={styles.actionButtonTextSecondary}>{texts.vtChooseGallery}</Text>
           </TouchableOpacity>
         </View>
 
@@ -260,16 +263,16 @@ export default function VisualTranslatorHomeScreen() {
         {isProcessing && (
           <View style={styles.processingContainer}>
             <ActivityIndicator size="large" color="#6366F1" />
-            <Text style={styles.processingText}>Processing image...</Text>
+            <Text style={styles.processingText}>{texts.vtProcessing}</Text>
             <Text style={styles.processingSubtext}>
-              Recognizing text and translating
+              {texts.vtProcessingSubtext}
             </Text>
           </View>
         )}
 
         {/* OCR Engine Selector */}
         <View style={styles.ocrEngineSection}>
-          <Text style={styles.ocrEngineTitle}>⚙️ OCR Engine</Text>
+          <Text style={styles.ocrEngineTitle}>⚙️ {texts.vtOcrEngine}</Text>
           <TouchableOpacity
             style={styles.ocrEngineCard}
             onPress={() => setShowEngineSelector(true)}
@@ -286,36 +289,36 @@ export default function VisualTranslatorHomeScreen() {
             <Text style={styles.chevronEmoji}>➡️</Text>
           </TouchableOpacity>
           <Text style={styles.ocrEngineHint}>
-            💡 Auto-fallback enabled if selected engine fails
+            💡 {texts.vtAutoFallback}
           </Text>
         </View>
 
         {/* Features List */}
         <View style={styles.featuresSection}>
-          <Text style={styles.featuresTitle}>✨ Features</Text>
+          <Text style={styles.featuresTitle}>✨ {texts.vtFeatures}</Text>
 
           <FeatureItemEmoji
             emoji="📝"
-            title="OCR Text Recognition"
-            description="Recognizes text in 30+ languages with high accuracy"
+            title={texts.vtFeatureOcrTitle}
+            description={texts.vtFeatureOcrDesc}
             color="#6366F1"
           />
           <FeatureItemEmoji
             emoji="✨"
-            title="AI Object Description"
-            description="Describes objects when no text is found"
+            title={texts.vtFeatureAiTitle}
+            description={texts.vtFeatureAiDesc}
             color="#8B5CF6"
           />
           <FeatureItemEmoji
             emoji="🌍"
-            title="Smart Translation"
-            description="Context-aware translation powered by AI"
+            title={texts.vtFeatureSmartTitle}
+            description={texts.vtFeatureSmartDesc}
             color="#10B981"
           />
           <FeatureItemEmoji
             emoji="⭐"
-            title="Save & Share"
-            description="Save translations to favorites and share with others"
+            title={texts.vtFeatureSaveTitle}
+            description={texts.vtFeatureSaveDesc}
             color="#F59E0B"
           />
         </View>
@@ -325,13 +328,13 @@ export default function VisualTranslatorHomeScreen() {
           <View style={styles.permissionsNotice}>
             <Text style={styles.permissionsIcon}>⚠️</Text>
             <Text style={styles.permissionsText}>
-              Camera and photo library permissions are required to use this feature.
+              {texts.vtPermissionsText}
             </Text>
             <TouchableOpacity
               style={styles.grantButton}
               onPress={requestPermissions}
             >
-              <Text style={styles.grantButtonText}>Grant Permissions</Text>
+              <Text style={styles.grantButtonText}>{texts.vtGrantPermissions}</Text>
             </TouchableOpacity>
           </View>
         )}
