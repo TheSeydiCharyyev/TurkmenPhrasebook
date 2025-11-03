@@ -149,7 +149,7 @@ export default function TranslationResultScreen() {
           onPress={() => navigation.goBack()}
           activeOpacity={0.7}
         >
-          <Ionicons name="arrow-back" size={24} color="#111827" />
+          <Text style={styles.headerEmoji}>⬅️</Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Result</Text>
         <TouchableOpacity
@@ -157,7 +157,7 @@ export default function TranslationResultScreen() {
           onPress={handleShare}
           activeOpacity={0.7}
         >
-          <Ionicons name="share-outline" size={24} color="#111827" />
+          <Text style={styles.headerEmoji}>📤</Text>
         </TouchableOpacity>
       </View>
 
@@ -206,7 +206,7 @@ export default function TranslationResultScreen() {
         {result.method === 'ocr' && result.originalText && (
           <View style={styles.card}>
             <View style={styles.cardHeader}>
-              <Ionicons name="text" size={20} color="#6366F1" />
+              <Text style={styles.cardEmoji}>📝</Text>
               <Text style={styles.cardTitle}>Recognized Text</Text>
             </View>
             <Text style={styles.originalText}>{result.originalText}</Text>
@@ -220,7 +220,7 @@ export default function TranslationResultScreen() {
         {result.aiDescription && !result.originalText && (
           <View style={styles.card}>
             <View style={styles.cardHeader}>
-              <Ionicons name="sparkles" size={20} color="#8B5CF6" />
+              <Text style={styles.cardEmoji}>✨</Text>
               <Text style={styles.cardTitle}>AI Analysis</Text>
             </View>
             <Text style={styles.aiDescription}>{result.aiDescription.description}</Text>
@@ -230,7 +230,7 @@ export default function TranslationResultScreen() {
         {/* Translation */}
         <View style={[styles.card, styles.translationCard]}>
           <View style={styles.cardHeader}>
-            <Ionicons name="language" size={20} color="#10B981" />
+            <Text style={styles.cardEmoji}>🌍</Text>
             <Text style={styles.cardTitle}>Translation</Text>
           </View>
           <Text style={styles.translatedText}>{result.translatedText}</Text>
@@ -246,11 +246,9 @@ export default function TranslationResultScreen() {
             onPress={handleSpeak}
             activeOpacity={0.7}
           >
-            <Ionicons
-              name={isSpeaking ? 'stop-circle' : 'volume-high'}
-              size={20}
-              color="#FFFFFF"
-            />
+            <Text style={styles.actionEmoji}>
+              {isSpeaking ? '⏹️' : '🔊'}
+            </Text>
             <Text style={styles.actionButtonText}>
               {isSpeaking ? 'Stop' : 'Play'}
             </Text>
@@ -261,7 +259,7 @@ export default function TranslationResultScreen() {
             onPress={handleCopy}
             activeOpacity={0.7}
           >
-            <Ionicons name="copy-outline" size={20} color="#6366F1" />
+            <Text style={styles.actionEmojiSecondary}>📋</Text>
             <Text style={styles.actionButtonTextSecondary}>Copy</Text>
           </TouchableOpacity>
 
@@ -274,7 +272,7 @@ export default function TranslationResultScreen() {
           onPress={handleNewPhoto}
           activeOpacity={0.8}
         >
-          <Ionicons name="camera" size={24} color="#6366F1" />
+          <Text style={styles.newPhotoEmoji}>📷</Text>
           <Text style={styles.newPhotoButtonText}>Translate Another</Text>
         </TouchableOpacity>
       </ScrollView>
@@ -307,6 +305,9 @@ const styles = StyleSheet.create({
   },
   shareButton: {
     padding: 4,
+  },
+  headerEmoji: {
+    fontSize: 24,
   },
   scrollContent: {
     paddingBottom: 40,
@@ -374,6 +375,9 @@ const styles = StyleSheet.create({
     color: '#64748B',
     textTransform: 'uppercase',
   },
+  cardEmoji: {
+    fontSize: 20,
+  },
   originalText: {
     fontSize: 16,
     lineHeight: 24,
@@ -430,6 +434,12 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#6366F1',
   },
+  actionEmoji: {
+    fontSize: 20,
+  },
+  actionEmojiSecondary: {
+    fontSize: 20,
+  },
   newPhotoButton: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -448,5 +458,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '600',
     color: '#6366F1',
+  },
+  newPhotoEmoji: {
+    fontSize: 24,
   },
 });

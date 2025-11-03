@@ -27,7 +27,7 @@ interface ConfigProviderProps {
 }
 
 export const ConfigProvider: React.FC<ConfigProviderProps> = ({ children }) => {
-  const [selectedLanguage, setSelectedLanguageState] = useState<string>('zh'); // Default китайский
+  const [selectedLanguage, setSelectedLanguageState] = useState<string>('tk'); // Default туркменский
   const [isLoading, setIsLoading] = useState(true);
   const [isFirstLaunch, setIsFirstLaunch] = useState(true);
   const [onboardingCompleted, setOnboardingCompleted] = useState(false);
@@ -58,10 +58,10 @@ export const ConfigProvider: React.FC<ConfigProviderProps> = ({ children }) => {
           // ✅ Phase 5: Начинаем сессию аналитики
           await LanguageAnalyticsService.startSession(savedLanguage);
         } else {
-          // Если сохранённый язык недоступен, используем китайский по умолчанию
+          // Если сохранённый язык недоступен, используем туркменский по умолчанию
           console.warn(`Saved language ${savedLanguage} is not available, using default`);
-          setSelectedLanguageState('zh');
-          await LanguageAnalyticsService.startSession('zh');
+          setSelectedLanguageState('tk');
+          await LanguageAnalyticsService.startSession('tk');
         }
       } else {
         // Первый запуск - проверяем флаг

@@ -241,7 +241,7 @@ export default function VisualTranslatorHomeScreen() {
             disabled={isProcessing || !hasPermissions}
             activeOpacity={0.8}
           >
-            <Ionicons name="camera" size={28} color="#FFFFFF" />
+            <Text style={styles.buttonEmoji}>📷</Text>
             <Text style={styles.actionButtonText}>Take Photo</Text>
           </TouchableOpacity>
 
@@ -251,7 +251,7 @@ export default function VisualTranslatorHomeScreen() {
             disabled={isProcessing || !hasPermissions}
             activeOpacity={0.8}
           >
-            <Ionicons name="images" size={28} color="#6366F1" />
+            <Text style={styles.buttonEmojiSecondary}>🖼️</Text>
             <Text style={styles.actionButtonTextSecondary}>Choose from Gallery</Text>
           </TouchableOpacity>
         </View>
@@ -283,7 +283,7 @@ export default function VisualTranslatorHomeScreen() {
                 {getEngineDescription(selectedEngine)}
               </Text>
             </View>
-            <Ionicons name="chevron-forward" size={20} color="#9CA3AF" />
+            <Text style={styles.chevronEmoji}>➡️</Text>
           </TouchableOpacity>
           <Text style={styles.ocrEngineHint}>
             💡 Auto-fallback enabled if selected engine fails
@@ -294,32 +294,36 @@ export default function VisualTranslatorHomeScreen() {
         <View style={styles.featuresSection}>
           <Text style={styles.featuresTitle}>✨ Features</Text>
 
-          <FeatureItem
-            icon="text"
+          <FeatureItemEmoji
+            emoji="📝"
             title="OCR Text Recognition"
             description="Recognizes text in 30+ languages with high accuracy"
+            color="#6366F1"
           />
-          <FeatureItem
-            icon="sparkles"
+          <FeatureItemEmoji
+            emoji="✨"
             title="AI Object Description"
             description="Describes objects when no text is found"
+            color="#8B5CF6"
           />
-          <FeatureItem
-            icon="language"
+          <FeatureItemEmoji
+            emoji="🌍"
             title="Smart Translation"
             description="Context-aware translation powered by AI"
+            color="#10B981"
           />
-          <FeatureItem
-            icon="bookmark"
+          <FeatureItemEmoji
+            emoji="⭐"
             title="Save & Share"
             description="Save translations to favorites and share with others"
+            color="#F59E0B"
           />
         </View>
 
         {/* Permissions Notice */}
         {!hasPermissions && (
           <View style={styles.permissionsNotice}>
-            <Ionicons name="alert-circle-outline" size={24} color="#F59E0B" />
+            <Text style={styles.permissionsIcon}>⚠️</Text>
             <Text style={styles.permissionsText}>
               Camera and photo library permissions are required to use this feature.
             </Text>
@@ -370,17 +374,18 @@ function getEngineDescription(engine: OCREngine): string {
   }
 }
 
-// Feature Item Component
-interface FeatureItemProps {
-  icon: keyof typeof Ionicons.glyphMap;
+// Feature Item Component with Emoji
+interface FeatureItemEmojiProps {
+  emoji: string;
   title: string;
   description: string;
+  color: string;
 }
 
-const FeatureItem: React.FC<FeatureItemProps> = ({ icon, title, description }) => (
+const FeatureItemEmoji: React.FC<FeatureItemEmojiProps> = ({ emoji, title, description, color }) => (
   <View style={styles.featureItem}>
-    <View style={styles.featureIconContainer}>
-      <Ionicons name={icon} size={24} color="#6366F1" />
+    <View style={[styles.featureIconContainer, { backgroundColor: color + '15' }]}>
+      <Text style={styles.featureEmoji}>{emoji}</Text>
     </View>
     <View style={styles.featureContent}>
       <Text style={styles.featureTitle}>{title}</Text>
@@ -484,6 +489,12 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#6366F1',
   },
+  buttonEmoji: {
+    fontSize: 28,
+  },
+  buttonEmojiSecondary: {
+    fontSize: 28,
+  },
   actionButtonText: {
     fontSize: 18,
     fontWeight: '600',
@@ -528,10 +539,13 @@ const styles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 12,
-    backgroundColor: '#F0F4FF',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 16,
+  },
+  featureEmoji: {
+    fontSize: 24,
+    textAlign: 'center',
   },
   featureContent: {
     flex: 1,
@@ -556,6 +570,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#FCD34D',
     alignItems: 'center',
+  },
+  permissionsIcon: {
+    fontSize: 32,
   },
   permissionsText: {
     marginTop: 12,
@@ -622,5 +639,8 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: '#9CA3AF',
     textAlign: 'center',
+  },
+  chevronEmoji: {
+    fontSize: 18,
   },
 });

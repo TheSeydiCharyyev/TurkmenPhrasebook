@@ -40,6 +40,11 @@ const MinimalHeader = React.memo<{
   ({ languageMode, onSearchPress, onLanguagePress, selectedLanguageCode, animatedStyle }) => {
     const selectedLang = getLanguageByCode(selectedLanguageCode);
     const turkmenFlag = '🇹🇲';
+    const englishFlag = '🇬🇧';
+
+    // Когда выбран туркменский, показываем пару Туркменский ↔ Английский
+    const isTurkmenMode = selectedLanguageCode === 'tk';
+    const rightLang = isTurkmenMode ? getLanguageByCode('en') : null;
 
     return (
       <Animated.View style={[styles.headerContainer, animatedStyle]}>
@@ -53,8 +58,8 @@ const MinimalHeader = React.memo<{
           <Ionicons name="swap-horizontal" size={24} color="#6B7280" />
 
           <View style={styles.languageIndicator}>
-            <Text style={styles.flagLarge}>{turkmenFlag}</Text>
-            <Text style={styles.languageCode}>Türkmen</Text>
+            <Text style={styles.flagLarge}>{isTurkmenMode ? englishFlag : turkmenFlag}</Text>
+            <Text style={styles.languageCode}>{isTurkmenMode ? (rightLang?.name || 'English') : 'Türkmen'}</Text>
           </View>
 
           <TouchableOpacity
