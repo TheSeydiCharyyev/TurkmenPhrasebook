@@ -4,12 +4,48 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { Audio } from 'expo-av';
 import * as Speech from 'expo-speech';
+import { Alert, Linking, Platform } from 'react-native';
 import { getAudioSource } from '../data/audioMapping';
 
 export function useAudio() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const soundRef = useRef<Audio.Sound | null>(null);
+
+  /**
+   * Открыть настройки TTS для установки языка
+   */
+  const openTTSSettings = useCallback(() => {
+    if (Platform.OS === 'android') {
+      // Android: Открываем настройки TTS
+      Linking.openSettings();
+    } else if (Platform.OS === 'ios') {
+      // iOS: Открываем настройки Accessibility > Spoken Content
+      Linking.openURL('app-settings:');
+    }
+  }, []);
+
+  /**
+   * Показать Alert об отсутствии TTS для языка
+   */
+  const showTTSMissingAlert = useCallback((languageName: string) => {
+    const title = '🔊 Голос не найден';
+    const message = Platform.OS === 'android'
+      ? `Голос для языка "${languageName}" не установлен на вашем устройстве.\n\nДля установки:\n1. Откройте Настройки\n2. Найдите "Преобразование текста в речь" (TTS)\n3. Загрузите голос для ${languageName}`
+      : `Голос для языка "${languageName}" не найден.\n\nДля установки:\n1. Откройте Настройки\n2. Перейдите в Универсальный доступ > Озвучивание содержимого\n3. Выберите голоса для ${languageName}`;
+
+    Alert.alert(
+      title,
+      message,
+      [
+        { text: 'Отмена', style: 'cancel' },
+        {
+          text: 'Открыть настройки',
+          onPress: openTTSSettings
+        }
+      ]
+    );
+  }, [openTTSSettings]);
 
   // Инициализация аудио режима
   useEffect(() => {
@@ -92,6 +128,47 @@ export function useAudio() {
   };
 
   /**
+   * Получить человекочитаемое название языка для TTS ошибок
+   */
+  const getLanguageName = (language: string): string => {
+    const languageNames: { [key: string]: string } = {
+      'turkmen': 'Туркменский',
+      'chinese': 'Китайский',
+      'russian': 'Русский',
+      'english': 'Английский',
+      'japanese': 'Японский',
+      'korean': 'Корейский',
+      'thai': 'Тайский',
+      'vietnamese': 'Вьетнамский',
+      'indonesian': 'Индонезийский',
+      'malay': 'Малайский',
+      'hindi': 'Хинди',
+      'urdu': 'Урду',
+      'persian': 'Персидский',
+      'pashto': 'Пушту',
+      'german': 'Немецкий',
+      'french': 'Французский',
+      'spanish': 'Испанский',
+      'italian': 'Итальянский',
+      'turkish': 'Турецкий',
+      'polish': 'Польский',
+      'ukrainian': 'Украинский',
+      'portuguese': 'Португальский',
+      'dutch': 'Голландский',
+      'uzbek': 'Узбекский',
+      'kazakh': 'Казахский',
+      'azerbaijani': 'Азербайджанский',
+      'kyrgyz': 'Киргизский',
+      'tajik': 'Таджикский',
+      'armenian': 'Армянский',
+      'georgian': 'Грузинский',
+      'arabic': 'Арабский',
+    };
+
+    return languageNames[language] || language;
+  };
+
+  /**
    * Воспроизведение аудио (гибрид MP3 + TTS)
    * @param text - текст для произношения
    * @param language - любой язык (строка)
@@ -152,9 +229,13 @@ export function useAudio() {
         onStopped: () => {
           setIsPlaying(false);
         },
-        onError: () => {
+        onError: (error) => {
           setIsPlaying(false);
-          console.warn(`TTS error for ${language}`);
+          console.warn(`TTS error for ${language}:`, error);
+
+          // ✅ Показываем Alert для установки голоса TTS
+          const languageName = getLanguageName(language);
+          showTTSMissingAlert(languageName);
         },
       });
 

@@ -46,8 +46,11 @@ const PhraseItem = React.memo<{
   config: any;
 }>(({ phrase, onPress, config }) => {
   const { isFavorite, toggleFavorite } = useFavorites();
-  const { playAudio, isPlaying } = useAudio();
+  const { playAudio, isPlaying, isLoading } = useAudio(); // ✅ Добавил isLoading
   const { selectedLanguage } = useConfig();
+
+  // ✅ Локальное состояние для отслеживания какая кнопка нажата
+  const [playingButton, setPlayingButton] = React.useState<'translation' | 'turkmen' | null>(null);
 
   const handleToggleFavorite = useCallback(() => {
     toggleFavorite(phrase.id);
@@ -97,14 +100,23 @@ const PhraseItem = React.memo<{
 
   // Play audio for translation (для всех языков)
   const handlePlayTranslation = useCallback(() => {
+    setPlayingButton('translation'); // ✅ Отмечаем какая кнопка нажата
     const audioLang = getAudioLanguage(selectedLanguage);
     playAudio(phrase.translation.text, audioLang);
   }, [phrase.translation.text, selectedLanguage, playAudio]);
 
   // Play audio for Turkmen
   const handlePlayTurkmen = useCallback(() => {
+    setPlayingButton('turkmen'); // ✅ Отмечаем какая кнопка нажата
     playAudio(phrase.turkmen, 'turkmen', phrase.audioFileTurkmen);
   }, [phrase.turkmen, phrase.audioFileTurkmen, playAudio]);
+
+  // ✅ Сбрасываем состояние когда аудио закончилось
+  React.useEffect(() => {
+    if (!isPlaying && !isLoading) {
+      setPlayingButton(null);
+    }
+  }, [isPlaying, isLoading]);
 
   // Get language display label for button (Вариант 4: Флаг + Код/Название)
   const getLanguageLabel = () => {
@@ -173,15 +185,23 @@ const PhraseItem = React.memo<{
 
         {/* Правая часть - кнопки */}
         <View style={styles.phraseActions}>
-          {/* ✅ ТРЕУГОЛЬНЫЕ аудио кнопки */}
+          {/* ✅ АУДИО КНОПКИ с индикаторами */}
           <View style={styles.audioButtons}>
             {/* Translation language button (All languages) */}
             <TouchableOpacity
               style={[styles.audioButton, styles.translationAudioButton]}
               onPress={handlePlayTranslation}
               activeOpacity={0.7}
+              disabled={isLoading}
             >
-              <Text style={styles.audioTriangle}>▶</Text>
+              {/* ✅ ВАРИАНТ 2: ActivityIndicator при загрузке, ⏸ при воспроизведении */}
+              {isLoading && playingButton === 'translation' ? (
+                <ActivityIndicator size="small" color="#fff" style={styles.audioIndicator} />
+              ) : isPlaying && playingButton === 'translation' ? (
+                <Text style={styles.audioTriangle}>⏸</Text>
+              ) : (
+                <Text style={styles.audioTriangle}>▶</Text>
+              )}
               <Text style={styles.translationAudioButtonText}>{getLanguageLabel()}</Text>
             </TouchableOpacity>
 
@@ -190,8 +210,16 @@ const PhraseItem = React.memo<{
               style={[styles.audioButton, styles.turkmenAudioButton]}
               onPress={handlePlayTurkmen}
               activeOpacity={0.7}
+              disabled={isLoading}
             >
-              <Text style={styles.audioTriangle}>▶</Text>
+              {/* ✅ ВАРИАНТ 2: ActivityIndicator при загрузке, ⏸ при воспроизведении */}
+              {isLoading && playingButton === 'turkmen' ? (
+                <ActivityIndicator size="small" color="#fff" style={styles.audioIndicator} />
+              ) : isPlaying && playingButton === 'turkmen' ? (
+                <Text style={styles.audioTriangle}>⏸</Text>
+              ) : (
+                <Text style={styles.audioTriangle}>▶</Text>
+              )}
               <Text style={styles.turkmenAudioButtonText}>🇹🇲 TM</Text>
             </TouchableOpacity>
           </View>
@@ -732,6 +760,11 @@ audioTriangle: {
   color: '#fff',
   marginRight: 7,         // ✅ Больше отступ
   fontWeight: 'bold',
+},
+
+// ✅ ИНДИКАТОР загрузки
+audioIndicator: {
+  marginRight: 7,         // ✅ Тот же отступ как у треугольника
 },
 
 // ✅ MODERN VIBRANT - Синий для всех языков перевода
