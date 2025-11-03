@@ -17,6 +17,7 @@ import {
   Platform,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 import { DesignColors } from '../../../constants/Design';
 import * as Speech from 'expo-speech';
 import { useNavigation } from '@react-navigation/native';
@@ -160,22 +161,27 @@ export default function TextTranslatorScreen() {
     <View style={styles.container}>
       <StatusBar
         barStyle="light-content"
-        backgroundColor="#3B82F6"
+        backgroundColor="#4facfe"
         translucent={false}
       />
 
-      {/* Header */}
-      <View style={styles.header}>
+      {/* Gradient Header */}
+      <LinearGradient
+        colors={['#4facfe', '#00f2fe']}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 0 }}
+        style={styles.header}
+      >
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => navigation.goBack()}
           activeOpacity={0.7}
         >
-          <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
+          <Text style={styles.backEmoji}>⬅️</Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Text Translator</Text>
         <View style={styles.placeholder} />
-      </View>
+      </LinearGradient>
 
       <KeyboardAvoidingView
         style={styles.content}
@@ -187,6 +193,22 @@ export default function TextTranslatorScreen() {
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled"
         >
+          {/* Hero Section */}
+          <LinearGradient
+            colors={['#4facfe', '#00f2fe']}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={styles.heroSection}
+          >
+            <View style={styles.heroIconContainer}>
+              <Text style={styles.heroIcon}>🌍</Text>
+            </View>
+            <Text style={styles.heroTitle}>Instant Translation</Text>
+            <Text style={styles.heroSubtitle}>
+              Type any text and translate between 100+ languages
+            </Text>
+          </LinearGradient>
+
           {/* Source Language Card */}
           <View style={styles.card}>
             <TouchableOpacity
@@ -196,7 +218,7 @@ export default function TextTranslatorScreen() {
             >
               <Text style={styles.languageFlag}>{sourceLang?.flag || '🌐'}</Text>
               <Text style={styles.languageName}>{sourceLang?.name || 'Select'}</Text>
-              <Ionicons name="chevron-down" size={20} color="#6B7280" />
+              <Text style={styles.chevronEmoji}>▼</Text>
             </TouchableOpacity>
 
             <TextInput
@@ -220,7 +242,7 @@ export default function TextTranslatorScreen() {
                   style={styles.clearButton}
                   activeOpacity={0.7}
                 >
-                  <Ionicons name="close-circle" size={20} color="#6B7280" />
+                  <Text style={styles.clearEmoji}>✖️</Text>
                   <Text style={styles.clearText}>Clear</Text>
                 </TouchableOpacity>
               )}
@@ -230,37 +252,39 @@ export default function TextTranslatorScreen() {
           {/* Swap Button */}
           <View style={styles.swapContainer}>
             <TouchableOpacity
-              style={styles.swapButton}
+              style={[
+                styles.swapButton,
+                (sourceLanguage === 'auto' || !outputText) && styles.swapButtonDisabled
+              ]}
               onPress={handleSwapLanguages}
               disabled={sourceLanguage === 'auto' || !outputText}
               activeOpacity={0.7}
             >
-              <Ionicons
-                name="swap-vertical"
-                size={24}
-                color={sourceLanguage === 'auto' || !outputText ? '#D1D5DB' : '#3B82F6'}
-              />
+              <Text style={styles.swapEmoji}>🔄</Text>
             </TouchableOpacity>
           </View>
 
           {/* Translate Button */}
           <TouchableOpacity
-            style={[
-              styles.translateButton,
-              (!inputText.trim() || isTranslating) && styles.translateButtonDisabled,
-            ]}
             onPress={handleTranslate}
             disabled={!inputText.trim() || isTranslating}
             activeOpacity={0.8}
           >
-            {isTranslating ? (
-              <ActivityIndicator size="small" color="#FFFFFF" />
-            ) : (
-              <Ionicons name="language" size={24} color="#FFFFFF" />
-            )}
-            <Text style={styles.translateButtonText}>
-              {isTranslating ? 'Translating...' : 'Translate'}
-            </Text>
+            <LinearGradient
+              colors={!inputText.trim() || isTranslating ? ['#D1D5DB', '#9CA3AF'] : ['#4facfe', '#00f2fe']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={styles.translateButton}
+            >
+              {isTranslating ? (
+                <ActivityIndicator size="small" color="#FFFFFF" />
+              ) : (
+                <Text style={styles.translateEmoji}>🌐</Text>
+              )}
+              <Text style={styles.translateButtonText}>
+                {isTranslating ? 'Translating...' : 'Translate'}
+              </Text>
+            </LinearGradient>
           </TouchableOpacity>
 
           {/* Target Language Card */}
@@ -272,7 +296,7 @@ export default function TextTranslatorScreen() {
             >
               <Text style={styles.languageFlag}>{targetLang?.flag || '🌍'}</Text>
               <Text style={styles.languageName}>{targetLang?.name || 'Select'}</Text>
-              <Ionicons name="chevron-down" size={20} color="#6B7280" />
+              <Text style={styles.chevronEmoji}>▼</Text>
             </TouchableOpacity>
 
             {outputText ? (
@@ -286,11 +310,9 @@ export default function TextTranslatorScreen() {
                     onPress={handleSpeak}
                     activeOpacity={0.7}
                   >
-                    <Ionicons
-                      name={isSpeaking ? 'stop-circle' : 'volume-high'}
-                      size={20}
-                      color="#3B82F6"
-                    />
+                    <Text style={styles.actionEmoji}>
+                      {isSpeaking ? '⏹️' : '🔊'}
+                    </Text>
                     <Text style={styles.actionText}>
                       {isSpeaking ? 'Stop' : 'Play'}
                     </Text>
@@ -301,14 +323,14 @@ export default function TextTranslatorScreen() {
                     onPress={handleCopy}
                     activeOpacity={0.7}
                   >
-                    <Ionicons name="copy-outline" size={20} color="#3B82F6" />
+                    <Text style={styles.actionEmoji}>📋</Text>
                     <Text style={styles.actionText}>Copy</Text>
                   </TouchableOpacity>
                 </View>
               </View>
             ) : (
               <View style={styles.emptyOutput}>
-                <Ionicons name="document-text-outline" size={48} color="#D1D5DB" />
+                <Text style={styles.emptyIcon}>📄</Text>
                 <Text style={styles.emptyText}>Translation will appear here</Text>
               </View>
             )}
