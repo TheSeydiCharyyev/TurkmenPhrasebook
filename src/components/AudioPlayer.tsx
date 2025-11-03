@@ -16,7 +16,7 @@ import { useAppLanguage } from '../contexts/LanguageContext';
 
 interface AudioPlayerProps {
   text: string;                    // Текст для произношения (TTS)
-  language: 'chinese' | 'turkmen' | 'russian' | 'english';
+  language: string;                // Любой язык (для всех 31 языков)
   audioPath?: string;              // Путь к MP3 (только для туркменского)
   label: string;
   style: 'primary' | 'secondary';
@@ -100,27 +100,31 @@ export default function AudioPlayer({
 
 const styles = StyleSheet.create({
   buttonLarge: {
-    paddingVertical: 16,
-    paddingHorizontal: 24,
-    borderRadius: 12,
-    minWidth: 140,
-    elevation: 2,
+    paddingVertical: 18,       // ✅ Больше padding
+    paddingHorizontal: 28,     // ✅ Больше padding
+    borderRadius: 16,          // ✅ Больше скругление
+    minWidth: 180,             // ✅ Шире кнопка
+    elevation: 6,              // ✅ Мощнее тень
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
   },
   buttonSmall: {
-    paddingVertical: 10,
-    paddingHorizontal: 16,
-    borderRadius: 8,
-    minWidth: 80,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 12,
+    minWidth: 100,
   },
+  // ✅ MODERN VIBRANT - Синий для языков перевода
   primaryButton: {
-    backgroundColor: Colors.primary,
+    backgroundColor: '#3B82F6',    // Яркий синий
+    shadowColor: '#2563EB',
   },
+  // ✅ MODERN VIBRANT - Зеленый для туркменского
   secondaryButton: {
-    backgroundColor: Colors.accent,
+    backgroundColor: '#22C55E',    // Яркий зеленый
+    shadowColor: '#16A34A',
   },
   content: {
     flexDirection: 'row',
@@ -130,13 +134,13 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: Colors.textWhite,
-    fontWeight: '600',
+    fontWeight: '700',         // ✅ Более жирный шрифт
   },
   labelLarge: {
-    fontSize: 16,
+    fontSize: 18,              // ✅ Крупнее текст
   },
   labelSmall: {
-    fontSize: 14,
+    fontSize: 15,
   },
   disabled: {
     opacity: 0.5,

@@ -40,12 +40,64 @@ export function useAudio() {
   }, []);
 
   /**
+   * Маппинг языковых кодов на TTS коды
+   */
+  const getLanguageCode = (language: string): string => {
+    const languageMap: { [key: string]: string } = {
+      // Основные языки
+      'turkmen': 'en-US',  // MP3 только, но fallback на английский
+      'chinese': 'zh-CN',
+      'russian': 'ru-RU',
+      'english': 'en-US',
+
+      // Азиатские языки
+      'japanese': 'ja-JP',
+      'korean': 'ko-KR',
+      'thai': 'th-TH',
+      'vietnamese': 'vi-VN',
+      'indonesian': 'id-ID',
+      'malay': 'ms-MY',
+      'hindi': 'hi-IN',
+      'urdu': 'ur-PK',
+      'persian': 'fa-IR',
+      'pashto': 'ps-AF',
+
+      // Европейские языки
+      'german': 'de-DE',
+      'french': 'fr-FR',
+      'spanish': 'es-ES',
+      'italian': 'it-IT',
+      'turkish': 'tr-TR',
+      'polish': 'pl-PL',
+      'ukrainian': 'uk-UA',
+      'portuguese': 'pt-PT',
+      'dutch': 'nl-NL',
+
+      // Центральноазиатские
+      'uzbek': 'uz-UZ',
+      'kazakh': 'kk-KZ',
+      'azerbaijani': 'az-AZ',
+      'kyrgyz': 'ky-KG',
+      'tajik': 'tg-TJ',
+
+      // Кавказские
+      'armenian': 'hy-AM',
+      'georgian': 'ka-GE',
+
+      // Другие
+      'arabic': 'ar-SA',
+    };
+
+    return languageMap[language] || 'en-US';
+  };
+
+  /**
    * Воспроизведение аудио (гибрид MP3 + TTS)
    * @param text - текст для произношения
-   * @param language - 'chinese' | 'turkmen' | 'russian' | 'english'
+   * @param language - любой язык (строка)
    * @param audioPath - путь к MP3 (только для туркменского!)
    */
-  const playAudio = useCallback(async (text: string, language: 'chinese' | 'turkmen' | 'russian' | 'english', audioPath?: string) => {
+  const playAudio = useCallback(async (text: string, language: string, audioPath?: string) => {
     if (isPlaying || isLoading) return;
 
     try {
@@ -61,7 +113,7 @@ export function useAudio() {
       // ✅ ТУРКМЕНСКИЙ - используем MP3
       if (language === 'turkmen' && audioPath) {
         const audioSource = getAudioSource(audioPath);
-        
+
         if (audioSource) {
           const { sound } = await Audio.Sound.createAsync(
             audioSource,
@@ -84,13 +136,8 @@ export function useAudio() {
         }
       }
 
-      // ✅ КИТАЙСКИЙ, РУССКИЙ и АНГЛИЙСКИЙ - используем TTS
-      let languageCode = 'en-US'; // По умолчанию английский
-      if (language === 'chinese') {
-        languageCode = 'zh-CN';
-      } else if (language === 'russian') {
-        languageCode = 'ru-RU';
-      }
+      // ✅ ВСЕ ОСТАЛЬНЫЕ ЯЗЫКИ - используем TTS
+      const languageCode = getLanguageCode(language);
 
       setIsPlaying(true);
       setIsLoading(false);

@@ -14,6 +14,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRoute, useNavigation, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import { Colors } from '../constants/Colors';
 import { usePhrases } from '../hooks/usePhrases';
@@ -56,15 +57,45 @@ const PhraseItem = React.memo<{
     onPress(phrase);
   }, [phrase, onPress]);
 
-  // Map language code to audio language type
-  const getAudioLanguage = (langCode: string): 'chinese' | 'russian' | 'english' => {
-    if (langCode === 'zh') return 'chinese';
-    if (langCode === 'ru') return 'russian';
-    if (langCode === 'en') return 'english';
-    return 'english'; // default
+  // Map language code to audio language type (для всех 31 языков)
+  const getAudioLanguage = (langCode: string): string => {
+    const languageMap: { [key: string]: string } = {
+      'tk': 'turkmen',
+      'zh': 'chinese',
+      'ru': 'russian',
+      'en': 'english',
+      'ja': 'japanese',
+      'ko': 'korean',
+      'th': 'thai',
+      'vi': 'vietnamese',
+      'id': 'indonesian',
+      'ms': 'malay',
+      'hi': 'hindi',
+      'ur': 'urdu',
+      'fa': 'persian',
+      'ps': 'pashto',
+      'de': 'german',
+      'fr': 'french',
+      'es': 'spanish',
+      'it': 'italian',
+      'tr': 'turkish',
+      'pl': 'polish',
+      'uk': 'ukrainian',
+      'pt': 'portuguese',
+      'nl': 'dutch',
+      'uz': 'uzbek',
+      'kk': 'kazakh',
+      'az': 'azerbaijani',
+      'ky': 'kyrgyz',
+      'tg': 'tajik',
+      'hy': 'armenian',
+      'ka': 'georgian',
+      'ar': 'arabic',
+    };
+    return languageMap[langCode] || 'english';
   };
 
-  // Play audio for translation (Chinese/Russian/English)
+  // Play audio for translation (для всех языков)
   const handlePlayTranslation = useCallback(() => {
     const audioLang = getAudioLanguage(selectedLanguage);
     playAudio(phrase.translation.text, audioLang);
@@ -75,12 +106,42 @@ const PhraseItem = React.memo<{
     playAudio(phrase.turkmen, 'turkmen', phrase.audioFileTurkmen);
   }, [phrase.turkmen, phrase.audioFileTurkmen, playAudio]);
 
-  // Get language display name for button
+  // Get language display label for button (Вариант 4: Флаг + Код/Название)
   const getLanguageLabel = () => {
-    if (selectedLanguage === 'zh') return '中文';
-    if (selectedLanguage === 'ru') return 'РУС';
-    if (selectedLanguage === 'en') return 'ENG';
-    return selectedLanguage.toUpperCase();
+    const labelMap: { [key: string]: string } = {
+      'tk': '🇹🇲 TM',
+      'zh': '🇨🇳 中文',
+      'ru': '🇷🇺 РУС',
+      'en': '🇬🇧 ENG',
+      'ja': '🇯🇵 日本',
+      'ko': '🇰🇷 한국',
+      'th': '🇹🇭 TH',
+      'vi': '🇻🇳 VN',
+      'id': '🇮🇩 ID',
+      'ms': '🇲🇾 MS',
+      'hi': '🇮🇳 HI',
+      'ur': '🇵🇰 UR',
+      'fa': '🇮🇷 FA',
+      'ps': '🇦🇫 PS',
+      'de': '🇩🇪 DE',
+      'fr': '🇫🇷 FR',
+      'es': '🇪🇸 ES',
+      'it': '🇮🇹 IT',
+      'tr': '🇹🇷 TR',
+      'pl': '🇵🇱 PL',
+      'uk': '🇺🇦 UA',
+      'pt': '🇵🇹 PT',
+      'nl': '🇳🇱 NL',
+      'uz': '🇺🇿 UZ',
+      'kk': '🇰🇿 KZ',
+      'az': '🇦🇿 AZ',
+      'ky': '🇰🇬 KG',
+      'tg': '🇹🇯 TJ',
+      'hy': '🇦🇲 AM',
+      'ka': '🇬🇪 GE',
+      'ar': '🇸🇦 AR',
+    };
+    return labelMap[selectedLanguage] || '🇬🇧 EN';
   };
 
   return (
@@ -114,14 +175,14 @@ const PhraseItem = React.memo<{
         <View style={styles.phraseActions}>
           {/* ✅ ТРЕУГОЛЬНЫЕ аудио кнопки */}
           <View style={styles.audioButtons}>
-            {/* Translation language button (Chinese/Russian/English) */}
+            {/* Translation language button (All languages) */}
             <TouchableOpacity
-              style={[styles.audioButton, styles.chineseAudioButton]}
+              style={[styles.audioButton, styles.translationAudioButton]}
               onPress={handlePlayTranslation}
               activeOpacity={0.7}
             >
               <Text style={styles.audioTriangle}>▶</Text>
-              <Text style={styles.chineseAudioButtonText}>{getLanguageLabel()}</Text>
+              <Text style={styles.translationAudioButtonText}>{getLanguageLabel()}</Text>
             </TouchableOpacity>
 
             {/* Туркменская кнопка */}
@@ -131,7 +192,7 @@ const PhraseItem = React.memo<{
               activeOpacity={0.7}
             >
               <Text style={styles.audioTriangle}>▶</Text>
-              <Text style={styles.turkmenAudioButtonText}>TM</Text>
+              <Text style={styles.turkmenAudioButtonText}>🇹🇲 TM</Text>
             </TouchableOpacity>
           </View>
 
@@ -258,23 +319,45 @@ export default function CategoryScreen() {
     );
   }
 
+  // Get gradient colors based on category color
+  const getGradientColors = (): [string, string] => {
+    const colorMap: { [key: string]: [string, string] } = {
+      '#FF6B6B': ['#FF6B6B', '#EE5A52'],
+      '#4ECDC4': ['#4ECDC4', '#44B8A8'],
+      '#45B7D1': ['#45B7D1', '#3A9FC2'],
+      '#FFA07A': ['#FFA07A', '#FF8C69'],
+      '#98D8C8': ['#98D8C8', '#7DC7B5'],
+      '#F7DC6F': ['#F7DC6F', '#F4D03F'],
+      '#BB8FCE': ['#BB8FCE', '#A569BD'],
+      '#85C1E2': ['#85C1E2', '#6FB8DC'],
+    };
+    return colorMap[category.color] || [category.color, category.color];
+  };
+
+  const [gradientStart, gradientEnd] = getGradientColors();
+
   return (
     <SafeAreaView style={styles.container}>
-      {/* Заголовок - ФИКСИРОВАННЫЙ */}
-      <View style={[styles.headerContainer, { backgroundColor: category.color }]}>
+      {/* ✅ ГРАДИЕНТНЫЙ Header */}
+      <LinearGradient
+        colors={[gradientStart, gradientEnd]}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+        style={styles.headerContainer}
+      >
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => navigation.goBack()}
         >
-          <Ionicons name="chevron-back" size={28} color="#fff" />
+          <Text style={styles.backEmoji}>⬅️</Text>
         </TouchableOpacity>
-        
+
         <View style={styles.headerContent}>
           <Text style={styles.headerTitle}>
             {selectedSubcategoryName || getCategoryNameByLanguage(selectedLanguage)}
           </Text>
           <Text style={styles.headerSubtitle}>
-            {selectedSubcategory 
+            {selectedSubcategory
               ? `${filteredPhrases.length} ${config.mode === 'tk' ? 'sözlem' :
                   config.mode === 'zh' ? '个短语' : 'фраз'}`
               : `${filteredPhrases.length} ${config.mode === 'tk' ? 'sözlem' :
@@ -282,16 +365,16 @@ export default function CategoryScreen() {
             }
           </Text>
         </View>
-        
+
         {selectedSubcategory && (
           <TouchableOpacity
             style={styles.backToCategoryButton}
             onPress={handleBackToCategory}
           >
-            <Ionicons name="grid-outline" size={24} color="#fff" />
+            <Text style={styles.gridEmoji}>📑</Text>
           </TouchableOpacity>
         )}
-      </View>
+      </LinearGradient>
 
       <ScrollView
         style={styles.content}
@@ -387,13 +470,13 @@ export default function CategoryScreen() {
         {/* Сообщение о пустом списке */}
         {filteredPhrases.length === 0 && (
           <View style={styles.emptyContainer}>
-            <Ionicons name="chatbubbles-outline" size={64} color={Colors.textLight} />
+            <Text style={styles.emptyEmoji}>💬</Text>
             <Text style={styles.emptyTitle}>
               {config.mode === 'tk' ? 'Sözlem tapylmady' :
                config.mode === 'zh' ? '未找到短语' : 'Фразы не найдены'}
             </Text>
             <Text style={styles.emptyText}>
-              {selectedSubcategory 
+              {selectedSubcategory
                 ? (config.mode === 'tk' ? 'Bu bölümde heniz sözlem ýok' :
                    config.mode === 'zh' ? '此分类中暂无短语' : 'В этой подкатегории пока нет фраз')
                 : (config.mode === 'tk' ? 'Bu kategoriýada heniz sözlem ýok' :
@@ -429,16 +512,15 @@ const styles = StyleSheet.create({
   },
 
   headerContainer: {
-    backgroundColor: Colors.primary,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingHorizontal: 20,
+    paddingVertical: 16,
     flexDirection: 'row',
     alignItems: 'center',
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 6,
     zIndex: 1000,
   },
 
@@ -447,20 +529,32 @@ const styles = StyleSheet.create({
     padding: 4,
   },
 
+  backEmoji: {
+    fontSize: 24,
+  },
+
+  gridEmoji: {
+    fontSize: 24,
+  },
+
   headerContent: {
     flex: 1,
   },
 
   headerTitle: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'bold',
     color: '#fff',
-    marginBottom: 2,
+    marginBottom: 4,
+    textShadowColor: 'rgba(0, 0, 0, 0.2)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 2,
   },
 
   headerSubtitle: {
-    fontSize: 14,
-    color: 'rgba(255, 255, 255, 0.8)',
+    fontSize: 15,
+    color: 'rgba(255, 255, 255, 0.9)',
+    fontWeight: '500',
   },
 
   backToCategoryButton: {
@@ -529,17 +623,17 @@ const styles = StyleSheet.create({
   // ✅ ОБНОВЛЕННЫЕ стили для фразы
   // Новые стили для PhraseItem - заменить в CategoryScreen.tsx:
 
-// ✅ НОВЫЕ стили с флаговыми цветами
+// ✅ HERO + GRID стили с мощными тенями
 phraseItem: {
   backgroundColor: Colors.cardBackground,
-  marginBottom: 16, // ✅ Больше spacing
-  borderRadius: 16, // ✅ Более округлый
-  padding: 20,      // ✅ Больше padding
+  marginBottom: 20, // ✅ Еще больше spacing
+  borderRadius: 20, // ✅ Максимально округлый
+  padding: 24,      // ✅ Еще больше padding
   shadowColor: Colors.shadowColor,
-  shadowOffset: { width: 0, height: 4 },
-  shadowOpacity: 0.15, // ✅ Более заметная тень
-  shadowRadius: 12,
-  elevation: 4,
+  shadowOffset: { width: 0, height: 6 },
+  shadowOpacity: 0.2, // ✅ Мощная тень
+  shadowRadius: 16,
+  elevation: 8, // ✅ Увеличил elevation до 8
   borderWidth: 1,
   borderColor: Colors.border,
 },
@@ -562,45 +656,46 @@ chineseContainer: {
 },
 
 chineseText: {
-  fontSize: 24,           // ✅ Крупнее!
+  fontSize: 26,           // ✅ ЕЩЕ КРУПНЕЕ!
   fontWeight: 'bold',
-  color: Colors.chineseRed, // ✅ Красный флага Китая
+  color: '#2563EB',       // ✅ Синий - совпадает с кнопкой
   marginRight: 8,
+  marginBottom: 8,
   flex: 1,
 },
 
 flagEmoji: {
-  fontSize: 16,
+  fontSize: 18,
   marginLeft: 4,
 },
 
 pinyinText: {
-  fontSize: 16,           // ✅ Крупнее для читаемости
+  fontSize: 18,           // ✅ Увеличил для лучшей читаемости
   color: Colors.textLight,
   fontStyle: 'italic',
-  marginBottom: 12,       // ✅ Больше отступ
-  letterSpacing: 1,       // ✅ Больше spacing
-  fontFamily: 'Courier New', // ✅ Моноширинный шрифт
+  marginBottom: 14,       // ✅ Еще больше отступ
+  letterSpacing: 1.2,     // ✅ Больше spacing
+  fontFamily: 'Courier New',
 },
 
 // ✅ Новый контейнер для переводов с флагами
 translationContainer: {
   flexDirection: 'row',
   alignItems: 'center',
-  marginBottom: 6,
+  marginBottom: 8,
 },
 
 secondaryText: {
-  fontSize: 18,           // ✅ Крупнее
-  color: Colors.turkmenGreen, // ✅ Зеленый туркменского флага
-  fontWeight: 'bold',     // ✅ Сделал bold для туркменского!
+  fontSize: 20,           // ✅ УВЕЛИЧИЛ до 20
+  color: '#16A34A',       // ✅ Зеленый - совпадает с кнопкой
+  fontWeight: 'bold',
   marginLeft: 8,
   flex: 1,
 },
 
 tertiaryText: {
-  fontSize: 15,           // ✅ Средний размер
-  color: Colors.russianText, // ✅ Синий для русского
+  fontSize: 17,           // ✅ Увеличил до 17
+  color: Colors.russianText,
   fontWeight: '500',
   marginLeft: 8,
   flex: 1,
@@ -614,57 +709,59 @@ phraseActions: {
 
 audioButtons: {
   flexDirection: 'column',
-  marginBottom: 12,       // ✅ Больше отступ
-  gap: 8,                 // ✅ Больше gap
+  marginBottom: 16,       // ✅ Еще больше отступ
+  gap: 10,                // ✅ Еще больше gap
 },
 
 audioButton: {
   flexDirection: 'row',
   alignItems: 'center',
-  paddingHorizontal: 14,  // ✅ Больше padding
-  paddingVertical: 10,
-  borderRadius: 25,       // ✅ Более округлый
-  minWidth: 70,           // ✅ Шире кнопки
+  paddingHorizontal: 16,  // ✅ Еще больше padding
+  paddingVertical: 12,
+  borderRadius: 28,       // ✅ Максимально округлый
+  minWidth: 80,           // ✅ Еще шире кнопки
   justifyContent: 'center',
-  shadowOffset: { width: 0, height: 2 },
-  shadowOpacity: 0.3,
-  shadowRadius: 6,
-  elevation: 4,
+  shadowOffset: { width: 0, height: 3 },
+  shadowOpacity: 0.35,
+  shadowRadius: 8,
+  elevation: 6,           // ✅ Увеличил elevation
 },
 
 audioTriangle: {
-  fontSize: 14,           // ✅ Крупнее треугольник
+  fontSize: 16,           // ✅ Еще крупнее треугольник
   color: '#fff',
-  marginRight: 6,         // ✅ Больше отступ
+  marginRight: 7,         // ✅ Больше отступ
   fontWeight: 'bold',
 },
 
-chineseAudioButton: {
-  backgroundColor: Colors.chineseRed,      // ✅ Точный красный флага
-  shadowColor: Colors.chineseRedDark,
+// ✅ MODERN VIBRANT - Синий для всех языков перевода
+translationAudioButton: {
+  backgroundColor: '#3B82F6',    // Яркий синий (Telegram/Discord style)
+  shadowColor: '#2563EB',        // Темнее синий для тени
 },
 
+// ✅ MODERN VIBRANT - Зеленый для туркменского
 turkmenAudioButton: {
-  backgroundColor: Colors.turkmenGreen,    // ✅ Точный зеленый флага
-  shadowColor: Colors.turkmenGreenDark,
+  backgroundColor: '#22C55E',    // Яркий зеленый
+  shadowColor: '#16A34A',        // Темнее зеленый для тени
 },
 
-chineseAudioButtonText: {
+translationAudioButtonText: {
   color: '#fff',
-  fontSize: 15,           // ✅ Крупнее текст
+  fontSize: 16,
   fontWeight: 'bold',
   letterSpacing: 0.5,
 },
 
 turkmenAudioButtonText: {
-  color: '#fff',  
-  fontSize: 15,           // ✅ Крупнее текст
+  color: '#fff',
+  fontSize: 16,
   fontWeight: 'bold',
   letterSpacing: 0.5,
 },
 
 favoriteButton: {
-  padding: 8,             // ✅ Больше область нажатия
+  padding: 10,            // ✅ Еще больше область нажатия
   marginTop: 8,
 },
 
@@ -676,8 +773,13 @@ favoriteButton: {
     paddingHorizontal: 32,
   },
 
+  emptyEmoji: {
+    fontSize: 64,
+    opacity: 0.5,
+  },
+
   emptyTitle: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'bold',
     color: Colors.textLight,
     marginTop: 16,

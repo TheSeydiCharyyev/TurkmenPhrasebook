@@ -44,10 +44,8 @@ export default function PhraseDetailScreen() {
     addToHistory(phrase.id);
   }, [phrase.id, addToHistory]);
 
-  // Get all language translations
-  const russianTrans = getTranslationsForLanguage('ru').find(t => t.phraseId === phrase.id);
-  const chineseTrans = getTranslationsForLanguage('zh').find(t => t.phraseId === phrase.id);
-  const englishTrans = getTranslationsForLanguage('en').find(t => t.phraseId === phrase.id);
+  // ✅ ИСПРАВЛЕНО: Получаем перевод для ТЕКУЩЕГО выбранного языка
+  const currentLanguageTranslation = phrase.translation; // Уже содержит перевод для выбранного языка
 
   // Find category
   const category = categories.find(cat => cat.id === phrase.categoryId);
@@ -73,24 +71,41 @@ export default function PhraseDetailScreen() {
     );
   };
 
-  // Determine main text and transcription based on selected language
-  let mainText = '';
-  let transcription = '';
-  let audioLanguage: 'english' | 'chinese' | 'russian' | 'turkmen' = 'turkmen';
+  // ✅ УНИВЕРСАЛЬНАЯ логика для всех 31 языков
+  const mainText = currentLanguageTranslation.text;
+  const transcription = currentLanguageTranslation.transcription || '';
 
-  if (selectedLanguage === 'en') {
-    mainText = phrase.translation.text; // English translation
-    transcription = phrase.translation.transcription || '';
-    audioLanguage = 'english';
-  } else if (selectedLanguage === 'zh') {
-    mainText = phrase.translation.text; // Chinese translation
-    transcription = phrase.translation.transcription || ''; // Pinyin
-    audioLanguage = 'chinese';
-  } else if (selectedLanguage === 'ru') {
-    mainText = phrase.translation.text; // Russian translation
-    transcription = phrase.translation.transcription || '';
-    audioLanguage = 'russian';
-  }
+  // Map language code to audio language name
+  const getAudioLanguage = (langCode: string): string => {
+    const languageMap: { [key: string]: string } = {
+      'tk': 'turkmen', 'zh': 'chinese', 'ru': 'russian', 'en': 'english',
+      'ja': 'japanese', 'ko': 'korean', 'th': 'thai', 'vi': 'vietnamese',
+      'id': 'indonesian', 'ms': 'malay', 'hi': 'hindi', 'ur': 'urdu',
+      'fa': 'persian', 'ps': 'pashto', 'de': 'german', 'fr': 'french',
+      'es': 'spanish', 'it': 'italian', 'tr': 'turkish', 'pl': 'polish',
+      'uk': 'ukrainian', 'pt': 'portuguese', 'nl': 'dutch', 'uz': 'uzbek',
+      'kk': 'kazakh', 'az': 'azerbaijani', 'ky': 'kyrgyz', 'tg': 'tajik',
+      'hy': 'armenian', 'ka': 'georgian', 'ar': 'arabic',
+    };
+    return languageMap[langCode] || 'english';
+  };
+
+  const audioLanguage = getAudioLanguage(selectedLanguage);
+
+  // Get language label with flag
+  const getLanguageLabel = (): string => {
+    const labelMap: { [key: string]: string } = {
+      'tk': '🇹🇲 Türkmençe', 'zh': '🇨🇳 中文', 'ru': '🇷🇺 Русский', 'en': '🇬🇧 English',
+      'ja': '🇯🇵 日本語', 'ko': '🇰🇷 한국어', 'th': '🇹🇭 ไทย', 'vi': '🇻🇳 Tiếng Việt',
+      'id': '🇮🇩 Bahasa Indonesia', 'ms': '🇲🇾 Bahasa Melayu', 'hi': '🇮🇳 हिन्दी',
+      'ur': '🇵🇰 اردو', 'fa': '🇮🇷 فارسی', 'ps': '🇦🇫 پښتو', 'de': '🇩🇪 Deutsch',
+      'fr': '🇫🇷 Français', 'es': '🇪🇸 Español', 'it': '🇮🇹 Italiano', 'tr': '🇹🇷 Türkçe',
+      'pl': '🇵🇱 Polski', 'uk': '🇺🇦 Українська', 'pt': '🇵🇹 Português', 'nl': '🇳🇱 Nederlands',
+      'uz': '🇺🇿 Oʻzbekcha', 'kk': '🇰🇿 Қазақша', 'az': '🇦🇿 Azərbaycan', 'ky': '🇰🇬 Кыргызча',
+      'tg': '🇹🇯 Тоҷикӣ', 'hy': '🇦🇲 Հայերեն', 'ka': '🇬🇪 ქართული', 'ar': '🇸🇦 العربية',
+    };
+    return labelMap[selectedLanguage] || '🇬🇧 English';
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -110,156 +125,46 @@ export default function PhraseDetailScreen() {
             </View>
           )}
 
-          {/* Main text - selected language */}
+          {/* ✅ ЯЗЫКОВАЯ ПАРА - только выбранный язык + туркменский */}
           <View style={styles.mainContent}>
+            {/* Выбранный язык - ГЛАВНЫЙ */}
+            <Text style={styles.languageLabel}>{getLanguageLabel()}</Text>
             <Text style={styles.mainText}>{mainText}</Text>
             {transcription ? (
               <Text style={styles.transcriptionText}>{transcription}</Text>
             ) : null}
           </View>
 
-          {/* Translations in proper order based on selected language */}
-          <View style={styles.translationsContainer}>
-            {selectedLanguage === 'en' && (
-              <>
-                {/* English → Turkmen → Russian */}
-                <View style={styles.translationRow}>
-                  <Text style={styles.languageLabel}>
-                    {appConfig.mode === 'tk' ? '🇬🇧 Iňlis dili:' :
-                      appConfig.mode === 'zh' ? '🇬🇧 英语:' : '🇬🇧 Английский:'}
-                  </Text>
-                  <Text style={[styles.translationText, styles.translationTextMain]}>
-                    {englishTrans?.text || phrase.translation.text}
-                  </Text>
-                </View>
-
-                <View style={styles.translationRow}>
-                  <Text style={styles.languageLabel}>
-                    {appConfig.mode === 'tk' ? '🇹🇲 Türkmençe:' :
-                      appConfig.mode === 'zh' ? '🇹🇲 土库曼语:' : '🇹🇲 Туркменский:'}
-                  </Text>
-                  <Text style={styles.translationText}>
-                    {phrase.turkmen}
-                  </Text>
-                </View>
-
-                <View style={styles.translationRow}>
-                  <Text style={styles.languageLabel}>
-                    {appConfig.mode === 'tk' ? '🇷🇺 Rusça:' :
-                      appConfig.mode === 'zh' ? '🇷🇺 俄语:' : '🇷🇺 Русский:'}
-                  </Text>
-                  <Text style={styles.translationText}>
-                    {russianTrans?.text || ''}
-                  </Text>
-                </View>
-              </>
-            )}
-
-            {selectedLanguage === 'zh' && (
-              <>
-                {/* Chinese → Turkmen → Russian */}
-                <View style={styles.translationRow}>
-                  <Text style={styles.languageLabel}>
-                    {appConfig.mode === 'tk' ? '🇨🇳 Hytaýça:' :
-                      appConfig.mode === 'zh' ? '🇨🇳 中文:' : '🇨🇳 Китайский:'}
-                  </Text>
-                  <Text style={[styles.translationText, styles.translationTextMain]}>
-                    {chineseTrans?.text || phrase.translation.text}
-                  </Text>
-                </View>
-
-                <View style={styles.translationRow}>
-                  <Text style={styles.languageLabel}>
-                    {appConfig.mode === 'tk' ? '🇹🇲 Türkmençe:' :
-                      appConfig.mode === 'zh' ? '🇹🇲 土库曼语:' : '🇹🇲 Туркменский:'}
-                  </Text>
-                  <Text style={styles.translationText}>
-                    {phrase.turkmen}
-                  </Text>
-                </View>
-
-                <View style={styles.translationRow}>
-                  <Text style={styles.languageLabel}>
-                    {appConfig.mode === 'tk' ? '🇷🇺 Rusça:' :
-                      appConfig.mode === 'zh' ? '🇷🇺 俄语:' : '🇷🇺 Русский:'}
-                  </Text>
-                  <Text style={styles.translationText}>
-                    {russianTrans?.text || ''}
-                  </Text>
-                </View>
-              </>
-            )}
-
-            {selectedLanguage === 'ru' && (
-              <>
-                {/* Russian → Turkmen → Chinese */}
-                <View style={styles.translationRow}>
-                  <Text style={styles.languageLabel}>
-                    {appConfig.mode === 'tk' ? '🇷🇺 Rusça:' :
-                      appConfig.mode === 'zh' ? '🇷🇺 俄语:' : '🇷🇺 Русский:'}
-                  </Text>
-                  <Text style={[styles.translationText, styles.translationTextMain]}>
-                    {russianTrans?.text || phrase.translation.text}
-                  </Text>
-                </View>
-
-                <View style={styles.translationRow}>
-                  <Text style={styles.languageLabel}>
-                    {appConfig.mode === 'tk' ? '🇹🇲 Türkmençe:' :
-                      appConfig.mode === 'zh' ? '🇹🇲 土库曼语:' : '🇹🇲 Туркменский:'}
-                  </Text>
-                  <Text style={styles.translationText}>
-                    {phrase.turkmen}
-                  </Text>
-                </View>
-
-                <View style={styles.translationRow}>
-                  <Text style={styles.languageLabel}>
-                    {appConfig.mode === 'tk' ? '🇨🇳 Hytaýça:' :
-                      appConfig.mode === 'zh' ? '🇨🇳 中文:' : '🇨🇳 Китайский:'}
-                  </Text>
-                  <Text style={styles.translationText}>
-                    {chineseTrans?.text || ''}
-                  </Text>
-                </View>
-              </>
-            )}
+          {/* Туркменский - ВТОРИЧНЫЙ */}
+          <View style={styles.secondaryContent}>
+            <Text style={styles.languageLabelSecondary}>🇹🇲 Türkmençe</Text>
+            <Text style={styles.secondaryText}>{phrase.turkmen}</Text>
           </View>
         </View>
 
-        {/* Audio button for selected language (TTS) */}
-        {selectedLanguage !== 'tk' && (
+        {/* ✅ Аудио кнопки с увеличенным расстоянием */}
+        <View style={styles.audioButtonsContainer}>
+          {/* Audio button for selected language (TTS) */}
+          {selectedLanguage !== 'tk' && (
+            <AudioPlayer
+              text={mainText}
+              language={audioLanguage}
+              label={`▶ ${getLanguageLabel()}`}
+              style="primary"
+              size="large"
+            />
+          )}
+
+          {/* Turkmen audio button (MP3) */}
           <AudioPlayer
-            text={mainText}
-            language={audioLanguage}
-            label={
-              selectedLanguage === 'en' ?
-                (appConfig.mode === 'tk' ? 'Iňlis sesi' :
-                  appConfig.mode === 'zh' ? '英语发音' : 'Английское произношение')
-                : selectedLanguage === 'zh' ?
-                  (appConfig.mode === 'tk' ? 'Hytaý sesi' :
-                    appConfig.mode === 'zh' ? '中文发音' : 'Китайское произношение')
-                  : (appConfig.mode === 'tk' ? 'Rus sesi' :
-                    appConfig.mode === 'zh' ? '俄语发音' : 'Русское произношение')
-            }
-            style="primary"
+            text={phrase.turkmen}
+            language="turkmen"
+            audioPath={phrase.audioFileTurkmen}
+            label="▶ 🇹🇲 Türkmençe"
+            style="secondary"
             size="large"
           />
-        )}
-
-        {/* Turkmen audio button (MP3) */}
-        <AudioPlayer
-          text={phrase.turkmen}
-          language="turkmen"
-          audioPath={phrase.audioFileTurkmen}
-          label={
-            appConfig.mode === 'tk' ? 'Türkmen sesi' :
-              appConfig.mode === 'zh' ? '土库曼发音' :
-                'Туркменское произношение'
-          }
-          style="secondary"
-          size="large"
-        />
+        </View>
 
         {/* Action buttons */}
         <View style={styles.actionsContainer}>
@@ -321,19 +226,20 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
   },
+  // ✅ HERO + GRID - Мощные тени
   phraseCard: {
     backgroundColor: Colors.cardBackground,
-    borderRadius: 16,
-    padding: 20,
-    marginBottom: 20,
-    elevation: 3,
-    shadowColor: Colors.cardShadow,
+    borderRadius: 24,          // ✅ Больше скругление
+    padding: 28,               // ✅ Больше padding
+    marginBottom: 24,          // ✅ Больше margin
+    elevation: 10,             // ✅ Мощная тень
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 4,
+      height: 6,
     },
-    shadowOpacity: 0.15,
-    shadowRadius: 6,
+    shadowOpacity: 0.25,       // ✅ Более заметная тень
+    shadowRadius: 16,
   },
   categoryBadge: {
     flexDirection: 'row',
@@ -355,91 +261,114 @@ const styles = StyleSheet.create({
   },
   mainContent: {
     alignItems: 'center',
-    marginBottom: 24,
-  },
-  mainText: {
-    fontSize: 48,
-    fontWeight: 'bold',
-    color: Colors.text,
-    marginBottom: 8,
-    textAlign: 'center',
-  },
-  transcriptionText: {
-    fontSize: 20,
-    color: Colors.primary,
-    fontStyle: 'italic',
-    textAlign: 'center',
-  },
-  translationsContainer: {
-    gap: 12,
-  },
-  translationRow: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
+    marginBottom: 32,          // ✅ Больше отступ
+    paddingBottom: 24,
+    borderBottomWidth: 2,
+    borderBottomColor: '#E5E7EB',
   },
   languageLabel: {
     fontSize: 16,
-    fontWeight: '600',
-    color: Colors.textLight,
-    width: 130,
+    fontWeight: '700',
+    color: '#6B7280',
+    marginBottom: 12,
+    textAlign: 'center',
   },
-  translationText: {
+  mainText: {
+    fontSize: 54,              // ✅ ЕЩЕ КРУПНЕЕ
+    fontWeight: 'bold',
+    color: '#2563EB',          // ✅ Синий - как кнопка
+    marginBottom: 12,
+    textAlign: 'center',
+  },
+  transcriptionText: {
+    fontSize: 22,              // ✅ Крупнее
+    color: '#6B7280',
+    fontStyle: 'italic',
+    textAlign: 'center',
+    letterSpacing: 1,
+  },
+  // ✅ НОВЫЙ стиль для туркменского
+  secondaryContent: {
+    alignItems: 'center',
+    marginTop: 8,
+  },
+  languageLabelSecondary: {
     fontSize: 16,
-    color: Colors.text,
-    flex: 1,
-    fontWeight: '500',
+    fontWeight: '700',
+    color: '#6B7280',
+    marginBottom: 12,
   },
-  translationTextMain: {
-    fontSize: 18,
-    fontWeight: '600',
+  secondaryText: {
+    fontSize: 32,              // ✅ Крупный вторичный текст
+    fontWeight: 'bold',
+    color: '#16A34A',          // ✅ Зеленый - как кнопка
+    textAlign: 'center',
+  },
+  // ✅ НОВЫЙ контейнер для аудио кнопок
+  audioButtonsContainer: {
+    gap: 16,                   // ✅ Расстояние между кнопками
+    marginBottom: 24,
   },
   actionsContainer: {
     gap: 12,
     marginBottom: 20,
   },
+  // ✅ HERO + GRID - Современные кнопки
   actionButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 14,
-    paddingHorizontal: 20,
-    borderRadius: 12,
-    gap: 8,
+    paddingVertical: 16,         // ✅ Больше padding
+    paddingHorizontal: 24,       // ✅ Больше padding
+    borderRadius: 16,            // ✅ Больше скругление
+    gap: 10,
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
   },
   favoriteButton: {
     backgroundColor: Colors.cardBackground,
-    borderWidth: 1,
-    borderColor: Colors.cardBorder,
+    borderWidth: 2,              // ✅ Толще border
+    borderColor: '#E5E7EB',
   },
   shareButton: {
     backgroundColor: Colors.cardBackground,
-    borderWidth: 1,
-    borderColor: Colors.cardBorder,
+    borderWidth: 2,              // ✅ Толще border
+    borderColor: '#E5E7EB',
   },
   actionButtonText: {
-    color: Colors.textLight,
-    fontSize: 16,
-    fontWeight: '500',
+    color: '#374151',            // ✅ Более темный текст
+    fontSize: 17,                // ✅ Крупнее
+    fontWeight: '600',           // ✅ Более жирный
   },
   favoriteButtonTextActive: {
     color: Colors.error,
+    fontWeight: '700',
   },
+  // ✅ HERO + GRID - Современный info box
   infoContainer: {
-    backgroundColor: Colors.cardBackground,
-    borderRadius: 12,
-    padding: 16,
-    borderLeftWidth: 4,
-    borderLeftColor: Colors.accent,
+    backgroundColor: '#EFF6FF',    // ✅ Светло-синий фон
+    borderRadius: 16,              // ✅ Больше скругление
+    padding: 20,                   // ✅ Больше padding
+    borderLeftWidth: 5,            // ✅ Толще border
+    borderLeftColor: '#3B82F6',    // ✅ Синий accent
+    elevation: 2,
+    shadowColor: '#3B82F6',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
   infoTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: Colors.text,
-    marginBottom: 8,
+    fontSize: 17,                  // ✅ Крупнее
+    fontWeight: '700',             // ✅ Более жирный
+    color: '#1E40AF',              // ✅ Темно-синий
+    marginBottom: 10,
   },
   infoText: {
-    fontSize: 14,
-    color: Colors.textLight,
-    lineHeight: 20,
+    fontSize: 15,                  // ✅ Крупнее
+    color: '#475569',              // ✅ Темнее для читаемости
+    lineHeight: 22,                // ✅ Больше line height
   },
 });

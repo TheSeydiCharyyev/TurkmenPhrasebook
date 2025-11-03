@@ -410,6 +410,7 @@ const styles = StyleSheet.create({
 
   cardWrapper: {
     width: '48%',
+    height: 260,          // ✅ СТРОГАЯ фиксированная высота
   },
 
   leftCard: {

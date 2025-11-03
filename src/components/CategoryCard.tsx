@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import { Category } from '../types';
 import { Colors } from '../constants/Colors';
 import { useAnimations } from '../hooks/useAnimations';
@@ -17,38 +16,6 @@ interface CategoryCardProps {
   onPress: (category: Category) => void;
   languageMode: string;  // ✅ ОБНОВЛЕНО: поддержка всех 30 языков
 }
-
-// Функция для создания градиента на основе базового цвета
-const getGradientColors = (baseColor: string): string[] => {
-  // Создаем более темный оттенок для градиента
-  // Это простой подход - можно улучшить
-  const gradientMap: { [key: string]: string[] } = {
-    '#FF6B6B': ['#FF6B6B', '#EE5A6F'], // greetings - red
-    '#FF4444': ['#FF4444', '#CC0000'], // emergency - bright red
-    '#4ECDC4': ['#4ECDC4', '#44A8A0'], // hotel - teal
-    '#FFB84D': ['#FFB84D', '#FF9500'], // food - orange
-    '#A78BFA': ['#A78BFA', '#8B5CF6'], // shopping - purple
-    '#60A5FA': ['#60A5FA', '#3B82F6'], // transport - blue
-    '#34D399': ['#34D399', '#10B981'], // directions - green
-    '#F87171': ['#F87171', '#EF4444'], // health - red
-    '#FBBF24': ['#FBBF24', '#F59E0B'], // money - yellow
-    '#818CF8': ['#818CF8', '#6366F1'], // communication - indigo
-    '#FB923C': ['#FB923C', '#F97316'], // entertainment - orange
-    '#06B6D4': ['#06B6D4', '#0891B2'], // time - cyan
-    '#8B5CF6': ['#8B5CF6', '#7C3AED'], // numbers - purple
-    '#3B82F6': ['#3B82F6', '#2563EB'], // weather - blue
-    '#EC4899': ['#EC4899', '#DB2777'], // colors - pink
-    '#F59E0B': ['#F59E0B', '#D97706'], // body - amber
-    '#10B981': ['#10B981', '#059669'], // home - emerald
-    '#6366F1': ['#6366F1', '#4F46E5'], // customs - indigo
-    '#14B8A6': ['#14B8A6', '#0D9488'], // sports - teal
-    '#F97316': ['#F97316', '#EA580C'], // measurements - orange
-    '#64748B': ['#64748B', '#475569'], // business - slate
-    '#6B7280': ['#6B7280', '#4B5563'], // personal_info - gray
-  };
-
-  return gradientMap[baseColor] || [baseColor, baseColor];
-};
 
 export default function CategoryCard({ category, onPress, languageMode }: CategoryCardProps) {
   const { hapticFeedback } = useAnimations();
@@ -68,26 +35,30 @@ export default function CategoryCard({ category, onPress, languageMode }: Catego
     return (typeof name === 'string' ? name : category.nameEn);
   };
 
+  // ✅ Проверка RTL языков (справа налево)
+  const isRTL = (langCode: string): boolean => {
+    return ['ar', 'fa', 'ur', 'ps'].includes(langCode);
+  };
+
   const getCategoryNames = () => {
     if (languageMode === 'tk') {
       // Туркменский режим: Туркменский + Английский
       return {
         primary: category.nameTk,
         secondary: category.nameEn,
+        isRTLLanguage: false,
       };
     } else {
       // Любой другой язык: Выбранный язык + Туркменский
       return {
         primary: getCategoryName(languageMode),
         secondary: category.nameTk,
+        isRTLLanguage: isRTL(languageMode),
       };
     }
   };
 
   const names = getCategoryNames();
-
-  // Получаем градиентные цвета
-  const gradientColors = getGradientColors(category.color);
 
   return (
     <TouchableOpacity
@@ -95,102 +66,104 @@ export default function CategoryCard({ category, onPress, languageMode }: Catego
       onPress={handlePress}
       activeOpacity={0.85}
     >
-      <LinearGradient
-        colors={gradientColors}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        style={styles.gradientContainer}
-      >
-        {/* Эмодзи иконка категории */}
-        <View style={styles.iconContainer}>
-          <Text style={styles.emojiIcon}>{category.icon}</Text>
-        </View>
+      {/* ✅ БЕЛАЯ КАРТОЧКА - минимализм Apple/Notion style */}
+      <View style={styles.whiteContainer}>
+        {/* ✅ ЧИСТЫЙ эмодзи БЕЗ фона "тарелки" */}
+        <Text style={styles.emojiIcon}>{category.icon}</Text>
 
-        {/* Названия категории - только 2 (языковая пара) */}
+        {/* Названия категории - с поддержкой RTL и numberOfLines */}
         <View style={styles.textContainer}>
-          <Text style={styles.primaryName} numberOfLines={2}>
+          <Text
+            style={[
+              styles.primaryName,
+              names.isRTLLanguage && styles.rtlText
+            ]}
+            numberOfLines={3}
+          >
             {names.primary}
           </Text>
-          <Text style={styles.secondaryName} numberOfLines={2}>
+          <Text
+            style={[
+              styles.secondaryName,
+              names.isRTLLanguage && styles.rtlText
+            ]}
+            numberOfLines={2}
+          >
             {names.secondary}
           </Text>
         </View>
-      </LinearGradient>
+      </View>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
+  // ✅ БЕЛАЯ КАРТОЧКА - Apple/Notion минимализм
   card: {
     borderRadius: 20,
-    height: 180,
+    height: 260,               // ✅ ЕДИНСТВЕННАЯ ФИКСИРОВАННАЯ высота здесь!
     width: '100%',
-    // Мощные тени для современного вида
+    // ✅ Мощные тени для глубины на белом фоне
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.25,
-    shadowRadius: 12,
-    elevation: 10,
-    overflow: 'hidden',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.08,
+    shadowRadius: 16,
+    elevation: 8,
+    overflow: 'hidden',        // ✅ Обрезает содержимое
   },
 
-  gradientContainer: {
-    flex: 1,
+  // ✅ БЕЛЫЙ контейнер - заполняет родителя ПОЛНОСТЬЮ
+  whiteContainer: {
+    flex: 1,                   // ✅ НЕ height! flex: 1 заполняет card полностью
+    backgroundColor: '#FFFFFF',
     padding: 20,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
+    borderRadius: 20,
   },
 
-  iconContainer: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    backgroundColor: 'rgba(255, 255, 255, 0.25)',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 16,
-    // Небольшая тень для иконки
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.15,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-
+  // ✅ ЭМОДЗИ - фиксированная высота
   emojiIcon: {
-    fontSize: 52,
+    fontSize: 52,               // ✅ Чуть меньше
     textAlign: 'center',
+    height: 60,                 // ✅ Уменьшил с 70 до 60
+    lineHeight: 60,
+    marginBottom: 6,            // ✅ Уменьшил с 8 до 6
   },
 
+  // ✅ TEXT CONTAINER - ФИКСИРОВАННАЯ высота
   textContainer: {
-    flex: 1,
+    height: 152,                // ✅ Увеличил с 142 до 152 (218 - 60 - 6 = 152)
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    paddingHorizontal: 8,
+    paddingHorizontal: 16,
   },
 
+  // ✅ PRIMARY (выбранный язык) - КРУПНЕЕ и жирнее
   primaryName: {
-    fontSize: 17,
-    fontWeight: '700',
-    color: '#FFFFFF',
+    fontSize: 19,              // ✅ УВЕЛИЧИЛ до 19
+    fontWeight: '800',         // ✅ Более жирный
+    color: '#111827',          // ✅ Более темный для акцента
     textAlign: 'center',
-    marginBottom: 8,
-    lineHeight: 22,
-    // Тень для текста
-    textShadowColor: 'rgba(0, 0, 0, 0.35)',
-    textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 3,
+    marginBottom: 6,           // ✅ Меньше отступ
+    lineHeight: 24,
   },
 
+  // ✅ SECONDARY (туркменский) - МЕНЬШЕ
   secondaryName: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: 'rgba(255, 255, 255, 0.95)',
+    fontSize: 13,              // ✅ УМЕНЬШИЛ до 13
+    fontWeight: '500',         // ✅ Менее жирный
+    color: '#9CA3AF',          // ✅ Светлее для меньшего акцента
     textAlign: 'center',
-    lineHeight: 19,
-    textShadowColor: 'rgba(0, 0, 0, 0.3)',
-    textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 2,
+    lineHeight: 17,
+  },
+
+  // ✅ ПОДДЕРЖКА RTL для арабского/персидского/урду/пушту
+  rtlText: {
+    writingDirection: 'rtl',
+    textAlign: 'right',        // ✅ Выравнивание справа для RTL
   },
 });
