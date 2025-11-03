@@ -146,19 +146,68 @@
 
 ---
 
-### **PHASE 4: Поработать с Visual Translator** (⏳ 0%)
+### **PHASE 4: Поработать с Visual Translator** (⏳ 40%)
 
-**Задача:** Улучшить дизайн и функционал визуального переводчика
+**Задача:** Добавить мультиязычность для Visual Translator (все UI тексты должны быть на выбранном языке)
 
 **Файлы:**
-- `src/features/visual-translator/screens/VisualTranslatorHomeScreen.tsx`
-- `src/features/visual-translator/screens/TranslationResultScreen.tsx`
+- `src/contexts/LanguageContext.tsx` - добавление переводов
+- `src/features/visual-translator/screens/VisualTranslatorHomeScreen.tsx` - использование getTexts()
+- `src/features/visual-translator/screens/TranslationResultScreen.tsx` - использование getTexts()
 
-**Что нужно сделать:**
-- Улучшить дизайн Visual Translator
-- Детали будут обсуждаться отдельно
+**✅ Выполнено:**
 
-**Оценка времени:** TBD
+1. ✅ **Добавлены поля для Visual Translator в InterfaceTexts:**
+   - 32 новых поля для всех UI текстов Visual Translator
+   - vtTranslateWithAI, vtCameraSubtitle, vtTakePhoto, vtChooseGallery
+   - vtProcessing, vtOcrEngine, vtFeatures, vtResult, vtTranslation и др.
+
+2. ✅ **Добавлены переводы для 12 из 31 языков:**
+   - ✅ tk (Туркменский)
+   - ✅ zh (Китайский)
+   - ✅ ru (Русский)
+   - ✅ en (Английский)
+   - ✅ tr (Турецкий)
+   - ✅ de (Немецкий)
+   - ✅ fr (Французский)
+   - ✅ es (Испанский)
+   - ✅ it (Итальянский)
+   - ✅ pt (Португальский)
+   - ✅ nl (Голландский)
+   - ✅ pl (Польский)
+
+**⏳ Осталось сделать:**
+
+3. ⏳ **Добавить переводы для оставшихся 19 языков:**
+   - uk (Украинский), ja (Японский), ko (Корейский)
+   - th (Тайский), vi (Вьетнамский), id (Индонезийский), ms (Малайский)
+   - hi (Хинди), ur (Урду), fa (Персидский), ps (Пушту)
+   - uz (Узбекский), kk (Казахский), az (Азербайджанский), ky (Киргизский), tg (Таджикский)
+   - hy (Армянский), ka (Грузинский), ar (Арабский)
+   - **Оценка времени:** 2-3 часа
+
+4. ⏳ **Обновить VisualTranslatorHomeScreen.tsx:**
+   - Импортировать `useAppLanguage` и `getTexts()`
+   - Заменить все захардкоженные тексты на `texts.vtXXX`
+   - Проверить что все UI элементы используют переводы
+   - **Оценка времени:** 30 минут
+
+5. ⏳ **Обновить TranslationResultScreen.tsx:**
+   - Импортировать `useAppLanguage` и `getTexts()`
+   - Заменить все захардкоженные тексты на `texts.vtXXX`
+   - Проверить Alert сообщения (vtCopied, vtCopiedMessage)
+   - **Оценка времени:** 30 минут
+
+6. ⏳ **Протестировать Visual Translator:**
+   - Протестировать на русском, английском, туркменском, китайском
+   - Проверить что все тексты отображаются корректно
+   - Проверить переключение языков
+   - **Оценка времени:** 30 минут
+
+**Измененные файлы:**
+- `src/contexts/LanguageContext.tsx` - добавлены 32 поля + переводы для 12 языков
+
+**Время:** ~2 часа (выполнено) + ~3-4 часа (осталось)
 
 ---
 
