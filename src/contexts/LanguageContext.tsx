@@ -77,6 +77,42 @@ export interface InterfaceTexts {
   loading: string;
   error: string;
   success: string;
+
+  // Visual Translator - Home Screen
+  vtTranslateWithAI: string;
+  vtCameraSubtitle: string;
+  vtTakePhoto: string;
+  vtChooseGallery: string;
+  vtProcessing: string;
+  vtProcessingSubtext: string;
+  vtOcrEngine: string;
+  vtFeatures: string;
+  vtFeatureOcrTitle: string;
+  vtFeatureOcrDesc: string;
+  vtFeatureAiTitle: string;
+  vtFeatureAiDesc: string;
+  vtFeatureSmartTitle: string;
+  vtFeatureSmartDesc: string;
+  vtFeatureSaveTitle: string;
+  vtFeatureSaveDesc: string;
+  vtPermissionsText: string;
+  vtGrantPermissions: string;
+  vtRequestingPermissions: string;
+  vtAutoFallback: string;
+
+  // Visual Translator - Result Screen
+  vtResult: string;
+  vtRecognizedText: string;
+  vtLanguageLabel: string;
+  vtAiAnalysis: string;
+  vtTranslation: string;
+  vtTargetLabel: string;
+  vtPlay: string;
+  vtStop: string;
+  vtCopy: string;
+  vtTranslateAnother: string;
+  vtCopied: string;
+  vtCopiedMessage: string;
 }
 
 // ✅ ИСПРАВЛЕНО: Правильные заголовки согласно требованиям
@@ -138,6 +174,42 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     loading: 'Ýüklenýär...',
     error: 'Ýalňyş',
     success: 'Üstünlik',
+
+    // Visual Translator - Home Screen
+    vtTranslateWithAI: 'AI bilen terjime et',
+    vtCameraSubtitle: 'Kamerany islendik tekste gönükdiriň we dessine terjimesini alyň',
+    vtTakePhoto: 'Surat çek',
+    vtChooseGallery: 'Galereýadan saýla',
+    vtProcessing: 'Surat işlenýär...',
+    vtProcessingSubtext: 'Tekst tanalyp we terjime edilýär',
+    vtOcrEngine: 'OCR hereketlendirijisi',
+    vtFeatures: 'Mümkinçilikler',
+    vtFeatureOcrTitle: 'OCR Tekst tanama',
+    vtFeatureOcrDesc: '30+ dilde teksti ýokary takyklyk bilen tanaýar',
+    vtFeatureAiTitle: 'AI Obýekt düşündirişi',
+    vtFeatureAiDesc: 'Tekst tapylmadyk halatynda obýektleri düşündirýär',
+    vtFeatureSmartTitle: 'Akylly terjime',
+    vtFeatureSmartDesc: 'AI tarapyndan goldanýan kontekste esasly terjime',
+    vtFeatureSaveTitle: 'Sakla we paýlaş',
+    vtFeatureSaveDesc: 'Terjimeleri halanýanlara saklaň we beýlekiler bilen paýlaşyň',
+    vtPermissionsText: 'Bu aýratynlygy ulanmak üçin kamera we surat galereýasy rugsatlary gerek',
+    vtGrantPermissions: 'Rugsat ber',
+    vtRequestingPermissions: 'Rugsat soralyýar...',
+    vtAutoFallback: 'Saýlanan hereketlendiriji şowsuz bolan halatynda awto-yza gaýtma işjeňleşdirildi',
+
+    // Visual Translator - Result Screen
+    vtResult: 'Netije',
+    vtRecognizedText: 'Tanalyan tekst',
+    vtLanguageLabel: 'Dil: ',
+    vtAiAnalysis: 'AI derňewi',
+    vtTranslation: 'Terjime',
+    vtTargetLabel: 'Niýetlenen: ',
+    vtPlay: 'Diňle',
+    vtStop: 'Dur',
+    vtCopy: 'Göçür',
+    vtTranslateAnother: 'Başga terjime et',
+    vtCopied: 'Göçürildi',
+    vtCopiedMessage: 'Terjime alyş-çalyş paneline göçürildi',
   },
   
   zh: {
@@ -189,7 +261,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     searchPlaceholder: '输入任何语言的短语搜索...',
     noResults: '未找到结果',
     searchHistory: '搜索历史',
-    
+
     cancel: '取消',
     save: '保存',
     delete: '删除',
@@ -197,6 +269,42 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     loading: '加载中...',
     error: '错误',
     success: '成功',
+
+    // Visual Translator - Home Screen
+    vtTranslateWithAI: 'AI智能翻译',
+    vtCameraSubtitle: '将相机对准任何文本即可获得即时翻译',
+    vtTakePhoto: '拍照',
+    vtChooseGallery: '从图库选择',
+    vtProcessing: '处理图像中...',
+    vtProcessingSubtext: '识别文本并翻译',
+    vtOcrEngine: 'OCR引擎',
+    vtFeatures: '功能',
+    vtFeatureOcrTitle: 'OCR文字识别',
+    vtFeatureOcrDesc: '高精度识别30+种语言的文本',
+    vtFeatureAiTitle: 'AI物体描述',
+    vtFeatureAiDesc: '未找到文本时描述物体',
+    vtFeatureSmartTitle: '智能翻译',
+    vtFeatureSmartDesc: 'AI驱动的上下文感知翻译',
+    vtFeatureSaveTitle: '保存和分享',
+    vtFeatureSaveDesc: '将翻译保存到收藏并与他人分享',
+    vtPermissionsText: '使用此功能需要相机和照片库权限',
+    vtGrantPermissions: '授予权限',
+    vtRequestingPermissions: '请求权限中...',
+    vtAutoFallback: '如果所选引擎失败，自动回退已启用',
+
+    // Visual Translator - Result Screen
+    vtResult: '结果',
+    vtRecognizedText: '识别的文本',
+    vtLanguageLabel: '语言: ',
+    vtAiAnalysis: 'AI分析',
+    vtTranslation: '翻译',
+    vtTargetLabel: '目标: ',
+    vtPlay: '播放',
+    vtStop: '停止',
+    vtCopy: '复制',
+    vtTranslateAnother: '翻译另一个',
+    vtCopied: '已复制',
+    vtCopiedMessage: '翻译已复制到剪贴板',
   },
 
   ru: {
@@ -255,6 +363,42 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     loading: 'Загрузка...',
     error: 'Ошибка',
     success: 'Успешно',
+
+    // Visual Translator - Home Screen
+    vtTranslateWithAI: 'Перевод с AI',
+    vtCameraSubtitle: 'Наведите камеру на любой текст и получите мгновенный перевод',
+    vtTakePhoto: 'Сделать фото',
+    vtChooseGallery: 'Выбрать из галереи',
+    vtProcessing: 'Обработка изображения...',
+    vtProcessingSubtext: 'Распознавание текста и перевод',
+    vtOcrEngine: 'Движок OCR',
+    vtFeatures: 'Возможности',
+    vtFeatureOcrTitle: 'OCR Распознавание текста',
+    vtFeatureOcrDesc: 'Распознаёт текст на 30+ языках с высокой точностью',
+    vtFeatureAiTitle: 'AI Описание объектов',
+    vtFeatureAiDesc: 'Описывает объекты когда текст не найден',
+    vtFeatureSmartTitle: 'Умный перевод',
+    vtFeatureSmartDesc: 'Контекстный перевод на основе AI',
+    vtFeatureSaveTitle: 'Сохранение и отправка',
+    vtFeatureSaveDesc: 'Сохраняйте переводы в избранное и делитесь с другими',
+    vtPermissionsText: 'Для использования этой функции требуются разрешения камеры и фотогалереи',
+    vtGrantPermissions: 'Предоставить разрешения',
+    vtRequestingPermissions: 'Запрос разрешений...',
+    vtAutoFallback: 'Автоматический откат включён в случае сбоя выбранного движка',
+
+    // Visual Translator - Result Screen
+    vtResult: 'Результат',
+    vtRecognizedText: 'Распознанный текст',
+    vtLanguageLabel: 'Язык: ',
+    vtAiAnalysis: 'AI анализ',
+    vtTranslation: 'Перевод',
+    vtTargetLabel: 'Целевой: ',
+    vtPlay: 'Воспроизвести',
+    vtStop: 'Стоп',
+    vtCopy: 'Копировать',
+    vtTranslateAnother: 'Перевести ещё',
+    vtCopied: 'Скопировано',
+    vtCopiedMessage: 'Перевод скопирован в буфер обмена',
   },
 
   en: {
@@ -313,6 +457,42 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     loading: 'Loading...',
     error: 'Error',
     success: 'Success',
+
+    // Visual Translator - Home Screen
+    vtTranslateWithAI: 'Translate with AI',
+    vtCameraSubtitle: 'Point your camera at any text and get instant translation',
+    vtTakePhoto: 'Take Photo',
+    vtChooseGallery: 'Choose from Gallery',
+    vtProcessing: 'Processing image...',
+    vtProcessingSubtext: 'Recognizing text and translating',
+    vtOcrEngine: 'OCR Engine',
+    vtFeatures: 'Features',
+    vtFeatureOcrTitle: 'OCR Text Recognition',
+    vtFeatureOcrDesc: 'Recognizes text in 30+ languages with high accuracy',
+    vtFeatureAiTitle: 'AI Object Description',
+    vtFeatureAiDesc: 'Describes objects when no text is found',
+    vtFeatureSmartTitle: 'Smart Translation',
+    vtFeatureSmartDesc: 'Context-aware translation powered by AI',
+    vtFeatureSaveTitle: 'Save & Share',
+    vtFeatureSaveDesc: 'Save translations to favorites and share with others',
+    vtPermissionsText: 'Camera and photo library permissions are required to use this feature',
+    vtGrantPermissions: 'Grant Permissions',
+    vtRequestingPermissions: 'Requesting permissions...',
+    vtAutoFallback: 'Auto-fallback enabled if selected engine fails',
+
+    // Visual Translator - Result Screen
+    vtResult: 'Result',
+    vtRecognizedText: 'Recognized Text',
+    vtLanguageLabel: 'Language: ',
+    vtAiAnalysis: 'AI Analysis',
+    vtTranslation: 'Translation',
+    vtTargetLabel: 'Target: ',
+    vtPlay: 'Play',
+    vtStop: 'Stop',
+    vtCopy: 'Copy',
+    vtTranslateAnother: 'Translate Another',
+    vtCopied: 'Copied',
+    vtCopiedMessage: 'Translation copied to clipboard',
   },
 
   tr: {
@@ -371,6 +551,42 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     loading: 'Yükleniyor...',
     error: 'Hata',
     success: 'Başarılı',
+
+    // Visual Translator - Home Screen
+    vtTranslateWithAI: 'AI ile Çevir',
+    vtCameraSubtitle: 'Kameranızı herhangi bir metne doğrultun ve anında çeviri alın',
+    vtTakePhoto: 'Fotoğraf Çek',
+    vtChooseGallery: 'Galeriden Seç',
+    vtProcessing: 'Görüntü işleniyor...',
+    vtProcessingSubtext: 'Metin tanınıyor ve çevriliyor',
+    vtOcrEngine: 'OCR Motoru',
+    vtFeatures: 'Özellikler',
+    vtFeatureOcrTitle: 'OCR Metin Tanıma',
+    vtFeatureOcrDesc: '30+ dilde yüksek doğrulukla metin tanır',
+    vtFeatureAiTitle: 'AI Nesne Açıklaması',
+    vtFeatureAiDesc: 'Metin bulunamadığında nesneleri açıklar',
+    vtFeatureSmartTitle: 'Akıllı Çeviri',
+    vtFeatureSmartDesc: 'AI destekli bağlama duyarlı çeviri',
+    vtFeatureSaveTitle: 'Kaydet ve Paylaş',
+    vtFeatureSaveDesc: 'Çevirileri favorilere kaydedin ve başkalarıyla paylaşın',
+    vtPermissionsText: 'Bu özelliği kullanmak için kamera ve fotoğraf galerisi izinleri gereklidir',
+    vtGrantPermissions: 'İzin Ver',
+    vtRequestingPermissions: 'İzinler isteniyor...',
+    vtAutoFallback: 'Seçilen motor başarısız olursa otomatik geri dönüş etkin',
+
+    // Visual Translator - Result Screen
+    vtResult: 'Sonuç',
+    vtRecognizedText: 'Tanınan Metin',
+    vtLanguageLabel: 'Dil: ',
+    vtAiAnalysis: 'AI Analizi',
+    vtTranslation: 'Çeviri',
+    vtTargetLabel: 'Hedef: ',
+    vtPlay: 'Oynat',
+    vtStop: 'Dur',
+    vtCopy: 'Kopyala',
+    vtTranslateAnother: 'Başka Çevir',
+    vtCopied: 'Kopyalandı',
+    vtCopiedMessage: 'Çeviri panoya kopyalandı',
   },
 
   de: {
@@ -429,6 +645,42 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     loading: 'Laden...',
     error: 'Fehler',
     success: 'Erfolg',
+
+    // Visual Translator - Home Screen
+    vtTranslateWithAI: 'Mit KI übersetzen',
+    vtCameraSubtitle: 'Richten Sie Ihre Kamera auf beliebigen Text für sofortige Übersetzung',
+    vtTakePhoto: 'Foto aufnehmen',
+    vtChooseGallery: 'Aus Galerie wählen',
+    vtProcessing: 'Bild wird verarbeitet...',
+    vtProcessingSubtext: 'Text wird erkannt und übersetzt',
+    vtOcrEngine: 'OCR-Engine',
+    vtFeatures: 'Funktionen',
+    vtFeatureOcrTitle: 'OCR-Texterkennung',
+    vtFeatureOcrDesc: 'Erkennt Text in 30+ Sprachen mit hoher Genauigkeit',
+    vtFeatureAiTitle: 'KI-Objektbeschreibung',
+    vtFeatureAiDesc: 'Beschreibt Objekte, wenn kein Text gefunden wird',
+    vtFeatureSmartTitle: 'Intelligente Übersetzung',
+    vtFeatureSmartDesc: 'KI-gestützte kontextbezogene Übersetzung',
+    vtFeatureSaveTitle: 'Speichern & Teilen',
+    vtFeatureSaveDesc: 'Übersetzungen in Favoriten speichern und mit anderen teilen',
+    vtPermissionsText: 'Kamera- und Fotogalerie-Berechtigungen sind erforderlich',
+    vtGrantPermissions: 'Berechtigungen erteilen',
+    vtRequestingPermissions: 'Berechtigungen werden angefordert...',
+    vtAutoFallback: 'Automatisches Fallback aktiviert, falls ausgewählte Engine fehlschlägt',
+
+    // Visual Translator - Result Screen
+    vtResult: 'Ergebnis',
+    vtRecognizedText: 'Erkannter Text',
+    vtLanguageLabel: 'Sprache: ',
+    vtAiAnalysis: 'KI-Analyse',
+    vtTranslation: 'Übersetzung',
+    vtTargetLabel: 'Ziel: ',
+    vtPlay: 'Abspielen',
+    vtStop: 'Stopp',
+    vtCopy: 'Kopieren',
+    vtTranslateAnother: 'Weitere übersetzen',
+    vtCopied: 'Kopiert',
+    vtCopiedMessage: 'Übersetzung in Zwischenablage kopiert',
   },
 
   fr: {
@@ -487,6 +739,42 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     loading: 'Chargement...',
     error: 'Erreur',
     success: 'Succès',
+
+    // Visual Translator - Home Screen
+    vtTranslateWithAI: 'Traduire avec IA',
+    vtCameraSubtitle: 'Pointez votre appareil photo sur n\'importe quel texte pour une traduction instantanée',
+    vtTakePhoto: 'Prendre une photo',
+    vtChooseGallery: 'Choisir dans la galerie',
+    vtProcessing: 'Traitement de l\'image...',
+    vtProcessingSubtext: 'Reconnaissance et traduction du texte',
+    vtOcrEngine: 'Moteur OCR',
+    vtFeatures: 'Fonctionnalités',
+    vtFeatureOcrTitle: 'Reconnaissance de texte OCR',
+    vtFeatureOcrDesc: 'Reconnaît le texte en 30+ langues avec haute précision',
+    vtFeatureAiTitle: 'Description d\'objet par IA',
+    vtFeatureAiDesc: 'Décrit les objets lorsqu\'aucun texte n\'est trouvé',
+    vtFeatureSmartTitle: 'Traduction intelligente',
+    vtFeatureSmartDesc: 'Traduction contextuelle alimentée par l\'IA',
+    vtFeatureSaveTitle: 'Enregistrer et partager',
+    vtFeatureSaveDesc: 'Enregistrez les traductions dans les favoris et partagez-les',
+    vtPermissionsText: 'Les autorisations de caméra et de galerie photo sont requises',
+    vtGrantPermissions: 'Accorder les autorisations',
+    vtRequestingPermissions: 'Demande d\'autorisations...',
+    vtAutoFallback: 'Repli automatique activé si le moteur sélectionné échoue',
+
+    // Visual Translator - Result Screen
+    vtResult: 'Résultat',
+    vtRecognizedText: 'Texte reconnu',
+    vtLanguageLabel: 'Langue: ',
+    vtAiAnalysis: 'Analyse IA',
+    vtTranslation: 'Traduction',
+    vtTargetLabel: 'Cible: ',
+    vtPlay: 'Lire',
+    vtStop: 'Arrêter',
+    vtCopy: 'Copier',
+    vtTranslateAnother: 'Traduire un autre',
+    vtCopied: 'Copié',
+    vtCopiedMessage: 'Traduction copiée dans le presse-papiers',
   },
 
   es: {
@@ -545,6 +833,39 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     loading: 'Cargando...',
     error: 'Error',
     success: 'Éxito',
+
+    vtTranslateWithAI: 'Traducir con IA',
+    vtCameraSubtitle: 'Apunta tu cámara a cualquier texto para obtener traducción instantánea',
+    vtTakePhoto: 'Tomar foto',
+    vtChooseGallery: 'Elegir de la galería',
+    vtProcessing: 'Procesando imagen...',
+    vtProcessingSubtext: 'Reconociendo y traduciendo texto',
+    vtOcrEngine: 'Motor OCR',
+    vtFeatures: 'Características',
+    vtFeatureOcrTitle: 'Reconocimiento de texto OCR',
+    vtFeatureOcrDesc: 'Reconoce texto en 30+ idiomas con alta precisión',
+    vtFeatureAiTitle: 'Descripción de objetos con IA',
+    vtFeatureAiDesc: 'Describe objetos cuando no se encuentra texto',
+    vtFeatureSmartTitle: 'Traducción inteligente',
+    vtFeatureSmartDesc: 'Traducción contextual impulsada por IA',
+    vtFeatureSaveTitle: 'Guardar y compartir',
+    vtFeatureSaveDesc: 'Guarda traducciones en favoritos y compártelas',
+    vtPermissionsText: 'Se requieren permisos de cámara y galería de fotos',
+    vtGrantPermissions: 'Conceder permisos',
+    vtRequestingPermissions: 'Solicitando permisos...',
+    vtAutoFallback: 'Reserva automática activada si falla el motor seleccionado',
+    vtResult: 'Resultado',
+    vtRecognizedText: 'Texto reconocido',
+    vtLanguageLabel: 'Idioma: ',
+    vtAiAnalysis: 'Análisis IA',
+    vtTranslation: 'Traducción',
+    vtTargetLabel: 'Objetivo: ',
+    vtPlay: 'Reproducir',
+    vtStop: 'Detener',
+    vtCopy: 'Copiar',
+    vtTranslateAnother: 'Traducir otro',
+    vtCopied: 'Copiado',
+    vtCopiedMessage: 'Traducción copiada al portapapeles',
   },
 
   it: {
@@ -603,6 +924,39 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     loading: 'Caricamento...',
     error: 'Errore',
     success: 'Successo',
+
+    vtTranslateWithAI: 'Traduci con AI',
+    vtCameraSubtitle: 'Punta la fotocamera su qualsiasi testo per una traduzione istantanea',
+    vtTakePhoto: 'Scatta foto',
+    vtChooseGallery: 'Scegli dalla galleria',
+    vtProcessing: 'Elaborazione immagine...',
+    vtProcessingSubtext: 'Riconoscimento e traduzione del testo',
+    vtOcrEngine: 'Motore OCR',
+    vtFeatures: 'Funzionalità',
+    vtFeatureOcrTitle: 'Riconoscimento testo OCR',
+    vtFeatureOcrDesc: 'Riconosce testo in 30+ lingue con alta precisione',
+    vtFeatureAiTitle: 'Descrizione oggetti AI',
+    vtFeatureAiDesc: 'Descrive oggetti quando il testo non viene trovato',
+    vtFeatureSmartTitle: 'Traduzione intelligente',
+    vtFeatureSmartDesc: 'Traduzione contestuale alimentata da AI',
+    vtFeatureSaveTitle: 'Salva e condividi',
+    vtFeatureSaveDesc: 'Salva le traduzioni nei preferiti e condividile',
+    vtPermissionsText: 'Sono richieste autorizzazioni per fotocamera e galleria',
+    vtGrantPermissions: 'Concedi autorizzazioni',
+    vtRequestingPermissions: 'Richiesta autorizzazioni...',
+    vtAutoFallback: 'Fallback automatico attivato se il motore selezionato fallisce',
+    vtResult: 'Risultato',
+    vtRecognizedText: 'Testo riconosciuto',
+    vtLanguageLabel: 'Lingua: ',
+    vtAiAnalysis: 'Analisi AI',
+    vtTranslation: 'Traduzione',
+    vtTargetLabel: 'Obiettivo: ',
+    vtPlay: 'Riproduci',
+    vtStop: 'Ferma',
+    vtCopy: 'Copia',
+    vtTranslateAnother: 'Traduci un altro',
+    vtCopied: 'Copiato',
+    vtCopiedMessage: 'Traduzione copiata negli appunti',
   },
 
   pt: {
@@ -661,6 +1015,39 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     loading: 'Carregando...',
     error: 'Erro',
     success: 'Sucesso',
+
+    vtTranslateWithAI: 'Traduzir com IA',
+    vtCameraSubtitle: 'Aponte sua câmera para qualquer texto e obtenha tradução instantânea',
+    vtTakePhoto: 'Tirar foto',
+    vtChooseGallery: 'Escolher da galeria',
+    vtProcessing: 'Processando imagem...',
+    vtProcessingSubtext: 'Reconhecendo e traduzindo texto',
+    vtOcrEngine: 'Motor OCR',
+    vtFeatures: 'Recursos',
+    vtFeatureOcrTitle: 'Reconhecimento de texto OCR',
+    vtFeatureOcrDesc: 'Reconhece texto em 30+ idiomas com alta precisão',
+    vtFeatureAiTitle: 'Descrição de objetos por IA',
+    vtFeatureAiDesc: 'Descreve objetos quando nenhum texto é encontrado',
+    vtFeatureSmartTitle: 'Tradução inteligente',
+    vtFeatureSmartDesc: 'Tradução contextual alimentada por IA',
+    vtFeatureSaveTitle: 'Salvar e compartilhar',
+    vtFeatureSaveDesc: 'Salve traduções nos favoritos e compartilhe',
+    vtPermissionsText: 'São necessárias permissões de câmera e galeria de fotos',
+    vtGrantPermissions: 'Conceder permissões',
+    vtRequestingPermissions: 'Solicitando permissões...',
+    vtAutoFallback: 'Fallback automático ativado se o motor selecionado falhar',
+    vtResult: 'Resultado',
+    vtRecognizedText: 'Texto reconhecido',
+    vtLanguageLabel: 'Idioma: ',
+    vtAiAnalysis: 'Análise IA',
+    vtTranslation: 'Tradução',
+    vtTargetLabel: 'Alvo: ',
+    vtPlay: 'Reproduzir',
+    vtStop: 'Parar',
+    vtCopy: 'Copiar',
+    vtTranslateAnother: 'Traduzir outro',
+    vtCopied: 'Copiado',
+    vtCopiedMessage: 'Tradução copiada para a área de transferência',
   },
 
   nl: {
@@ -719,6 +1106,39 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     loading: 'Laden...',
     error: 'Fout',
     success: 'Succes',
+
+    vtTranslateWithAI: 'Vertaal met AI',
+    vtCameraSubtitle: 'Richt je camera op tekst voor directe vertaling',
+    vtTakePhoto: 'Foto maken',
+    vtChooseGallery: 'Kies uit galerij',
+    vtProcessing: 'Afbeelding verwerken...',
+    vtProcessingSubtext: 'Tekst herkennen en vertalen',
+    vtOcrEngine: 'OCR-engine',
+    vtFeatures: 'Functies',
+    vtFeatureOcrTitle: 'OCR-tekstherkenning',
+    vtFeatureOcrDesc: 'Herkent tekst in 30+ talen met hoge nauwkeurigheid',
+    vtFeatureAiTitle: 'AI-objectbeschrijving',
+    vtFeatureAiDesc: 'Beschrijft objecten wanneer geen tekst wordt gevonden',
+    vtFeatureSmartTitle: 'Slimme vertaling',
+    vtFeatureSmartDesc: 'Contextbewuste vertaling aangedreven door AI',
+    vtFeatureSaveTitle: 'Opslaan & delen',
+    vtFeatureSaveDesc: 'Vertalingen opslaan in favorieten en delen',
+    vtPermissionsText: 'Camera- en fotogalerijrechten zijn vereist',
+    vtGrantPermissions: 'Rechten verlenen',
+    vtRequestingPermissions: 'Rechten aanvragen...',
+    vtAutoFallback: 'Automatische terugval ingeschakeld als geselecteerde engine faalt',
+    vtResult: 'Resultaat',
+    vtRecognizedText: 'Herkende tekst',
+    vtLanguageLabel: 'Taal: ',
+    vtAiAnalysis: 'AI-analyse',
+    vtTranslation: 'Vertaling',
+    vtTargetLabel: 'Doel: ',
+    vtPlay: 'Afspelen',
+    vtStop: 'Stop',
+    vtCopy: 'Kopiëren',
+    vtTranslateAnother: 'Nog een vertalen',
+    vtCopied: 'Gekopieerd',
+    vtCopiedMessage: 'Vertaling naar klembord gekopieerd',
   },
 
   pl: {
@@ -777,6 +1197,39 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     loading: 'Ładowanie...',
     error: 'Błąd',
     success: 'Sukces',
+
+    vtTranslateWithAI: 'Tłumacz z AI',
+    vtCameraSubtitle: 'Skieruj kamerę na tekst, aby uzyskać natychmiastowe tłumaczenie',
+    vtTakePhoto: 'Zrób zdjęcie',
+    vtChooseGallery: 'Wybierz z galerii',
+    vtProcessing: 'Przetwarzanie obrazu...',
+    vtProcessingSubtext: 'Rozpoznawanie i tłumaczenie tekstu',
+    vtOcrEngine: 'Silnik OCR',
+    vtFeatures: 'Funkcje',
+    vtFeatureOcrTitle: 'Rozpoznawanie tekstu OCR',
+    vtFeatureOcrDesc: 'Rozpoznaje tekst w 30+ językach z wysoką dokładnością',
+    vtFeatureAiTitle: 'Opis obiektów AI',
+    vtFeatureAiDesc: 'Opisuje obiekty, gdy nie znaleziono tekstu',
+    vtFeatureSmartTitle: 'Inteligentne tłumaczenie',
+    vtFeatureSmartDesc: 'Tłumaczenie kontekstowe wspomagane przez AI',
+    vtFeatureSaveTitle: 'Zapisz i udostępnij',
+    vtFeatureSaveDesc: 'Zapisuj tłumaczenia w ulubionych i udostępniaj',
+    vtPermissionsText: 'Wymagane są uprawnienia do kamery i galerii zdjęć',
+    vtGrantPermissions: 'Udziel uprawnień',
+    vtRequestingPermissions: 'Żądanie uprawnień...',
+    vtAutoFallback: 'Automatyczne przełączanie włączone w przypadku awarii wybranego silnika',
+    vtResult: 'Wynik',
+    vtRecognizedText: 'Rozpoznany tekst',
+    vtLanguageLabel: 'Język: ',
+    vtAiAnalysis: 'Analiza AI',
+    vtTranslation: 'Tłumaczenie',
+    vtTargetLabel: 'Cel: ',
+    vtPlay: 'Odtwórz',
+    vtStop: 'Zatrzymaj',
+    vtCopy: 'Kopiuj',
+    vtTranslateAnother: 'Przetłumacz kolejne',
+    vtCopied: 'Skopiowano',
+    vtCopiedMessage: 'Tłumaczenie skopiowane do schowka',
   },
 
   uk: {
