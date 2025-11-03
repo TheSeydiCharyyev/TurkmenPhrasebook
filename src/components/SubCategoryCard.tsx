@@ -77,13 +77,9 @@ export default function SubCategoryCard({
       onPress={handlePress}
       activeOpacity={0.7}
     >
-      {/* Иконка - точно как в основных категориях */}
+      {/* Эмодзи иконка - точно как в основных категориях */}
       <View style={[styles.iconContainer, { backgroundColor: subcategory.color + '20' }]}>
-        <Ionicons 
-          name={subcategory.icon as any} 
-          size={28} 
-          color={subcategory.color} 
-        />
+        <Text style={styles.emojiIcon}>{subcategory.icon}</Text>
       </View>
 
       {/* Текстовый контейнер - только 2 названия (языковая пара) */}
@@ -138,6 +134,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 16, // Увеличили отступ как в основных
+  },
+
+  emojiIcon: {
+    fontSize: 32,
+    textAlign: 'center',
   },
 
   textContainer: {
@@ -299,11 +300,7 @@ export function SubCategoryListItem({
     >
       <View style={listStyles.leftContent}>
         <View style={[listStyles.iconContainer, { backgroundColor: subcategory.color + '20' }]}>
-          <Ionicons
-            name={subcategory.icon as any}
-            size={24}
-            color={subcategory.color}
-          />
+          <Text style={listStyles.emojiIcon}>{subcategory.icon}</Text>
         </View>
 
         <View style={listStyles.textContainer}>
@@ -355,6 +352,10 @@ const listStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
+  },
+  emojiIcon: {
+    fontSize: 24,
+    textAlign: 'center',
   },
   textContainer: {
     flex: 1,

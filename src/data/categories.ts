@@ -494,7 +494,7 @@ const personalInfoSubcategories: SubCategory[] = [
     nameTk: 'At, ýaş',
     nameZh: '姓名，年龄',
     nameEn: 'Name, Age',
-    icon: 'person-outline',
+    icon: '👤',
     color: '#7C3AED',
   },
   {
@@ -504,7 +504,7 @@ const personalInfoSubcategories: SubCategory[] = [
     nameTk: 'Ýaşaýan ýeri',
     nameZh: '居住地',
     nameEn: 'Residence',
-    icon: 'home-outline',
+    icon: '🏠',
     color: '#7C3AED',
   },
   {
@@ -514,7 +514,7 @@ const personalInfoSubcategories: SubCategory[] = [
     nameTk: 'Maşgala',
     nameZh: '家庭',
     nameEn: 'Family',
-    icon: 'people-outline',
+    icon: '👨‍👩‍👧‍👦',
     color: '#7C3AED',
   },
   {
@@ -524,7 +524,7 @@ const personalInfoSubcategories: SubCategory[] = [
     nameTk: 'Iş',
     nameZh: '工作',
     nameEn: 'Work',
-    icon: 'briefcase-outline',
+    icon: '💼',
     color: '#7C3AED',
   },
   {
@@ -534,7 +534,7 @@ const personalInfoSubcategories: SubCategory[] = [
     nameTk: 'Daşary ýurt dilleri',
     nameZh: '外语',
     nameEn: 'Foreign Languages',
-    icon: 'language-outline',
+    icon: '🗣️',
     color: '#7C3AED',
   },
 ];
@@ -548,7 +548,7 @@ const businessSubcategories: SubCategory[] = [
     nameTk: 'Konferensiýalar',
     nameZh: '会议',
     nameEn: 'Conferences',
-    icon: 'people-outline',
+    icon: '👥',
     color: '#1F2937',
   },
   {
@@ -558,7 +558,7 @@ const businessSubcategories: SubCategory[] = [
     nameTk: 'Tehniki sergi',
     nameZh: '技术展览',
     nameEn: 'Technical Exhibition',
-    icon: 'desktop-outline',
+    icon: '🖥️',
     color: '#1F2937',
   },
   {
@@ -568,7 +568,7 @@ const businessSubcategories: SubCategory[] = [
     nameTk: 'Işewür gepleşikler',
     nameZh: '商务谈判',
     nameEn: 'Business Negotiations',
-    icon: 'chatbubbles-outline',
+    icon: '💬',
     color: '#1F2937',
   },
 ];
@@ -582,7 +582,7 @@ const measurementsSubcategories: SubCategory[] = [
     nameTk: 'Uzynlyk',
     nameZh: '长度',
     nameEn: 'Length',
-    icon: 'resize-outline',
+    icon: '📐',
     color: '#374151',
   },
   {
@@ -592,7 +592,7 @@ const measurementsSubcategories: SubCategory[] = [
     nameTk: 'Agram',
     nameZh: '重量',
     nameEn: 'Weight',
-    icon: 'barbell-outline',
+    icon: '⚖️',
     color: '#374151',
   },
   {
@@ -602,7 +602,7 @@ const measurementsSubcategories: SubCategory[] = [
     nameTk: 'Göwrüm',
     nameZh: '体积',
     nameEn: 'Volume',
-    icon: 'cube-outline',
+    icon: '📦',
     color: '#374151',
   },
   {
@@ -612,7 +612,7 @@ const measurementsSubcategories: SubCategory[] = [
     nameTk: 'Hytaý ölçegleri',
     nameZh: '中国度量单位',
     nameEn: 'Chinese Measurements',
-    icon: 'calculator-outline',
+    icon: '🧮',
     color: '#374151',
   },
 ];
