@@ -26,8 +26,8 @@ import { TabScreen } from '../components/Screen';
 
 type HomeScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'CategoryScreen'>;
 
-// Высота новой минималистичной шапки
-const HEADER_HEIGHT = 120;
+// Высота новой минималистичной шапки (для анимации скрытия)
+const HEADER_HEIGHT = 180;
 
 // Минималистичная шапка с индикатором языка
 const MinimalHeader = React.memo<{
@@ -35,13 +35,14 @@ const MinimalHeader = React.memo<{
   onSearchPress: () => void;
   onLanguagePress: () => void;
   selectedLanguageCode: string;
+  animatedStyle?: any;  // ✅ НОВОЕ: стиль для анимации
 }>(
-  ({ languageMode, onSearchPress, onLanguagePress, selectedLanguageCode }) => {
+  ({ languageMode, onSearchPress, onLanguagePress, selectedLanguageCode, animatedStyle }) => {
     const selectedLang = getLanguageByCode(selectedLanguageCode);
     const turkmenFlag = '🇹🇲';
 
     return (
-      <View style={styles.headerContainer}>
+      <Animated.View style={[styles.headerContainer, animatedStyle]}>
         {/* Индикатор языка */}
         <View style={styles.languageHeader}>
           <View style={styles.languageIndicator}>
@@ -103,7 +104,7 @@ const MinimalHeader = React.memo<{
             })()}
           </Text>
         </TouchableOpacity>
-      </View>
+      </Animated.View>
     );
   }
 );
@@ -137,9 +138,10 @@ const CategoryPairItem = React.memo<{
 // Сетка категорий
 interface CategoryGridProps {
   languageMode: string;  // ✅ ОБНОВЛЕНО: поддержка всех 30 языков
+  onScroll?: (event: any) => void;  // ✅ НОВОЕ: колбэк для скролла
 }
 
-const CategoryGrid = React.memo<CategoryGridProps>(({ languageMode }) => {
+const CategoryGrid = React.memo<CategoryGridProps>(({ languageMode, onScroll }) => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
 
   const handleCategoryPress = useCallback((category: Category) => {
@@ -166,7 +168,7 @@ const CategoryGrid = React.memo<CategoryGridProps>(({ languageMode }) => {
   }, []);
 
   return (
-    <FlatList
+    <Animated.FlatList
       data={categoryPairs}
       renderItem={renderCategoryPair}
       keyExtractor={(item, index) => `pair-${index}`}
@@ -176,6 +178,8 @@ const CategoryGrid = React.memo<CategoryGridProps>(({ languageMode }) => {
       maxToRenderPerBatch={6}
       windowSize={10}
       initialNumToRender={4}
+      onScroll={onScroll}
+      scrollEventThrottle={16}
     />
   );
 });
@@ -207,6 +211,50 @@ export default function HomeScreen() {
   // ✅ ОБНОВЛЕНО: Используем selectedLanguage напрямую (поддержка всех 30 языков)
   const languageMode: string = selectedLanguage;
 
+  // ✅ НОВОЕ: Анимация скрытия/показа header при скролле
+  const scrollY = useRef(new Animated.Value(0)).current;
+  const lastScrollY = useRef(0);
+  const scrollDirection = useRef<'up' | 'down'>('down');
+
+  // Анимированный стиль для header
+  const headerTranslateY = useRef(new Animated.Value(0)).current;
+
+  const handleScroll = Animated.event(
+    [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+    {
+      useNativeDriver: true,
+      listener: (event: any) => {
+        const currentScrollY = event.nativeEvent.contentOffset.y;
+        const diff = currentScrollY - lastScrollY.current;
+
+        // Определяем направление скролла
+        if (diff > 0 && currentScrollY > 10) {
+          // Скролл вниз - скрываем header
+          if (scrollDirection.current !== 'down') {
+            scrollDirection.current = 'down';
+            Animated.timing(headerTranslateY, {
+              toValue: -HEADER_HEIGHT - 20,
+              duration: 250,
+              useNativeDriver: true,
+            }).start();
+          }
+        } else if (diff < 0) {
+          // Скролл вверх - показываем header
+          if (scrollDirection.current !== 'up') {
+            scrollDirection.current = 'up';
+            Animated.timing(headerTranslateY, {
+              toValue: 0,
+              duration: 250,
+              useNativeDriver: true,
+            }).start();
+          }
+        }
+
+        lastScrollY.current = currentScrollY;
+      },
+    }
+  );
+
   const handleSearchPress = useCallback(() => {
     // Переход на экран поиска
     navigation.navigate('AdditionalFeatures', {
@@ -222,17 +270,23 @@ export default function HomeScreen() {
   return (
     <ErrorBoundary>
       <TabScreen backgroundColor={Colors.background}>
-        {/* НОВАЯ МИНИМАЛИСТИЧНАЯ ШАПКА С ИНДИКАТОРОМ ЯЗЫКА */}
+        {/* НОВАЯ МИНИМАЛИСТИЧНАЯ ШАПКА С ИНДИКАТОРОМ ЯЗЫКА - АНИМИРОВАННАЯ */}
         <MinimalHeader
-          languageMode={languageMode}  // ✅ ОБНОВЛЕНО: используем languageMode
+          languageMode={languageMode}
           onSearchPress={handleSearchPress}
           onLanguagePress={handleLanguagePress}
           selectedLanguageCode={selectedLanguage}
+          animatedStyle={{
+            transform: [{ translateY: headerTranslateY }],
+          }}
         />
 
-        {/* КАТЕГОРИИ - БЕЗ ИЗМЕНЕНИЙ */}
+        {/* КАТЕГОРИИ - С ОБРАБОТЧИКОМ СКРОЛЛА */}
         <View style={styles.contentContainer}>
-          <CategoryGrid languageMode={languageMode} />  {/* ✅ ОБНОВЛЕНО: используем languageMode */}
+          <CategoryGrid
+            languageMode={languageMode}
+            onScroll={handleScroll}
+          />
         </View>
       </TabScreen>
     </ErrorBoundary>
@@ -240,14 +294,24 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  // НОВАЯ минималистичная шапка
+  // НОВАЯ минималистичная шапка - АБСОЛЮТНОЕ ПОЗИЦИОНИРОВАНИЕ для анимации
   headerContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
     backgroundColor: Colors.background,
     paddingHorizontal: 20,
     paddingTop: 16,
     paddingBottom: 16,
     borderBottomWidth: 1,
     borderBottomColor: Colors.border || '#E5E7EB',
+    zIndex: 1000,
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
 
   // Индикатор языка
@@ -329,7 +393,7 @@ const styles = StyleSheet.create({
 
   gridContainer: {
     paddingHorizontal: 20,
-    paddingVertical: 24,
+    paddingTop: HEADER_HEIGHT + 24,  // ✅ Отступ сверху для header
     paddingBottom: 40,
   },
 

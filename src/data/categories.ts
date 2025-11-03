@@ -74,7 +74,7 @@ const hotelSubcategories: SubCategory[] = [
     nameTk: 'Haýyşlar',
     nameZh: '请求',
     nameEn: 'Requests',
-    icon: 'help-circle-outline',
+    icon: '❓',
     color: '#8B5CF6',
   },
   {
@@ -84,7 +84,7 @@ const hotelSubcategories: SubCategory[] = [
     nameTk: 'Şikaýatlar',
     nameZh: '投诉',
     nameEn: 'Complaints',
-    icon: 'warning-outline',
+    icon: '⚠️',
     color: '#8B5CF6',
   },
   {
@@ -94,7 +94,7 @@ const hotelSubcategories: SubCategory[] = [
     nameTk: 'Peýdaly sözler',
     nameZh: '有用词汇',
     nameEn: 'Useful Words',
-    icon: 'book-outline',
+    icon: '📖',
     color: '#8B5CF6',
   },
 ];
@@ -108,7 +108,7 @@ const foodSubcategories: SubCategory[] = [
     nameTk: 'Nahar sargyt etmek',
     nameZh: '点餐',
     nameEn: 'Ordering Food',
-    icon: 'receipt-outline',
+    icon: '📝',
     color: '#C2410C',
   },
   {
@@ -118,7 +118,7 @@ const foodSubcategories: SubCategory[] = [
     nameTk: 'Şirelendiriji iýmitler',
     nameZh: '开胃菜',
     nameEn: 'Appetizers',
-    icon: 'restaurant-outline',
+    icon: '🍴',
     color: '#C2410C',
   },
   {
@@ -128,7 +128,7 @@ const foodSubcategories: SubCategory[] = [
     nameTk: 'Çorbalar',
     nameZh: '汤类',
     nameEn: 'Soups',
-    icon: 'cafe-outline',
+    icon: '🍜',
     color: '#C2410C',
   },
   {
@@ -138,7 +138,7 @@ const foodSubcategories: SubCategory[] = [
     nameTk: 'Etli naharlar',
     nameZh: '肉类菜肴',
     nameEn: 'Meat Dishes',
-    icon: 'nutrition-outline',
+    icon: '🥩',
     color: '#C2410C',
   },
   {
@@ -148,7 +148,7 @@ const foodSubcategories: SubCategory[] = [
     nameTk: 'Balykly naharlar',
     nameZh: '鱼类菜肴',
     nameEn: 'Fish Dishes',
-    icon: 'fish-outline',
+    icon: '🐟',
     color: '#C2410C',
   },
   {
@@ -158,7 +158,7 @@ const foodSubcategories: SubCategory[] = [
     nameTk: 'Gök we miweler',
     nameZh: '蔬菜水果',
     nameEn: 'Vegetables and Fruits',
-    icon: 'leaf-outline',
+    icon: '🥗',
     color: '#C2410C',
   },
   {
@@ -168,7 +168,7 @@ const foodSubcategories: SubCategory[] = [
     nameTk: 'Içgiler',
     nameZh: '饮料',
     nameEn: 'Drinks',
-    icon: 'wine-outline',
+    icon: '🍷',
     color: '#C2410C',
   },
   {
@@ -178,7 +178,7 @@ const foodSubcategories: SubCategory[] = [
     nameTk: 'Desertler',
     nameZh: '甜品',
     nameEn: 'Desserts',
-    icon: 'ice-cream-outline',
+    icon: '🍰',
     color: '#C2410C',
   },
 ];
@@ -192,7 +192,7 @@ const shoppingSubcategories: SubCategory[] = [
     nameTk: 'Eşikler',
     nameZh: '服装',
     nameEn: 'Clothing',
-    icon: 'shirt-outline',
+    icon: '👕',
     color: '#F59E0B',
   },
   {
@@ -202,7 +202,7 @@ const shoppingSubcategories: SubCategory[] = [
     nameTk: 'Söwda',
     nameZh: '讨价还价',
     nameEn: 'Bargaining',
-    icon: 'pricetag-outline',
+    icon: '💲',
     color: '#F59E0B',
   },
   {
@@ -212,7 +212,7 @@ const shoppingSubcategories: SubCategory[] = [
     nameTk: 'Peýdaly sözler',
     nameZh: '有用词汇',
     nameEn: 'Useful Words',
-    icon: 'book-outline',
+    icon: '📖',
     color: '#F59E0B',
   },
 ];
@@ -226,7 +226,7 @@ const transportSubcategories: SubCategory[] = [
     nameTk: 'Howa menzilinde, uçarda',
     nameZh: '在机场，在飞机上',
     nameEn: 'At Airport, On Plane',
-    icon: 'airplane-outline',
+    icon: '✈️',
     color: '#059669',
   },
   {
@@ -236,7 +236,7 @@ const transportSubcategories: SubCategory[] = [
     nameTk: 'Wokzalda, poýezdde',
     nameZh: '在车站，在火车上',
     nameEn: 'At Station, On Train',
-    icon: 'train-outline',
+    icon: '🚂',
     color: '#059669',
   },
   {
@@ -246,7 +246,7 @@ const transportSubcategories: SubCategory[] = [
     nameTk: 'Şäher transporty',
     nameZh: '城市交通',
     nameEn: 'City Transport',
-    icon: 'bus-outline',
+    icon: '🚌',
     color: '#059669',
   },
 ];
@@ -260,7 +260,7 @@ const directionsSubcategories: SubCategory[] = [
     nameTk: 'Meşhur ýerleri seredip görmek',
     nameZh: '观光景点',
     nameEn: 'Sightseeing',
-    icon: 'camera-outline',
+    icon: '📸',
     color: '#DC2626',
   },
   {
@@ -270,7 +270,7 @@ const directionsSubcategories: SubCategory[] = [
     nameTk: 'Peýdaly sözler',
     nameZh: '有用词汇',
     nameEn: 'Useful Words',
-    icon: 'book-outline',
+    icon: '📖',
     color: '#DC2626',
   },
 ];
@@ -284,7 +284,7 @@ const communicationSubcategories: SubCategory[] = [
     nameTk: 'Poçta, telegraf, telefon',
     nameZh: '邮政，电报，电话',
     nameEn: 'Post, Telegraph, Phone',
-    icon: 'mail-outline',
+    icon: '📧',
     color: '#EC4899',
   },
   {
@@ -294,7 +294,7 @@ const communicationSubcategories: SubCategory[] = [
     nameTk: 'Peýdaly sözler',
     nameZh: '有用词汇',
     nameEn: 'Useful Words',
-    icon: 'book-outline',
+    icon: '📖',
     color: '#EC4899',
   },
 ];
@@ -308,7 +308,7 @@ const entertainmentSubcategories: SubCategory[] = [
     nameTk: 'Teatr',
     nameZh: '剧院',
     nameEn: 'Theater',
-    icon: 'musical-notes-outline',
+    icon: '🎭',
     color: '#7C3AED',
   },
   {
@@ -318,7 +318,7 @@ const entertainmentSubcategories: SubCategory[] = [
     nameTk: 'Kino',
     nameZh: '电影院',
     nameEn: 'Cinema',
-    icon: 'film-outline',
+    icon: '🎬',
     color: '#7C3AED',
   },
   {
@@ -328,7 +328,7 @@ const entertainmentSubcategories: SubCategory[] = [
     nameTk: 'Konsert',
     nameZh: '音乐会',
     nameEn: 'Concert',
-    icon: 'disc-outline',
+    icon: '🎵',
     color: '#7C3AED',
   },
   {
@@ -338,7 +338,7 @@ const entertainmentSubcategories: SubCategory[] = [
     nameTk: 'Muzeýde',
     nameZh: '在博物馆',
     nameEn: 'At Museum',
-    icon: 'library-outline',
+    icon: '🏛️',
     color: '#7C3AED',
   },
   {
@@ -348,7 +348,7 @@ const entertainmentSubcategories: SubCategory[] = [
     nameTk: 'Peýdaly sözler',
     nameZh: '有用词汇',
     nameEn: 'Useful Words',
-    icon: 'book-outline',
+    icon: '📖',
     color: '#7C3AED',
   },
 ];
@@ -362,7 +362,7 @@ const timeSubcategories: SubCategory[] = [
     nameTk: 'Wagt',
     nameZh: '时间',
     nameEn: 'Time',
-    icon: 'time-outline',
+    icon: '⏰',
     color: '#0D9488',
   },
   {
@@ -372,7 +372,7 @@ const timeSubcategories: SubCategory[] = [
     nameTk: 'Hepdäniň günleri',
     nameZh: '星期',
     nameEn: 'Days of Week',
-    icon: 'calendar-outline',
+    icon: '📅',
     color: '#0D9488',
   },
   {
@@ -382,7 +382,7 @@ const timeSubcategories: SubCategory[] = [
     nameTk: 'Aýlar',
     nameZh: '月份',
     nameEn: 'Months',
-    icon: 'calendar-number-outline',
+    icon: '📆',
     color: '#0D9488',
   },
 ];
@@ -396,7 +396,7 @@ const healthSubcategories: SubCategory[] = [
     nameTk: 'Lukmanyňkyda',
     nameZh: '看医生',
     nameEn: 'At Doctor',
-    icon: 'medical-outline',
+    icon: '👨‍⚕️',
     color: '#059669',
   },
   {
@@ -406,7 +406,7 @@ const healthSubcategories: SubCategory[] = [
     nameTk: 'Dermanhanada',
     nameZh: '在药店',
     nameEn: 'At Pharmacy',
-    icon: 'bandage-outline',
+    icon: '🩹',
     color: '#059669',
   },
 ];
@@ -420,7 +420,7 @@ const moneySubcategories: SubCategory[] = [
     nameTk: 'Bank, walýuta çalyşmak',
     nameZh: '银行，外汇兑换',
     nameEn: 'Bank, Currency Exchange',
-    icon: 'card-outline',
+    icon: '💳',
     color: '#0891B2',
   },
   {
@@ -430,7 +430,7 @@ const moneySubcategories: SubCategory[] = [
     nameTk: 'Peýdaly sözler',
     nameZh: '有用词汇',
     nameEn: 'Useful Words',
-    icon: 'book-outline',
+    icon: '📖',
     color: '#0891B2',
   },
 ];
@@ -444,7 +444,7 @@ const customsSubcategories: SubCategory[] = [
     nameTk: 'Pasport gözegçiligi',
     nameZh: '护照检查',
     nameEn: 'Passport Control',
-    icon: 'document-text-outline',
+    icon: '📄',
     color: '#1E40AF',
   },
   {
@@ -454,7 +454,7 @@ const customsSubcategories: SubCategory[] = [
     nameTk: 'Peýdaly sözler',
     nameZh: '有用词汇',
     nameEn: 'Useful Words',
-    icon: 'book-outline',
+    icon: '📖',
     color: '#1E40AF',
   },
 ];
@@ -468,7 +468,7 @@ const sportsSubcategories: SubCategory[] = [
     nameTk: 'Sport',
     nameZh: '体育运动',
     nameEn: 'Sports',
-    icon: 'football-outline',
+    icon: '⚽',
     color: '#DC2626',
   },
   {
@@ -478,7 +478,7 @@ const sportsSubcategories: SubCategory[] = [
     nameTk: 'Peýdaly sözler',
     nameZh: '有用词汇',
     nameEn: 'Useful Words',
-    icon: 'book-outline',
+    icon: '📖',
     color: '#DC2626',
   },
 ];
@@ -619,30 +619,30 @@ const measurementsSubcategories: SubCategory[] = [
 
 
 
-// ✅ ОБНОВЛЕННЫЙ массив категорий с переводами на все 31 язык
+// ✅ ОБНОВЛЕННЫЙ массив категорий с переводами на все 31 язык + ЭМОДЗИ ИКОНКИ
 export const categories: Category[] = [
-  createCategory('greetings', 'person-outline', '#3B82F6'),
-  createCategory('emergency', 'alert-circle-outline', '#EF4444'),
-  createCategory('hotel', 'bed-outline', '#8B5CF6', true, hotelSubcategories),
-  createCategory('food', 'restaurant-outline', '#C2410C', true, foodSubcategories),
-  createCategory('shopping', 'storefront-outline', '#F59E0B', true, shoppingSubcategories),
-  createCategory('transport', 'car-outline', '#059669', true, transportSubcategories),
-  createCategory('directions', 'compass-outline', '#DC2626', true, directionsSubcategories),
-  createCategory('health', 'fitness-outline', '#059669', true, healthSubcategories),
-  createCategory('money', 'wallet-outline', '#0891B2', true, moneySubcategories),
-  createCategory('communication', 'call-outline', '#EC4899', true, communicationSubcategories),
-  createCategory('entertainment', 'game-controller-outline', '#7C3AED', true, entertainmentSubcategories),
-  createCategory('time', 'time-outline', '#0D9488', true, timeSubcategories),
-  createCategory('numbers', 'calculator-outline', '#0EA5E9'),
-  createCategory('weather', 'partly-sunny-outline', '#F97316'),
-  createCategory('personal_info', 'person-circle-outline', '#7C3AED', true, personalInfoSubcategories),
-  createCategory('business', 'briefcase-outline', '#1F2937', true, businessSubcategories),
-  createCategory('measurements', 'scale-outline', '#374151', true, measurementsSubcategories),
-  createCategory('colors', 'color-palette-outline', '#BE185D'),
-  createCategory('body', 'hand-left-outline', '#B91C1C'),
-  createCategory('home', 'home-outline', '#7C2D12'),
-  createCategory('customs', 'shield-checkmark-outline', '#1E40AF', true, customsSubcategories),
-  createCategory('sports', 'fitness-outline', '#DC2626', true, sportsSubcategories),
+  createCategory('greetings', '👋', '#3B82F6'),
+  createCategory('emergency', '🚨', '#EF4444'),
+  createCategory('hotel', '🏨', '#8B5CF6', true, hotelSubcategories),
+  createCategory('food', '🍽️', '#C2410C', true, foodSubcategories),
+  createCategory('shopping', '🛍️', '#F59E0B', true, shoppingSubcategories),
+  createCategory('transport', '🚗', '#059669', true, transportSubcategories),
+  createCategory('directions', '🧭', '#DC2626', true, directionsSubcategories),
+  createCategory('health', '💊', '#059669', true, healthSubcategories),
+  createCategory('money', '💰', '#0891B2', true, moneySubcategories),
+  createCategory('communication', '📞', '#EC4899', true, communicationSubcategories),
+  createCategory('entertainment', '🎮', '#7C3AED', true, entertainmentSubcategories),
+  createCategory('time', '⏰', '#0D9488', true, timeSubcategories),
+  createCategory('numbers', '🔢', '#0EA5E9'),
+  createCategory('weather', '⛅', '#F97316'),
+  createCategory('personal_info', '👤', '#7C3AED', true, personalInfoSubcategories),
+  createCategory('business', '💼', '#1F2937', true, businessSubcategories),
+  createCategory('measurements', '📏', '#374151', true, measurementsSubcategories),
+  createCategory('colors', '🎨', '#BE185D'),
+  createCategory('body', '🖐️', '#B91C1C'),
+  createCategory('home', '🏠', '#7C2D12'),
+  createCategory('customs', '🛃', '#1E40AF', true, customsSubcategories),
+  createCategory('sports', '⚽', '#DC2626', true, sportsSubcategories),
 ];
 
 // ===== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ =====
