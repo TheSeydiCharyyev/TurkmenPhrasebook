@@ -31,11 +31,14 @@ import {
   getLanguageByCode,
   type TextTranslationResult,
 } from '../types/text-translator.types';
+import { useAppLanguage } from '../../../contexts/LanguageContext';
 
 type TextTranslatorNavigationProp = StackNavigationProp<RootStackParamList, 'TextTranslator'>;
 
 export default function TextTranslatorScreen() {
   const navigation = useNavigation<TextTranslatorNavigationProp>();
+  const { getTexts } = useAppLanguage();
+  const texts = getTexts();
 
   // State
   const [inputText, setInputText] = useState('');
@@ -56,7 +59,7 @@ export default function TextTranslatorScreen() {
   // Обработчик перевода
   const handleTranslate = async () => {
     if (!inputText.trim()) {
-      Alert.alert('Error', 'Please enter text to translate');
+      Alert.alert(texts.ttErrorTitle, texts.ttErrorEmptyText);
       return;
     }
 
@@ -76,16 +79,16 @@ export default function TextTranslatorScreen() {
     } catch (error) {
       console.error('Translation error:', error);
 
-      let errorMessage = 'Translation failed. Please try again.';
+      let errorMessage = texts.ttErrorTranslationFailed;
       if (error instanceof Error) {
         if (error.message.includes('internet') || error.message.includes('connection')) {
-          errorMessage = 'No internet connection. Please check your connection and try again.';
+          errorMessage = texts.ttErrorNoInternet;
         } else if (error.message.includes('too long')) {
-          errorMessage = 'Text is too long. Maximum 5000 characters.';
+          errorMessage = texts.ttErrorTextTooLong;
         }
       }
 
-      Alert.alert('Error', errorMessage);
+      Alert.alert(texts.ttErrorTitle, errorMessage);
     } finally {
       setIsTranslating(false);
     }
@@ -133,13 +136,13 @@ export default function TextTranslatorScreen() {
     if (!outputText) return;
 
     Clipboard.setString(outputText);
-    Alert.alert('✅ Copied', 'Translation copied to clipboard');
+    Alert.alert(texts.ttCopiedTitle, texts.ttCopiedMessage);
   };
 
   // Поменять языки местами
   const handleSwapLanguages = () => {
     if (sourceLanguage === 'auto') {
-      Alert.alert('Info', 'Cannot swap when Auto Detect is selected');
+      Alert.alert(texts.ttInfoTitle, texts.ttInfoCannotSwap);
       return;
     }
 
@@ -179,7 +182,7 @@ export default function TextTranslatorScreen() {
         >
           <Text style={styles.backEmoji}>⬅️</Text>
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Text Translator</Text>
+        <Text style={styles.headerTitle}>{texts.ttHeaderTitle}</Text>
         <View style={styles.placeholder} />
       </LinearGradient>
 
@@ -203,9 +206,9 @@ export default function TextTranslatorScreen() {
             <View style={styles.heroIconContainer}>
               <Text style={styles.heroIcon}>🌍</Text>
             </View>
-            <Text style={styles.heroTitle}>Instant Translation</Text>
+            <Text style={styles.heroTitle}>{texts.ttHeroTitle}</Text>
             <Text style={styles.heroSubtitle}>
-              Type any text and translate between 100+ languages
+              {texts.ttHeroSubtitle}
             </Text>
           </LinearGradient>
 
@@ -217,13 +220,13 @@ export default function TextTranslatorScreen() {
               activeOpacity={0.7}
             >
               <Text style={styles.languageFlag}>{sourceLang?.flag || '🌐'}</Text>
-              <Text style={styles.languageName}>{sourceLang?.name || 'Select'}</Text>
+              <Text style={styles.languageName}>{sourceLang?.name || texts.ttSelectLanguage}</Text>
               <Text style={styles.chevronEmoji}>▼</Text>
             </TouchableOpacity>
 
             <TextInput
               style={styles.input}
-              placeholder="Enter text to translate..."
+              placeholder={texts.ttPlaceholder}
               placeholderTextColor="#9CA3AF"
               value={inputText}
               onChangeText={setInputText}
@@ -243,7 +246,7 @@ export default function TextTranslatorScreen() {
                   activeOpacity={0.7}
                 >
                   <Text style={styles.clearEmoji}>✖️</Text>
-                  <Text style={styles.clearText}>Clear</Text>
+                  <Text style={styles.clearText}>{texts.ttClear}</Text>
                 </TouchableOpacity>
               )}
             </View>
@@ -282,7 +285,7 @@ export default function TextTranslatorScreen() {
                 <Text style={styles.translateEmoji}>🌐</Text>
               )}
               <Text style={styles.translateButtonText}>
-                {isTranslating ? 'Translating...' : 'Translate'}
+                {isTranslating ? texts.ttTranslating : texts.ttTranslate}
               </Text>
             </LinearGradient>
           </TouchableOpacity>
@@ -295,7 +298,7 @@ export default function TextTranslatorScreen() {
               activeOpacity={0.7}
             >
               <Text style={styles.languageFlag}>{targetLang?.flag || '🌍'}</Text>
-              <Text style={styles.languageName}>{targetLang?.name || 'Select'}</Text>
+              <Text style={styles.languageName}>{targetLang?.name || texts.ttSelectLanguage}</Text>
               <Text style={styles.chevronEmoji}>▼</Text>
             </TouchableOpacity>
 
@@ -314,7 +317,7 @@ export default function TextTranslatorScreen() {
                       {isSpeaking ? '⏹️' : '🔊'}
                     </Text>
                     <Text style={styles.actionText}>
-                      {isSpeaking ? 'Stop' : 'Play'}
+                      {isSpeaking ? texts.ttStop : texts.ttPlay}
                     </Text>
                   </TouchableOpacity>
 
@@ -324,14 +327,14 @@ export default function TextTranslatorScreen() {
                     activeOpacity={0.7}
                   >
                     <Text style={styles.actionEmoji}>📋</Text>
-                    <Text style={styles.actionText}>Copy</Text>
+                    <Text style={styles.actionText}>{texts.ttCopy}</Text>
                   </TouchableOpacity>
                 </View>
               </View>
             ) : (
               <View style={styles.emptyOutput}>
                 <Text style={styles.emptyIcon}>📄</Text>
-                <Text style={styles.emptyText}>Translation will appear here</Text>
+                <Text style={styles.emptyText}>{texts.ttEmptyOutput}</Text>
               </View>
             )}
           </View>
@@ -345,7 +348,7 @@ export default function TextTranslatorScreen() {
         selectedLanguage={sourceLanguage}
         onSelect={setSourceLanguage}
         onClose={() => setShowSourcePicker(false)}
-        title="Source Language"
+        title={texts.ttSourceLanguage}
       />
 
       <LanguagePicker
@@ -354,7 +357,7 @@ export default function TextTranslatorScreen() {
         selectedLanguage={targetLanguage}
         onSelect={setTargetLanguage}
         onClose={() => setShowTargetPicker(false)}
-        title="Target Language"
+        title={texts.ttTargetLanguage}
       />
     </View>
   );
@@ -448,18 +451,24 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: '#FFFFFF',
-    borderRadius: 16,
-    padding: 16,
+    borderRadius: 20,
+    padding: 18,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 3,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.12,
+    shadowRadius: 12,
+    elevation: 6,
+    marginBottom: 16,
   },
   outputCard: {
-    backgroundColor: '#EFF6FF',
+    backgroundColor: '#F0F9FF',
     borderWidth: 2,
-    borderColor: '#3B82F6',
+    borderColor: '#4facfe',
+    shadowColor: '#4facfe',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 12,
+    elevation: 8,
   },
   languageButton: {
     flexDirection: 'row',
@@ -479,6 +488,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     color: '#111827',
+  },
+  chevronEmoji: {
+    fontSize: 14,
+    opacity: 0.6,
   },
   input: {
     minHeight: 120,
@@ -505,6 +518,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 4,
   },
+  clearEmoji: {
+    fontSize: 16,
+  },
   clearText: {
     fontSize: 14,
     color: '#6B7280',
@@ -515,37 +531,42 @@ const styles = StyleSheet.create({
     marginVertical: 12,
   },
   swapButton: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
+    width: 56,
+    height: 56,
+    borderRadius: 28,
     backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
+    shadowColor: '#4facfe',
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    elevation: 4,
+  },
+  swapButtonDisabled: {
+    opacity: 0.4,
+    shadowOpacity: 0,
+    elevation: 0,
+  },
+  swapEmoji: {
+    fontSize: 28,
   },
   translateButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#3B82F6',
-    paddingVertical: 16,
-    borderRadius: 16,
-    marginVertical: 12,
+    paddingVertical: 18,
+    borderRadius: 20,
+    marginVertical: 16,
     gap: 12,
-    shadowColor: '#3B82F6',
+    shadowColor: '#4facfe',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 4,
+    shadowRadius: 10,
+    elevation: 6,
   },
-  translateButtonDisabled: {
-    backgroundColor: '#9CA3AF',
-    shadowOpacity: 0,
-    elevation: 0,
+  translateEmoji: {
+    fontSize: 24,
   },
   translateButtonText: {
     fontSize: 18,
@@ -576,20 +597,32 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 12,
     backgroundColor: '#FFFFFF',
-    borderRadius: 12,
+    borderRadius: 14,
     gap: 6,
-    borderWidth: 1,
-    borderColor: '#3B82F6',
+    borderWidth: 2,
+    borderColor: '#4facfe',
+    shadowColor: '#4facfe',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  actionEmoji: {
+    fontSize: 20,
   },
   actionText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#3B82F6',
+    color: '#4facfe',
   },
   emptyOutput: {
     minHeight: 120,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  emptyIcon: {
+    fontSize: 48,
+    opacity: 0.3,
   },
   emptyText: {
     marginTop: 12,

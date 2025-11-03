@@ -113,6 +113,31 @@ export interface InterfaceTexts {
   vtTranslateAnother: string;
   vtCopied: string;
   vtCopiedMessage: string;
+
+  // Text Translator
+  ttHeaderTitle: string;
+  ttHeroTitle: string;
+  ttHeroSubtitle: string;
+  ttSelectLanguage: string;
+  ttPlaceholder: string;
+  ttClear: string;
+  ttTranslate: string;
+  ttTranslating: string;
+  ttPlay: string;
+  ttStop: string;
+  ttCopy: string;
+  ttEmptyOutput: string;
+  ttSourceLanguage: string;
+  ttTargetLanguage: string;
+  ttErrorTitle: string;
+  ttErrorEmptyText: string;
+  ttErrorTranslationFailed: string;
+  ttErrorNoInternet: string;
+  ttErrorTextTooLong: string;
+  ttCopiedTitle: string;
+  ttCopiedMessage: string;
+  ttInfoTitle: string;
+  ttInfoCannotSwap: string;
 }
 
 // ✅ ИСПРАВЛЕНО: Правильные заголовки согласно требованиям
@@ -210,6 +235,31 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtTranslateAnother: 'Başga terjime et',
     vtCopied: 'Göçürildi',
     vtCopiedMessage: 'Terjime alyş-çalyş paneline göçürildi',
+
+    // Text Translator
+    ttHeaderTitle: 'Tekst terjimeçi',
+    ttHeroTitle: 'Dessine terjime',
+    ttHeroSubtitle: 'Islendik teksti ýazyň we 100+ diliň arasynda terjime ediň',
+    ttSelectLanguage: 'Saýla',
+    ttPlaceholder: 'Terjime etmek üçin tekst giriziň...',
+    ttClear: 'Arassala',
+    ttTranslate: 'Terjime et',
+    ttTranslating: 'Terjime edilýär...',
+    ttPlay: 'Diňle',
+    ttStop: 'Dur',
+    ttCopy: 'Göçür',
+    ttEmptyOutput: 'Terjime şu ýerde görkeziler',
+    ttSourceLanguage: 'Çeşme dili',
+    ttTargetLanguage: 'Niýetlenen dili',
+    ttErrorTitle: 'Ýalňyş',
+    ttErrorEmptyText: 'Terjime etmek üçin tekst giriziň',
+    ttErrorTranslationFailed: 'Terjime şowsuz boldy. Gaýtadan synanyşyň.',
+    ttErrorNoInternet: 'Internet baglanyşygy ýok. Baglanyşygyňyzy barlap gaýtadan synanyşyň.',
+    ttErrorTextTooLong: 'Tekst gaty uzyn. Iň köp 5000 simwol.',
+    ttCopiedTitle: '✅ Göçürildi',
+    ttCopiedMessage: 'Terjime alyş-çalyş paneline göçürildi',
+    ttInfoTitle: 'Maglumat',
+    ttInfoCannotSwap: 'Awto Anykla saýlanda çalyş mümkin däl',
   },
   
   zh: {
@@ -305,6 +355,31 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtTranslateAnother: '翻译另一个',
     vtCopied: '已复制',
     vtCopiedMessage: '翻译已复制到剪贴板',
+
+    // Text Translator
+    ttHeaderTitle: '文本翻译',
+    ttHeroTitle: '即时翻译',
+    ttHeroSubtitle: '输入任何文本，在100多种语言之间进行翻译',
+    ttSelectLanguage: '选择',
+    ttPlaceholder: '输入要翻译的文本...',
+    ttClear: '清除',
+    ttTranslate: '翻译',
+    ttTranslating: '翻译中...',
+    ttPlay: '播放',
+    ttStop: '停止',
+    ttCopy: '复制',
+    ttEmptyOutput: '翻译将显示在这里',
+    ttSourceLanguage: '源语言',
+    ttTargetLanguage: '目标语言',
+    ttErrorTitle: '错误',
+    ttErrorEmptyText: '请输入要翻译的文本',
+    ttErrorTranslationFailed: '翻译失败。请重试。',
+    ttErrorNoInternet: '无网络连接。请检查连接后重试。',
+    ttErrorTextTooLong: '文本太长。最多5000个字符。',
+    ttCopiedTitle: '✅ 已复制',
+    ttCopiedMessage: '翻译已复制到剪贴板',
+    ttInfoTitle: '信息',
+    ttInfoCannotSwap: '选择自动检测时无法交换',
   },
 
   ru: {
@@ -399,6 +474,31 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtTranslateAnother: 'Перевести ещё',
     vtCopied: 'Скопировано',
     vtCopiedMessage: 'Перевод скопирован в буфер обмена',
+
+    // Text Translator
+    ttHeaderTitle: 'Текстовый переводчик',
+    ttHeroTitle: 'Мгновенный перевод',
+    ttHeroSubtitle: 'Введите любой текст и переведите между 100+ языками',
+    ttSelectLanguage: 'Выбрать',
+    ttPlaceholder: 'Введите текст для перевода...',
+    ttClear: 'Очистить',
+    ttTranslate: 'Перевести',
+    ttTranslating: 'Перевод...',
+    ttPlay: 'Воспроизвести',
+    ttStop: 'Стоп',
+    ttCopy: 'Копировать',
+    ttEmptyOutput: 'Перевод появится здесь',
+    ttSourceLanguage: 'Исходный язык',
+    ttTargetLanguage: 'Целевой язык',
+    ttErrorTitle: 'Ошибка',
+    ttErrorEmptyText: 'Пожалуйста, введите текст для перевода',
+    ttErrorTranslationFailed: 'Перевод не удался. Попробуйте снова.',
+    ttErrorNoInternet: 'Нет интернет-соединения. Проверьте подключение и попробуйте снова.',
+    ttErrorTextTooLong: 'Текст слишком длинный. Максимум 5000 символов.',
+    ttCopiedTitle: '✅ Скопировано',
+    ttCopiedMessage: 'Перевод скопирован в буфер обмена',
+    ttInfoTitle: 'Информация',
+    ttInfoCannotSwap: 'Невозможно поменять местами когда выбрано Авто Определение',
   },
 
   en: {
@@ -493,6 +593,31 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtTranslateAnother: 'Translate Another',
     vtCopied: 'Copied',
     vtCopiedMessage: 'Translation copied to clipboard',
+
+    // Text Translator
+    ttHeaderTitle: 'Text Translator',
+    ttHeroTitle: 'Instant Translation',
+    ttHeroSubtitle: 'Type any text and translate between 100+ languages',
+    ttSelectLanguage: 'Select',
+    ttPlaceholder: 'Enter text to translate...',
+    ttClear: 'Clear',
+    ttTranslate: 'Translate',
+    ttTranslating: 'Translating...',
+    ttPlay: 'Play',
+    ttStop: 'Stop',
+    ttCopy: 'Copy',
+    ttEmptyOutput: 'Translation will appear here',
+    ttSourceLanguage: 'Source Language',
+    ttTargetLanguage: 'Target Language',
+    ttErrorTitle: 'Error',
+    ttErrorEmptyText: 'Please enter text to translate',
+    ttErrorTranslationFailed: 'Translation failed. Please try again.',
+    ttErrorNoInternet: 'No internet connection. Please check your connection and try again.',
+    ttErrorTextTooLong: 'Text is too long. Maximum 5000 characters.',
+    ttCopiedTitle: '✅ Copied',
+    ttCopiedMessage: 'Translation copied to clipboard',
+    ttInfoTitle: 'Info',
+    ttInfoCannotSwap: 'Cannot swap when Auto Detect is selected',
   },
 
   tr: {
