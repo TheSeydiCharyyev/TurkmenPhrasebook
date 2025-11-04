@@ -13,6 +13,7 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
+import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
 
 import { Category, HomeStackParamList } from '../types';
 import { Colors } from '../constants/Colors';
@@ -306,17 +307,17 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     backgroundColor: Colors.background,
-    paddingHorizontal: 20,
-    paddingTop: 16,
-    paddingBottom: 16,
+    paddingHorizontal: scale(20),
+    paddingTop: verticalScale(16),
+    paddingBottom: verticalScale(16),
     borderBottomWidth: 1,
     borderBottomColor: Colors.border || '#E5E7EB',
     zIndex: 1000,
     elevation: 4,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 0, height: verticalScale(2) },
     shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowRadius: scale(4),
   },
 
   // Индикатор языка
@@ -324,50 +325,50 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 16,
+    paddingVertical: verticalScale(12),
+    paddingHorizontal: scale(16),
     backgroundColor: '#F9FAFB',
-    borderRadius: 12,
-    marginBottom: 12,
+    borderRadius: scale(12),
+    marginBottom: verticalScale(12),
     borderWidth: 1,
     borderColor: '#E5E7EB',
   },
   languageIndicator: {
     alignItems: 'center',
-    marginHorizontal: 12,
+    marginHorizontal: scale(12),
   },
   flagLarge: {
-    fontSize: 28,
+    fontSize: moderateScale(28),
   },
   languageCode: {
-    fontSize: 11,
+    fontSize: moderateScale(11),
     color: '#6B7280',
-    marginTop: 4,
+    marginTop: verticalScale(4),
     fontWeight: '500',
   },
   changeLanguageButton: {
     position: 'absolute',
-    right: 12,
-    padding: 8,
+    right: scale(12),
+    padding: scale(8),
   },
 
   // Контейнер для заголовков
   titleContainer: {
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: verticalScale(12),
   },
 
   // Основной заголовок (выбранный язык)
   titlePrimary: {
-    fontSize: 20,
+    fontSize: moderateScale(20),
     fontWeight: '700',
     color: Colors.text,
-    marginBottom: 6,
+    marginBottom: verticalScale(6),
   },
 
   // Вторичный заголовок (туркменский или второй язык пары)
   titleSecondary: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     fontWeight: '500',
     color: Colors.textSecondary || '#6B7280',
   },
@@ -377,16 +378,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: Colors.backgroundLight || '#F9FAFB',
-    borderRadius: 12,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
+    borderRadius: scale(12),
+    paddingHorizontal: scale(16),
+    paddingVertical: verticalScale(12),
     borderWidth: 1,
     borderColor: Colors.border || '#E5E7EB',
   },
 
   searchPlaceholder: {
-    marginLeft: 10,
-    fontSize: 15,
+    marginLeft: scale(10),
+    fontSize: moderateScale(15),
     color: Colors.textLight,
   },
 
@@ -397,27 +398,27 @@ const styles = StyleSheet.create({
   },
 
   gridContainer: {
-    paddingHorizontal: 20,
-    paddingTop: HEADER_HEIGHT + 24,  // ✅ Отступ сверху для header
-    paddingBottom: 40,
+    paddingHorizontal: scale(20),
+    paddingTop: verticalScale(HEADER_HEIGHT + 24),  // ✅ Отступ сверху для header
+    paddingBottom: verticalScale(40),
   },
 
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 20,
+    marginBottom: verticalScale(20),
   },
 
   cardWrapper: {
     width: '48%',
-    height: 260,          // ✅ СТРОГАЯ фиксированная высота
+    height: verticalScale(260),          // ✅ СТРОГАЯ фиксированная высота
   },
 
   leftCard: {
-    marginRight: 6,
+    marginRight: scale(6),
   },
 
   rightCard: {
-    marginLeft: 6,
+    marginLeft: scale(6),
   },
 });

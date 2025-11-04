@@ -110,14 +110,15 @@ export default function MainHubScreen() {
   const texts = getTexts();
   const modules = getModules(texts);
 
-  // Анимация header при скролле
+  // Анимация header при скролле - RESPONSIVE
+  const HEADER_HEIGHT = verticalScale(64);
   const scrollY = useRef(new Animated.Value(0)).current;
   const [headerVisible, setHeaderVisible] = useState(true);
   const lastScrollY = useRef(0);
 
   const headerTranslateY = scrollY.interpolate({
-    inputRange: [0, 64],
-    outputRange: [0, -64],
+    inputRange: [0, HEADER_HEIGHT],
+    outputRange: [0, -HEADER_HEIGHT],
     extrapolate: 'clamp',
   });
 
@@ -133,7 +134,7 @@ export default function MainHubScreen() {
         if (scrollDifference > 10 && headerVisible) {
           setHeaderVisible(false);
           Animated.timing(scrollY, {
-            toValue: 64,
+            toValue: HEADER_HEIGHT,
             duration: 250,
             useNativeDriver: true,
           }).start();

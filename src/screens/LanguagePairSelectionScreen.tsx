@@ -20,6 +20,7 @@ import { useAppLanguage } from '../contexts/LanguageContext';
 import { useConfig } from '../contexts/ConfigContext';
 import { getLanguageByCode } from '../config/languages.config';
 import type { HomeStackParamList } from '../types';
+import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
 
 interface LanguagePair {
   id: string;
@@ -542,35 +543,35 @@ const styles = StyleSheet.create({
     backgroundColor: '#F8F9FA',
   },
   content: {
-    padding: 24,
-    paddingTop: 60,
+    padding: scale(24),
+    paddingTop: verticalScale(60),
   },
   header: {
     alignItems: 'center',
-    marginBottom: 40,
+    marginBottom: verticalScale(40),
   },
   icon: {
-    fontSize: 64,
-    marginBottom: 16,
+    fontSize: moderateScale(64),
+    marginBottom: verticalScale(16),
   },
   title: {
-    fontSize: 28,
+    fontSize: moderateScale(28),
     fontWeight: '700',
     color: '#000',
     textAlign: 'center',
-    marginBottom: 8,
+    marginBottom: verticalScale(8),
   },
   subtitle: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     color: '#666',
     textAlign: 'center',
   },
   pairsContainer: {
-    marginBottom: 32,
+    marginBottom: verticalScale(32),
   },
   pairButton: {
-    marginBottom: 16,
-    borderRadius: 16,
+    marginBottom: verticalScale(16),
+    borderRadius: scale(16),
     overflow: 'hidden',
     elevation: 4,
     shadowColor: '#000',
@@ -581,52 +582,52 @@ const styles = StyleSheet.create({
   pairGradient: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 20,
-    minHeight: 100,
+    padding: scale(20),
+    minHeight: verticalScale(100),
   },
   pairSelected: {
     borderWidth: 3,
     borderColor: '#FFF',
   },
   pairFlag: {
-    fontSize: 40,
-    marginRight: 16,
+    fontSize: moderateScale(40),
+    marginRight: scale(16),
   },
   pairInfo: {
     flex: 1,
   },
   pairName: {
-    fontSize: 22,
+    fontSize: moderateScale(22),
     fontWeight: '700',
     color: '#FFF',
-    marginBottom: 4,
+    marginBottom: verticalScale(4),
   },
   pairDescription: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: 'rgba(255, 255, 255, 0.9)',
   },
   pairArrow: {
-    fontSize: 24,
+    fontSize: moderateScale(24),
     color: '#FFF',
     fontWeight: '700',
   },
   infoCard: {
     flexDirection: 'row',
     backgroundColor: '#E3F2FD',
-    borderRadius: 12,
-    padding: 16,
+    borderRadius: scale(12),
+    padding: scale(16),
     borderWidth: 1,
     borderColor: '#2196F3',
   },
   infoIcon: {
-    fontSize: 20,
-    marginRight: 12,
+    fontSize: moderateScale(20),
+    marginRight: scale(12),
   },
   infoText: {
     flex: 1,
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#1565C0',
-    lineHeight: 20,
+    lineHeight: moderateScale(20),
   },
 });
 

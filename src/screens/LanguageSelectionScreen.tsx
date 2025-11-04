@@ -18,6 +18,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { LANGUAGES, getLanguageProgress } from '../config/languages.config';
 import { useConfig } from '../contexts/ConfigContext';
 import { useAppLanguage, AppLanguageMode } from '../contexts/LanguageContext';
+import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
 
 interface LanguageSelectionScreenProps {
   navigation?: any;
@@ -217,34 +218,34 @@ const styles = StyleSheet.create({
 
   // Gradient Header
   headerGradient: {
-    paddingBottom: 24,
+    paddingBottom: verticalScale(24),
   },
 
   safeArea: {
-    paddingHorizontal: 20,
+    paddingHorizontal: scale(20),
   },
 
   backButton: {
     alignSelf: 'flex-start',
-    padding: 8,
-    marginLeft: -8,
-    marginBottom: 16,
+    padding: scale(8),
+    marginLeft: scale(-8),
+    marginBottom: verticalScale(16),
   },
 
   title: {
-    fontSize: 32,
+    fontSize: moderateScale(32),
     fontWeight: 'bold',
     color: '#fff',
-    marginBottom: 8,
+    marginBottom: verticalScale(8),
     textShadowColor: 'rgba(0, 0, 0, 0.2)',
     textShadowOffset: { width: 0, height: 2 },
     textShadowRadius: 4,
   },
 
   subtitle: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     color: 'rgba(255, 255, 255, 0.9)',
-    marginBottom: 20,
+    marginBottom: verticalScale(20),
     textShadowColor: 'rgba(0, 0, 0, 0.15)',
     textShadowOffset: { width: 0, height: 1 },
     textShadowRadius: 2,
@@ -254,7 +255,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#fff',
-    borderRadius: 16,
+    borderRadius: scale(16),
     ...Platform.select({
       ios: {
         shadowColor: '#000',
@@ -266,26 +267,26 @@ const styles = StyleSheet.create({
         elevation: 4,
       },
     }),
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    marginTop: 12,
+    paddingHorizontal: scale(16),
+    paddingVertical: verticalScale(12),
+    marginTop: verticalScale(12),
     borderWidth: 1,
     borderColor: '#E5E7EB',
   },
   searchIcon: {
-    marginRight: 8,
+    marginRight: scale(8),
   },
 
   searchInput: {
     flex: 1,
-    fontSize: 16,
+    fontSize: moderateScale(16),
     color: '#111827',
     padding: 0,
   },
 
   clearButton: {
-    padding: 4,
-    marginLeft: 8,
+    padding: scale(4),
+    marginLeft: scale(8),
   },
 
   list: {
@@ -293,8 +294,8 @@ const styles = StyleSheet.create({
   },
 
   listContent: {
-    padding: 20,
-    paddingTop: 24,
+    padding: scale(20),
+    paddingTop: verticalScale(24),
   },
 
   // Modern Language Card
@@ -302,10 +303,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 20,
+    padding: scale(20),
     backgroundColor: '#FFFFFF',
-    borderRadius: 20,
-    marginBottom: 16,
+    borderRadius: scale(20),
+    marginBottom: verticalScale(16),
     ...Platform.select({
       ios: {
         shadowColor: '#000',
@@ -348,8 +349,8 @@ const styles = StyleSheet.create({
   },
 
   flag: {
-    fontSize: 48,
-    marginRight: 16,
+    fontSize: moderateScale(48),
+    marginRight: scale(16),
   },
 
   languageInfo: {
@@ -357,14 +358,14 @@ const styles = StyleSheet.create({
   },
 
   languageName: {
-    fontSize: 19,
+    fontSize: moderateScale(19),
     fontWeight: 'bold',
     color: '#111827',
-    marginBottom: 4,
+    marginBottom: verticalScale(4),
   },
 
   languageNameEn: {
-    fontSize: 15,
+    fontSize: moderateScale(15),
     color: '#6B7280',
   },
 
@@ -380,11 +381,11 @@ const styles = StyleSheet.create({
   selectedBadge: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
+    gap: scale(6),
   },
 
   selectedText: {
-    fontSize: 13,
+    fontSize: moderateScale(13),
     color: '#667eea',
     fontWeight: 'bold',
   },
@@ -392,11 +393,11 @@ const styles = StyleSheet.create({
   comingSoon: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
+    gap: scale(6),
   },
 
   comingSoonText: {
-    fontSize: 13,
+    fontSize: moderateScale(13),
     color: '#9CA3AF',
     fontWeight: '500',
   },

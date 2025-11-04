@@ -25,6 +25,7 @@ import { getLanguageByCode } from '../config/languages.config';
 import { useSearchHistory } from '../hooks/useSearchHistory';
 import { RootStackParamList } from '../types';
 import TTSChecker from '../utils/TTSChecker';
+import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
 
 type SettingsScreenNavigationProp = StackNavigationProp<RootStackParamList, 'LanguageSelection'>;
 
@@ -442,42 +443,42 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   header: {
-    padding: 20,
-    paddingBottom: 10,
+    padding: scale(20),
+    paddingBottom: verticalScale(10),
   },
   headerTitle: {
-    fontSize: 28,
+    fontSize: moderateScale(28),
     fontWeight: 'bold',
     color: Colors.text,
-    marginBottom: 5,
+    marginBottom: verticalScale(5),
   },
   headerSubtitle: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     color: Colors.textLight,
   },
   settingsContainer: {
     flex: 1,
-    paddingHorizontal: 20,
-    paddingBottom: 20,
+    paddingHorizontal: scale(20),
+    paddingBottom: verticalScale(20),
   },
   section: {
-    marginBottom: 30,
+    marginBottom: verticalScale(30),
   },
   sectionTitle: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '600',
     color: Colors.text,
-    marginBottom: 15,
-    paddingLeft: 5,
+    marginBottom: verticalScale(15),
+    paddingLeft: scale(5),
   },
   settingItem: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: Colors.cardBackground,
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 8,
+    borderRadius: scale(12),
+    padding: scale(16),
+    marginBottom: verticalScale(8),
     elevation: 1,
     shadowColor: Colors.cardShadow,
     shadowOffset: {
@@ -493,17 +494,17 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   settingText: {
-    marginLeft: 16,
+    marginLeft: scale(16),
     flex: 1,
   },
   settingTitle: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     fontWeight: '500',
     color: Colors.text,
-    marginBottom: 2,
+    marginBottom: verticalScale(2),
   },
   settingSubtitle: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: Colors.textLight,
   },
 });

@@ -21,6 +21,7 @@ import { useAppLanguage } from '../../../contexts/LanguageContext';
 import AIAssistantService from '../services/AIAssistantService';
 import AssistantCard from '../components/AssistantCard';
 import { AssistantType } from '../types/ai-assistant.types';
+import { scale, verticalScale, moderateScale } from '../../../utils/ResponsiveUtils';
 
 type AIAssistantsHomeScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -168,110 +169,110 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   content: {
-    paddingBottom: 32,
+    paddingBottom: verticalScale(32),
   },
-  // Gradient Header (Hero + Grid style)
+  // Gradient Header - RESPONSIVE
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingVertical: 20,
+    paddingHorizontal: scale(20),
+    paddingVertical: verticalScale(20),
     elevation: 8,
     shadowColor: '#7C3AED',
-    shadowOffset: { width: 0, height: 4 },
+    shadowOffset: { width: 0, height: scale(4) },
     shadowOpacity: 0.3,
-    shadowRadius: 12,
+    shadowRadius: scale(12),
   },
   backButton: {
-    width: 44,
-    height: 44,
-    borderRadius: 22,
+    width: scale(44),
+    height: scale(44),
+    borderRadius: scale(22),
     backgroundColor: 'rgba(255, 255, 255, 0.25)',
     justifyContent: 'center',
     alignItems: 'center',
   },
   backButtonText: {
-    fontSize: 20,
+    fontSize: moderateScale(20),
   },
   headerTitle: {
-    fontSize: 22,
+    fontSize: moderateScale(22),
     fontWeight: '800',
     color: '#FFFFFF',
     letterSpacing: 0.5,
   },
   placeholder: {
-    width: 44,
+    width: scale(44),
   },
-  // Hero Section
+  // Hero Section - RESPONSIVE
   heroSection: {
     alignItems: 'center',
-    paddingHorizontal: 24,
-    paddingTop: 32,
-    paddingBottom: 24,
+    paddingHorizontal: scale(24),
+    paddingTop: verticalScale(32),
+    paddingBottom: verticalScale(24),
   },
   heroIconContainer: {
-    width: 96,
-    height: 96,
-    borderRadius: 48,
+    width: scale(96),
+    height: scale(96),
+    borderRadius: scale(48),
     backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: verticalScale(16),
     elevation: 8,
     shadowColor: '#7C3AED',
-    shadowOffset: { width: 0, height: 4 },
+    shadowOffset: { width: 0, height: scale(4) },
     shadowOpacity: 0.2,
-    shadowRadius: 12,
+    shadowRadius: scale(12),
   },
   heroIcon: {
-    fontSize: 56,
+    fontSize: moderateScale(56),
   },
   heroTitle: {
-    fontSize: 28,
+    fontSize: moderateScale(28, 0.3),
     fontWeight: '800',
     color: '#1F2937',
-    marginBottom: 12,
+    marginBottom: verticalScale(12),
     textAlign: 'center',
   },
   heroSubtitle: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     color: '#6B7280',
     textAlign: 'center',
-    lineHeight: 24,
-    paddingHorizontal: 16,
+    lineHeight: moderateScale(24),
+    paddingHorizontal: scale(16),
   },
-  // Cards
+  // Cards Container - RESPONSIVE
   cardsContainer: {
-    marginTop: 8,
+    marginTop: verticalScale(8),
   },
-  // Info Card (Modern style with rounded corners and shadows)
+  // Info Card - RESPONSIVE
   infoCard: {
     flexDirection: 'row',
     backgroundColor: '#EDE9FE',
-    borderRadius: 20,
-    padding: 20,
-    marginHorizontal: 16,
-    marginTop: 24,
+    borderRadius: scale(20),
+    padding: scale(20),
+    marginHorizontal: scale(16),
+    marginTop: verticalScale(24),
     elevation: 6,
     shadowColor: '#7C3AED',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 0, height: scale(2) },
     shadowOpacity: 0.15,
-    shadowRadius: 12,
+    shadowRadius: scale(12),
   },
   infoIcon: {
-    fontSize: 24,
-    marginRight: 12,
+    fontSize: moderateScale(24),
+    marginRight: scale(12),
   },
   infoText: {
     flex: 1,
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#5B21B6',
-    lineHeight: 22,
+    lineHeight: moderateScale(22),
     fontWeight: '500',
   },
   bottomPadding: {
-    height: 32,
+    height: verticalScale(32),
   },
 });
 

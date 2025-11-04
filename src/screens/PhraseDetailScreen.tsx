@@ -13,6 +13,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
+import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
 
 // Import types and data
 import { RootStackParamList } from '../types';
@@ -224,64 +225,64 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    padding: 16,
+    padding: scale(16),
   },
   // ✅ HERO + GRID - Мощные тени
   phraseCard: {
     backgroundColor: Colors.cardBackground,
-    borderRadius: 24,          // ✅ Больше скругление
-    padding: 28,               // ✅ Больше padding
-    marginBottom: 24,          // ✅ Больше margin
+    borderRadius: scale(24),          // ✅ Больше скругление
+    padding: scale(28),               // ✅ Больше padding
+    marginBottom: verticalScale(24),          // ✅ Больше margin
     elevation: 10,             // ✅ Мощная тень
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: 6,
+      height: verticalScale(6),
     },
     shadowOpacity: 0.25,       // ✅ Более заметная тень
-    shadowRadius: 16,
+    shadowRadius: scale(16),
   },
   categoryBadge: {
     flexDirection: 'row',
     alignItems: 'center',
     alignSelf: 'flex-start',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 20,
-    marginBottom: 20,
+    paddingHorizontal: scale(12),
+    paddingVertical: verticalScale(6),
+    borderRadius: scale(20),
+    marginBottom: verticalScale(20),
   },
   categoryIcon: {
-    fontSize: 16,
-    marginRight: 6,
+    fontSize: moderateScale(16),
+    marginRight: scale(6),
   },
   categoryName: {
     color: Colors.textWhite,
     fontWeight: '600',
-    fontSize: 14,
+    fontSize: moderateScale(14),
   },
   mainContent: {
     alignItems: 'center',
-    marginBottom: 32,          // ✅ Больше отступ
-    paddingBottom: 24,
+    marginBottom: verticalScale(32),          // ✅ Больше отступ
+    paddingBottom: verticalScale(24),
     borderBottomWidth: 2,
     borderBottomColor: '#E5E7EB',
   },
   languageLabel: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     fontWeight: '700',
     color: '#6B7280',
-    marginBottom: 12,
+    marginBottom: verticalScale(12),
     textAlign: 'center',
   },
   mainText: {
-    fontSize: 54,              // ✅ ЕЩЕ КРУПНЕЕ
+    fontSize: moderateScale(54),              // ✅ ЕЩЕ КРУПНЕЕ
     fontWeight: 'bold',
     color: '#2563EB',          // ✅ Синий - как кнопка
-    marginBottom: 12,
+    marginBottom: verticalScale(12),
     textAlign: 'center',
   },
   transcriptionText: {
-    fontSize: 22,              // ✅ Крупнее
+    fontSize: moderateScale(22),              // ✅ Крупнее
     color: '#6B7280',
     fontStyle: 'italic',
     textAlign: 'center',
@@ -290,43 +291,43 @@ const styles = StyleSheet.create({
   // ✅ НОВЫЙ стиль для туркменского
   secondaryContent: {
     alignItems: 'center',
-    marginTop: 8,
+    marginTop: verticalScale(8),
   },
   languageLabelSecondary: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     fontWeight: '700',
     color: '#6B7280',
-    marginBottom: 12,
+    marginBottom: verticalScale(12),
   },
   secondaryText: {
-    fontSize: 32,              // ✅ Крупный вторичный текст
+    fontSize: moderateScale(32),              // ✅ Крупный вторичный текст
     fontWeight: 'bold',
     color: '#16A34A',          // ✅ Зеленый - как кнопка
     textAlign: 'center',
   },
   // ✅ НОВЫЙ контейнер для аудио кнопок
   audioButtonsContainer: {
-    gap: 16,                   // ✅ Расстояние между кнопками
-    marginBottom: 24,
+    gap: verticalScale(16),                   // ✅ Расстояние между кнопками
+    marginBottom: verticalScale(24),
   },
   actionsContainer: {
-    gap: 12,
-    marginBottom: 20,
+    gap: verticalScale(12),
+    marginBottom: verticalScale(20),
   },
   // ✅ HERO + GRID - Современные кнопки
   actionButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 16,         // ✅ Больше padding
-    paddingHorizontal: 24,       // ✅ Больше padding
-    borderRadius: 16,            // ✅ Больше скругление
-    gap: 10,
+    paddingVertical: verticalScale(16),         // ✅ Больше padding
+    paddingHorizontal: scale(24),       // ✅ Больше padding
+    borderRadius: scale(16),            // ✅ Больше скругление
+    gap: scale(10),
     elevation: 4,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 3 },
+    shadowOffset: { width: 0, height: verticalScale(3) },
     shadowOpacity: 0.15,
-    shadowRadius: 8,
+    shadowRadius: scale(8),
   },
   favoriteButton: {
     backgroundColor: Colors.cardBackground,
@@ -340,7 +341,7 @@ const styles = StyleSheet.create({
   },
   actionButtonText: {
     color: '#374151',            // ✅ Более темный текст
-    fontSize: 17,                // ✅ Крупнее
+    fontSize: moderateScale(17),                // ✅ Крупнее
     fontWeight: '600',           // ✅ Более жирный
   },
   favoriteButtonTextActive: {
@@ -350,25 +351,25 @@ const styles = StyleSheet.create({
   // ✅ HERO + GRID - Современный info box
   infoContainer: {
     backgroundColor: '#EFF6FF',    // ✅ Светло-синий фон
-    borderRadius: 16,              // ✅ Больше скругление
-    padding: 20,                   // ✅ Больше padding
+    borderRadius: scale(16),              // ✅ Больше скругление
+    padding: scale(20),                   // ✅ Больше padding
     borderLeftWidth: 5,            // ✅ Толще border
     borderLeftColor: '#3B82F6',    // ✅ Синий accent
     elevation: 2,
     shadowColor: '#3B82F6',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 0, height: verticalScale(2) },
     shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowRadius: scale(4),
   },
   infoTitle: {
-    fontSize: 17,                  // ✅ Крупнее
+    fontSize: moderateScale(17),                  // ✅ Крупнее
     fontWeight: '700',             // ✅ Более жирный
     color: '#1E40AF',              // ✅ Темно-синий
-    marginBottom: 10,
+    marginBottom: verticalScale(10),
   },
   infoText: {
-    fontSize: 15,                  // ✅ Крупнее
+    fontSize: moderateScale(15),                  // ✅ Крупнее
     color: '#475569',              // ✅ Темнее для читаемости
-    lineHeight: 22,                // ✅ Больше line height
+    lineHeight: moderateScale(22),                // ✅ Больше line height
   },
 });

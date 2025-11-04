@@ -6,6 +6,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { ChatBubbleProps, MessageRole } from '../types/ai-assistant.types';
+import { scale, verticalScale, moderateScale } from '../../../utils/ResponsiveUtils';
 
 const ChatBubble: React.FC<ChatBubbleProps> = ({ message, isLastMessage }) => {
   const isUser = message.role === MessageRole.USER;
@@ -66,8 +67,8 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ message, isLastMessage }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    marginVertical: 4,
-    paddingHorizontal: 16,
+    marginVertical: verticalScale(4),
+    paddingHorizontal: scale(16),
     alignItems: 'flex-end',
   },
   userContainer: {
@@ -77,32 +78,32 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   lastMessage: {
-    marginBottom: 16,
+    marginBottom: verticalScale(16),
   },
   avatarContainer: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
+    width: scale(32),
+    height: scale(32),
+    borderRadius: scale(16),
     backgroundColor: '#F0F0F0',
     justifyContent: 'center',
     alignItems: 'center',
-    marginHorizontal: 8,
+    marginHorizontal: scale(8),
   },
   avatar: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
   },
   bubble: {
     maxWidth: '70%',
-    padding: 12,
-    borderRadius: 16,
+    padding: scale(12),
+    borderRadius: scale(16),
   },
   userBubble: {
     backgroundColor: '#007AFF',
-    borderBottomRightRadius: 4,
+    borderBottomRightRadius: scale(4),
   },
   assistantBubble: {
     backgroundColor: '#F0F0F0',
-    borderBottomLeftRadius: 4,
+    borderBottomLeftRadius: scale(4),
   },
   systemBubble: {
     backgroundColor: '#FFF9E6',
@@ -112,9 +113,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   text: {
-    fontSize: 16,
-    lineHeight: 22,
-    marginBottom: 4,
+    fontSize: moderateScale(16),
+    lineHeight: moderateScale(22),
+    marginBottom: verticalScale(4),
   },
   userText: {
     color: '#FFFFFF',
@@ -127,7 +128,7 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
   },
   timestamp: {
-    fontSize: 11,
+    fontSize: moderateScale(11),
     color: 'rgba(0, 0, 0, 0.4)',
     alignSelf: 'flex-end',
   },

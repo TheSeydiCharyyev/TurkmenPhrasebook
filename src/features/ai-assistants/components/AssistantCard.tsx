@@ -9,13 +9,10 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  Dimensions,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { AssistantCardProps } from '../types/ai-assistant.types';
-
-const { width } = Dimensions.get('window');
-const CARD_WIDTH = width - 32; // 16px padding on each side
+import { scale, verticalScale, moderateScale } from '../../../utils/ResponsiveUtils';
 
 const AssistantCard: React.FC<AssistantCardProps> = ({ config, onPress }) => {
   // Generate gradient colors (darker shade of main color)
@@ -79,61 +76,61 @@ function adjustColor(color: string, amount: number): string {
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 16,
-    marginVertical: 8,
-    borderRadius: 20,
+    marginHorizontal: scale(16),
+    marginVertical: verticalScale(8),
+    borderRadius: scale(20),
     overflow: 'hidden',
     elevation: 8,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
+    shadowOffset: { width: 0, height: scale(4) },
     shadowOpacity: 0.3,
-    shadowRadius: 12,
+    shadowRadius: scale(12),
   },
   gradient: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 20,
-    minHeight: 110,
+    padding: scale(20),
+    minHeight: verticalScale(110),
   },
   iconContainer: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
+    width: scale(64),
+    height: scale(64),
+    borderRadius: scale(32),
     backgroundColor: 'rgba(255, 255, 255, 0.3)',
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 16,
+    marginRight: scale(16),
   },
   icon: {
-    fontSize: 36,
+    fontSize: moderateScale(36),
   },
   content: {
     flex: 1,
-    marginRight: 16,
+    marginRight: scale(16),
   },
   name: {
-    fontSize: 19,
+    fontSize: moderateScale(19),
     fontWeight: '800',
     color: '#FFFFFF',
-    marginBottom: 6,
+    marginBottom: verticalScale(6),
     letterSpacing: 0.3,
   },
   description: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: 'rgba(255, 255, 255, 0.95)',
-    lineHeight: 20,
+    lineHeight: moderateScale(20),
     fontWeight: '500',
   },
   arrowContainer: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
+    width: scale(36),
+    height: scale(36),
+    borderRadius: scale(18),
     backgroundColor: 'rgba(255, 255, 255, 0.3)',
     justifyContent: 'center',
     alignItems: 'center',
   },
   arrow: {
-    fontSize: 20,
+    fontSize: moderateScale(20),
     color: '#FFFFFF',
     fontWeight: '700',
   },

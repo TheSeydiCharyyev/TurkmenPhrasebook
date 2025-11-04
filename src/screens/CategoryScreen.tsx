@@ -15,6 +15,7 @@ import { useRoute, useNavigation, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
 
 import { Colors } from '../constants/Colors';
 import { usePhrases } from '../hooks/usePhrases';
@@ -525,7 +526,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.background,
   },
-  
+
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -534,35 +535,35 @@ const styles = StyleSheet.create({
   },
 
   loadingText: {
-    marginTop: 16,
-    fontSize: 16,
+    marginTop: verticalScale(16),
+    fontSize: moderateScale(16),
     color: Colors.textLight,
   },
 
   headerContainer: {
-    paddingHorizontal: 20,
-    paddingVertical: 16,
+    paddingHorizontal: scale(20),
+    paddingVertical: verticalScale(16),
     flexDirection: 'row',
     alignItems: 'center',
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
+    shadowOffset: { width: 0, height: verticalScale(4) },
     shadowOpacity: 0.2,
-    shadowRadius: 8,
+    shadowRadius: scale(8),
     elevation: 6,
     zIndex: 1000,
   },
 
   backButton: {
-    marginRight: 12,
-    padding: 4,
+    marginRight: scale(12),
+    padding: scale(4),
   },
 
   backEmoji: {
-    fontSize: 24,
+    fontSize: moderateScale(24),
   },
 
   gridEmoji: {
-    fontSize: 24,
+    fontSize: moderateScale(24),
   },
 
   headerContent: {
@@ -570,24 +571,24 @@ const styles = StyleSheet.create({
   },
 
   headerTitle: {
-    fontSize: 22,
+    fontSize: moderateScale(22),
     fontWeight: 'bold',
     color: '#fff',
-    marginBottom: 4,
+    marginBottom: verticalScale(4),
     textShadowColor: 'rgba(0, 0, 0, 0.2)',
-    textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 2,
+    textShadowOffset: { width: 0, height: verticalScale(1) },
+    textShadowRadius: scale(2),
   },
 
   headerSubtitle: {
-    fontSize: 15,
+    fontSize: moderateScale(15),
     color: 'rgba(255, 255, 255, 0.9)',
     fontWeight: '500',
   },
 
   backToCategoryButton: {
-    marginLeft: 12,
-    padding: 4,
+    marginLeft: scale(12),
+    padding: scale(4),
   },
 
   content: {
@@ -597,55 +598,55 @@ const styles = StyleSheet.create({
   // ✅ ИСПРАВЛЕННЫЙ заголовок - только языковая пара
   categoryTitleContainer: {
     backgroundColor: '#fff',
-    paddingVertical: 24,
-    paddingHorizontal: 16,
+    paddingVertical: verticalScale(24),
+    paddingHorizontal: scale(16),
     alignItems: 'center',
     borderBottomWidth: 1,
     borderBottomColor: Colors.border,
   },
 
   primaryCategoryTitle: {
-    fontSize: 30,
+    fontSize: moderateScale(30),
     fontWeight: 'bold',
     color: Colors.text,
-    marginBottom: 8,
+    marginBottom: verticalScale(8),
     textAlign: 'center',
   },
 
   secondaryCategoryTitle: {
-    fontSize: 22,
+    fontSize: moderateScale(22),
     fontWeight: '600',
     color: Colors.textSecondary || '#6B7280',
-    marginBottom: 8,
+    marginBottom: verticalScale(8),
     textAlign: 'center',
   },
 
   phrasesCountTitle: {
-    fontSize: 15,
+    fontSize: moderateScale(15),
     color: Colors.textLight,
     fontWeight: '500',
   },
 
   subcategoriesSection: {
-    padding: 16,
+    padding: scale(16),
     backgroundColor: '#fff',
   },
 
   phrasesSection: {
     backgroundColor: '#fff',
-    paddingTop: 16,
+    paddingTop: verticalScale(16),
   },
 
   sectionTitle: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: 'bold',
     color: Colors.text,
-    marginBottom: 16,
-    paddingHorizontal: 16,
+    marginBottom: verticalScale(16),
+    paddingHorizontal: scale(16),
   },
 
   phrasesList: {
-    paddingHorizontal: 16,
+    paddingHorizontal: scale(16),
   },
 
   // ✅ ОБНОВЛЕННЫЕ стили для фразы
@@ -654,13 +655,13 @@ const styles = StyleSheet.create({
 // ✅ HERO + GRID стили с мощными тенями
 phraseItem: {
   backgroundColor: Colors.cardBackground,
-  marginBottom: 20, // ✅ Еще больше spacing
-  borderRadius: 20, // ✅ Максимально округлый
-  padding: 24,      // ✅ Еще больше padding
+  marginBottom: verticalScale(20), // ✅ Еще больше spacing
+  borderRadius: scale(20), // ✅ Максимально округлый
+  padding: scale(24),      // ✅ Еще больше padding
   shadowColor: Colors.shadowColor,
-  shadowOffset: { width: 0, height: 6 },
+  shadowOffset: { width: 0, height: verticalScale(6) },
   shadowOpacity: 0.2, // ✅ Мощная тень
-  shadowRadius: 16,
+  shadowRadius: scale(16),
   elevation: 8, // ✅ Увеличил elevation до 8
   borderWidth: 1,
   borderColor: Colors.border,
@@ -673,35 +674,35 @@ phraseContent: {
 
 phraseTextContainer: {
   flex: 1,
-  marginRight: 16, // ✅ Больше отступ
+  marginRight: scale(16), // ✅ Больше отступ
 },
 
 // ✅ Новый контейнер для китайского с флагом
 chineseContainer: {
   flexDirection: 'row',
   alignItems: 'center',
-  marginBottom: 8, // ✅ Больше отступ
+  marginBottom: verticalScale(8), // ✅ Больше отступ
 },
 
 chineseText: {
-  fontSize: 26,           // ✅ ЕЩЕ КРУПНЕЕ!
+  fontSize: moderateScale(26),           // ✅ ЕЩЕ КРУПНЕЕ!
   fontWeight: 'bold',
   color: '#2563EB',       // ✅ Синий - совпадает с кнопкой
-  marginRight: 8,
-  marginBottom: 8,
+  marginRight: scale(8),
+  marginBottom: verticalScale(8),
   flex: 1,
 },
 
 flagEmoji: {
-  fontSize: 18,
-  marginLeft: 4,
+  fontSize: moderateScale(18),
+  marginLeft: scale(4),
 },
 
 pinyinText: {
-  fontSize: 18,           // ✅ Увеличил для лучшей читаемости
+  fontSize: moderateScale(18),           // ✅ Увеличил для лучшей читаемости
   color: Colors.textLight,
   fontStyle: 'italic',
-  marginBottom: 14,       // ✅ Еще больше отступ
+  marginBottom: verticalScale(14),       // ✅ Еще больше отступ
   letterSpacing: 1.2,     // ✅ Больше spacing
   fontFamily: 'Courier New',
 },
@@ -710,61 +711,61 @@ pinyinText: {
 translationContainer: {
   flexDirection: 'row',
   alignItems: 'center',
-  marginBottom: 8,
+  marginBottom: verticalScale(8),
 },
 
 secondaryText: {
-  fontSize: 20,           // ✅ УВЕЛИЧИЛ до 20
+  fontSize: moderateScale(20),           // ✅ УВЕЛИЧИЛ до 20
   color: '#16A34A',       // ✅ Зеленый - совпадает с кнопкой
   fontWeight: 'bold',
-  marginLeft: 8,
+  marginLeft: scale(8),
   flex: 1,
 },
 
 tertiaryText: {
-  fontSize: 17,           // ✅ Увеличил до 17
+  fontSize: moderateScale(17),           // ✅ Увеличил до 17
   color: Colors.russianText,
   fontWeight: '500',
-  marginLeft: 8,
+  marginLeft: scale(8),
   flex: 1,
 },
 
 phraseActions: {
   alignItems: 'flex-end',
   justifyContent: 'space-between',
-  minHeight: 100,         // ✅ Больше места
+  minHeight: verticalScale(100),         // ✅ Больше места
 },
 
 audioButtons: {
   flexDirection: 'column',
-  marginBottom: 16,       // ✅ Еще больше отступ
-  gap: 10,                // ✅ Еще больше gap
+  marginBottom: verticalScale(16),       // ✅ Еще больше отступ
+  gap: verticalScale(10),                // ✅ Еще больше gap
 },
 
 audioButton: {
   flexDirection: 'row',
   alignItems: 'center',
-  paddingHorizontal: 16,  // ✅ Еще больше padding
-  paddingVertical: 12,
-  borderRadius: 28,       // ✅ Максимально округлый
-  minWidth: 80,           // ✅ Еще шире кнопки
+  paddingHorizontal: scale(16),  // ✅ Еще больше padding
+  paddingVertical: verticalScale(12),
+  borderRadius: scale(28),       // ✅ Максимально округлый
+  minWidth: scale(80),           // ✅ Еще шире кнопки
   justifyContent: 'center',
-  shadowOffset: { width: 0, height: 3 },
+  shadowOffset: { width: 0, height: verticalScale(3) },
   shadowOpacity: 0.35,
-  shadowRadius: 8,
+  shadowRadius: scale(8),
   elevation: 6,           // ✅ Увеличил elevation
 },
 
 audioTriangle: {
-  fontSize: 16,           // ✅ Еще крупнее треугольник
+  fontSize: moderateScale(16),           // ✅ Еще крупнее треугольник
   color: '#fff',
-  marginRight: 7,         // ✅ Больше отступ
+  marginRight: scale(7),         // ✅ Больше отступ
   fontWeight: 'bold',
 },
 
 // ✅ ИНДИКАТОР загрузки
 audioIndicator: {
-  marginRight: 7,         // ✅ Тот же отступ как у треугольника
+  marginRight: scale(7),         // ✅ Тот же отступ как у треугольника
 },
 
 // ✅ MODERN VIBRANT - Синий для всех языков перевода
@@ -781,53 +782,53 @@ turkmenAudioButton: {
 
 translationAudioButtonText: {
   color: '#fff',
-  fontSize: 16,
+  fontSize: moderateScale(16),
   fontWeight: 'bold',
   letterSpacing: 0.5,
 },
 
 turkmenAudioButtonText: {
   color: '#fff',
-  fontSize: 16,
+  fontSize: moderateScale(16),
   fontWeight: 'bold',
   letterSpacing: 0.5,
 },
 
 favoriteButton: {
-  padding: 10,            // ✅ Еще больше область нажатия
-  marginTop: 8,
+  padding: scale(10),            // ✅ Еще больше область нажатия
+  marginTop: verticalScale(8),
 },
 
   emptyContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 60,
-    paddingHorizontal: 32,
+    paddingVertical: verticalScale(60),
+    paddingHorizontal: scale(32),
   },
 
   emptyEmoji: {
-    fontSize: 64,
+    fontSize: moderateScale(64),
     opacity: 0.5,
   },
 
   emptyTitle: {
-    fontSize: 22,
+    fontSize: moderateScale(22),
     fontWeight: 'bold',
     color: Colors.textLight,
-    marginTop: 16,
-    marginBottom: 8,
+    marginTop: verticalScale(16),
+    marginBottom: verticalScale(8),
     textAlign: 'center',
   },
 
   emptyText: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     color: Colors.textLight,
     textAlign: 'center',
-    lineHeight: 24,
+    lineHeight: moderateScale(24),
   },
 
   bottomSpacing: {
-    height: 20,
+    height: verticalScale(20),
   },
 });
