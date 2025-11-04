@@ -8,7 +8,6 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
-    "privacy": "public",
     "platforms": [
       "ios",
       "android",
@@ -36,8 +35,7 @@
         "NSSpeechRecognitionUsageDescription[ru]": "Это приложение использует распознавание речи для поиска фраз голосом.",
         "NSSpeechRecognitionUsageDescription[tk]": "Bu programma ses tanamak arkaly söz tapýar."
       },
-      "associatedDomains": [],
-      "usesNonExemptEncryption": false
+      "associatedDomains": []
     },
     "android": {
       "adaptiveIcon": {
@@ -62,24 +60,6 @@
     },
     "web": {},
     "owner": "seydi_123",
-    "keywords": [
-      "turkmen",
-      "phrasebook",
-      "language",
-      "learning",
-      "multilingual",
-      "30 languages",
-      "chinese",
-      "russian",
-      "english",
-      "japanese",
-      "korean",
-      "travel",
-      "education",
-      "audio",
-      "pronunciation"
-    ],
-    "category": "education",
     "githubUrl": "https://github.com/seydicharyyev/TurkmenPhrasebook",
     "updates": {
       "enabled": true,
