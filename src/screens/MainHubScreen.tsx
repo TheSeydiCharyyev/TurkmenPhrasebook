@@ -204,6 +204,9 @@ export default function MainHubScreen() {
         style={[
           styles.header,
           {
+            top: Platform.OS === 'android'
+              ? (StatusBar.currentHeight || 0) + verticalScale(16)
+              : verticalScale(16),
             transform: [{ translateY: headerTranslateY }],
           },
         ]}
@@ -338,7 +341,7 @@ const styles = StyleSheet.create({
   // Clean Header with animation support - RESPONSIVE
   header: {
     position: 'absolute',
-    top: verticalScale(16), // Увеличенный отступ сверху
+    // top устанавливается динамически в inline styles
     left: 0,
     right: 0,
     height: verticalScale(64),
