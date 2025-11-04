@@ -111,7 +111,7 @@ export default function MainHubScreen() {
   const modules = getModules(texts);
 
   // Анимация header при скролле - RESPONSIVE
-  const HEADER_HEIGHT = verticalScale(64);
+  const HEADER_HEIGHT = verticalScale(64) + verticalScale(16); // height + top offset
   const scrollY = useRef(new Animated.Value(0)).current;
   const [headerVisible, setHeaderVisible] = useState(true);
   const lastScrollY = useRef(0);
@@ -395,8 +395,7 @@ const styles = StyleSheet.create({
 
   // Welcome Section - RESPONSIVE (внутри ScrollView)
   welcome: {
-    paddingHorizontal: scale(24),
-    paddingTop: scale(20), // Меньший отступ, так как теперь внутри ScrollView
+    paddingTop: scale(8), // Небольшой отступ сверху
     paddingBottom: scale(16),
     backgroundColor: 'transparent', // Прозрачный фон
   },
@@ -418,7 +417,7 @@ const styles = StyleSheet.create({
   // Scroll Content - RESPONSIVE
   scrollContent: {
     paddingHorizontal: scale(24),
-    paddingTop: verticalScale(24),
+    paddingTop: verticalScale(64) + verticalScale(16) + verticalScale(16), // header height + header top + spacing
     paddingBottom: verticalScale(32),
   },
 
