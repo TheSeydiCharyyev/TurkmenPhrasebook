@@ -1,7 +1,7 @@
 # 📋 TASKS - TurkmenPhrasebook
 
-**Last Updated:** November 3, 2025
-**Status:** Phase 1 ✅ 100% (Language Selection + Onboarding Hero+Grid) → Phase 2 ✅ 100% (MainHub Hero+Grid) → Phase 3 ✅ 100% (Phrasebook Complete: Categories + Audio + TTS + 31 Languages) → Phase 4-7 UI Improvements → Phase 8-9 Testing & Production
+**Last Updated:** November 4, 2025
+**Status:** Phase 1-4 ✅ 100% → Phase 5 ⏳ 74% (Text Translator) → Phase 6 🆕 Voice Translator (NEW!) → Phase 7-8 UI Improvements → Phase 9-10 Testing & Production
 
 ---
 
@@ -176,7 +176,7 @@
 
 ---
 
-### **PHASE 4: Поработать с Visual Translator** (⏳ 75%)
+### **PHASE 4: Поработать с Visual Translator** (✅ 100%)
 
 **Задача:** Добавить мультиязычность для Visual Translator (все UI тексты должны быть на выбранном языке)
 
@@ -192,19 +192,10 @@
    - vtTranslateWithAI, vtCameraSubtitle, vtTakePhoto, vtChooseGallery
    - vtProcessing, vtOcrEngine, vtFeatures, vtResult, vtTranslation и др.
 
-2. ✅ **Добавлены переводы для 12 из 31 языков:**
-   - ✅ tk (Туркменский)
-   - ✅ zh (Китайский)
-   - ✅ ru (Русский)
-   - ✅ en (Английский)
-   - ✅ tr (Турецкий)
-   - ✅ de (Немецкий)
-   - ✅ fr (Французский)
-   - ✅ es (Испанский)
-   - ✅ it (Итальянский)
-   - ✅ pt (Португальский)
-   - ✅ nl (Голландский)
-   - ✅ pl (Польский)
+2. ✅ **Добавлены переводы для ВСЕХ 31 языков:**
+   - ✅ tk, zh, ru, en, tr, de, fr, es, it, pt, nl, pl (первые 12)
+   - ✅ uk, ja, ko, th, vi, id, ms, hi, ur, fa, ps (следующие 11)
+   - ✅ uz, kk, az, ky, tg, hy, ka, ar (последние 8)
 
 3. ✅ **Обновлен VisualTranslatorHomeScreen.tsx:**
    - Добавлен импорт `useAppLanguage` и `getTexts()`
@@ -217,33 +208,16 @@
    - Alert сообщения (vtCopied, vtCopiedMessage) используют переводы
    - Кнопки Play/Stop, Copy, Translate Another - все переведены
 
-**⏳ Осталось сделать:**
-
-5. ⏳ **Добавить переводы для оставшихся 19 языков (ПОЗЖЕ):**
-   - uk (Украинский), ja (Японский), ko (Корейский)
-   - th (Тайский), vi (Вьетнамский), id (Индонезийский), ms (Малайский)
-   - hi (Хинди), ur (Урду), fa (Персидский), ps (Пушту)
-   - uz (Узбекский), kk (Казахский), az (Азербайджанский), ky (Киргизский), tg (Таджикский)
-   - hy (Армянский), ka (Грузинский), ar (Арабский)
-   - **Оценка времени:** 2-3 часа
-
-6. ⏳ **Протестировать Visual Translator:**
-   - Протестировать на русском, английском, туркменском, китайском
-   - Проверить что все тексты отображаются корректно на всех 12 языках
-   - Проверить переключение языков в Settings
-   - Проверить что Alert сообщения переведены
-   - **Оценка времени:** 30 минут
-
 **Измененные файлы:**
-- `src/contexts/LanguageContext.tsx` - добавлены 32 поля + переводы для 12 языков
+- `src/contexts/LanguageContext.tsx` - добавлены 32 поля + переводы для всех 31 языков
 - `src/features/visual-translator/screens/VisualTranslatorHomeScreen.tsx` - использует getTexts()
 - `src/features/visual-translator/screens/TranslationResultScreen.tsx` - использует getTexts()
 
-**Время:** ~3 часа (выполнено) + ~2-3 часа (осталось на 19 языков + тестирование)
+**Время:** ~5-6 часов (полностью выполнено)
 
 ---
 
-### **PHASE 5: Поработать с онлайн переводчиком** (⏳ 85%)
+### **PHASE 5: Поработать с онлайн переводчиком** (⏳ 74%)
 
 **Задача:** Улучшить дизайн и функционал текстового переводчика
 
@@ -265,14 +239,13 @@
    - Output card с цветными тенями
    - Улучшенная типографика (fontSize 26 для hero title)
 
-2. ✅ **Добавлена мультиязычность для 4 языков:**
+2. ✅ **Добавлена мультиязычность для 23 из 31 языков:**
    - ✅ Добавлены 21 поле для Text Translator в InterfaceTexts
    - ✅ ttHeaderTitle, ttHeroTitle, ttHeroSubtitle, ttPlaceholder, ttTranslate и др.
-   - ✅ Переводы добавлены для 4 языков:
-     - ✅ tk (Туркменский)
-     - ✅ zh (Китайский)
-     - ✅ ru (Русский)
-     - ✅ en (Английский)
+   - ✅ Переводы добавлены для 23 языков:
+     - ✅ tk, zh, ru, en (первые 4)
+     - ✅ uk, ja, ko, th, vi, id, ms, hi, ur, fa, ps (еще 11)
+     - ✅ uz, kk, az, ky, tg, hy, ka, ar (еще 8)
    - ✅ Обновлен TextTranslatorScreen.tsx:
      - Добавлен импорт `useAppLanguage` и `getTexts()`
      - Все захардкоженные тексты заменены на `texts.ttXXX`
@@ -281,25 +254,77 @@
 
 **⏳ Осталось сделать:**
 
-3. ⏳ **Добавить переводы для оставшихся 27 языков (ПОЗЖЕ):**
+3. ⏳ **Добавить переводы для оставшихся 8 европейских языков:**
    - tr (Турецкий), de (Немецкий), fr (Французский), es (Испанский)
    - it (Итальянский), pt (Португальский), nl (Голландский), pl (Польский)
-   - uk (Украинский), ja (Японский), ko (Корейский)
-   - th (Тайский), vi (Вьетнамский), id (Индонезийский), ms (Малайский)
-   - hi (Хинди), ur (Урду), fa (Персидский), ps (Пушту)
-   - uz (Узбекский), kk (Казахский), az (Азербайджанский), ky (Киргизский), tg (Таджикский)
-   - hy (Армянский), ka (Грузинский), ar (Арабский)
-   - **Оценка времени:** 2-3 часа
+   - **Оценка времени:** 1 час
 
 **Измененные файлы:**
 - `src/features/text-translator/screens/TextTranslatorScreen.tsx` - полный редизайн + мультиязычность
-- `src/contexts/LanguageContext.tsx` - добавлены 21 поле + переводы для 4 языков
+- `src/contexts/LanguageContext.tsx` - добавлены 21 поле + переводы для 23 языков
 
-**Время:** ~3 часа (выполнено) + ~2-3 часа (осталось на 27 языков)
+**Время:** ~5 часов (выполнено) + ~1 час (осталось на 8 европейских языков)
 
 ---
 
-### **PHASE 6: Поработать со словарем** (⏳ 0%)
+### **PHASE 6: Интеграция онлайн голосового переводчика** (⏳ 0%)
+
+**Задача:** Добавить новый модуль - Voice Translator (голосовой переводчик)
+
+**Файлы:**
+- `src/features/voice-translator/screens/VoiceTranslatorScreen.tsx` (новый)
+- `src/navigation/AppNavigator.tsx` (добавить роут)
+- `src/screens/MainHubScreen.tsx` (обновить, если нужно)
+
+**Что нужно сделать:**
+
+#### 6.1 Создание UI
+- [ ] Создать VoiceTranslatorScreen с Hero + Grid дизайном
+- [ ] Градиентный header (например, Orange/Red gradient)
+- [ ] Hero секция с эмодзи 🎤 и описанием "Speak & Translate"
+- [ ] Кнопка для записи голоса (большая круглая кнопка)
+- [ ] Карточка для отображения распознанного текста
+- [ ] Карточка для отображения переведенного текста
+- [ ] Кнопки воспроизведения аудио (для обоих языков)
+- [ ] Селекторы языков (откуда → куда)
+- [ ] Кнопка копирования текста
+
+#### 6.2 Функционал
+- [ ] Интеграция expo-speech для распознавания речи (Speech-to-Text)
+- [ ] Использование существующего API для перевода текста
+- [ ] Интеграция expo-speech для озвучивания перевода (Text-to-Speech)
+- [ ] Поддержка всех 31 языков
+- [ ] Индикаторы состояния (запись, обработка, воспроизведение)
+- [ ] Обработка ошибок (нет микрофона, нет интернета и т.д.)
+
+#### 6.3 Мультиязычность
+- [ ] Добавить поля для Voice Translator в InterfaceTexts (LanguageContext.tsx)
+- [ ] Добавить переводы UI для всех 31 языков:
+  - vt_header_title, vt_hero_title, vt_hero_subtitle
+  - vt_tap_to_speak, vt_listening, vt_processing
+  - vt_recognized_text, vt_translated_text
+  - vt_play_original, vt_play_translation
+  - vt_copy_translation, vt_clear
+  - vt_error_no_mic, vt_error_no_internet, vt_error_recognition_failed
+  - и другие необходимые тексты
+
+#### 6.4 Дизайн стиль
+- [ ] Hero + Grid дизайн (как Visual Translator и Text Translator)
+- [ ] Градиенты, мощные тени, современные скругления
+- [ ] Эмодзи иконки вместо Ionicons
+- [ ] Анимация при записи голоса (пульсация кнопки)
+- [ ] Визуальный индикатор громкости при записи
+
+**API/Библиотеки:**
+- expo-av или expo-speech (Speech-to-Text)
+- Существующий translation API (для перевода текста)
+- expo-speech (Text-to-Speech) - уже используется в приложении
+
+**Оценка времени:** 6-8 часов (UI + функционал + мультиязычность)
+
+---
+
+### **PHASE 7: Поработать со словарем** (⏳ 0%)
 
 **Задача:** Найти и интегрировать бесплатный туркменский словарь
 
@@ -308,7 +333,7 @@
 
 **Что нужно сделать:**
 
-#### 6.1 Поиск словаря
+#### 7.1 Поиск словаря
 - [ ] Скачать Peace Corps Turkmenistan Dictionary (PDF)
   - Туркменский ↔ Английский
   - Бесплатно для образовательных целей
@@ -317,13 +342,13 @@
   - Мобильные приложения (18,000 - 100,000+ слов)
 - [ ] Проверить лицензии на использование
 
-#### 6.2 Подготовка данных
+#### 7.2 Подготовка данных
 - [ ] Конвертировать PDF в текст
 - [ ] Создать структуру базы данных (JSON/SQLite)
 - [ ] Добавить транскрипции (если есть)
 - [ ] Добавить примеры использования (опционально)
 
-#### 6.3 Интеграция в приложение
+#### 7.3 Интеграция в приложение
 - [ ] Создать базу данных словаря
 - [ ] Реализовать поиск по словарю
 - [ ] Добавить фильтры (Turkmen→English, English→Turkmen)
@@ -339,23 +364,119 @@
 
 ---
 
-### **PHASE 7: Поработать с ИИ** (⏳ 0%)
+### **PHASE 8: Поработать с ИИ** (⏳ 0%)
 
-**Задача:** Улучшить дизайн и функционал AI ассистентов
+**Задача:** Улучшить дизайн и добавить мультиязычность для AI ассистентов
 
 **Файлы:**
 - `src/features/ai-assistants/screens/AIAssistantsHomeScreen.tsx`
-- AI ассистенты экраны (5 штук)
+- `src/features/ai-assistants/components/ChatScreen.tsx`
+- `src/features/ai-assistants/components/AssistantCard.tsx`
+- `src/features/ai-assistants/services/AIAssistantService.ts`
+- `src/contexts/LanguageContext.tsx`
+- AI ассистенты экраны (5 штук: ContextualTips, ConversationTrainer, GrammarHelper, CulturalAdvisor, GeneralAssistant)
+
+**Текущие проблемы:**
+
+1. ❌ **Дизайн устаревший:**
+   - AIAssistantsHomeScreen не использует Hero + Grid дизайн
+   - ChatScreen использует LinearGradient, но дизайн простой
+   - Нет современных теней, скруглений как в других модулях
+
+2. ❌ **Мультиязычность отсутствует:**
+   - Все тексты захардкожены на английском
+   - AIAssistantsHomeScreen: "AI Assistants", "Choose an AI assistant..."
+   - ChatScreen: "Type your message...", "Thinking...", "Sorry, I encountered an error..."
+   - Welcome messages для всех 5 ассистентов (на английском)
+   - config.name и config.description для всех 5 ассистентов (на английском)
+   - Нет переводов на 31 язык
 
 **Что нужно сделать:**
-- Улучшить дизайн AI Assistants
-- Детали будут обсуждаться отдельно
 
-**Оценка времени:** TBD
+#### 8.1 Редизайн AIAssistantsHomeScreen (Hero + Grid)
+- [ ] Градиентный header (например, Purple/Blue gradient)
+- [ ] Hero секция с эмодзи 🤖 и описанием "AI Language Assistants"
+- [ ] Обновить AssistantCard дизайн (более современные тени, скругления)
+- [ ] Мощные тени для карточек (elevation 8, shadowRadius 12)
+- [ ] Увеличенные скругления (borderRadius 20px)
+- [ ] Обновить Info Card дизайн
+
+#### 8.2 Редизайн ChatScreen (Hero + Grid стиль)
+- [ ] Улучшить gradient header
+- [ ] Современные стили для message bubbles
+- [ ] Обновить input container (белый фон, тени, скругления)
+- [ ] Улучшить loading indicator
+- [ ] Добавить больше визуальной иерархии
+
+#### 8.3 Добавить мультиязычность (31 язык)
+
+**8.3.1 Добавить поля в InterfaceTexts (LanguageContext.tsx):**
+
+```typescript
+// AI Assistants Home Screen
+aiHomeTitle: string;
+aiHomeSubtitle: string;
+aiInfoText: string;
+
+// AI Assistant Names (5 штук)
+aiContextualTipsName: string;
+aiConversationTrainerName: string;
+aiGrammarHelperName: string;
+aiCulturalAdvisorName: string;
+aiGeneralAssistantName: string;
+
+// AI Assistant Descriptions (5 штук)
+aiContextualTipsDesc: string;
+aiConversationTrainerDesc: string;
+aiGrammarHelperDesc: string;
+aiCulturalAdvisorDesc: string;
+aiGeneralAssistantDesc: string;
+
+// Welcome Messages (5 штук)
+aiContextualTipsWelcome: string;
+aiConversationTrainerWelcome: string;
+aiGrammarHelperWelcome: string;
+aiCulturalAdvisorWelcome: string;
+aiGeneralAssistantWelcome: string;
+
+// ChatScreen UI
+aiInputPlaceholder: string;
+aiThinking: string;
+aiErrorMessage: string;
+aiClearHistory: string;
+```
+
+**Итого:** ~25-30 полей для AI Assistants
+
+- [ ] Добавить переводы для всех 31 языков:
+  - tk, zh, ru, en (первые 4)
+  - tr, de, fr, es, it, pt, nl, pl (европейские 8)
+  - uk, ja, ko, th, vi, id, ms (азиатские 7)
+  - hi, ur, fa, ps, ar (южноазиатские/арабские 5)
+  - uz, kk, az, ky, tg, hy, ka (центральноазиатские/кавказские 7)
+
+#### 8.4 Интеграция переводов в код
+- [ ] Обновить AIAssistantsHomeScreen.tsx (использовать getTexts())
+- [ ] Обновить ChatScreen.tsx (использовать getTexts() для UI текстов)
+- [ ] Обновить AIAssistantService.ts (получать name/description из переводов)
+- [ ] Обновить welcome messages (динамические на основе языка)
+
+**Измененные файлы:**
+- `src/contexts/LanguageContext.tsx` - добавлены ~25-30 полей + переводы для 31 языков
+- `src/features/ai-assistants/screens/AIAssistantsHomeScreen.tsx` - Hero + Grid дизайн + мультиязычность
+- `src/features/ai-assistants/components/ChatScreen.tsx` - улучшенный дизайн + мультиязычность
+- `src/features/ai-assistants/components/AssistantCard.tsx` - обновленный дизайн
+- `src/features/ai-assistants/services/AIAssistantService.ts` - использование переводов для config
+
+**Дизайн стиль:**
+- Hero + Grid (современный 2025) - градиенты, мощные тени, яркие цвета
+- Соответствие дизайну Visual Translator и Text Translator
+
+**Оценка времени:** 6-8 часов (дизайн ~2-3 часа + мультиязычность ~4-5 часов)
 
 ---
 
-### **PHASE 8: Testing** (⏳ 90% Complete)
+### **PHASE 9: Testing** (⏳ 90% Complete)
 
 #### 1. ✅ Hugging Face API Testing
 - [x] API key configured in .env file (stored securely)
@@ -398,7 +519,7 @@ npx expo start
 
 ---
 
-### **PHASE 9: Production Build** (⏳ 0% Complete)
+### **PHASE 10: Production Build** (⏳ 0% Complete)
 
 #### 1. ⏳ Update Configuration Files
 
@@ -530,36 +651,22 @@ eas build --platform ios --profile production
 
 | Phase | Tasks | Time | Status |
 |-------|-------|------|--------|
-| **Phase 1: Fix Welcome Screen** | | | |
-| - Fix language count | 31 vs 30 languages inconsistency | 15 min | ⏳ |
-| - Update footer text | Remove "OTA updates" message | 15 min | ⏳ |
-| **Phase 2: MainHubScreen UI** | | | |
-| - Redesign main screen | Update design of 6 modules screen | TBD | ⏳ |
-| **Phase 3: Phrasebook UI** | | | |
-| - Redesign categories list | Improve HomeScreen design | TBD | ⏳ |
-| - Redesign phrases list | Improve CategoryScreen design | TBD | ⏳ |
-| **Phase 4: Visual Translator** | | | |
-| - Improve Visual Translator | UI/UX improvements | TBD | ⏳ |
-| **Phase 5: Text Translator** | | | |
-| - Improve Text Translator | UI/UX improvements | TBD | ⏳ |
-| **Phase 6: Dictionary** | | | |
-| - Find dictionary source | Peace Corps PDF / Glosbe | 1-2 hours | ⏳ |
-| - Convert & integrate | Create database, add search | 3-4 hours | ⏳ |
-| **Phase 7: AI Assistants** | | | |
-| - Improve AI features | UI/UX improvements | TBD | ⏳ |
-| **Phase 8: Testing** | | | |
-| - Hugging Face API Test | AI Assistants + Visual Translator | 1 hour | ⏳ |
-| - iOS Testing | Full app testing on iOS | 2-3 hours | ⏳ |
-| **Phase 9: Production** | | | |
-| - Configuration | app.json, package.json | 1 hour | ⏳ |
-| - Icon & Splash | Design + implementation | 2-4 hours | ⏳ |
-| - Builds | Android + iOS builds + testing | 4-6 hours | ⏳ |
-| - Store Prep | Screenshots, descriptions, listings | 6-8 hours | ⏳ |
-| - Final Checks | QA before release | 2 hours | ⏳ |
-| **TOTAL** | | **17.5-27.5 hours** | |
+| **Phase 1: Language Selection + Onboarding** | Hero + Grid дизайн | 2 hours | ✅ DONE |
+| **Phase 2: MainHub UI** | Hero + Grid дизайн | 30 min | ✅ DONE |
+| **Phase 3: Phrasebook UI** | Categories + Audio + TTS + 31 Languages | 8 hours | ✅ DONE |
+| **Phase 4: Visual Translator** | Мультиязычность (31 язык) | 5-6 hours | ✅ DONE |
+| **Phase 5: Text Translator** | Мультиязычность (23/31 языков) | 5 hours + 1 hour | ⏳ 74% |
+| **Phase 6: Voice Translator** | NEW MODULE - Speech-to-Text + Translation + TTS | 6-8 hours | ⏳ 0% |
+| **Phase 7: Dictionary** | Peace Corps PDF + Database + Integration | 4-6 hours | ⏳ 0% |
+| **Phase 8: AI Assistants** | Hero + Grid дизайн + Мультиязычность (31 язык) | 6-8 hours | ⏳ 0% |
+| **Phase 9: Testing** | Hugging Face API + iOS Testing | 2-3 hours | ⏳ 90% |
+| **Phase 10: Production** | Configuration + Icons + Builds + Store | 15-20 hours | ⏳ 0% |
+| **COMPLETED** | Phases 1-4 | **~15.5 hours** | ✅ |
+| **REMAINING** | Phases 5-10 | **~34-46 hours** | ⏳ |
+| **TOTAL** | | **~49.5-61.5 hours** | |
 
-**Optimistic:** 3-4 days (full-time work)
-**Realistic:** 1 week (part-time work)
+**Optimistic:** 6-8 days (full-time work)
+**Realistic:** 2-3 weeks (part-time work)
 
 ---
 
@@ -580,36 +687,37 @@ eas build --platform ios --profile production
 ## ✅ QUICK START CHECKLIST
 
 **Today (Day 1):**
-- [ ] **PHASE 1:** Fix Language Selection Screen (30 min)
-- [ ] **PHASE 2:** Redesign MainHubScreen (TBD)
-- [ ] **PHASE 3:** Redesign Phrasebook screens (TBD)
-- [ ] **PHASE 4:** Visual Translator improvements (TBD)
-- [ ] **PHASE 5:** Text Translator improvements (TBD)
-- [ ] **PHASE 6:** Dictionary improvements (TBD)
-- [ ] **PHASE 7:** AI Assistants improvements (TBD)
+- [x] **PHASE 1:** Fix Language Selection Screen (30 min) - DONE
+- [x] **PHASE 2:** Redesign MainHubScreen - DONE
+- [x] **PHASE 3:** Redesign Phrasebook screens - DONE
+- [x] **PHASE 4:** Visual Translator improvements - DONE
+- [ ] **PHASE 5:** Text Translator improvements (осталось 8 языков, ~1 час)
+- [ ] **PHASE 6:** Voice Translator integration (NEW, 6-8 hours)
+- [ ] **PHASE 7:** Dictionary improvements (4-6 hours)
+- [ ] **PHASE 8:** AI Assistants improvements (TBD)
 
 **Tomorrow (Day 2):**
-- [ ] **PHASE 8:** Test Hugging Face API (30 min)
-- [ ] **PHASE 8:** iOS testing (if available)
+- [ ] **PHASE 9:** Test Hugging Face API (30 min)
+- [ ] **PHASE 9:** iOS testing (if available)
 
 **Day 3-4:**
-- [ ] **PHASE 9:** Update app.json and package.json
-- [ ] **PHASE 9:** Create app icon and splash screen
+- [ ] **PHASE 10:** Update app.json and package.json
+- [ ] **PHASE 10:** Create app icon and splash screen
 
 **Day 5-6:**
-- [ ] **PHASE 9:** Build Android + iOS
-- [ ] **PHASE 9:** Test builds on real devices
+- [ ] **PHASE 10:** Build Android + iOS
+- [ ] **PHASE 10:** Test builds on real devices
 
 **Day 7:**
-- [ ] **PHASE 9:** Prepare store listings
-- [ ] **PHASE 9:** Submit to Google Play
-- [ ] **PHASE 9:** Submit to App Store
+- [ ] **PHASE 10:** Prepare store listings
+- [ ] **PHASE 10:** Submit to Google Play
+- [ ] **PHASE 10:** Submit to App Store
 
 ---
 
 ## 🎯 NEXT SESSION PRIORITIES
 
-### **UI/UX Improvements (PHASE 1-7):**
+### **UI/UX Improvements (PHASE 1-8):**
 
 1. **PHASE 1: Language Selection Screen + Onboarding** ✅ 100% DONE 🟢
    - ✅ Убран устаревший footer текст
@@ -638,43 +746,63 @@ eas build --platform ios --profile production
    - ✅ TTS установка система для Samsung и других телефонов
    - ✅ Modern Vibrant цвета (Blue/Green) для универсального дизайна
 
-4. **PHASE 4: Visual Translator** (TBD) 🔴 HIGH PRIORITY - NEXT
-   - Улучшить дизайн визуального переводчика
+4. **PHASE 4: Visual Translator** ✅ 100% DONE 🟢
+   - ✅ Добавлена мультиязычность для всех 31 языков
+   - ✅ Все UI тексты переведены
 
-5. **PHASE 5: Text Translator** (TBD)
-   - Улучшить дизайн текстового переводчика
+5. **PHASE 5: Text Translator** ⏳ 74% 🟡
+   - ✅ Редизайн в стиле Hero + Grid
+   - ✅ Добавлена мультиязычность для 23 языков
+   - ⏳ Осталось добавить 8 европейских языков (~1 час)
 
-6. **PHASE 6: Dictionary** (4-6 hours)
+6. **PHASE 6: Voice Translator** ⏳ 0% 🔴 NEW!
+   - Создать новый модуль - Voice Translator
+   - Hero + Grid дизайн с 🎤 эмодзи
+   - Speech-to-Text + Translation + Text-to-Speech
+   - Поддержка всех 31 языков
+   - Оценка: 6-8 часов
+
+7. **PHASE 7: Dictionary** ⏳ 0% 🔴
    - Найти бесплатный словарь (Peace Corps PDF)
    - Конвертировать в базу данных
    - Интегрировать в приложение
+   - Оценка: 4-6 часов
 
-7. **PHASE 7: AI Assistants** (TBD)
-   - Улучшить дизайн AI ассистентов
+8. **PHASE 8: AI Assistants** ⏳ 0% 🔴
+   - Hero + Grid дизайн для AIAssistantsHomeScreen и ChatScreen
+   - Добавить мультиязычность для всех 31 языков (~25-30 полей)
+   - Переводы для названий, описаний, welcome messages всех 5 ассистентов
+   - Обновить AssistantCard дизайн
+   - Оценка: 6-8 часов
 
-### **Testing & Production (PHASE 8-9):**
+### **Testing & Production (PHASE 9-10):**
 
-8. **PHASE 8: Testing** (30 min)
+9. **PHASE 9: Testing** ⏳ 90% 🟡
    - Test Hugging Face API
    - iOS testing
+   - Оценка: 30 минут
 
-9. **PHASE 9: Production Build** (2 hours)
-   - Review app.json
-   - Update version to 1.0.0
-   - Configure permissions
-   - Plan icon design
-   - Check EAS Build setup
+10. **PHASE 10: Production Build** ⏳ 0% 🔴
+    - Review app.json
+    - Update version to 1.0.0
+    - Configure permissions
+    - Plan icon design
+    - Check EAS Build setup
+    - Оценка: 2 часа
 
 ---
 
-**Status:** Phase 1 ✅ 100% → Phase 2 ✅ 100% → Phase 3 ✅ 100% (COMPLETE: Categories + Audio + TTS + Fixed Heights + RTL + 31 Languages) → Phase 4-7 UI improvements needed → Phase 8-9 Testing & Production 🚀
+**Status:** Phase 1-4 ✅ 100% → Phase 5 ⏳ 74% (Text Translator: 8 языков осталось) → Phase 6 🆕 Voice Translator → Phase 7-8 UI improvements → Phase 9-10 Testing & Production 🚀
 **Goal:** Launch v1.0 with all 31 languages by mid-November 2025
 
 **Next Steps:**
 1. ✅ PHASE 1: Language Selection + Onboarding Hero+Grid - DONE
 2. ✅ PHASE 2: MainHubScreen UI Hero+Grid - DONE
 3. ✅ PHASE 3: Phrasebook Complete (Categories + CategoryScreen + PhraseDetail + Audio + TTS + 31 Languages) - DONE
-4. 🔴 PHASE 4: Visual Translator UI (HIGH PRIORITY - NEXT)
-5. PHASE 5-7: UI/UX improvements (Text Translator, Dictionary, AI Assistants)
-6. PHASE 8: Testing (Hugging Face API, iOS)
-7. PHASE 9: Production Build (Icons, Builds, Store Submission)
+4. ✅ PHASE 4: Visual Translator Multilingual (All 31 Languages) - DONE
+5. ⏳ PHASE 5: Text Translator - осталось 8 европейских языков (~1 час)
+6. 🔴 PHASE 6: Voice Translator (NEW MODULE - 6-8 hours) - HIGH PRIORITY
+7. PHASE 7: Dictionary (4-6 hours)
+8. PHASE 8: AI Assistants (Hero + Grid дизайн + 31 язык, 6-8 hours)
+9. PHASE 9: Testing (Hugging Face API, iOS)
+10. PHASE 10: Production Build (Icons, Builds, Store Submission)
