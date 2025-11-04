@@ -17,6 +17,7 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../../types/navigation';
+import { useAppLanguage } from '../../../contexts/LanguageContext';
 import AIAssistantService from '../services/AIAssistantService';
 import AssistantCard from '../components/AssistantCard';
 import { AssistantType } from '../types/ai-assistant.types';
@@ -30,8 +31,45 @@ interface Props {
   navigation: AIAssistantsHomeScreenNavigationProp;
 }
 
+// Helper функции для получения переводов названий и описаний ассистентов
+const getTranslatedAssistantName = (type: AssistantType, texts: any): string => {
+  const nameMap: Record<AssistantType, string> = {
+    [AssistantType.CONTEXTUAL_TIPS]: texts.aiContextualTipsName,
+    [AssistantType.CONVERSATION_TRAINER]: texts.aiConversationTrainerName,
+    [AssistantType.GRAMMAR_HELPER]: texts.aiGrammarHelperName,
+    [AssistantType.CULTURAL_ADVISOR]: texts.aiCulturalAdvisorName,
+    [AssistantType.GENERAL_ASSISTANT]: texts.aiGeneralAssistantName,
+  };
+  return nameMap[type];
+};
+
+const getTranslatedAssistantDescription = (type: AssistantType, texts: any): string => {
+  const descMap: Record<AssistantType, string> = {
+    [AssistantType.CONTEXTUAL_TIPS]: texts.aiContextualTipsDesc,
+    [AssistantType.CONVERSATION_TRAINER]: texts.aiConversationTrainerDesc,
+    [AssistantType.GRAMMAR_HELPER]: texts.aiGrammarHelperDesc,
+    [AssistantType.CULTURAL_ADVISOR]: texts.aiCulturalAdvisorDesc,
+    [AssistantType.GENERAL_ASSISTANT]: texts.aiGeneralAssistantDesc,
+  };
+  return descMap[type];
+};
+
 const AIAssistantsHomeScreen: React.FC<Props> = ({ navigation }) => {
-  const assistants = AIAssistantService.getAllAssistantConfigs();
+  const { getTexts } = useAppLanguage();
+  const texts = getTexts();
+
+  // Получаем базовые конфигурации и добавляем переводы
+  const assistants = AIAssistantService.getAllAssistantConfigs().map((config) => {
+    // Добавляем переведенные name и description на основе типа ассистента
+    const translatedName = getTranslatedAssistantName(config.type, texts);
+    const translatedDescription = getTranslatedAssistantDescription(config.type, texts);
+
+    return {
+      ...config,
+      name: translatedName,
+      description: translatedDescription,
+    };
+  });
 
   const handleAssistantPress = (assistantType: AssistantType) => {
     // Navigate to specific assistant screen
@@ -79,7 +117,7 @@ const AIAssistantsHomeScreen: React.FC<Props> = ({ navigation }) => {
           >
             <Text style={styles.backButtonText}>⬅️</Text>
           </TouchableOpacity>
-          <Text style={styles.headerTitle}>AI Assistants</Text>
+          <Text style={styles.headerTitle}>{texts.aiHomeTitle}</Text>
           <View style={styles.placeholder} />
         </LinearGradient>
 
@@ -88,9 +126,9 @@ const AIAssistantsHomeScreen: React.FC<Props> = ({ navigation }) => {
           <View style={styles.heroIconContainer}>
             <Text style={styles.heroIcon}>🤖</Text>
           </View>
-          <Text style={styles.heroTitle}>AI Language Assistants</Text>
+          <Text style={styles.heroTitle}>{texts.aiHomeTitle}</Text>
           <Text style={styles.heroSubtitle}>
-            Choose an AI assistant to help you learn Turkmen language
+            {texts.aiHomeSubtitle}
           </Text>
         </View>
 
@@ -109,8 +147,7 @@ const AIAssistantsHomeScreen: React.FC<Props> = ({ navigation }) => {
         <View style={styles.infoCard}>
           <Text style={styles.infoIcon}>ℹ️</Text>
           <Text style={styles.infoText}>
-            AI assistants use advanced language models to provide personalized
-            help. Responses may take a few seconds.
+            {texts.aiInfoText}
           </Text>
         </View>
 

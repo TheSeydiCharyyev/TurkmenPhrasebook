@@ -24,8 +24,7 @@ import { useAppLanguage } from '../contexts/LanguageContext';
 import { getLanguageByCode } from '../config/languages.config';
 import type { RootStackParamList } from '../types';
 import { DesignColors, Spacing, Typography, BorderRadius, Shadows } from '../constants/Design';
-
-const { width } = Dimensions.get('window');
+import { scale, verticalScale, moderateScale, DeviceInfo, wp } from '../utils/ResponsiveUtils';
 
 interface ModuleCard {
   id: string;
@@ -335,17 +334,17 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
 
-  // Clean Header with animation support
+  // Clean Header with animation support - RESPONSIVE
   header: {
     position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
-    height: 64,
+    height: verticalScale(64),
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: Spacing.lg,
+    paddingHorizontal: scale(24),
     backgroundColor: '#ffffff',
     borderBottomWidth: 1,
     borderBottomColor: '#e9ecef',
@@ -353,9 +352,9 @@ const styles = StyleSheet.create({
     ...Platform.select({
       ios: {
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
+        shadowOffset: { width: 0, height: scale(2) },
         shadowOpacity: 0.1,
-        shadowRadius: 4,
+        shadowRadius: scale(4),
       },
       android: {
         elevation: 4,
@@ -371,55 +370,55 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#f1f3f5',
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: BorderRadius.xl,
-    gap: 8,
+    paddingHorizontal: scale(12),
+    paddingVertical: verticalScale(8),
+    borderRadius: scale(16),
+    gap: scale(8),
     alignSelf: 'flex-start',
   },
 
   languageFlag: {
-    fontSize: 20,
+    fontSize: moderateScale(20),
   },
 
   languageName: {
-    fontSize: 15,
+    fontSize: moderateScale(15),
     fontWeight: Typography.bold,
     color: DesignColors.text,
     fontFamily: Typography.fontFamily,
   },
 
   settingsButton: {
-    padding: 8,
+    padding: scale(8),
   },
 
-  // Welcome Section (with top padding for absolute header)
+  // Welcome Section (with top padding for absolute header) - RESPONSIVE
   welcome: {
-    paddingHorizontal: Spacing.lg,
-    paddingTop: 64 + Spacing.xl, // header height + spacing
-    paddingBottom: Spacing.md,
+    paddingHorizontal: scale(24),
+    paddingTop: verticalScale(64) + scale(32),
+    paddingBottom: scale(16),
     backgroundColor: '#ffffff',
   },
 
   welcomeTitle: {
-    fontSize: 28,
+    fontSize: moderateScale(28),
     fontWeight: Typography.bold,
     color: DesignColors.text,
-    marginBottom: 4,
+    marginBottom: verticalScale(4),
     fontFamily: Typography.fontFamily,
   },
 
   welcomeSubtitle: {
-    fontSize: 15,
+    fontSize: moderateScale(15),
     color: DesignColors.textSecondary,
     fontFamily: Typography.fontFamily,
   },
 
-  // Scroll Content
+  // Scroll Content - RESPONSIVE
   scrollContent: {
-    paddingHorizontal: Spacing.lg,
-    paddingTop: Spacing.lg,
-    paddingBottom: Spacing.xl,
+    paddingHorizontal: scale(24),
+    paddingTop: verticalScale(24),
+    paddingBottom: verticalScale(32),
   },
 
   // Grid Layout (2 columns)
@@ -429,19 +428,19 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
 
-  // Hero Card - Большая карточка
+  // Hero Card - RESPONSIVE
   heroCard: {
     width: '100%',
-    height: 200,
-    marginBottom: Spacing.lg,
-    borderRadius: 24,
+    height: DeviceInfo.isTablet ? verticalScale(250) : verticalScale(200),
+    marginBottom: scale(24),
+    borderRadius: scale(24),
     overflow: 'hidden',
     ...Platform.select({
       ios: {
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 12 },
+        shadowOffset: { width: 0, height: scale(12) },
         shadowOpacity: 0.3,
-        shadowRadius: 20,
+        shadowRadius: scale(20),
       },
       android: {
         elevation: 12,
@@ -451,59 +450,53 @@ const styles = StyleSheet.create({
 
   heroGradient: {
     flex: 1,
-    padding: Spacing.xl,
+    padding: scale(32),
     justifyContent: 'space-between',
   },
 
   heroIconContainer: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    width: scale(80),
+    height: scale(80),
+    borderRadius: scale(40),
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 2,
-    borderColor: 'rgba(255, 255, 255, 0.5)',
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.3,
-        shadowRadius: 8,
-      },
-      android: {
-        elevation: 6,
-      },
-    }),
+  },
+
+  heroIconEmoji: {
+    fontSize: moderateScale(48),
+    textAlign: 'center',
   },
 
   heroTitle: {
-    fontSize: 28,
+    fontSize: moderateScale(28, 0.3),
     fontWeight: Typography.bold,
     color: '#fff',
     fontFamily: Typography.fontFamily,
-    marginBottom: 6,
+    marginBottom: verticalScale(6),
   },
 
   heroSubtitle: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     color: 'rgba(255, 255, 255, 0.95)',
     fontFamily: Typography.fontFamily,
-    lineHeight: 22,
+    lineHeight: moderateScale(22),
   },
 
-  // Regular Module Card - Grid карточки
+  // Regular Module Card - RESPONSIVE with Grid
   moduleCard: {
-    width: (width - Spacing.lg * 3) / 2,
-    marginBottom: Spacing.lg,
-    borderRadius: 20,
+    width: DeviceInfo.isTablet
+      ? (DeviceInfo.screenWidth - scale(24) * 3) / 3  // 3 колонки на планшете
+      : (DeviceInfo.screenWidth - scale(24) * 3) / 2, // 2 колонки на телефоне
+    marginBottom: scale(24),
+    borderRadius: scale(20),
     overflow: 'hidden',
     ...Platform.select({
       ios: {
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 8 },
+        shadowOffset: { width: 0, height: scale(8) },
         shadowOpacity: 0.25,
-        shadowRadius: 16,
+        shadowRadius: scale(16),
       },
       android: {
         elevation: 8,
@@ -514,7 +507,7 @@ const styles = StyleSheet.create({
   moduleGradient: {
     width: '100%',
     aspectRatio: 1,
-    padding: Spacing.lg,
+    padding: scale(24),
     justifyContent: 'space-between',
   },
 
@@ -523,25 +516,17 @@ const styles = StyleSheet.create({
   },
 
   iconContainer: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
-    backgroundColor: 'rgba(255, 255, 255, 0.35)',
+    width: scale(64),
+    height: scale(64),
+    borderRadius: scale(32),
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 2,
-    borderColor: 'rgba(255, 255, 255, 0.4)',
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 3 },
-        shadowOpacity: 0.25,
-        shadowRadius: 6,
-      },
-      android: {
-        elevation: 5,
-      },
-    }),
+  },
+
+  iconEmoji: {
+    fontSize: moderateScale(36),
+    textAlign: 'center',
   },
 
   moduleTextContainer: {
@@ -550,26 +535,26 @@ const styles = StyleSheet.create({
   },
 
   moduleTitle: {
-    fontSize: 17,
+    fontSize: moderateScale(17),
     fontWeight: Typography.bold,
     color: '#fff',
     fontFamily: Typography.fontFamily,
-    marginBottom: 4,
+    marginBottom: verticalScale(4),
   },
 
   moduleSubtitle: {
-    fontSize: 13,
+    fontSize: moderateScale(13),
     color: 'rgba(255, 255, 255, 0.9)',
     fontFamily: Typography.fontFamily,
-    lineHeight: 18,
+    lineHeight: moderateScale(18),
   },
 
   lockBadge: {
     position: 'absolute',
-    top: 16,
-    right: 16,
+    top: scale(16),
+    right: scale(16),
     backgroundColor: 'rgba(0, 0, 0, 0.3)',
-    padding: 6,
-    borderRadius: BorderRadius.md,
+    padding: scale(6),
+    borderRadius: scale(8),
   },
 });

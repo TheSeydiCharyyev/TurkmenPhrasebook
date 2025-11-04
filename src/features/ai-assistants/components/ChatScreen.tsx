@@ -34,7 +34,8 @@ interface ChatScreenProps {
 }
 
 const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
-  const { config: languageConfig } = useAppLanguage();
+  const { config: languageConfig, getTexts } = useAppLanguage();
+  const texts = getTexts();
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -73,16 +74,11 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
 
   const getWelcomeMessage = (): string => {
     const welcomeMessages: Record<AssistantType, string> = {
-      [AssistantType.CONTEXTUAL_TIPS]:
-        "Hello! I'm here to provide you with helpful tips and insights for learning Turkmen. Ask me anything!",
-      [AssistantType.CONVERSATION_TRAINER]:
-        "Hi there! Let's practice some conversations in Turkmen. I'll help you improve your speaking skills!",
-      [AssistantType.GRAMMAR_HELPER]:
-        "Welcome! I'm your grammar assistant. Ask me about any Turkmen grammar rules or structures.",
-      [AssistantType.CULTURAL_ADVISOR]:
-        "Salam! Let me help you understand Turkmen culture, customs, and traditions.",
-      [AssistantType.GENERAL_ASSISTANT]:
-        "Hello! I'm your general learning assistant. Feel free to ask me anything about learning Turkmen!",
+      [AssistantType.CONTEXTUAL_TIPS]: texts.aiContextualTipsWelcome,
+      [AssistantType.CONVERSATION_TRAINER]: texts.aiConversationTrainerWelcome,
+      [AssistantType.GRAMMAR_HELPER]: texts.aiGrammarHelperWelcome,
+      [AssistantType.CULTURAL_ADVISOR]: texts.aiCulturalAdvisorWelcome,
+      [AssistantType.GENERAL_ASSISTANT]: texts.aiGeneralAssistantWelcome,
     };
 
     return welcomeMessages[assistantType];
@@ -152,7 +148,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
       });
     } catch (error) {
       console.error('Error sending message:', error);
-      addSystemMessage('Sorry, I encountered an error. Please try again.');
+      addSystemMessage(texts.aiErrorMessage);
     } finally {
       setIsLoading(false);
     }
@@ -219,7 +215,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
           {isLoading && (
             <View style={styles.loadingContainer}>
               <ActivityIndicator size="small" color={assistantConfig.color} />
-              <Text style={styles.loadingText}>Thinking...</Text>
+              <Text style={styles.loadingText}>{texts.aiThinking}</Text>
             </View>
           )}
         </ScrollView>
@@ -228,7 +224,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
         <View style={styles.inputContainer}>
           <TextInput
             style={styles.input}
-            placeholder="Type your message..."
+            placeholder={texts.aiInputPlaceholder}
             placeholderTextColor="#999"
             value={inputText}
             onChangeText={setInputText}

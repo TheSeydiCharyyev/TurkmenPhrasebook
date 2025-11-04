@@ -203,7 +203,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     voiceTranslatorSubtitle: 'Sesli terjime (v2.0)',
     dictionaryTitle: 'Sözlük',
     dictionarySubtitle: 'v2.0-de çykar',
-    aiAssistantsTitle: 'AI kömekçiler',
+    aiAssistantsTitle: 'Emeli Aň çat botlar',
     aiAssistantsSubtitle: 'Akylly maslahatlar we goldaw',
     myFavoritesTitle: 'Halanýanlarym',
     myFavoritesSubtitle: 'Saklan maglumatlar',
@@ -298,9 +298,9 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     ttInfoCannotSwap: 'Awto Anykla saýlanda çalyş mümkin däl',
 
     // AI Assistants
-    aiHomeTitle: 'AI Kömekçiler',
-    aiHomeSubtitle: 'Türkmen dilini öwrenmek üçin AI kömekçi saýlaň',
-    aiInfoText: 'AI kömekçiler ösen dil modellerini ulanýar. Jogaplar birnäçe sekunt alyp biler.',
+    aiHomeTitle: 'Emeli Aň kömekçi çat botlar',
+    aiHomeSubtitle: 'Türkmen dilini öwrenmek üçin Emeli Aň kömekçi çat bot saýlaň',
+    aiInfoText: 'Emeli Aň kömekçi çat botlar ösen dil modellerini ulanýar. Jogaplar birnäçe sekunt alyp biler.',
 
     // AI Assistant Names
     aiContextualTipsName: 'Kontekstual Maslahatlar',
