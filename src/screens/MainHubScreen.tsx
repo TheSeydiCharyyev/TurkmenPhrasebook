@@ -111,7 +111,9 @@ export default function MainHubScreen() {
   const modules = getModules(texts);
 
   // Анимация header при скролле - RESPONSIVE
-  const HEADER_HEIGHT = verticalScale(64) + verticalScale(16); // height + top offset
+  const statusBarHeight = Platform.OS === 'android' ? (StatusBar.currentHeight || 0) : 0;
+  const headerTopPosition = statusBarHeight + verticalScale(16);
+  const HEADER_HEIGHT = verticalScale(64) + headerTopPosition;
   const scrollY = useRef(new Animated.Value(0)).current;
   const [headerVisible, setHeaderVisible] = useState(true);
   const lastScrollY = useRef(0);
@@ -204,9 +206,7 @@ export default function MainHubScreen() {
         style={[
           styles.header,
           {
-            top: Platform.OS === 'android'
-              ? (StatusBar.currentHeight || 0) + verticalScale(16)
-              : verticalScale(16),
+            top: headerTopPosition,
             transform: [{ translateY: headerTranslateY }],
           },
         ]}
@@ -233,7 +233,12 @@ export default function MainHubScreen() {
 
       {/* Modules - Hero + Grid */}
       <Animated.ScrollView
-        contentContainerStyle={styles.scrollContent}
+        contentContainerStyle={[
+          styles.scrollContent,
+          {
+            paddingTop: HEADER_HEIGHT + verticalScale(16), // header полная высота + spacing
+          },
+        ]}
         showsVerticalScrollIndicator={false}
         onScroll={handleScroll}
         scrollEventThrottle={16}
@@ -335,7 +340,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f8f9fa',
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    // paddingTop не нужен, так как учитывается в header position
   },
 
   // Clean Header with animation support - RESPONSIVE
@@ -420,7 +425,7 @@ const styles = StyleSheet.create({
   // Scroll Content - RESPONSIVE
   scrollContent: {
     paddingHorizontal: scale(24),
-    paddingTop: verticalScale(64) + verticalScale(16) + verticalScale(16), // header height + header top + spacing
+    // paddingTop устанавливается динамически в inline styles
     paddingBottom: verticalScale(32),
   },
 
