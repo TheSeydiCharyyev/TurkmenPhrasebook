@@ -15,6 +15,7 @@ import { LanguageAnalyticsService } from '../services/LanguageAnalytics';
 import { TranslationVersioningService } from '../services/TranslationVersioning';
 import { getLanguageByCode } from '../config/languages.config';
 import { Colors } from '../constants/Colors';
+import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
 
 export default function LanguageStatsScreen({ navigation }: any) {
   const [isLoading, setIsLoading] = useState(true);
@@ -197,30 +198,30 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 16,
+    padding: scale(16),
     backgroundColor: '#FFFFFF',
     borderBottomWidth: 1,
     borderBottomColor: '#E5E7EB',
   },
   headerTitle: {
-    fontSize: 20,
+    fontSize: moderateScale(20),
     fontWeight: 'bold',
     color: Colors.text,
   },
   section: {
-    padding: 16,
+    padding: scale(16),
   },
   sectionTitle: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '600',
     color: Colors.text,
-    marginBottom: 12,
+    marginBottom: verticalScale(12),
   },
   card: {
     backgroundColor: '#FFFFFF',
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 12,
+    borderRadius: moderateScale(12),
+    padding: scale(16),
+    marginBottom: verticalScale(12),
     borderWidth: 1,
     borderColor: '#E5E7EB',
   },
@@ -228,50 +229,50 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 8,
+    paddingVertical: verticalScale(8),
     borderBottomWidth: 1,
     borderBottomColor: '#F3F4F6',
   },
   statLabel: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#6B7280',
   },
   statValue: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     fontWeight: '600',
     color: Colors.text,
   },
   downloadedText: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: '#6B7280',
-    marginBottom: 12,
+    marginBottom: verticalScale(12),
   },
   languageItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 8,
+    paddingVertical: verticalScale(8),
   },
   languageFlag: {
-    fontSize: 24,
-    marginRight: 12,
+    fontSize: moderateScale(24),
+    marginRight: scale(12),
   },
   languageInfo: {
     flex: 1,
   },
   languageName: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     fontWeight: '600',
     color: Colors.text,
   },
   languageVersion: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#6B7280',
-    marginTop: 2,
+    marginTop: verticalScale(2),
   },
   usageHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: verticalScale(12),
   },
   usageStats: {
     flexDirection: 'row',
@@ -281,19 +282,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   usageLabel: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: '#6B7280',
-    marginBottom: 4,
+    marginBottom: verticalScale(4),
   },
   usageValue: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     fontWeight: '600',
     color: Colors.text,
   },
   button: {
     backgroundColor: Colors.primary,
-    borderRadius: 12,
-    padding: 16,
+    borderRadius: moderateScale(12),
+    padding: scale(16),
     alignItems: 'center',
   },
   buttonDanger: {
@@ -301,7 +302,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#FFFFFF',
-    fontSize: 16,
+    fontSize: moderateScale(16),
     fontWeight: '600',
   },
 });

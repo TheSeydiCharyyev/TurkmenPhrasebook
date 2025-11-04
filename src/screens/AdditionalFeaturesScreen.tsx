@@ -20,9 +20,10 @@ import { useAppLanguage } from '../contexts/LanguageContext';
 import { useAnimations } from '../hooks/useAnimations';
 import { useHistory } from '../hooks/useHistory';
 import { usePhrases } from '../hooks/usePhrases';
+import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
 
 const { width } = Dimensions.get('window');
-const cardWidth = (width - 60) / 2; // 2 columns with margins
+const cardWidth = (width - scale(60)) / 2; // 2 columns with margins
 
 interface FeatureCardProps {
   id: string;
@@ -259,21 +260,21 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   scrollContent: {
-    paddingHorizontal: 20,
-    paddingVertical: 20,
+    paddingHorizontal: scale(20),
+    paddingVertical: verticalScale(20),
   },
   header: {
-    marginBottom: 30,
+    marginBottom: verticalScale(30),
   },
   title: {
-    fontSize: 24,
+    fontSize: moderateScale(24),
     fontWeight: '700',
     color: Colors.text,
     textAlign: 'center',
-    marginBottom: 8,
+    marginBottom: verticalScale(8),
   },
   subtitle: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     color: Colors.textLight,
     textAlign: 'center',
   },
@@ -281,54 +282,54 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    marginBottom: 30,
+    marginBottom: verticalScale(30),
   },
   featureCard: {
     width: cardWidth,
-    height: 160,
-    padding: 16,
-    borderRadius: 12,
-    marginBottom: 16,
+    height: verticalScale(160),
+    padding: scale(16),
+    borderRadius: moderateScale(12),
+    marginBottom: verticalScale(16),
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: Colors.cardBackground,
   },
   iconContainer: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
+    width: scale(60),
+    height: scale(60),
+    borderRadius: scale(30),
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: verticalScale(16),
   },
   cardTitle: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     fontWeight: '700',
     color: Colors.text,
     textAlign: 'center',
-    marginBottom: 6,
-    lineHeight: 18,
-    minHeight: 18,
+    marginBottom: verticalScale(6),
+    lineHeight: moderateScale(18),
+    minHeight: moderateScale(18),
   },
   cardSubtitle: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     fontWeight: '500',
     color: Colors.textSecondary,
     textAlign: 'center',
-    lineHeight: 16,
-    minHeight: 16,
+    lineHeight: moderateScale(16),
+    minHeight: moderateScale(16),
   },
   statsContainer: {
     backgroundColor: Colors.backgroundLight,
-    padding: 20,
-    borderRadius: 16,
+    padding: scale(20),
+    borderRadius: moderateScale(16),
   },
   statsTitle: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '600',
     color: Colors.text,
     textAlign: 'center',
-    marginBottom: 16,
+    marginBottom: verticalScale(16),
   },
   statsGrid: {
     flexDirection: 'row',
@@ -338,13 +339,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   statNumber: {
-    fontSize: 28,
+    fontSize: moderateScale(28),
     fontWeight: 'bold',
     color: Colors.primary,
   },
   statLabel: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: Colors.textLight,
-    marginTop: 4,
+    marginTop: verticalScale(4),
   },
 });

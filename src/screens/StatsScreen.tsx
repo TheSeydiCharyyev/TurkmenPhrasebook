@@ -20,9 +20,10 @@ import { useAppLanguage } from '../contexts/LanguageContext';
 import { LoadingSpinner, EmptyState } from '../components/LoadingStates';
 import { SimpleBarChart, SimpleLineChart } from '../components/SimpleCharts';
 import ErrorBoundary from '../components/ErrorBoundary';
+import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
 
 const { width: screenWidth } = Dimensions.get('window');
-const chartWidth = screenWidth - 40;
+const chartWidth = screenWidth - scale(40);
 
 // Мемоизированные компоненты для производительности
 const StatCard = React.memo<{
@@ -494,44 +495,44 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   header: {
-    padding: 20,
-    paddingBottom: 10,
+    padding: scale(20),
+    paddingBottom: verticalScale(10),
   },
   headerTitle: {
-    fontSize: 28,
+    fontSize: moderateScale(28),
     fontWeight: 'bold',
     color: Colors.text,
-    marginBottom: 5,
+    marginBottom: verticalScale(5),
   },
   headerSubtitle: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     color: Colors.textLight,
   },
   content: {
-    paddingHorizontal: 20,
-    paddingBottom: 20,
+    paddingHorizontal: scale(20),
+    paddingBottom: verticalScale(20),
   },
   section: {
-    marginBottom: 30,
+    marginBottom: verticalScale(30),
   },
   sectionHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: verticalScale(16),
   },
   sectionTitle: {
-    fontSize: 20,
+    fontSize: moderateScale(20),
     fontWeight: '600',
     color: Colors.text,
-    marginLeft: 12,
+    marginLeft: scale(12),
   },
   statsGrid: {
-    gap: 12,
+    gap: verticalScale(12),
   },
   statCard: {
     backgroundColor: Colors.cardBackground,
-    borderRadius: 16,
-    padding: 20,
+    borderRadius: moderateScale(16),
+    padding: scale(20),
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -547,44 +548,44 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   statIcon: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
+    width: scale(48),
+    height: scale(48),
+    borderRadius: scale(24),
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 16,
+    marginRight: scale(16),
   },
   statText: {
     flex: 1,
   },
   statTitle: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: Colors.textLight,
-    marginBottom: 4,
+    marginBottom: verticalScale(4),
   },
   statValue: {
-    fontSize: 24,
+    fontSize: moderateScale(24),
     fontWeight: 'bold',
     color: Colors.text,
-    marginBottom: 2,
+    marginBottom: verticalScale(2),
   },
   statSubtitle: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: Colors.textLight,
   },
   progressBarBackground: {
     backgroundColor: Colors.backgroundLight,
-    borderRadius: 4,
+    borderRadius: moderateScale(4),
     overflow: 'hidden',
-    marginTop: 12,
+    marginTop: verticalScale(12),
   },
   progressBarFill: {
-    borderRadius: 4,
+    borderRadius: moderateScale(4),
   },
   chartContainer: {
     backgroundColor: Colors.cardBackground,
-    borderRadius: 16,
-    padding: 20,
+    borderRadius: moderateScale(16),
+    padding: scale(20),
     alignItems: 'center',
     elevation: 2,
     shadowColor: Colors.cardShadow,
@@ -594,9 +595,9 @@ const styles = StyleSheet.create({
   },
   categoryProgressItem: {
     backgroundColor: Colors.cardBackground,
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 12,
+    borderRadius: moderateScale(12),
+    padding: scale(16),
+    marginBottom: verticalScale(12),
     elevation: 1,
     shadowColor: Colors.cardShadow,
     shadowOffset: { width: 0, height: 1 },
@@ -607,7 +608,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: verticalScale(8),
   },
   categoryProgressLeft: {
     flexDirection: 'row',
@@ -615,44 +616,44 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   categoryIcon: {
-    fontSize: 20,
-    marginRight: 12,
+    fontSize: moderateScale(20),
+    marginRight: scale(12),
   },
   categoryName: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     fontWeight: '500',
     color: Colors.text,
     flex: 1,
   },
   categoryProgressText: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     fontWeight: '600',
     color: Colors.primary,
   },
   categoryStats: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: Colors.textLight,
-    marginTop: 4,
+    marginTop: verticalScale(4),
   },
   categoryTime: {
     color: Colors.textLight,
   },
   emptyCategories: {
-    padding: 40,
+    padding: scale(40),
     alignItems: 'center',
   },
   emptyCategoriesText: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     color: Colors.textLight,
     textAlign: 'center',
   },
   achievementsContainer: {
-    gap: 12,
+    gap: verticalScale(12),
   },
   achievementCard: {
     backgroundColor: Colors.cardBackground,
-    borderRadius: 12,
-    padding: 16,
+    borderRadius: moderateScale(12),
+    padding: scale(16),
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
@@ -664,13 +665,13 @@ const styles = StyleSheet.create({
   },
   achievementTitle: {
     flex: 1,
-    fontSize: 14,
+    fontSize: moderateScale(14),
     fontWeight: '500',
     color: Colors.text,
-    marginLeft: 12,
+    marginLeft: scale(12),
   },
   achievementStatus: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     fontWeight: 'bold',
     color: Colors.primary,
   },

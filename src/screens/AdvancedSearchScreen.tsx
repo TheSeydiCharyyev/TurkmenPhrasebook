@@ -28,6 +28,7 @@ import { useAppLanguage, AppLanguageMode } from '../contexts/LanguageContext';
 import { useAdvancedSearch } from '../hooks/useAdvancedSearch';
 import { useAnimations } from '../hooks/useAnimations';
 import { categories } from '../data/categories';
+import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
 
 // Простые компоненты для замены отсутствующих
 const HighlightedText: React.FC<{ text: string; highlight: string; style?: any }> = ({ 
@@ -582,8 +583,8 @@ const styles = StyleSheet.create({
   },
   header: {
     backgroundColor: Colors.textWhite,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingHorizontal: scale(16),
+    paddingVertical: verticalScale(12),
     borderBottomWidth: 1,
     borderBottomColor: Colors.cardBorder,
   },
@@ -593,22 +594,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerTitle: {
-    fontSize: 24,
+    fontSize: moderateScale(24),
     fontWeight: 'bold',
     color: Colors.text,
   },
   headerActions: {
     flexDirection: 'row',
-    gap: 8,
+    gap: scale(8),
   },
   voiceButton: {
-    padding: 8,
-    borderRadius: 8,
+    padding: scale(8),
+    borderRadius: moderateScale(8),
     backgroundColor: Colors.background,
   },
   filterButton: {
-    padding: 8,
-    borderRadius: 8,
+    padding: scale(8),
+    borderRadius: moderateScale(8),
     backgroundColor: Colors.background,
   },
   filterButtonActive: {
@@ -616,33 +617,33 @@ const styles = StyleSheet.create({
   },
   searchInputSection: {
     backgroundColor: Colors.textWhite,
-    paddingHorizontal: 16,
-    paddingBottom: 12,
+    paddingHorizontal: scale(16),
+    paddingBottom: verticalScale(12),
   },
   searchInputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: Colors.background,
-    borderRadius: 12,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
+    borderRadius: moderateScale(12),
+    paddingHorizontal: scale(12),
+    paddingVertical: verticalScale(8),
   },
   searchIcon: {
-    marginRight: 8,
+    marginRight: scale(8),
   },
   searchInput: {
     flex: 1,
-    fontSize: 16,
+    fontSize: moderateScale(16),
     color: Colors.text,
-    paddingVertical: 4,
+    paddingVertical: verticalScale(4),
   },
   clearButton: {
-    padding: 4,
+    padding: scale(4),
   },
   loadingContainer: {
-    height: 2,
+    height: verticalScale(2),
     backgroundColor: Colors.cardBorder,
-    marginTop: 8,
+    marginTop: verticalScale(8),
     borderRadius: 1,
     overflow: 'hidden',
   },
@@ -653,8 +654,8 @@ const styles = StyleSheet.create({
   },
   filtersContainer: {
     backgroundColor: Colors.textWhite,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
+    paddingHorizontal: scale(16),
+    paddingVertical: verticalScale(8),
     borderBottomWidth: 1,
     borderBottomColor: Colors.cardBorder,
     flexDirection: 'row',
@@ -662,14 +663,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   filtersTitle: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: Colors.textLight,
   },
   clearFiltersButton: {
-    padding: 4,
+    padding: scale(4),
   },
   clearFiltersText: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: Colors.primary,
   },
   suggestionsContainer: {
@@ -680,25 +681,25 @@ const styles = StyleSheet.create({
   suggestionItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    gap: 8,
+    paddingHorizontal: scale(16),
+    paddingVertical: verticalScale(12),
+    gap: scale(8),
   },
   suggestionText: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     color: Colors.text,
   },
   mainContent: {
     flex: 1,
   },
   resultsList: {
-    padding: 16,
+    padding: scale(16),
   },
   resultItem: {
     backgroundColor: Colors.textWhite,
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 12,
+    borderRadius: moderateScale(12),
+    padding: scale(16),
+    marginBottom: verticalScale(12),
     elevation: 2,
     shadowColor: Colors.cardShadow,
     shadowOffset: {
@@ -709,31 +710,31 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
   },
   resultContent: {
-    gap: 4,
+    gap: verticalScale(4),
   },
   resultChinese: {
-    fontSize: 20,
+    fontSize: moderateScale(20),
     fontWeight: 'bold',
     color: Colors.text,
   },
   resultPinyin: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: Colors.textSecondary,
   },
   resultTranslation: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     color: Colors.text,
   },
   categoryBadge: {
     alignSelf: 'flex-start',
     backgroundColor: Colors.primary + '20',
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 6,
-    marginTop: 4,
+    paddingHorizontal: scale(8),
+    paddingVertical: verticalScale(4),
+    borderRadius: moderateScale(6),
+    marginTop: verticalScale(4),
   },
   categoryBadgeText: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     color: Colors.primary,
     fontWeight: '600',
   },
@@ -741,20 +742,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 32,
+    padding: scale(32),
   },
   emptyStateText: {
-    fontSize: 18,
+    fontSize: moderateScale(18),
     fontWeight: '600',
     color: Colors.text,
-    marginTop: 16,
+    marginTop: verticalScale(16),
     textAlign: 'center',
   },
   emptyStateSubtext: {
-    fontSize: 14,
+    fontSize: moderateScale(14),
     color: Colors.textLight,
-    marginTop: 8,
+    marginTop: verticalScale(8),
     textAlign: 'center',
-    lineHeight: 20,
+    lineHeight: moderateScale(20),
   },
 });
