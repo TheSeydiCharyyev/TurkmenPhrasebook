@@ -17,7 +17,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
-import { useConfig } from '../contexts/ConfigContext';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { getLanguageByCode } from '../config/languages.config';
 import type { RootStackParamList } from '../types';
@@ -42,7 +41,7 @@ const getModules = (texts: any): ModuleCard[] => [
     id: 'phrasebook',
     title: texts.phrasebookTitle,
     subtitle: texts.phrasebookSubtitle,
-    iconName: 'book',
+    iconName: 'book-outline',
     gradientColors: ['#667eea', '#764ba2'],
     route: 'Phrasebook',
     isHero: true,  // Hero card - большая на всю ширину
@@ -51,7 +50,7 @@ const getModules = (texts: any): ModuleCard[] => [
     id: 'visual-translator',
     title: texts.visualTranslatorTitle,
     subtitle: texts.visualTranslatorSubtitle,
-    iconName: 'camera',
+    iconName: 'camera-outline',
     gradientColors: ['#f093fb', '#f5576c'],
     route: 'VisualTranslator',
   },
@@ -59,23 +58,33 @@ const getModules = (texts: any): ModuleCard[] => [
     id: 'text-translator',
     title: texts.textTranslatorTitle,
     subtitle: texts.textTranslatorSubtitle,
-    iconName: 'language',
+    iconName: 'text-outline',
     gradientColors: ['#4facfe', '#00f2fe'],
     route: 'TextTranslator',
+  },
+  {
+    id: 'voice-translator',
+    title: texts.voiceTranslatorTitle,
+    subtitle: texts.voiceTranslatorSubtitle,
+    iconName: 'mic-outline',
+    gradientColors: ['#a8edea', '#fed6e3'],
+    route: 'VoiceTranslator',
+    isLocked: true,  // 🔒 Заблокировано для v2.0
   },
   {
     id: 'dictionary',
     title: texts.dictionaryTitle,
     subtitle: texts.dictionarySubtitle,
-    iconName: 'library',
+    iconName: 'book-outline',
     gradientColors: ['#43e97b', '#38f9d7'],
     route: 'Dictionary',
+    isLocked: true,  // 🔒 Заблокировано для v2.0
   },
   {
     id: 'ai-assistants',
     title: texts.aiAssistantsTitle,
     subtitle: texts.aiAssistantsSubtitle,
-    iconName: 'sparkles',
+    iconName: 'sparkles-outline',
     gradientColors: ['#fa709a', '#fee140'],
     route: 'AIAssistantsHome',
   },
@@ -83,7 +92,7 @@ const getModules = (texts: any): ModuleCard[] => [
     id: 'favorites',
     title: texts.myFavoritesTitle,
     subtitle: texts.myFavoritesSubtitle,
-    iconName: 'star',
+    iconName: 'heart-outline',
     gradientColors: ['#ff9a56', '#ff6a88'],
     route: 'Favorites',
   },
@@ -93,17 +102,17 @@ type MainHubScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
 export default function MainHubScreen() {
   const navigation = useNavigation<MainHubScreenNavigationProp>();
-  const { selectedLanguage } = useConfig();
-  const { getTexts } = useAppLanguage();
-  const currentLanguage = getLanguageByCode(selectedLanguage);
+  const { config, getTexts } = useAppLanguage();
+  // ✅ ИСПРАВЛЕНО: Используем config.mode (язык интерфейса), а не selectedLanguage (язык разговорника)
+  const currentLanguage = getLanguageByCode(config.mode);
   const texts = getTexts();
   const modules = getModules(texts);
 
   const handleModulePress = (module: ModuleCard) => {
     if (module.isLocked) {
       Alert.alert(
-        '🔒 Coming Soon',
-        `${module.title} will be available soon! We're working hard to bring you this feature.`,
+        '🔒 Coming in v2.0',
+        `${module.title} will be available in version 2.0! Stay tuned for exciting updates.`,
         [{ text: 'OK' }]
       );
       return;

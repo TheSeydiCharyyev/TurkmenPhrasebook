@@ -1,6 +1,7 @@
 /**
  * AI Assistants Home Screen
  * Main screen for selecting an AI assistant
+ * Design: Hero + Grid (Modern 2025)
  */
 
 import React from 'react';
@@ -13,12 +14,12 @@ import {
   StatusBar,
   Platform,
 } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../../types/navigation';
 import AIAssistantService from '../services/AIAssistantService';
 import AssistantCard from '../components/AssistantCard';
 import { AssistantType } from '../types/ai-assistant.types';
-import { DesignColors, Spacing, Typography } from '../../../constants/Design';
 
 type AIAssistantsHomeScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -56,8 +57,8 @@ const AIAssistantsHomeScreen: React.FC<Props> = ({ navigation }) => {
   return (
     <View style={styles.safeArea}>
       <StatusBar
-        barStyle="dark-content"
-        backgroundColor={DesignColors.background}
+        barStyle="light-content"
+        backgroundColor="#7C3AED"
         translucent={false}
       />
       <ScrollView
@@ -65,22 +66,33 @@ const AIAssistantsHomeScreen: React.FC<Props> = ({ navigation }) => {
         contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
       >
-        {/* Header */}
-        <View style={styles.header}>
+        {/* Gradient Header */}
+        <LinearGradient
+          colors={['#7C3AED', '#5B21B6']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={styles.header}
+        >
           <TouchableOpacity
             style={styles.backButton}
             onPress={() => navigation.goBack()}
           >
-            <Text style={styles.backButtonText}>←</Text>
+            <Text style={styles.backButtonText}>⬅️</Text>
           </TouchableOpacity>
-          <Text style={styles.title}>AI Assistants</Text>
+          <Text style={styles.headerTitle}>AI Assistants</Text>
           <View style={styles.placeholder} />
-        </View>
+        </LinearGradient>
 
-        {/* Subtitle */}
-        <Text style={styles.subtitle}>
-          Choose an AI assistant to help you learn Turkmen language
-        </Text>
+        {/* Hero Section */}
+        <View style={styles.heroSection}>
+          <View style={styles.heroIconContainer}>
+            <Text style={styles.heroIcon}>🤖</Text>
+          </View>
+          <Text style={styles.heroTitle}>AI Language Assistants</Text>
+          <Text style={styles.heroSubtitle}>
+            Choose an AI assistant to help you learn Turkmen language
+          </Text>
+        </View>
 
         {/* Assistant Cards */}
         <View style={styles.cardsContainer}>
@@ -112,7 +124,7 @@ const AIAssistantsHomeScreen: React.FC<Props> = ({ navigation }) => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: DesignColors.backgroundGray,
+    backgroundColor: '#F5F5F5',
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   container: {
@@ -121,68 +133,105 @@ const styles = StyleSheet.create({
   content: {
     paddingBottom: 32,
   },
+  // Gradient Header (Hero + Grid style)
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 16,
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+    elevation: 8,
+    shadowColor: '#7C3AED',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 12,
   },
   backButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  backButtonText: {
+    fontSize: 20,
+  },
+  headerTitle: {
+    fontSize: 22,
+    fontWeight: '800',
+    color: '#FFFFFF',
+    letterSpacing: 0.5,
+  },
+  placeholder: {
+    width: 44,
+  },
+  // Hero Section
+  heroSection: {
+    alignItems: 'center',
+    paddingHorizontal: 24,
+    paddingTop: 32,
+    paddingBottom: 24,
+  },
+  heroIconContainer: {
+    width: 96,
+    height: 96,
+    borderRadius: 48,
     backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
+    marginBottom: 16,
+    elevation: 8,
+    shadowColor: '#7C3AED',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 12,
   },
-  backButtonText: {
-    fontSize: 24,
-    color: '#000',
+  heroIcon: {
+    fontSize: 56,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: '#000',
-  },
-  placeholder: {
-    width: 40,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: '#666',
+  heroTitle: {
+    fontSize: 28,
+    fontWeight: '800',
+    color: '#1F2937',
+    marginBottom: 12,
     textAlign: 'center',
-    marginHorizontal: 32,
-    marginBottom: 24,
-    lineHeight: 22,
   },
+  heroSubtitle: {
+    fontSize: 16,
+    color: '#6B7280',
+    textAlign: 'center',
+    lineHeight: 24,
+    paddingHorizontal: 16,
+  },
+  // Cards
   cardsContainer: {
     marginTop: 8,
   },
+  // Info Card (Modern style with rounded corners and shadows)
   infoCard: {
     flexDirection: 'row',
-    backgroundColor: '#E3F2FD',
-    borderRadius: 12,
-    padding: 16,
+    backgroundColor: '#EDE9FE',
+    borderRadius: 20,
+    padding: 20,
     marginHorizontal: 16,
     marginTop: 24,
-    borderWidth: 1,
-    borderColor: '#2196F3',
+    elevation: 6,
+    shadowColor: '#7C3AED',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 12,
   },
   infoIcon: {
-    fontSize: 20,
+    fontSize: 24,
     marginRight: 12,
   },
   infoText: {
     flex: 1,
     fontSize: 14,
-    color: '#1565C0',
-    lineHeight: 20,
+    color: '#5B21B6',
+    lineHeight: 22,
+    fontWeight: '500',
   },
   bottomPadding: {
     height: 32,

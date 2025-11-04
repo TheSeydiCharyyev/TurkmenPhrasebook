@@ -39,6 +39,8 @@ export interface InterfaceTexts {
   visualTranslatorSubtitle: string;
   textTranslatorTitle: string;
   textTranslatorSubtitle: string;
+  voiceTranslatorTitle: string;
+  voiceTranslatorSubtitle: string;
   dictionaryTitle: string;
   dictionarySubtitle: string;
   aiAssistantsTitle: string;
@@ -138,6 +140,38 @@ export interface InterfaceTexts {
   ttCopiedMessage: string;
   ttInfoTitle: string;
   ttInfoCannotSwap: string;
+
+  // AI Assistants - Home Screen
+  aiHomeTitle: string;
+  aiHomeSubtitle: string;
+  aiInfoText: string;
+
+  // AI Assistant Names (5)
+  aiContextualTipsName: string;
+  aiConversationTrainerName: string;
+  aiGrammarHelperName: string;
+  aiCulturalAdvisorName: string;
+  aiGeneralAssistantName: string;
+
+  // AI Assistant Descriptions (5)
+  aiContextualTipsDesc: string;
+  aiConversationTrainerDesc: string;
+  aiGrammarHelperDesc: string;
+  aiCulturalAdvisorDesc: string;
+  aiGeneralAssistantDesc: string;
+
+  // Welcome Messages (5)
+  aiContextualTipsWelcome: string;
+  aiConversationTrainerWelcome: string;
+  aiGrammarHelperWelcome: string;
+  aiCulturalAdvisorWelcome: string;
+  aiGeneralAssistantWelcome: string;
+
+  // ChatScreen UI
+  aiInputPlaceholder: string;
+  aiThinking: string;
+  aiErrorMessage: string;
+  aiClearHistory: string;
 }
 
 // ✅ ИСПРАВЛЕНО: Правильные заголовки согласно требованиям
@@ -165,6 +199,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     visualTranslatorSubtitle: 'Kamera bilen teksti skanirleme',
     textTranslatorTitle: 'Tekst terjimeçi',
     textTranslatorSubtitle: 'Teksti ýazmak we terjime etmek',
+    voiceTranslatorTitle: 'Ses terjimeçi',
+    voiceTranslatorSubtitle: 'Sesli terjime (v2.0)',
     dictionaryTitle: 'Sözlük',
     dictionarySubtitle: 'v2.0-de çykar',
     aiAssistantsTitle: 'AI kömekçiler',
@@ -260,6 +296,38 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     ttCopiedMessage: 'Terjime alyş-çalyş paneline göçürildi',
     ttInfoTitle: 'Maglumat',
     ttInfoCannotSwap: 'Awto Anykla saýlanda çalyş mümkin däl',
+
+    // AI Assistants
+    aiHomeTitle: 'AI Kömekçiler',
+    aiHomeSubtitle: 'Türkmen dilini öwrenmek üçin AI kömekçi saýlaň',
+    aiInfoText: 'AI kömekçiler ösen dil modellerini ulanýar. Jogaplar birnäçe sekunt alyp biler.',
+
+    // AI Assistant Names
+    aiContextualTipsName: 'Kontekstual Maslahatlar',
+    aiConversationTrainerName: 'Söhbetdeşlik Tälimçisi',
+    aiGrammarHelperName: 'Grammatika Kömekçisi',
+    aiCulturalAdvisorName: 'Medeni Geňeşçi',
+    aiGeneralAssistantName: 'Umumy Kömekçi',
+
+    // AI Assistant Descriptions
+    aiContextualTipsDesc: 'Häzirki okuw kontekstiňize esaslanýan akylly maslahatlar alyň',
+    aiConversationTrainerDesc: 'Hakyky söhbetdeşlikleri öwreniň we geplemek ukybyny kämilleşdiriň',
+    aiGrammarHelperDesc: 'Türkmen grammatika düzgünleri we gurluşlary bilen derrew kömek alyň',
+    aiCulturalAdvisorDesc: 'Türkmen medeniýeti, adatlary we edebi terbiýesi hakda biliň',
+    aiGeneralAssistantDesc: 'Türkmen dilini öwrenmek barada islendik sorag beriň',
+
+    // Welcome Messages
+    aiContextualTipsWelcome: 'Salam! Men size Türkmen dilini öwrenmek üçin peýdaly maslahatlar we düşünjeler bererin. Islendik zat soraň!',
+    aiConversationTrainerWelcome: 'Salam! Geliň, Türkmen dilinde söhbetdeşlik öwreneliň. Men siziň geplemek ukybyny gowulandyrmaga kömek ederin!',
+    aiGrammarHelperWelcome: 'Hoş geldiňiz! Men siziň grammatika kömekçiňiz. Türkmen grammatika düzgünleri ýa-da gurluşlary barada soraň.',
+    aiCulturalAdvisorWelcome: 'Salam! Geliň, Türkmen medeniýeti, adatlary we däp-dessurlar hakda düşüneli.',
+    aiGeneralAssistantWelcome: 'Salam! Men umumy okuw kömekçiňiz. Türkmen dilini öwrenmek barada islendik zat soraň!',
+
+    // ChatScreen UI
+    aiInputPlaceholder: 'Hatyňyzy ýazyň...',
+    aiThinking: 'Pikir edýärin...',
+    aiErrorMessage: 'Bagyşlaň, ýalňyşlyk ýüze çykdy. Gaýtadan synanyşyň.',
+    aiClearHistory: 'Taryhy arassala',
   },
   
   zh: {
@@ -285,6 +353,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     visualTranslatorSubtitle: '用相机扫描文本',
     textTranslatorTitle: '文本翻译',
     textTranslatorSubtitle: '输入并翻译文本',
+    voiceTranslatorTitle: '语音翻译',
+    voiceTranslatorSubtitle: '语音翻译 (v2.0)',
     dictionaryTitle: '词典',
     dictionarySubtitle: 'v2.0推出',
     aiAssistantsTitle: 'AI助手',
@@ -380,6 +450,38 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     ttCopiedMessage: '翻译已复制到剪贴板',
     ttInfoTitle: '信息',
     ttInfoCannotSwap: '选择自动检测时无法交换',
+
+    // AI Assistants
+    aiHomeTitle: 'AI助手',
+    aiHomeSubtitle: '选择AI助手帮您学习土库曼语',
+    aiInfoText: 'AI助手使用先进的语言模型提供个性化帮助。响应可能需要几秒钟。',
+
+    // AI Assistant Names
+    aiContextualTipsName: '情境提示',
+    aiConversationTrainerName: '对话训练师',
+    aiGrammarHelperName: '语法助手',
+    aiCulturalAdvisorName: '文化顾问',
+    aiGeneralAssistantName: '通用助手',
+
+    // AI Assistant Descriptions
+    aiContextualTipsDesc: '根据您当前的学习情境获得智能提示',
+    aiConversationTrainerDesc: '练习真实对话，提高您的口语能力',
+    aiGrammarHelperDesc: '立即获得土库曼语语法规则和结构的帮助',
+    aiCulturalAdvisorDesc: '了解土库曼文化、习俗和礼仪',
+    aiGeneralAssistantDesc: '询问有关学习土库曼语的任何问题',
+
+    // Welcome Messages
+    aiContextualTipsWelcome: '您好！我会为您提供学习土库曼语的有用提示和见解。请随便问！',
+    aiConversationTrainerWelcome: '您好！让我们练习土库曼语对话吧。我会帮您提高口语能力！',
+    aiGrammarHelperWelcome: '欢迎！我是您的语法助手。问我任何土库曼语语法规则或结构的问题。',
+    aiCulturalAdvisorWelcome: '您好！让我帮您了解土库曼文化、习俗和传统。',
+    aiGeneralAssistantWelcome: '您好！我是您的通用学习助手。请随便问我关于学习土库曼语的任何问题！',
+
+    // ChatScreen UI
+    aiInputPlaceholder: '输入您的消息...',
+    aiThinking: '思考中...',
+    aiErrorMessage: '抱歉，出现错误。请重试。',
+    aiClearHistory: '清除历史记录',
   },
 
   ru: {
@@ -404,6 +506,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     visualTranslatorSubtitle: 'Сканирование текста камерой',
     textTranslatorTitle: 'Текстовый переводчик',
     textTranslatorSubtitle: 'Ввод и перевод текста',
+    voiceTranslatorTitle: 'Голосовой переводчик',
+    voiceTranslatorSubtitle: 'Голосовой перевод (v2.0)',
     dictionaryTitle: 'Словарь',
     dictionarySubtitle: 'Выйдет в v2.0',
     aiAssistantsTitle: 'AI помощники',
@@ -499,6 +603,38 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     ttCopiedMessage: 'Перевод скопирован в буфер обмена',
     ttInfoTitle: 'Информация',
     ttInfoCannotSwap: 'Невозможно поменять местами когда выбрано Авто Определение',
+
+    // AI Assistants
+    aiHomeTitle: 'AI Ассистенты',
+    aiHomeSubtitle: 'Выберите AI ассистента для изучения туркменского языка',
+    aiInfoText: 'AI ассистенты используют продвинутые языковые модели для персонализированной помощи. Ответы могут занять несколько секунд.',
+
+    // AI Assistant Names
+    aiContextualTipsName: 'Контекстные Подсказки',
+    aiConversationTrainerName: 'Тренер Разговоров',
+    aiGrammarHelperName: 'Помощник по Грамматике',
+    aiCulturalAdvisorName: 'Культурный Советник',
+    aiGeneralAssistantName: 'Общий Ассистент',
+
+    // AI Assistant Descriptions
+    aiContextualTipsDesc: 'Получайте умные подсказки на основе вашего текущего контекста обучения',
+    aiConversationTrainerDesc: 'Практикуйте реальные разговоры и улучшайте навыки речи',
+    aiGrammarHelperDesc: 'Получите мгновенную помощь с правилами и структурами туркменской грамматики',
+    aiCulturalAdvisorDesc: 'Узнайте о туркменской культуре, обычаях и этикете',
+    aiGeneralAssistantDesc: 'Задавайте любые вопросы об изучении туркменского языка',
+
+    // Welcome Messages
+    aiContextualTipsWelcome: 'Привет! Я предоставлю вам полезные советы и идеи для изучения туркменского языка. Спрашивайте что угодно!',
+    aiConversationTrainerWelcome: 'Привет! Давайте попрактикуем разговоры на туркменском. Я помогу улучшить ваши разговорные навыки!',
+    aiGrammarHelperWelcome: 'Добро пожаловать! Я ваш помощник по грамматике. Спрашивайте меня о любых правилах или структурах туркменской грамматики.',
+    aiCulturalAdvisorWelcome: 'Салам! Позвольте мне помочь вам понять туркменскую культуру, обычаи и традиции.',
+    aiGeneralAssistantWelcome: 'Привет! Я ваш общий помощник по обучению. Задавайте любые вопросы об изучении туркменского языка!',
+
+    // ChatScreen UI
+    aiInputPlaceholder: 'Введите ваше сообщение...',
+    aiThinking: 'Думаю...',
+    aiErrorMessage: 'Извините, произошла ошибка. Попробуйте снова.',
+    aiClearHistory: 'Очистить историю',
   },
 
   en: {
@@ -523,6 +659,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     visualTranslatorSubtitle: 'Scan text with camera',
     textTranslatorTitle: 'Text Translator',
     textTranslatorSubtitle: 'Type and translate text',
+    voiceTranslatorTitle: 'Voice Translator',
+    voiceTranslatorSubtitle: 'Voice translation (v2.0)',
     dictionaryTitle: 'Dictionary',
     dictionarySubtitle: 'Coming in v2.0',
     aiAssistantsTitle: 'AI Assistants',
@@ -618,6 +756,38 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     ttCopiedMessage: 'Translation copied to clipboard',
     ttInfoTitle: 'Info',
     ttInfoCannotSwap: 'Cannot swap when Auto Detect is selected',
+
+    // AI Assistants
+    aiHomeTitle: 'AI Assistants',
+    aiHomeSubtitle: 'Choose an AI assistant to help you learn Turkmen language',
+    aiInfoText: 'AI assistants use advanced language models to provide personalized help. Responses may take a few seconds.',
+
+    // AI Assistant Names
+    aiContextualTipsName: 'Contextual Tips',
+    aiConversationTrainerName: 'Conversation Trainer',
+    aiGrammarHelperName: 'Grammar Helper',
+    aiCulturalAdvisorName: 'Cultural Advisor',
+    aiGeneralAssistantName: 'General Assistant',
+
+    // AI Assistant Descriptions
+    aiContextualTipsDesc: 'Get smart tips based on your current learning context',
+    aiConversationTrainerDesc: 'Practice real conversations and improve your speaking skills',
+    aiGrammarHelperDesc: 'Get instant help with Turkmen grammar rules and structures',
+    aiCulturalAdvisorDesc: 'Learn about Turkmen culture, customs, and etiquette',
+    aiGeneralAssistantDesc: 'Ask anything about learning Turkmen language',
+
+    // Welcome Messages
+    aiContextualTipsWelcome: "Hello! I'm here to provide you with helpful tips and insights for learning Turkmen. Ask me anything!",
+    aiConversationTrainerWelcome: "Hi there! Let's practice some conversations in Turkmen. I'll help you improve your speaking skills!",
+    aiGrammarHelperWelcome: "Welcome! I'm your grammar assistant. Ask me about any Turkmen grammar rules or structures.",
+    aiCulturalAdvisorWelcome: "Salam! Let me help you understand Turkmen culture, customs, and traditions.",
+    aiGeneralAssistantWelcome: "Hello! I'm your general learning assistant. Feel free to ask me anything about learning Turkmen!",
+
+    // ChatScreen UI
+    aiInputPlaceholder: 'Type your message...',
+    aiThinking: 'Thinking...',
+    aiErrorMessage: 'Sorry, I encountered an error. Please try again.',
+    aiClearHistory: 'Clear History',
   },
 
   tr: {

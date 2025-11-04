@@ -1,7 +1,7 @@
 # 📋 TASKS - TurkmenPhrasebook
 
 **Last Updated:** November 4, 2025
-**Status:** Phase 1-4 ✅ 100% → Phase 5 ⏳ 74% (Text Translator) → Phase 6 🆕 Voice Translator (NEW!) → Phase 7-8 UI Improvements → Phase 9-10 Testing & Production
+**Status:** Phase 1-4 ✅ 100% → Phase 5 ⏳ 74% (Text Translator) → Phase 6 🆕 Voice Translator (NEW!) → Phase 7 Dictionary → Phase 8 ⏳ 40% (AI Assistants UI Done, Translations 4/31) → Phase 9-10 Testing & Production
 
 ---
 
@@ -364,7 +364,7 @@
 
 ---
 
-### **PHASE 8: Поработать с ИИ** (⏳ 0%)
+### **PHASE 8: Поработать с ИИ** (⏳ 40%)
 
 **Задача:** Улучшить дизайн и добавить мультиязычность для AI ассистентов
 
@@ -376,103 +376,94 @@
 - `src/contexts/LanguageContext.tsx`
 - AI ассистенты экраны (5 штук: ContextualTips, ConversationTrainer, GrammarHelper, CulturalAdvisor, GeneralAssistant)
 
-**Текущие проблемы:**
+**✅ Выполнено:**
 
-1. ❌ **Дизайн устаревший:**
-   - AIAssistantsHomeScreen не использует Hero + Grid дизайн
-   - ChatScreen использует LinearGradient, но дизайн простой
-   - Нет современных теней, скруглений как в других модулях
+1. ✅ **Редизайн UI (Hero + Grid дизайн):**
+   - ✅ AIAssistantsHomeScreen обновлен:
+     - Градиентный purple header (#7C3AED → #5B21B6)
+     - Hero секция с эмодзи 🤖 и "AI Language Assistants"
+     - Обновлен Info Card с purple цветовой схемой
+     - Мощные тени (elevation 8, shadowRadius 12)
+     - Увеличенные скругления (borderRadius 20px)
+   - ✅ AssistantCard обновлен:
+     - Увеличенные тени (elevation 8, shadowRadius 12)
+     - Скругления 20px
+     - Увеличенные иконки (64x64)
+     - Улучшенная типографика (fontSize 19, fontWeight 800)
+   - ✅ ChatScreen обновлен:
+     - Улучшенный gradient header с тенями
+     - Современный input container (белый фон, тени, border)
+     - Увеличенные размеры кнопок (44x44)
+     - Улучшенная типографика и spacing
 
-2. ❌ **Мультиязычность отсутствует:**
-   - Все тексты захардкожены на английском
-   - AIAssistantsHomeScreen: "AI Assistants", "Choose an AI assistant..."
-   - ChatScreen: "Type your message...", "Thinking...", "Sorry, I encountered an error..."
-   - Welcome messages для всех 5 ассистентов (на английском)
-   - config.name и config.description для всех 5 ассистентов (на английском)
-   - Нет переводов на 31 язык
+2. ✅ **Добавлены 27 полей в InterfaceTexts:**
+   - aiHomeTitle, aiHomeSubtitle, aiInfoText
+   - 5 названий ассистентов (aiContextualTipsName и т.д.)
+   - 5 описаний ассистентов (aiContextualTipsDesc и т.д.)
+   - 5 welcome messages (aiContextualTipsWelcome и т.д.)
+   - 4 UI поля для ChatScreen (aiInputPlaceholder, aiThinking, aiErrorMessage, aiClearHistory)
+
+3. ✅ **Добавлены переводы для 4 языков:**
+   - ✅ tk (Туркменский) - все 27 полей
+   - ✅ zh (Китайский) - все 27 полей
+   - ✅ ru (Русский) - все 27 полей
+   - ✅ en (Английский) - все 27 полей
+
+**⏳ Осталось сделать:**
+
+#### 8.3 Добавить переводы для оставшихся 27 языков (⏳ 0%)
+
+**Оставшиеся языки (27):**
+- ⏳ tr, de, fr, es, it, pt, nl, pl (европейские 8)
+- ⏳ uk, ja, ko, th, vi, id, ms (азиатские/украинский 7)
+- ⏳ hi, ur, fa, ps, ar (южноазиатские/арабские 5)
+- ⏳ uz, kk, az, ky, tg, hy, ka (центральноазиатские/кавказские 7)
+
+**Способы добавления:**
+1. Использовать Task agent для автоматизации (~15 минут)
+2. Добавить вручную (~2-3 часа)
+3. Добавить только ключевые европейские языки (tr, de, fr, es, it) + fallback на английский для остальных (~30 минут)
+
+**Оценка времени:** 2-3 часа (вручную) или 15 минут (Task agent)
+
+#### 8.4 Интеграция переводов в код (⏳ 0%)
 
 **Что нужно сделать:**
+- [ ] Обновить AIAssistantsHomeScreen.tsx:
+  - Добавить импорт `useAppLanguage` и `getTexts()`
+  - Заменить "AI Assistants" на `texts.aiHomeTitle`
+  - Заменить "Choose an AI assistant..." на `texts.aiHomeSubtitle`
+  - Заменить info text на `texts.aiInfoText`
+- [ ] Обновить ChatScreen.tsx:
+  - Добавить импорт `useAppLanguage` и `getTexts()`
+  - Заменить "Type your message..." на `texts.aiInputPlaceholder`
+  - Заменить "Thinking..." на `texts.aiThinking`
+  - Заменить "Sorry, I encountered an error..." на `texts.aiErrorMessage`
+- [ ] Обновить AIAssistantService.ts:
+  - Добавить метод для получения config с переводами
+  - Получать name из `texts.aiXXXName`
+  - Получать description из `texts.aiXXXDesc`
+  - Получать welcome message из `texts.aiXXXWelcome`
+- [ ] Протестировать работу на 4 языках (tk, zh, ru, en)
 
-#### 8.1 Редизайн AIAssistantsHomeScreen (Hero + Grid)
-- [ ] Градиентный header (например, Purple/Blue gradient)
-- [ ] Hero секция с эмодзи 🤖 и описанием "AI Language Assistants"
-- [ ] Обновить AssistantCard дизайн (более современные тени, скругления)
-- [ ] Мощные тени для карточек (elevation 8, shadowRadius 12)
-- [ ] Увеличенные скругления (borderRadius 20px)
-- [ ] Обновить Info Card дизайн
+**Оценка времени:** 1-2 часа
 
-#### 8.2 Редизайн ChatScreen (Hero + Grid стиль)
-- [ ] Улучшить gradient header
-- [ ] Современные стили для message bubbles
-- [ ] Обновить input container (белый фон, тени, скругления)
-- [ ] Улучшить loading indicator
-- [ ] Добавить больше визуальной иерархии
+---
 
-#### 8.3 Добавить мультиязычность (31 язык)
-
-**8.3.1 Добавить поля в InterfaceTexts (LanguageContext.tsx):**
-
-```typescript
-// AI Assistants Home Screen
-aiHomeTitle: string;
-aiHomeSubtitle: string;
-aiInfoText: string;
-
-// AI Assistant Names (5 штук)
-aiContextualTipsName: string;
-aiConversationTrainerName: string;
-aiGrammarHelperName: string;
-aiCulturalAdvisorName: string;
-aiGeneralAssistantName: string;
-
-// AI Assistant Descriptions (5 штук)
-aiContextualTipsDesc: string;
-aiConversationTrainerDesc: string;
-aiGrammarHelperDesc: string;
-aiCulturalAdvisorDesc: string;
-aiGeneralAssistantDesc: string;
-
-// Welcome Messages (5 штук)
-aiContextualTipsWelcome: string;
-aiConversationTrainerWelcome: string;
-aiGrammarHelperWelcome: string;
-aiCulturalAdvisorWelcome: string;
-aiGeneralAssistantWelcome: string;
-
-// ChatScreen UI
-aiInputPlaceholder: string;
-aiThinking: string;
-aiErrorMessage: string;
-aiClearHistory: string;
-```
-
-**Итого:** ~25-30 полей для AI Assistants
-
-- [ ] Добавить переводы для всех 31 языков:
-  - tk, zh, ru, en (первые 4)
-  - tr, de, fr, es, it, pt, nl, pl (европейские 8)
-  - uk, ja, ko, th, vi, id, ms (азиатские 7)
-  - hi, ur, fa, ps, ar (южноазиатские/арабские 5)
-  - uz, kk, az, ky, tg, hy, ka (центральноазиатские/кавказские 7)
-
-#### 8.4 Интеграция переводов в код
-- [ ] Обновить AIAssistantsHomeScreen.tsx (использовать getTexts())
-- [ ] Обновить ChatScreen.tsx (использовать getTexts() для UI текстов)
-- [ ] Обновить AIAssistantService.ts (получать name/description из переводов)
-- [ ] Обновить welcome messages (динамические на основе языка)
-
-**Измененные файлы:**
-- `src/contexts/LanguageContext.tsx` - добавлены ~25-30 полей + переводы для 31 языков
-- `src/features/ai-assistants/screens/AIAssistantsHomeScreen.tsx` - Hero + Grid дизайн + мультиязычность
-- `src/features/ai-assistants/components/ChatScreen.tsx` - улучшенный дизайн + мультиязычность
-- `src/features/ai-assistants/components/AssistantCard.tsx` - обновленный дизайн
-- `src/features/ai-assistants/services/AIAssistantService.ts` - использование переводов для config
+**Измененные файлы (Phase 8):**
+- ✅ `src/contexts/LanguageContext.tsx` - добавлены 27 полей + переводы для 4 языков
+- ✅ `src/features/ai-assistants/screens/AIAssistantsHomeScreen.tsx` - Hero + Grid дизайн
+- ✅ `src/features/ai-assistants/components/ChatScreen.tsx` - улучшенный дизайн
+- ✅ `src/features/ai-assistants/components/AssistantCard.tsx` - обновленный дизайн
+- ⏳ `src/features/ai-assistants/services/AIAssistantService.ts` - ожидает интеграции переводов
 
 **Дизайн стиль:**
 - Hero + Grid (современный 2025) - градиенты, мощные тени, яркие цвета
+- Purple цветовая схема (#7C3AED → #5B21B6)
 - Соответствие дизайну Visual Translator и Text Translator
 
-**Оценка времени:** 6-8 часов (дизайн ~2-3 часа + мультиязычность ~4-5 часов)
+**Время выполнено:** ~2.5-3 часа (40%)
+**Оценка оставшегося времени:** ~3.5-5 часов (60%)
 
 ---
 
