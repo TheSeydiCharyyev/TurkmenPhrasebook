@@ -228,12 +228,6 @@ export default function MainHubScreen() {
         </TouchableOpacity>
       </Animated.View>
 
-      {/* Welcome Section */}
-      <View style={styles.welcome}>
-        <Text style={styles.welcomeTitle}>{texts.appTitle}</Text>
-        <Text style={styles.welcomeSubtitle}>{texts.selectCategory}</Text>
-      </View>
-
       {/* Modules - Hero + Grid */}
       <Animated.ScrollView
         contentContainerStyle={styles.scrollContent}
@@ -241,6 +235,12 @@ export default function MainHubScreen() {
         onScroll={handleScroll}
         scrollEventThrottle={16}
       >
+        {/* Welcome Section - ВНУТРИ ScrollView чтобы скроллилась */}
+        <View style={styles.welcome}>
+          <Text style={styles.welcomeTitle}>{texts.appTitle}</Text>
+          <Text style={styles.welcomeSubtitle}>{texts.selectCategory}</Text>
+        </View>
+
         {/* Hero Card - Phrasebook */}
         {modules
           .filter((m) => m.isHero)
@@ -305,13 +305,13 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
         <View style={styles.moduleTextContainer}>
           <Text
             style={isHero ? styles.heroTitle : styles.moduleTitle}
-            numberOfLines={1}
+            numberOfLines={2}
           >
             {module.title}
           </Text>
           <Text
             style={isHero ? styles.heroSubtitle : styles.moduleSubtitle}
-            numberOfLines={isHero ? 3 : 2}
+            numberOfLines={isHero ? 3 : 3}
           >
             {module.subtitle}
           </Text>
@@ -338,7 +338,7 @@ const styles = StyleSheet.create({
   // Clean Header with animation support - RESPONSIVE
   header: {
     position: 'absolute',
-    top: 0,
+    top: verticalScale(16), // Увеличенный отступ сверху
     left: 0,
     right: 0,
     height: verticalScale(64),
@@ -393,16 +393,16 @@ const styles = StyleSheet.create({
     padding: scale(8),
   },
 
-  // Welcome Section (with top padding for absolute header) - RESPONSIVE
+  // Welcome Section - RESPONSIVE (внутри ScrollView)
   welcome: {
     paddingHorizontal: scale(24),
-    paddingTop: verticalScale(64) + scale(32),
+    paddingTop: scale(20), // Меньший отступ, так как теперь внутри ScrollView
     paddingBottom: scale(16),
-    backgroundColor: '#ffffff',
+    backgroundColor: 'transparent', // Прозрачный фон
   },
 
   welcomeTitle: {
-    fontSize: moderateScale(28),
+    fontSize: moderateScale(24), // Уменьшен для лучшей читаемости
     fontWeight: Typography.bold,
     color: DesignColors.text,
     marginBottom: verticalScale(4),
@@ -470,11 +470,12 @@ const styles = StyleSheet.create({
   },
 
   heroTitle: {
-    fontSize: moderateScale(28, 0.3),
+    fontSize: moderateScale(26, 0.3), // Немного уменьшен для длинных слов
     fontWeight: Typography.bold,
     color: '#fff',
     fontFamily: Typography.fontFamily,
     marginBottom: verticalScale(6),
+    lineHeight: moderateScale(32), // Добавлен lineHeight
   },
 
   heroSubtitle: {
@@ -508,7 +509,7 @@ const styles = StyleSheet.create({
   moduleGradient: {
     width: '100%',
     aspectRatio: 1,
-    padding: scale(24),
+    padding: scale(16), // Уменьшен для большего пространства под текст
     justifyContent: 'space-between',
   },
 
@@ -517,16 +518,17 @@ const styles = StyleSheet.create({
   },
 
   iconContainer: {
-    width: scale(64),
-    height: scale(64),
-    borderRadius: scale(32),
+    width: scale(56), // Уменьшен для большего места под текст
+    height: scale(56),
+    borderRadius: scale(28),
     backgroundColor: 'rgba(255, 255, 255, 0.2)',
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: verticalScale(8), // Отступ между иконкой и текстом
   },
 
   iconEmoji: {
-    fontSize: moderateScale(36),
+    fontSize: moderateScale(32), // Уменьшен соответственно
     textAlign: 'center',
   },
 
@@ -536,18 +538,19 @@ const styles = StyleSheet.create({
   },
 
   moduleTitle: {
-    fontSize: moderateScale(17),
+    fontSize: moderateScale(15), // Уменьшен для длинных туркменских слов
     fontWeight: Typography.bold,
     color: '#fff',
     fontFamily: Typography.fontFamily,
     marginBottom: verticalScale(4),
+    lineHeight: moderateScale(20), // Добавлен lineHeight
   },
 
   moduleSubtitle: {
-    fontSize: moderateScale(13),
+    fontSize: moderateScale(12), // Уменьшен для лучшей читаемости
     color: 'rgba(255, 255, 255, 0.9)',
     fontFamily: Typography.fontFamily,
-    lineHeight: moderateScale(18),
+    lineHeight: moderateScale(16),
   },
 
   lockBadge: {
