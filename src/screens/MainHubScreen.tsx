@@ -1,7 +1,7 @@
 // src/screens/MainHubScreen.tsx
 // HERO + GRID DESIGN - Modern 2025 UI
 
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import {
   View,
   Text,
@@ -12,6 +12,9 @@ import {
   Alert,
   Platform,
   Dimensions,
+  Animated,
+  NativeSyntheticEvent,
+  NativeScrollEvent,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
@@ -28,7 +31,7 @@ interface ModuleCard {
   id: string;
   title: string;
   subtitle: string;
-  iconName: keyof typeof Ionicons.glyphMap;
+  icon: string; // Эмодзи вместо Ionicons
   gradientColors: string[];
   route: string;
   isHero?: boolean;
@@ -41,7 +44,7 @@ const getModules = (texts: any): ModuleCard[] => [
     id: 'phrasebook',
     title: texts.phrasebookTitle,
     subtitle: texts.phrasebookSubtitle,
-    iconName: 'book-outline',
+    icon: '📖',
     gradientColors: ['#667eea', '#764ba2'],
     route: 'Phrasebook',
     isHero: true,  // Hero card - большая на всю ширину
@@ -50,7 +53,7 @@ const getModules = (texts: any): ModuleCard[] => [
     id: 'visual-translator',
     title: texts.visualTranslatorTitle,
     subtitle: texts.visualTranslatorSubtitle,
-    iconName: 'camera-outline',
+    icon: '📷',
     gradientColors: ['#f093fb', '#f5576c'],
     route: 'VisualTranslator',
   },
@@ -58,7 +61,7 @@ const getModules = (texts: any): ModuleCard[] => [
     id: 'text-translator',
     title: texts.textTranslatorTitle,
     subtitle: texts.textTranslatorSubtitle,
-    iconName: 'text-outline',
+    icon: '📝',
     gradientColors: ['#4facfe', '#00f2fe'],
     route: 'TextTranslator',
   },
@@ -66,7 +69,7 @@ const getModules = (texts: any): ModuleCard[] => [
     id: 'voice-translator',
     title: texts.voiceTranslatorTitle,
     subtitle: texts.voiceTranslatorSubtitle,
-    iconName: 'mic-outline',
+    icon: '🎤',
     gradientColors: ['#a8edea', '#fed6e3'],
     route: 'VoiceTranslator',
     isLocked: true,  // 🔒 Заблокировано для v2.0
@@ -75,7 +78,7 @@ const getModules = (texts: any): ModuleCard[] => [
     id: 'dictionary',
     title: texts.dictionaryTitle,
     subtitle: texts.dictionarySubtitle,
-    iconName: 'book-outline',
+    icon: '📚',
     gradientColors: ['#43e97b', '#38f9d7'],
     route: 'Dictionary',
     isLocked: true,  // 🔒 Заблокировано для v2.0
@@ -84,7 +87,7 @@ const getModules = (texts: any): ModuleCard[] => [
     id: 'ai-assistants',
     title: texts.aiAssistantsTitle,
     subtitle: texts.aiAssistantsSubtitle,
-    iconName: 'sparkles-outline',
+    icon: '✨',
     gradientColors: ['#fa709a', '#fee140'],
     route: 'AIAssistantsHome',
   },
@@ -92,7 +95,7 @@ const getModules = (texts: any): ModuleCard[] => [
     id: 'favorites',
     title: texts.myFavoritesTitle,
     subtitle: texts.myFavoritesSubtitle,
-    iconName: 'heart-outline',
+    icon: '❤️',
     gradientColors: ['#ff9a56', '#ff6a88'],
     route: 'Favorites',
   },
@@ -107,6 +110,49 @@ export default function MainHubScreen() {
   const currentLanguage = getLanguageByCode(config.mode);
   const texts = getTexts();
   const modules = getModules(texts);
+
+  // Анимация header при скролле
+  const scrollY = useRef(new Animated.Value(0)).current;
+  const [headerVisible, setHeaderVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  const headerTranslateY = scrollY.interpolate({
+    inputRange: [0, 64],
+    outputRange: [0, -64],
+    extrapolate: 'clamp',
+  });
+
+  const handleScroll = Animated.event(
+    [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+    {
+      useNativeDriver: true,
+      listener: (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+        const currentScrollY = event.nativeEvent.contentOffset.y;
+        const scrollDifference = currentScrollY - lastScrollY.current;
+
+        // Скрыть header при скролле вниз (threshold: 10px)
+        if (scrollDifference > 10 && headerVisible) {
+          setHeaderVisible(false);
+          Animated.timing(scrollY, {
+            toValue: 64,
+            duration: 250,
+            useNativeDriver: true,
+          }).start();
+        }
+        // Показать header при скролле вверх (threshold: 10px)
+        else if (scrollDifference < -10 && !headerVisible) {
+          setHeaderVisible(true);
+          Animated.timing(scrollY, {
+            toValue: 0,
+            duration: 250,
+            useNativeDriver: true,
+          }).start();
+        }
+
+        lastScrollY.current = currentScrollY;
+      },
+    }
+  );
 
   const handleModulePress = (module: ModuleCard) => {
     if (module.isLocked) {
@@ -153,8 +199,15 @@ export default function MainHubScreen() {
         translucent={false}
       />
 
-      {/* Header */}
-      <View style={styles.header}>
+      {/* Animated Header */}
+      <Animated.View
+        style={[
+          styles.header,
+          {
+            transform: [{ translateY: headerTranslateY }],
+          },
+        ]}
+      >
         <View style={styles.headerLeft}>
           <TouchableOpacity
             style={styles.languageBadge}
@@ -173,7 +226,7 @@ export default function MainHubScreen() {
         >
           <Ionicons name="settings-outline" size={26} color={DesignColors.text} />
         </TouchableOpacity>
-      </View>
+      </Animated.View>
 
       {/* Welcome Section */}
       <View style={styles.welcome}>
@@ -182,9 +235,11 @@ export default function MainHubScreen() {
       </View>
 
       {/* Modules - Hero + Grid */}
-      <ScrollView
+      <Animated.ScrollView
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
+        onScroll={handleScroll}
+        scrollEventThrottle={16}
       >
         {/* Hero Card - Phrasebook */}
         {modules
@@ -209,7 +264,7 @@ export default function MainHubScreen() {
               />
             ))}
         </View>
-      </ScrollView>
+      </Animated.ScrollView>
     </View>
   );
 }
@@ -239,13 +294,11 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
         end={{ x: 1, y: 1 }}
         style={isHero ? styles.heroGradient : styles.moduleGradient}
       >
-        {/* Icon */}
+        {/* Icon - Эмодзи */}
         <View style={isHero ? styles.heroIconContainer : styles.iconContainer}>
-          <Ionicons
-            name={module.iconName}
-            size={isHero ? 56 : 40}
-            color="#fff"
-          />
+          <Text style={isHero ? styles.heroIconEmoji : styles.iconEmoji}>
+            {module.icon}
+          </Text>
         </View>
 
         {/* Module info */}
@@ -282,8 +335,12 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
 
-  // Clean Header
+  // Clean Header with animation support
   header: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
     height: 64,
     flexDirection: 'row',
     alignItems: 'center',
@@ -292,6 +349,18 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     borderBottomWidth: 1,
     borderBottomColor: '#e9ecef',
+    zIndex: 100,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+      },
+      android: {
+        elevation: 4,
+      },
+    }),
   },
 
   headerLeft: {
@@ -324,10 +393,10 @@ const styles = StyleSheet.create({
     padding: 8,
   },
 
-  // Welcome Section
+  // Welcome Section (with top padding for absolute header)
   welcome: {
     paddingHorizontal: Spacing.lg,
-    paddingTop: Spacing.xl,
+    paddingTop: 64 + Spacing.xl, // header height + spacing
     paddingBottom: Spacing.md,
     backgroundColor: '#ffffff',
   },
@@ -390,9 +459,22 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 40,
-    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: 'rgba(255, 255, 255, 0.5)',
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowRadius: 8,
+      },
+      android: {
+        elevation: 6,
+      },
+    }),
   },
 
   heroTitle: {
@@ -444,9 +526,22 @@ const styles = StyleSheet.create({
     width: 64,
     height: 64,
     borderRadius: 32,
-    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+    backgroundColor: 'rgba(255, 255, 255, 0.35)',
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: 'rgba(255, 255, 255, 0.4)',
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 0.25,
+        shadowRadius: 6,
+      },
+      android: {
+        elevation: 5,
+      },
+    }),
   },
 
   moduleTextContainer: {
