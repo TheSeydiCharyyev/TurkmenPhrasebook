@@ -285,6 +285,24 @@ export default function MainHubScreen() {
   );
 }
 
+// Helper function to determine if gradient is light or dark
+const isLightGradient = (gradientColors: string[]): boolean => {
+  // Convert hex to RGB and calculate luminance
+  const hexToLuminance = (hex: string): number => {
+    const rgb = parseInt(hex.replace('#', ''), 16);
+    const r = (rgb >> 16) & 0xff;
+    const g = (rgb >> 8) & 0xff;
+    const b = (rgb >> 0) & 0xff;
+    // Calculate relative luminance
+    return (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+  };
+
+  const avgLuminance = gradientColors.reduce((acc, color) =>
+    acc + hexToLuminance(color), 0) / gradientColors.length;
+
+  return avgLuminance > 0.6; // Threshold for "light" gradient
+};
+
 // Hero + Grid Module Card Component
 interface ModuleCardProps {
   module: ModuleCard;
@@ -293,6 +311,7 @@ interface ModuleCardProps {
 
 const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => {
   const isHero = module.isHero;
+  const iconColor = isLightGradient(module.gradientColors) ? '#1F2937' : '#FFFFFF';
 
   return (
     <TouchableOpacity
@@ -311,24 +330,37 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
         style={isHero ? styles.heroGradient : styles.moduleGradient}
       >
         {/* Icon - Ionicons */}
-        <View style={isHero ? styles.heroIconContainer : styles.iconContainer}>
+        <View style={[
+          isHero ? styles.heroIconContainer : styles.iconContainer,
+          {
+            backgroundColor: iconColor === '#1F2937'
+              ? 'rgba(255, 255, 255, 0.25)'
+              : 'rgba(255, 255, 255, 0.2)'
+          }
+        ]}>
           <Ionicons
             name={module.iconName as any}
             size={isHero ? 44 : 32}
-            color="#FFFFFF"
+            color={iconColor}
           />
         </View>
 
         {/* Module info */}
         <View style={styles.moduleTextContainer}>
           <Text
-            style={isHero ? styles.heroTitle : styles.moduleTitle}
+            style={[
+              isHero ? styles.heroTitle : styles.moduleTitle,
+              { color: iconColor }
+            ]}
             numberOfLines={2}
           >
             {module.title}
           </Text>
           <Text
-            style={isHero ? styles.heroSubtitle : styles.moduleSubtitle}
+            style={[
+              isHero ? styles.heroSubtitle : styles.moduleSubtitle,
+              { color: iconColor === '#1F2937' ? 'rgba(31, 41, 55, 0.8)' : 'rgba(255, 255, 255, 0.9)' }
+            ]}
             numberOfLines={isHero ? 3 : 3}
           >
             {module.subtitle}
@@ -476,7 +508,6 @@ const styles = StyleSheet.create({
     width: scale(80),
     height: scale(80),
     borderRadius: scale(40),
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -485,7 +516,6 @@ const styles = StyleSheet.create({
   heroTitle: {
     fontSize: moderateScale(26, 0.3), // Немного уменьшен для длинных слов
     fontWeight: Typography.bold,
-    color: '#fff',
     fontFamily: Typography.fontFamily,
     marginBottom: verticalScale(6),
     lineHeight: moderateScale(32), // Добавлен lineHeight
@@ -493,7 +523,6 @@ const styles = StyleSheet.create({
 
   heroSubtitle: {
     fontSize: moderateScale(16),
-    color: 'rgba(255, 255, 255, 0.95)',
     fontFamily: Typography.fontFamily,
     lineHeight: moderateScale(22),
   },
@@ -534,7 +563,6 @@ const styles = StyleSheet.create({
     width: scale(56), // Уменьшен для большего места под текст
     height: scale(56),
     borderRadius: scale(28),
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: verticalScale(8), // Отступ между иконкой и текстом
@@ -549,7 +577,6 @@ const styles = StyleSheet.create({
   moduleTitle: {
     fontSize: moderateScale(15), // Уменьшен для длинных туркменских слов
     fontWeight: Typography.bold,
-    color: '#fff',
     fontFamily: Typography.fontFamily,
     marginBottom: verticalScale(4),
     lineHeight: moderateScale(20), // Добавлен lineHeight
@@ -557,7 +584,6 @@ const styles = StyleSheet.create({
 
   moduleSubtitle: {
     fontSize: moderateScale(12), // Уменьшен для лучшей читаемости
-    color: 'rgba(255, 255, 255, 0.9)',
     fontFamily: Typography.fontFamily,
     lineHeight: moderateScale(16),
   },
