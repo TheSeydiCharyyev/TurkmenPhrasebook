@@ -630,7 +630,7 @@ const styles = StyleSheet.create({
     fontWeight: Typography.bold,
     fontFamily: Typography.fontFamily,
     marginBottom: verticalScale(4),
-    lineHeight: moderateScale(24),
+    lineHeight: moderateScale(20),
     paddingRight: scale(60), // Отступ справа, чтобы не задевать иконку
   },
 
