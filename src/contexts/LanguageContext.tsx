@@ -2617,7 +2617,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     additionalFeatures: 'Tính năng bổ sung',
     statistics: 'Thống kê',
 
-    appTitle: 'Ứng dụng học tiếng Turkmen',
+    appTitle: 'Şapak - Turkmen translation and AI language companion',
     appSubtitle: 'Tất cả công cụ để học ngôn ngữ',
     selectCategory: 'Chọn danh mục',
     recentlyStudied: 'Học gần đây',
@@ -2769,7 +2769,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     additionalFeatures: 'Fitur tambahan',
     statistics: 'Statistik',
 
-    appTitle: 'Aplikasi Belajar Bahasa Turkmen',
+    appTitle: 'Şapak - Turkmen translation and AI language companion',
     appSubtitle: 'Semua alat untuk belajar bahasa',
     selectCategory: 'Pilih kategori',
     recentlyStudied: 'Baru dipelajari',
@@ -2921,7 +2921,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     additionalFeatures: 'Ciri tambahan',
     statistics: 'Statistik',
 
-    appTitle: 'Aplikasi Pembelajaran Bahasa Turkmen',
+    appTitle: 'Şapak - Turkmen translation and AI language companion',
     appSubtitle: 'Semua alat untuk belajar bahasa',
     selectCategory: 'Pilih kategori',
     recentlyStudied: 'Baru dipelajari',
@@ -3073,7 +3073,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     additionalFeatures: 'अतिरिक्त सुविधाएं',
     statistics: 'आंकड़े',
 
-    appTitle: 'तुर्कमेन भाषा सीखने का ऐप',
+    appTitle: 'Şapak - Turkmen translation and AI language companion',
     appSubtitle: 'भाषा सीखने के लिए सभी उपकरण',
     selectCategory: 'श्रेणी चुनें',
     recentlyStudied: 'हाल ही में अध्ययन किया',
@@ -3225,7 +3225,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     additionalFeatures: 'اضافی خصوصیات',
     statistics: 'اعدادوشمار',
 
-    appTitle: 'ترکمان زبان سیکھنے کی ایپ',
+    appTitle: 'Şapak - Turkmen translation and AI language companion',
     appSubtitle: 'زبان سیکھنے کے لیے تمام ٹولز',
     selectCategory: 'زمرہ منتخب کریں',
     recentlyStudied: 'حال ہی میں مطالعہ کیا',
@@ -3377,7 +3377,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     additionalFeatures: 'ویژگی‌های اضافی',
     statistics: 'آمار',
 
-    appTitle: 'برنامه یادگیری زبان ترکمنی',
+    appTitle: 'Şapak - Turkmen translation and AI language companion',
     appSubtitle: 'تمام ابزارها برای یادگیری زبان',
     selectCategory: 'انتخاب دسته‌بندی',
     recentlyStudied: 'اخیراً مطالعه شده',
@@ -3529,7 +3529,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     additionalFeatures: 'اضافي ځانګړتیاوې',
     statistics: 'شمېرنه',
 
-    appTitle: 'د ترکمني ژبې زده کړې اپلیکیشن',
+    appTitle: 'Şapak - Turkmen translation and AI language companion',
     appSubtitle: 'د ژبې زده کړې لپاره ټولې وسیلې',
     selectCategory: 'کټګورۍ وټاکئ',
     recentlyStudied: 'وروستۍ مطالعه شوي',
@@ -3681,7 +3681,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     additionalFeatures: 'Qo\'shimcha xususiyatlar',
     statistics: 'Statistika',
 
-    appTitle: 'Turkman tilini o\'rganish ilovasi',
+    appTitle: 'Şapak - Turkmen translation and AI language companion',
     appSubtitle: 'Til o\'rganish uchun barcha vositalar',
     selectCategory: 'Kategoriyani tanlang',
     recentlyStudied: 'Yaqinda o\'rganilgan',
@@ -3833,7 +3833,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     additionalFeatures: 'Қосымша мүмкіндіктер',
     statistics: 'Статистика',
 
-    appTitle: 'Түрікмен тілін үйрену қолданбасы',
+    appTitle: 'Şapak - Turkmen translation and AI language companion',
     appSubtitle: 'Тіл үйрену үшін барлық құралдар',
     selectCategory: 'Санатты таңдаңыз',
     recentlyStudied: 'Жақында үйренілген',
@@ -3985,7 +3985,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     additionalFeatures: 'Əlavə xüsusiyyətlər',
     statistics: 'Statistika',
 
-    appTitle: 'Türkmən dilini öyrənmə tətbiqi',
+    appTitle: 'Şapak - Turkmen translation and AI language companion',
     appSubtitle: 'Dil öyrənmək üçün bütün alətlər',
     selectCategory: 'Kateqoriya seçin',
     recentlyStudied: 'Son öyrənilənlər',
@@ -4137,7 +4137,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     additionalFeatures: 'Кошумча мүмкүнчүлүктөр',
     statistics: 'Статистика',
 
-    appTitle: 'Түркмөн тилин үйрөнүү колдонмосу',
+    appTitle: 'Şapak - Turkmen translation and AI language companion',
     appSubtitle: 'Тил үйрөнүү үчүн бардык куралдар',
     selectCategory: 'Категорияны тандоо',
     recentlyStudied: 'Жакында үйрөнгөндөр',
@@ -4289,7 +4289,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     additionalFeatures: 'Хусусиятҳои иловагӣ',
     statistics: 'Омор',
 
-    appTitle: 'Барномаи омӯзиши забони туркманӣ',
+    appTitle: 'Şapak - Turkmen translation and AI language companion',
     appSubtitle: 'Ҳамаи воситаҳо барои омӯхтани забон',
     selectCategory: 'Категорияро интихоб кунед',
     recentlyStudied: 'Ба наздикӣ омӯхташуда',
@@ -4441,7 +4441,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     additionalFeatures: 'Լրացուցիչ գործառույթներ',
     statistics: 'Վիճակագրություն',
 
-    appTitle: 'Թուրքմեներեն սովորելու ծրագիր',
+    appTitle: 'Şapak - Turkmen translation and AI language companion',
     appSubtitle: 'Բոլոր գործիքները լեզու սովորելու համար',
     selectCategory: 'Ընտրել կատեգորիա',
     recentlyStudied: 'Վերջերս ուսումնասիրված',
@@ -4593,7 +4593,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     additionalFeatures: 'დამატებითი ფუნქციები',
     statistics: 'სტატისტიკა',
 
-    appTitle: 'თურქმენული ენის სწავლის აპლიკაცია',
+    appTitle: 'Şapak - Turkmen translation and AI language companion',
     appSubtitle: 'ყველა ხელსაწყო ენის შესასწავლად',
     selectCategory: 'აირჩიეთ კატეგორია',
     recentlyStudied: 'ახლახან შესწავლილი',
@@ -4745,7 +4745,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     additionalFeatures: 'ميزات إضافية',
     statistics: 'الإحصائيات',
 
-    appTitle: 'تطبيق تعلم اللغة التركمانية',
+    appTitle: 'Şapak - Turkmen translation and AI language companion',
     appSubtitle: 'جميع الأدوات لتعلم اللغة',
     selectCategory: 'اختر الفئة',
     recentlyStudied: 'المدروس مؤخراً',
