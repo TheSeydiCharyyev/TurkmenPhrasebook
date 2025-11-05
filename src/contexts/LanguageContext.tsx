@@ -199,7 +199,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     visualTranslatorSubtitle: 'Kamera bilen teksti skanirleme',
     textTranslatorTitle: 'Tekst terjimeçi',
     textTranslatorSubtitle: 'Teksti ýazmak we terjime etmek',
-    voiceTranslatorTitle: 'Ses terjimeçi',
+    voiceTranslatorTitle: 'Ses\nterjimeçi',
     voiceTranslatorSubtitle: 'Sesli terjime (v2.0)',
     dictionaryTitle: 'Sözlük',
     dictionarySubtitle: 'v2.0-de çykar',
