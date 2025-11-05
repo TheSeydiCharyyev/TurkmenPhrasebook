@@ -163,7 +163,7 @@ export const LANGUAGES: LanguageConfig[] = [
     name: 'پښتو',
     nameEn: 'Pashto',
     nameTk: 'Peştu dili',
-    flag: '🇦🇫',
+    flag: '🏳️',
     isAvailable: true,
     hasTranscription: true,
     ttsCode: 'ps-AF',
