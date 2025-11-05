@@ -340,7 +340,7 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
         ]}>
           <Ionicons
             name={module.iconName as any}
-            size={isHero ? 44 : 32}
+            size={isHero ? 44 : 28}
             color={iconColor}
           />
         </View>
@@ -379,7 +379,7 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
                   styles.moduleSubtitle,
                   { color: iconColor === '#1F2937' ? 'rgba(31, 41, 55, 0.8)' : 'rgba(255, 255, 255, 0.9)' }
                 ]}
-                numberOfLines={3}
+                numberOfLines={2}
               >
                 {module.subtitle}
               </Text>
@@ -589,30 +589,37 @@ const styles = StyleSheet.create({
   },
 
   iconContainer: {
-    width: scale(56),
-    height: scale(56),
-    borderRadius: scale(28),
+    position: 'absolute',
+    top: scale(16),
+    right: scale(16),
+    width: scale(48),
+    height: scale(48),
+    borderRadius: scale(24),
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: verticalScale(8), // Отступ между иконкой и текстом для Grid
   },
 
 
   moduleTextContainer: {
     flex: 1,
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
   },
 
   moduleTitle: {
-    fontSize: moderateScale(15), // Уменьшен для длинных туркменских слов
+    fontSize: moderateScale(16),
     fontWeight: Typography.bold,
     fontFamily: Typography.fontFamily,
     marginBottom: verticalScale(4),
-    lineHeight: moderateScale(20), // Добавлен lineHeight
+    lineHeight: moderateScale(22),
+    paddingRight: scale(60), // Отступ справа, чтобы не задевать иконку
   },
 
   moduleSubtitle: {
-    fontSize: moderateScale(12), // Уменьшен для лучшей читаемости
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: scale(10),
+    fontSize: moderateScale(12),
     fontFamily: Typography.fontFamily,
     lineHeight: moderateScale(16),
   },
