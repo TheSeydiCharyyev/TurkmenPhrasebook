@@ -253,7 +253,7 @@ export default function MainHubScreen() {
       >
         {/* Welcome Section - ВНУТРИ ScrollView чтобы скроллилась */}
         <View style={styles.welcome}>
-          <Text style={styles.welcomeTitle}>{texts.appTitle}</Text>
+          <Text style={styles.welcomeTitle} numberOfLines={1} adjustsFontSizeToFit>{texts.appTitle}</Text>
           <Text style={styles.welcomeSubtitle}>{texts.selectCategory}</Text>
         </View>
 
@@ -486,12 +486,12 @@ const styles = StyleSheet.create({
   },
 
   welcomeTitle: {
-    fontSize: moderateScale(26),
+    fontSize: moderateScale(20),
     fontWeight: '900', // Extra bold для акцента
     color: '#ff8008', // Оранжевый как у логотипа
     marginBottom: verticalScale(4),
     fontFamily: Typography.fontFamily,
-    letterSpacing: 0.5,
+    letterSpacing: 0.3,
   },
 
   welcomeSubtitle: {
