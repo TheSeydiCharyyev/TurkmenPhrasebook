@@ -347,24 +347,44 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
 
         {/* Module info */}
         <View style={styles.moduleTextContainer}>
-          <Text
-            style={[
-              isHero ? styles.heroTitle : styles.moduleTitle,
-              { color: iconColor }
-            ]}
-            numberOfLines={2}
-          >
-            {module.title}
-          </Text>
-          <Text
-            style={[
-              isHero ? styles.heroSubtitle : styles.moduleSubtitle,
-              { color: iconColor === '#1F2937' ? 'rgba(31, 41, 55, 0.8)' : 'rgba(255, 255, 255, 0.9)' }
-            ]}
-            numberOfLines={isHero ? 3 : 3}
-          >
-            {module.subtitle}
-          </Text>
+          {isHero ? (
+            <>
+              {/* Hero: Заголовок вверху */}
+              <Text
+                style={[styles.heroTitle, { color: iconColor }]}
+                numberOfLines={2}
+              >
+                {module.title}
+              </Text>
+              {/* Hero: Статистика внизу */}
+              <Text
+                style={[
+                  styles.heroStats,
+                  { color: iconColor === '#1F2937' ? 'rgba(31, 41, 55, 0.7)' : 'rgba(255, 255, 255, 0.85)' }
+                ]}
+              >
+                22 kategoriýada 305 söz düzümi
+              </Text>
+            </>
+          ) : (
+            <>
+              <Text
+                style={[styles.moduleTitle, { color: iconColor }]}
+                numberOfLines={2}
+              >
+                {module.title}
+              </Text>
+              <Text
+                style={[
+                  styles.moduleSubtitle,
+                  { color: iconColor === '#1F2937' ? 'rgba(31, 41, 55, 0.8)' : 'rgba(255, 255, 255, 0.9)' }
+                ]}
+                numberOfLines={3}
+              >
+                {module.subtitle}
+              </Text>
+            </>
+          )}
         </View>
 
         {/* Lock icon if locked */}
@@ -501,10 +521,13 @@ const styles = StyleSheet.create({
   heroGradient: {
     flex: 1,
     padding: scale(32),
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
   },
 
   heroIconContainer: {
+    position: 'absolute',
+    top: scale(32),
+    right: scale(32),
     width: scale(80),
     height: scale(80),
     borderRadius: scale(40),
@@ -514,17 +537,23 @@ const styles = StyleSheet.create({
 
 
   heroTitle: {
-    fontSize: moderateScale(26, 0.3), // Немного уменьшен для длинных слов
+    fontSize: moderateScale(28),
     fontWeight: Typography.bold,
     fontFamily: Typography.fontFamily,
-    marginBottom: verticalScale(6),
-    lineHeight: moderateScale(32), // Добавлен lineHeight
+    lineHeight: moderateScale(34),
+    marginBottom: verticalScale(8),
+    paddingRight: scale(100), // Отступ справа, чтобы не задевать иконку
   },
 
-  heroSubtitle: {
-    fontSize: moderateScale(16),
+  heroStats: {
+    position: 'absolute',
+    bottom: scale(-8),
+    left: scale(-4),
+    right: scale(100), // Ограничиваем ширину, чтобы не задевать иконку
+    fontSize: moderateScale(14),
     fontFamily: Typography.fontFamily,
-    lineHeight: moderateScale(22),
+    fontWeight: '600',
+    lineHeight: moderateScale(20),
   },
 
   // Regular Module Card - RESPONSIVE with Grid
@@ -560,18 +589,18 @@ const styles = StyleSheet.create({
   },
 
   iconContainer: {
-    width: scale(56), // Уменьшен для большего места под текст
+    width: scale(56),
     height: scale(56),
     borderRadius: scale(28),
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: verticalScale(8), // Отступ между иконкой и текстом
+    marginBottom: verticalScale(8), // Отступ между иконкой и текстом для Grid
   },
 
 
   moduleTextContainer: {
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
   },
 
   moduleTitle: {
