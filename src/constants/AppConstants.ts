@@ -4,7 +4,7 @@
  * ✅ STORAGE KEYS
  */
 export const STORAGE_KEYS = {
-  APP_LANGUAGE: 'chinese_phrasebook_app_language',
+  APP_LANGUAGE: 'shapak_app_language',
   FAVORITES: 'favorites',
   HISTORY: 'history',
   SETTINGS: 'settings',
@@ -144,7 +144,7 @@ export const FEATURES = {
  * ✅ DEEP LINKING
  */
 export const DEEP_LINKS = {
-  SCHEME: 'chinesephrasebook',
+  SCHEME: 'shapak',
   CATEGORY: 'category',
   PHRASE: 'phrase',
   SEARCH: 'search',
@@ -154,7 +154,7 @@ export const DEEP_LINKS = {
  * ✅ SOCIAL SHARING
  */
 export const SHARING = {
-  APP_STORE_URL: 'https://apps.apple.com/app/chinese-phrasebook',
-  GOOGLE_PLAY_URL: 'https://play.google.com/store/apps/chinese-phrasebook',
-  WEBSITE_URL: 'https://chinesephrasebook.app',
+  APP_STORE_URL: 'https://apps.apple.com/app/shapak-translator',
+  GOOGLE_PLAY_URL: 'https://play.google.com/store/apps/details?id=com.shapak.translator',
+  WEBSITE_URL: 'https://shapak.app',
 } as const;

@@ -3,7 +3,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const APP_LANGUAGE_KEY = 'chinese_phrasebook_app_language';
+const APP_LANGUAGE_KEY = 'shapak_app_language';
 const LANGUAGE_VERSION = '1.0';
 
 export type AppLanguageMode = 'tk' | 'zh' | 'ru' | 'en' | 'tr' | 'de' | 'fr' | 'es' | 'it' | 'pt' | 'nl' | 'pl' | 'uk' | 'ja' | 'ko' | 'th' | 'vi' | 'id' | 'ms' | 'hi' | 'ur' | 'fa' | 'ps' | 'uz' | 'kk' | 'az' | 'ky' | 'tg' | 'hy' | 'ka' | 'ar';
