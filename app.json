@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Turkmen Phrasebook",
-    "slug": "turkmen-phrasebook",
-    "description": "Learn Turkmen with 30 languages. Essential phrases for travelers, students, and language learners. Audio pronunciation included.",
+    "name": "Şapak",
+    "slug": "shapak-translator",
+    "description": "Şapak - Turkmen translation and AI language companion. Learn Turkmen with 31 languages support, AI assistants, visual translator, and more.",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -23,11 +23,11 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.seydicharyyev.turkmenphrasebook",
+      "bundleIdentifier": "com.shapak.translator",
       "buildNumber": "1.0.0",
       "infoPlist": {
-        "CFBundleDisplayName": "Turkmen Phrasebook",
-        "CFBundleName": "Turkmen Phrasebook",
+        "CFBundleDisplayName": "Şapak",
+        "CFBundleName": "Şapak",
         "NSMicrophoneUsageDescription": "This app uses the microphone for voice phrase search.",
         "NSMicrophoneUsageDescription[ru]": "Это приложение использует микрофон для голосового поиска фраз.",
         "NSMicrophoneUsageDescription[tk]": "Bu programma ses gözleg üçin mikrofon ulanýar.",
@@ -43,7 +43,7 @@
         "backgroundColor": "#10B981"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.seydicharyyev.turkmenphrasebook",
+      "package": "com.shapak.translator",
       "versionCode": 1,
       "permissions": [
         "CAMERA",
