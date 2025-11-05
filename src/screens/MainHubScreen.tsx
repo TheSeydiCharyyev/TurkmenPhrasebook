@@ -311,7 +311,7 @@ interface ModuleCardProps {
 
 const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => {
   const isHero = module.isHero;
-  const iconColor = isLightGradient(module.gradientColors) ? '#1F2937' : '#FFFFFF';
+  const iconColor = isLightGradient(module.gradientColors) ? '#1e293b' : '#FFFFFF';
 
   return (
     <TouchableOpacity
@@ -333,9 +333,9 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
         <View style={[
           isHero ? styles.heroIconContainer : styles.iconContainer,
           {
-            backgroundColor: iconColor === '#1F2937'
-              ? 'rgba(255, 255, 255, 0.25)'
-              : 'rgba(255, 255, 255, 0.2)'
+            backgroundColor: iconColor === '#1e293b'
+              ? 'rgba(255, 255, 255, 0.4)'
+              : 'rgba(255, 255, 255, 0.3)'
           }
         ]}>
           <Ionicons
@@ -360,7 +360,7 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
               <Text
                 style={[
                   styles.heroStats,
-                  { color: iconColor === '#1F2937' ? 'rgba(31, 41, 55, 0.7)' : 'rgba(255, 255, 255, 0.85)' }
+                  { color: iconColor }
                 ]}
               >
                 22 kategoriýada 305 söz düzümi
@@ -377,7 +377,7 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
               <Text
                 style={[
                   styles.moduleSubtitle,
-                  { color: iconColor === '#1F2937' ? 'rgba(31, 41, 55, 0.8)' : 'rgba(255, 255, 255, 0.9)' }
+                  { color: iconColor }
                 ]}
                 numberOfLines={2}
               >
