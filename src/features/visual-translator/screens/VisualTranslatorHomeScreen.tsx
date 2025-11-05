@@ -14,6 +14,7 @@ import {
   Platform,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Ionicons } from '@expo/vector-icons';
 import { DesignColors } from '../../../constants/Design';
 import { scale, verticalScale, moderateScale } from '../../../utils/ResponsiveUtils';
 import { Camera } from 'expo-camera';
@@ -210,7 +211,7 @@ export default function VisualTranslatorHomeScreen() {
           onPress={() => navigation.goBack()}
           activeOpacity={0.7}
         >
-          <Text style={styles.backEmoji}>⬅️</Text>
+          <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{texts.visualTranslatorTitle}</Text>
         <View style={styles.placeholder} />
@@ -423,10 +424,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#6366F1',
   },
   backButton: {
-    padding: scale(4),
-  },
-  backEmoji: {
-    fontSize: moderateScale(24),
+    width: scale(40),
+    height: scale(40),
+    borderRadius: scale(20),
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
   },
   headerTitle: {
     fontSize: moderateScale(18),
