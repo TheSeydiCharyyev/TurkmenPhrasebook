@@ -34,6 +34,18 @@ interface ChatScreenProps {
   onBack: () => void;
 }
 
+// Helper function to get translated assistant name
+const getTranslatedAssistantName = (type: AssistantType, texts: any): string => {
+  const nameMap: Record<AssistantType, string> = {
+    [AssistantType.CONTEXTUAL_TIPS]: texts.aiContextualTipsName,
+    [AssistantType.CONVERSATION_TRAINER]: texts.aiConversationTrainerName,
+    [AssistantType.GRAMMAR_HELPER]: texts.aiGrammarHelperName,
+    [AssistantType.CULTURAL_ADVISOR]: texts.aiCulturalAdvisorName,
+    [AssistantType.GENERAL_ASSISTANT]: texts.aiGeneralAssistantName,
+  };
+  return nameMap[type];
+};
+
 const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
   const { config: languageConfig, getTexts } = useAppLanguage();
   const texts = getTexts();
@@ -41,8 +53,10 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const scrollViewRef = useRef<ScrollView>(null);
+  const inputRef = useRef<TextInput>(null);
 
   const assistantConfig = AIAssistantService.getAssistantConfig(assistantType);
+  const translatedName = getTranslatedAssistantName(assistantType, texts);
 
   // Load chat history on mount
   useEffect(() => {
@@ -99,17 +113,20 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
   const handleSend = async () => {
     if (!inputText.trim() || isLoading) return;
 
+    // Clear input immediately for better UX
+    const messageToSend = inputText.trim();
+    setInputText('');
+
     const userMessage: ChatMessage = {
       id: Date.now().toString(),
       role: MessageRole.USER,
-      content: inputText.trim(),
+      content: messageToSend,
       timestamp: new Date(),
       assistantType,
     };
 
     // Add user message
     setMessages((prev) => [...prev, userMessage]);
-    setInputText('');
     setIsLoading(true);
 
     try {
@@ -170,8 +187,8 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
       />
       <KeyboardAvoidingView
         style={styles.container}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 90 : 0}
       >
         {/* Header */}
         <LinearGradient
@@ -186,7 +203,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
 
           <View style={styles.headerContent}>
             <Text style={styles.headerIcon}>{assistantConfig.icon}</Text>
-            <Text style={styles.headerTitle}>{assistantConfig.name}</Text>
+            <Text style={styles.headerTitle}>{translatedName}</Text>
           </View>
 
           <TouchableOpacity
@@ -224,6 +241,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
         {/* Input */}
         <View style={styles.inputContainer}>
           <TextInput
+            ref={inputRef}
             style={styles.input}
             placeholder={texts.aiInputPlaceholder}
             placeholderTextColor="#999"
@@ -232,6 +250,8 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
             multiline
             maxLength={500}
             editable={!isLoading}
+            returnKeyType="send"
+            blurOnSubmit={false}
           />
 
           <TouchableOpacity
@@ -334,7 +354,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5F5F5',
   },
   messagesContent: {
-    paddingVertical: verticalScale(20),
+    paddingTop: verticalScale(20),
+    paddingBottom: verticalScale(80), // Extra padding to prevent last message from being hidden
     paddingHorizontal: scale(4),
   },
   loadingContainer: {
