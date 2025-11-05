@@ -11,6 +11,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Ionicons } from '@expo/vector-icons';
 import { AssistantCardProps } from '../types/ai-assistant.types';
 import { scale, verticalScale, moderateScale } from '../../../utils/ResponsiveUtils';
 
@@ -35,7 +36,7 @@ const AssistantCard: React.FC<AssistantCardProps> = ({ config, onPress }) => {
       >
         {/* Icon */}
         <View style={styles.iconContainer}>
-          <Text style={styles.icon}>{config.icon}</Text>
+          <Ionicons name={config.iconName as any} size={32} color="#FFFFFF" />
         </View>
 
         {/* Content */}
@@ -46,7 +47,7 @@ const AssistantCard: React.FC<AssistantCardProps> = ({ config, onPress }) => {
 
         {/* Arrow */}
         <View style={styles.arrowContainer}>
-          <Text style={styles.arrow}>→</Text>
+          <Ionicons name="chevron-forward" size={24} color="#FFFFFF" />
         </View>
       </LinearGradient>
     </TouchableOpacity>
@@ -101,9 +102,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: scale(16),
   },
-  icon: {
-    fontSize: moderateScale(36),
-  },
   content: {
     flex: 1,
     marginRight: scale(16),
@@ -128,11 +126,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.3)',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  arrow: {
-    fontSize: moderateScale(20),
-    color: '#FFFFFF',
-    fontWeight: '700',
   },
 });
 

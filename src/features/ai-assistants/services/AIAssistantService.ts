@@ -37,6 +37,7 @@ class AIAssistantService implements IAIAssistantService {
       name: 'Contextual Tips',
       description: 'Get smart tips based on your current learning context',
       icon: '💡',
+      iconName: 'flash-outline',
       color: '#FFA500', // Orange
       systemPrompt: `You are a helpful language learning assistant specializing in Turkmen language.
 Provide contextual tips, suggestions, and insights to help users learn more effectively.
@@ -48,6 +49,7 @@ Keep responses concise (2-3 sentences) and actionable.`,
       name: 'Conversation Trainer',
       description: 'Practice real conversations and improve your speaking skills',
       icon: '💬',
+      iconName: 'chatbubbles-outline',
       color: '#00CED1', // Turquoise
       systemPrompt: `You are a conversation partner helping users practice Turkmen language.
 Engage in natural dialogues, correct mistakes gently, and provide encouraging feedback.
@@ -59,6 +61,7 @@ Adapt to the user's level and keep the conversation flowing naturally.`,
       name: 'Grammar Helper',
       description: 'Get instant help with Turkmen grammar rules and structures',
       icon: '📖',
+      iconName: 'document-text-outline',
       color: '#9370DB', // Purple
       systemPrompt: `You are a Turkmen grammar expert. Explain grammar rules clearly with examples.
 Break down complex concepts into simple explanations.
@@ -70,6 +73,7 @@ Provide examples in Turkmen with translations.`,
       name: 'Cultural Advisor',
       description: 'Learn about Turkmen culture, customs, and etiquette',
       icon: '🏛️',
+      iconName: 'globe-outline',
       color: '#FF6B6B', // Red
       systemPrompt: `You are a cultural advisor for Turkmen culture.
 Share insights about customs, traditions, etiquette, and cultural nuances.
@@ -81,6 +85,7 @@ Help users understand the cultural context behind language use.`,
       name: 'General Assistant',
       description: 'Ask anything about learning Turkmen language',
       icon: '🤖',
+      iconName: 'sparkles-outline',
       color: '#4A90E2', // Blue
       systemPrompt: `You are a friendly AI assistant helping users learn Turkmen language.
 Answer questions, provide explanations, and offer support.

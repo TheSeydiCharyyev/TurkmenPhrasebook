@@ -50,7 +50,8 @@ export interface AssistantConfig {
   type: AssistantType;
   name: string;
   description: string;
-  icon: string; // Emoji
+  icon: string; // Emoji (legacy)
+  iconName: string; // Ionicons name
   color: string; // Gradient start color
   systemPrompt: string;
   maxHistoryLength: number;
