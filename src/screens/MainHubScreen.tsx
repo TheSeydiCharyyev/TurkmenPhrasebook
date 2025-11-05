@@ -46,7 +46,7 @@ const getModules = (texts: any): ModuleCard[] => [
     subtitle: texts.phrasebookSubtitle,
     icon: '📖',
     iconName: 'book-outline',
-    gradientColors: ['#667eea', '#764ba2'],
+    gradientColors: ['#ff8008', '#ffc837'],
     route: 'Phrasebook',
     isHero: true,  // Hero card - большая на всю ширину
   },
@@ -56,7 +56,7 @@ const getModules = (texts: any): ModuleCard[] => [
     subtitle: texts.visualTranslatorSubtitle,
     icon: '📷',
     iconName: 'camera-outline',
-    gradientColors: ['#f093fb', '#f5576c'],
+    gradientColors: ['#ff8008', '#ffc837'],
     route: 'VisualTranslator',
   },
   {
@@ -65,7 +65,7 @@ const getModules = (texts: any): ModuleCard[] => [
     subtitle: texts.textTranslatorSubtitle,
     icon: '📝',
     iconName: 'text-outline',
-    gradientColors: ['#4facfe', '#00f2fe'],
+    gradientColors: ['#ff8008', '#ffc837'],
     route: 'TextTranslator',
   },
   {
@@ -74,7 +74,7 @@ const getModules = (texts: any): ModuleCard[] => [
     subtitle: texts.voiceTranslatorSubtitle,
     icon: '🎤',
     iconName: 'mic-outline',
-    gradientColors: ['#a8edea', '#fed6e3'],
+    gradientColors: ['#ff8008', '#ffc837'],
     route: 'VoiceTranslator',
     isLocked: true,  // 🔒 Заблокировано для v2.0
   },
@@ -84,7 +84,7 @@ const getModules = (texts: any): ModuleCard[] => [
     subtitle: texts.dictionarySubtitle,
     icon: '📚',
     iconName: 'library-outline',
-    gradientColors: ['#43e97b', '#38f9d7'],
+    gradientColors: ['#ff8008', '#ffc837'],
     route: 'Dictionary',
     isLocked: true,  // 🔒 Заблокировано для v2.0
   },
@@ -94,7 +94,7 @@ const getModules = (texts: any): ModuleCard[] => [
     subtitle: texts.aiAssistantsSubtitle,
     icon: '✨',
     iconName: 'sparkles',
-    gradientColors: ['#fa709a', '#fee140'],
+    gradientColors: ['#ff8008', '#ffc837'],
     route: 'AIAssistantsHome',
   },
   {
@@ -103,7 +103,7 @@ const getModules = (texts: any): ModuleCard[] => [
     subtitle: texts.myFavoritesSubtitle,
     icon: '❤️',
     iconName: 'heart',
-    gradientColors: ['#ff9a56', '#ff6a88'],
+    gradientColors: ['#ff8008', '#ffc837'],
     route: 'Favorites',
   },
 ];
@@ -300,7 +300,7 @@ const isLightGradient = (gradientColors: string[]): boolean => {
   const avgLuminance = gradientColors.reduce((acc, color) =>
     acc + hexToLuminance(color), 0) / gradientColors.length;
 
-  return avgLuminance > 0.6; // Threshold for "light" gradient
+  return avgLuminance > 0.85; // Threshold for "light" gradient
 };
 
 // Hero + Grid Module Card Component
@@ -465,23 +465,41 @@ const styles = StyleSheet.create({
 
   // Welcome Section - RESPONSIVE (внутри ScrollView)
   welcome: {
-    paddingTop: scale(8), // Небольшой отступ сверху
-    paddingBottom: scale(16),
-    backgroundColor: 'transparent', // Прозрачный фон
+    marginHorizontal: scale(16),
+    marginTop: scale(8),
+    marginBottom: scale(16),
+    backgroundColor: '#FFFFFF',
+    paddingHorizontal: scale(20),
+    paddingVertical: verticalScale(16),
+    borderRadius: scale(16),
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: scale(4) },
+        shadowOpacity: 0.1,
+        shadowRadius: scale(8),
+      },
+      android: {
+        elevation: 4,
+      },
+    }),
   },
 
   welcomeTitle: {
-    fontSize: moderateScale(24), // Уменьшен для лучшей читаемости
-    fontWeight: Typography.bold,
-    color: DesignColors.text,
+    fontSize: moderateScale(26),
+    fontWeight: '900', // Extra bold для акцента
+    color: '#ff8008', // Оранжевый как у логотипа
     marginBottom: verticalScale(4),
     fontFamily: Typography.fontFamily,
+    letterSpacing: 0.5,
   },
 
   welcomeSubtitle: {
-    fontSize: moderateScale(15),
-    color: DesignColors.textSecondary,
+    fontSize: moderateScale(14),
+    color: '#6B7280', // Серый для контраста
     fontFamily: Typography.fontFamily,
+    fontWeight: '600', // Semi-bold
+    letterSpacing: 0.3,
   },
 
   // Scroll Content - RESPONSIVE
