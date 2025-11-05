@@ -6,9 +6,9 @@ import { phrases } from '../data/phrases';
 import { categories } from '../data/categories';
 import { SafeStorage } from '../utils/SafeStorage';
 
-const OFFLINE_DATA_KEY = 'chinese_phrasebook_offline_data_v2';
-const SYNC_QUEUE_KEY = 'chinese_phrasebook_sync_queue';
-const LAST_SYNC_KEY = 'chinese_phrasebook_last_sync';
+const OFFLINE_DATA_KEY = 'shapak_offline_data_v2';
+const SYNC_QUEUE_KEY = 'shapak_sync_queue';
+const LAST_SYNC_KEY = 'shapak_last_sync';
 const CACHE_VERSION = '2.0';
 
 interface OfflineData {

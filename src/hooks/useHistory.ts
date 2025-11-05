@@ -4,9 +4,9 @@ import { PhraseWithTranslation, Category } from '../types';
 import { SafeStorage } from '../utils/SafeStorage';
 import { useErrorHandler } from './useErrorHandler';
 
-const HISTORY_STORAGE_KEY = 'chinese_phrasebook_history_v2';
-const STATS_STORAGE_KEY = 'chinese_phrasebook_stats_v2';
-const SESSIONS_STORAGE_KEY = 'chinese_phrasebook_sessions_v2';
+const HISTORY_STORAGE_KEY = 'shapak_history_v2';
+const STATS_STORAGE_KEY = 'shapak_stats_v2';
+const SESSIONS_STORAGE_KEY = 'shapak_sessions_v2';
 const MAX_HISTORY_ITEMS = 200; // Увеличиваем для статистики
 
 interface HistoryItem {

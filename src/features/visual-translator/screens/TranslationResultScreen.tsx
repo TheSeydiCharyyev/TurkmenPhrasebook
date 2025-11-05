@@ -92,7 +92,7 @@ export default function TranslationResultScreen() {
       }
 
       shareText += `Translation: ${result.translatedText}\n\n`;
-      shareText += `Translated with Turkmen Phrasebook`;
+      shareText += `Translated with Şapak`;
 
       await Share.share({
         message: shareText,
@@ -153,7 +153,7 @@ export default function TranslationResultScreen() {
           onPress={() => navigation.goBack()}
           activeOpacity={0.7}
         >
-          <Text style={styles.headerEmoji}>⬅️</Text>
+          <Ionicons name="arrow-back" size={24} color="#111827" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{texts.vtResult}</Text>
         <TouchableOpacity
@@ -300,7 +300,17 @@ const styles = StyleSheet.create({
     borderBottomColor: '#E5E7EB',
   },
   backButton: {
-    padding: scale(4),
+    width: scale(40),
+    height: scale(40),
+    borderRadius: scale(20),
+    backgroundColor: '#F3F4F6',
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 2,
   },
   headerTitle: {
     fontSize: moderateScale(18),

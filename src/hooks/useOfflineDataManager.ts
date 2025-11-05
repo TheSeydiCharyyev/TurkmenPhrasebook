@@ -10,11 +10,11 @@ import { categories } from '../data/categories';
 
 // Ключи хранения
 const CACHE_KEYS = {
-  OFFLINE_DATA: 'chinese_phrasebook_offline_data_v3',
-  SYNC_QUEUE: 'chinese_phrasebook_sync_queue_v3',
-  LAST_SYNC: 'chinese_phrasebook_last_sync_v3',
-  NETWORK_HISTORY: 'chinese_phrasebook_network_history',
-  USER_PREFERENCES: 'chinese_phrasebook_offline_preferences',
+  OFFLINE_DATA: 'shapak_offline_data_v3',
+  SYNC_QUEUE: 'shapak_sync_queue_v3',
+  LAST_SYNC: 'shapak_last_sync_v3',
+  NETWORK_HISTORY: 'shapak_network_history',
+  USER_PREFERENCES: 'shapak_offline_preferences',
 } as const;
 
 const CACHE_VERSION = '3.0.0';

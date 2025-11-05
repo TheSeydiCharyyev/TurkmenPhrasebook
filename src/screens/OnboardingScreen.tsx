@@ -42,7 +42,7 @@ export default function OnboardingScreen({ navigation, onComplete }: OnboardingS
   const slides: OnboardingSlide[] = [
     {
       id: '1',
-      title: 'Welcome to TurkmenPhrasebook',
+      title: 'Welcome to Şapak',
       subtitle: 'Your AI-powered guide to Turkmen language',
       icon: 'airplane',
       gradient: ['#4F46E5', '#7C3AED'],
@@ -217,7 +217,7 @@ function WelcomeSlide() {
   return (
     <View style={styles.slideContent}>
       <Ionicons name="airplane" size={120} color="#FFF" style={styles.slideIcon} />
-      <Text style={styles.slideTitle}>Welcome to{'\n'}TurkmenPhrasebook</Text>
+      <Text style={styles.slideTitle}>Welcome to{'\n'}Şapak</Text>
       <Text style={styles.slideSubtitle}>
         Your AI-powered guide to Turkmen language
       </Text>

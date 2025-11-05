@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const SEARCH_HISTORY_KEY = 'chinese_phrasebook_search_history';
+const SEARCH_HISTORY_KEY = 'shapak_search_history';
 const MAX_HISTORY_ITEMS = 20; // Максимум 20 поисковых запросов
 
 interface SearchHistoryItem {

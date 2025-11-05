@@ -4,7 +4,7 @@ import { PhraseWithTranslation } from '../types';
 import { SafeStorage } from '../utils/SafeStorage';
 import { useErrorHandler } from './useErrorHandler';
 
-const FAVORITES_STORAGE_KEY = 'chinese_phrasebook_favorites';
+const FAVORITES_STORAGE_KEY = 'shapak_favorites';
 
 export function useFavorites() {
   const [favorites, setFavorites] = useState<string[]>([]);

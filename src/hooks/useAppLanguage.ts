@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const APP_LANGUAGE_KEY = 'chinese_phrasebook_app_language';
+const APP_LANGUAGE_KEY = 'shapak_app_language';
 const LANGUAGE_VERSION = '1.0'; // Версия языковых настроек для миграций
 
 export type AppLanguageMode = 'tk' | 'zh';
