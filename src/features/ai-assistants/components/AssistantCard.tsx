@@ -11,7 +11,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { AssistantCardProps } from '../types/ai-assistant.types';
 import { scale, verticalScale, moderateScale } from '../../../utils/ResponsiveUtils';
 
@@ -36,7 +36,11 @@ const AssistantCard: React.FC<AssistantCardProps> = ({ config, onPress }) => {
       >
         {/* Icon */}
         <View style={styles.iconContainer}>
-          <Ionicons name={config.iconName as any} size={32} color="#FFFFFF" />
+          {config.iconLib === 'MaterialCommunityIcons' ? (
+            <MaterialCommunityIcons name={config.iconName as any} size={32} color="#FFFFFF" />
+          ) : (
+            <Ionicons name={config.iconName as any} size={32} color="#FFFFFF" />
+          )}
         </View>
 
         {/* Content */}

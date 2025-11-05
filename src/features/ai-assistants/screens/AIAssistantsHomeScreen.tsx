@@ -126,7 +126,7 @@ const AIAssistantsHomeScreen: React.FC<Props> = ({ navigation }) => {
         {/* Hero Section */}
         <View style={styles.heroSection}>
           <View style={styles.heroIconContainer}>
-            <Text style={styles.heroIcon}>🤖</Text>
+            <Ionicons name="sparkles" size={48} color="#7C3AED" />
           </View>
           <Text style={styles.heroTitle}>{texts.aiHomeTitle}</Text>
           <Text style={styles.heroSubtitle}>
@@ -147,7 +147,7 @@ const AIAssistantsHomeScreen: React.FC<Props> = ({ navigation }) => {
 
         {/* Info Card */}
         <View style={styles.infoCard}>
-          <Text style={styles.infoIcon}>ℹ️</Text>
+          <Ionicons name="information-circle" size={24} color="#6366F1" style={styles.infoIcon} />
           <Text style={styles.infoText}>
             {texts.aiInfoText}
           </Text>
@@ -228,9 +228,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: scale(12),
   },
-  heroIcon: {
-    fontSize: moderateScale(56),
-  },
   heroTitle: {
     fontSize: moderateScale(28, 0.3),
     fontWeight: '800',
@@ -264,7 +261,6 @@ const styles = StyleSheet.create({
     shadowRadius: scale(12),
   },
   infoIcon: {
-    fontSize: moderateScale(24),
     marginRight: scale(12),
   },
   infoText: {

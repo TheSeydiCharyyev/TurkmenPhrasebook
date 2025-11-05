@@ -85,7 +85,8 @@ Help users understand the cultural context behind language use.`,
       name: 'General Assistant',
       description: 'Ask anything about learning Turkmen language',
       icon: '🤖',
-      iconName: 'sparkles-outline',
+      iconName: 'robot-outline',
+      iconLib: 'MaterialCommunityIcons',
       color: '#4A90E2', // Blue
       systemPrompt: `You are a friendly AI assistant helping users learn Turkmen language.
 Answer questions, provide explanations, and offer support.

@@ -51,7 +51,8 @@ export interface AssistantConfig {
   name: string;
   description: string;
   icon: string; // Emoji (legacy)
-  iconName: string; // Ionicons name
+  iconName: string; // Icon name
+  iconLib?: 'Ionicons' | 'MaterialCommunityIcons'; // Icon library
   color: string; // Gradient start color
   systemPrompt: string;
   maxHistoryLength: number;
