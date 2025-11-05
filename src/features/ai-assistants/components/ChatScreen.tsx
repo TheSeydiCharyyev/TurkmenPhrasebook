@@ -198,7 +198,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
           style={styles.header}
         >
           <TouchableOpacity style={styles.backButton} onPress={onBack}>
-            <Text style={styles.backButtonText}>←</Text>
+            <Text style={styles.backButtonText}>⬅️</Text>
           </TouchableOpacity>
 
           <View style={styles.headerContent}>

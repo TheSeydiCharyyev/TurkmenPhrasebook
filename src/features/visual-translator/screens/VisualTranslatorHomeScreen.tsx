@@ -18,7 +18,6 @@ import { DesignColors } from '../../../constants/Design';
 import { scale, verticalScale, moderateScale } from '../../../utils/ResponsiveUtils';
 import { Camera } from 'expo-camera';
 import * as ImagePicker from 'expo-image-picker';
-import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
 import { useConfig } from '../../../contexts/ConfigContext';
@@ -211,7 +210,7 @@ export default function VisualTranslatorHomeScreen() {
           onPress={() => navigation.goBack()}
           activeOpacity={0.7}
         >
-          <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
+          <Text style={styles.backEmoji}>⬅️</Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{texts.visualTranslatorTitle}</Text>
         <View style={styles.placeholder} />
@@ -425,6 +424,9 @@ const styles = StyleSheet.create({
   },
   backButton: {
     padding: scale(4),
+  },
+  backEmoji: {
+    fontSize: moderateScale(24),
   },
   headerTitle: {
     fontSize: moderateScale(18),

@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   backButtonText: {
-    fontSize: moderateScale(20),
+    fontSize: moderateScale(24),
   },
   headerTitle: {
     fontSize: moderateScale(22),

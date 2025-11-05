@@ -69,7 +69,7 @@ const DictionaryScreen: React.FC = () => {
             style={styles.backButton}
             onPress={() => navigation.goBack()}
           >
-            <Text style={styles.backButtonText}>←</Text>
+            <Text style={styles.backButtonText}>⬅️</Text>
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Dictionary</Text>
           <View style={styles.placeholder} />

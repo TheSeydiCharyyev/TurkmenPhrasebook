@@ -11,7 +11,7 @@ import {
   Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { RouteProp, useRoute } from '@react-navigation/native';
+import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
 
@@ -30,6 +30,7 @@ type PhraseDetailScreenRouteProp = RouteProp<RootStackParamList, 'PhraseDetail'>
 
 export default function PhraseDetailScreen() {
   const route = useRoute<PhraseDetailScreenRouteProp>();
+  const navigation = useNavigation();
   const { phrase } = route.params;
 
   // Hooks
@@ -110,6 +111,19 @@ export default function PhraseDetailScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
+      {/* Header with Back Button */}
+      <View style={styles.header}>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}
+          activeOpacity={0.7}
+        >
+          <Text style={styles.backEmoji}>⬅️</Text>
+        </TouchableOpacity>
+        <Text style={styles.headerTitle}>{texts.pronunciation}</Text>
+        <View style={styles.placeholder} />
+      </View>
+
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
 
         {/* Phrase card */}
@@ -371,5 +385,30 @@ const styles = StyleSheet.create({
     fontSize: moderateScale(15),                  // ✅ Крупнее
     color: '#475569',              // ✅ Темнее для читаемости
     lineHeight: moderateScale(22),                // ✅ Больше line height
+  },
+  // Header with back button
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: scale(16),
+    paddingVertical: verticalScale(12),
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.border,
+    backgroundColor: Colors.background,
+  },
+  backButton: {
+    padding: scale(4),
+  },
+  backEmoji: {
+    fontSize: moderateScale(24),
+  },
+  headerTitle: {
+    fontSize: moderateScale(18),
+    fontWeight: '700',
+    color: Colors.text,
+  },
+  placeholder: {
+    width: scale(32),
   },
 });
