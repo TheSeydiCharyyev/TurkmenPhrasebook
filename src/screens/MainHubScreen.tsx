@@ -372,7 +372,7 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
                 style={[styles.moduleTitle, { color: iconColor }]}
                 numberOfLines={2}
               >
-                {module.title}
+                {module.title.replace(' ', '\n')}
               </Text>
               <Text
                 style={[
@@ -415,7 +415,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: scale(24),
+    paddingHorizontal: scale(20),
     backgroundColor: '#ffffff',
     borderBottomWidth: 1,
     borderBottomColor: '#e9ecef',
@@ -465,13 +465,13 @@ const styles = StyleSheet.create({
 
   // Welcome Section - RESPONSIVE (внутри ScrollView)
   welcome: {
-    marginHorizontal: scale(16),
     marginTop: scale(8),
     marginBottom: scale(16),
     backgroundColor: '#FFFFFF',
     paddingHorizontal: scale(20),
     paddingVertical: verticalScale(16),
     borderRadius: scale(16),
+    alignItems: 'center',
     ...Platform.select({
       ios: {
         shadowColor: '#000',
@@ -492,6 +492,7 @@ const styles = StyleSheet.create({
     marginBottom: verticalScale(4),
     fontFamily: Typography.fontFamily,
     letterSpacing: 0.3,
+    textAlign: 'center',
   },
 
   welcomeSubtitle: {
@@ -500,11 +501,12 @@ const styles = StyleSheet.create({
     fontFamily: Typography.fontFamily,
     fontWeight: '600', // Semi-bold
     letterSpacing: 0.3,
+    textAlign: 'center',
   },
 
   // Scroll Content - RESPONSIVE
   scrollContent: {
-    paddingHorizontal: scale(24),
+    paddingHorizontal: scale(20),
     // paddingTop устанавливается динамически в inline styles
     paddingBottom: verticalScale(32),
   },
@@ -577,8 +579,8 @@ const styles = StyleSheet.create({
   // Regular Module Card - RESPONSIVE with Grid
   moduleCard: {
     width: DeviceInfo.isTablet
-      ? (DeviceInfo.screenWidth - scale(24) * 3) / 3  // 3 колонки на планшете
-      : (DeviceInfo.screenWidth - scale(24) * 3) / 2, // 2 колонки на телефоне
+      ? (DeviceInfo.screenWidth - scale(20) * 3) / 3  // 3 колонки на планшете
+      : (DeviceInfo.screenWidth - scale(20) * 3) / 2, // 2 колонки на телефоне
     marginBottom: scale(24),
     borderRadius: scale(20),
     overflow: 'hidden',
@@ -628,7 +630,7 @@ const styles = StyleSheet.create({
     fontWeight: Typography.bold,
     fontFamily: Typography.fontFamily,
     marginBottom: verticalScale(4),
-    lineHeight: moderateScale(22),
+    lineHeight: moderateScale(24),
     paddingRight: scale(60), // Отступ справа, чтобы не задевать иконку
   },
 
