@@ -30,7 +30,8 @@ interface ModuleCard {
   id: string;
   title: string;
   subtitle: string;
-  icon: string; // Эмодзи вместо Ionicons
+  icon: string; // Emoji (legacy)
+  iconName: string; // Ionicons name
   gradientColors: string[];
   route: string;
   isHero?: boolean;
@@ -44,6 +45,7 @@ const getModules = (texts: any): ModuleCard[] => [
     title: texts.phrasebookTitle,
     subtitle: texts.phrasebookSubtitle,
     icon: '📖',
+    iconName: 'book-outline',
     gradientColors: ['#667eea', '#764ba2'],
     route: 'Phrasebook',
     isHero: true,  // Hero card - большая на всю ширину
@@ -53,6 +55,7 @@ const getModules = (texts: any): ModuleCard[] => [
     title: texts.visualTranslatorTitle,
     subtitle: texts.visualTranslatorSubtitle,
     icon: '📷',
+    iconName: 'camera-outline',
     gradientColors: ['#f093fb', '#f5576c'],
     route: 'VisualTranslator',
   },
@@ -61,6 +64,7 @@ const getModules = (texts: any): ModuleCard[] => [
     title: texts.textTranslatorTitle,
     subtitle: texts.textTranslatorSubtitle,
     icon: '📝',
+    iconName: 'text-outline',
     gradientColors: ['#4facfe', '#00f2fe'],
     route: 'TextTranslator',
   },
@@ -69,6 +73,7 @@ const getModules = (texts: any): ModuleCard[] => [
     title: texts.voiceTranslatorTitle,
     subtitle: texts.voiceTranslatorSubtitle,
     icon: '🎤',
+    iconName: 'mic-outline',
     gradientColors: ['#a8edea', '#fed6e3'],
     route: 'VoiceTranslator',
     isLocked: true,  // 🔒 Заблокировано для v2.0
@@ -78,6 +83,7 @@ const getModules = (texts: any): ModuleCard[] => [
     title: texts.dictionaryTitle,
     subtitle: texts.dictionarySubtitle,
     icon: '📚',
+    iconName: 'library-outline',
     gradientColors: ['#43e97b', '#38f9d7'],
     route: 'Dictionary',
     isLocked: true,  // 🔒 Заблокировано для v2.0
@@ -87,6 +93,7 @@ const getModules = (texts: any): ModuleCard[] => [
     title: texts.aiAssistantsTitle,
     subtitle: texts.aiAssistantsSubtitle,
     icon: '✨',
+    iconName: 'sparkles',
     gradientColors: ['#fa709a', '#fee140'],
     route: 'AIAssistantsHome',
   },
@@ -95,6 +102,7 @@ const getModules = (texts: any): ModuleCard[] => [
     title: texts.myFavoritesTitle,
     subtitle: texts.myFavoritesSubtitle,
     icon: '❤️',
+    iconName: 'heart',
     gradientColors: ['#ff9a56', '#ff6a88'],
     route: 'Favorites',
   },
@@ -302,11 +310,13 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
         end={{ x: 1, y: 1 }}
         style={isHero ? styles.heroGradient : styles.moduleGradient}
       >
-        {/* Icon - Эмодзи */}
+        {/* Icon - Ionicons */}
         <View style={isHero ? styles.heroIconContainer : styles.iconContainer}>
-          <Text style={isHero ? styles.heroIconEmoji : styles.iconEmoji}>
-            {module.icon}
-          </Text>
+          <Ionicons
+            name={module.iconName as any}
+            size={isHero ? 44 : 32}
+            color="#FFFFFF"
+          />
         </View>
 
         {/* Module info */}
@@ -471,10 +481,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  heroIconEmoji: {
-    fontSize: moderateScale(48),
-    textAlign: 'center',
-  },
 
   heroTitle: {
     fontSize: moderateScale(26, 0.3), // Немного уменьшен для длинных слов
@@ -534,10 +540,6 @@ const styles = StyleSheet.create({
     marginBottom: verticalScale(8), // Отступ между иконкой и текстом
   },
 
-  iconEmoji: {
-    fontSize: moderateScale(32), // Уменьшен соответственно
-    textAlign: 'center',
-  },
 
   moduleTextContainer: {
     flex: 1,
