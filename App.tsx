@@ -10,6 +10,7 @@ import { OfflineDataProvider } from './src/contexts/OfflineDataContext';
 import ErrorBoundary from './src/components/ErrorBoundary';
 import TTSWarningModal from './src/components/TTSWarningModal';
 import TTSChecker from './src/utils/TTSChecker';
+import WebWrapper from './src/components/WebWrapper';
 
 const TTS_WARNING_SHOWN_KEY = 'tts_warning_shown';
 
@@ -70,7 +71,7 @@ function AppContent() {
   };
 
   return (
-    <>
+    <WebWrapper>
       <AppNavigator />
       <StatusBar style="auto" />
 
@@ -85,7 +86,7 @@ function AppContent() {
           languageMode={config.mode}
         />
       )}
-    </>
+    </WebWrapper>
   );
 }
 

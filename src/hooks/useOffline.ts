@@ -188,7 +188,14 @@ export function useOffline() {
   const generateChecksum = (phrasesData: any, categoriesData: any): string => {
     try {
       const combined = JSON.stringify({ phrasesData, categoriesData });
-      return btoa(combined).slice(0, 16);
+      // Используем простой хеш вместо btoa для поддержки Unicode (туркменские символы)
+      let hash = 0;
+      for (let i = 0; i < combined.length; i++) {
+        const char = combined.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash; // Convert to 32bit integer
+      }
+      return Math.abs(hash).toString(16).slice(0, 16);
     } catch (error) {
       console.warn('Checksum generation failed:', error);
       return 'default_checksum';

@@ -74,10 +74,13 @@
       "supportedLanguages": [
         "zh",
         "ru",
+        "en",
+        "zh",
+        "ru",
         "en"
       ],
       "eas": {
-        "projectId": "50365790-2271-49f2-80c0-f6c65d0e6416"
+        "projectId": "bdcd8d8e-6a47-4985-97e9-ac43702bd9b2"
       }
     }
   }

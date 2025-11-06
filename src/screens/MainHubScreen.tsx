@@ -34,11 +34,10 @@ interface ModuleCard {
   iconName: string; // Ionicons name
   gradientColors: string[];
   route: string;
-  isHero?: boolean;
   isLocked?: boolean;
 }
 
-// Helper function to get modules with translations - Hero + Grid
+// Helper function to get modules with translations - All Hero Cards (1 column)
 const getModules = (texts: any): ModuleCard[] => [
   {
     id: 'phrasebook',
@@ -46,27 +45,8 @@ const getModules = (texts: any): ModuleCard[] => [
     subtitle: texts.phrasebookSubtitle,
     icon: '📖',
     iconName: 'book-outline',
-    gradientColors: ['#ff8008', '#ffc837'],
+    gradientColors: ['#ff8008', '#ffc837'], // Orange gradient
     route: 'Phrasebook',
-    isHero: true,  // Hero card - большая на всю ширину
-  },
-  {
-    id: 'visual-translator',
-    title: texts.visualTranslatorTitle,
-    subtitle: texts.visualTranslatorSubtitle,
-    icon: '📷',
-    iconName: 'camera-outline',
-    gradientColors: ['#ff8008', '#ffc837'],
-    route: 'VisualTranslator',
-  },
-  {
-    id: 'text-translator',
-    title: texts.textTranslatorTitle,
-    subtitle: texts.textTranslatorSubtitle,
-    icon: '📝',
-    iconName: 'text-outline',
-    gradientColors: ['#ff8008', '#ffc837'],
-    route: 'TextTranslator',
   },
   {
     id: 'voice-translator',
@@ -74,9 +54,36 @@ const getModules = (texts: any): ModuleCard[] => [
     subtitle: texts.voiceTranslatorSubtitle,
     icon: '🎤',
     iconName: 'mic-outline',
-    gradientColors: ['#ff8008', '#ffc837'],
+    gradientColors: ['#ff6a00', '#ee0979'], // Orange to Red gradient
     route: 'VoiceTranslator',
     isLocked: true,  // 🔒 Заблокировано для v2.0
+  },
+  {
+    id: 'text-translator',
+    title: texts.textTranslatorTitle,
+    subtitle: texts.textTranslatorSubtitle,
+    icon: '📝',
+    iconName: 'text-outline',
+    gradientColors: ['#4facfe', '#00f2fe'], // Blue gradient
+    route: 'TextTranslator',
+  },
+  {
+    id: 'visual-translator',
+    title: texts.visualTranslatorTitle,
+    subtitle: texts.visualTranslatorSubtitle,
+    icon: '📷',
+    iconName: 'camera-outline',
+    gradientColors: ['#667eea', '#764ba2'], // Purple gradient
+    route: 'VisualTranslator',
+  },
+  {
+    id: 'ai-assistants',
+    title: texts.aiAssistantsTitle,
+    subtitle: texts.aiAssistantsSubtitle,
+    icon: '🤖',
+    iconName: 'sparkles',
+    gradientColors: ['#7C3AED', '#5B21B6'], // Dark Purple gradient
+    route: 'AIAssistantsHome',
   },
   {
     id: 'dictionary',
@@ -84,27 +91,9 @@ const getModules = (texts: any): ModuleCard[] => [
     subtitle: texts.dictionarySubtitle,
     icon: '📚',
     iconName: 'library-outline',
-    gradientColors: ['#ff8008', '#ffc837'],
+    gradientColors: ['#11998e', '#38ef7d'], // Green/Teal gradient
     route: 'Dictionary',
     isLocked: true,  // 🔒 Заблокировано для v2.0
-  },
-  {
-    id: 'ai-assistants',
-    title: texts.aiAssistantsTitle,
-    subtitle: texts.aiAssistantsSubtitle,
-    icon: '✨',
-    iconName: 'sparkles',
-    gradientColors: ['#ff8008', '#ffc837'],
-    route: 'AIAssistantsHome',
-  },
-  {
-    id: 'favorites',
-    title: texts.myFavoritesTitle,
-    subtitle: texts.myFavoritesSubtitle,
-    icon: '❤️',
-    iconName: 'heart',
-    gradientColors: ['#ff8008', '#ffc837'],
-    route: 'Favorites',
   },
 ];
 
@@ -257,29 +246,14 @@ export default function MainHubScreen() {
           <Text style={styles.welcomeSubtitle}>{texts.selectCategory}</Text>
         </View>
 
-        {/* Hero Card - Phrasebook */}
-        {modules
-          .filter((m) => m.isHero)
-          .map((module) => (
-            <ModuleCardComponent
-              key={module.id}
-              module={module}
-              onPress={() => handleModulePress(module)}
-            />
-          ))}
-
-        {/* Grid - Остальные модули */}
-        <View style={styles.grid}>
-          {modules
-            .filter((m) => !m.isHero)
-            .map((module) => (
-              <ModuleCardComponent
-                key={module.id}
-                module={module}
-                onPress={() => handleModulePress(module)}
-              />
-            ))}
-        </View>
+        {/* All modules as Hero Cards (1 column) */}
+        {modules.map((module) => (
+          <ModuleCardComponent
+            key={module.id}
+            module={module}
+            onPress={() => handleModulePress(module)}
+          />
+        ))}
       </Animated.ScrollView>
     </View>
   );
@@ -303,20 +277,19 @@ const isLightGradient = (gradientColors: string[]): boolean => {
   return avgLuminance > 0.85; // Threshold for "light" gradient
 };
 
-// Hero + Grid Module Card Component
+// All Hero Cards Module Component (1 column layout)
 interface ModuleCardProps {
   module: ModuleCard;
   onPress: () => void;
 }
 
 const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => {
-  const isHero = module.isHero;
   const iconColor = isLightGradient(module.gradientColors) ? '#1e293b' : '#FFFFFF';
 
   return (
     <TouchableOpacity
       style={[
-        isHero ? styles.heroCard : styles.moduleCard,
+        styles.heroCard,
         module.isLocked && styles.moduleCardLocked
       ]}
       onPress={onPress}
@@ -327,11 +300,11 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
         colors={module.gradientColors}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
-        style={isHero ? styles.heroGradient : styles.moduleGradient}
+        style={styles.heroGradient}
       >
         {/* Icon - Ionicons */}
         <View style={[
-          isHero ? styles.heroIconContainer : styles.iconContainer,
+          styles.heroIconContainer,
           {
             backgroundColor: iconColor === '#1e293b'
               ? 'rgba(255, 255, 255, 0.4)'
@@ -340,51 +313,30 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
         ]}>
           <Ionicons
             name={module.iconName as any}
-            size={isHero ? 44 : 28}
+            size={44}
             color={iconColor}
           />
         </View>
 
         {/* Module info */}
         <View style={styles.moduleTextContainer}>
-          {isHero ? (
-            <>
-              {/* Hero: Заголовок вверху */}
-              <Text
-                style={[styles.heroTitle, { color: iconColor }]}
-                numberOfLines={2}
-              >
-                {module.title}
-              </Text>
-              {/* Hero: Статистика внизу */}
-              <Text
-                style={[
-                  styles.heroStats,
-                  { color: iconColor }
-                ]}
-              >
-                22 kategoriýada 305 söz düzümi
-              </Text>
-            </>
-          ) : (
-            <>
-              <Text
-                style={[styles.moduleTitle, { color: iconColor }]}
-                numberOfLines={2}
-              >
-                {module.title.replace(' ', '\n')}
-              </Text>
-              <Text
-                style={[
-                  styles.moduleSubtitle,
-                  { color: iconColor }
-                ]}
-                numberOfLines={2}
-              >
-                {module.subtitle}
-              </Text>
-            </>
-          )}
+          {/* Title at top */}
+          <Text
+            style={[styles.heroTitle, { color: iconColor }]}
+            numberOfLines={2}
+          >
+            {module.title}
+          </Text>
+          {/* Subtitle/Stats at bottom */}
+          <Text
+            style={[
+              styles.heroStats,
+              { color: iconColor }
+            ]}
+            numberOfLines={2}
+          >
+            {module.subtitle}
+          </Text>
         </View>
 
         {/* Lock icon if locked */}
@@ -511,14 +463,7 @@ const styles = StyleSheet.create({
     paddingBottom: verticalScale(32),
   },
 
-  // Grid Layout (2 columns)
-  grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-  },
-
-  // Hero Card - RESPONSIVE
+  // Hero Card - RESPONSIVE (all modules use this style)
   heroCard: {
     width: '100%',
     height: DeviceInfo.isTablet ? verticalScale(250) : verticalScale(200),
@@ -576,72 +521,13 @@ const styles = StyleSheet.create({
     lineHeight: moderateScale(20),
   },
 
-  // Regular Module Card - RESPONSIVE with Grid
-  moduleCard: {
-    width: DeviceInfo.isTablet
-      ? (DeviceInfo.screenWidth - scale(20) * 3) / 3  // 3 колонки на планшете
-      : (DeviceInfo.screenWidth - scale(20) * 3) / 2, // 2 колонки на телефоне
-    marginBottom: scale(24),
-    borderRadius: scale(20),
-    overflow: 'hidden',
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: scale(8) },
-        shadowOpacity: 0.25,
-        shadowRadius: scale(16),
-      },
-      android: {
-        elevation: 8,
-      },
-    }),
-  },
-
-  moduleGradient: {
-    width: '100%',
-    aspectRatio: 1,
-    padding: scale(16), // Уменьшен для большего пространства под текст
-    justifyContent: 'space-between',
-  },
-
   moduleCardLocked: {
     opacity: 0.6,
   },
 
-  iconContainer: {
-    position: 'absolute',
-    top: scale(16),
-    right: scale(16),
-    width: scale(48),
-    height: scale(48),
-    borderRadius: scale(24),
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-
   moduleTextContainer: {
     flex: 1,
     justifyContent: 'flex-start',
-  },
-
-  moduleTitle: {
-    fontSize: moderateScale(16),
-    fontWeight: Typography.bold,
-    fontFamily: Typography.fontFamily,
-    marginBottom: verticalScale(4),
-    lineHeight: moderateScale(20),
-    paddingRight: scale(60), // Отступ справа, чтобы не задевать иконку
-  },
-
-  moduleSubtitle: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: scale(10),
-    fontSize: moderateScale(12),
-    fontFamily: Typography.fontFamily,
-    lineHeight: moderateScale(16),
   },
 
   lockBadge: {
