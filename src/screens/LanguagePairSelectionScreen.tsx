@@ -41,16 +41,8 @@ const LanguagePairSelectionScreen: React.FC = () => {
   const [selectedPair, setSelectedPair] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Available language pairs (all active languages including Turkmen)
+  // Available language pairs (30 languages paired with Turkmen)
   const availablePairs: LanguagePair[] = [
-    {
-      id: 'tk-en',
-      code: 'tk',
-      name: 'Türkmençe',
-      nameEn: 'Turkmen',
-      flag: '🇹🇲',
-      gradient: ['#10B981', '#059669'],
-    },
     {
       id: 'zh-tk',
       code: 'zh',

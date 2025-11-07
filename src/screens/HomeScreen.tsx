@@ -28,17 +28,18 @@ import { TabScreen } from '../components/Screen';
 type HomeScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'CategoryScreen'>;
 
 // Высота новой минималистичной шапки (для анимации скрытия)
-const HEADER_HEIGHT = 180;
+const HEADER_HEIGHT = 230; // Увеличена для кнопки назад
 
 // Минималистичная шапка с индикатором языка
 const MinimalHeader = React.memo<{
   languageMode: string;  // ✅ ОБНОВЛЕНО: поддержка всех 30 языков
   onSearchPress: () => void;
   onLanguagePress: () => void;
+  onBackPress: () => void;  // ✅ НОВОЕ: кнопка назад
   selectedLanguageCode: string;
   animatedStyle?: any;  // ✅ НОВОЕ: стиль для анимации
 }>(
-  ({ languageMode, onSearchPress, onLanguagePress, selectedLanguageCode, animatedStyle }) => {
+  ({ languageMode, onSearchPress, onLanguagePress, onBackPress, selectedLanguageCode, animatedStyle }) => {
     const selectedLang = getLanguageByCode(selectedLanguageCode);
     const turkmenFlag = '🇹🇲';
     const englishFlag = '🇬🇧';
@@ -49,6 +50,15 @@ const MinimalHeader = React.memo<{
 
     return (
       <Animated.View style={[styles.headerContainer, animatedStyle]}>
+        {/* Кнопка назад */}
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={onBackPress}
+          activeOpacity={0.7}
+        >
+          <Ionicons name="arrow-back" size={24} color={Colors.text} />
+        </TouchableOpacity>
+
         {/* Индикатор языка */}
         <View style={styles.languageHeader}>
           <View style={styles.languageIndicator}>
@@ -273,6 +283,11 @@ export default function HomeScreen() {
     navigation.navigate('LanguagePairSelection');
   }, [navigation]);
 
+  const handleBackPress = useCallback(() => {
+    // Возврат на экран выбора языковой пары
+    navigation.navigate('LanguagePairSelection');
+  }, [navigation]);
+
   return (
     <ErrorBoundary>
       <TabScreen backgroundColor={Colors.background}>
@@ -281,6 +296,7 @@ export default function HomeScreen() {
           languageMode={languageMode}
           onSearchPress={handleSearchPress}
           onLanguagePress={handleLanguagePress}
+          onBackPress={handleBackPress}
           selectedLanguageCode={selectedLanguage}
           animatedStyle={{
             transform: [{ translateY: headerTranslateY }],
@@ -318,6 +334,19 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: verticalScale(2) },
     shadowOpacity: 0.1,
     shadowRadius: scale(4),
+  },
+
+  // Кнопка назад
+  backButton: {
+    width: scale(40),
+    height: scale(40),
+    borderRadius: scale(20),
+    backgroundColor: Colors.backgroundLight || '#F9FAFB',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: verticalScale(12),
+    borderWidth: 1,
+    borderColor: Colors.border || '#E5E7EB',
   },
 
   // Индикатор языка
