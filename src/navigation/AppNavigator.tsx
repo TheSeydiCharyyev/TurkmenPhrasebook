@@ -29,6 +29,9 @@ import TranslationResultScreen from '../features/visual-translator/screens/Trans
 // Text Translator screens (Phase 3)
 import TextTranslatorScreen from '../features/text-translator/screens/TextTranslatorScreen';
 
+// Voice Translator screens (Phase 6)
+import VoiceTranslatorScreen from '../features/voice-translator/screens/VoiceTranslatorScreen';
+
 // AI Assistants screens (Phase 4)
 import AIAssistantsHomeScreen from '../features/ai-assistants/screens/AIAssistantsHomeScreen';
 import ContextualTipsScreen from '../features/ai-assistants/screens/ContextualTipsScreen';
@@ -212,6 +215,13 @@ export default function AppNavigator() {
         <RootStack.Screen
           name="TextTranslator"
           component={TextTranslatorScreen}
+          options={{ headerShown: false }}
+        />
+
+        {/* Voice Translator (Phase 6) */}
+        <RootStack.Screen
+          name="VoiceTranslator"
+          component={VoiceTranslatorScreen}
           options={{ headerShown: false }}
         />
 

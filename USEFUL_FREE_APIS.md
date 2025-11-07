@@ -1,340 +1,240 @@
-# 🌐 USEFUL FREE APIs FOR TURKMENPHRASEBOOK
+# 🎤 VOICE TRANSLATOR APIs - TurkmenPhrasebook
 
-**Source:** https://github.com/public-apis/public-apis
-**Date:** November 6, 2025
-**Status:** Analyzed and curated for TurkmenPhrasebook app
+**Date:** November 7, 2025
+**Status:** Ready for Voice Translator implementation (Phase 6)
 
 ---
 
 ## 📋 TABLE OF CONTENTS
 
-1. [Dictionaries](#-dictionaries)
-2. [Currency Conversion](#-currency-conversion)
-3. [Geolocation & Maps](#-geolocation--maps)
-4. [Food & Dining](#-food--dining)
-5. [Weather](#-weather)
-6. [Transportation](#-transportation)
-7. [Speech & TTS](#-speech--tts)
-8. [Implementation Examples](#-implementation-examples)
-9. [Priority Recommendations](#-priority-recommendations)
+1. [Speech-to-Text APIs](#-speech-to-text-apis)
+2. [Text-to-Speech APIs](#-text-to-speech-apis)
+3. [Implementation Examples](#-implementation-examples)
+4. [Priority Recommendations](#-priority-recommendations)
 
 ---
 
-## 📚 DICTIONARIES
+## 🎙️ SPEECH-TO-TEXT APIs
 
-### ⭐⭐⭐⭐⭐ Free Dictionary API
-- **Description:** Definitions, phonetics, pronunciations, parts of speech, examples, synonyms
-- **Auth:** NO (no registration required!)
-- **HTTPS:** Yes
-- **CORS:** Unknown
-- **Free Tier:** Unlimited
-- **Link:** https://dictionaryapi.dev/
-- **Languages:** ⚠️ **English ONLY** (no Turkmen support)
-
-**Example:**
-```javascript
-const response = await fetch('https://api.dictionaryapi.dev/api/v2/entries/en/hello');
-const data = await response.json();
-console.log(data[0].meanings); // Definitions, examples, synonyms
-```
-
-**Use Case:** Dictionary module for English words
-
----
-
-### ⭐⭐⭐⭐ Wiktionary API
-- **Description:** Collaborative dictionary data
-- **Auth:** NO
-- **HTTPS:** Yes
-- **CORS:** Yes
-- **Free Tier:** Unlimited
-- **Link:** https://en.wiktionary.org/w/api.php
-- **Languages:** Multiple languages including Turkmen
-
-**Example:**
-```javascript
-const response = await fetch(
-  'https://en.wiktionary.org/w/api.php?action=query&titles=salam&prop=extracts&format=json'
-);
-```
-
-**Use Case:** Multi-language dictionary with Turkmen support
-
----
-
-### ⭐⭐⭐⭐ Merriam-Webster
-- **Description:** Dictionary and thesaurus data
-- **Auth:** apiKey (free registration)
-- **HTTPS:** Yes
-- **CORS:** Unknown
-- **Free Tier:** 1,000 requests/day
-- **Link:** https://dictionaryapi.com/
-
-**Use Case:** High-quality English definitions
-
----
-
-### ⭐⭐⭐⭐ Words API
-- **Description:** Definitions and synonyms for 150,000+ words
-- **Auth:** apiKey (free registration)
-- **HTTPS:** Yes
-- **CORS:** Yes
-- **Free Tier:** 2,500 requests/day
-- **Link:** https://www.wordsapi.com/
-
-**Use Case:** Extended vocabulary database
-
----
-
-### ⭐⭐⭐ Lingua Robot
-- **Description:** Word definitions, pronunciations, synonyms, antonyms
-- **Auth:** apiKey
-- **HTTPS:** Yes
-- **CORS:** Yes
-- **Link:** https://www.linguarobot.io
-
----
-
-### ⭐⭐⭐ OwlBot
-- **Description:** Definitions with example sentences and photos
-- **Auth:** apiKey
-- **HTTPS:** Yes
-- **CORS:** Yes
-- **Link:** https://owlbot.info/
-
----
-
-## 💱 CURRENCY CONVERSION
-
-### ⭐⭐⭐⭐⭐ Frankfurter
-- **Description:** Exchange rates, currency conversion and time series
+### ⭐⭐⭐⭐⭐ Web Speech API (Browser Native)
+- **Description:** Browser's built-in speech recognition
 - **Auth:** NO (no API key required!)
-- **HTTPS:** Yes
-- **CORS:** Yes
-- **Free Tier:** Unlimited, no rate limits
-- **Link:** https://www.frankfurter.app/docs
+- **HTTPS:** Required for production
+- **CORS:** N/A (browser native)
+- **Free Tier:** Unlimited (uses device's native speech recognition)
+- **Languages:** 50+ languages including Russian, English, Turkish, Chinese, etc.
+- **Support:** Chrome, Edge, Safari (limited)
+- **Link:** https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API
+
+**Pros:**
+- ✅ FREE and unlimited
+- ✅ No API key required
+- ✅ Works offline (uses device recognition)
+- ✅ Low latency
+- ✅ Built-in to browser
+
+**Cons:**
+- ⚠️ Requires user permission
+- ⚠️ Browser compatibility varies
+- ⚠️ No Turkmen language support (можно использовать Turkish как близкий)
 
 **Example:**
 ```javascript
-// Get current exchange rates
-const response = await fetch('https://api.frankfurter.app/latest?from=USD&to=CNY,TMT');
-const rates = await response.json();
-console.log(rates.rates); // { CNY: 7.2, TMT: 3.5 }
+// React Native with WebView or Expo
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = new SpeechRecognition();
 
-// Convert amount
-const convert = await fetch('https://api.frankfurter.app/latest?amount=100&from=USD&to=TMT');
-const result = await convert.json();
-console.log(result.rates.TMT); // Converted amount
+recognition.lang = 'ru-RU'; // Russian
+recognition.continuous = false;
+recognition.interimResults = false;
+
+recognition.onresult = (event) => {
+  const transcript = event.results[0][0].transcript;
+  console.log('Recognized:', transcript);
+};
+
+recognition.start();
 ```
 
-**Use Case:** Money/Banking category in phrasebook, real-time currency conversion
+**Use Case:** PRIMARY choice for Voice Translator (free, unlimited, good quality)
 
 ---
 
-### ⭐⭐⭐⭐⭐ Currency-API
-- **Description:** Free Currency Exchange Rates with 150+ Currencies & No Rate Limits
+### ⭐⭐⭐⭐⭐ Expo Speech (React Native)
+- **Description:** React Native speech recognition
 - **Auth:** NO
-- **HTTPS:** Yes
-- **CORS:** Yes
+- **HTTPS:** N/A
 - **Free Tier:** Unlimited
-- **Link:** https://github.com/fawazahmed0/currency-api
+- **Package:** `expo-speech`
+- **Link:** https://docs.expo.dev/versions/latest/sdk/speech/
 
-**Example:**
+**Note:** expo-speech primarily handles Text-to-Speech. For Speech-to-Text in React Native, use:
+- **`@react-native-voice/voice`** - Popular library for speech recognition
+- **`react-native-voice`** - Alternative
+
+**Example (react-native-voice):**
 ```javascript
-const response = await fetch('https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/usd/tmt.json');
+import Voice from '@react-native-voice/voice';
+
+// Start listening
+Voice.onSpeechResults = (e) => {
+  console.log('Recognized:', e.value[0]);
+};
+
+await Voice.start('ru-RU'); // Russian
+await Voice.stop();
 ```
 
-**Use Case:** Alternative to Frankfurter, backup option
+**Installation:**
+```bash
+npx expo install @react-native-voice/voice
+```
+
+**Use Case:** PRIMARY choice for React Native Voice Translator
 
 ---
 
-### ⭐⭐⭐ Exchangerate-API
-- **Description:** Free currency conversion
-- **Auth:** apiKey
+### ⭐⭐⭐⭐ Google Cloud Speech-to-Text
+- **Description:** Google's advanced speech recognition
+- **Auth:** apiKey (requires Google Cloud account)
 - **HTTPS:** Yes
-- **Free Tier:** 1,500 requests/month
-- **Link:** https://www.exchangerate-api.com
+- **Free Tier:** 60 minutes/month FREE, then $0.006/15 seconds
+- **Languages:** 125+ languages (including Turkish, Russian, Chinese, etc.)
+- **Link:** https://cloud.google.com/speech-to-text
 
----
+**Pros:**
+- ✅ High accuracy
+- ✅ 125+ languages
+- ✅ Punctuation and formatting
+- ✅ Real-time streaming
+- ✅ 60 minutes FREE per month
 
-### ⭐⭐⭐ Fixer
-- **Description:** Current and historical foreign exchange rates
-- **Auth:** apiKey
-- **HTTPS:** Yes
-- **Free Tier:** 100 requests/month
-- **Link:** https://fixer.io
-
----
-
-## 🗺️ GEOLOCATION & MAPS
-
-### ⭐⭐⭐⭐⭐ REST Countries
-- **Description:** Information about countries (flags, currencies, languages, capitals)
-- **Auth:** NO
-- **HTTPS:** Yes
-- **CORS:** Yes
-- **Free Tier:** Unlimited
-- **Link:** https://restcountries.com
+**Cons:**
+- ⚠️ Requires API key
+- ⚠️ Paid after 60 minutes
+- ⚠️ No Turkmen support
 
 **Example:**
 ```javascript
-// Get country information
-const response = await fetch('https://restcountries.com/v3.1/alpha/tm'); // Turkmenistan
-const country = await response.json();
-console.log({
-  name: country[0].name.common,
-  flag: country[0].flag, // 🇹🇲
-  currencies: country[0].currencies, // TMT
-  languages: country[0].languages, // tk, ru
-  capital: country[0].capital // Ashgabat
+const response = await fetch('https://speech.googleapis.com/v1/speech:recognize?key=YOUR_API_KEY', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    config: {
+      encoding: 'LINEAR16',
+      sampleRateHertz: 16000,
+      languageCode: 'ru-RU'
+    },
+    audio: {
+      content: base64AudioData
+    }
+  })
 });
-
-// Get all countries
-const allCountries = await fetch('https://restcountries.com/v3.1/all');
 ```
 
-**Use Case:** Language selection screen, country information, flags
+**Use Case:** BACKUP option if native recognition quality is poor
 
 ---
 
-### ⭐⭐⭐⭐ Nominatim (OpenStreetMap)
-- **Description:** Worldwide forward/reverse geocoding
-- **Auth:** NO
-- **HTTPS:** Yes
-- **CORS:** Yes
-- **Free Tier:** Fair usage policy
-- **Link:** https://nominatim.org/
-
-**Example:**
-```javascript
-// Reverse geocode (coordinates to address)
-const response = await fetch(
-  'https://nominatim.openstreetmap.org/reverse?lat=37.9601&lon=58.3261&format=json'
-);
-const place = await response.json();
-console.log(place.display_name); // "Ashgabat, Turkmenistan"
-```
-
-**Use Case:** Context-aware phrase suggestions based on location
-
----
-
-### ⭐⭐⭐ Google Maps
-- **Description:** Digital maps based on Google Maps data
-- **Auth:** apiKey
-- **HTTPS:** Yes
-- **Free Tier:** $200/month credit
-- **Link:** https://developers.google.com/maps/
-
----
-
-### ⭐⭐⭐ Mapbox
-- **Description:** Create/customize beautiful digital maps
-- **Auth:** apiKey
-- **HTTPS:** Yes
-- **Free Tier:** 50,000 requests/month
-- **Link:** https://docs.mapbox.com/
-
----
-
-## 🍔 FOOD & DINING
-
-### ⭐⭐⭐⭐ TheMealDB
-- **Description:** Meal recipes database
-- **Auth:** apiKey (free)
-- **HTTPS:** Yes
-- **Free Tier:** Yes
-- **Link:** https://www.themealdb.com/api.php
-
-**Example:**
-```javascript
-// Search meals by name
-const response = await fetch('https://www.themealdb.com/api/json/v1/1/search.s=kebab');
-const meals = await response.json();
-
-// Get meal by ID
-const meal = await fetch('https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772');
-```
-
-**Use Case:** Food category phrases, dish names, recipes
-
----
-
-### ⭐⭐⭐ Open Food Facts
-- **Description:** Food products database
-- **Auth:** NO
-- **HTTPS:** Yes
-- **Free Tier:** Unlimited
-- **Link:** https://world.openfoodfacts.org/data
-
-**Use Case:** Food/shopping categories, product information
-
----
-
-### ⭐⭐⭐ Spoonacular
-- **Description:** Recipes, food products, meal planning
-- **Auth:** apiKey
-- **HTTPS:** Yes
-- **Free Tier:** 150 requests/day
-- **Link:** https://spoonacular.com/food-api
-
----
-
-### ⭐⭐⭐ Open Brewery DB
-- **Description:** Breweries, cideries and craft beer bottle shops
-- **Auth:** NO
-- **HTTPS:** Yes
-- **Free Tier:** Unlimited
-- **Link:** https://www.openbrewerydb.org
-
----
-
-## 🌤️ WEATHER
-
-### ⭐⭐⭐ Weatherstack
-- **Description:** Real-time weather information in JSON format
+### ⭐⭐⭐⭐ AssemblyAI
+- **Description:** Modern speech-to-text API
 - **Auth:** apiKey (free registration)
-- **HTTPS:** Yes (paid plans only)
-- **Free Tier:** 1,000 requests/month
-- **Link:** https://weatherstack.com/
+- **HTTPS:** Yes
+- **Free Tier:** 3 hours/month FREE, then $0.00025/second
+- **Languages:** Multiple languages
+- **Link:** https://www.assemblyai.com/
+
+**Pros:**
+- ✅ High accuracy
+- ✅ 3 hours FREE per month
+- ✅ Fast processing
+- ✅ Good documentation
+
+**Cons:**
+- ⚠️ Requires API key
+- ⚠️ Limited free tier
 
 **Example:**
 ```javascript
-const response = await fetch(
-  'http://api.weatherstack.com/current?access_key=YOUR_KEY&query=Ashgabat'
-);
-const weather = await response.json();
-console.log({
-  temp: weather.current.temperature,
-  description: weather.current.weather_descriptions[0]
+const response = await fetch('https://api.assemblyai.com/v2/transcript', {
+  method: 'POST',
+  headers: {
+    'authorization': 'YOUR_API_KEY',
+    'content-type': 'application/json'
+  },
+  body: JSON.stringify({
+    audio_url: 'https://example.com/audio.mp3',
+    language_code: 'ru'
+  })
 });
 ```
 
-**Use Case:** Weather category, context-aware suggestions
+**Use Case:** BACKUP option if need higher quality than native
 
 ---
 
-## ✈️ TRANSPORTATION
-
-### ⭐⭐⭐ Aviationstack
-- **Description:** Real-time flight status and global aviation data
+### ⭐⭐⭐ Deepgram
+- **Description:** Fast and accurate speech recognition
 - **Auth:** apiKey
-- **HTTPS:** Yes (paid plans only)
-- **Free Tier:** 500 requests/month
-- **Link:** https://aviationstack.com/
+- **HTTPS:** Yes
+- **Free Tier:** $200 credit (≈45 hours)
+- **Languages:** 30+ languages
+- **Link:** https://deepgram.com/
+
+**Pros:**
+- ✅ Very fast (low latency)
+- ✅ Good free credit
+- ✅ Real-time streaming
+
+**Cons:**
+- ⚠️ Requires API key
+- ⚠️ Paid after credit expires
+
+---
+
+### ⭐⭐⭐ Azure Speech Services
+- **Description:** Microsoft's speech recognition
+- **Auth:** apiKey
+- **HTTPS:** Yes
+- **Free Tier:** 5 hours/month FREE
+- **Languages:** 100+ languages
+- **Link:** https://azure.microsoft.com/en-us/services/cognitive-services/speech-services/
+
+**Pros:**
+- ✅ High accuracy
+- ✅ 5 hours FREE per month
+- ✅ Many languages
+
+**Cons:**
+- ⚠️ Requires API key
+- ⚠️ Complex setup
+
+---
+
+## 🔊 TEXT-TO-SPEECH APIs
+
+### ⭐⭐⭐⭐⭐ Expo Speech (Already in app!)
+- **Description:** React Native text-to-speech
+- **Auth:** NO
+- **Free Tier:** Unlimited (uses device TTS)
+- **Languages:** Depends on device (30+ common languages)
+- **Package:** `expo-speech`
+- **Link:** https://docs.expo.dev/versions/latest/sdk/speech/
 
 **Example:**
 ```javascript
-const response = await fetch(
-  'http://api.aviationstack.com/v1/flights?access_key=YOUR_KEY&flight_iata=TK1'
-);
+import * as Speech from 'expo-speech';
+
+await Speech.speak('Hello, how are you?', {
+  language: 'en-US',
+  rate: 0.75,
+  pitch: 1.0
+});
 ```
 
-**Use Case:** Transportation category, flight information
+**Use Case:** ALREADY USING in app - perfect for Voice Translator!
 
 ---
-
-## 🔊 SPEECH & TTS
 
 ### ⭐⭐⭐ IBM Text to Speech
 - **Description:** Convert text to speech
@@ -359,173 +259,228 @@ const response = await fetch('https://api.us-south.text-to-speech.watson.cloud.i
 });
 ```
 
-**Use Case:** Alternative TTS for phrases (instead of expo-speech)
+**Use Case:** Alternative TTS if expo-speech quality is poor
+
+---
+
+### ⭐⭐⭐ Google Cloud Text-to-Speech
+- **Description:** Google's neural voices
+- **Auth:** apiKey
+- **HTTPS:** Yes
+- **Free Tier:** 1 million characters/month FREE
+- **Languages:** 100+ languages, 400+ voices
+- **Link:** https://cloud.google.com/text-to-speech
+
+**Use Case:** BACKUP if need higher quality voices
 
 ---
 
 ## 💻 IMPLEMENTATION EXAMPLES
 
-### Example 1: Combined Dictionary Service
+### Example 1: Voice Translator with react-native-voice
 ```typescript
-// src/services/DictionaryService.ts
+// src/features/voice-translator/screens/VoiceTranslatorScreen.tsx
 
-export class DictionaryService {
-  // Free Dictionary API (English only)
-  static async searchEnglish(word: string) {
-    try {
-      const response = await fetch(
-        `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
-      );
-      const data = await response.json();
-      return {
-        word: data[0].word,
-        phonetic: data[0].phonetic,
-        meanings: data[0].meanings,
-        audio: data[0].phonetics[0]?.audio,
-        source: 'Free Dictionary'
-      };
-    } catch (error) {
-      console.error('Free Dictionary error:', error);
-      return null;
-    }
-  }
+import React, { useState, useEffect } from 'react';
+import { View, TouchableOpacity, Text, ActivityIndicator } from 'react-native';
+import Voice from '@react-native-voice/voice';
+import * as Speech from 'expo-speech';
+import { translateText } from '../../../services/TranslationService';
 
-  // Wiktionary API (Multiple languages)
-  static async searchWiktionary(word: string) {
-    try {
-      const response = await fetch(
-        `https://en.wiktionary.org/w/api.php?action=query&titles=${word}&prop=extracts&format=json&origin=*`
-      );
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error('Wiktionary error:', error);
-      return null;
-    }
-  }
-
-  // Combined search
-  static async search(word: string, language: string = 'en') {
-    if (language === 'en') {
-      return await this.searchEnglish(word);
-    } else {
-      return await this.searchWiktionary(word);
-    }
-  }
-}
-```
-
----
-
-### Example 2: Currency Converter
-```typescript
-// src/services/CurrencyService.ts
-
-export class CurrencyService {
-  // Frankfurter API (No API key needed!)
-  static async convert(amount: number, from: string, to: string) {
-    try {
-      const response = await fetch(
-        `https://api.frankfurter.app/latest?amount=${amount}&from=${from}&to=${to}`
-      );
-      const data = await response.json();
-      return {
-        amount: amount,
-        from: from,
-        to: to,
-        rate: data.rates[to],
-        converted: data.rates[to],
-        date: data.date
-      };
-    } catch (error) {
-      console.error('Currency converter error:', error);
-      return null;
-    }
-  }
-
-  // Get all rates for a currency
-  static async getRates(baseCurrency: string = 'USD') {
-    try {
-      const response = await fetch(
-        `https://api.frankfurter.app/latest?from=${baseCurrency}`
-      );
-      const data = await response.json();
-      return {
-        base: data.base,
-        date: data.date,
-        rates: data.rates
-      };
-    } catch (error) {
-      console.error('Get rates error:', error);
-      return null;
-    }
-  }
-}
-
-// Usage in Money Category
-const CurrencyScreen = () => {
-  const [rate, setRate] = useState(null);
+export default function VoiceTranslatorScreen() {
+  const [isListening, setIsListening] = useState(false);
+  const [recognizedText, setRecognizedText] = useState('');
+  const [translatedText, setTranslatedText] = useState('');
+  const [sourceLang, setSourceLang] = useState('ru-RU');
+  const [targetLang, setTargetLang] = useState('en-US');
 
   useEffect(() => {
-    CurrencyService.convert(100, 'USD', 'TMT').then(result => {
-      setRate(result);
-    });
+    // Setup voice recognition callbacks
+    Voice.onSpeechStart = () => setIsListening(true);
+    Voice.onSpeechEnd = () => setIsListening(false);
+    Voice.onSpeechResults = async (e) => {
+      const text = e.value[0];
+      setRecognizedText(text);
+
+      // Translate the recognized text
+      const translation = await translateText(text, sourceLang, targetLang);
+      setTranslatedText(translation);
+    };
+
+    return () => {
+      Voice.destroy().then(Voice.removeAllListeners);
+    };
   }, []);
 
+  const startListening = async () => {
+    try {
+      await Voice.start(sourceLang);
+    } catch (error) {
+      console.error('Voice recognition error:', error);
+    }
+  };
+
+  const stopListening = async () => {
+    try {
+      await Voice.stop();
+    } catch (error) {
+      console.error('Stop error:', error);
+    }
+  };
+
+  const playTranslation = async () => {
+    await Speech.speak(translatedText, {
+      language: targetLang,
+      rate: 0.75
+    });
+  };
+
   return (
-    <View>
-      <Text>100 USD = {rate?.converted} TMT</Text>
-      <Text>Rate: {rate?.rate}</Text>
+    <View style={{ flex: 1, padding: 20 }}>
+      {/* Record Button */}
+      <TouchableOpacity
+        onPress={isListening ? stopListening : startListening}
+        style={{
+          width: 120,
+          height: 120,
+          borderRadius: 60,
+          backgroundColor: isListening ? '#EF4444' : '#3B82F6',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}
+      >
+        {isListening ? (
+          <ActivityIndicator color="white" size="large" />
+        ) : (
+          <Text style={{ fontSize: 48 }}>🎤</Text>
+        )}
+      </TouchableOpacity>
+
+      {/* Recognized Text */}
+      <View style={{ marginTop: 30 }}>
+        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
+          Recognized ({sourceLang}):
+        </Text>
+        <Text style={{ fontSize: 16, marginTop: 10 }}>
+          {recognizedText || 'Tap microphone to start...'}
+        </Text>
+      </View>
+
+      {/* Translated Text */}
+      {translatedText && (
+        <View style={{ marginTop: 30 }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold' }}>
+            Translation ({targetLang}):
+          </Text>
+          <Text style={{ fontSize: 16, marginTop: 10 }}>
+            {translatedText}
+          </Text>
+
+          {/* Play Button */}
+          <TouchableOpacity
+            onPress={playTranslation}
+            style={{
+              marginTop: 15,
+              padding: 15,
+              backgroundColor: '#22C55E',
+              borderRadius: 12
+            }}
+          >
+            <Text style={{ color: 'white', textAlign: 'center' }}>
+              🔊 Play Translation
+            </Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
-};
+}
+```
+
+**Installation:**
+```bash
+npx expo install @react-native-voice/voice
 ```
 
 ---
 
-### Example 3: Country Information
+### Example 2: Voice Translator Service
 ```typescript
-// src/services/CountryService.ts
+// src/services/VoiceTranslatorService.ts
 
-export class CountryService {
-  // REST Countries API
-  static async getCountryInfo(code: string) {
+import Voice from '@react-native-voice/voice';
+import * as Speech from 'expo-speech';
+
+export class VoiceTranslatorService {
+  private static isListening = false;
+
+  // Start recording voice
+  static async startRecording(languageCode: string): Promise<void> {
     try {
-      const response = await fetch(
-        `https://restcountries.com/v3.1/alpha/${code}`
-      );
-      const data = await response.json();
-      const country = data[0];
+      if (this.isListening) {
+        await this.stopRecording();
+      }
 
-      return {
-        name: country.name.common,
-        nativeName: country.name.native,
-        flag: country.flag,
-        currencies: Object.keys(country.currencies || {}),
-        languages: Object.values(country.languages || {}),
-        capital: country.capital?.[0],
-        region: country.region,
-        population: country.population
-      };
+      await Voice.start(languageCode);
+      this.isListening = true;
     } catch (error) {
-      console.error('Country info error:', error);
-      return null;
+      console.error('Start recording error:', error);
+      throw error;
     }
   }
 
-  // Get all countries
-  static async getAllCountries() {
+  // Stop recording
+  static async stopRecording(): Promise<void> {
     try {
-      const response = await fetch('https://restcountries.com/v3.1/all');
-      const data = await response.json();
-      return data.map(country => ({
-        code: country.cca2,
-        name: country.name.common,
-        flag: country.flag
-      }));
+      await Voice.stop();
+      this.isListening = false;
     } catch (error) {
-      console.error('Get all countries error:', error);
-      return [];
+      console.error('Stop recording error:', error);
+      throw error;
+    }
+  }
+
+  // Check if microphone permission is granted
+  static async checkPermissions(): Promise<boolean> {
+    try {
+      const available = await Voice.isAvailable();
+      return available;
+    } catch (error) {
+      console.error('Permission check error:', error);
+      return false;
+    }
+  }
+
+  // Play translated text
+  static async playText(text: string, languageCode: string): Promise<void> {
+    try {
+      await Speech.speak(text, {
+        language: languageCode,
+        rate: 0.75,
+        pitch: 1.0
+      });
+    } catch (error) {
+      console.error('TTS error:', error);
+      throw error;
+    }
+  }
+
+  // Stop playing
+  static async stopPlaying(): Promise<void> {
+    try {
+      await Speech.stop();
+    } catch (error) {
+      console.error('Stop TTS error:', error);
+    }
+  }
+
+  // Cleanup
+  static async cleanup(): Promise<void> {
+    try {
+      await Voice.destroy();
+      Voice.removeAllListeners();
+    } catch (error) {
+      console.error('Cleanup error:', error);
     }
   }
 }
@@ -535,148 +490,131 @@ export class CountryService {
 
 ## 🎯 PRIORITY RECOMMENDATIONS
 
-### IMPLEMENT NOW (High Priority)
+### IMPLEMENT NOW (Recommended Approach)
 
-#### 1. **Frankfurter API** - Currency Conversion ⭐⭐⭐⭐⭐
-- ✅ NO API key required
-- ✅ Unlimited free requests
-- ✅ Perfect for Money category
-- **Time to implement:** 1-2 hours
+#### 1. **@react-native-voice/voice** + **expo-speech** ⭐⭐⭐⭐⭐
+- ✅ FREE and unlimited
+- ✅ No API key required
+- ✅ Works offline (uses device recognition)
+- ✅ expo-speech already in app for TTS
+- ✅ Good quality for most languages
+- **Time to implement:** 4-6 hours
 
-#### 2. **REST Countries API** - Country Information ⭐⭐⭐⭐⭐
-- ✅ NO API key required
-- ✅ Unlimited free requests
-- ✅ Useful for language selection
-- **Time to implement:** 1 hour
+**Languages Supported:**
+- ✅ Russian (ru-RU)
+- ✅ English (en-US)
+- ✅ Chinese (zh-CN)
+- ✅ Turkish (tr-TR) - closest to Turkmen
+- ✅ 40+ other languages
 
-#### 3. **Free Dictionary API** - English Dictionary ⭐⭐⭐⭐
-- ✅ NO API key required
-- ✅ High-quality data
-- ⚠️ English only
-- **Time to implement:** 2-3 hours
-
----
-
-### CONSIDER LATER (Medium Priority)
-
-#### 4. **TheMealDB** - Food Database ⭐⭐⭐
-- Requires free API key
-- Useful for Food category
-- **Time to implement:** 2 hours
-
-#### 5. **Weatherstack** - Weather Data ⭐⭐⭐
-- Requires free API key
-- 1,000 requests/month free
-- Useful for Weather category
-- **Time to implement:** 2 hours
-
-#### 6. **Nominatim** - Geocoding ⭐⭐⭐
-- NO API key required
-- Context-aware suggestions
-- **Time to implement:** 3-4 hours
+**Architecture:**
+```
+User speaks → @react-native-voice/voice (Speech-to-Text)
+→ TranslationService (already exists)
+→ expo-speech (Text-to-Speech, already exists)
+```
 
 ---
 
-### OPTIONAL (Low Priority)
+### BACKUP OPTIONS (If native quality is poor)
 
-#### 7. **IBM Text to Speech** - Alternative TTS ⭐⭐
-- Requires API key
-- 500 minutes/month free
-- Use only if expo-speech insufficient
-- **Time to implement:** 4-5 hours
+#### 2. **Google Cloud Speech-to-Text** ⭐⭐⭐⭐
+- 60 minutes/month FREE
+- High accuracy
+- 125+ languages
+- Use only if native recognition quality is insufficient
+- **Time to implement:** 2-3 hours additional
 
-#### 8. **Words API** - Extended Dictionary ⭐⭐⭐
-- Requires API key
-- 2,500 requests/day free
-- Use for advanced dictionary features
-- **Time to implement:** 2-3 hours
-
----
-
-## 🚫 NOT RECOMMENDED / ISSUES
-
-### ❌ Free Dictionary API for Turkmen
-- **Issue:** Only supports English language
-- **Alternative:** Use Webonary or create custom dictionary
-
-### ❌ Oxford Dictionary API
-- **Issue:** Sandbox tier only allows first letter of alphabet
-- **Issue:** Paid plans required for full access
-- **Alternative:** Free Dictionary API for English, Webonary for Turkmen
+#### 3. **AssemblyAI** ⭐⭐⭐
+- 3 hours/month FREE
+- Good quality
+- Modern API
+- **Time to implement:** 2-3 hours additional
 
 ---
 
-## 📊 COST ANALYSIS
+## 🚀 IMPLEMENTATION PLAN (PHASE 6)
 
-### FREE (No API Key Required)
-- **Frankfurter** - Currency conversion
-- **Currency-API** - Alternative currency
-- **REST Countries** - Country information
-- **Free Dictionary** - English dictionary
-- **Wiktionary** - Multi-language dictionary
-- **Nominatim** - Geocoding
-- **Open Food Facts** - Food database
-- **Open Brewery DB** - Breweries
+### Step 1: Install Dependencies (15 min)
+```bash
+npx expo install @react-native-voice/voice
+# expo-speech already installed
+```
 
-**Total Monthly Cost:** $0
+### Step 2: Create VoiceTranslatorService (1 hour)
+- Setup voice recognition callbacks
+- Handle permissions
+- Integrate with existing TranslationService
+- Integrate with expo-speech for TTS
+
+### Step 3: Create UI (2-3 hours)
+- Hero + Grid design (like other modules)
+- Microphone button (large, pulsing animation)
+- Language selectors (source/target)
+- Recognized text card
+- Translated text card
+- Play/Stop buttons
+- Loading indicators
+
+### Step 4: Add Multilingual Support (1 hour)
+- Add translations to LanguageContext (31 languages)
+- UI texts: "Tap to speak", "Listening", "Processing", etc.
+
+### Step 5: Testing (1 hour)
+- Test with Russian, English, Chinese, Turkish
+- Test error handling (no permission, no internet)
+- Test on real device (microphone required)
+
+**Total Time:** 4-6 hours
 
 ---
 
-### FREE (API Key Required - Free Tier)
-- **TheMealDB** - Meal recipes (free tier)
-- **Weatherstack** - Weather (1,000 req/month)
-- **Words API** - Dictionary (2,500 req/day)
-- **IBM TTS** - Text to Speech (500 min/month)
-- **Merriam-Webster** - Dictionary (1,000 req/day)
+## 📝 INSTALLATION GUIDE
 
-**Total Monthly Cost:** $0 (within free limits)
+### Install @react-native-voice/voice
+```bash
+npx expo install @react-native-voice/voice
+```
 
----
+### iOS Permissions (add to app.json)
+```json
+{
+  "expo": {
+    "ios": {
+      "infoPlist": {
+        "NSSpeechRecognitionUsageDescription": "This app needs access to speech recognition to translate your voice.",
+        "NSMicrophoneUsageDescription": "This app needs access to your microphone to record your voice."
+      }
+    }
+  }
+}
+```
 
-## 📝 IMPLEMENTATION CHECKLIST
-
-### Phase 7: Dictionary Module
-- [ ] Integrate Free Dictionary API for English words
-- [ ] Add Wiktionary API for multi-language support
-- [ ] Create fallback system (local → API)
-- [ ] Add caching for frequently searched words
-- [ ] Test with 100+ words
-
-### Money Category Enhancement
-- [ ] Integrate Frankfurter API
-- [ ] Add real-time currency conversion
-- [ ] Cache exchange rates (update daily)
-- [ ] Show conversion examples in phrases
-- [ ] Add "Last updated" timestamp
-
-### Additional Features
-- [ ] Add REST Countries for language selection
-- [ ] Show country flags and information
-- [ ] Add weather context (Weatherstack)
-- [ ] Add food database (TheMealDB)
-- [ ] Implement geocoding for context
+### Android Permissions (add to app.json)
+```json
+{
+  "expo": {
+    "android": {
+      "permissions": [
+        "RECORD_AUDIO"
+      ]
+    }
+  }
+}
+```
 
 ---
 
 ## 🔗 USEFUL LINKS
 
-- **Public APIs Repository:** https://github.com/public-apis/public-apis
-- **API Testing Tool:** https://reqbin.com/
-- **Postman:** https://www.postman.com/
-- **RapidAPI:** https://rapidapi.com/
+- **@react-native-voice/voice:** https://github.com/react-native-voice/voice
+- **expo-speech:** https://docs.expo.dev/versions/latest/sdk/speech/
+- **Google Cloud Speech-to-Text:** https://cloud.google.com/speech-to-text
+- **AssemblyAI:** https://www.assemblyai.com/
+- **Web Speech API:** https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API
 
 ---
 
-## 📞 SUPPORT
-
-For questions about specific APIs:
-- Check API documentation
-- Read API terms of service
-- Respect rate limits
-- Cache responses when possible
-
----
-
-**Last Updated:** November 6, 2025
-**Maintained by:** TurkmenPhrasebook Team
-**Status:** Ready for implementation
+**Last Updated:** November 7, 2025
+**Status:** Ready for Voice Translator implementation (Phase 6)
+**Recommended:** Use @react-native-voice/voice + expo-speech (FREE, unlimited, no API key)

@@ -27,6 +27,9 @@ export type RootStackParamList = {
   // Text Translator Module (Phase 3 - Ready)
   TextTranslator: undefined;
 
+  // Voice Translator Module (Phase 6 - Ready)
+  VoiceTranslator: undefined;
+
   // AI Assistants Module (Phase 4 - Ready)
   AIAssistantsHome: undefined;
   ContextualTips: undefined;
