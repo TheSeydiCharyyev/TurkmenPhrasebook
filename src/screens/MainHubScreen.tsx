@@ -169,6 +169,8 @@ export default function MainHubScreen() {
       navigation.navigate('VisualTranslator');
     } else if (module.id === 'text-translator') {
       navigation.navigate('TextTranslator');
+    } else if (module.id === 'voice-translator') {
+      navigation.navigate('VoiceTranslator');
     } else if (module.id === 'ai-assistants') {
       navigation.navigate('AIAssistantsHome');
     } else if (module.id === 'dictionary') {
