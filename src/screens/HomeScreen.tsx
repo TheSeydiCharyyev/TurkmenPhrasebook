@@ -284,8 +284,8 @@ export default function HomeScreen() {
   }, [navigation]);
 
   const handleBackPress = useCallback(() => {
-    // Возврат на экран выбора языковой пары
-    navigation.navigate('LanguagePairSelection');
+    // Возврат на главный экран приложения
+    navigation.navigate('MainHubScreen');
   }, [navigation]);
 
   return (
