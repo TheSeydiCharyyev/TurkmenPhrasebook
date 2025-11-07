@@ -65,6 +65,27 @@ export interface InterfaceTexts {
   offlineMode: string;
   about: string;
   feedback: string;
+  // Дополнительные для SettingsScreen
+  audioSettings: string;
+  interfaceSettings: string;
+  dataSettings: string;
+  appInfo: string;
+  currentLanguage: string;
+  phrasebookLanguage: string;
+  fontSize: string;
+  currentFontSize: string;
+  hapticFeedback: string;
+  hapticFeedbackDesc: string;
+  testVoice: string;
+  voicesAvailable: string;
+  checkVoices: string;
+  checkVoicesDesc: string;
+  clearHistoryConfirm: string;
+  historyCleared: string;
+  versionAndInfo: string;
+  phrases: string;
+  views: string;
+  pronunciationPlayback: string;
   
   // Поиск
   searchPlaceholder: string;
@@ -223,6 +244,27 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     offlineMode: 'Oflaýn režim',
     about: 'Programma hakda',
     feedback: 'Pikir alyşmak',
+    // Дополнительные для SettingsScreen
+    audioSettings: 'Audio sazlamalar',
+    interfaceSettings: 'Interfeýs sazlamalary',
+    dataSettings: 'Maglumat sazlamalary',
+    appInfo: 'Programma maglumatlar',
+    currentLanguage: 'Häzirki: ',
+    phrasebookLanguage: 'Gepleşik kitaby dili',
+    fontSize: 'Harpyň ululygy',
+    currentFontSize: 'Häzirki: ',
+    hapticFeedback: 'Yrgyldy',
+    hapticFeedbackDesc: 'Düwme basylanda yrgyldy',
+    testVoice: 'Ses synag',
+    voicesAvailable: 'ses elýeterli',
+    checkVoices: 'Sesleri barlap gör',
+    checkVoicesDesc: 'Hytaýça sesleriň elýeterliligini barlap gör',
+    clearHistoryConfirm: 'Taryhy arassalaňyzmy?',
+    historyCleared: 'Taryh arassalandy',
+    versionAndInfo: 'Wersiýa we maglumat',
+    phrases: 'sözlem',
+    views: 'görkeziş',
+    pronunciationPlayback: 'Aýdylyş çalgysy',
     
     searchPlaceholder: 'Islendik dilde sözlem giriziň...',
     noResults: 'Hiç zat tapylmady',
@@ -377,6 +419,27 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     offlineMode: '离线模式',
     about: '关于应用',
     feedback: '反馈',
+    // Дополнительные для SettingsScreen
+    audioSettings: '音频设置',
+    interfaceSettings: '界面设置',
+    dataSettings: '数据设置',
+    appInfo: '应用信息',
+    currentLanguage: '当前: ',
+    phrasebookLanguage: '会话手册语言',
+    fontSize: '字体大小',
+    currentFontSize: '当前: ',
+    hapticFeedback: '触觉反馈',
+    hapticFeedbackDesc: '按钮按下时振动',
+    testVoice: '语音测试',
+    voicesAvailable: '种声音可用',
+    checkVoices: '检查语音可用性',
+    checkVoicesDesc: '检查中文语音是否可用',
+    clearHistoryConfirm: '清除历史记录？',
+    historyCleared: '历史已清除',
+    versionAndInfo: '版本和信息',
+    phrases: '短语',
+    views: '次查看',
+    pronunciationPlayback: '发音播放',
     
     searchPlaceholder: '输入任何语言的短语搜索...',
     noResults: '未找到结果',
@@ -530,6 +593,27 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     offlineMode: 'Офлайн режим',
     about: 'О приложении',
     feedback: 'Обратная связь',
+    // Дополнительные для SettingsScreen
+    audioSettings: 'Настройки аудио',
+    interfaceSettings: 'Настройки интерфейса',
+    dataSettings: 'Настройки данных',
+    appInfo: 'Информация о приложении',
+    currentLanguage: 'Текущий: ',
+    phrasebookLanguage: 'Язык разговорника',
+    fontSize: 'Размер шрифта',
+    currentFontSize: 'Текущий: ',
+    hapticFeedback: 'Тактильная отдача',
+    hapticFeedbackDesc: 'Вибрация при нажатии кнопок',
+    testVoice: 'Тест голоса',
+    voicesAvailable: 'голосов доступно',
+    checkVoices: 'Проверить голоса',
+    checkVoicesDesc: 'Проверить доступность русских голосов',
+    clearHistoryConfirm: 'Очистить историю?',
+    historyCleared: 'История очищена',
+    versionAndInfo: 'Версия и информация',
+    phrases: 'фраз',
+    views: 'просмотров',
+    pronunciationPlayback: 'Воспроизведение произношения',
 
     searchPlaceholder: 'Введите фразу на любом языке...',
     noResults: 'Ничего не найдено',
@@ -683,6 +767,27 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     offlineMode: 'Offline mode',
     about: 'About app',
     feedback: 'Feedback',
+    // Additional for SettingsScreen
+    audioSettings: 'Audio settings',
+    interfaceSettings: 'Interface settings',
+    dataSettings: 'Data settings',
+    appInfo: 'App information',
+    currentLanguage: 'Current: ',
+    phrasebookLanguage: 'Phrasebook language',
+    fontSize: 'Font size',
+    currentFontSize: 'Current: ',
+    hapticFeedback: 'Haptic feedback',
+    hapticFeedbackDesc: 'Vibration on button press',
+    testVoice: 'Test voice',
+    voicesAvailable: 'voices available',
+    checkVoices: 'Check voices',
+    checkVoicesDesc: 'Check availability of English voices',
+    clearHistoryConfirm: 'Clear history?',
+    historyCleared: 'History cleared',
+    versionAndInfo: 'Version and info',
+    phrases: 'phrases',
+    views: 'views',
+    pronunciationPlayback: 'Pronunciation playback',
 
     searchPlaceholder: 'Enter phrase in any language...',
     noResults: 'No results found',
@@ -836,6 +941,27 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     offlineMode: 'Çevrimdışı mod',
     about: 'Uygulama hakkında',
     feedback: 'Geri bildirim',
+    // Additional for SettingsScreen
+    audioSettings: 'Ses ayarları',
+    interfaceSettings: 'Arayüz ayarları',
+    dataSettings: 'Veri ayarları',
+    appInfo: 'Uygulama bilgileri',
+    currentLanguage: 'Mevcut: ',
+    phrasebookLanguage: 'Konuşma kılavuzu dili',
+    fontSize: 'Yazı boyutu',
+    currentFontSize: 'Mevcut: ',
+    hapticFeedback: 'Dokunsal geri bildirim',
+    hapticFeedbackDesc: 'Düğmeye basıldığında titreşim',
+    testVoice: 'Ses testi',
+    voicesAvailable: 'ses mevcut',
+    checkVoices: 'Sesleri kontrol et',
+    checkVoicesDesc: 'Türkçe seslerin kullanılabilirliğini kontrol et',
+    clearHistoryConfirm: 'Geçmişi temizle?',
+    historyCleared: 'Geçmiş temizlendi',
+    versionAndInfo: 'Sürüm ve bilgi',
+    phrases: 'ifade',
+    views: 'görüntüleme',
+    pronunciationPlayback: 'Telaffuz çalma',
 
     searchPlaceholder: 'Herhangi bir dilde ifade girin...',
     noResults: 'Sonuç bulunamadı',

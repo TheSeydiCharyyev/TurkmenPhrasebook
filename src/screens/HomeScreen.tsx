@@ -284,8 +284,11 @@ export default function HomeScreen() {
   }, [navigation]);
 
   const handleBackPress = useCallback(() => {
-    // Возврат на главный экран приложения
-    navigation.navigate('MainHubScreen');
+    // Возврат на главный экран приложения (из вложенного стека в корневой)
+    const parentNavigation = navigation.getParent();
+    if (parentNavigation) {
+      parentNavigation.navigate('MainHub');
+    }
   }, [navigation]);
 
   return (

@@ -114,13 +114,13 @@ export default function SettingsScreen() {
   const stats = getStats();
   const texts = getTexts();
 
-  // Мемоизация тяжелых вычислений
+  // Мемоизация тяжелых вычислений - используем texts из контекста
   const settingsTexts = useMemo(() => ({
-    audioSettings: config.mode === 'tk' ? 'Audio sazlamalar' : '音频设置',
-    interfaceSettings: config.mode === 'tk' ? 'Interfeýs sazlamalary' : '界面设置',
-    dataSettings: config.mode === 'tk' ? 'Maglumat sazlamalary' : '数据设置',
-    appInfo: config.mode === 'tk' ? 'Programma maglumatlar' : '应用信息',
-  }), [config.mode]);
+    audioSettings: texts.audioSettings,
+    interfaceSettings: texts.interfaceSettings,
+    dataSettings: texts.dataSettings,
+    appInfo: texts.appInfo,
+  }), [texts]);
 
   // Оптимизированная загрузка настроек
   const loadPreferences = useCallback(async () => {
@@ -187,13 +187,10 @@ export default function SettingsScreen() {
 
     // Показываем уведомление только для важных изменений
     if (key === 'soundEnabled' || key === 'hapticFeedback') {
-      const message = newValue
-        ? (config.mode === 'tk' ? 'Açyldy' : '已开启')
-        : (config.mode === 'tk' ? 'Ýapyldy' : '已关闭');
-
+      const message = newValue ? texts.success : texts.success;
       Alert.alert('⚙️', message);
     }
-  }, [preferences, savePreference, config.mode]);
+  }, [preferences, savePreference, texts]);
 
   const testTTS = useCallback(async () => {
     const testText = config.mode === 'tk' ? 'Salam, nähili?' : '你好，怎么样？';
@@ -216,20 +213,18 @@ export default function SettingsScreen() {
       const recommendation = await TTSChecker.getRecommendations(config.mode);
 
       const statusEmoji = recommendation.showWarning ? '⚠️' : '✅';
-      const voiceInfo = config.mode === 'tk'
-        ? `Hytaýça sesler: ${result.chineseVoices.length} sany\nJemi sesler: ${result.allVoices.length} sany`
-        : `中文语音: ${result.chineseVoices.length} 种\n总语音: ${result.allVoices.length} 种`;
+      const voiceInfo = `${texts.checkVoices}: ${result.chineseVoices.length}\n${texts.voicesAvailable}: ${result.allVoices.length}`;
 
       Alert.alert(
         `${statusEmoji} ${recommendation.title}`,
         `${recommendation.message}\n\n${voiceInfo}`,
         [
-          { text: config.mode === 'tk' ? 'Ýap' : '关闭', style: 'cancel' },
+          { text: texts.cancel, style: 'cancel' },
           ...(recommendation.showWarning && recommendation.instructions ? [{
-            text: config.mode === 'tk' ? 'Görkezmeler' : '查看说明',
+            text: texts.checkVoices,
             onPress: () => {
               Alert.alert(
-                config.mode === 'tk' ? 'Nädip düzetmeli' : '如何解决',
+                texts.checkVoices,
                 recommendation.instructions?.join('\n\n') || ''
               );
             }
@@ -239,27 +234,30 @@ export default function SettingsScreen() {
     } catch (error) {
       console.warn('Ошибка проверки голосов:', error);
       Alert.alert(
-        config.mode === 'tk' ? 'Ýalňyşlyk' : '错误',
-        config.mode === 'tk'
-          ? 'Ses barlamak başartmady'
-          : '检查语音失败'
+        texts.error,
+        texts.checkVoicesDesc
       );
     }
-  }, [config.mode]);
+  }, [config.mode, texts]);
 
   const handleAbout = useCallback(async () => {
     const cacheInfo = await getCacheInfo();
     const cacheText = cacheInfo
-      ? `\nКэш: ${cacheInfo.phrasesCount} фраз, ${cacheInfo.categoriesCount} категорий`
+      ? `\nCache: ${cacheInfo.phrasesCount} ${texts.phrases}, ${cacheInfo.categoriesCount} categories`
       : '';
+
+    const aboutTexts: Record<string, string> = {
+      'tk': `Şapak Ykjam Terjime v1.0\n\nTürkmenistanyň we beýleki ýurtlaryň syýahatçylary üçin döredildi\n\n© 2025${cacheText}`,
+      'zh': `Shapak Quick Translate v1.0\n\n为土库曼斯坦和其他国家的游客开发\n\n© 2025${cacheText}`,
+      'ru': `Shapak Quick Translate v1.0\n\nРазработано для туристов из Туркменистана и других стран\n\n© 2025${cacheText}`,
+      'en': `Shapak Quick Translate v1.0\n\nDeveloped for tourists from Turkmenistan and other countries\n\n© 2025${cacheText}`,
+    };
 
     Alert.alert(
       texts.about,
-      config.mode === 'tk'
-        ? `Hytaý sözlem kitaby v1.0\n\nTürkmenistanyň we Hytaýyň syýahatçylary üçin döredildi\n\n© 2025${cacheText}`
-        : `土库曼语会话手册 v1.0\n\n为中国和土库曼斯坦游客开发\n\n© 2025${cacheText}`
+      aboutTexts[config.mode] || aboutTexts['en']
     );
-  }, [texts.about, config.mode, getCacheInfo]);
+  }, [texts, config.mode, getCacheInfo]);
 
   if (isLoading) {
     return (
@@ -291,7 +289,7 @@ export default function SettingsScreen() {
               icon="language"
               iconColor={Colors.primary}
               title={texts.switchLanguage}
-              subtitle={`${config.mode === 'tk' ? 'Häzirki: ' : '当前: '}${getLanguageByCode(config.mode)?.name || config.mode}`}
+              subtitle={`${texts.currentLanguage}${getLanguageByCode(config.mode)?.name || config.mode}`}
               onPress={handleLanguageToggle}
               rightComponent={<Ionicons name="chevron-forward" size={20} color={Colors.textLight} />}
             />
@@ -300,8 +298,8 @@ export default function SettingsScreen() {
             <SettingsItem
               icon="book"
               iconColor={Colors.accent}
-              title={config.mode === 'tk' ? 'Gepleşik kitaby dili' : config.mode === 'zh' ? '会话手册语言' : config.mode === 'ru' ? 'Язык разговорника' : 'Phrasebook Language'}
-              subtitle={`${config.mode === 'tk' ? 'Häzirki: ' : '当前: '}${getLanguageByCode(selectedLanguage)?.nameEn || selectedLanguage}-Turkmen`}
+              title={texts.phrasebookLanguage}
+              subtitle={`${texts.currentLanguage}${getLanguageByCode(selectedLanguage)?.nameEn || selectedLanguage}-Turkmen`}
               onPress={handlePhrasebookLanguageChange}
               rightComponent={<Ionicons name="chevron-forward" size={20} color={Colors.textLight} />}
             />
@@ -315,7 +313,7 @@ export default function SettingsScreen() {
               icon="volume-high"
               iconColor={Colors.accent}
               title={texts.soundEffects}
-              subtitle={config.mode === 'tk' ? 'Aýdylyş çalgysy' : '发音播放'}
+              subtitle={texts.pronunciationPlayback}
               rightComponent={
                 <Switch
                   value={preferences.soundEnabled}
@@ -329,8 +327,8 @@ export default function SettingsScreen() {
             <SettingsItem
               icon="play-circle"
               iconColor={Colors.success}
-              title={config.mode === 'tk' ? 'Ses synag' : '语音测试'}
-              subtitle={`${availableVoices.length} ${config.mode === 'tk' ? 'ses elýeterli' : '种声音可用'}`}
+              title={texts.testVoice}
+              subtitle={`${availableVoices.length} ${texts.voicesAvailable}`}
               onPress={testTTS}
               rightComponent={<Ionicons name="play" size={20} color={Colors.textLight} />}
             />
@@ -338,8 +336,8 @@ export default function SettingsScreen() {
             <SettingsItem
               icon="checkmark-circle"
               iconColor={Colors.primary}
-              title={config.mode === 'tk' ? 'Sesleri barlap gör' : '检查语音可用性'}
-              subtitle={config.mode === 'tk' ? 'Hytaýça sesleriň elýeterliligini barlap gör' : '检查中文语音是否可用'}
+              title={texts.checkVoices}
+              subtitle={texts.checkVoicesDesc}
               onPress={checkVoiceAvailability}
               rightComponent={<Ionicons name="search" size={20} color={Colors.textLight} />}
             />
@@ -352,8 +350,8 @@ export default function SettingsScreen() {
             <SettingsItem
               icon="text"
               iconColor={Colors.primary}
-              title={config.mode === 'tk' ? 'Harpyň ululygy' : '字体大小'}
-              subtitle={`${config.mode === 'tk' ? 'Häzirki: ' : '当前: '}${preferences.fontSize}px`}
+              title={texts.fontSize}
+              subtitle={`${texts.currentFontSize}${preferences.fontSize}px`}
               onPress={() => setShowFontSizeModal(true)}
               rightComponent={<Ionicons name="chevron-forward" size={20} color={Colors.textLight} />}
             />
@@ -361,8 +359,8 @@ export default function SettingsScreen() {
             <SettingsItem
               icon="phone-portrait"
               iconColor={Colors.accent}
-              title={config.mode === 'tk' ? 'Yrgyldy' : '触觉反馈'}
-              subtitle={config.mode === 'tk' ? 'Düwme basylanda yrgyldy' : '按钮按下时振动'}
+              title={texts.hapticFeedback}
+              subtitle={texts.hapticFeedbackDesc}
               rightComponent={
                 <Switch
                   value={preferences.hapticFeedback}
@@ -382,19 +380,19 @@ export default function SettingsScreen() {
               icon="time"
               iconColor={Colors.warning}
               title={texts.clearHistory}
-              subtitle={`${stats.uniquePhrases} ${config.mode === 'tk' ? 'sözlem' : '短语'} • ${stats.totalViews} ${config.mode === 'tk' ? 'görkeziş' : '次查看'}`}
+              subtitle={`${stats.uniquePhrases} ${texts.phrases} • ${stats.totalViews} ${texts.views}`}
               onPress={() => {
                 Alert.alert(
                   texts.clearHistory,
-                  config.mode === 'tk' ? 'Taryhy arassalaňyzmy?' : '清除历史记录？',
+                  texts.clearHistoryConfirm,
                   [
-                    { text: config.mode === 'tk' ? 'Ýatyr' : '取消', style: 'cancel' },
+                    { text: texts.cancel, style: 'cancel' },
                     {
-                      text: config.mode === 'tk' ? 'Arassala' : '清除',
+                      text: texts.delete,
                       style: 'destructive',
                       onPress: () => {
                         clearHistory();
-                        Alert.alert('✅', config.mode === 'tk' ? 'Taryh arassalandy' : '历史已清除');
+                        Alert.alert('✅', texts.historyCleared);
                       }
                     }
                   ]
@@ -412,7 +410,7 @@ export default function SettingsScreen() {
               icon="information-circle"
               iconColor={Colors.textLight}
               title={texts.about}
-              subtitle={config.mode === 'tk' ? 'Wersiýa we maglumat' : '版本和信息'}
+              subtitle={texts.versionAndInfo}
               onPress={handleAbout}
               rightComponent={<Ionicons name="chevron-forward" size={20} color={Colors.textLight} />}
             />
