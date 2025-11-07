@@ -56,7 +56,6 @@ const getModules = (texts: any): ModuleCard[] => [
     iconName: 'mic-outline',
     gradientColors: ['#ff6a00', '#ee0979'], // Orange to Red gradient
     route: 'VoiceTranslator',
-    isLocked: true,  // 🔒 Заблокировано для v2.0
   },
   {
     id: 'text-translator',
