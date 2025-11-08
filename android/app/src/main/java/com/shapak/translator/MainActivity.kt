@@ -1,4 +1,4 @@
-package com.seydicharyyev.turkmenphrasebook
+package com.shapak.translator
 
 import android.os.Build
 import android.os.Bundle

@@ -18,7 +18,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import Voice from '@react-native-voice/voice';
 import { useAppLanguage } from '../../../contexts/LanguageContext';
 import { VoiceTranslatorService } from '../services/VoiceTranslatorService';
-import { translateText } from '../../../services/TranslationService';
+import { translateText } from '../../visual-translator/services/TranslationService';
 import { Colors } from '../../../constants/Colors';
 import { scale, verticalScale, moderateScale } from '../../../utils/ResponsiveUtils';
 
