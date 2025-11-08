@@ -33,7 +33,7 @@ import { useAudio } from '../hooks/useAudio';
 import { SubCategoriesGrid } from '../components/SubCategoryCard';
 
 type CategoryScreenRouteProp = RouteProp<HomeStackParamList, 'CategoryScreen'>;
-type CategoryScreenNavigationProp = StackNavigationProp<RootStackParamList>;
+type CategoryScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'CategoryScreen'>;
 
 const { width, height } = Dimensions.get('window');
 
@@ -376,7 +376,11 @@ export default function CategoryScreen() {
       >
         <TouchableOpacity
           style={styles.backButton}
-          onPress={() => navigation.goBack()}
+          onPress={() => {
+            if (navigation.canGoBack()) {
+              navigation.goBack();
+            }
+          }}
         >
           <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
         </TouchableOpacity>
