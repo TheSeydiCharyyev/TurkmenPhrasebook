@@ -15,6 +15,8 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 import Voice from '@react-native-voice/voice';
 import { useAppLanguage } from '../../../contexts/LanguageContext';
 import { VoiceTranslatorService } from '../services/VoiceTranslatorService';
@@ -25,6 +27,7 @@ import { scale, verticalScale, moderateScale } from '../../../utils/ResponsiveUt
 type TranslatorState = 'idle' | 'listening' | 'processing' | 'completed' | 'error';
 
 export default function VoiceTranslatorScreen() {
+  const navigation = useNavigation();
   const { getTexts, config } = useAppLanguage();
   const texts = getTexts();
 
@@ -265,6 +268,14 @@ export default function VoiceTranslatorScreen() {
           end={{ x: 1, y: 1 }}
           style={styles.header}
         >
+          {/* Back Button */}
+          <TouchableOpacity
+            style={styles.backButton}
+            onPress={() => navigation.goBack()}
+          >
+            <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
+          </TouchableOpacity>
+
           <Text style={styles.headerEmoji}>🎤</Text>
           <Text style={styles.headerTitle}>{texts.vtHeroTitle}</Text>
           <Text style={styles.headerSubtitle}>{texts.vtHeroSubtitle}</Text>
@@ -496,6 +507,18 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     textAlign: 'center',
     opacity: 0.9,
+  },
+  backButton: {
+    position: 'absolute',
+    top: verticalScale(10),
+    left: scale(10),
+    width: scale(40),
+    height: scale(40),
+    borderRadius: scale(20),
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 10,
   },
   // Language Bar
   languageBar: {
