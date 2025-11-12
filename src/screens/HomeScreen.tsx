@@ -28,7 +28,7 @@ import { TabScreen } from '../components/Screen';
 type HomeScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'CategoryScreen'>;
 
 // Высота новой минималистичной шапки (для анимации скрытия)
-const HEADER_HEIGHT = 60; // Увеличена для кнопки назад
+const HEADER_HEIGHT = 104; // Увеличена для кнопки назад
 
 // Минималистичная шапка с индикатором языка
 const MinimalHeader = React.memo<{
@@ -40,6 +40,8 @@ const MinimalHeader = React.memo<{
 }>(
   ({ languageMode, onLanguagePress, onBackPress, selectedLanguageCode, animatedStyle }) => {
     const selectedLang = getLanguageByCode(selectedLanguageCode);
+    const isTurkmenMode = selectedLanguageCode === 'tk';
+    const secondLang = isTurkmenMode ? getLanguageByCode('en') : getLanguageByCode('tk');
 
     return (
       <Animated.View style={[styles.headerContainer, animatedStyle]}>
@@ -49,7 +51,8 @@ const MinimalHeader = React.memo<{
         
         <TouchableOpacity style={styles.languageInfo} onPress={onLanguagePress} activeOpacity={0.7}>
           <Text style={styles.flagIcon}>{selectedLang?.flag || '🌍'}</Text>
-          <Text style={styles.languageName}>{selectedLang?.name || 'Language'}</Text>
+          <Ionicons name="swap-horizontal" size={20} color="#9CA3AF" style={{ marginHorizontal: 6 }} />
+          <Text style={styles.flagIcon}>{secondLang?.flag || '🇹🇲'}</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.settingsButton} onPress={onLanguagePress} activeOpacity={0.7}>
@@ -233,7 +236,8 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    height: 60,
+    paddingTop: 44,
+    height: 104,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
