@@ -302,18 +302,6 @@ export default function CategoryScreen() {
     setSelectedSubcategory(null);
   }, []);
 
-  // Анимация заголовка при скролле
-  const categoryTitleOpacity = scrollY.interpolate({
-    inputRange: [0, 150],
-    outputRange: [1, 0],
-    extrapolate: 'clamp',
-  });
-
-  const categoryTitleTranslateY = scrollY.interpolate({
-    inputRange: [0, 150],
-    outputRange: [0, -50],
-    extrapolate: 'clamp',
-  });
 
   // ✅ ОБНОВЛЕНО: Получаем название категории на текущем языке с поддержкой всех 30 языков
   const { selectedLanguage } = useConfig();
@@ -367,8 +355,8 @@ export default function CategoryScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* ✅ БЕЛЫЙ МИНИМАЛИСТИЧНЫЙ Header */}
-      <View style={styles.headerContainer}
+      {/* ✅ ВАРИАНТ 2: Белый header + цветная линия-акцент */}
+      <View style={styles.headerContainer}>
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => {
@@ -405,6 +393,9 @@ export default function CategoryScreen() {
             <Text style={styles.gridEmoji}>📑</Text>
           </TouchableOpacity>
         )}
+
+        {/* Цветная линия-акцент */}
+        <View style={[styles.accentLine, { backgroundColor: gradientStart }]} />
       </View>
 
       <ScrollView
@@ -416,47 +407,6 @@ export default function CategoryScreen() {
         )}
         scrollEventThrottle={16}
       >
-        {/* ✅ ИСПРАВЛЕНО: Универсальный заголовок для ВСЕХ 30 языков */}
-        <Animated.View style={[
-          styles.categoryTitleContainer,
-          {
-            opacity: categoryTitleOpacity,
-            transform: [{ translateY: categoryTitleTranslateY }]
-          }
-        ]}>
-          {selectedLanguage === 'tk' ? (
-            <>
-              <Text style={styles.primaryCategoryTitle}>{category.nameTk}</Text>
-              <Text style={styles.secondaryCategoryTitle}>{category.nameEn}</Text>
-              <Text style={styles.phrasesCountTitle}>
-                {filteredPhrases.length} sözlem
-              </Text>
-            </>
-          ) : (
-            <>
-              <Text style={styles.primaryCategoryTitle}>
-                {getCategoryNameByLanguage(selectedLanguage)}
-              </Text>
-              <Text style={styles.secondaryCategoryTitle}>{category.nameTk}</Text>
-              <Text style={styles.phrasesCountTitle}>
-                {(() => {
-                  const phrasesText: { [key: string]: string } = {
-                    'zh': '短语',
-                    'ru': 'фраз',
-                    'en': 'phrases',
-                    'tr': 'cümle',  // Турецкий
-                    'ar': 'عبارات',  // Арабский
-                    'de': 'Phrasen',  // Немецкий
-                    'fr': 'phrases',  // Французский
-                    'es': 'frases',  // Испанский
-                  };
-                  const text = phrasesText[selectedLanguage] || phrasesText['en'];
-                  return `${filteredPhrases.length} ${text}`;
-                })()}
-              </Text>
-            </>
-          )}
-        </Animated.View>
 
         {/* ПОДКАТЕГОРИИ - показываем ПЕРВЫМИ если есть и не выбрана конкретная */}
         {subcategories.length > 0 && !selectedSubcategory && (
@@ -549,9 +499,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
@@ -566,6 +513,14 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+
+  accentLine: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 4,
   },
 
   gridEmoji: {
@@ -616,36 +571,6 @@ const styles = StyleSheet.create({
   },
 
   // ✅ ИСПРАВЛЕННЫЙ заголовок - только языковая пара
-  categoryTitleContainer: {
-    backgroundColor: '#fff',
-    paddingVertical: verticalScale(24),
-    paddingHorizontal: scale(16),
-    alignItems: 'center',
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.border,
-  },
-
-  primaryCategoryTitle: {
-    fontSize: moderateScale(30),
-    fontWeight: 'bold',
-    color: Colors.text,
-    marginBottom: verticalScale(8),
-    textAlign: 'center',
-  },
-
-  secondaryCategoryTitle: {
-    fontSize: moderateScale(22),
-    fontWeight: '600',
-    color: Colors.textSecondary || '#6B7280',
-    marginBottom: verticalScale(8),
-    textAlign: 'center',
-  },
-
-  phrasesCountTitle: {
-    fontSize: moderateScale(15),
-    color: Colors.textLight,
-    fontWeight: '500',
-  },
 
   subcategoriesSection: {
     padding: scale(16),
