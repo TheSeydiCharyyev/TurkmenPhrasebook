@@ -28,18 +28,17 @@ import { TabScreen } from '../components/Screen';
 type HomeScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'CategoryScreen'>;
 
 // Высота новой минималистичной шапки (для анимации скрытия)
-const HEADER_HEIGHT = 230; // Увеличена для кнопки назад
+const HEADER_HEIGHT = 180; // Увеличена для кнопки назад
 
 // Минималистичная шапка с индикатором языка
 const MinimalHeader = React.memo<{
   languageMode: string;  // ✅ ОБНОВЛЕНО: поддержка всех 30 языков
-  onSearchPress: () => void;
   onLanguagePress: () => void;
   onBackPress: () => void;  // ✅ НОВОЕ: кнопка назад
   selectedLanguageCode: string;
   animatedStyle?: any;  // ✅ НОВОЕ: стиль для анимации
 }>(
-  ({ languageMode, onSearchPress, onLanguagePress, onBackPress, selectedLanguageCode, animatedStyle }) => {
+  ({ languageMode, onLanguagePress, onBackPress, selectedLanguageCode, animatedStyle }) => {
     const selectedLang = getLanguageByCode(selectedLanguageCode);
     const turkmenFlag = '🇹🇲';
     const englishFlag = '🇬🇧';
@@ -96,30 +95,6 @@ const MinimalHeader = React.memo<{
           )}
         </View>
 
-        {/* Поле поиска */}
-        <TouchableOpacity
-          style={styles.searchBar}
-          onPress={onSearchPress}
-          activeOpacity={0.7}
-        >
-          <Ionicons name="search" size={20} color={Colors.textLight} />
-          <Text style={styles.searchPlaceholder}>
-            {(() => {
-              const searchTexts: { [key: string]: string } = {
-                'tk': 'Sözlemleri gözle...',
-                'zh': '搜索短语...',
-                'ru': 'Поиск фраз...',
-                'en': 'Search phrases...',
-                'tr': 'Cümleleri ara...',  // Турецкий
-                'ar': 'البحث عن العبارات...',  // Арабский
-                'de': 'Phrasen suchen...',  // Немецкий
-                'fr': 'Rechercher des phrases...',  // Французский
-                'es': 'Buscar frases...',  // Испанский
-              };
-              return searchTexts[languageMode] || searchTexts['en'];
-            })()}
-          </Text>
-        </TouchableOpacity>
       </Animated.View>
     );
   }
@@ -271,13 +246,6 @@ export default function HomeScreen() {
     }
   );
 
-  const handleSearchPress = useCallback(() => {
-    // Переход на экран поиска
-    navigation.navigate('AdditionalFeatures', {
-      screen: 'Search'
-    });
-  }, [navigation]);
-
   const handleLanguagePress = useCallback(() => {
     // Переход к экрану выбора языковой пары разговорника
     navigation.navigate('LanguagePairSelection');
@@ -297,7 +265,6 @@ export default function HomeScreen() {
         {/* НОВАЯ МИНИМАЛИСТИЧНАЯ ШАПКА С ИНДИКАТОРОМ ЯЗЫКА - АНИМИРОВАННАЯ */}
         <MinimalHeader
           languageMode={languageMode}
-          onSearchPress={handleSearchPress}
           onLanguagePress={handleLanguagePress}
           onBackPress={handleBackPress}
           selectedLanguageCode={selectedLanguage}
@@ -406,22 +373,6 @@ const styles = StyleSheet.create({
   },
 
   // Поле поиска
-  searchBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: Colors.backgroundLight || '#F9FAFB',
-    borderRadius: scale(12),
-    paddingHorizontal: scale(16),
-    paddingVertical: verticalScale(12),
-    borderWidth: 1,
-    borderColor: Colors.border || '#E5E7EB',
-  },
-
-  searchPlaceholder: {
-    marginLeft: scale(10),
-    fontSize: moderateScale(15),
-    color: Colors.textLight,
-  },
 
   // Контейнер категорий
   contentContainer: {

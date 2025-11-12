@@ -325,6 +325,8 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
           <Text
             style={[styles.heroTitle, { color: iconColor }]}
             numberOfLines={2}
+            adjustsFontSizeToFit
+            minimumFontScale={0.8}
           >
             {module.title}
           </Text>
@@ -503,12 +505,12 @@ const styles = StyleSheet.create({
 
 
   heroTitle: {
-    fontSize: moderateScale(28),
+    fontSize: moderateScale(24), // Уменьшили с 28 до 24
     fontWeight: Typography.bold,
     fontFamily: Typography.fontFamily,
-    lineHeight: moderateScale(34),
+    lineHeight: moderateScale(28), // Пропорционально уменьшили
     marginBottom: verticalScale(8),
-    paddingRight: scale(100), // Отступ справа, чтобы не задевать иконку
+    paddingRight: scale(90), // Уменьшили с 100 до 90
   },
 
   heroStats: {
