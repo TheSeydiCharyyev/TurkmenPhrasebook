@@ -100,29 +100,18 @@ const MinimalHeader = React.memo<{
   }
 );
 
-// Компонент пары категорий
-const CategoryPairItem = React.memo<{
-  item: [Category, Category | undefined];
+// Компонент одиночной категории (1 колонка - вертикальный список)
+const CategoryItem = React.memo<{
+  item: Category;
   onPress: (category: Category) => void;
-  languageMode: string;  // ✅ ОБНОВЛЕНО: поддержка всех 30 языков
+  languageMode: string;
 }>(({ item, onPress, languageMode }) => (
-  <View style={styles.row}>
-    <View style={[styles.cardWrapper, styles.leftCard]}>
-      <CategoryCard
-        category={item[0]}
-        onPress={onPress}
-        languageMode={languageMode}
-      />
-    </View>
-    {item[1] && (
-      <View style={[styles.cardWrapper, styles.rightCard]}>
-        <CategoryCard
-          category={item[1]}
-          onPress={onPress}
-          languageMode={languageMode}
-        />
-      </View>
-    )}
+  <View style={styles.categoryItemWrapper}>
+    <CategoryCard
+      category={item}
+      onPress={onPress}
+      languageMode={languageMode}
+    />
   </View>
 ));
 
@@ -139,9 +128,9 @@ const CategoryGrid = React.memo<CategoryGridProps>(({ languageMode, onScroll }) 
     navigation.navigate('CategoryScreen', { category });
   }, [navigation]);
 
-  const renderCategoryPair = useCallback(
-    ({ item }: { item: [Category, Category | undefined] }) => (
-      <CategoryPairItem
+  const renderCategory = useCallback(
+    ({ item }: { item: Category }) => (
+      <CategoryItem
         item={item}
         onPress={handleCategoryPress}
         languageMode={languageMode}
@@ -150,19 +139,11 @@ const CategoryGrid = React.memo<CategoryGridProps>(({ languageMode, onScroll }) 
     [handleCategoryPress, languageMode]
   );
 
-  const categoryPairs = useMemo(() => {
-    const pairs: [Category, Category | undefined][] = [];
-    for (let i = 0; i < categories.length; i += 2) {
-      pairs.push([categories[i], categories[i + 1]]);
-    }
-    return pairs;
-  }, []);
-
   return (
     <Animated.FlatList
-      data={categoryPairs}
-      renderItem={renderCategoryPair}
-      keyExtractor={(item, index) => `pair-${index}`}
+      data={categories}
+      renderItem={renderCategory}
+      keyExtractor={(item) => item.id}
       contentContainerStyle={styles.gridContainer}
       showsVerticalScrollIndicator={false}
       removeClippedSubviews={true}
@@ -386,22 +367,10 @@ const styles = StyleSheet.create({
     paddingBottom: verticalScale(40),
   },
 
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: verticalScale(20),
-  },
-
-  cardWrapper: {
-    width: '48%',
-    height: verticalScale(260),          // ✅ СТРОГАЯ фиксированная высота
-  },
-
-  leftCard: {
-    marginRight: scale(6),
-  },
-
-  rightCard: {
-    marginLeft: scale(6),
+  // 1 колонка - вертикальный список (минимализм)
+  categoryItemWrapper: {
+    width: '100%',
+    height: verticalScale(140),  // Средняя высота для минимализма
+    marginBottom: verticalScale(16),  // Отступ между карточками
   },
 });
