@@ -1,4 +1,4 @@
-// src/components/CategoryCard.tsx - ВАРИАНТ 1: Горизонтальный layout
+// src/components/CategoryCard.tsx - ВАРИАНТ 2: Крупный текст + Material Design
 
 import React, { useCallback } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
@@ -47,10 +47,10 @@ export default function CategoryCard({ category, onPress, languageMode }: Catego
 const styles = StyleSheet.create({
   card: { borderRadius: 20, flex: 1, width: '100%', shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.08, shadowRadius: 16, elevation: 8, overflow: 'hidden' },
   whiteContainer: { flex: 1, flexDirection: 'row', alignItems: 'center', backgroundColor: '#FFFFFF', paddingVertical: 16, paddingHorizontal: 20, borderWidth: 1, borderColor: '#E5E7EB', borderRadius: 20 },
-  emojiContainer: { width: 60, height: 60, alignItems: 'center', justifyContent: 'center', marginRight: 16 },
-  emojiIcon: { fontSize: 40 },
+  emojiContainer: { width: 70, height: 70, alignItems: 'center', justifyContent: 'center', marginRight: 20 },
+  emojiIcon: { fontSize: 50 },
   textContainer: { flex: 1, justifyContent: 'center', alignItems: 'flex-start' },
-  primaryName: { fontSize: 17, fontWeight: '700', color: '#111827', textAlign: 'left', marginBottom: 4, lineHeight: 22 },
-  secondaryName: { fontSize: 13, fontWeight: '500', color: '#9CA3AF', textAlign: 'left', lineHeight: 17 },
+  primaryName: { fontSize: 24, fontWeight: '900', color: '#111827', textAlign: 'left', marginBottom: 4, lineHeight: 30 },
+  secondaryName: { fontSize: 14, fontWeight: '600', color: '#9CA3AF', textAlign: 'left', lineHeight: 18 },
   rtlText: { writingDirection: 'rtl', textAlign: 'right' }
 });

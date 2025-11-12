@@ -32,29 +32,69 @@ const HEADER_HEIGHT = 60; // Увеличена для кнопки назад
 
 // Минималистичная шапка с индикатором языка
 const MinimalHeader = React.memo<{
-  languageMode: string;
+  languageMode: string;  // ✅ ОБНОВЛЕНО: поддержка всех 30 языков
   onLanguagePress: () => void;
-  onBackPress: () => void;
+  onBackPress: () => void;  // ✅ НОВОЕ: кнопка назад
   selectedLanguageCode: string;
-  animatedStyle?: any;
+  animatedStyle?: any;  // ✅ НОВОЕ: стиль для анимации
 }>(
   ({ languageMode, onLanguagePress, onBackPress, selectedLanguageCode, animatedStyle }) => {
     const selectedLang = getLanguageByCode(selectedLanguageCode);
+    const turkmenFlag = '🇹🇲';
+    const englishFlag = '🇬🇧';
+
+    // Когда выбран туркменский, показываем пару Туркменский ↔ Английский
+    const isTurkmenMode = selectedLanguageCode === 'tk';
+    const rightLang = isTurkmenMode ? getLanguageByCode('en') : null;
 
     return (
       <Animated.View style={[styles.headerContainer, animatedStyle]}>
-        <TouchableOpacity style={styles.backButton} onPress={onBackPress} activeOpacity={0.7}>
+        {/* Кнопка назад */}
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={onBackPress}
+          activeOpacity={0.7}
+        >
           <Ionicons name="arrow-back" size={24} color={Colors.text} />
         </TouchableOpacity>
-        
-        <TouchableOpacity style={styles.languageInfo} onPress={onLanguagePress} activeOpacity={0.7}>
-          <Text style={styles.flagIcon}>{selectedLang?.flag || '🌍'}</Text>
-          <Text style={styles.languageName}>{selectedLang?.name || 'Language'}</Text>
-        </TouchableOpacity>
 
-        <TouchableOpacity style={styles.settingsButton} onPress={onLanguagePress} activeOpacity={0.7}>
-          <Ionicons name="settings-outline" size={24} color={Colors.text} />
-        </TouchableOpacity>
+        {/* Индикатор языка */}
+        <View style={styles.languageHeader}>
+          <View style={styles.languageIndicator}>
+            <Text style={styles.flagLarge}>{selectedLang?.flag || '🌍'}</Text>
+            <Text style={styles.languageCode}>{selectedLang?.name || 'Language'}</Text>
+          </View>
+
+          <Ionicons name="swap-horizontal" size={24} color="#6B7280" />
+
+          <View style={styles.languageIndicator}>
+            <Text style={styles.flagLarge}>{isTurkmenMode ? englishFlag : turkmenFlag}</Text>
+            <Text style={styles.languageCode}>{isTurkmenMode ? (rightLang?.name || 'English') : 'Türkmen'}</Text>
+          </View>
+
+          <TouchableOpacity
+            style={styles.changeLanguageButton}
+            onPress={onLanguagePress}
+          >
+            <Ionicons name="settings-outline" size={20} color="#6B7280" />
+          </TouchableOpacity>
+        </View>
+
+        {/* ✅ ИСПРАВЛЕНО: Универсальный заголовок для ВСЕХ 30 языков */}
+        <View style={styles.titleContainer}>
+          {languageMode === 'tk' ? (
+            <>
+              <Text style={styles.titlePrimary}>Kategoriýany saýlaň</Text>
+              <Text style={styles.titleSecondary}>Select a category</Text>
+            </>
+          ) : (
+            <>
+              <Text style={styles.titlePrimary}>{getTitleByLanguage(languageMode)}</Text>
+              <Text style={styles.titleSecondary}>Kategoriýany saýlaň</Text>
+            </>
+          )}
+        </View>
+
       </Animated.View>
     );
   }
@@ -233,55 +273,84 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    height: 60,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: scale(16),
     backgroundColor: Colors.background,
+    paddingHorizontal: scale(20),
+    paddingTop: verticalScale(16),
+    paddingBottom: verticalScale(16),
     borderBottomWidth: 1,
     borderBottomColor: Colors.border || '#E5E7EB',
     zIndex: 1000,
     elevation: 4,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 0, height: verticalScale(2) },
     shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowRadius: scale(4),
   },
 
+  // Кнопка назад
   backButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    width: scale(40),
+    height: scale(40),
+    borderRadius: scale(20),
+    backgroundColor: Colors.backgroundLight || '#F9FAFB',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: verticalScale(12),
+    borderWidth: 1,
+    borderColor: Colors.border || '#E5E7EB',
   },
 
-  languageInfo: {
+  // Индикатор языка
+  languageHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    flex: 1,
     justifyContent: 'center',
-    paddingHorizontal: scale(12),
+    paddingVertical: verticalScale(12),
+    paddingHorizontal: scale(16),
+    backgroundColor: '#F9FAFB',
+    borderRadius: scale(12),
+    marginBottom: verticalScale(12),
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
+  },
+  languageIndicator: {
+    alignItems: 'center',
+    marginHorizontal: scale(12),
+  },
+  flagLarge: {
+    fontSize: moderateScale(28),
+  },
+  languageCode: {
+    fontSize: moderateScale(11),
+    color: '#6B7280',
+    marginTop: verticalScale(4),
+    fontWeight: '500',
+  },
+  changeLanguageButton: {
+    position: 'absolute',
+    right: scale(12),
+    padding: scale(8),
   },
 
-  flagIcon: {
-    fontSize: 28,
-    marginRight: 8,
+  // Контейнер для заголовков
+  titleContainer: {
+    alignItems: 'center',
+    marginBottom: verticalScale(12),
   },
 
-  languageName: {
-    fontSize: 16,
+  // Основной заголовок (выбранный язык)
+  titlePrimary: {
+    fontSize: moderateScale(20),
     fontWeight: '700',
     color: Colors.text,
+    marginBottom: verticalScale(6),
   },
 
-  settingsButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
+  // Вторичный заголовок (туркменский или второй язык пары)
+  titleSecondary: {
+    fontSize: moderateScale(16),
+    fontWeight: '500',
+    color: Colors.textSecondary || '#6B7280',
   },
 
   // Поле поиска
