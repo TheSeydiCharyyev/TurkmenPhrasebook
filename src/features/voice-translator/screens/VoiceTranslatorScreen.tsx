@@ -11,6 +11,7 @@ import {
   Animated,
   Clipboard,
   ActivityIndicator,
+  Linking,
   Platform,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -146,9 +147,9 @@ export default function VoiceTranslatorScreen() {
             onPress: () => {
               // Open settings (platform specific)
               if (Platform.OS === 'ios') {
-                Alert.alert(texts.vtPermissionTitle, texts.vtErrorNoPermission);
+                Linking.openURL('app-settings:');
               } else {
-                Alert.alert(texts.vtPermissionTitle, texts.vtErrorNoPermission);
+                Linking.openSettings();
               }
             },
           },

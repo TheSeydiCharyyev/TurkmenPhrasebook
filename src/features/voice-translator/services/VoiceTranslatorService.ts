@@ -2,6 +2,7 @@
 
 import Voice from '@react-native-voice/voice';
 import * as Speech from 'expo-speech';
+import { Audio } from 'expo-av';
 
 export interface VoiceRecognitionResult {
   text: string;
@@ -34,8 +35,22 @@ export class VoiceTranslatorService {
    */
   static async checkPermissions(): Promise<boolean> {
     try {
-      const available = await Voice.isAvailable();
-      return available === 1 || available === true;
+      // Request microphone permissions using expo-av
+      const { status, canAskAgain, granted } = await Audio.getPermissionsAsync();
+
+      if (granted) {
+        // Permission already granted
+        return true;
+      }
+
+      if (canAskAgain) {
+        // Ask for permission
+        const { granted: newGranted } = await Audio.requestPermissionsAsync();
+        return newGranted;
+      }
+
+      // Permission denied and can't ask again - need to go to settings
+      return false;
     } catch (error) {
       console.error('Permission check error:', error);
       return false;

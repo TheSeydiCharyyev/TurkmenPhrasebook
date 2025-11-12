@@ -280,5 +280,18 @@ class TranslationService {
   }
 }
 
-// Экспортируем singleton
-export default new TranslationService();
+
+// Создаем singleton instance
+const translationServiceInstance = new TranslationService();
+
+// Экспортируем singleton как default
+export default translationServiceInstance;
+
+// Экспорт удобной функции-обертки для совместимости
+export async function translateText(
+  text: string,
+  fromLang: string,
+  toLang: string
+): Promise<string> {
+  return translationServiceInstance.translate(text, fromLang, toLang);
+}
