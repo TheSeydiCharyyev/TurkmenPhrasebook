@@ -367,13 +367,8 @@ export default function CategoryScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* ✅ ГРАДИЕНТНЫЙ Header */}
-      <LinearGradient
-        colors={[gradientStart, gradientEnd]}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-        style={styles.headerContainer}
-      >
+      {/* ✅ БЕЛЫЙ МИНИМАЛИСТИЧНЫЙ Header */}
+      <View style={styles.headerContainer}
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => {
@@ -382,13 +377,16 @@ export default function CategoryScreen() {
             }
           }}
         >
-          <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
+          <Ionicons name="arrow-back" size={24} color={Colors.text} />
         </TouchableOpacity>
 
         <View style={styles.headerContent}>
-          <Text style={styles.headerTitle}>
-            {selectedSubcategoryName || getCategoryNameByLanguage(selectedLanguage)}
-          </Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 28, marginRight: 8 }}>{category.icon}</Text>
+            <Text style={styles.headerTitle}>
+              {selectedSubcategoryName || getCategoryNameByLanguage(selectedLanguage)}
+            </Text>
+          </View>
           <Text style={styles.headerSubtitle}>
             {selectedSubcategory
               ? `${filteredPhrases.length} ${config.mode === 'tk' ? 'sözlem' :
@@ -407,7 +405,7 @@ export default function CategoryScreen() {
             <Text style={styles.gridEmoji}>📑</Text>
           </TouchableOpacity>
         )}
-      </LinearGradient>
+      </View>
 
       <ScrollView
         style={styles.content}
@@ -545,31 +543,29 @@ const styles = StyleSheet.create({
   },
 
   headerContainer: {
-    paddingHorizontal: scale(20),
-    paddingVertical: verticalScale(16),
+    backgroundColor: '#FFFFFF',
+    paddingTop: 44,
+    paddingBottom: 16,
+    paddingHorizontal: 16,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E7EB',
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: verticalScale(4) },
-    shadowOpacity: 0.2,
-    shadowRadius: scale(8),
-    elevation: 6,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 4,
     zIndex: 1000,
   },
 
   backButton: {
-    width: scale(40),
-    height: scale(40),
-    borderRadius: scale(20),
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    width: 40,
+    height: 40,
+    borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: scale(12),
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.15,
-    shadowRadius: 4,
-    elevation: 3,
   },
 
   gridEmoji: {
@@ -581,18 +577,32 @@ const styles = StyleSheet.create({
   },
 
   headerTitle: {
-    fontSize: moderateScale(22),
-    fontWeight: 'bold',
-    color: '#fff',
-    marginBottom: verticalScale(4),
-    textShadowColor: 'rgba(0, 0, 0, 0.2)',
-    textShadowOffset: { width: 0, height: verticalScale(1) },
-    textShadowRadius: scale(2),
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 12,
+  },
+
+  
+  emoji: {
+    fontSize: 28,
+    marginRight: 8,
+  },
+
+  categoryTitle: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#111827',
+  },
+
+  headerRightPlaceholder: {
+    width: 40,
   },
 
   headerSubtitle: {
     fontSize: moderateScale(15),
-    color: 'rgba(255, 255, 255, 0.9)',
+    color: '#6B7280',
     fontWeight: '500',
   },
 
@@ -768,7 +778,7 @@ audioButton: {
 
 audioTriangle: {
   fontSize: moderateScale(16),           // ✅ Еще крупнее треугольник
-  color: '#fff',
+  color: '#111827',
   marginRight: scale(7),         // ✅ Больше отступ
   fontWeight: 'bold',
 },
@@ -791,14 +801,14 @@ turkmenAudioButton: {
 },
 
 translationAudioButtonText: {
-  color: '#fff',
+  color: '#111827',
   fontSize: moderateScale(16),
   fontWeight: 'bold',
   letterSpacing: 0.5,
 },
 
 turkmenAudioButtonText: {
-  color: '#fff',
+  color: '#111827',
   fontSize: moderateScale(16),
   fontWeight: 'bold',
   letterSpacing: 0.5,
