@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
   // ✅ БЕЛАЯ КАРТОЧКА - Apple/Notion минимализм
   card: {
     borderRadius: 20,
-    height: 260,               // ✅ ЕДИНСТВЕННАЯ ФИКСИРОВАННАЯ высота здесь!
+    flex: 1,               // ✅ ЕДИНСТВЕННАЯ ФИКСИРОВАННАЯ высота здесь!
     width: '100%',
     // ✅ Мощные тени для глубины на белом фоне
     shadowColor: '#000',
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
 
   // ✅ TEXT CONTAINER - ФИКСИРОВАННАЯ высота
   textContainer: {
-    height: 152,                // ✅ Увеличил с 142 до 152 (218 - 60 - 6 = 152)
+    flex: 1,                // ✅ Увеличил с 142 до 152 (218 - 60 - 6 = 152)
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
