@@ -353,9 +353,24 @@ export default function CategoryScreen() {
 
   const [gradientStart, gradientEnd] = getGradientColors();
 
+  // Функция для получения флага по коду языка
+  const getLanguageFlag = (langCode: string): string => {
+    const flagMap: { [key: string]: string } = {
+      'tk': '🇹🇲', 'zh': '🇨🇳', 'ru': '🇷🇺', 'en': '🇬🇧',
+      'ja': '🇯🇵', 'ko': '🇰🇷', 'th': '🇹🇭', 'vi': '🇻🇳',
+      'id': '🇮🇩', 'ms': '🇲🇾', 'hi': '🇮🇳', 'ur': '🇵🇰',
+      'fa': '🇮🇷', 'ps': '🇦🇫', 'de': '🇩🇪', 'fr': '🇫🇷',
+      'es': '🇪🇸', 'it': '🇮🇹', 'tr': '🇹🇷', 'pl': '🇵🇱',
+      'uk': '🇺🇦', 'pt': '🇵🇹', 'nl': '🇳🇱', 'uz': '🇺🇿',
+      'kk': '🇰🇿', 'az': '🇦🇿', 'ky': '🇰🇬', 'tg': '🇹🇯',
+      'hy': '🇦🇲', 'ka': '🇬🇪', 'ar': '🇸🇦',
+    };
+    return flagMap[langCode] || '🇬🇧';
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      {/* ✅ ВАРИАНТ 2: Белый header + цветная линия-акцент */}
+      {/* ✅ МИНИМАЛИЗМ (Phase 12): Вариант 1 - Языковая пара */}
       <View style={styles.headerContainer}>
         <TouchableOpacity
           style={styles.backButton}
@@ -369,20 +384,26 @@ export default function CategoryScreen() {
         </TouchableOpacity>
 
         <View style={styles.headerContent}>
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Text style={{ fontSize: 28, marginRight: 8 }}>{category.icon}</Text>
-            <Text style={styles.headerTitle}>
+          {/* Строка 1: Языковая пара с флагами */}
+          <View style={styles.languagePairRow}>
+            <Text style={styles.languageFlag}>{getLanguageFlag(selectedLanguage)}</Text>
+            <Text style={styles.swapIcon}>↔</Text>
+            <Text style={styles.languageFlag}>🇹🇲</Text>
+          </View>
+
+          {/* Строка 2: Эмодзи + названия + количество */}
+          <View style={styles.categoryRow}>
+            <Text style={styles.categoryEmoji}>{category.icon}</Text>
+            <Text style={styles.categoryNames}>
               {selectedSubcategoryName || getCategoryNameByLanguage(selectedLanguage)}
+              {' · '}
+              {selectedSubcategory
+                ? getSubcategoryNameByLanguage(selectedSubcategory, 'tk')
+                : category.nameTk}
+              {' '}
+              <Text style={styles.phrasesCount}>({filteredPhrases.length})</Text>
             </Text>
           </View>
-          <Text style={styles.headerSubtitle}>
-            {selectedSubcategory
-              ? `${filteredPhrases.length} ${config.mode === 'tk' ? 'sözlem' :
-                  config.mode === 'zh' ? '个短语' : 'фраз'}`
-              : `${filteredPhrases.length} ${config.mode === 'tk' ? 'sözlem' :
-                  config.mode === 'zh' ? '个短语' : 'фраз'}`
-            }
-          </Text>
         </View>
 
         {selectedSubcategory && (
@@ -529,36 +550,48 @@ const styles = StyleSheet.create({
 
   headerContent: {
     flex: 1,
-  },
-
-  headerTitle: {
-    flex: 1,
-    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 12,
   },
 
-  
-  emoji: {
-    fontSize: 28,
-    marginRight: 8,
+  // ✅ МИНИМАЛИЗМ (Phase 12) - Языковая пара
+  languagePairRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: scale(6),
+    marginBottom: verticalScale(4),
   },
 
-  categoryTitle: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: '#111827',
+  languageFlag: {
+    fontSize: moderateScale(16),
   },
 
-  headerRightPlaceholder: {
-    width: 40,
+  swapIcon: {
+    fontSize: moderateScale(14),
+    color: '#9CA3AF',
   },
 
-  headerSubtitle: {
-    fontSize: moderateScale(15),
-    color: '#6B7280',
+  // ✅ МИНИМАЛИЗМ (Phase 12) - Категория + названия
+  categoryRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: scale(6),
+  },
+
+  categoryEmoji: {
+    fontSize: moderateScale(18),
+  },
+
+  categoryNames: {
+    fontSize: moderateScale(14),
+    fontWeight: '600',
+    color: '#1F2937',
+  },
+
+  phrasesCount: {
+    fontSize: moderateScale(13),
     fontWeight: '500',
+    color: '#6B7280',
   },
 
   backToCategoryButton: {
