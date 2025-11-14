@@ -831,6 +831,7 @@ eas build --platform ios --profile production
 10. PHASE 10: Production Build (Icons, Builds, Store Submission)
 11. ✅ PHASE 11: Responsive Design (90% - осталось тестирование) - DONE
 12. ✅ PHASE 12: Phrasebook Redesign (Minimalist Apple/Notion style) - COMPLETE!
+13. ⏳ PHASE 13: Audio/TTS Improvements (Кнопка установки голоса + Fallback - 3-5 hours) - PENDING
 
 ## 🎯 PHASE 12: ПОЛНЫЙ РЕДИЗАЙН РАЗГОВОРНИКА (✅ 100% - COMPLETE!)
 
