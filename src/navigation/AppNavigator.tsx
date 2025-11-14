@@ -293,16 +293,7 @@ export default function AppNavigator() {
           name="PhraseDetail"
           component={PhraseDetailScreen}
           options={{
-            title: config.mode === 'tk' ? 'Sözlem jikme-jiklikleri' :
-                   config.mode === 'zh' ? '短语详情' :
-                   'Детали фразы',
-            headerStyle: {
-              backgroundColor: Colors.primary,
-            },
-            headerTintColor: Colors.textWhite,
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
+            headerShown: false, // ✅ МИНИМАЛИЗМ (Phase 12) - скрыт navigation header, используем кастомный
           }}
         />
       </RootStack.Navigator>

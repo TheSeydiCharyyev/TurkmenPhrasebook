@@ -111,7 +111,7 @@ export default function PhraseDetailScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* Header with Back Button */}
+      {/* Header with Back Button + Category Badge (Вариант 4) */}
       <View style={styles.header}>
         <TouchableOpacity
           style={styles.backButton}
@@ -120,7 +120,21 @@ export default function PhraseDetailScreen() {
         >
           <Ionicons name="arrow-back" size={24} color="#111827" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>{texts.pronunciation}</Text>
+
+        {/* Category Badge Only */}
+        <View style={styles.headerCenter}>
+          {category && (
+            <View style={styles.categoryBadgeHeader}>
+              <Text style={styles.categoryIconHeader}>{category.icon}</Text>
+              <Text style={styles.categoryNameHeader}>
+                {appConfig.mode === 'tk' ? category.nameTk :
+                  appConfig.mode === 'zh' ? category.nameZh :
+                    category.nameRu}
+              </Text>
+            </View>
+          )}
+        </View>
+
         <View style={styles.placeholder} />
       </View>
 
@@ -128,18 +142,6 @@ export default function PhraseDetailScreen() {
 
         {/* Phrase card */}
         <View style={styles.phraseCard}>
-          {/* Category */}
-          {category && (
-            <View style={[styles.categoryBadge, { backgroundColor: category.color }]}>
-              <Text style={styles.categoryIcon}>{category.icon}</Text>
-              <Text style={styles.categoryName}>
-                {appConfig.mode === 'tk' ? category.nameTk :
-                  appConfig.mode === 'zh' ? category.nameZh :
-                    category.nameRu}
-              </Text>
-            </View>
-          )}
-
           {/* ✅ ЯЗЫКОВАЯ ПАРА - только выбранный язык + туркменский */}
           <View style={styles.mainContent}>
             {/* Выбранный язык - ГЛАВНЫЙ */}
@@ -241,150 +243,153 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: scale(16),
   },
-  // ✅ HERO + GRID - Мощные тени
+  // ✅ МИНИМАЛИЗМ (Phase 12)
   phraseCard: {
     backgroundColor: Colors.cardBackground,
-    borderRadius: scale(24),          // ✅ Больше скругление
-    padding: scale(28),               // ✅ Больше padding
-    marginBottom: verticalScale(24),          // ✅ Больше margin
-    elevation: 10,             // ✅ Мощная тень
+    borderRadius: scale(16),          // ✅ Меньше скругление
+    padding: scale(20),               // ✅ Меньше padding
+    marginBottom: verticalScale(16),  // ✅ Компактнее
+    elevation: 3,                     // ✅ Subtle тень
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
-      height: verticalScale(6),
+      height: verticalScale(2),
     },
-    shadowOpacity: 0.25,       // ✅ Более заметная тень
-    shadowRadius: scale(16),
+    shadowOpacity: 0.08,              // ✅ Очень subtle тень
+    shadowRadius: scale(8),
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
   },
   categoryBadge: {
     flexDirection: 'row',
     alignItems: 'center',
     alignSelf: 'flex-start',
-    paddingHorizontal: scale(12),
-    paddingVertical: verticalScale(6),
-    borderRadius: scale(20),
-    marginBottom: verticalScale(20),
+    paddingHorizontal: scale(10),     // ✅ МИНИМАЛИЗМ - немного меньше
+    paddingVertical: verticalScale(5),
+    borderRadius: scale(8),           // ✅ МИНИМАЛИЗМ - меньше скругление (Notion style)
+    marginBottom: verticalScale(16),  // ✅ Компактнее
+    backgroundColor: '#F3F4F6',       // ✅ МИНИМАЛИЗМ - светло-серый фон (Notion)
+    borderWidth: 1,                   // ✅ Тонкий border
+    borderColor: '#E5E7EB',           // ✅ Серый border
   },
   categoryIcon: {
-    fontSize: moderateScale(16),
+    fontSize: moderateScale(14),      // ✅ Немного меньше
     marginRight: scale(6),
   },
   categoryName: {
-    color: Colors.textWhite,
-    fontWeight: '600',
-    fontSize: moderateScale(14),
+    color: '#374151',                 // ✅ МИНИМАЛИЗМ - темно-серый текст
+    fontWeight: '500',                // ✅ Меньше жирность
+    fontSize: moderateScale(13),      // ✅ Немного меньше
   },
   mainContent: {
     alignItems: 'center',
-    marginBottom: verticalScale(32),          // ✅ Больше отступ
-    paddingBottom: verticalScale(24),
-    borderBottomWidth: 2,
+    marginBottom: verticalScale(20),          // ✅ МИНИМАЛИЗМ - меньше отступ
+    paddingBottom: verticalScale(16),
+    borderBottomWidth: 1,                     // ✅ Тоньше линия
     borderBottomColor: '#E5E7EB',
   },
   languageLabel: {
-    fontSize: moderateScale(16),
-    fontWeight: '700',
+    fontSize: moderateScale(13),              // ✅ Меньше
+    fontWeight: '600',
     color: '#6B7280',
-    marginBottom: verticalScale(12),
+    marginBottom: verticalScale(8),
     textAlign: 'center',
   },
   mainText: {
-    fontSize: moderateScale(54),              // ✅ ЕЩЕ КРУПНЕЕ
-    fontWeight: 'bold',
-    color: '#2563EB',          // ✅ Синий - как кнопка
-    marginBottom: verticalScale(12),
+    fontSize: moderateScale(28),              // ✅ МИНИМАЛИЗМ - уменьшен с 54
+    fontWeight: '700',
+    color: '#1F2937',          // ✅ Темно-серый вместо синего
+    marginBottom: verticalScale(8),
     textAlign: 'center',
   },
   transcriptionText: {
-    fontSize: moderateScale(22),              // ✅ Крупнее
+    fontSize: moderateScale(16),              // ✅ МИНИМАЛИЗМ - уменьшен
     color: '#6B7280',
     fontStyle: 'italic',
     textAlign: 'center',
-    letterSpacing: 1,
+    letterSpacing: 0.5,
   },
-  // ✅ НОВЫЙ стиль для туркменского
+  // ✅ МИНИМАЛИЗМ - туркменский
   secondaryContent: {
     alignItems: 'center',
     marginTop: verticalScale(8),
   },
   languageLabelSecondary: {
-    fontSize: moderateScale(16),
-    fontWeight: '700',
+    fontSize: moderateScale(13),              // ✅ Меньше
+    fontWeight: '600',
     color: '#6B7280',
-    marginBottom: verticalScale(12),
+    marginBottom: verticalScale(8),
   },
   secondaryText: {
-    fontSize: moderateScale(32),              // ✅ Крупный вторичный текст
-    fontWeight: 'bold',
-    color: '#16A34A',          // ✅ Зеленый - как кнопка
+    fontSize: moderateScale(20),              // ✅ МИНИМАЛИЗМ - уменьшен с 32
+    fontWeight: '600',
+    color: '#4B5563',          // ✅ Темно-серый вместо зеленого
     textAlign: 'center',
   },
-  // ✅ НОВЫЙ контейнер для аудио кнопок
+  // ✅ МИНИМАЛИЗМ - контейнер для аудио кнопок
   audioButtonsContainer: {
-    gap: verticalScale(16),                   // ✅ Расстояние между кнопками
-    marginBottom: verticalScale(24),
+    gap: verticalScale(10),                   // ✅ Компактнее
+    marginBottom: verticalScale(16),
   },
   actionsContainer: {
-    gap: verticalScale(12),
-    marginBottom: verticalScale(20),
+    gap: verticalScale(8),
+    marginBottom: verticalScale(16),
   },
-  // ✅ HERO + GRID - Современные кнопки
+  // ✅ МИНИМАЛИЗМ - кнопки действий
   actionButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: verticalScale(16),         // ✅ Больше padding
-    paddingHorizontal: scale(24),       // ✅ Больше padding
-    borderRadius: scale(16),            // ✅ Больше скругление
-    gap: scale(10),
-    elevation: 4,
+    paddingVertical: verticalScale(12),         // ✅ Меньше padding
+    paddingHorizontal: scale(16),       // ✅ Меньше padding
+    borderRadius: scale(12),            // ✅ Меньше скругление
+    gap: scale(8),
+    elevation: 1,                       // ✅ Минимальная тень
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: verticalScale(3) },
-    shadowOpacity: 0.15,
-    shadowRadius: scale(8),
+    shadowOffset: { width: 0, height: verticalScale(1) },
+    shadowOpacity: 0.05,                // ✅ Очень subtle
+    shadowRadius: scale(2),
   },
   favoriteButton: {
     backgroundColor: Colors.cardBackground,
-    borderWidth: 2,              // ✅ Толще border
-    borderColor: '#E5E7EB',
+    borderWidth: 1.5,            // ✅ МИНИМАЛИЗМ - тоньше border
+    borderColor: '#D1D5DB',
   },
   shareButton: {
     backgroundColor: Colors.cardBackground,
-    borderWidth: 2,              // ✅ Толще border
-    borderColor: '#E5E7EB',
+    borderWidth: 1.5,            // ✅ МИНИМАЛИЗМ - тоньше border
+    borderColor: '#D1D5DB',
   },
   actionButtonText: {
-    color: '#374151',            // ✅ Более темный текст
-    fontSize: moderateScale(17),                // ✅ Крупнее
-    fontWeight: '600',           // ✅ Более жирный
+    color: '#374151',            // ✅ Темно-серый
+    fontSize: moderateScale(15), // ✅ МИНИМАЛИЗМ - меньше
+    fontWeight: '600',
   },
   favoriteButtonTextActive: {
     color: Colors.error,
     fontWeight: '700',
   },
-  // ✅ HERO + GRID - Современный info box
+  // ✅ МИНИМАЛИЗМ - info box
   infoContainer: {
-    backgroundColor: '#EFF6FF',    // ✅ Светло-синий фон
-    borderRadius: scale(16),              // ✅ Больше скругление
-    padding: scale(20),                   // ✅ Больше padding
-    borderLeftWidth: 5,            // ✅ Толще border
-    borderLeftColor: '#3B82F6',    // ✅ Синий accent
-    elevation: 2,
-    shadowColor: '#3B82F6',
-    shadowOffset: { width: 0, height: verticalScale(2) },
-    shadowOpacity: 0.1,
-    shadowRadius: scale(4),
+    backgroundColor: '#F9FAFB',    // ✅ Очень светло-серый фон
+    borderRadius: scale(12),       // ✅ Меньше скругление
+    padding: scale(16),            // ✅ Меньше padding
+    borderLeftWidth: 3,            // ✅ Тоньше border
+    borderLeftColor: '#9CA3AF',    // ✅ Серый accent
+    elevation: 0,                  // ✅ Без тени
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
   },
   infoTitle: {
-    fontSize: moderateScale(17),                  // ✅ Крупнее
-    fontWeight: '700',             // ✅ Более жирный
-    color: '#1E40AF',              // ✅ Темно-синий
-    marginBottom: verticalScale(10),
+    fontSize: moderateScale(14),   // ✅ МИНИМАЛИЗМ - меньше
+    fontWeight: '600',
+    color: '#374151',              // ✅ Темно-серый
+    marginBottom: verticalScale(8),
   },
   infoText: {
-    fontSize: moderateScale(15),                  // ✅ Крупнее
-    color: '#475569',              // ✅ Темнее для читаемости
-    lineHeight: moderateScale(22),                // ✅ Больше line height
+    fontSize: moderateScale(13),   // ✅ МИНИМАЛИЗМ - меньше
+    color: '#6B7280',              // ✅ Серый
+    lineHeight: moderateScale(20), // ✅ Компактнее
   },
   // Header with back button
   header: {
@@ -410,12 +415,43 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 3,
   },
+  headerCenter: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: scale(8),
+  },
+  categoryBadgeHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: scale(8),
+    paddingVertical: verticalScale(4),
+    borderRadius: scale(6),
+    backgroundColor: '#F3F4F6',
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
+  },
+  categoryIconHeader: {
+    fontSize: moderateScale(12),
+    marginRight: scale(4),
+  },
+  categoryNameHeader: {
+    color: '#374151',
+    fontWeight: '500',
+    fontSize: moderateScale(12),
+  },
+  headerDivider: {
+    fontSize: moderateScale(16),
+    color: '#9CA3AF',
+    fontWeight: '300',
+  },
   headerTitle: {
-    fontSize: moderateScale(18),
-    fontWeight: '700',
+    fontSize: moderateScale(15),
+    fontWeight: '600',
     color: Colors.text,
   },
   placeholder: {
-    width: scale(32),
+    width: scale(40),
   },
 });

@@ -59,7 +59,7 @@ export default function AudioPlayer({
   };
 
   const getIconSize = () => {
-    return size === 'small' ? 20 : 28;
+    return size === 'small' ? 20 : 24; // ✅ МИНИМАЛИЗМ - меньше иконка
   };
 
   const getPlayingText = () => {
@@ -77,15 +77,15 @@ export default function AudioPlayer({
     >
       <View style={styles.content}>
         {isLoading ? (
-          <ActivityIndicator 
-            size={size === 'small' ? 'small' : 'large'} 
-            color={Colors.textWhite} 
+          <ActivityIndicator
+            size={size === 'small' ? 'small' : 'large'}
+            color="#374151"
           />
         ) : (
           <Ionicons
             name={isPlaying ? "pause-circle" : "play-circle"}
             size={getIconSize()}
-            color={Colors.textWhite}
+            color="#374151"
           />
         )}
         {size === 'large' && (
@@ -100,47 +100,51 @@ export default function AudioPlayer({
 
 const styles = StyleSheet.create({
   buttonLarge: {
-    paddingVertical: 18,       // ✅ Больше padding
-    paddingHorizontal: 28,     // ✅ Больше padding
-    borderRadius: 16,          // ✅ Больше скругление
-    minWidth: 180,             // ✅ Шире кнопка
-    elevation: 6,              // ✅ Мощнее тень
+    paddingVertical: 14,       // ✅ МИНИМАЛИЗМ - меньше padding
+    paddingHorizontal: 20,     // ✅ Компактнее
+    borderRadius: 12,          // ✅ Меньше скругление
+    minWidth: 160,             // ✅ Компактнее кнопка
+    elevation: 1,              // ✅ Минимальная тень
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 8,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05,       // ✅ Очень subtle тень
+    shadowRadius: 2,
+    backgroundColor: '#FFFFFF', // ✅ Белый фон
+    borderWidth: 1.5,          // ✅ Border для outline
+    borderColor: '#D1D5DB',    // ✅ Серый border
   },
   buttonSmall: {
-    paddingVertical: 12,
-    paddingHorizontal: 20,
-    borderRadius: 12,
-    minWidth: 100,
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    borderRadius: 10,
+    minWidth: 90,
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1.5,
+    borderColor: '#D1D5DB',
   },
-  // ✅ MODERN VIBRANT - Синий для языков перевода
+  // ✅ МИНИМАЛИЗМ - убраны яркие цвета
   primaryButton: {
-    backgroundColor: '#3B82F6',    // Яркий синий
-    shadowColor: '#2563EB',
+    // Стиль наследуется от buttonLarge/Small (белый фон + серый border)
   },
-  // ✅ MODERN VIBRANT - Зеленый для туркменского
+  // ✅ МИНИМАЛИЗМ - убраны яркие цвета
   secondaryButton: {
-    backgroundColor: '#22C55E',    // Яркий зеленый
-    shadowColor: '#16A34A',
+    // Стиль наследуется от buttonLarge/Small (белый фон + серый border)
   },
   content: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 8,
+    gap: 6,                    // ✅ МИНИМАЛИЗМ - меньше gap
   },
   buttonText: {
-    color: Colors.textWhite,
-    fontWeight: '700',         // ✅ Более жирный шрифт
+    color: '#374151',          // ✅ МИНИМАЛИЗМ - темно-серый
+    fontWeight: '600',         // ✅ Меньше жирность
   },
   labelLarge: {
-    fontSize: 18,              // ✅ Крупнее текст
+    fontSize: 15,              // ✅ МИНИМАЛИЗМ - меньше текст
   },
   labelSmall: {
-    fontSize: 15,
+    fontSize: 13,              // ✅ Меньше
   },
   disabled: {
     opacity: 0.5,

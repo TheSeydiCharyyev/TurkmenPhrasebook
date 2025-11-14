@@ -594,22 +594,20 @@ const styles = StyleSheet.create({
     paddingHorizontal: scale(16),
   },
 
-  // ✅ ОБНОВЛЕННЫЕ стили для фразы
-  // Новые стили для PhraseItem - заменить в CategoryScreen.tsx:
+  // ✅ МИНИМАЛИСТИЧНЫЕ стили для фразы (Phase 12)
 
-// ✅ HERO + GRID стили с мощными тенями
 phraseItem: {
   backgroundColor: Colors.cardBackground,
-  marginBottom: verticalScale(20), // ✅ Еще больше spacing
-  borderRadius: scale(20), // ✅ Максимально округлый
-  padding: scale(24),      // ✅ Еще больше padding
+  marginBottom: verticalScale(12), // ✅ Компактнее
+  borderRadius: scale(16), // ✅ Меньше скругление
+  padding: scale(16),      // ✅ Меньше padding
   shadowColor: Colors.shadowColor,
-  shadowOffset: { width: 0, height: verticalScale(6) },
-  shadowOpacity: 0.2, // ✅ Мощная тень
-  shadowRadius: scale(16),
-  elevation: 8, // ✅ Увеличил elevation до 8
+  shadowOffset: { width: 0, height: verticalScale(2) },
+  shadowOpacity: 0.08, // ✅ Subtle тень
+  shadowRadius: scale(8),
+  elevation: 3, // ✅ Меньше elevation
   borderWidth: 1,
-  borderColor: Colors.border,
+  borderColor: '#E5E7EB', // ✅ Светло-серый border
 },
 
 phraseContent: {
@@ -619,22 +617,22 @@ phraseContent: {
 
 phraseTextContainer: {
   flex: 1,
-  marginRight: scale(16), // ✅ Больше отступ
+  marginRight: scale(12), // ✅ Меньше отступ
 },
 
 // ✅ Новый контейнер для китайского с флагом
 chineseContainer: {
   flexDirection: 'row',
   alignItems: 'center',
-  marginBottom: verticalScale(8), // ✅ Больше отступ
+  marginBottom: verticalScale(6), // ✅ Компактнее
 },
 
 chineseText: {
-  fontSize: moderateScale(26),           // ✅ ЕЩЕ КРУПНЕЕ!
-  fontWeight: 'bold',
-  color: '#2563EB',       // ✅ Синий - совпадает с кнопкой
+  fontSize: moderateScale(20),           // ✅ МИНИМАЛИЗМ - уменьшен шрифт
+  fontWeight: '700',
+  color: '#1F2937',       // ✅ Темно-серый вместо яркого синего
   marginRight: scale(8),
-  marginBottom: verticalScale(8),
+  marginBottom: verticalScale(6),
   flex: 1,
 },
 
@@ -644,11 +642,11 @@ flagEmoji: {
 },
 
 pinyinText: {
-  fontSize: moderateScale(18),           // ✅ Увеличил для лучшей читаемости
-  color: Colors.textLight,
+  fontSize: moderateScale(14),           // ✅ МИНИМАЛИЗМ - уменьшен
+  color: '#6B7280',       // ✅ Серый вместо textLight
   fontStyle: 'italic',
-  marginBottom: verticalScale(14),       // ✅ Еще больше отступ
-  letterSpacing: 1.2,     // ✅ Больше spacing
+  marginBottom: verticalScale(8),       // ✅ Компактнее
+  letterSpacing: 0.5,     // ✅ Меньше spacing
   fontFamily: 'Courier New',
 },
 
@@ -656,13 +654,13 @@ pinyinText: {
 translationContainer: {
   flexDirection: 'row',
   alignItems: 'center',
-  marginBottom: verticalScale(8),
+  marginBottom: verticalScale(6),
 },
 
 secondaryText: {
-  fontSize: moderateScale(20),           // ✅ УВЕЛИЧИЛ до 20
-  color: '#16A34A',       // ✅ Зеленый - совпадает с кнопкой
-  fontWeight: 'bold',
+  fontSize: moderateScale(16),           // ✅ МИНИМАЛИЗМ - уменьшен
+  color: '#4B5563',       // ✅ Темно-серый вместо зеленого
+  fontWeight: '600',
   marginLeft: scale(8),
   flex: 1,
 },
@@ -678,70 +676,71 @@ tertiaryText: {
 phraseActions: {
   alignItems: 'flex-end',
   justifyContent: 'space-between',
-  minHeight: verticalScale(100),         // ✅ Больше места
+  minHeight: verticalScale(80),         // ✅ МИНИМАЛИЗМ - меньше места
 },
 
 audioButtons: {
   flexDirection: 'column',
-  marginBottom: verticalScale(16),       // ✅ Еще больше отступ
-  gap: verticalScale(10),                // ✅ Еще больше gap
+  marginBottom: verticalScale(8),       // ✅ Компактнее
+  gap: verticalScale(6),                // ✅ Меньше gap
 },
 
 audioButton: {
   flexDirection: 'row',
   alignItems: 'center',
-  paddingHorizontal: scale(16),  // ✅ Еще больше padding
-  paddingVertical: verticalScale(12),
-  borderRadius: scale(28),       // ✅ Максимально округлый
-  minWidth: scale(80),           // ✅ Еще шире кнопки
+  paddingHorizontal: scale(12),  // ✅ МИНИМАЛИЗМ - меньше padding
+  paddingVertical: verticalScale(8),
+  borderRadius: scale(12),       // ✅ Меньше скругление
+  minWidth: scale(70),           // ✅ Компактнее
   justifyContent: 'center',
-  shadowOffset: { width: 0, height: verticalScale(3) },
-  shadowOpacity: 0.35,
-  shadowRadius: scale(8),
-  elevation: 6,           // ✅ Увеличил elevation
+  backgroundColor: '#FFFFFF',    // ✅ OUTLINE стиль - белый фон
+  borderWidth: 1.5,              // ✅ Border для outline
+  borderColor: '#D1D5DB',        // ✅ Серый border
+  shadowOffset: { width: 0, height: verticalScale(1) },
+  shadowOpacity: 0.05,           // ✅ Очень subtle тень
+  shadowRadius: scale(2),
+  elevation: 1,                  // ✅ Минимальная тень
 },
 
 audioTriangle: {
-  fontSize: moderateScale(16),           // ✅ Еще крупнее треугольник
-  color: '#111827',
-  marginRight: scale(7),         // ✅ Больше отступ
-  fontWeight: 'bold',
+  fontSize: moderateScale(12),           // ✅ МИНИМАЛИЗМ - меньше треугольник
+  color: '#374151',              // ✅ Темно-серый
+  marginRight: scale(6),         // ✅ Меньше отступ
+  fontWeight: '600',
 },
 
 // ✅ ИНДИКАТОР загрузки
 audioIndicator: {
-  marginRight: scale(7),         // ✅ Тот же отступ как у треугольника
+  marginRight: scale(6),         // ✅ Тот же отступ как у треугольника
 },
 
-// ✅ MODERN VIBRANT - Синий для всех языков перевода
+// ✅ МИНИМАЛИЗМ - убраны яркие цвета, все outline
 translationAudioButton: {
-  backgroundColor: '#3B82F6',    // Яркий синий (Telegram/Discord style)
-  shadowColor: '#2563EB',        // Темнее синий для тени
+  // Стиль наследуется от audioButton (белый фон + серый border)
 },
 
-// ✅ MODERN VIBRANT - Зеленый для туркменского
+// ✅ МИНИМАЛИЗМ - убраны яркие цвета, все outline
 turkmenAudioButton: {
-  backgroundColor: '#22C55E',    // Яркий зеленый
-  shadowColor: '#16A34A',        // Темнее зеленый для тени
+  // Стиль наследуется от audioButton (белый фон + серый border)
 },
 
 translationAudioButtonText: {
-  color: '#111827',
-  fontSize: moderateScale(16),
-  fontWeight: 'bold',
-  letterSpacing: 0.5,
+  color: '#374151',              // ✅ Темно-серый вместо черного
+  fontSize: moderateScale(13),   // ✅ Меньше шрифт
+  fontWeight: '600',             // ✅ Меньше жирность
+  letterSpacing: 0,
 },
 
 turkmenAudioButtonText: {
-  color: '#111827',
-  fontSize: moderateScale(16),
-  fontWeight: 'bold',
-  letterSpacing: 0.5,
+  color: '#374151',              // ✅ Темно-серый вместо черного
+  fontSize: moderateScale(13),   // ✅ Меньше шрифт
+  fontWeight: '600',             // ✅ Меньше жирность
+  letterSpacing: 0,
 },
 
 favoriteButton: {
-  padding: scale(10),            // ✅ Еще больше область нажатия
-  marginTop: verticalScale(8),
+  padding: scale(6),             // ✅ МИНИМАЛИЗМ - меньше padding
+  marginTop: verticalScale(4),
 },
 
   emptyContainer: {
