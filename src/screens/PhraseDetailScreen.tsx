@@ -166,7 +166,7 @@ export default function PhraseDetailScreen() {
             <AudioPlayer
               text={mainText}
               language={audioLanguage}
-              label={`▶ ${getLanguageLabel()}`}
+              label={getLanguageLabel()}
               style="primary"
               size="large"
             />
@@ -177,7 +177,7 @@ export default function PhraseDetailScreen() {
             text={phrase.turkmen}
             language="turkmen"
             audioPath={phrase.audioFileTurkmen}
-            label="▶ 🇹🇲 Türkmençe"
+            label="🇹🇲 Türkmençe"
             style="secondary"
             size="large"
           />
@@ -211,22 +211,6 @@ export default function PhraseDetailScreen() {
             <Ionicons name="share-outline" size={24} color={Colors.textLight} />
             <Text style={styles.actionButtonText}>{texts.share}</Text>
           </TouchableOpacity>
-        </View>
-
-        {/* Additional information */}
-        <View style={styles.infoContainer}>
-          <Text style={styles.infoTitle}>
-            {appConfig.mode === 'tk' ? '💡 Aýdylyş maslahat' :
-              appConfig.mode === 'zh' ? '💡 发音建议' : '💡 Совет по произношению'}
-          </Text>
-          <Text style={styles.infoText}>
-            {appConfig.mode === 'tk' ?
-              'Sesli faýly birnäçe gezek diňläň we gaýtalaň. Hytaý dili ton dilidir, şonuň üçin intonasiýa möhümdir.' :
-              appConfig.mode === 'zh' ?
-                '多次听音频并重复。中文是声调语言，所以语调很重要。' :
-                'Слушайте аудио несколько раз и повторяйте. Китайский - тональный язык, поэтому важно обращать внимание на интонацию.'
-            }
-          </Text>
         </View>
 
       </ScrollView>
@@ -368,28 +352,6 @@ const styles = StyleSheet.create({
   favoriteButtonTextActive: {
     color: Colors.error,
     fontWeight: '700',
-  },
-  // ✅ МИНИМАЛИЗМ - info box
-  infoContainer: {
-    backgroundColor: '#F9FAFB',    // ✅ Очень светло-серый фон
-    borderRadius: scale(12),       // ✅ Меньше скругление
-    padding: scale(16),            // ✅ Меньше padding
-    borderLeftWidth: 3,            // ✅ Тоньше border
-    borderLeftColor: '#9CA3AF',    // ✅ Серый accent
-    elevation: 0,                  // ✅ Без тени
-    borderWidth: 1,
-    borderColor: '#E5E7EB',
-  },
-  infoTitle: {
-    fontSize: moderateScale(14),   // ✅ МИНИМАЛИЗМ - меньше
-    fontWeight: '600',
-    color: '#374151',              // ✅ Темно-серый
-    marginBottom: verticalScale(8),
-  },
-  infoText: {
-    fontSize: moderateScale(13),   // ✅ МИНИМАЛИЗМ - меньше
-    color: '#6B7280',              // ✅ Серый
-    lineHeight: moderateScale(20), // ✅ Компактнее
   },
   // Header with back button
   header: {
