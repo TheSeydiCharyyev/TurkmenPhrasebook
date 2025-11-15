@@ -1,7 +1,7 @@
 // src/components/AudioPlayer.tsx
 // ✅ УПРОЩЕНО: Кнопки всегда видны, работают с гибридной системой
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -24,25 +24,33 @@ interface AudioPlayerProps {
   disabled?: boolean;
 }
 
-export default function AudioPlayer({ 
+export default function AudioPlayer({
   text,
   language,
   audioPath,
-  label, 
+  label,
   style,
   size = 'large',
-  disabled = false 
+  disabled = false
 }: AudioPlayerProps) {
-  const { isPlaying, isLoading, playAudio, stopAudio } = useAudio();
+  const { isPlaying, isLoading, playAudio, stopAudio, currentLanguage } = useAudio();
   const { config } = useAppLanguage();
+  const [usedLanguageCode, setUsedLanguageCode] = useState<string | null>(null);
 
   const handlePress = async () => {
     if (isPlaying) {
       await stopAudio();
+      setUsedLanguageCode(null);
     } else {
-      await playAudio(text, language, audioPath);
+      const actualLang = await playAudio(text, language, audioPath);
+      setUsedLanguageCode(actualLang);
     }
   };
+
+  // Проверяем используется ли fallback (TTS языки)
+  const isFallback = usedLanguageCode &&
+                     language !== 'turkmen' &&
+                     usedLanguageCode.startsWith('en');
 
   const getButtonStyle = () => {
     const baseStyle = size === 'small' ? styles.buttonSmall : styles.buttonLarge;
@@ -69,32 +77,41 @@ export default function AudioPlayer({
   };
 
   return (
-    <TouchableOpacity
-      style={[getButtonStyle(), (disabled || isLoading) && styles.disabled]}
-      onPress={handlePress}
-      disabled={disabled || isLoading}
-      activeOpacity={0.7}
-    >
-      <View style={styles.content}>
-        {isLoading ? (
-          <ActivityIndicator
-            size={size === 'small' ? 'small' : 'large'}
-            color="#374151"
-          />
-        ) : (
-          <Ionicons
-            name={isPlaying ? "pause-circle" : "play-circle"}
-            size={getIconSize()}
-            color="#374151"
-          />
-        )}
-        {size === 'large' && (
-          <Text style={[getTextStyle(), styles.buttonText]}>
-            {isPlaying ? getPlayingText() : label}
-          </Text>
-        )}
-      </View>
-    </TouchableOpacity>
+    <View>
+      <TouchableOpacity
+        style={[getButtonStyle(), (disabled || isLoading) && styles.disabled]}
+        onPress={handlePress}
+        disabled={disabled || isLoading}
+        activeOpacity={0.7}
+      >
+        <View style={styles.content}>
+          {isLoading ? (
+            <ActivityIndicator
+              size={size === 'small' ? 'small' : 'large'}
+              color="#374151"
+            />
+          ) : (
+            <Ionicons
+              name={isPlaying ? "pause-circle" : "play-circle"}
+              size={getIconSize()}
+              color="#374151"
+            />
+          )}
+          {size === 'large' && (
+            <Text style={[getTextStyle(), styles.buttonText]}>
+              {isPlaying ? getPlayingText() : label}
+            </Text>
+          )}
+        </View>
+      </TouchableOpacity>
+
+      {/* Badge для fallback языка */}
+      {isFallback && size === 'large' && (
+        <View style={styles.fallbackBadge}>
+          <Text style={styles.fallbackText}>🔊 Fallback: EN</Text>
+        </View>
+      )}
+    </View>
   );
 }
 
@@ -148,5 +165,19 @@ const styles = StyleSheet.create({
   },
   disabled: {
     opacity: 0.5,
+  },
+  fallbackBadge: {
+    marginTop: 4,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    backgroundColor: '#F3F4F6',  // Светло-серый фон
+    borderRadius: 6,
+    alignSelf: 'flex-start',
+    marginLeft: 4,
+  },
+  fallbackText: {
+    fontSize: 11,
+    color: '#6B7280',            // Серый текст
+    fontWeight: '500',
   },
 });

@@ -240,6 +240,54 @@ export default function SettingsScreen() {
     }
   }, [config.mode, texts]);
 
+  /**
+   * Новая улучшенная проверка всех установленных голосов
+   * Показывает группировку по языкам и доступность для всех 31 языков приложения
+   */
+  const checkInstalledVoices = useCallback(async () => {
+    try {
+      const voices = await Speech.getAvailableVoicesAsync();
+
+      // Группировка голосов по языкам
+      const languageGroups: { [key: string]: number } = {};
+      voices.forEach(voice => {
+        const lang = voice.language.split('-')[0].toUpperCase(); // 'zh-CN' -> 'ZH'
+        languageGroups[lang] = (languageGroups[lang] || 0) + 1;
+      });
+
+      // Формируем список доступных языков
+      const sortedLanguages = Object.entries(languageGroups)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([lang, count]) => `  • ${lang}: ${count} голос(ов)`)
+        .join('\n');
+
+      const totalLanguages = Object.keys(languageGroups).length;
+      const totalVoices = voices.length;
+
+      // Проверка наличия ключевых языков приложения
+      const appLanguages = ['ZH', 'RU', 'EN', 'TR', 'JA', 'KO', 'AR', 'FA', 'HI', 'DE', 'FR', 'ES'];
+      const missingLanguages = appLanguages.filter(lang => !languageGroups[lang]);
+
+      const warningText = missingLanguages.length > 0
+        ? `\n\n⚠️ Отсутствуют голоса для:\n${missingLanguages.map(l => `  • ${l}`).join('\n')}`
+        : '\n\n✅ Все основные языки установлены!';
+
+      Alert.alert(
+        '🔊 Установленные голоса',
+        `Найдено языков: ${totalLanguages}\nВсего голосов: ${totalVoices}\n\n📋 Доступные языки:\n${sortedLanguages}${warningText}`,
+        [
+          { text: 'OK', style: 'cancel' }
+        ]
+      );
+    } catch (error) {
+      console.warn('Ошибка проверки установленных голосов:', error);
+      Alert.alert(
+        'Ошибка',
+        'Не удалось получить список установленных голосов'
+      );
+    }
+  }, []);
+
   const handleAbout = useCallback(async () => {
     const cacheInfo = await getCacheInfo();
     const cacheText = cacheInfo
@@ -340,6 +388,15 @@ export default function SettingsScreen() {
               subtitle={texts.checkVoicesDesc}
               onPress={checkVoiceAvailability}
               rightComponent={<Ionicons name="search" size={20} color={Colors.textLight} />}
+            />
+
+            <SettingsItem
+              icon="list"
+              iconColor="#10B981"
+              title="Установленные голоса"
+              subtitle="Просмотр всех доступных TTS голосов"
+              onPress={checkInstalledVoices}
+              rightComponent={<Ionicons name="arrow-forward" size={20} color={Colors.textLight} />}
             />
           </View>
 

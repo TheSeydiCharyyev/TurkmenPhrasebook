@@ -5,12 +5,43 @@ import { useState, useCallback, useEffect, useRef } from 'react';
 import { Audio } from 'expo-av';
 import * as Speech from 'expo-speech';
 import { Alert, Linking, Platform } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getAudioSource } from '../data/audioMapping';
 
 export function useAudio() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState<string | null>(null); // Текущий используемый язык (для badge)
   const soundRef = useRef<Audio.Sound | null>(null);
+
+  /**
+   * Проверка доступности голоса для языка
+   */
+  const checkVoiceAvailability = useCallback(async (languageCode: string): Promise<boolean> => {
+    try {
+      const voices = await Speech.getAvailableVoicesAsync();
+      const languagePrefix = languageCode.split('-')[0]; // 'tr-TR' -> 'tr'
+
+      // Проверяем есть ли голос для этого языка
+      const hasVoice = voices.some(voice =>
+        voice.language.toLowerCase().startsWith(languagePrefix.toLowerCase())
+      );
+
+      return hasVoice;
+    } catch (error) {
+      console.warn('[useAudio] Voice check error:', error);
+      return false; // В случае ошибки считаем что голоса нет
+    }
+  }, []);
+
+  /**
+   * Получить fallback язык если основной недоступен
+   */
+  const getFallbackLanguage = useCallback((languageCode: string): string => {
+    // Все языки используют английский как fallback
+    // В будущем можно добавить "умные" fallback'и для тюркских языков
+    return 'en-US';
+  }, []);
 
   /**
    * Открыть настройки TTS для установки языка
@@ -26,26 +57,51 @@ export function useAudio() {
   }, []);
 
   /**
+   * Открыть Google Play для установки Google TTS
+   */
+  const openGoogleTTS = useCallback(() => {
+    if (Platform.OS === 'android') {
+      // Открываем Google TTS в Play Store
+      Linking.openURL('market://details?id=com.google.android.tts')
+        .catch(() => {
+          // Fallback на веб версию Play Store
+          Linking.openURL('https://play.google.com/store/apps/details?id=com.google.android.tts');
+        });
+    }
+  }, []);
+
+  /**
    * Показать Alert об отсутствии TTS для языка
    */
-  const showTTSMissingAlert = useCallback((languageName: string) => {
-    const title = '🔊 Голос не найден';
-    const message = Platform.OS === 'android'
-      ? `Голос для языка "${languageName}" не установлен на вашем устройстве.\n\nДля установки:\n1. Откройте Настройки\n2. Найдите "Преобразование текста в речь" (TTS)\n3. Загрузите голос для ${languageName}`
-      : `Голос для языка "${languageName}" не найден.\n\nДля установки:\n1. Откройте Настройки\n2. Перейдите в Универсальный доступ > Озвучивание содержимого\n3. Выберите голоса для ${languageName}`;
+  const showTTSMissingAlert = useCallback((languageName: string, fallbackLanguage: string) => {
+    const title = `⚠️ ${languageName} голос не найден`;
 
-    Alert.alert(
-      title,
-      message,
-      [
-        { text: 'Отмена', style: 'cancel' },
-        {
-          text: 'Открыть настройки',
-          onPress: openTTSSettings
-        }
-      ]
-    );
-  }, [openTTSSettings]);
+    const message = Platform.OS === 'android'
+      ? `Для качественного произношения установите Google Text-to-Speech с поддержкой языка "${languageName}".\n\nСейчас используется: ${fallbackLanguage} (fallback)`
+      : `Голос для языка "${languageName}" не найден на вашем устройстве.\n\nСейчас используется: ${fallbackLanguage} (fallback)\n\nУстановите голос в настройках iOS.`;
+
+    const buttons = Platform.OS === 'android'
+      ? [
+          { text: 'ОК', style: 'cancel' },
+          {
+            text: '⚙️ Настройки',
+            onPress: openTTSSettings
+          },
+          {
+            text: '📥 Установить TTS',
+            onPress: openGoogleTTS
+          }
+        ]
+      : [
+          { text: 'ОК', style: 'cancel' },
+          {
+            text: '⚙️ Открыть настройки',
+            onPress: openTTSSettings
+          }
+        ];
+
+    Alert.alert(title, message, buttons);
+  }, [openTTSSettings, openGoogleTTS]);
 
   // Инициализация аудио режима
   useEffect(() => {
@@ -173,9 +229,10 @@ export function useAudio() {
    * @param text - текст для произношения
    * @param language - любой язык (строка)
    * @param audioPath - путь к MP3 (только для туркменского!)
+   * @returns используемый код языка (для badge)
    */
-  const playAudio = useCallback(async (text: string, language: string, audioPath?: string) => {
-    if (isPlaying || isLoading) return;
+  const playAudio = useCallback(async (text: string, language: string, audioPath?: string): Promise<string> => {
+    if (isPlaying || isLoading) return language;
 
     try {
       setIsLoading(true);
@@ -209,18 +266,44 @@ export function useAudio() {
 
           setIsPlaying(true);
           setIsLoading(false);
-          return;
+          setCurrentLanguage('turkmen');
+          return 'turkmen';
         }
       }
 
       // ✅ ВСЕ ОСТАЛЬНЫЕ ЯЗЫКИ - используем TTS
-      const languageCode = getLanguageCode(language);
+      const requestedLanguageCode = getLanguageCode(language);
+      let actualLanguageCode = requestedLanguageCode;
+
+      // 🔍 ПРОВЕРКА ДОСТУПНОСТИ ГОЛОСА
+      const isVoiceAvailable = await checkVoiceAvailability(requestedLanguageCode);
+
+      if (!isVoiceAvailable) {
+        // Голос недоступен → используем fallback
+        actualLanguageCode = getFallbackLanguage(requestedLanguageCode);
+
+        // Показать Alert только первый раз для этого языка
+        const alertKey = `tts_alert_shown_${language}`;
+        const alertShown = await AsyncStorage.getItem(alertKey);
+
+        if (!alertShown) {
+          const languageName = getLanguageName(language);
+          const fallbackName = 'Английский'; // getFallbackLanguage всегда возвращает en-US
+          showTTSMissingAlert(languageName, fallbackName);
+
+          // Кэшируем что Alert был показан
+          await AsyncStorage.setItem(alertKey, 'true');
+        }
+
+        console.log(`[useAudio] Voice not found for ${language} (${requestedLanguageCode}), using fallback: ${actualLanguageCode}`);
+      }
 
       setIsPlaying(true);
       setIsLoading(false);
+      setCurrentLanguage(actualLanguageCode);
 
       await Speech.speak(text, {
-        language: languageCode,
+        language: actualLanguageCode,
         rate: 0.85,        // Скорость речи
         pitch: 1.0,        // Высота голоса
         onDone: () => {
@@ -232,19 +315,18 @@ export function useAudio() {
         onError: (error) => {
           setIsPlaying(false);
           console.warn(`TTS error for ${language}:`, error);
-
-          // ✅ Показываем Alert для установки голоса TTS
-          const languageName = getLanguageName(language);
-          showTTSMissingAlert(languageName);
         },
       });
+
+      return actualLanguageCode;
 
     } catch (error) {
       console.error('[useAudio] Playback error:', error);
       setIsPlaying(false);
       setIsLoading(false);
+      return language;
     }
-  }, [isPlaying, isLoading]);
+  }, [isPlaying, isLoading, checkVoiceAvailability, getFallbackLanguage, showTTSMissingAlert]);
 
   /**
    * Остановка воспроизведения
@@ -269,5 +351,6 @@ export function useAudio() {
     isLoading,
     playAudio,
     stopAudio,
+    currentLanguage, // Для показа badge с используемым языком
   };
 }
