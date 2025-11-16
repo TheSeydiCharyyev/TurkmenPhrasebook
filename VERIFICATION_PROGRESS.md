@@ -37,6 +37,7 @@
 |----------|------|---------|--------|--------|--------|-------|
 | Turkish | tr | 305 | ✅ Done | ⏳ Pending | Script Complete | 57.4% match, 130 need review |
 | Japanese | ja | 305 | ✅ Done | ⏳ Pending | Script Complete | 34.1% match, 201 need review |
+| Korean | ko | 305 | ✅ Done | ⏳ Pending | Script Complete | 37.0% match, 192 need review |
 
 ---
 
@@ -46,7 +47,6 @@
 
 | Language | Code | Phrases | Script | Manual | Status | Priority |
 |----------|------|---------|--------|--------|--------|----------|
-| Korean | ko | 305 | ⏳ | ⏳ | Not Started | 🔴 Critical |
 | German | de | 305 | ⏳ | ⏳ | Not Started | 🔴 Critical |
 | French | fr | 305 | ⏳ | ⏳ | Not Started | 🔴 Critical |
 | Spanish | es | 305 | ⏳ | ⏳ | Not Started | 🔴 Critical |
@@ -162,6 +162,15 @@ node scripts/verifyTranslations.js ja  # Japanese
   - Script: ✅ Done
   - Results: 175/305 (57.4%) verified, 130 need manual review
   - Report: `reviews/tr_verification.json`
+- ✅ **Completed Japanese verification!**
+  - Script: ✅ Done
+  - Results: 104/305 (34.1%) verified, 201 need manual review
+  - Report: `reviews/ja_verification.json`
+- ✅ **Completed Korean verification!**
+  - Script: ✅ Done
+  - Results: 113/305 (37.0%) verified, 192 need manual review
+  - Report: `reviews/ko_verification.json`
+- ⚠️ **API Rate Limit:** Used 915/1000 requests today
 
 ---
 
