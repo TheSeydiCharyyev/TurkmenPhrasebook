@@ -36,6 +36,7 @@
 | Language | Code | Phrases | Script | Manual | Status | Notes |
 |----------|------|---------|--------|--------|--------|-------|
 | Turkish | tr | 305 | ✅ Done | ⏳ Pending | Script Complete | 57.4% match, 130 need review |
+| Japanese | ja | 305 | ✅ Done | ⏳ Pending | Script Complete | 34.1% match, 201 need review |
 
 ---
 
@@ -45,7 +46,6 @@
 
 | Language | Code | Phrases | Script | Manual | Status | Priority |
 |----------|------|---------|--------|--------|--------|----------|
-| Japanese | ja | 305 | ⏳ | ⏳ | Not Started | 🔴 Critical |
 | Korean | ko | 305 | ⏳ | ⏳ | Not Started | 🔴 Critical |
 | German | de | 305 | ⏳ | ⏳ | Not Started | 🔴 Critical |
 | French | fr | 305 | ⏳ | ⏳ | Not Started | 🔴 Critical |
