@@ -1,7 +1,7 @@
 # 📋 TASKS - TurkmenPhrasebook
 
-**Last Updated:** November 15, 2025
-**Status:** Phase 1-5 ✅ 100% → Phase 6 🟡 80% (Voice Translator) → Phase 7 Dictionary → Phase 8 ✅ 100% (AI) → Phase 9-10 Testing & Production → Phase 11 ✅ 90% (Responsive) → Phase 12 ✅ 100% (Phrasebook Redesign) → Phase 13 ✅ 100% (Audio/TTS Improvements - COMPLETE!)
+**Last Updated:** November 16, 2025
+**Status:** Phase 1-6 ✅ 100% (Voice Translator COMPLETE!) → Phase 7 Dictionary → Phase 8 ✅ 100% (AI) → Phase 9-10 Testing & Production → Phase 11 ✅ 90% (Responsive) → Phase 12 ✅ 100% (Phrasebook Redesign) → Phase 13 ✅ 100% (Audio/TTS Improvements - COMPLETE!)
 
 ---
 
@@ -261,60 +261,87 @@
 
 ---
 
-### **PHASE 6: Интеграция онлайн голосового переводчика** (⏳ 0%)
+### **PHASE 6: Интеграция онлайн голосового переводчика** (✅ 100%)
 
 **Задача:** Добавить новый модуль - Voice Translator (голосовой переводчик)
 
-**Файлы:**
-- `src/features/voice-translator/screens/VoiceTranslatorScreen.tsx` (новый)
-- `src/navigation/AppNavigator.tsx` (добавить роут)
-- `src/screens/MainHubScreen.tsx` (обновить, если нужно)
+**✅ Выполнено (November 16, 2025):**
 
-**Что нужно сделать:**
+#### 6.1 ✅ Создание UI
+- ✅ Создан VoiceTranslatorScreen с Hero + Grid дизайном
+- ✅ Градиентный header (Orange/Red gradient #FF6B35 → #F7931E)
+- ✅ Hero секция с эмодзи 🎤 и описанием "Speak & Translate"
+- ✅ Кнопка для записи голоса (большая круглая кнопка 120x120px)
+- ✅ Карточка для отображения распознанного текста
+- ✅ Карточка для отображения переведенного текста (градиентная)
+- ✅ Кнопки воспроизведения аудио (для обоих языков)
+- ✅ Динамические селекторы языков (поддержка всех 31 языков)
+- ✅ Modal для выбора языка (source/target)
+- ✅ Кнопка копирования текста
+- ✅ Кнопка очистки (Clear)
+- ✅ Swap button для переключения языков
 
-#### 6.1 Создание UI
-- [ ] Создать VoiceTranslatorScreen с Hero + Grid дизайном
-- [ ] Градиентный header (например, Orange/Red gradient)
-- [ ] Hero секция с эмодзи 🎤 и описанием "Speak & Translate"
-- [ ] Кнопка для записи голоса (большая круглая кнопка)
-- [ ] Карточка для отображения распознанного текста
-- [ ] Карточка для отображения переведенного текста
-- [ ] Кнопки воспроизведения аудио (для обоих языков)
-- [ ] Селекторы языков (откуда → куда)
-- [ ] Кнопка копирования текста
+#### 6.2 ✅ Функционал
+- ✅ Интеграция @react-native-voice/voice для распознавания речи (Speech-to-Text)
+- ✅ Использование существующего API для перевода текста
+- ✅ Интеграция expo-speech для озвучивания перевода (Text-to-Speech)
+- ✅ Поддержка всех 31 языков через VoiceTranslatorService
+- ✅ Индикаторы состояния (idle, listening, processing, completed, error)
+- ✅ Обработка ошибок (нет микрофона, нет интернета, ошибки распознавания)
+- ✅ Permission handling (микрофон)
+- ✅ VoiceTranslatorService класс с методами:
+  - initialize(), checkPermissions()
+  - startRecording(), stopRecording()
+  - playText(), stopSpeaking()
+  - getVoiceLanguageCode() - маппинг 31 языка
 
-#### 6.2 Функционал
-- [ ] Интеграция expo-speech для распознавания речи (Speech-to-Text)
-- [ ] Использование существующего API для перевода текста
-- [ ] Интеграция expo-speech для озвучивания перевода (Text-to-Speech)
-- [ ] Поддержка всех 31 языков
-- [ ] Индикаторы состояния (запись, обработка, воспроизведение)
-- [ ] Обработка ошибок (нет микрофона, нет интернета и т.д.)
+#### 6.3 ✅ Мультиязычность
+- ✅ Добавлены поля для Voice Translator в InterfaceTexts (LanguageContext.tsx)
+- ✅ Добавлены переводы UI для всех 31 языков:
+  - vtHeaderTitle, vtHeroTitle, vtHeroSubtitle
+  - vtTapToSpeak, vtListening, vtProcessing
+  - vtRecognized, vtTranslation
+  - vtPlayOriginal, vtPlayTranslation
+  - vtCopyTranslation, vtClear
+  - vtSwapLanguages, vtSelectSourceLanguage, vtSelectTargetLanguage
+  - vtErrorNoPermission, vtErrorNoInternet, vtErrorRecognitionFailed, vtErrorTranslationFailed
+  - vtPermissionTitle, vtPermissionMessage, vtGrantPermission
 
-#### 6.3 Мультиязычность
-- [ ] Добавить поля для Voice Translator в InterfaceTexts (LanguageContext.tsx)
-- [ ] Добавить переводы UI для всех 31 языков:
-  - vt_header_title, vt_hero_title, vt_hero_subtitle
-  - vt_tap_to_speak, vt_listening, vt_processing
-  - vt_recognized_text, vt_translated_text
-  - vt_play_original, vt_play_translation
-  - vt_copy_translation, vt_clear
-  - vt_error_no_mic, vt_error_no_internet, vt_error_recognition_failed
-  - и другие необходимые тексты
+#### 6.4 ✅ Дизайн стиль
+- ✅ Hero + Grid дизайн (как Visual Translator и Text Translator)
+- ✅ Градиенты (Orange/Red для header, Green для translation card)
+- ✅ Мощные тени (elevation 6-12, shadowRadius 8-12)
+- ✅ Современные скругления (borderRadius 20-24px)
+- ✅ Эмодзи иконки (🎤, 🗣️, 🌐, 🔊, ⏸️, 📋, 🗑️)
+- ✅ Анимация при записи голоса:
+  - Пульсация кнопки (scale 1 → 1.1)
+  - 3 волны (wave animations)
+  - Цветовая индикация (Blue → Red → Orange)
+- ✅ Responsive дизайн с scale/verticalScale/moderateScale
 
-#### 6.4 Дизайн стиль
-- [ ] Hero + Grid дизайн (как Visual Translator и Text Translator)
-- [ ] Градиенты, мощные тени, современные скругления
-- [ ] Эмодзи иконки вместо Ionicons
-- [ ] Анимация при записи голоса (пульсация кнопки)
-- [ ] Визуальный индикатор громкости при записи
+#### 6.5 ✅ Дополнительные улучшения (November 16, 2025)
+- ✅ **Динамические языковые селекторы** (вместо захардкоженных Russian/English)
+  - Интеграция с getLanguageByCode() и getAvailableLanguages()
+  - Использование текущего языка приложения (config.mode) как source language
+  - Динамическое отображение флагов и названий языков
+  - Modal для выбора source/target языков
+- ✅ **Правильное отображение названий языков в карточках**
+  - "Recognized (Russian)" → "Recognized ({sourceLang.nameEn})"
+  - "Translation (English)" → "Translation ({targetLang.nameEn})"
 
-**API/Библиотеки:**
-- expo-av или expo-speech (Speech-to-Text)
-- Существующий translation API (для перевода текста)
-- expo-speech (Text-to-Speech) - уже используется в приложении
+**Измененные файлы:**
+- ✅ `src/features/voice-translator/screens/VoiceTranslatorScreen.tsx` - полный экран
+- ✅ `src/features/voice-translator/services/VoiceTranslatorService.ts` - сервис
+- ✅ `src/navigation/AppNavigator.tsx` - роут добавлен
+- ✅ `src/screens/MainHubScreen.tsx` - карточка Voice Translator
+- ✅ `src/contexts/LanguageContext.tsx` - переводы для всех 31 языков
 
-**Оценка времени:** 6-8 часов (UI + функционал + мультиязычность)
+**Пакеты:**
+- ✅ @react-native-voice/voice v3.2.4 (Speech-to-Text)
+- ✅ expo-speech (Text-to-Speech) - уже был установлен
+- ✅ expo-av (для permissions)
+
+**Время выполнено:** ~8 часов (полностью завершено!)
 
 ---
 
@@ -616,16 +643,14 @@ eas build --platform ios --profile production
 | **Phase 3: Phrasebook UI** | Categories + Audio + TTS + 31 Languages | 8 hours | ✅ DONE |
 | **Phase 4: Visual Translator** | Мультиязычность (31 язык) | 5-6 hours | ✅ DONE |
 | **Phase 5: Text Translator** | Мультиязычность (31 язык) | 6 hours | ✅ DONE |
-| **Phase 6: Voice Translator** | NEW MODULE - Speech-to-Text + Translation + TTS | 6-8 hours | ⏳ 0% |
+| **Phase 6: Voice Translator** | NEW MODULE - Speech-to-Text + Translation + TTS | 8 hours | ✅ 100% |
 | **Phase 7: Dictionary** | Peace Corps PDF + Database + Integration | 4-6 hours | ⏳ 0% |
 | **Phase 8: AI Assistants** | Hero + Grid дизайн + Мультиязычность (31 язык) | 6 hours | ✅ 100% |
 | **Phase 9: Testing** | Hugging Face API + iOS Testing | 2-3 hours | ⏳ 90% |
 | **Phase 10: Production** | Configuration + Icons + Builds + Store | 15-20 hours | ⏳ 0% |
 | **Phase 11: Responsive Design** | 30+ screens + 600+ properties | 2-3 hours | ✅ 90% |
-| **Phase 12: Phrasebook Redesign** | Minimalist UX/UI overhaul | 8-12 hours | 🟡 50% |
-| **IN PROGRESS** | Phase 6 (80%) | **~5-6 hours** | 🟡 |
+| **Phase 12: Phrasebook Redesign** | Minimalist UX/UI overhaul | 8-12 hours | ✅ 100% |
 | **REMAINING (v1.0)** | Phases 7, 9-10 | **~21-29 hours** | ⏳ |
-| **IN PROGRESS** | Phase 12 (50%) | **~4-6 hours left** | 🟡 |
 
 **Optimistic:** 6-8 days (full-time work)
 **Realistic:** 2-3 weeks (part-time work)
@@ -815,7 +840,7 @@ eas build --platform ios --profile production
 
 ---
 
-**Status:** Phase 1-5 ✅ 100% → Phase 6 🟡 80% → Phase 7 Dictionary → Phase 8 ✅ 100% → Phase 11 ✅ 90% (Responsive) → Phase 12 ✅ 100% (COMPLETE!) → Phase 9-10 Testing & Production 🚀
+**Status:** Phase 1-6 ✅ 100% (Voice Translator COMPLETE!) → Phase 7 Dictionary → Phase 8 ✅ 100% (AI) → Phase 9-10 Testing & Production → Phase 11 ✅ 90% (Responsive) → Phase 12 ✅ 100% (Phrasebook Redesign) → Phase 13 ✅ 100% (Audio/TTS Improvements - COMPLETE!)
 **Goal:** Launch v1.0 with all 31 languages + responsive design + minimalist phrasebook by mid-November 2025
 
 **Next Steps:**
@@ -824,14 +849,14 @@ eas build --platform ios --profile production
 3. ✅ PHASE 3: Phrasebook Complete (Categories + CategoryScreen + PhraseDetail + Audio + TTS + 31 Languages) - DONE
 4. ✅ PHASE 4: Visual Translator Multilingual (All 31 Languages) - DONE
 5. ✅ PHASE 5: Text Translator Multilingual (All 31 Languages) - DONE
-6. 🔴 PHASE 6: Voice Translator (NEW MODULE - 6-8 hours) - HIGH PRIORITY
-7. PHASE 7: Dictionary (4-6 hours)
+6. ✅ PHASE 6: Voice Translator (NEW MODULE - Speech-to-Text + Translation + TTS) - COMPLETE!
+7. PHASE 7: Dictionary (4-6 hours) - 🔴 HIGH PRIORITY
 8. ✅ PHASE 8: AI Assistants (Hero + Grid дизайн ✅ + переводы 31/31 языков ✅ COMPLETE!)
 9. PHASE 9: Testing (Hugging Face API, iOS)
 10. PHASE 10: Production Build (Icons, Builds, Store Submission)
 11. ✅ PHASE 11: Responsive Design (90% - осталось тестирование) - DONE
 12. ✅ PHASE 12: Phrasebook Redesign (Minimalist Apple/Notion style) - COMPLETE!
-13. ⏳ PHASE 13: Audio/TTS Improvements (Кнопка установки голоса + Fallback - 3-5 hours) - PENDING
+13. ✅ PHASE 13: Audio/TTS Improvements (Кнопка установки голоса + Fallback) - COMPLETE!
 
 ## 🎯 PHASE 12: ПОЛНЫЙ РЕДИЗАЙН РАЗГОВОРНИКА (✅ 100% - COMPLETE!)
 
