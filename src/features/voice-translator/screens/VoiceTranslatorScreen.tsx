@@ -13,6 +13,7 @@ import {
   ActivityIndicator,
   Linking,
   Platform,
+  Modal,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -24,6 +25,8 @@ import { VoiceTranslatorService } from '../services/VoiceTranslatorService';
 import { translateText } from '../../visual-translator/services/TranslationService';
 import { Colors } from '../../../constants/Colors';
 import { scale, verticalScale, moderateScale } from '../../../utils/ResponsiveUtils';
+import { getLanguageByCode, getAvailableLanguages } from '../../../config/languages.config';
+import { LanguageConfig } from '../../../types';
 
 type TranslatorState = 'idle' | 'listening' | 'processing' | 'completed' | 'error';
 
@@ -34,13 +37,15 @@ export default function VoiceTranslatorScreen() {
 
   // State
   const [state, setState] = useState<TranslatorState>('idle');
-  const [sourceLang, setSourceLang] = useState('ru');
+  const [sourceLang, setSourceLang] = useState(config.mode === 'tk' ? 'tk' : config.mode);
   const [targetLang, setTargetLang] = useState('en');
   const [recognizedText, setRecognizedText] = useState('');
   const [translatedText, setTranslatedText] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [isPlayingOriginal, setIsPlayingOriginal] = useState(false);
   const [isPlayingTranslation, setIsPlayingTranslation] = useState(false);
+  const [showSourceModal, setShowSourceModal] = useState(false);
+  const [showTargetModal, setShowTargetModal] = useState(false);
 
   // Animations
   const pulseAnim = useRef(new Animated.Value(1)).current;
@@ -284,8 +289,13 @@ export default function VoiceTranslatorScreen() {
 
         {/* Language Selector Bar */}
         <View style={styles.languageBar}>
-          <TouchableOpacity style={styles.languageButton}>
-            <Text style={styles.languageText}>🇷🇺 Russian</Text>
+          <TouchableOpacity
+            style={styles.languageButton}
+            onPress={() => setShowSourceModal(true)}
+          >
+            <Text style={styles.languageText}>
+              {getLanguageByCode(sourceLang)?.flag} {getLanguageByCode(sourceLang)?.nameEn}
+            </Text>
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -295,8 +305,13 @@ export default function VoiceTranslatorScreen() {
             <Text style={styles.swapIcon}>⇄</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.languageButton}>
-            <Text style={styles.languageText}>🇬🇧 English</Text>
+          <TouchableOpacity
+            style={styles.languageButton}
+            onPress={() => setShowTargetModal(true)}
+          >
+            <Text style={styles.languageText}>
+              {getLanguageByCode(targetLang)?.flag} {getLanguageByCode(targetLang)?.nameEn}
+            </Text>
           </TouchableOpacity>
         </View>
 
@@ -396,7 +411,7 @@ export default function VoiceTranslatorScreen() {
           <View style={styles.card}>
             <View style={styles.cardHeader}>
               <Text style={styles.cardTitle}>
-                🗣️ {texts.vtRecognized} (Russian)
+                🗣️ {texts.vtRecognized} ({getLanguageByCode(sourceLang)?.nameEn})
               </Text>
             </View>
             <Text style={styles.cardText}>{recognizedText}</Text>
@@ -420,7 +435,7 @@ export default function VoiceTranslatorScreen() {
           >
             <View style={styles.cardHeader}>
               <Text style={[styles.cardTitle, styles.whiteText]}>
-                🌐 {texts.vtTranslation} (English)
+                🌐 {texts.vtTranslation} ({getLanguageByCode(targetLang)?.nameEn})
               </Text>
             </View>
             <Text style={[styles.cardText, styles.whiteText]}>
@@ -463,7 +478,92 @@ export default function VoiceTranslatorScreen() {
           </View>
         )}
       </ScrollView>
+
+      {/* Source Language Modal */}
+      <LanguageModal
+        visible={showSourceModal}
+        onClose={() => setShowSourceModal(false)}
+        onSelect={(code) => {
+          setSourceLang(code);
+          setShowSourceModal(false);
+          setRecognizedText('');
+          setTranslatedText('');
+          setState('idle');
+        }}
+        selectedLanguage={sourceLang}
+        title={texts.vtSelectSourceLanguage}
+      />
+
+      {/* Target Language Modal */}
+      <LanguageModal
+        visible={showTargetModal}
+        onClose={() => setShowTargetModal(false)}
+        onSelect={(code) => {
+          setTargetLang(code);
+          setShowTargetModal(false);
+          setTranslatedText('');
+        }}
+        selectedLanguage={targetLang}
+        title={texts.vtSelectTargetLanguage}
+      />
     </SafeAreaView>
+  );
+}
+
+// Language Modal Component
+interface LanguageModalProps {
+  visible: boolean;
+  onClose: () => void;
+  onSelect: (code: string) => void;
+  selectedLanguage: string;
+  title: string;
+}
+
+function LanguageModal({ visible, onClose, onSelect, selectedLanguage, title }: LanguageModalProps) {
+  const availableLanguages = getAvailableLanguages();
+
+  return (
+    <Modal
+      visible={visible}
+      animationType="slide"
+      transparent={true}
+      onRequestClose={onClose}
+    >
+      <View style={modalStyles.overlay}>
+        <View style={modalStyles.container}>
+          {/* Header */}
+          <View style={modalStyles.header}>
+            <Text style={modalStyles.title}>{title}</Text>
+            <TouchableOpacity onPress={onClose} style={modalStyles.closeButton}>
+              <Ionicons name="close" size={28} color="#6B7280" />
+            </TouchableOpacity>
+          </View>
+
+          {/* Languages List */}
+          <ScrollView showsVerticalScrollIndicator={false}>
+            {availableLanguages.map((lang) => (
+              <TouchableOpacity
+                key={lang.code}
+                style={[
+                  modalStyles.languageItem,
+                  selectedLanguage === lang.code && modalStyles.languageItemSelected,
+                ]}
+                onPress={() => onSelect(lang.code)}
+              >
+                <Text style={modalStyles.languageFlag}>{lang.flag}</Text>
+                <View style={modalStyles.languageInfo}>
+                  <Text style={modalStyles.languageName}>{lang.nameEn}</Text>
+                  <Text style={modalStyles.languageNameNative}>{lang.name}</Text>
+                </View>
+                {selectedLanguage === lang.code && (
+                  <Ionicons name="checkmark-circle" size={24} color="#22C55E" />
+                )}
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
+        </View>
+      </View>
+    </Modal>
   );
 }
 
@@ -706,5 +806,71 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#6B7280',
     textAlign: 'center',
+  },
+});
+
+// Modal Styles
+const modalStyles = StyleSheet.create({
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'flex-end',
+  },
+  container: {
+    backgroundColor: '#FFFFFF',
+    borderTopLeftRadius: scale(24),
+    borderTopRightRadius: scale(24),
+    maxHeight: '80%',
+    paddingBottom: verticalScale(30),
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: scale(20),
+    paddingVertical: verticalScale(20),
+    borderBottomWidth: 1,
+    borderBottomColor: '#F3F4F6',
+  },
+  title: {
+    fontSize: moderateScale(20),
+    fontWeight: 'bold',
+    color: Colors.text || '#1F2937',
+  },
+  closeButton: {
+    width: scale(40),
+    height: scale(40),
+    borderRadius: scale(20),
+    backgroundColor: '#F3F4F6',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  languageItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: scale(20),
+    paddingVertical: verticalScale(15),
+    borderBottomWidth: 1,
+    borderBottomColor: '#F3F4F6',
+  },
+  languageItemSelected: {
+    backgroundColor: '#F0FDF4',
+  },
+  languageFlag: {
+    fontSize: moderateScale(32),
+    marginRight: scale(15),
+  },
+  languageInfo: {
+    flex: 1,
+  },
+  languageName: {
+    fontSize: moderateScale(16),
+    fontWeight: '600',
+    color: Colors.text || '#1F2937',
+    marginBottom: verticalScale(4),
+  },
+  languageNameNative: {
+    fontSize: moderateScale(14),
+    color: '#6B7280',
   },
 });
