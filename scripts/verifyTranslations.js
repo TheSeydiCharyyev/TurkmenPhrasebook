@@ -79,18 +79,22 @@ function sleep(ms) {
 
 function loadPhrases() {
   try {
-    // Try to load from compiled phrases
-    const phrasesPath = path.join(__dirname, '../src/data/phrases.ts');
-    console.log('Loading phrases from:', phrasesPath);
+    const phrasesPath = path.join(__dirname, '../src/data/phrases.json');
+    console.log('📂 Loading phrases from:', phrasesPath);
 
-    // For now, return a sample structure
-    // TODO: Parse phrases.ts file or convert to JSON
-    console.log('⚠️  Please create src/data/phrases.json for easier processing');
-    console.log('   Or we can parse phrases.ts manually');
+    if (!require('fs').existsSync(phrasesPath)) {
+      console.error('❌ phrases.json not found!');
+      console.log('\n💡 Run this first:');
+      console.log('   node scripts/convertPhrasesToJSON.js\n');
+      return [];
+    }
 
-    return [];
+    const phrases = JSON.parse(require('fs').readFileSync(phrasesPath, 'utf8'));
+    console.log(`   ✅ Loaded ${phrases.length} phrases\n`);
+
+    return phrases;
   } catch (error) {
-    console.error('Error loading phrases:', error);
+    console.error('❌ Error loading phrases:', error.message);
     return [];
   }
 }
@@ -111,17 +115,18 @@ async function verifyLanguage(languageCode, languageName, phrases) {
 
   for (let i = 0; i < phrases.length; i++) {
     const phrase = phrases[i];
-    const englishText = phrase.english || phrase.en;
+    const englishText = phrase.en; // English is stored as 'en' in phrases.json
     const currentTranslation = phrase[languageCode];
 
     if (!englishText || !currentTranslation) {
-      console.log(`⚠️  Skipping phrase ${i + 1}: Missing data`);
+      console.log(`⚠️  Skipping phrase ${phrase.id || i + 1}: Missing data (en or ${languageCode})`);
       errors++;
       continue;
     }
 
     // Translate using MyMemory
-    console.log(`[${i + 1}/${phrases.length}] Translating: "${englishText.substring(0, 50)}..."`);
+    const displayText = englishText.length > 50 ? englishText.substring(0, 50) + '...' : englishText;
+    console.log(`[${i + 1}/${phrases.length}] "${displayText}"`);
 
     const myMemoryResult = await translateWithMyMemory(englishText, languageCode);
 
