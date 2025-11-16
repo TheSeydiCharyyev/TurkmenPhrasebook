@@ -341,6 +341,23 @@
 - ✅ expo-speech (Text-to-Speech) - уже был установлен
 - ✅ expo-av (для permissions)
 
+**⚠️ ВАЖНО: Voice Translator требования**
+- ❌ **НЕ работает в Expo Go** (@react-native-voice/voice - нативный модуль)
+- ✅ **Работает в Production Build** (EAS Build)
+- ✅ **Работает в Development Build** (npx expo prebuild)
+- ✅ Config plugin добавлен в app.json
+- ✅ Permissions настроены (iOS: NSMicrophoneUsageDescription, NSSpeechRecognitionUsageDescription; Android: RECORD_AUDIO)
+
+**Для тестирования Voice Translator:**
+```bash
+# Вариант 1: Development Build (для тестирования на реальном устройстве)
+npx expo prebuild
+npx expo run:android  # или npx expo run:ios
+
+# Вариант 2: EAS Build (для production)
+eas build --platform android --profile preview
+```
+
 **Время выполнено:** ~8 часов (полностью завершено!)
 
 ---
