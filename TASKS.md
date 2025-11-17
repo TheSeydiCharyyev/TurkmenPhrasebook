@@ -480,32 +480,115 @@ eas build --platform android --profile preview
 
 ---
 
-### **PHASE 9: Testing** (⏳ 90% Complete)
+### **PHASE 9: Testing** (⏳ 10% Complete - BLOCKED)
 
-#### 1. ✅ Hugging Face API Testing
+#### 1. ⚠️ Hugging Face API Testing - **BLOCKED**
 - [x] API key configured in .env file (stored securely)
-- [ ] **Test AI Assistants (5 assistants)**
+- [x] **Проблема найдена:** Hugging Face изменил API endpoints (November 2024+)
+  - ❌ Старый endpoint: `https://api-inference.huggingface.co` → deprecated (410 error)
+  - ❌ Новый endpoint: `https://router.huggingface.co/hf-inference` → models not found (404 error)
+  - Попробованные модели: `mistralai/Mistral-7B-Instruct-v0.2`, `microsoft/phi-2` - все 404
+
+**🔴 BLOCKER: Найти рабочий бесплатный AI API**
+
+**Варианты решения:**
+
+#### **Вариант 1: Hugging Face Pro** ($9/месяц)
+- ✅ Доступ к новому router API
+- ✅ Все модели работают (Mistral, Llama, etc.)
+- ❌ Платно
+- ⏱️ Время: 10 минут (просто upgrade аккаунта)
+
+#### **Вариант 2: Groq API** (🔥 РЕКОМЕНДУЕТСЯ для v1.1)
+- ✅ Бесплатный tier: 14,400 запросов/день
+- ✅ ОЧЕНЬ быстрый (самый быстрый inference)
+- ✅ Модели: Llama 3.1, Mixtral, Gemma
+- ✅ Простая интеграция (похож на OpenAI API)
+- ⏱️ Время: 30-40 минут
+- 📖 Документация: https://console.groq.com/docs/quickstart
+
+**Инструкция для Groq:**
+```typescript
+// 1. Получить API key: https://console.groq.com
+// 2. Заменить в AIAssistantService.ts:
+const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
+const GROQ_API_KEY = process.env.GROQ_API_KEY;
+
+// 3. Обновить fetch запрос (OpenAI-совместимый формат)
+```
+
+#### **Вариант 3: Google Gemini API**
+- ✅ Бесплатный tier: 60 запросов/минуту
+- ✅ Мощная модель (Gemini 1.5 Flash)
+- ✅ Официальная поддержка от Google
+- ⏱️ Время: 40-50 минут
+- 📖 Документация: https://ai.google.dev/gemini-api/docs
+
+#### **Вариант 4: OpenRouter**
+- ✅ Бесплатные модели (GPT-3.5, Mistral-7B)
+- ✅ Единый API для разных моделей
+- ⚠️ Rate limits на бесплатных моделях
+- ⏱️ Время: 30 минут
+- 📖 Документация: https://openrouter.ai/docs
+
+#### **Вариант 5: Отключить AI до v1.1** (✅ Для v1.0)
+- ✅ Fallback responses уже работают
+- ✅ Приложение функционально без AI
+- ✅ Можно релизить v1.0 сейчас
+- ⏱️ Время: 5 минут (просто документировать)
+
+**📋 План действий:**
+
+**Для v1.0 (сейчас):**
+1. ✅ Оставить AI с fallback messages
+2. ✅ Добавить в описание: "AI features coming in v1.1"
+3. ✅ Продолжить тестирование других модулей
+4. ✅ Подготовить production build
+
+**Для v1.1 (после релиза):**
+1. Интегрировать Groq API (30-40 минут)
+2. Протестировать AI Assistants
+3. Обновить приложение через OTA update
+
+**🎯 РЕКОМЕНДАЦИЯ:**
+- **v1.0:** Вариант 5 (отключить, использовать fallback)
+- **v1.1:** Вариант 2 (Groq API - быстрый и бесплатный)
+
+- [ ] **Test AI Assistants (5 assistants)** - BLOCKED
   - [ ] Contextual Tips - send test message
   - [ ] Conversation Trainer - send test message
   - [ ] Grammar Helper - send test message
   - [ ] Cultural Advisor - send test message
   - [ ] General Assistant - send test message
-- [ ] **Test Visual Translator AI features**
+
+---
+
+#### 2. ⚠️ Visual Translator Testing - **PARTIALLY WORKING**
+
+**✅ Протестировано на Android APK (November 17, 2025):**
+- [x] Офлайн движок (ML Kit Text Recognition) - ✅ Работает (частично, "кое-как")
+- [ ] Онлайн движок (OCR.space / Google Vision API) - ❌ **Ошибка**
+
+**🔴 ПРОБЛЕМА:** Онлайн OCR движок выдает ошибку при попытке распознать текст
+
+**📋 План доработки:**
+1. [ ] Проверить какой именно API используется (OCR.space или Google Vision)
+2. [ ] Проверить валидность API key в .env
+3. [ ] Добавить подробное error logging для диагностики
+4. [ ] Протестировать с разными изображениями (простой текст, сложный, углы)
+5. [ ] Если нужен новый API key - получить бесплатный
+6. [ ] Улучшить офлайн движок (ML Kit) - сейчас работает "кое-как"
+7. [ ] Повторно протестировать оба движка после фикса
+
+**Estimated Time:** 1-2 hours
+
+---
+
+#### 3. ⚠️ Visual Translator AI features - **BLOCKED**
+- [ ] **Test Visual Translator AI features** - BLOCKED
   - [ ] Take photo without text → should get AI description
   - [ ] Verify BLIP model works for image captioning
   - [ ] Verify CLIP model works for object detection
-
-**How to Test:**
-```bash
-# Run the app
-npm start
-# or
-npx expo start
-
-# Navigate to AI Assistants
-# Send a message like: "How do I say hello in Turkmen?"
-# Should receive AI response (not fallback message)
-```
 
 ---
 

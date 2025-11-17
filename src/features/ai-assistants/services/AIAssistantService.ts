@@ -19,14 +19,13 @@ import {
 } from '../types/ai-assistant.types';
 
 // Hugging Face API Configuration
-// Updated to new Inference Providers API (November 2025)
-const HUGGINGFACE_API_URL = 'https://router.huggingface.co/hf-inference/models';
+const HUGGINGFACE_API_URL = 'https://router.huggingface.co/hf-inference';
 
-// Model Selection (you can use different models for different assistants)
+// Model Selection (using free tier models)
 const MODELS = {
-  DEFAULT: 'microsoft/DialoGPT-medium', // Good for conversations
-  GRAMMAR: 'google/flan-t5-base', // Good for grammar explanations
-  TRANSLATION: 'facebook/mbart-large-50-many-to-many-mmt', // For translation context
+  DEFAULT: 'microsoft/phi-2', // Small but powerful model
+  GRAMMAR: 'microsoft/phi-2', // Good for grammar explanations
+  TRANSLATION: 'microsoft/phi-2', // For translation context
 };
 
 class AIAssistantService implements IAIAssistantService {
@@ -281,6 +280,13 @@ Be encouraging and helpful with any language-related queries.`,
   ): Promise<string> {
     const url = `${HUGGINGFACE_API_URL}/${model}`;
 
+    console.log('🤖 AI Request:', {
+      url,
+      model,
+      hasApiKey: !!HUGGINGFACE_API_KEY,
+      apiKeyPrefix: HUGGINGFACE_API_KEY ? HUGGINGFACE_API_KEY.substring(0, 10) + '...' : 'MISSING',
+    });
+
     const response = await fetch(url, {
       method: 'POST',
       headers: {
@@ -298,11 +304,16 @@ Be encouraging and helpful with any language-related queries.`,
       }),
     });
 
+    console.log('📡 API Response Status:', response.status, response.statusText);
+
     if (!response.ok) {
-      throw new Error(`Hugging Face API error: ${response.statusText}`);
+      const errorText = await response.text();
+      console.error('❌ API Error Response:', errorText);
+      throw new Error(`Hugging Face API error: ${response.status} - ${errorText}`);
     }
 
     const data = await response.json();
+    console.log('📦 API Response Data:', JSON.stringify(data).substring(0, 200));
 
     // Extract generated text
     if (Array.isArray(data) && data[0]?.generated_text) {
@@ -312,6 +323,7 @@ Be encouraging and helpful with any language-related queries.`,
       return responseText || 'I apologize, I could not generate a response.';
     }
 
+    console.warn('⚠️ Unexpected response format:', data);
     return 'I apologize, I could not generate a response.';
   }
 
