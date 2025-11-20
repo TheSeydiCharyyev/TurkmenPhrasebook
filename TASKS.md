@@ -506,21 +506,279 @@ eas build --platform android --profile preview
 
 ### ⏳ ОСТАЛОСЬ СДЕЛАТЬ (Phase 8 - 20%):
 
-**8.1 UI/UX Улучшения дизайна** (⏱️ 1-2 часа)
-- [ ] **Улучшить дизайн AI карточек** (AssistantCard.tsx):
-  - Более современный минималистичный стиль
-  - Лучшие тени и spacing
-  - Анимации при нажатии
-- [ ] **Улучшить ChatScreen UI**:
-  - Более чистый дизайн сообщений
-  - Лучшие bubble стили (как в iMessage/Telegram)
-  - Улучшенный input container
-- [ ] **Добавить loading states**:
-  - Skeleton screens при загрузке
-  - Typing indicator когда AI думает ("...")
-  - Smooth transitions
+---
 
-**8.2 Выбор AI модели пользователем** (⏱️ 2-3 часа)
+## 🎯 НОВАЯ КОНЦЕПЦИЯ AI ASSISTANTS (Обсуждение - November 20, 2025)
+
+### **ПРОБЛЕМА:**
+Сейчас у нас 5 отдельных разделов AI ассистентов:
+1. Contextual Tips (💡)
+2. Conversation Trainer (💬)
+3. Grammar Helper (📖)
+4. Cultural Advisor (🏛️)
+5. General Assistant (🤖)
+
+**Минусы текущего подхода:**
+- ❌ Сложно для пользователя - нужно выбирать раздел
+- ❌ Дублирование функционала - все ассистенты по сути делают одно
+- ❌ Много кода для поддержки
+- ❌ Ограничивает гибкость (пользователь должен точно знать что ему нужно)
+
+---
+
+### **РЕШЕНИЕ: Комбинированный подход**
+
+#### **Вариант 1: Универсальный AI Assistant** (отдельный экран) ⭐
+**Концепция:**
+- Убрать 5 разделов → **один умный чат**
+- На главном экране: кнопка/карточка "🤖 AI Assistant"
+- Открывается → сразу чат
+- AI сам понимает намерение пользователя
+
+**Как работает:**
+```
+Пользователь: "Как сказать спасибо?"
+AI: "В туркменском языке 'спасибо' это 'Sagbol'. Произносится..."
+
+Пользователь: "Объясни грамматику падежей"
+AI: "В туркменском языке 6 падежей..."
+
+Пользователь: "Давай попрактикуемся в диалоге"
+AI: "Отлично! Начнем диалог в магазине..."
+```
+
+**Преимущества:**
+- ✅ Проще для пользователя (не нужно выбирать раздел)
+- ✅ Естественный разговор
+- ✅ Меньше кода
+- ✅ AI понимает контекст автоматически
+
+**Опционально: Quick Actions**
+```
+┌────────────────────────────┐
+│   AI Language Assistant    │
+├────────────────────────────┤
+│ 💬 Практика разговора      │
+│ 📖 Объясни грамматику      │
+│ 🌍 Культурный контекст     │
+│ ✨ Дай совет               │
+├────────────────────────────┤
+│ Или спроси что-то свое...  │
+│ [Type your question...]    │
+└────────────────────────────┘
+```
+
+---
+
+#### **Вариант 3: Context-Aware AI в Phrasebook** ⭐⭐
+**Концепция:**
+- AI прямо В разговорнике
+- Пользователь видит фразу → может сразу спросить AI
+- AI уже знает контекст: какая фраза, категория, язык
+
+**Пример UI:**
+```
+┌─────────────────────────────┐
+│ 📱 Phrasebook - Greetings   │
+├─────────────────────────────┤
+│ Sag boluň                   │
+│ Hello                     [🤖]│ ← AI кнопка!
+│ Привет                      │
+├─────────────────────────────┤
+│ Saglygyňyz nähili?         │
+│ How are you?              [🤖]│
+│ Как дела?                   │
+└─────────────────────────────┘
+```
+
+**Как работает:**
+1. Пользователь нажимает 🤖 рядом с фразой "Sag boluň"
+2. AI уже знает:
+   - Фраза: "Sag boluň" (Hello / Привет)
+   - Категория: Greetings
+   - Языковая пара: Russian ↔ Turkmen
+3. Открывается мини-чат с Quick Questions:
+
+```
+┌────────────────────────────┐
+│ AI: About "Sag boluň"      │
+├────────────────────────────┤
+│ 🔊 Как произносится?       │
+│ 💬 Пример диалога          │
+│ 📝 Когда использовать?     │
+│ 🎯 Культурные нюансы       │
+├────────────────────────────┤
+│ Или спроси что-то свое...  │
+│ [Type your question...]    │
+└────────────────────────────┘
+```
+
+**Примеры вопросов:**
+- "Как правильно произносить?"
+- "Дай пример диалога с этой фразой"
+- "Когда использовать формальную/неформальную версию?"
+- "Есть ли культурные особенности?"
+- "Покажи похожие фразы"
+
+**Context передается AI:**
+```javascript
+context = {
+  phrase: {
+    turkmen: "Sag boluň",
+    english: "Hello",
+    userLanguage: "Привет",
+  },
+  category: "Greetings",
+  subcategory: "Basic Greetings",
+  userLevel: "beginner", // если есть
+}
+```
+
+---
+
+### **UI ВАРИАНТЫ для Context-Aware AI:**
+
+#### **A. Иконка рядом с каждой фразой**
+```
+Sag boluň              [🤖]
+Hello
+Привет
+```
+**Плюсы:** ✅ Всегда видна, быстрый доступ
+**Минусы:** ❌ Занимает место в карточке
+
+---
+
+#### **B. Floating Action Button**
+```
+┌──────────────┐
+│  Phrases     │
+│              │
+│              │
+│          [🤖]│ ← кнопка внизу справа
+└──────────────┘
+```
+**Плюсы:** ✅ Не занимает место, современно
+**Минусы:** ❌ Нужно сначала выбрать фразу (tap)
+
+---
+
+#### **C. Long Press (долгое нажатие)**
+```
+Долго нажимаешь на фразу →
+┌──────────────────┐
+│ Copy             │
+│ Share            │
+│ 🤖 Ask AI        │
+│ Add to Favorites │
+└──────────────────┘
+```
+**Плюсы:** ✅ Чистый UI, не занимает место
+**Минусы:** ❌ Не очевидно для пользователей
+
+---
+
+#### **D. Swipe Action**
+```
+Свайпаешь фразу влево →
+[🤖 Ask AI] [⭐ Favorite]
+```
+**Плюсы:** ✅ Современно, как в почте
+**Минусы:** ❌ iOS/Android разные паттерны
+
+---
+
+### **ВОПРОСЫ ДЛЯ ОБСУЖДЕНИЯ:**
+
+1. **UI для Context-Aware AI:**
+   - Какой вариант лучше? (A/B/C/D или свой?)
+   - Показывать Quick Questions или сразу чистый чат?
+
+2. **Где еще использовать Context-Aware AI?**
+   - ✅ Phrasebook (обязательно)
+   - ❓ Visual Translator (перевел текст → Ask AI)
+   - ❓ Quiz (не понял вопрос → Ask AI)
+   - ❓ Emergency (нужен срочный совет → Ask AI)
+
+3. **Один или два чата?**
+   - **Вариант A:** Один общий чат (вопросы из Phrasebook тоже туда)
+   - **Вариант B:** Два отдельных:
+     - Универсальный AI Assistant
+     - Context-aware чат в Phrasebook
+
+4. **Navigation structure:**
+   ```
+   ДО (5 разделов):
+   Home → AI Assistants → [5 разных экранов]
+
+   ПОСЛЕ (2 функции):
+   Home → 🤖 AI Assistant (универсальный)
+   Phrasebook → [🤖] Ask AI (context-aware)
+   ```
+
+---
+
+### **ПЛАН РЕАЛИЗАЦИИ:**
+
+#### **8.1 Убрать 5 разделов → Один универсальный AI** (⏱️ 2-3 часа)
+- [ ] Удалить AIAssistantsHomeScreen (экран выбора 5 ассистентов)
+- [ ] Удалить AssistantCard компонент
+- [ ] Упростить AIAssistantService:
+  - Убрать 5 разных типов (AssistantType enum)
+  - Один универсальный system prompt
+  - Убрать маппинг конфигураций
+- [ ] Обновить ChatScreen:
+  - Работает как универсальный чат (без выбора типа)
+  - Умный system prompt который понимает разные запросы
+  - Сохранение истории в одном месте
+- [ ] Обновить навигацию:
+  - MainHub → AI Assistant (сразу в чат)
+  - Убрать промежуточный экран выбора
+- [ ] Опционально: Добавить Quick Actions кнопки
+
+**Файлы для изменения:**
+- `src/features/ai-assistants/types/ai-assistant.types.ts` - упростить типы
+- `src/features/ai-assistants/services/AIAssistantService.ts` - один universal prompt
+- `src/features/ai-assistants/components/ChatScreen.tsx` - universal chat
+- `src/features/ai-assistants/screens/AIAssistantsHomeScreen.tsx` - удалить
+- `src/features/ai-assistants/components/AssistantCard.tsx` - удалить
+- `src/navigation/AppNavigator.tsx` - обновить роуты
+- `src/screens/MainHubScreen.tsx` - прямая ссылка на чат
+
+---
+
+#### **8.2 Context-Aware AI в Phrasebook** (⏱️ 3-4 часа)
+- [ ] Выбрать UI вариант (A/B/C/D)
+- [ ] Создать ContextualAIButton компонент:
+  - Иконка 🤖 или FAB
+  - Передает context фразы
+  - Открывает mini-chat или bottom sheet
+- [ ] Обновить CategoryScreen:
+  - Добавить AI кнопку к каждой фразе
+  - Передавать phrase data в context
+- [ ] Создать ContextualChatModal:
+  - Bottom sheet с Quick Questions
+  - Интеграция с AIAssistantService
+  - Показ контекста фразы вверху
+- [ ] Обновить AIAssistantService:
+  - Метод sendContextualMessage(phrase, context, question)
+  - Включать phrase data в prompt
+  - Генерировать релевантные ответы
+- [ ] Quick Questions:
+  - "Как произносится?"
+  - "Пример диалога"
+  - "Когда использовать?"
+  - "Культурные нюансы"
+
+**Файлы для создания/изменения:**
+- `src/features/ai-assistants/components/ContextualAIButton.tsx` (новый)
+- `src/features/ai-assistants/components/ContextualChatModal.tsx` (новый)
+- `src/screens/CategoryScreen.tsx` - добавить AI кнопки
+- `src/features/ai-assistants/services/AIAssistantService.ts` - contextual method
+
+---
+
+#### **8.3 Выбор AI модели пользователем** (⏱️ 2-3 часа)
 - [ ] **Создать типы** (`ai-models.types.ts`):
   ```typescript
   export interface AIModel {
@@ -550,24 +808,48 @@ eas build --platform android --profile preview
   - Добавить переводы для ModelSelectionScreen
   - aiModelSettings, aiCurrentModel, aiTestModel и т.д.
 
-**8.3 Дополнительные улучшения** (опционально)
-- [ ] **Экспорт чата** - кнопка экспорта истории в текст/PDF
-- [ ] **Голосовой ввод** - микрофон для отправки голосовых сообщений
-- [ ] **Favorites** - возможность сохранить полезные ответы AI
-
 **Файлы для создания/изменения:**
 - `src/features/ai-assistants/types/ai-models.types.ts` (новый)
 - `src/features/ai-assistants/screens/ModelSelectionScreen.tsx` (новый)
-- `src/features/ai-assistants/components/AssistantCard.tsx` (улучшить дизайн)
-- `src/features/ai-assistants/components/ChatScreen.tsx` (улучшить UI)
-- `src/features/ai-assistants/components/ChatBubble.tsx` (новый - better message UI)
 - `src/features/ai-assistants/services/AIAssistantService.ts` (добавить Groq/Together)
 - `src/screens/SettingsScreen.tsx` (добавить AI Model Settings)
 - `src/contexts/LanguageContext.tsx` (добавить переводы)
 - `src/navigation/AppNavigator.tsx` (добавить ModelSelectionScreen route)
 
-**Оценка времени:** 3-5 часов (UI улучшения + Model Selection)
-**Приоритет:** 🟡 СРЕДНИЙ (улучшает UX, но не критично для v1.0)
+---
+
+#### **8.4 UI/UX Улучшения** (⏱️ 1-2 часа)
+- [ ] **Улучшить ChatScreen UI**:
+  - Более чистый дизайн сообщений
+  - Лучшие bubble стили (как в iMessage/Telegram)
+  - Улучшенный input container
+- [ ] **Добавить loading states**:
+  - Typing indicator когда AI думает ("...")
+  - Smooth transitions
+  - Better error messages
+
+---
+
+#### **8.5 Дополнительные улучшения** (опционально)
+- [ ] **Экспорт чата** - кнопка экспорта истории в текст
+- [ ] **Голосовой ввод** - микрофон для отправки голосовых сообщений
+- [ ] **Favorites** - возможность сохранить полезные ответы AI
+- [ ] **История контекстных вопросов** - показывать ранее заданные вопросы по фразе
+
+---
+
+### **ОЦЕНКА ВРЕМЕНИ:**
+- 8.1 Универсальный AI: 2-3 часа
+- 8.2 Context-Aware AI в Phrasebook: 3-4 часа
+- 8.3 Model Selection: 2-3 часа
+- 8.4 UI улучшения: 1-2 часа
+- **ИТОГО:** 8-12 часов
+
+**Приоритет:** 🟡 СРЕДНИЙ (улучшает UX значительно, но текущая версия работает)
+
+---
+
+### **СТАТУС:** ⏳ Обсуждение (ждем решения по UI варианту и деталям)
 
 ---
 
