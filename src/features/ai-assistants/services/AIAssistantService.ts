@@ -1,10 +1,18 @@
 /**
  * AI Assistant Service
- * Hugging Face API Integration for AI Assistants
+ * Google Gemini API Integration for AI Assistants
+ *
+ * NOTE: Infrastructure supports multiple AI providers (Groq, Together.ai, etc.)
+ * Currently using only Gemini. To add more models:
+ * 1. Create ai-models.types.ts with model definitions
+ * 2. Add provider API calls (callGroqAPI, callTogetherAPI, etc.)
+ * 3. Create ModelSelectionScreen for user choice
+ * 4. Update navigation to show model selection
  */
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { HUGGINGFACE_API_KEY } from '@env';
+import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GEMINI_API_KEY } from '@env';
 import {
   AssistantType,
   ChatMessage,
@@ -18,14 +26,14 @@ import {
   STORAGE_KEYS,
 } from '../types/ai-assistant.types';
 
-// Hugging Face API Configuration
-const HUGGINGFACE_API_URL = 'https://router.huggingface.co/hf-inference';
+// Initialize Gemini AI
+const genAI = GEMINI_API_KEY ? new GoogleGenerativeAI(GEMINI_API_KEY) : null;
 
-// Model Selection (using free tier models)
+// Model Selection (using Gemini models)
 const MODELS = {
-  DEFAULT: 'microsoft/phi-2', // Small but powerful model
-  GRAMMAR: 'microsoft/phi-2', // Good for grammar explanations
-  TRANSLATION: 'microsoft/phi-2', // For translation context
+  DEFAULT: 'gemini-2.5-flash', // Latest fast and free model (2025)
+  GRAMMAR: 'gemini-2.5-flash', // Good for grammar explanations
+  TRANSLATION: 'gemini-2.5-flash', // For translation context
 };
 
 class AIAssistantService implements IAIAssistantService {
@@ -112,8 +120,8 @@ Be encouraging and helpful with any language-related queries.`,
       // Select model based on assistant type
       const model = this.selectModel(assistantType);
 
-      // Call Hugging Face API
-      const response = await this.callHuggingFaceAPI(model, prompt);
+      // Call Gemini API
+      const response = await this.callGeminiAPI(model, prompt);
 
       return {
         content: response,
@@ -272,60 +280,68 @@ Be encouraging and helpful with any language-related queries.`,
   }
 
   /**
-   * Call Hugging Face API
+   * Call Gemini API
    */
-  private async callHuggingFaceAPI(
+  private async callGeminiAPI(
     model: string,
     prompt: string
   ): Promise<string> {
-    const url = `${HUGGINGFACE_API_URL}/${model}`;
-
-    console.log('🤖 AI Request:', {
-      url,
+    console.log('🤖 Gemini AI Request:', {
       model,
-      hasApiKey: !!HUGGINGFACE_API_KEY,
-      apiKeyPrefix: HUGGINGFACE_API_KEY ? HUGGINGFACE_API_KEY.substring(0, 10) + '...' : 'MISSING',
+      hasApiKey: !!GEMINI_API_KEY,
+      promptLength: prompt.length,
     });
 
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${HUGGINGFACE_API_KEY}`,
-      },
-      body: JSON.stringify({
-        inputs: prompt,
-        parameters: {
-          max_new_tokens: 150,
-          temperature: 0.7,
-          top_p: 0.9,
-          do_sample: true,
-        },
-      }),
-    });
-
-    console.log('📡 API Response Status:', response.status, response.statusText);
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error('❌ API Error Response:', errorText);
-      throw new Error(`Hugging Face API error: ${response.status} - ${errorText}`);
+    if (!genAI) {
+      throw new Error('Gemini API key not configured. Please add GEMINI_API_KEY to .env file.');
     }
 
-    const data = await response.json();
-    console.log('📦 API Response Data:', JSON.stringify(data).substring(0, 200));
+    try {
+      // Get the generative model
+      const geminiModel = genAI.getGenerativeModel({ model });
 
-    // Extract generated text
-    if (Array.isArray(data) && data[0]?.generated_text) {
-      // Remove the prompt from response
-      const generatedText = data[0].generated_text;
-      const responseText = generatedText.replace(prompt, '').trim();
-      return responseText || 'I apologize, I could not generate a response.';
+      // Generate content
+      const result = await geminiModel.generateContent(prompt);
+      const response = await result.response;
+      const text = response.text();
+
+      console.log('✅ Gemini Response received:', {
+        length: text.length,
+        preview: text.substring(0, 100) + '...',
+      });
+
+      return text || 'I apologize, I could not generate a response.';
+    } catch (error) {
+      console.error('❌ Gemini API Error:', error);
+      throw error;
     }
-
-    console.warn('⚠️ Unexpected response format:', data);
-    return 'I apologize, I could not generate a response.';
   }
+
+  /*
+   * FUTURE: Add more AI providers here
+   *
+   * Example - Groq API (if available in region):
+   *
+   * private async callGroqAPI(model: string, prompt: string, systemPrompt: string): Promise<string> {
+   *   const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+   *     method: 'POST',
+   *     headers: {
+   *       'Content-Type': 'application/json',
+   *       'Authorization': `Bearer ${GROQ_API_KEY}`,
+   *     },
+   *     body: JSON.stringify({
+   *       model: 'llama-3.1-70b-versatile',
+   *       messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: prompt }],
+   *       temperature: 0.7,
+   *       max_tokens: 500,
+   *     }),
+   *   });
+   *   const data = await response.json();
+   *   return data.choices?.[0]?.message?.content || 'Error';
+   * }
+   *
+   * Other options: Together.ai, Hugging Face, etc.
+   */
 
   /**
    * Get fallback response when API fails
