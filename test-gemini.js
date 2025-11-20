@@ -3,10 +3,13 @@
  * Запуск: node test-gemini.js
  */
 
+// Загружаем переменные окружения из .env файла
+require('dotenv').config();
+
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-// Замените на ваш API ключ
-const API_KEY = "***REDACTED***";
+// Читаем API ключ из переменных окружения
+const API_KEY = process.env.GEMINI_API_KEY;
 
 console.log("🔍 Проверка Gemini API...");
 console.log("API Key:", API_KEY ? API_KEY.substring(0, 20) + "..." : "НЕ НАЙДЕН");
