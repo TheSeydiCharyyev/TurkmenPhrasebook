@@ -1,7 +1,7 @@
 # 📋 TASKS - TurkmenPhrasebook
 
-**Last Updated:** November 16, 2025
-**Status:** Phase 1-6 ✅ 100% (Voice Translator COMPLETE!) → Phase 7 Dictionary → Phase 8 ✅ 100% (AI) → Phase 9-10 Testing & Production → Phase 11 ✅ 90% (Responsive) → Phase 12 ✅ 100% (Phrasebook Redesign) → Phase 13 ✅ 100% (Audio/TTS Improvements - COMPLETE!)
+**Last Updated:** November 20, 2025
+**Status:** Phase 1-6 ✅ 100% (Voice Translator COMPLETE!) → Phase 7 Dictionary → Phase 8 ⏳ 80% (AI - нужны UI улучшения + выбор модели) → Phase 9-10 Testing & Production → Phase 11 ✅ 90% (Responsive) → Phase 12 ✅ 100% (Phrasebook Redesign) → Phase 13 ✅ 100% (Audio/TTS Improvements - COMPLETE!)
 
 ---
 
@@ -402,7 +402,7 @@ eas build --platform android --profile preview
 
 ---
 
-### **PHASE 8: Поработать с ИИ** (✅ 100% COMPLETE!)
+### **PHASE 8: Поработать с ИИ** (⏳ 80% - Нужны улучшения)
 
 **Задача:** Улучшить дизайн и добавить мультиязычность для AI ассистентов
 
@@ -499,8 +499,75 @@ eas build --platform android --profile preview
 - ✅ Бесплатный tier: 60 запросов/минуту
 - ✅ Быстрые ответы, высокое качество
 
-**Время выполнено:** ~8 часов (100% Complete!)
+**Время выполнено:** ~8 часов (80% Complete - осталось 2-3 часа)
 **Результат:** AI Assistants полностью мультиязычны на всех 31 языках + работающий Gemini AI! 🎉
+
+---
+
+### ⏳ ОСТАЛОСЬ СДЕЛАТЬ (Phase 8 - 20%):
+
+**8.1 UI/UX Улучшения дизайна** (⏱️ 1-2 часа)
+- [ ] **Улучшить дизайн AI карточек** (AssistantCard.tsx):
+  - Более современный минималистичный стиль
+  - Лучшие тени и spacing
+  - Анимации при нажатии
+- [ ] **Улучшить ChatScreen UI**:
+  - Более чистый дизайн сообщений
+  - Лучшие bubble стили (как в iMessage/Telegram)
+  - Улучшенный input container
+- [ ] **Добавить loading states**:
+  - Skeleton screens при загрузке
+  - Typing indicator когда AI думает ("...")
+  - Smooth transitions
+
+**8.2 Выбор AI модели пользователем** (⏱️ 2-3 часа)
+- [ ] **Создать типы** (`ai-models.types.ts`):
+  ```typescript
+  export interface AIModel {
+    id: string;
+    name: string;
+    provider: 'gemini' | 'groq' | 'together';
+    description: string;
+    speed: 'fast' | 'medium' | 'slow';
+    quality: 'high' | 'medium' | 'basic';
+    free: boolean;
+  }
+  ```
+- [ ] **ModelSelectionScreen**:
+  - Список доступных моделей (Gemini, Groq, Together.ai)
+  - Показать скорость/качество каждой модели
+  - Кнопка "Test Model" для пробы
+  - Сохранение выбора в AsyncStorage
+- [ ] **Добавить в Settings**:
+  - Новая опция "AI Model Settings"
+  - Показать текущую модель
+  - Кнопка перехода на ModelSelectionScreen
+- [ ] **Интеграция провайдеров**:
+  - Groq API (если доступен в регионе)
+  - Together.ai API
+  - Fallback логика если выбранная модель недоступна
+- [ ] **Мультиязычность**:
+  - Добавить переводы для ModelSelectionScreen
+  - aiModelSettings, aiCurrentModel, aiTestModel и т.д.
+
+**8.3 Дополнительные улучшения** (опционально)
+- [ ] **Экспорт чата** - кнопка экспорта истории в текст/PDF
+- [ ] **Голосовой ввод** - микрофон для отправки голосовых сообщений
+- [ ] **Favorites** - возможность сохранить полезные ответы AI
+
+**Файлы для создания/изменения:**
+- `src/features/ai-assistants/types/ai-models.types.ts` (новый)
+- `src/features/ai-assistants/screens/ModelSelectionScreen.tsx` (новый)
+- `src/features/ai-assistants/components/AssistantCard.tsx` (улучшить дизайн)
+- `src/features/ai-assistants/components/ChatScreen.tsx` (улучшить UI)
+- `src/features/ai-assistants/components/ChatBubble.tsx` (новый - better message UI)
+- `src/features/ai-assistants/services/AIAssistantService.ts` (добавить Groq/Together)
+- `src/screens/SettingsScreen.tsx` (добавить AI Model Settings)
+- `src/contexts/LanguageContext.tsx` (добавить переводы)
+- `src/navigation/AppNavigator.tsx` (добавить ModelSelectionScreen route)
+
+**Оценка времени:** 3-5 часов (UI улучшения + Model Selection)
+**Приоритет:** 🟡 СРЕДНИЙ (улучшает UX, но не критично для v1.0)
 
 ---
 
@@ -714,12 +781,12 @@ eas build --platform ios --profile production
 | **Phase 5: Text Translator** | Мультиязычность (31 язык) | 6 hours | ✅ DONE |
 | **Phase 6: Voice Translator** | NEW MODULE - Speech-to-Text + Translation + TTS | 8 hours | ✅ 100% |
 | **Phase 7: Dictionary** | Peace Corps PDF + Database + Integration | 4-6 hours | ⏳ 0% |
-| **Phase 8: AI Assistants** | Hero + Grid дизайн + Мультиязычность (31 язык) | 6 hours | ✅ 100% |
+| **Phase 8: AI Assistants** | Hero + Grid дизайн + Мультиязычность (31 язык) + UI улучшения + Model Selection | 6-9 hours | ⏳ 80% |
 | **Phase 9: Testing** | Hugging Face API + iOS Testing | 2-3 hours | ⏳ 90% |
 | **Phase 10: Production** | Configuration + Icons + Builds + Store | 15-20 hours | ⏳ 0% |
 | **Phase 11: Responsive Design** | 30+ screens + 600+ properties | 2-3 hours | ✅ 90% |
 | **Phase 12: Phrasebook Redesign** | Minimalist UX/UI overhaul | 8-12 hours | ✅ 100% |
-| **REMAINING (v1.0)** | Phases 7, 9-10 | **~21-29 hours** | ⏳ |
+| **REMAINING (v1.0)** | Phases 7, 8 (20%), 9-10 | **~24-34 hours** | ⏳ |
 
 **Optimistic:** 6-8 days (full-time work)
 **Realistic:** 2-3 weeks (part-time work)

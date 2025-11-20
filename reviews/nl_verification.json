@@ -1,0 +1,3064 @@
+{
+  "language": "Dutch",
+  "languageCode": "nl",
+  "timestamp": "2025-11-20T10:01:58.279Z",
+  "summary": {
+    "total": 305,
+    "verified": 180,
+    "needsReview": 124,
+    "errors": 1,
+    "verificationRate": "59.0%"
+  },
+  "results": [
+    {
+      "phraseId": "Halo",
+      "category": "greetings",
+      "english": "Hello",
+      "current": "Hallo",
+      "myMemory": "Hallo",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat pagi",
+      "category": "greetings",
+      "english": "Thank you",
+      "current": "Bedankt",
+      "myMemory": "Hartelijk dank",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat siang",
+      "category": "greetings",
+      "english": "Goodbye",
+      "current": "Tot ziens",
+      "myMemory": "Tot ziens",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat sore",
+      "category": "greetings",
+      "english": "Excuse me",
+      "current": "Pardon",
+      "myMemory": "Neem me niet kwalijk",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat malam",
+      "category": "greetings",
+      "english": "Good morning",
+      "current": "Goedemorgen",
+      "myMemory": "Goedemorgen",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat tinggal",
+      "category": "greetings",
+      "english": "Good night",
+      "current": "Goedenacht",
+      "myMemory": "Welterusten",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sampai jumpa",
+      "category": "greetings",
+      "english": "My name is...",
+      "current": "Mijn naam is...",
+      "myMemory": "Ik heet… ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apa kabar?",
+      "category": "greetings",
+      "english": "What is your name?",
+      "current": "Hoe heet u?",
+      "myMemory": "Wat is je naam?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Baik-baik saja, terima kasih",
+      "category": "greetings",
+      "english": "Nice to meet you",
+      "current": "Aangenaam u te ontmoeten",
+      "myMemory": "Aangenaam kennis te maken",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Senang bertemu dengan Anda",
+      "category": "greetings",
+      "english": "Please",
+      "current": "Alstublieft",
+      "myMemory": "Klik ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Nama saya...",
+      "category": "greetings",
+      "english": "You're welcome",
+      "current": "Graag gedaan",
+      "myMemory": "Graag gedaan.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Siapa nama Anda?",
+      "category": "greetings",
+      "english": "How are you?",
+      "current": "Hoe gaat het met u?",
+      "myMemory": "Hoe gaat het met je?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dari mana Anda?",
+      "category": "greetings",
+      "english": "Good luck!",
+      "current": "Veel geluk!",
+      "myMemory": "Veel succes!",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya dari...",
+      "category": "greetings",
+      "english": "Welcome!",
+      "current": "Welkom!",
+      "myMemory": "Welkom!",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ya",
+      "category": "greetings",
+      "english": "Very glad to see you",
+      "current": "Zeer verheugd u te zien",
+      "myMemory": "Blij om u weer te zien. ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tidak",
+      "category": "greetings",
+      "english": "Welcome! (arrival greeting)",
+      "current": "Welkom! (Begroeting bij aankomst)",
+      "myMemory": "Welkom! (aankomstgroet)",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Terima kasih",
+      "category": "greetings",
+      "english": "How are you doing?",
+      "current": "Hoe gaat het?",
+      "myMemory": "Hoe gaat het met je?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sama-sama",
+      "category": "greetings",
+      "english": "Let me introduce my friend",
+      "current": "Mag ik u mijn vriend voorstellen",
+      "myMemory": "Laat me mijn vriend voorstellen",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tolong",
+      "category": "greetings",
+      "english": "Pleased to meet you!",
+      "current": "Aangenaam kennis te maken!",
+      "myMemory": "Aangenaam.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Maaf",
+      "category": "greetings",
+      "english": "Please come in",
+      "current": "Komt u alstublieft binnen",
+      "myMemory": "Kom binnen.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Permisi",
+      "category": "greetings",
+      "english": "Please sit down",
+      "current": "Gaat u alstublieft zitten",
+      "myMemory": "Ga alstublieft zitten. ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tidak apa-apa",
+      "category": "greetings",
+      "english": "Yes",
+      "current": "Ja",
+      "myMemory": "Ja",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Baik",
+      "category": "greetings",
+      "english": "No",
+      "current": "Nee",
+      "myMemory": "Nee",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Buruk",
+      "category": "greetings",
+      "english": "I agree",
+      "current": "Ik ben het eens",
+      "myMemory": "Ik ga akkoord",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sedikit",
+      "category": "greetings",
+      "english": "Thank you very much for your help",
+      "current": "Hartelijk dank voor uw hulp",
+      "myMemory": "Alvast hartelijk bedankt voor je hulp!",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Banyak",
+      "category": "greetings",
+      "english": "Thank you very much for your support",
+      "current": "Hartelijk dank voor uw steun",
+      "myMemory": "Alvast heel erg bedankt voor jullie ondersteuning.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Semua",
+      "category": "greetings",
+      "english": "Thank you very much for your understanding",
+      "current": "Hartelijk dank voor uw begrip",
+      "myMemory": "Namens Pullingparts.nl hartelijk dank voor uw begrip.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tidak ada",
+      "category": "emergency",
+      "english": "Help!",
+      "current": "Help!",
+      "myMemory": "Help! ",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya tidak mengerti",
+      "category": "emergency",
+      "english": "I need a doctor",
+      "current": "Ik heb een dokter nodig",
+      "myMemory": "Ik heb een dokter nodig!",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda mengerti?",
+      "category": "emergency",
+      "english": "Call the police",
+      "current": "Bel de politie",
+      "myMemory": "Bel de politie",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya mengerti",
+      "category": "emergency",
+      "english": "Fire!",
+      "current": "Brand!",
+      "myMemory": "Vuur",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bisakah Anda berbicara lebih lambat?",
+      "category": "emergency",
+      "english": "I am lost",
+      "current": "Ik ben verdwaald",
+      "myMemory": "Ik ben verdwaald!",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ulangi lagi, tolong",
+      "category": "emergency",
+      "english": "I am sick",
+      "current": "Ik ben ziek",
+      "myMemory": "Ik leer Duits.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bagaimana?",
+      "category": "emergency",
+      "english": "Call an ambulance",
+      "current": "Bel een ambulance",
+      "myMemory": "Bel een ambulance",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apa?",
+      "category": "emergency",
+      "english": "My wallet was stolen",
+      "current": "Mijn portemonnee is gestolen",
+      "myMemory": "Mijn portemonnee is gestolen",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di mana?",
+      "category": "emergency",
+      "english": "Help me",
+      "current": "Help mij",
+      "myMemory": "Help mij",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kapan?",
+      "category": "emergency",
+      "english": "Danger!",
+      "current": "Gevaar!",
+      "myMemory": "Gevaar!",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Siapa?",
+      "category": "emergency",
+      "english": "Call a doctor!",
+      "current": "Bel een dokter!",
+      "myMemory": "Verwittig onmiddellijk een arts.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mengapa?",
+      "category": "hotel",
+      "english": "I want a room",
+      "current": "Ik wil een kamer",
+      "myMemory": "Ik wil een kamer",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa?",
+      "category": "hotel",
+      "english": "How much per night?",
+      "current": "Hoeveel kost het per nacht?",
+      "myMemory": "Hoeveel per nacht?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Satu",
+      "category": "hotel",
+      "english": "Is there WiFi here?",
+      "current": "Is er wifi?",
+      "myMemory": "Is er hier wifi?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dua",
+      "category": "hotel",
+      "english": "I have a reservation",
+      "current": "Ik heb een reservering",
+      "myMemory": "Ik heb een reservering",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tiga",
+      "category": "hotel",
+      "english": "Single room",
+      "current": "Eenpersoonskamer",
+      "myMemory": "Enkele kamer",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Empat",
+      "category": "hotel",
+      "english": "Double room",
+      "current": "Tweepersoonskamer",
+      "myMemory": "Dubbelle Kamer",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lima",
+      "category": "hotel",
+      "english": "What time is check-out?",
+      "current": "Hoe laat is het uitchecken?",
+      "myMemory": "Hoe laat is het uitchecken?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Enam",
+      "category": "hotel",
+      "english": "Key",
+      "current": "Sleutel",
+      "myMemory": "Legenda",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tujuh",
+      "category": "hotel",
+      "english": "Room number",
+      "current": "Kamernummer",
+      "myMemory": "Kamernummer",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Delapan",
+      "category": "hotel",
+      "english": "Is breakfast included?",
+      "current": "Is ontbijt inbegrepen?",
+      "myMemory": "Inclusief ontbijt",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sembilan",
+      "category": "hotel",
+      "english": "Please clean the room",
+      "current": "Maak alstublieft de kamer schoon",
+      "myMemory": "Maak de kamer schoon",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sepuluh",
+      "category": "hotel",
+      "english": "I want to extend my stay",
+      "current": "Ik wil mijn verblijf verlengen",
+      "myMemory": "Ik wil mijn verblijf verlengen",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sebelas",
+      "category": "food",
+      "english": "I am hungry",
+      "current": "Ik heb honger",
+      "myMemory": "Ik heb honger",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dua belas",
+      "category": "food",
+      "english": "Menu, please",
+      "current": "Menu, alstublieft",
+      "myMemory": "Menu, alstublieft",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tiga belas",
+      "category": "food",
+      "english": "Delicious",
+      "current": "Lekker",
+      "myMemory": "Heerlijke",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lima belas",
+      "category": "food",
+      "english": "Bill, please",
+      "current": "De rekening, alstublieft",
+      "myMemory": "Factuur, alstublieft",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dua puluh",
+      "category": "food",
+      "english": "I am vegetarian",
+      "current": "Ik ben vegetariër",
+      "myMemory": "Ik ben vegetariër.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tiga puluh",
+      "category": "food",
+      "english": "Not spicy",
+      "current": "Niet pittig",
+      "myMemory": "Niet pittig",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lima puluh",
+      "category": "food",
+      "english": "Water",
+      "current": "Water",
+      "myMemory": "Water",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Seratus",
+      "category": "food",
+      "english": "Tea",
+      "current": "Thee",
+      "myMemory": "Thee",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Seribu",
+      "category": "food",
+      "english": "Rice",
+      "current": "Rijst",
+      "myMemory": "Rijst",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sejuta",
+      "category": "food",
+      "english": "Noodles",
+      "current": "Noedels",
+      "myMemory": "Deegwaren",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hari ini",
+      "category": "food",
+      "english": "Chicken",
+      "current": "Kip",
+      "myMemory": "Kip",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kemarin",
+      "category": "food",
+      "english": "Beef",
+      "current": "Rundvlees",
+      "myMemory": "Rundvlees",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Besok",
+      "category": "food",
+      "english": "How much does it cost?",
+      "current": "Hoeveel kost dit?",
+      "myMemory": "Hoeveel kost deze dienst?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pagi",
+      "category": "food",
+      "english": "I am allergic to...",
+      "current": "Ik ben allergisch voor...",
+      "myMemory": "Ik ben allergisch voor...",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Siang",
+      "category": "food",
+      "english": "Can I take it to go?",
+      "current": "Kan ik het meenemen?",
+      "myMemory": "Mag ik het meenemen?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sore",
+      "category": "food",
+      "english": "Very delicious",
+      "current": "Zeer lekker",
+      "myMemory": "Erg lekker.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Malam",
+      "category": "food",
+      "english": "Appetizers",
+      "current": "Voorgerechten",
+      "myMemory": "Voorgerechten",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Minggu",
+      "category": "food",
+      "english": "Ham",
+      "current": "Ham",
+      "myMemory": "Ham",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bulan",
+      "category": "food",
+      "english": "Cheese platter",
+      "current": "Kaasplank",
+      "myMemory": "Kaasplateau",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tahun",
+      "category": "food",
+      "english": "Soup",
+      "current": "Soep",
+      "myMemory": "Soep",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hari",
+      "category": "food",
+      "english": "Borscht",
+      "current": "Borsjt",
+      "myMemory": "Borsjt",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jam",
+      "category": "food",
+      "english": "Chicken noodle soup",
+      "current": "Kippennoedelsoep",
+      "myMemory": "Kip noedelsoep",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Menit",
+      "category": "food",
+      "english": "Meat broth",
+      "current": "Vleesboullion",
+      "myMemory": "vleesbouillon:",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Detik",
+      "category": "food",
+      "english": "Meat",
+      "current": "Vlees",
+      "myMemory": "Vlees",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Senin",
+      "category": "food",
+      "english": "Lamb",
+      "current": "Lamsvlees",
+      "myMemory": "Lam",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selasa",
+      "category": "food",
+      "english": "Pork",
+      "current": "Varkensvlees",
+      "myMemory": "Varkensvlees",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Rabu",
+      "category": "food",
+      "english": "Fried",
+      "current": "Gebakken",
+      "myMemory": "Fried",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kamis",
+      "category": "food",
+      "english": "Boiled",
+      "current": "Gekookt",
+      "myMemory": "Gekookt",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jumat",
+      "category": "food",
+      "english": "Fish dishes",
+      "current": "Visgerechten",
+      "myMemory": "Visgerechten",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sabtu",
+      "category": "food",
+      "english": "Fish",
+      "current": "Vis",
+      "myMemory": "Vis",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Minggu",
+      "category": "food",
+      "english": "Salmon",
+      "current": "Zalm",
+      "myMemory": "Salmon",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Januari",
+      "category": "food",
+      "english": "Shrimp",
+      "current": "Garnalen",
+      "myMemory": "Garnalen",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Februari",
+      "category": "food",
+      "english": "Crabs",
+      "current": "Krabben",
+      "myMemory": "Krabben",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Maret",
+      "category": "food",
+      "english": "Is there a vegetarian menu?",
+      "current": "Is er een vegetarisch menu?",
+      "myMemory": "Is er een vegetarisch menu?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "April",
+      "category": "food",
+      "english": "Is this dish spicy?",
+      "current": "Is dit gerecht pittig?",
+      "myMemory": "Is dit gerecht pittig?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Restoran",
+      "category": "food",
+      "english": "Not spicy",
+      "current": "Niet pittig",
+      "myMemory": "Niet pittig",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Menu",
+      "category": "food",
+      "english": "Apple",
+      "current": "Appel",
+      "myMemory": "Appel",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sarapan",
+      "category": "food",
+      "english": "Banana",
+      "current": "Banaan",
+      "myMemory": "Banaan",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Makan siang",
+      "category": "food",
+      "english": "Orange",
+      "current": "Sinaasappel",
+      "myMemory": "Sinaasappel",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Makan malam",
+      "category": "food",
+      "english": "Grapes",
+      "current": "Druiven",
+      "myMemory": "Druiven",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Air",
+      "category": "food",
+      "english": "Watermelon",
+      "current": "Watermeloen",
+      "myMemory": "Watermeloen",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Teh",
+      "category": "food",
+      "english": "Potato",
+      "current": "Aardappel",
+      "myMemory": "Aardappel",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kopi",
+      "category": "food",
+      "english": "Tomato",
+      "current": "Tomaat",
+      "myMemory": "Tomaat",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Susu",
+      "category": "shopping",
+      "english": "How much does it cost?",
+      "current": "Hoeveel kost dit?",
+      "myMemory": "Hoeveel kost deze dienst?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jus",
+      "category": "shopping",
+      "english": "Too expensive",
+      "current": "Te duur",
+      "myMemory": "Te duur",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bir",
+      "category": "shopping",
+      "english": "Can it be cheaper?",
+      "current": "Kan het goedkoper?",
+      "myMemory": "Kan het goedkoper?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Anggur",
+      "category": "shopping",
+      "english": "I will buy this",
+      "current": "Ik koop dit",
+      "myMemory": "Ik zal dit kopen",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Roti",
+      "category": "shopping",
+      "english": "Can I try it on?",
+      "current": "Kan ik het passen?",
+      "myMemory": "Kan ik het proberen?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Daging",
+      "category": "shopping",
+      "english": "Bigger size",
+      "current": "Grotere maat",
+      "myMemory": "Groter formaat",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ikan",
+      "category": "shopping",
+      "english": "Smaller size",
+      "current": "Kleinere maat",
+      "myMemory": "Kleinere bestanden",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ayam",
+      "category": "shopping",
+      "english": "Cash",
+      "current": "Contant",
+      "myMemory": "Contant",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sayuran",
+      "category": "shopping",
+      "english": "Credit card",
+      "current": "Creditcard",
+      "myMemory": "Creditcard",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Buah",
+      "category": "shopping",
+      "english": "Receipt",
+      "current": "Bon",
+      "myMemory": "Bewijs",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Nasi",
+      "category": "shopping",
+      "english": "Return/Exchange",
+      "current": "Retourneren/Ruilen",
+      "myMemory": "Retourneren & Ruilen",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sup",
+      "category": "shopping",
+      "english": "Where is the market?",
+      "current": "Waar is de markt?",
+      "myMemory": "Waar is de markt?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Salad",
+      "category": "shopping",
+      "english": "Is there a discount?",
+      "current": "Is er korting?",
+      "myMemory": "Is er korting?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Keju",
+      "category": "shopping",
+      "english": "Can I try it on?",
+      "current": "Kan ik het passen?",
+      "myMemory": "Kan ik het proberen?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mentega",
+      "category": "shopping",
+      "english": "What is your size?",
+      "current": "Welke maten heeft u?",
+      "myMemory": "Wat is je maat?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Gula",
+      "category": "shopping",
+      "english": "Are there other colors?",
+      "current": "Zijn er andere kleuren?",
+      "myMemory": "Zijn er andere kleuren?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Garam",
+      "category": "transport",
+      "english": "Where is the train station?",
+      "current": "Waar is het station?",
+      "myMemory": "Waar bevindt zich het dichtbijzijnste treinstation?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Merica",
+      "category": "transport",
+      "english": "Airport",
+      "current": "Luchthaven",
+      "myMemory": "Luchthaven",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Es krim",
+      "category": "transport",
+      "english": "Taxi",
+      "current": "Taxi",
+      "myMemory": "Taxi",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kue",
+      "category": "transport",
+      "english": "Bus",
+      "current": "Bus",
+      "myMemory": "Bus",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Enak",
+      "category": "transport",
+      "english": "Metro",
+      "current": "Metro",
+      "myMemory": "Metro",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bon appétit",
+      "category": "transport",
+      "english": "Train ticket",
+      "current": "Treinkaartje",
+      "myMemory": "Treinkaartje",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Toko",
+      "category": "transport",
+      "english": "Schedule",
+      "current": "Dienstregeling",
+      "myMemory": "Planning",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pasar",
+      "category": "transport",
+      "english": "Platform",
+      "current": "Perron",
+      "myMemory": "Platform",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa harganya?",
+      "category": "transport",
+      "english": "Next stop",
+      "current": "Volgende halte",
+      "myMemory": "Volgende tussenstop",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa biayanya?",
+      "category": "transport",
+      "english": "Stop",
+      "current": "Stop",
+      "myMemory": "Stop",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya ingin membeli ini",
+      "category": "transport",
+      "english": "How long until...?",
+      "current": "Hoe lang tot...?",
+      "myMemory": "Hoe lang nog tot...?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mahal",
+      "category": "transport",
+      "english": "I need to go to...",
+      "current": "Ik moet naar ... gaan",
+      "myMemory": "Ik moet weg.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Murah",
+      "category": "transport",
+      "english": "When will the next bus arrive?",
+      "current": "Wanneer komt de volgende bus?",
+      "myMemory": "Wanneer komt de volgende bus?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Diskon",
+      "category": "transport",
+      "english": "I want to go to the airport",
+      "current": "Ik wil naar de luchthaven",
+      "myMemory": "Ik wil naar het vliegveld",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Harga",
+      "category": "directions",
+      "english": "On the left",
+      "current": "Links",
+      "myMemory": "Links",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Uang",
+      "category": "directions",
+      "english": "On the right",
+      "current": "Rechts",
+      "myMemory": "Aan de rechterkant.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kartu kredit",
+      "category": "directions",
+      "english": "Straight",
+      "current": "Rechtdoor",
+      "myMemory": "Hetero",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tunai",
+      "category": "directions",
+      "english": "Turn",
+      "current": "Afslaan",
+      "myMemory": "Draai",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tanda terima",
+      "category": "directions",
+      "english": "Intersection",
+      "current": "Kruispunt",
+      "myMemory": "Intersectie",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda menerima kartu?",
+      "category": "directions",
+      "english": "Traffic light",
+      "current": "Verkeerslicht",
+      "myMemory": "Stoplicht",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ukuran",
+      "category": "directions",
+      "english": "Far",
+      "current": "Ver",
+      "myMemory": "Ver",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Warna",
+      "category": "directions",
+      "english": "Near",
+      "current": "Dichtbij",
+      "myMemory": "Dichtbij",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Besar",
+      "category": "directions",
+      "english": "Map",
+      "current": "Kaart",
+      "myMemory": "Plattegrond",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kecil",
+      "category": "directions",
+      "english": "Where is...?",
+      "current": "Waar is...?",
+      "myMemory": "Waar is …?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sedang",
+      "category": "health",
+      "english": "Hospital",
+      "current": "Ziekenhuis",
+      "myMemory": "Ziekenhuis",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Baru",
+      "category": "health",
+      "english": "Pharmacy",
+      "current": "Apotheek",
+      "myMemory": "Apotheek",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lama",
+      "category": "health",
+      "english": "I have a headache",
+      "current": "Ik heb hoofdpijn",
+      "myMemory": "Ik heb hoofdpijn",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Cantik",
+      "category": "health",
+      "english": "I have a stomachache",
+      "current": "Ik heb buikpijn",
+      "myMemory": "Ik heb buikpijn.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jelek",
+      "category": "health",
+      "english": "Temperature",
+      "current": "Koorts",
+      "myMemory": "Temperatuur",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berkualitas",
+      "category": "health",
+      "english": "Cough",
+      "current": "Hoesten",
+      "myMemory": "Hoesten",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bisakah saya mencoba ini?",
+      "category": "health",
+      "english": "Medicine",
+      "current": "Medicijn",
+      "myMemory": "Geneeskunde",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Taksi",
+      "category": "health",
+      "english": "Doctor",
+      "current": "Dokter",
+      "myMemory": "Dokter",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bus",
+      "category": "health",
+      "english": "Nurse",
+      "current": "Verpleegkundige",
+      "myMemory": "Verpleegkundige",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kereta",
+      "category": "health",
+      "english": "Ambulance",
+      "current": "Ambulance",
+      "myMemory": "Ambulance",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pesawat",
+      "category": "health",
+      "english": "I have a headache",
+      "current": "Ik heb hoofdpijn",
+      "myMemory": "Ik heb hoofdpijn",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bandara",
+      "category": "health",
+      "english": "I need a painkiller",
+      "current": "Ik heb een pijnstiller nodig",
+      "myMemory": "Ik heb een pijnstiller nodig.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Stasiun",
+      "category": "money",
+      "english": "Yuan",
+      "current": "Yuan",
+      "myMemory": "Yuan",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Halte",
+      "category": "money",
+      "english": "Manat",
+      "current": "Manat",
+      "myMemory": "Manat",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tiket",
+      "category": "money",
+      "english": "Card payment",
+      "current": "Betalen met kaart",
+      "myMemory": "Betaling per pas",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa tiketnya?",
+      "category": "money",
+      "english": "Bank",
+      "current": "Bank",
+      "myMemory": "Bank",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di mana stasiun bus?",
+      "category": "money",
+      "english": "ATM",
+      "current": "Geldautomaat",
+      "myMemory": "geldautomaat",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bagaimana menuju...?",
+      "category": "money",
+      "english": "Currency exchange",
+      "current": "Geldwisseling",
+      "myMemory": "Geldwisselkantoor",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kiri",
+      "category": "money",
+      "english": "Change",
+      "current": "Wisselgeld",
+      "myMemory": "Wijzigen",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kanan",
+      "category": "money",
+      "english": "Free",
+      "current": "Gratis",
+      "myMemory": "Gratis",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lurus",
+      "category": "money",
+      "english": "Price",
+      "current": "Prijs",
+      "myMemory": "Prijs",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jauh",
+      "category": "communication",
+      "english": "Mobile phone",
+      "current": "Mobiele telefoon",
+      "myMemory": "Mobiele telefoon",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dekat",
+      "category": "communication",
+      "english": "Wi-Fi",
+      "current": "Wifi",
+      "myMemory": "Wifi",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di sini",
+      "category": "communication",
+      "english": "What is the password?",
+      "current": "Wat is het wachtwoord?",
+      "myMemory": "Wat is het wachtwoord?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di sana",
+      "category": "communication",
+      "english": "Send SMS",
+      "current": "SMS verzenden",
+      "myMemory": "SMS verzenden",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jalan",
+      "category": "entertainment",
+      "english": "Cinema",
+      "current": "Bioscoop",
+      "myMemory": "Bioscoop",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Alamat",
+      "category": "entertainment",
+      "english": "Museum",
+      "current": "Museum",
+      "myMemory": "Museum",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hotel",
+      "category": "entertainment",
+      "english": "Park",
+      "current": "Park",
+      "myMemory": "Park",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kamar",
+      "category": "entertainment",
+      "english": "Concert",
+      "current": "Concert",
+      "myMemory": "Concert",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Reservasi",
+      "category": "entertainment",
+      "english": "Shopping mall",
+      "current": "Winkelcentrum",
+      "myMemory": "Winkelcentrum",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya sudah memesan",
+      "category": "entertainment",
+      "english": "Swimming pool",
+      "current": "Zwembad",
+      "myMemory": "Zwembad",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya ingin kamar",
+      "category": "entertainment",
+      "english": "Gym",
+      "current": "Sportschool",
+      "myMemory": "Sportschool",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk satu orang",
+      "category": "entertainment",
+      "english": "Library",
+      "current": "Bibliotheek",
+      "myMemory": "Bibliotheek",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk dua orang",
+      "category": "entertainment",
+      "english": "Night market",
+      "current": "Nachtmarkt",
+      "myMemory": "Nachtmarkt",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk satu malam",
+      "category": "entertainment",
+      "english": "How much is the ticket?",
+      "current": "Hoeveel kost het ticket?",
+      "myMemory": "\"Hoeveel kost de ticket?\" ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk dua malam",
+      "category": "time",
+      "english": "What time is it?",
+      "current": "Hoe laat is het?",
+      "myMemory": "Hoe laat is het? ",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk seminggu",
+      "category": "time",
+      "english": "Today",
+      "current": "Vandaag",
+      "myMemory": "Vandaag",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa harga kamarnya?",
+      "category": "time",
+      "english": "Tomorrow",
+      "current": "Morgen",
+      "myMemory": "Morgen",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah sudah termasuk sarapan?",
+      "category": "time",
+      "english": "Yesterday",
+      "current": "Gisteren",
+      "myMemory": "Gisteren",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kunci",
+      "category": "time",
+      "english": "Monday",
+      "current": "Maandag",
+      "myMemory": "Maandag",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kunci kamar",
+      "category": "time",
+      "english": "Sunday",
+      "current": "Zondag",
+      "myMemory": "Zondag",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tempat tidur",
+      "category": "time",
+      "english": "In the morning",
+      "current": "Ochtend",
+      "myMemory": "In de ochtend",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kamar mandi",
+      "category": "time",
+      "english": "In the afternoon",
+      "current": "Middag",
+      "myMemory": "In de middag",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Shower",
+      "category": "time",
+      "english": "In the evening",
+      "current": "Avond",
+      "myMemory": "s avonds",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "AC",
+      "category": "time",
+      "english": "What month?",
+      "current": "Welke maand?",
+      "myMemory": "Welke maand?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "WiFi",
+      "category": "time",
+      "english": "Monday",
+      "current": "Maandag",
+      "myMemory": "Maandag",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apa kata sandi WiFi?",
+      "category": "time",
+      "english": "Tuesday",
+      "current": "Dinsdag",
+      "myMemory": "Dinsdag",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Handuk",
+      "category": "time",
+      "english": "Wednesday",
+      "current": "Woensdag",
+      "myMemory": "Woensdag",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sabun",
+      "category": "time",
+      "english": "Thursday",
+      "current": "Donderdag",
+      "myMemory": "ERROR",
+      "match": false,
+      "status": "error",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Layanan kamar",
+      "category": "time",
+      "english": "Friday",
+      "current": "Vrijdag",
+      "myMemory": "Vrijdag",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Check-in",
+      "category": "time",
+      "english": "Saturday",
+      "current": "Zaterdag",
+      "myMemory": "Zaterdag",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Check-out",
+      "category": "time",
+      "english": "Sunday",
+      "current": "Zondag",
+      "myMemory": "Zondag",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tolong!",
+      "category": "time",
+      "english": "January",
+      "current": "Januari",
+      "myMemory": "Januari",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Darurat",
+      "category": "time",
+      "english": "February",
+      "current": "Februari",
+      "myMemory": "Februari",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Polisi",
+      "category": "time",
+      "english": "March",
+      "current": "Maart",
+      "myMemory": "Maart",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dokter",
+      "category": "time",
+      "english": "April",
+      "current": "April",
+      "myMemory": "April",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Rumah sakit",
+      "category": "time",
+      "english": "May",
+      "current": "Mei",
+      "myMemory": "Mei",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ambulans",
+      "category": "time",
+      "english": "June",
+      "current": "Juni",
+      "myMemory": "Juni",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apotik",
+      "category": "time",
+      "english": "July",
+      "current": "Juli",
+      "myMemory": "juli",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya sakit",
+      "category": "time",
+      "english": "August",
+      "current": "Augustus",
+      "myMemory": "Augustus",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya butuh dokter",
+      "category": "time",
+      "english": "September",
+      "current": "September",
+      "myMemory": "September",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya kehilangan...",
+      "category": "time",
+      "english": "October",
+      "current": "Oktober",
+      "myMemory": "Oktober",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya tersesat",
+      "category": "time",
+      "english": "November",
+      "current": "November",
+      "myMemory": "november",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Api",
+      "category": "time",
+      "english": "December",
+      "current": "December",
+      "myMemory": "December",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bahaya",
+      "category": "numbers",
+      "english": "One",
+      "current": "Een",
+      "myMemory": "Één",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hati-hati",
+      "category": "numbers",
+      "english": "Two",
+      "current": "Twee",
+      "myMemory": "Twee",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dilarang",
+      "category": "numbers",
+      "english": "Three",
+      "current": "Drie",
+      "myMemory": "Drie",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apa itu?",
+      "category": "numbers",
+      "english": "Four",
+      "current": "Vier",
+      "myMemory": "Vier",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di mana itu?",
+      "category": "numbers",
+      "english": "Five",
+      "current": "Vijf",
+      "myMemory": "Vijf",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa ini?",
+      "category": "numbers",
+      "english": "Six",
+      "current": "Zes",
+      "myMemory": "Zes",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kapan?",
+      "category": "numbers",
+      "english": "Seven",
+      "current": "Zeven",
+      "myMemory": "Zeven",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Siapa?",
+      "category": "numbers",
+      "english": "Eight",
+      "current": "Acht",
+      "myMemory": "Acht",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mengapa?",
+      "category": "numbers",
+      "english": "Nine",
+      "current": "Negen",
+      "myMemory": "Negen",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bagaimana?",
+      "category": "numbers",
+      "english": "Ten",
+      "current": "Tien",
+      "myMemory": "Tien",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di mana toilet?",
+      "category": "numbers",
+      "english": "Twenty",
+      "current": "Twintig",
+      "myMemory": "Twintig",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda bisa membantu?",
+      "category": "numbers",
+      "english": "One hundred",
+      "current": "Honderd",
+      "myMemory": "Honderd",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda tahu...?",
+      "category": "numbers",
+      "english": "One thousand",
+      "current": "Duizend",
+      "myMemory": "1000",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bisakah Anda menunjukkan?",
+      "category": "numbers",
+      "english": "Ten thousand",
+      "current": "Tienduizend",
+      "myMemory": "10.000",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah mungkin?",
+      "category": "numbers",
+      "english": "First",
+      "current": "Eerste",
+      "myMemory": "Eerste",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda punya...?",
+      "category": "numbers",
+      "english": "One thousand",
+      "current": "Duizend",
+      "myMemory": "1000",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah itu tersedia?",
+      "category": "numbers",
+      "english": "Two thousand",
+      "current": "Tweeduizend",
+      "myMemory": "Tweeduizend! ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa lama?",
+      "category": "numbers",
+      "english": "Ten thousand",
+      "current": "Tienduizend",
+      "myMemory": "10.000",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa jauh?",
+      "category": "numbers",
+      "english": "One hundred thousand",
+      "current": "Honderdduizend",
+      "myMemory": "honderdduizend",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jam berapa sekarang?",
+      "category": "numbers",
+      "english": "One million",
+      "current": "Een miljoen",
+      "myMemory": "Miljoen",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jam berapa buka?",
+      "category": "weather",
+      "english": "What is the weather today?",
+      "current": "Hoe is het weer vandaag?",
+      "myMemory": "hoe is het weer vandaag",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jam berapa tutup?",
+      "category": "weather",
+      "english": "Rain",
+      "current": "Regen",
+      "myMemory": "Regen",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah buka hari ini?",
+      "category": "weather",
+      "english": "Sunny",
+      "current": "Zonnig",
+      "myMemory": "Zonnig",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Keluarga",
+      "category": "weather",
+      "english": "Cloudy",
+      "current": "Bewolkt",
+      "myMemory": "Bewolkt",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ayah",
+      "category": "weather",
+      "english": "Windy",
+      "current": "Winderig",
+      "myMemory": "Winderig",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ibu",
+      "category": "weather",
+      "english": "Snow",
+      "current": "Sneeuw",
+      "myMemory": "Sneeuw",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Anak laki-laki",
+      "category": "weather",
+      "english": "Hot",
+      "current": "Heet",
+      "myMemory": "Heet",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Anak perempuan",
+      "category": "weather",
+      "english": "Cold",
+      "current": "Koud",
+      "myMemory": "Koud",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saudara laki-laki",
+      "category": "personal_info",
+      "english": "My name is...",
+      "current": "Mijn naam is...",
+      "myMemory": "Ik heet… ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saudara perempuan",
+      "category": "personal_info",
+      "english": "My last name is...",
+      "current": "Mijn achternaam is...",
+      "myMemory": "Mijn achternaam is...",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Suami",
+      "category": "personal_info",
+      "english": "What is your name?",
+      "current": "Hoe heet u?",
+      "myMemory": "Wat is je naam?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Istri",
+      "category": "personal_info",
+      "english": "I am from Turkmenistan",
+      "current": "Ik kom uit Turkmenistan",
+      "myMemory": "Ik kom uit Turkmenistan",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kakek",
+      "category": "personal_info",
+      "english": "I live in Ashgabat",
+      "current": "Ik woon in Asjchabad",
+      "myMemory": "Ik woon in Ashgabat",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Nenek",
+      "category": "personal_info",
+      "english": "There are 4 people in our family",
+      "current": "Ons gezin heeft 4 personen",
+      "myMemory": "Er zijn 4 personen in onze familie",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Paman",
+      "category": "personal_info",
+      "english": "Do you have children?",
+      "current": "Heeft u kinderen?",
+      "myMemory": "Heb je kinderen?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bibi",
+      "category": "personal_info",
+      "english": "I have no children",
+      "current": "Ik heb geen kinderen",
+      "myMemory": "Ik heb geen kinderen",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Anak-anak",
+      "category": "personal_info",
+      "english": "I have one child",
+      "current": "Ik heb een kind",
+      "myMemory": "Ik heb één kind",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Orang tua",
+      "category": "personal_info",
+      "english": "I have two children",
+      "current": "Ik heb twee kinderen",
+      "myMemory": "Ze hebben één kind.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sakit",
+      "category": "personal_info",
+      "english": "What do you do?",
+      "current": "Wat doet u voor werk?",
+      "myMemory": "Wat doe je ermee?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Demam",
+      "category": "personal_info",
+      "english": "I work at a factory",
+      "current": "Ik werk in een fabriek",
+      "myMemory": "Ik werk in een fabriek",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sakit kepala",
+      "category": "personal_info",
+      "english": "I work at a bank",
+      "current": "Ik werk bij een bank",
+      "myMemory": "Ik werk bij een bank",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sakit perut",
+      "category": "personal_info",
+      "english": "I work at a hospital",
+      "current": "Ik werk in een ziekenhuis",
+      "myMemory": "Ik werk in een ziekenhuis",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Flu",
+      "category": "personal_info",
+      "english": "I study foreign languages",
+      "current": "Ik leer vreemde talen",
+      "myMemory": "Ik studeer vreemde talen",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Batuk",
+      "category": "personal_info",
+      "english": "Do you speak Russian?",
+      "current": "Spreekt u Russisch?",
+      "myMemory": "\"Spreek je Russisch?\" ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hidung tersumbat",
+      "category": "personal_info",
+      "english": "I don't speak",
+      "current": "Ik spreek het niet",
+      "myMemory": "Niet praten.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Obat",
+      "category": "personal_info",
+      "english": "I speak a little",
+      "current": "Ik spreek een beetje",
+      "myMemory": "Ik spreek een beetje",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pil",
+      "category": "business",
+      "english": "When does the conference start?",
+      "current": "Wanneer begint de conferentie?",
+      "myMemory": "Wanneer begint de conferentie?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Resep",
+      "category": "business",
+      "english": "What is the schedule for presentations?",
+      "current": "Hoe is het schema voor de presentaties?",
+      "myMemory": "Wat is het schema voor presentaties?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Asuransi",
+      "category": "business",
+      "english": "Will there be translation to Russian?",
+      "current": "Zal er een vertaling in het Russisch zijn?",
+      "myMemory": "Komt er een vertaling naar het Russisch?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Alergi",
+      "category": "business",
+      "english": "I will speak in Russian",
+      "current": "Ik zal in het Russisch spreken",
+      "myMemory": "Ik zal in het Russisch spreken",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya alergi terhadap...",
+      "category": "business",
+      "english": "We want to see the exhibition",
+      "current": "Wij willen de tentoonstelling zien",
+      "myMemory": "We willen de tentoonstelling zien",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Asma",
+      "category": "business",
+      "english": "What time does the exhibition open?",
+      "current": "Hoe laat opent de tentoonstelling?",
+      "myMemory": "Hoe laat gaat de tentoonstelling open?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Diabetes",
+      "category": "business",
+      "english": "How many countries are participating?",
+      "current": "Hoeveel landen nemen deel?",
+      "myMemory": "Hoeveel landen doen er mee?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tekanan darah",
+      "category": "business",
+      "english": "Can I get the exhibition catalog?",
+      "current": "Kan ik de tentoonstellingscatalogus krijgen?",
+      "myMemory": "Kan ik de tentoonstellingscatalogus krijgen?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jantung",
+      "category": "business",
+      "english": "I came to discuss business",
+      "current": "Ik ben gekomen om zakelijk te spreken",
+      "myMemory": "Ik kwam om zaken te bespreken",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Perut",
+      "category": "business",
+      "english": "We want to speak with the general director",
+      "current": "Wij willen met de algemeen directeur spreken",
+      "myMemory": "We willen de algemeen directeur spreken",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Punggung",
+      "category": "business",
+      "english": "We want to learn about the production",
+      "current": "Wij willen meer weten over de productie",
+      "myMemory": "We willen meer weten over de productie",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Gigi",
+      "category": "measurements",
+      "english": "Length",
+      "current": "Lengte",
+      "myMemory": "Lengte",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Cuaca",
+      "category": "measurements",
+      "english": "Meter",
+      "current": "Meter",
+      "myMemory": "Meter",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Panas",
+      "category": "measurements",
+      "english": "Centimeter",
+      "current": "Centimeter",
+      "myMemory": "Centimeter",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dingin",
+      "category": "measurements",
+      "english": "Weight",
+      "current": "Gewicht",
+      "myMemory": "Gewicht",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hujan",
+      "category": "measurements",
+      "english": "Kilogram",
+      "current": "Kilogram",
+      "myMemory": "Kilogram",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Salju",
+      "category": "measurements",
+      "english": "Gram",
+      "current": "Gram",
+      "myMemory": "Gram",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Angin",
+      "category": "measurements",
+      "english": "Volume",
+      "current": "Volume",
+      "myMemory": "Volume",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mendung",
+      "category": "measurements",
+      "english": "Liter",
+      "current": "Liter",
+      "myMemory": "Liter",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Cerah",
+      "category": "colors",
+      "english": "White",
+      "current": "Wit",
+      "myMemory": "Wit",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Suhu",
+      "category": "colors",
+      "english": "Yellow",
+      "current": "Geel",
+      "myMemory": "Geel",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Iklim",
+      "category": "colors",
+      "english": "Green",
+      "current": "Groen",
+      "myMemory": "Groen",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Putih",
+      "category": "colors",
+      "english": "Blue",
+      "current": "Blauw",
+      "myMemory": "Blauw",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hitam",
+      "category": "colors",
+      "english": "Red",
+      "current": "Rood",
+      "myMemory": "Rood",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Merah",
+      "category": "colors",
+      "english": "Black",
+      "current": "Zwart",
+      "myMemory": "Zwart",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Biru",
+      "category": "colors",
+      "english": "Gray",
+      "current": "Grijs",
+      "myMemory": "Grijs",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hijau",
+      "category": "colors",
+      "english": "Purple",
+      "current": "Paars",
+      "myMemory": "Paars",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kuning",
+      "category": "colors",
+      "english": "Orange",
+      "current": "Oranje",
+      "myMemory": "Sinaasappel",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Oranye",
+      "category": "colors",
+      "english": "Pink",
+      "current": "Roze",
+      "myMemory": "Roze",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ungu",
+      "category": "body",
+      "english": "Head",
+      "current": "Hoofd",
+      "myMemory": "Hoofd",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Merah muda",
+      "category": "body",
+      "english": "Arm",
+      "current": "Arm",
+      "myMemory": "Arm",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Coklat",
+      "category": "body",
+      "english": "Leg",
+      "current": "Been",
+      "myMemory": "Been",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Abu-abu",
+      "category": "body",
+      "english": "Eyes",
+      "current": "Ogen",
+      "myMemory": "Ogen",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Emas",
+      "category": "body",
+      "english": "Nose",
+      "current": "Neus",
+      "myMemory": "Neus",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Utara",
+      "category": "body",
+      "english": "Mouth",
+      "current": "Mond",
+      "myMemory": "Mond",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selatan",
+      "category": "body",
+      "english": "Ear",
+      "current": "Oor",
+      "myMemory": "Oor",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Timur",
+      "category": "home",
+      "english": "House",
+      "current": "Huis",
+      "myMemory": "Woning",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Barat",
+      "category": "home",
+      "english": "Door",
+      "current": "Deur",
+      "myMemory": "Deur",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Peta",
+      "category": "home",
+      "english": "Window",
+      "current": "Raam",
+      "myMemory": "Raam",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kompas",
+      "category": "home",
+      "english": "Table",
+      "current": "Tafel",
+      "myMemory": "Tabel",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "GPS",
+      "category": "home",
+      "english": "Chair",
+      "current": "Stoel",
+      "myMemory": "Voorzitter",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lokasi",
+      "category": "home",
+      "english": "Bed",
+      "current": "Bed",
+      "myMemory": "Bed",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tujuan",
+      "category": "customs",
+      "english": "Where is passport control?",
+      "current": "Waar is de paspoortcontrole?",
+      "myMemory": "Waar is de paspoortcontrole?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Rute",
+      "category": "customs",
+      "english": "Here is my passport",
+      "current": "Hier is mijn paspoort",
+      "myMemory": "Hier is mijn paspoort",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Persimpangan",
+      "category": "customs",
+      "english": "I intend to stay in China for a week",
+      "current": "Ik ben van plan een week in China te blijven",
+      "myMemory": "Ik ben van plan om een week in China te blijven",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bundaran",
+      "category": "customs",
+      "english": "I have a single-entry visa",
+      "current": "Ik heb een visum voor eenmalige binnenkomst",
+      "myMemory": "Ik heb een single-entry visum",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jembatan",
+      "category": "customs",
+      "english": "I am in transit in your country",
+      "current": "Ik ben in transit in uw land",
+      "myMemory": "Ik ben op doorreis in jouw land",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Gedung",
+      "category": "customs",
+      "english": "Here is my customs declaration",
+      "current": "Hier is mijn douaneverklaring",
+      "myMemory": "Hier is mijn douaneaangifte",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Depan",
+      "category": "customs",
+      "english": "Here is my luggage",
+      "current": "Hier is mijn bagage",
+      "myMemory": "Hier is mijn bagage",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Belakang",
+      "category": "customs",
+      "english": "There are no prohibited items in my luggage",
+      "current": "In mijn bagage bevinden zich geen verboden voorwerpen",
+      "myMemory": "Er zijn geen verboden voorwerpen in mijn bagage",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Seberang",
+      "category": "customs",
+      "english": "These are my personal belongings",
+      "current": "Dit zijn mijn persoonlijke spullen",
+      "myMemory": "Dit zijn mijn persoonlijke bezittingen",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di sebelah",
+      "category": "customs",
+      "english": "What duty do I need to pay?",
+      "current": "Welke douanerechten moet ik betalen?",
+      "myMemory": "Welke plicht moet ik betalen?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Telepon",
+      "category": "sports",
+      "english": "What sport do you like?",
+      "current": "Welke sport houdt u van?",
+      "myMemory": "Welk type sport vind je leuk?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Nomor telepon",
+      "category": "sports",
+      "english": "I like to play football",
+      "current": "Ik voetbal graag",
+      "myMemory": "Ik hou van voetballen",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Email",
+      "category": "sports",
+      "english": "Basketball",
+      "current": "Basketbal",
+      "myMemory": "Basketbal",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Internet",
+      "category": "sports",
+      "english": "Swimming",
+      "current": "Zwemmen",
+      "myMemory": "Zwemmen",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "WiFi",
+      "category": "sports",
+      "english": "Running",
+      "current": "Hardlopen",
+      "myMemory": "Hardlopen",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Komputer",
+      "category": "sports",
+      "english": "Where is the gym?",
+      "current": "Waar is de sportschool?",
+      "myMemory": "besanmeel",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ponsel",
+      "category": "sports",
+      "english": "I want to work out",
+      "current": "Ik wil trainen",
+      "myMemory": "Ik wil gewoon mijn work-outs doen. \"",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pesan",
+      "category": "sports",
+      "english": "Coach",
+      "current": "Coach",
+      "myMemory": "Trainer",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Surat",
+      "category": "sports",
+      "english": "Competition / Match",
+      "current": "Wedstrijd / Spel",
+      "myMemory": "Competitie / wedstrijd",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Stadion",
+      "category": "sports",
+      "english": "Stadium",
+      "current": "Stadion",
+      "myMemory": "Stadion",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    }
+  ]
+}
