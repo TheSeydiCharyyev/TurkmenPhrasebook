@@ -13,7 +13,6 @@ import {
   ScrollView,
   SafeAreaView,
 } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
 import { useAppLanguage } from '../contexts/LanguageContext';
@@ -485,10 +484,7 @@ const LanguagePairSelectionScreen: React.FC = () => {
               activeOpacity={0.8}
               style={styles.pairButton}
             >
-              <LinearGradient
-                colors={pair.gradient}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 1 }}
+              <View
                 style={[
                   styles.pairGradient,
                   selectedPair === pair.code && styles.pairSelected,
@@ -509,7 +505,7 @@ const LanguagePairSelectionScreen: React.FC = () => {
                 <Text style={styles.pairArrow}>
                   {selectedPair === pair.code ? '✓' : '→'}
                 </Text>
-              </LinearGradient>
+              </View>
             </TouchableOpacity>
           ))}
         </View>
@@ -518,10 +514,10 @@ const LanguagePairSelectionScreen: React.FC = () => {
         <View style={styles.infoCard}>
           <Text style={styles.infoIcon}>ℹ️</Text>
           <Text style={styles.infoText}>
-            {config.mode === 'tk' && 'Siz islendik wagt sazlamalarda üýtgedip bilersiňiz'}
-            {config.mode === 'zh' && '您可以随时在设置中更改'}
-            {config.mode === 'ru' && 'Вы можете изменить это в любое время в настройках'}
-            {config.mode === 'en' && 'You can change this anytime in settings'}
+            {config.mode === 'tk' && 'Siz dili islendik wagt sazlamalarda üýtgedip bilersiňiz'}
+            {config.mode === 'zh' && '您可以随时在设置中更改语言'}
+            {config.mode === 'ru' && 'Вы можете изменить язык в любое время в настройках'}
+            {config.mode === 'en' && 'You can change the language anytime in settings'}
           </Text>
         </View>
       </ScrollView>
@@ -568,18 +564,19 @@ const styles = StyleSheet.create({
     elevation: 4,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
   },
   pairGradient: {
     flexDirection: 'row',
     alignItems: 'center',
     padding: scale(20),
     minHeight: verticalScale(100),
+    backgroundColor: '#FFFFFF', // Белая карточка
   },
   pairSelected: {
     borderWidth: 3,
-    borderColor: '#FFF',
+    borderColor: '#FF8008', // Оранжевая рамка для выбранного
   },
   pairFlag: {
     fontSize: moderateScale(40),
@@ -591,25 +588,30 @@ const styles = StyleSheet.create({
   pairName: {
     fontSize: moderateScale(22),
     fontWeight: '700',
-    color: '#FFF',
+    color: '#1e293b', // Темный текст
     marginBottom: verticalScale(4),
   },
   pairDescription: {
     fontSize: moderateScale(14),
-    color: 'rgba(255, 255, 255, 0.9)',
+    color: '#64748b', // Серый текст для описания
   },
   pairArrow: {
     fontSize: moderateScale(24),
-    color: '#FFF',
+    color: '#FF8008', // Оранжевая стрелка
     fontWeight: '700',
   },
   infoCard: {
     flexDirection: 'row',
-    backgroundColor: '#E3F2FD',
+    backgroundColor: '#FFFFFF', // Белый фон
     borderRadius: scale(12),
     padding: scale(16),
     borderWidth: 1,
-    borderColor: '#2196F3',
+    borderColor: '#FF8008', // Оранжевая рамка
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
   infoIcon: {
     fontSize: moderateScale(20),
@@ -618,7 +620,7 @@ const styles = StyleSheet.create({
   infoText: {
     flex: 1,
     fontSize: moderateScale(14),
-    color: '#1565C0',
+    color: '#64748b', // Серый текст
     lineHeight: moderateScale(20),
   },
 });
