@@ -263,7 +263,7 @@ const LanguagePairSelectionScreen: React.FC = () => {
       code: 'ps',
       name: 'پښتو',
       nameEn: 'Pashto',
-      flag: '🇦🇫',
+      flag: '🏳️',
       gradient: ['#000000', '#D32011'],
     },
     {
@@ -308,7 +308,7 @@ const LanguagePairSelectionScreen: React.FC = () => {
   const getTitle = () => {
     switch (config.mode) {
       case 'tk':
-        return 'Gepleşik kitaby dilini saýlaň';
+        return 'Gepleşik kitabynyň dilini saýlaň';
       case 'zh':
         return '选择会话手册语言';
       case 'ru':
@@ -320,146 +320,42 @@ const LanguagePairSelectionScreen: React.FC = () => {
     }
   };
 
-  const getSubtitle = () => {
-    switch (config.mode) {
-      case 'tk':
-        return 'Siz haýsy dili öwrenmek isleýärsiňiz?';
-      case 'zh':
-        return '您想学习哪种语言？';
-      case 'ru':
-        return 'Какой язык вы хотите изучать?';
-      case 'en':
-        return 'Which language do you want to learn?';
-      default:
-        return 'Which language do you want to learn?';
-    }
-  };
-
   const getPairDescription = (pairCode: string) => {
-    const descriptions: Record<string, Record<string, string>> = {
-      zh: {
-        tk: 'Hytaý - Türkmen',
-        zh: '中文 - 土库曼语',
-        ru: 'Китайский - Туркменский',
-        en: 'Chinese - Turkmen',
-      },
-      ru: {
-        tk: 'Rus - Türkmen',
-        zh: '俄语 - 土库曼语',
-        ru: 'Русский - Туркменский',
-        en: 'Russian - Turkmen',
-      },
-      en: {
-        tk: 'Iňlis - Türkmen',
-        zh: '英语 - 土库曼语',
-        ru: 'Английский - Туркменский',
-        en: 'English - Turkmen',
-      },
-      tr: {
-        tk: 'Türk - Türkmen',
-        zh: '土耳其语 - 土库曼语',
-        ru: 'Турецкий - Туркменский',
-        en: 'Turkish - Turkmen',
-      },
-      uz: {
-        tk: 'Özbek - Türkmen',
-        zh: '乌兹别克语 - 土库曼语',
-        ru: 'Узбекский - Туркменский',
-        en: 'Uzbek - Turkmen',
-      },
-      de: {
-        tk: 'Nemes - Türkmen',
-        zh: '德语 - 土库曼语',
-        ru: 'Немецкий - Туркменский',
-        en: 'German - Turkmen',
-      },
-      fr: {
-        tk: 'Fransuz - Türkmen',
-        zh: '法语 - 土库曼语',
-        ru: 'Французский - Туркменский',
-        en: 'French - Turkmen',
-      },
-      es: {
-        tk: 'Ispan - Türkmen',
-        zh: '西班牙语 - 土库曼语',
-        ru: 'Испанский - Туркменский',
-        en: 'Spanish - Turkmen',
-      },
-      it: {
-        tk: 'Italýan - Türkmen',
-        zh: '意大利语 - 土库曼语',
-        ru: 'Итальянский - Туркменский',
-        en: 'Italian - Turkmen',
-      },
-      ja: {
-        tk: 'Ýapon - Türkmen',
-        zh: '日语 - 土库曼语',
-        ru: 'Японский - Туркменский',
-        en: 'Japanese - Turkmen',
-      },
-      ko: {
-        tk: 'Koreý - Türkmen',
-        zh: '韩语 - 土库曼语',
-        ru: 'Корейский - Туркменский',
-        en: 'Korean - Turkmen',
-      },
-      id: {
-        tk: 'Indoneziýa - Türkmen',
-        zh: '印尼语 - 土库曼语',
-        ru: 'Индонезийский - Туркменский',
-        en: 'Indonesian - Turkmen',
-      },
-      hi: {
-        tk: 'Hindi - Türkmen',
-        zh: '印地语 - 土库曼语',
-        ru: 'Хинди - Туркменский',
-        en: 'Hindi - Turkmen',
-      },
-      ar: {
-        tk: 'Arap - Türkmen',
-        zh: '阿拉伯语 - 土库曼语',
-        ru: 'Арабский - Туркменский',
-        en: 'Arabic - Turkmen',
-      },
-      fa: {
-        tk: 'Pars - Türkmen',
-        zh: '波斯语 - 土库曼语',
-        ru: 'Персидский - Туркменский',
-        en: 'Persian - Turkmen',
-      },
-      ms: {
-        tk: 'Malaý - Türkmen',
-        zh: '马来语 - 土库曼语',
-        ru: 'Малайский - Туркменский',
-        en: 'Malay - Turkmen',
-      },
-      ur: {
-        tk: 'Urdu - Türkmen',
-        zh: '乌尔都语 - 土库曼语',
-        ru: 'Урду - Туркменский',
-        en: 'Urdu - Turkmen',
-      },
-      ps: {
-        tk: 'Pашto - Türkmen',
-        zh: '普什图语 - 土库曼语',
-        ru: 'Пушту - Туркменский',
-        en: 'Pashto - Turkmen',
-      },
-      hy: {
-        tk: 'Ermeni - Türkmen',
-        zh: '亚美尼亚语 - 土库曼语',
-        ru: 'Армянский - Туркменский',
-        en: 'Armenian - Turkmen',
-      },
-      ka: {
-        tk: 'Gruzin - Türkmen',
-        zh: '格鲁吉亚语 - 土库曼语',
-        ru: 'Грузинский - Туркменский',
-        en: 'Georgian - Turkmen',
-      },
+    // Всегда возвращаем английский вариант
+    const descriptions: Record<string, string> = {
+      zh: 'Chinese - Turkmen',
+      ru: 'Russian - Turkmen',
+      en: 'English - Turkmen',
+      tr: 'Turkish - Turkmen',
+      uz: 'Uzbek - Turkmen',
+      de: 'German - Turkmen',
+      fr: 'French - Turkmen',
+      es: 'Spanish - Turkmen',
+      it: 'Italian - Turkmen',
+      ja: 'Japanese - Turkmen',
+      ko: 'Korean - Turkmen',
+      pl: 'Polish - Turkmen',
+      pt: 'Portuguese - Turkmen',
+      nl: 'Dutch - Turkmen',
+      az: 'Azerbaijani - Turkmen',
+      kk: 'Kazakh - Turkmen',
+      ky: 'Kyrgyz - Turkmen',
+      tg: 'Tajik - Turkmen',
+      uk: 'Ukrainian - Turkmen',
+      th: 'Thai - Turkmen',
+      vi: 'Vietnamese - Turkmen',
+      id: 'Indonesian - Turkmen',
+      hi: 'Hindi - Turkmen',
+      ar: 'Arabic - Turkmen',
+      fa: 'Persian - Turkmen',
+      ms: 'Malay - Turkmen',
+      ur: 'Urdu - Turkmen',
+      ps: 'Pashto - Turkmen',
+      hy: 'Armenian - Turkmen',
+      ka: 'Georgian - Turkmen',
     };
 
-    return descriptions[pairCode]?.[config.mode] || `${pairCode.toUpperCase()} - Turkmen`;
+    return descriptions[pairCode] || `${pairCode.toUpperCase()} - Turkmen`;
   };
 
   return (
@@ -472,7 +368,6 @@ const LanguagePairSelectionScreen: React.FC = () => {
         <View style={styles.header}>
           <Text style={styles.icon}>📚</Text>
           <Text style={styles.title}>{getTitle()}</Text>
-          <Text style={styles.subtitle}>{getSubtitle()}</Text>
         </View>
 
         {/* Language Pairs */}
@@ -512,7 +407,6 @@ const LanguagePairSelectionScreen: React.FC = () => {
 
         {/* Info */}
         <View style={styles.infoCard}>
-          <Text style={styles.infoIcon}>ℹ️</Text>
           <Text style={styles.infoText}>
             {config.mode === 'tk' && 'Siz dili islendik wagt sazlamalarda üýtgedip bilersiňiz'}
             {config.mode === 'zh' && '您可以随时在设置中更改语言'}

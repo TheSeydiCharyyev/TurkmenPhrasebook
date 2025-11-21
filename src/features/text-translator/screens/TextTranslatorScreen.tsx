@@ -17,7 +17,6 @@ import {
   Platform,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { LinearGradient } from 'expo-linear-gradient';
 import { DesignColors } from '../../../constants/Design';
 import * as Speech from 'expo-speech';
 import { useNavigation } from '@react-navigation/native';
@@ -164,28 +163,23 @@ export default function TextTranslatorScreen() {
   return (
     <View style={styles.container}>
       <StatusBar
-        barStyle="light-content"
-        backgroundColor="#4facfe"
+        barStyle="dark-content"
+        backgroundColor="#FFFFFF"
         translucent={false}
       />
 
-      {/* Gradient Header */}
-      <LinearGradient
-        colors={['#4facfe', '#00f2fe']}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 0 }}
-        style={styles.header}
-      >
+      {/* Clean White Header */}
+      <View style={styles.header}>
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => navigation.goBack()}
           activeOpacity={0.7}
         >
-          <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
+          <Ionicons name="arrow-back" size={24} color="#1F2937" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{texts.ttHeaderTitle}</Text>
         <View style={styles.placeholder} />
-      </LinearGradient>
+      </View>
 
       <KeyboardAvoidingView
         style={styles.content}
@@ -197,22 +191,6 @@ export default function TextTranslatorScreen() {
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled"
         >
-          {/* Hero Section */}
-          <LinearGradient
-            colors={['#4facfe', '#00f2fe']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.heroSection}
-          >
-            <View style={styles.heroIconContainer}>
-              <Text style={styles.heroIcon}>🌍</Text>
-            </View>
-            <Text style={styles.heroTitle}>{texts.ttHeroTitle}</Text>
-            <Text style={styles.heroSubtitle}>
-              {texts.ttHeroSubtitle}
-            </Text>
-          </LinearGradient>
-
           {/* Source Language Card */}
           <View style={styles.card}>
             <TouchableOpacity
@@ -273,22 +251,19 @@ export default function TextTranslatorScreen() {
             onPress={handleTranslate}
             disabled={!inputText.trim() || isTranslating}
             activeOpacity={0.8}
+            style={[
+              styles.translateButton,
+              (!inputText.trim() || isTranslating) && styles.translateButtonDisabled
+            ]}
           >
-            <LinearGradient
-              colors={!inputText.trim() || isTranslating ? ['#D1D5DB', '#9CA3AF'] : ['#4facfe', '#00f2fe']}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
-              style={styles.translateButton}
-            >
-              {isTranslating ? (
-                <ActivityIndicator size="small" color="#FFFFFF" />
-              ) : (
-                <Text style={styles.translateEmoji}>🌐</Text>
-              )}
-              <Text style={styles.translateButtonText}>
-                {isTranslating ? texts.ttTranslating : texts.ttTranslate}
-              </Text>
-            </LinearGradient>
+            {isTranslating ? (
+              <ActivityIndicator size="small" color="#FFFFFF" />
+            ) : (
+              <Ionicons name="language-outline" size={24} color="#FFFFFF" />
+            )}
+            <Text style={styles.translateButtonText}>
+              {isTranslating ? texts.ttTranslating : texts.ttTranslate}
+            </Text>
           </TouchableOpacity>
 
           {/* Target Language Card */}
@@ -367,7 +342,7 @@ export default function TextTranslatorScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: DesignColors.backgroundGray,
+    backgroundColor: '#F8F9FA',
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   header: {
@@ -376,6 +351,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: scale(16),
     paddingVertical: verticalScale(14),
+    backgroundColor: '#FFFFFF',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E7EB',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: scale(2) },
     shadowOpacity: 0.1,
@@ -386,25 +364,17 @@ const styles = StyleSheet.create({
     width: scale(40),
     height: scale(40),
     borderRadius: scale(20),
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.15,
-    shadowRadius: 4,
-    elevation: 3,
   },
   headerTitle: {
-    fontSize: moderateScale(20),
-    fontWeight: '700',
-    color: '#FFFFFF',
-    textShadowColor: 'rgba(0, 0, 0, 0.2)',
-    textShadowOffset: { width: 0, height: scale(1) },
-    textShadowRadius: scale(2),
+    fontSize: moderateScale(17),
+    fontWeight: '600',
+    color: '#1F2937',
+    letterSpacing: -0.2,
   },
   placeholder: {
-    width: scale(32),
+    width: scale(40),
   },
   // Hero Section
   heroSection: {
@@ -469,14 +439,9 @@ const styles = StyleSheet.create({
     marginBottom: verticalScale(16),
   },
   outputCard: {
-    backgroundColor: '#F0F9FF',
-    borderWidth: 2,
-    borderColor: '#4facfe',
-    shadowColor: '#4facfe',
-    shadowOffset: { width: 0, height: scale(4) },
-    shadowOpacity: 0.2,
-    shadowRadius: scale(12),
-    elevation: 8,
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
   },
   languageButton: {
     flexDirection: 'row',
@@ -567,14 +532,17 @@ const styles = StyleSheet.create({
     borderRadius: scale(20),
     marginVertical: verticalScale(16),
     gap: scale(12),
+    backgroundColor: '#4facfe',
     shadowColor: '#4facfe',
     shadowOffset: { width: 0, height: scale(4) },
     shadowOpacity: 0.3,
     shadowRadius: scale(10),
     elevation: 6,
   },
-  translateEmoji: {
-    fontSize: moderateScale(24),
+  translateButtonDisabled: {
+    backgroundColor: '#D1D5DB',
+    shadowOpacity: 0,
+    elevation: 0,
   },
   translateButtonText: {
     fontSize: moderateScale(18),
@@ -596,7 +564,7 @@ const styles = StyleSheet.create({
     gap: scale(12),
     paddingTop: verticalScale(12),
     borderTopWidth: 1,
-    borderTopColor: '#DBEAFE',
+    borderTopColor: '#E5E7EB',
   },
   actionButton: {
     flex: 1,
@@ -604,16 +572,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: verticalScale(12),
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#F3F4F6',
     borderRadius: scale(14),
     gap: scale(6),
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: '#4facfe',
-    shadowColor: '#4facfe',
-    shadowOffset: { width: 0, height: scale(2) },
-    shadowOpacity: 0.1,
-    shadowRadius: scale(4),
-    elevation: 2,
   },
   actionEmoji: {
     fontSize: moderateScale(20),
