@@ -15,7 +15,7 @@ import GoogleVisionService from './GoogleVisionService';
 const STORAGE_KEY_SELECTED_ENGINE = '@visual_translator_ocr_engine';
 
 class OCRService {
-  private selectedEngine: OCREngine = OCREngine.ML_KIT;
+  private selectedEngine: OCREngine = OCREngine.OCR_SPACE;
 
   constructor() {
     // Загружаем сохранённый выбор движка
@@ -93,8 +93,8 @@ class OCRService {
    * Порядок fallback движков
    */
   private getFallbackOrder(): OCREngine[] {
-    // Приоритет: офлайн → бесплатный онлайн → премиум
-    return [OCREngine.ML_KIT, OCREngine.OCR_SPACE, OCREngine.GOOGLE_VISION];
+    // Приоритет: бесплатный онлайн → офлайн → премиум
+    return [OCREngine.OCR_SPACE, OCREngine.ML_KIT, OCREngine.GOOGLE_VISION];
   }
 
   /**
@@ -102,6 +102,11 @@ class OCRService {
    */
   private async recognizeWithMLKit(imagePath: string): Promise<OCRResult> {
     try {
+      // Проверяем доступность ML Kit
+      if (!TextRecognition || typeof TextRecognition.recognize !== 'function') {
+        throw new Error('ML Kit library not available');
+      }
+
       console.log('[OCRService/MLKit] Recognizing text...');
       const result = await TextRecognition.recognize(imagePath);
 
