@@ -15,6 +15,10 @@ import {
   Platform,
   ActivityIndicator,
   StatusBar,
+  Modal,
+  Alert,
+  Share,
+  Clipboard,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useAppLanguage } from '../../../contexts/LanguageContext';
@@ -53,6 +57,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
   const scrollViewRef = useRef<ScrollView>(null);
   const inputRef = useRef<TextInput>(null);
 
@@ -175,9 +180,112 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
   };
 
   const handleClearHistory = async () => {
-    await AIAssistantService.clearHistory(assistantType);
-    setMessages([]);
-    addSystemMessage(getWelcomeMessage());
+    setShowMenu(false);
+    Alert.alert(
+      texts.aiClearHistoryTitle || 'Clear History',
+      texts.aiClearHistoryMessage || 'Are you sure you want to clear all messages?',
+      [
+        {
+          text: texts.cancel || 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: texts.aiClear || 'Clear',
+          style: 'destructive',
+          onPress: async () => {
+            await AIAssistantService.clearHistory(assistantType);
+            setMessages([]);
+            addSystemMessage(getWelcomeMessage());
+          },
+        },
+      ]
+    );
+  };
+
+  const handleSelectModel = () => {
+    setShowMenu(false);
+    // TODO: Implement model selection
+    Alert.alert(
+      texts.aiSelectModel || 'Select AI Model',
+      texts.aiSelectModelMessage || 'Choose which AI model to use',
+      [
+        { text: 'Gemini 1.5 Flash', onPress: () => console.log('Gemini selected') },
+        { text: 'Gemini 1.5 Pro', onPress: () => console.log('Gemini Pro selected') },
+        { text: texts.cancel || 'Cancel', style: 'cancel' },
+      ]
+    );
+  };
+
+  const handleExportChat = async () => {
+    setShowMenu(false);
+    if (messages.length === 0) {
+      Alert.alert(texts.aiError || 'Error', texts.aiNoMessages || 'No messages to export');
+      return;
+    }
+
+    try {
+      const chatText = messages
+        .map((msg) => {
+          const role = msg.role === MessageRole.USER ? 'You' : translatedName;
+          return `${role}: ${msg.content}`;
+        })
+        .join('\n\n');
+
+      await Share.share({
+        message: chatText,
+        title: `${translatedName} - Chat Export`,
+      });
+    } catch (error) {
+      console.error('Error sharing chat:', error);
+    }
+  };
+
+  const handleCopyAll = async () => {
+    setShowMenu(false);
+    if (messages.length === 0) {
+      Alert.alert(texts.aiError || 'Error', texts.aiNoMessages || 'No messages to copy');
+      return;
+    }
+
+    const chatText = messages
+      .map((msg) => {
+        const role = msg.role === MessageRole.USER ? 'You' : translatedName;
+        return `${role}: ${msg.content}`;
+      })
+      .join('\n\n');
+
+    Clipboard.setString(chatText);
+    Alert.alert(texts.success || 'Success', texts.aiCopied || 'All messages copied to clipboard');
+  };
+
+  const handleResponseSettings = () => {
+    setShowMenu(false);
+    // TODO: Implement response settings
+    Alert.alert(
+      texts.aiResponseSettings || 'Response Settings',
+      texts.aiResponseSettingsMessage || 'Adjust how the AI responds',
+      [
+        { text: texts.aiCreativeMode || 'Creative Mode', onPress: () => console.log('Creative') },
+        { text: texts.aiBalancedMode || 'Balanced Mode', onPress: () => console.log('Balanced') },
+        { text: texts.aiPreciseMode || 'Precise Mode', onPress: () => console.log('Precise') },
+        { text: texts.cancel || 'Cancel', style: 'cancel' },
+      ]
+    );
+  };
+
+  const handleChangeLanguage = () => {
+    setShowMenu(false);
+    // TODO: Implement language selection
+    Alert.alert(
+      texts.aiResponseLanguage || 'Response Language',
+      texts.aiResponseLanguageMessage || 'Choose which language the AI should respond in',
+      [
+        { text: 'English', onPress: () => console.log('English') },
+        { text: 'Türkmen', onPress: () => console.log('Turkmen') },
+        { text: 'Русский', onPress: () => console.log('Russian') },
+        { text: texts.cancel || 'Cancel', style: 'cancel' },
+      ]
+    );
   };
 
   return (
@@ -204,7 +312,8 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
 
           <TouchableOpacity
             style={styles.menuButton}
-            onPress={handleClearHistory}
+            onPress={() => setShowMenu(true)}
+            activeOpacity={0.7}
           >
             <Ionicons name="ellipsis-vertical" size={20} color="#6B7280" />
           </TouchableOpacity>
@@ -263,6 +372,105 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
           </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
+
+      {/* Menu Modal */}
+      <Modal
+        visible={showMenu}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => setShowMenu(false)}
+      >
+        <TouchableOpacity
+          style={styles.modalOverlay}
+          activeOpacity={1}
+          onPress={() => setShowMenu(false)}
+        >
+          <View style={styles.menuContainer}>
+            {/* Clear History */}
+            <TouchableOpacity
+              style={styles.menuItem}
+              onPress={handleClearHistory}
+              activeOpacity={0.7}
+            >
+              <Ionicons name="trash-outline" size={22} color="#EF4444" />
+              <Text style={[styles.menuText, { color: '#EF4444' }]}>
+                {texts.aiClearHistory || 'Clear History'}
+              </Text>
+            </TouchableOpacity>
+
+            {/* Select Model */}
+            <TouchableOpacity
+              style={styles.menuItem}
+              onPress={handleSelectModel}
+              activeOpacity={0.7}
+            >
+              <Ionicons name="hardware-chip-outline" size={22} color="#1F2937" />
+              <Text style={styles.menuText}>
+                {texts.aiSelectModel || 'Select AI Model'}
+              </Text>
+            </TouchableOpacity>
+
+            {/* Export Chat */}
+            <TouchableOpacity
+              style={styles.menuItem}
+              onPress={handleExportChat}
+              activeOpacity={0.7}
+            >
+              <Ionicons name="share-outline" size={22} color="#1F2937" />
+              <Text style={styles.menuText}>
+                {texts.aiExportChat || 'Export Chat'}
+              </Text>
+            </TouchableOpacity>
+
+            {/* Copy All */}
+            <TouchableOpacity
+              style={styles.menuItem}
+              onPress={handleCopyAll}
+              activeOpacity={0.7}
+            >
+              <Ionicons name="copy-outline" size={22} color="#1F2937" />
+              <Text style={styles.menuText}>
+                {texts.aiCopyAll || 'Copy All'}
+              </Text>
+            </TouchableOpacity>
+
+            {/* Response Settings */}
+            <TouchableOpacity
+              style={styles.menuItem}
+              onPress={handleResponseSettings}
+              activeOpacity={0.7}
+            >
+              <Ionicons name="options-outline" size={22} color="#1F2937" />
+              <Text style={styles.menuText}>
+                {texts.aiResponseSettings || 'Response Settings'}
+              </Text>
+            </TouchableOpacity>
+
+            {/* Change Language */}
+            <TouchableOpacity
+              style={styles.menuItem}
+              onPress={handleChangeLanguage}
+              activeOpacity={0.7}
+            >
+              <Ionicons name="language-outline" size={22} color="#1F2937" />
+              <Text style={styles.menuText}>
+                {texts.aiResponseLanguage || 'Response Language'}
+              </Text>
+            </TouchableOpacity>
+
+            {/* Cancel */}
+            <TouchableOpacity
+              style={[styles.menuItem, styles.menuItemCancel]}
+              onPress={() => setShowMenu(false)}
+              activeOpacity={0.7}
+            >
+              <Text style={styles.menuTextCancel}>
+                {texts.cancel || 'Cancel'}
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </TouchableOpacity>
+      </Modal>
     </View>
   );
 };
@@ -383,6 +591,54 @@ const styles = StyleSheet.create({
   sendButtonText: {
     fontSize: moderateScale(22),
     color: '#FFF',
+  },
+  // Modal Menu Styles
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'flex-end',
+  },
+  menuContainer: {
+    backgroundColor: '#FFFFFF',
+    borderTopLeftRadius: scale(20),
+    borderTopRightRadius: scale(20),
+    paddingTop: verticalScale(8),
+    paddingBottom: verticalScale(32),
+    paddingHorizontal: scale(16),
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: scale(-4) },
+    shadowOpacity: 0.15,
+    shadowRadius: scale(12),
+    elevation: 12,
+  },
+  menuItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: verticalScale(16),
+    paddingHorizontal: scale(16),
+    borderRadius: scale(12),
+    marginVertical: verticalScale(4),
+    backgroundColor: '#F9FAFB',
+    gap: scale(12),
+  },
+  menuItemCancel: {
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
+    marginTop: verticalScale(8),
+    justifyContent: 'center',
+  },
+  menuText: {
+    fontSize: moderateScale(16),
+    fontWeight: '500',
+    color: '#1F2937',
+    flex: 1,
+  },
+  menuTextCancel: {
+    fontSize: moderateScale(16),
+    fontWeight: '600',
+    color: '#6B7280',
+    textAlign: 'center',
   },
 });
 
