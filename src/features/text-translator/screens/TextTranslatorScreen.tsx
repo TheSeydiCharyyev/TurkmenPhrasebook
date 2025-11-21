@@ -231,22 +231,7 @@ export default function TextTranslatorScreen() {
             </View>
           </View>
 
-          {/* Swap Button */}
-          <View style={styles.swapContainer}>
-            <TouchableOpacity
-              style={[
-                styles.swapButton,
-                (sourceLanguage === 'auto' || !outputText) && styles.swapButtonDisabled
-              ]}
-              onPress={handleSwapLanguages}
-              disabled={sourceLanguage === 'auto' || !outputText}
-              activeOpacity={0.7}
-            >
-              <Text style={styles.swapEmoji}>🔄</Text>
-            </TouchableOpacity>
-          </View>
-
-          {/* Translate Button */}
+          {/* Translate Button - Minimalist Design */}
           <TouchableOpacity
             onPress={handleTranslate}
             disabled={!inputText.trim() || isTranslating}
@@ -257,13 +242,12 @@ export default function TextTranslatorScreen() {
             ]}
           >
             {isTranslating ? (
-              <ActivityIndicator size="small" color="#FFFFFF" />
+              <ActivityIndicator size="small" color="#4facfe" />
             ) : (
-              <Ionicons name="language-outline" size={24} color="#FFFFFF" />
+              <Text style={styles.translateButtonText}>
+                {texts.ttTranslate}
+              </Text>
             )}
-            <Text style={styles.translateButtonText}>
-              {isTranslating ? texts.ttTranslating : texts.ttTranslate}
-            </Text>
           </TouchableOpacity>
 
           {/* Target Language Card */}
@@ -499,55 +483,32 @@ const styles = StyleSheet.create({
     color: '#6B7280',
     fontWeight: '500',
   },
-  swapContainer: {
-    alignItems: 'center',
-    marginVertical: verticalScale(12),
-  },
-  swapButton: {
-    width: scale(56),
-    height: verticalScale(56),
-    borderRadius: scale(28),
-    backgroundColor: '#FFFFFF',
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#4facfe',
-    shadowOffset: { width: 0, height: scale(3) },
-    shadowOpacity: 0.2,
-    shadowRadius: scale(6),
-    elevation: 4,
-  },
-  swapButtonDisabled: {
-    opacity: 0.4,
-    shadowOpacity: 0,
-    elevation: 0,
-  },
-  swapEmoji: {
-    fontSize: moderateScale(28),
-  },
   translateButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: verticalScale(18),
-    borderRadius: scale(20),
+    paddingVertical: verticalScale(14),
+    borderRadius: scale(12),
     marginVertical: verticalScale(16),
-    gap: scale(12),
-    backgroundColor: '#4facfe',
-    shadowColor: '#4facfe',
-    shadowOffset: { width: 0, height: scale(4) },
-    shadowOpacity: 0.3,
-    shadowRadius: scale(10),
-    elevation: 6,
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#4facfe',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: scale(2) },
+    shadowOpacity: 0.08,
+    shadowRadius: scale(4),
+    elevation: 2,
   },
   translateButtonDisabled: {
-    backgroundColor: '#D1D5DB',
+    backgroundColor: '#F9FAFB',
+    borderColor: '#D1D5DB',
     shadowOpacity: 0,
     elevation: 0,
   },
   translateButtonText: {
-    fontSize: moderateScale(18),
-    fontWeight: '700',
-    color: '#FFFFFF',
+    fontSize: moderateScale(16),
+    fontWeight: '600',
+    color: '#4facfe',
   },
   outputContainer: {
     minHeight: verticalScale(120),
