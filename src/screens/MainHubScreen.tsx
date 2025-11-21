@@ -33,6 +33,7 @@ interface ModuleCard {
   icon: string; // Emoji (legacy)
   iconName: string; // Ionicons name
   gradientColors: string[];
+  iconColor?: string; // Цвет иконки (для белых карточек)
   route: string;
   isLocked?: boolean;
 }
@@ -45,7 +46,8 @@ const getModules = (texts: any): ModuleCard[] => [
     subtitle: texts.phrasebookSubtitle,
     icon: '📖',
     iconName: 'book-outline',
-    gradientColors: ['#ff8008', '#ffc837'], // Orange gradient
+    gradientColors: ['#FFFFFF', '#FFFFFF'], // Белая карточка
+    iconColor: '#FF8008', // Оранжевая иконка
     route: 'Phrasebook',
   },
   {
@@ -54,7 +56,8 @@ const getModules = (texts: any): ModuleCard[] => [
     subtitle: texts.voiceTranslatorSubtitle,
     icon: '🎤',
     iconName: 'mic-outline',
-    gradientColors: ['#ff6a00', '#ee0979'], // Orange to Red gradient
+    gradientColors: ['#FFFFFF', '#FFFFFF'], // Белая карточка
+    iconColor: '#FF6B35', // Коралловая иконка
     route: 'VoiceTranslator',
   },
   {
@@ -63,7 +66,8 @@ const getModules = (texts: any): ModuleCard[] => [
     subtitle: texts.textTranslatorSubtitle,
     icon: '📝',
     iconName: 'text-outline',
-    gradientColors: ['#4facfe', '#00f2fe'], // Blue gradient
+    gradientColors: ['#FFFFFF', '#FFFFFF'], // Белая карточка
+    iconColor: '#F7931E', // Золотистая иконка
     route: 'TextTranslator',
   },
   {
@@ -72,7 +76,8 @@ const getModules = (texts: any): ModuleCard[] => [
     subtitle: texts.visualTranslatorSubtitle,
     icon: '📷',
     iconName: 'camera-outline',
-    gradientColors: ['#667eea', '#764ba2'], // Purple gradient
+    gradientColors: ['#FFFFFF', '#FFFFFF'], // Белая карточка
+    iconColor: '#FF7A00', // Янтарная иконка
     route: 'VisualTranslator',
   },
   {
@@ -81,7 +86,8 @@ const getModules = (texts: any): ModuleCard[] => [
     subtitle: texts.aiAssistantsSubtitle,
     icon: '🤖',
     iconName: 'sparkles',
-    gradientColors: ['#7C3AED', '#5B21B6'], // Dark Purple gradient
+    gradientColors: ['#FFFFFF', '#FFFFFF'], // Белая карточка
+    iconColor: '#FF5722', // Оранжево-красная иконка
     route: 'UniversalAIChat',
   },
   {
@@ -90,7 +96,8 @@ const getModules = (texts: any): ModuleCard[] => [
     subtitle: texts.dictionarySubtitle,
     icon: '📚',
     iconName: 'library-outline',
-    gradientColors: ['#11998e', '#38ef7d'], // Green/Teal gradient
+    gradientColors: ['#FFFFFF', '#FFFFFF'], // Белая карточка
+    iconColor: '#FF9500', // Темно-янтарная иконка
     route: 'Dictionary',
     isLocked: true,  // 🔒 Заблокировано для v2.0
   },
@@ -285,7 +292,11 @@ interface ModuleCardProps {
 }
 
 const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => {
-  const iconColor = isLightGradient(module.gradientColors) ? '#1e293b' : '#FFFFFF';
+  // Для белых карточек используем темный текст и цветные иконки
+  const isWhiteCard = module.gradientColors[0] === '#FFFFFF';
+  const textColor = isWhiteCard ? '#1e293b' : (isLightGradient(module.gradientColors) ? '#1e293b' : '#FFFFFF');
+  const iconBgColor = isWhiteCard ? module.iconColor : (textColor === '#1e293b' ? 'rgba(255, 255, 255, 0.4)' : 'rgba(255, 255, 255, 0.3)');
+  const iconFgColor = isWhiteCard ? '#FFFFFF' : textColor;
 
   return (
     <TouchableOpacity
@@ -307,15 +318,13 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
         <View style={[
           styles.heroIconContainer,
           {
-            backgroundColor: iconColor === '#1e293b'
-              ? 'rgba(255, 255, 255, 0.4)'
-              : 'rgba(255, 255, 255, 0.3)'
+            backgroundColor: iconBgColor
           }
         ]}>
           <Ionicons
             name={module.iconName as any}
             size={44}
-            color={iconColor}
+            color={iconFgColor}
           />
         </View>
 
@@ -323,7 +332,7 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
         <View style={styles.moduleTextContainer}>
           {/* Title at top */}
           <Text
-            style={[styles.heroTitle, { color: iconColor }]}
+            style={[styles.heroTitle, { color: textColor }]}
             numberOfLines={2}
             adjustsFontSizeToFit
             minimumFontScale={0.8}
@@ -334,7 +343,7 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
           <Text
             style={[
               styles.heroStats,
-              { color: iconColor }
+              { color: textColor }
             ]}
             numberOfLines={2}
           >
