@@ -153,7 +153,7 @@ export default function TranslationResultScreen() {
           onPress={() => navigation.goBack()}
           activeOpacity={0.7}
         >
-          <Ionicons name="arrow-back" size={24} color="#111827" />
+          <Ionicons name="arrow-back" size={24} color="#1F2937" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{texts.vtResult}</Text>
         <TouchableOpacity
@@ -161,7 +161,7 @@ export default function TranslationResultScreen() {
           onPress={handleShare}
           activeOpacity={0.7}
         >
-          <Text style={styles.headerEmoji}>📤</Text>
+          <Ionicons name="share-outline" size={24} color="#10B981" />
         </TouchableOpacity>
       </View>
 
@@ -210,7 +210,7 @@ export default function TranslationResultScreen() {
         {result.method === 'ocr' && result.originalText && (
           <View style={styles.card}>
             <View style={styles.cardHeader}>
-              <Text style={styles.cardEmoji}>📝</Text>
+              <Ionicons name="document-text-outline" size={20} color="#6B7280" />
               <Text style={styles.cardTitle}>{texts.vtRecognizedText}</Text>
             </View>
             <Text style={styles.originalText}>{result.originalText}</Text>
@@ -224,7 +224,7 @@ export default function TranslationResultScreen() {
         {result.aiDescription && !result.originalText && (
           <View style={styles.card}>
             <View style={styles.cardHeader}>
-              <Text style={styles.cardEmoji}>✨</Text>
+              <Ionicons name="sparkles" size={20} color="#6B7280" />
               <Text style={styles.cardTitle}>{texts.vtAiAnalysis}</Text>
             </View>
             <Text style={styles.aiDescription}>{result.aiDescription.description}</Text>
@@ -234,7 +234,7 @@ export default function TranslationResultScreen() {
         {/* Translation */}
         <View style={[styles.card, styles.translationCard]}>
           <View style={styles.cardHeader}>
-            <Text style={styles.cardEmoji}>🌍</Text>
+            <Ionicons name="language-outline" size={20} color="#10B981" />
             <Text style={styles.cardTitle}>{texts.vtTranslation}</Text>
           </View>
           <Text style={styles.translatedText}>{result.translatedText}</Text>
@@ -250,9 +250,11 @@ export default function TranslationResultScreen() {
             onPress={handleSpeak}
             activeOpacity={0.7}
           >
-            <Text style={styles.actionEmoji}>
-              {isSpeaking ? '⏹️' : '🔊'}
-            </Text>
+            <Ionicons
+              name={isSpeaking ? 'stop' : 'volume-high-outline'}
+              size={22}
+              color="#FFFFFF"
+            />
             <Text style={styles.actionButtonText}>
               {isSpeaking ? texts.vtStop : texts.vtPlay}
             </Text>
@@ -263,7 +265,7 @@ export default function TranslationResultScreen() {
             onPress={handleCopy}
             activeOpacity={0.7}
           >
-            <Text style={styles.actionEmojiSecondary}>📋</Text>
+            <Ionicons name="copy-outline" size={22} color="#10B981" />
             <Text style={styles.actionButtonTextSecondary}>{texts.vtCopy}</Text>
           </TouchableOpacity>
 
@@ -276,7 +278,7 @@ export default function TranslationResultScreen() {
           onPress={handleNewPhoto}
           activeOpacity={0.8}
         >
-          <Text style={styles.newPhotoEmoji}>📷</Text>
+          <Ionicons name="camera-outline" size={24} color="#10B981" />
           <Text style={styles.newPhotoButtonText}>{texts.vtTranslateAnother}</Text>
         </TouchableOpacity>
       </ScrollView>
@@ -287,7 +289,7 @@ export default function TranslationResultScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: DesignColors.background,
+    backgroundColor: '#F8F9FA',
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   header: {
@@ -295,7 +297,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: scale(16),
-    paddingVertical: verticalScale(12),
+    paddingVertical: verticalScale(16),
+    backgroundColor: '#FFFFFF',
     borderBottomWidth: 1,
     borderBottomColor: '#E5E7EB',
   },
@@ -303,25 +306,20 @@ const styles = StyleSheet.create({
     width: scale(40),
     height: scale(40),
     borderRadius: scale(20),
-    backgroundColor: '#F3F4F6',
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
   },
   headerTitle: {
     fontSize: moderateScale(18),
     fontWeight: '700',
-    color: '#111827',
+    color: '#1F2937',
   },
   shareButton: {
-    padding: scale(4),
-  },
-  headerEmoji: {
-    fontSize: moderateScale(24),
+    width: scale(40),
+    height: scale(40),
+    borderRadius: scale(20),
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   scrollContent: {
     paddingBottom: verticalScale(40),
@@ -367,8 +365,8 @@ const styles = StyleSheet.create({
     marginHorizontal: scale(20),
     marginBottom: verticalScale(16),
     padding: scale(20),
-    backgroundColor: '#F9FAFB',
-    borderRadius: scale(16),
+    backgroundColor: '#FFFFFF',
+    borderRadius: scale(12),
     borderWidth: 1,
     borderColor: '#E5E7EB',
   },
@@ -384,13 +382,11 @@ const styles = StyleSheet.create({
     marginBottom: verticalScale(12),
   },
   cardTitle: {
-    fontSize: moderateScale(14),
+    fontSize: moderateScale(13),
     fontWeight: '600',
-    color: '#64748B',
+    color: '#6B7280',
     textTransform: 'uppercase',
-  },
-  cardEmoji: {
-    fontSize: moderateScale(20),
+    letterSpacing: 0.5,
   },
   originalText: {
     fontSize: moderateScale(16),
@@ -427,32 +423,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: verticalScale(14),
-    borderRadius: scale(12),
+    borderRadius: scale(10),
     gap: scale(8),
   },
   primaryAction: {
-    backgroundColor: '#6366F1',
+    backgroundColor: '#10B981',
   },
   secondaryAction: {
     backgroundColor: '#FFFFFF',
-    borderWidth: 2,
-    borderColor: '#6366F1',
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
   },
   actionButtonText: {
-    fontSize: moderateScale(16),
+    fontSize: moderateScale(15),
     fontWeight: '600',
     color: '#FFFFFF',
   },
   actionButtonTextSecondary: {
-    fontSize: moderateScale(16),
+    fontSize: moderateScale(15),
     fontWeight: '600',
-    color: '#6366F1',
-  },
-  actionEmoji: {
-    fontSize: moderateScale(20),
-  },
-  actionEmojiSecondary: {
-    fontSize: moderateScale(20),
+    color: '#10B981',
   },
   newPhotoButton: {
     flexDirection: 'row',
@@ -461,19 +451,16 @@ const styles = StyleSheet.create({
     marginHorizontal: scale(20),
     marginTop: verticalScale(24),
     paddingVertical: verticalScale(16),
-    backgroundColor: '#F0F4FF',
-    borderRadius: scale(16),
+    backgroundColor: '#ECFDF5',
+    borderRadius: scale(12),
     borderWidth: 2,
-    borderColor: '#6366F1',
+    borderColor: '#10B981',
     borderStyle: 'dashed',
-    gap: scale(12),
+    gap: scale(10),
   },
   newPhotoButtonText: {
-    fontSize: moderateScale(18),
+    fontSize: moderateScale(16),
     fontWeight: '600',
-    color: '#6366F1',
-  },
-  newPhotoEmoji: {
-    fontSize: moderateScale(24),
+    color: '#10B981',
   },
 });

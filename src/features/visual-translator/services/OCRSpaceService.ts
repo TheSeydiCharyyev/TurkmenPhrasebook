@@ -3,7 +3,7 @@
 // Лимиты: 25,000 запросов/месяц бесплатно
 // Документация: https://ocr.space/ocrapi
 
-import * as FileSystem from 'expo-file-system';
+import * as FileSystem from 'expo-file-system/legacy';
 import { OCRResult, OCREngine } from '../types/visual-translator.types';
 
 const OCR_SPACE_API_URL = 'https://api.ocr.space/parse/image';
@@ -58,11 +58,11 @@ class OCRSpaceService {
         },
         body: new URLSearchParams({
           base64Image: `data:image/jpeg;base64,${base64Image}`,
-          language: 'eng,chi_sim,rus,tur', // Поддержка нескольких языков
-          isOverlayRequired: 'true',
+          language: 'eng', // Английский язык (универсальный)
+          isOverlayRequired: 'false',
           detectOrientation: 'true',
           scale: 'true',
-          OCREngine: '2', // Engine 2 (более точный для азиатских языков)
+          OCREngine: '2', // Engine 2 (более точный)
         }).toString(),
       });
 

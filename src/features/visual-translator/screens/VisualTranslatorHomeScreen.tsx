@@ -13,9 +13,7 @@ import {
   StatusBar,
   Platform,
 } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
-import { DesignColors } from '../../../constants/Design';
 import { scale, verticalScale, moderateScale } from '../../../utils/ResponsiveUtils';
 import { Camera } from 'expo-camera';
 import * as ImagePicker from 'expo-image-picker';
@@ -129,11 +127,23 @@ export default function VisualTranslatorHomeScreen() {
       if (ocrResult.text.trim().length > 0) {
         // Текст найден - переводим его
         console.log('[VisualTranslator] Text found, translating...');
-        const translatedText = await TranslationService.translate(
-          ocrResult.text,
-          ocrResult.language === 'unknown' ? 'auto' : ocrResult.language,
-          selectedLanguage
-        );
+
+        // Проверяем, нужен ли перевод (если язык источника совпадает с целевым)
+        const sourceLanguage = ocrResult.language === 'unknown' ? 'auto' : ocrResult.language;
+        const needsTranslation = sourceLanguage === 'auto' || sourceLanguage !== selectedLanguage;
+
+        let translatedText: string;
+        if (needsTranslation) {
+          translatedText = await TranslationService.translate(
+            ocrResult.text,
+            sourceLanguage,
+            selectedLanguage
+          );
+        } else {
+          // Если языки совпадают, просто используем оригинальный текст
+          console.log('[VisualTranslator] Same language detected, skipping translation');
+          translatedText = ocrResult.text;
+        }
 
         translationResult = {
           originalText: ocrResult.text,
@@ -190,7 +200,7 @@ export default function VisualTranslatorHomeScreen() {
   if (hasPermissions === null) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#6366F1" />
+        <ActivityIndicator size="large" color="#10B981" />
         <Text style={styles.loadingText}>{texts.vtRequestingPermissions}</Text>
       </View>
     );
@@ -199,8 +209,8 @@ export default function VisualTranslatorHomeScreen() {
   return (
     <View style={styles.container}>
       <StatusBar
-        barStyle="light-content"
-        backgroundColor="#6366F1"
+        barStyle="dark-content"
+        backgroundColor="#FFFFFF"
         translucent={false}
       />
 
@@ -211,7 +221,7 @@ export default function VisualTranslatorHomeScreen() {
           onPress={() => navigation.goBack()}
           activeOpacity={0.7}
         >
-          <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
+          <Ionicons name="arrow-back" size={24} color="#1F2937" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{texts.visualTranslatorTitle}</Text>
         <View style={styles.placeholder} />
@@ -221,21 +231,16 @@ export default function VisualTranslatorHomeScreen() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* Hero Section with Gradient */}
-        <LinearGradient
-          colors={['#6366F1', '#8B5CF6']}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={styles.heroSection}
-        >
+        {/* Hero Section */}
+        <View style={styles.heroSection}>
           <View style={styles.iconContainer}>
-            <Text style={styles.heroIcon}>📸</Text>
+            <Ionicons name="camera-outline" size={48} color="#10B981" />
           </View>
           <Text style={styles.heroTitle}>{texts.vtTranslateWithAI}</Text>
           <Text style={styles.heroSubtitle}>
             {texts.vtCameraSubtitle}
           </Text>
-        </LinearGradient>
+        </View>
 
         {/* Action Buttons */}
         <View style={styles.actionsContainer}>
@@ -245,7 +250,7 @@ export default function VisualTranslatorHomeScreen() {
             disabled={isProcessing || !hasPermissions}
             activeOpacity={0.8}
           >
-            <Text style={styles.buttonEmoji}>📷</Text>
+            <Ionicons name="camera" size={24} color="#FFFFFF" />
             <Text style={styles.actionButtonText}>{texts.vtTakePhoto}</Text>
           </TouchableOpacity>
 
@@ -255,7 +260,7 @@ export default function VisualTranslatorHomeScreen() {
             disabled={isProcessing || !hasPermissions}
             activeOpacity={0.8}
           >
-            <Text style={styles.buttonEmojiSecondary}>🖼️</Text>
+            <Ionicons name="images-outline" size={24} color="#10B981" />
             <Text style={styles.actionButtonTextSecondary}>{texts.vtChooseGallery}</Text>
           </TouchableOpacity>
         </View>
@@ -263,7 +268,7 @@ export default function VisualTranslatorHomeScreen() {
         {/* Processing Indicator */}
         {isProcessing && (
           <View style={styles.processingContainer}>
-            <ActivityIndicator size="large" color="#6366F1" />
+            <ActivityIndicator size="large" color="#10B981" />
             <Text style={styles.processingText}>{texts.vtProcessing}</Text>
             <Text style={styles.processingSubtext}>
               {texts.vtProcessingSubtext}
@@ -273,7 +278,10 @@ export default function VisualTranslatorHomeScreen() {
 
         {/* OCR Engine Selector */}
         <View style={styles.ocrEngineSection}>
-          <Text style={styles.ocrEngineTitle}>⚙️ {texts.vtOcrEngine}</Text>
+          <View style={styles.ocrEngineTitleContainer}>
+            <Ionicons name="settings-outline" size={20} color="#6B7280" />
+            <Text style={styles.ocrEngineTitle}>{texts.vtOcrEngine}</Text>
+          </View>
           <TouchableOpacity
             style={styles.ocrEngineCard}
             onPress={() => setShowEngineSelector(true)}
@@ -287,47 +295,53 @@ export default function VisualTranslatorHomeScreen() {
                 {getEngineDescription(selectedEngine)}
               </Text>
             </View>
-            <Text style={styles.chevronEmoji}>➡️</Text>
+            <Ionicons name="chevron-forward" size={20} color="#10B981" />
           </TouchableOpacity>
-          <Text style={styles.ocrEngineHint}>
-            💡 {texts.vtAutoFallback}
-          </Text>
+          <View style={styles.ocrEngineHintContainer}>
+            <Ionicons name="information-circle-outline" size={16} color="#9CA3AF" />
+            <Text style={styles.ocrEngineHint}>
+              {texts.vtAutoFallback}
+            </Text>
+          </View>
         </View>
 
         {/* Features List */}
         <View style={styles.featuresSection}>
-          <Text style={styles.featuresTitle}>✨ {texts.vtFeatures}</Text>
+          <View style={styles.featuresTitleContainer}>
+            <Ionicons name="sparkles-outline" size={22} color="#10B981" />
+            <Text style={styles.featuresTitle}>{texts.vtFeatures}</Text>
+          </View>
 
-          <FeatureItemEmoji
-            emoji="📝"
+          <FeatureItem
+            iconName="document-text-outline"
             title={texts.vtFeatureOcrTitle}
             description={texts.vtFeatureOcrDesc}
-            color="#6366F1"
+            color="#10B981"
           />
-          <FeatureItemEmoji
-            emoji="✨"
+          <FeatureItem
+            iconName="sparkles"
             title={texts.vtFeatureAiTitle}
             description={texts.vtFeatureAiDesc}
-            color="#8B5CF6"
+            color="#10B981"
           />
-          <FeatureItemEmoji
-            emoji="🌍"
+          <FeatureItem
+            iconName="language-outline"
             title={texts.vtFeatureSmartTitle}
             description={texts.vtFeatureSmartDesc}
             color="#10B981"
           />
-          <FeatureItemEmoji
-            emoji="⭐"
+          <FeatureItem
+            iconName="star-outline"
             title={texts.vtFeatureSaveTitle}
             description={texts.vtFeatureSaveDesc}
-            color="#F59E0B"
+            color="#10B981"
           />
         </View>
 
         {/* Permissions Notice */}
         {!hasPermissions && (
           <View style={styles.permissionsNotice}>
-            <Text style={styles.permissionsIcon}>⚠️</Text>
+            <Ionicons name="warning-outline" size={32} color="#F59E0B" />
             <Text style={styles.permissionsText}>
               {texts.vtPermissionsText}
             </Text>
@@ -378,18 +392,18 @@ function getEngineDescription(engine: OCREngine): string {
   }
 }
 
-// Feature Item Component with Emoji
-interface FeatureItemEmojiProps {
-  emoji: string;
+// Feature Item Component with Ionicons
+interface FeatureItemProps {
+  iconName: keyof typeof Ionicons.glyphMap;
   title: string;
   description: string;
   color: string;
 }
 
-const FeatureItemEmoji: React.FC<FeatureItemEmojiProps> = ({ emoji, title, description, color }) => (
+const FeatureItem: React.FC<FeatureItemProps> = ({ iconName, title, description, color }) => (
   <View style={styles.featureItem}>
     <View style={[styles.featureIconContainer, { backgroundColor: color + '15' }]}>
-      <Text style={styles.featureEmoji}>{emoji}</Text>
+      <Ionicons name={iconName} size={24} color={color} />
     </View>
     <View style={styles.featureContent}>
       <Text style={styles.featureTitle}>{title}</Text>
@@ -401,7 +415,7 @@ const FeatureItemEmoji: React.FC<FeatureItemEmojiProps> = ({ emoji, title, descr
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: DesignColors.background,
+    backgroundColor: '#F8F9FA',
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   loadingContainer: {
@@ -420,104 +434,93 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: scale(16),
-    paddingVertical: verticalScale(12),
-    backgroundColor: '#6366F1',
+    paddingVertical: verticalScale(16),
+    backgroundColor: '#FFFFFF',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E7EB',
   },
   backButton: {
     width: scale(40),
     height: scale(40),
     borderRadius: scale(20),
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
   },
   headerTitle: {
     fontSize: moderateScale(18),
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: '#1F2937',
   },
   placeholder: {
-    width: scale(32),
+    width: scale(40),
   },
   scrollContent: {
     paddingBottom: verticalScale(40),
   },
   heroSection: {
-    paddingVertical: verticalScale(48),
+    paddingVertical: verticalScale(40),
     paddingHorizontal: scale(24),
     alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    marginBottom: verticalScale(8),
   },
   iconContainer: {
     width: scale(80),
     height: verticalScale(80),
-    borderRadius: scale(24),
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    borderRadius: scale(40),
+    backgroundColor: '#10B98115',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: verticalScale(24),
-  },
-  heroIcon: {
-    fontSize: moderateScale(40),
+    marginBottom: verticalScale(20),
   },
   heroTitle: {
-    fontSize: moderateScale(28),
+    fontSize: moderateScale(24),
     fontWeight: '700',
-    color: '#FFFFFF',
-    marginBottom: verticalScale(12),
+    color: '#1F2937',
+    marginBottom: verticalScale(8),
     textAlign: 'center',
   },
   heroSubtitle: {
-    fontSize: moderateScale(16),
-    color: 'rgba(255, 255, 255, 0.9)',
+    fontSize: moderateScale(15),
+    color: '#6B7280',
     textAlign: 'center',
-    lineHeight: moderateScale(24),
+    lineHeight: moderateScale(22),
   },
   actionsContainer: {
     paddingHorizontal: scale(20),
-    paddingTop: verticalScale(24),
+    paddingTop: verticalScale(16),
     gap: scale(12),
   },
   actionButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: verticalScale(18),
-    borderRadius: scale(16),
-    gap: scale(12),
+    paddingVertical: verticalScale(16),
+    borderRadius: scale(12),
+    gap: scale(10),
     shadowColor: '#000',
     shadowOffset: { width: 0, height: verticalScale(2) },
     shadowOpacity: 0.1,
-    shadowRadius: scale(8),
-    elevation: 3,
+    shadowRadius: scale(4),
+    elevation: 2,
   },
   primaryButton: {
-    backgroundColor: '#6366F1',
+    backgroundColor: '#10B981',
   },
   secondaryButton: {
     backgroundColor: '#FFFFFF',
-    borderWidth: 2,
-    borderColor: '#6366F1',
-  },
-  buttonEmoji: {
-    fontSize: moderateScale(28),
-  },
-  buttonEmojiSecondary: {
-    fontSize: moderateScale(28),
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
   },
   actionButtonText: {
-    fontSize: moderateScale(18),
+    fontSize: moderateScale(16),
     fontWeight: '600',
     color: '#FFFFFF',
   },
   actionButtonTextSecondary: {
-    fontSize: moderateScale(18),
+    fontSize: moderateScale(16),
     fontWeight: '600',
-    color: '#6366F1',
+    color: '#10B981',
   },
   processingContainer: {
     alignItems: 'center',
@@ -536,18 +539,26 @@ const styles = StyleSheet.create({
   },
   featuresSection: {
     paddingHorizontal: scale(20),
-    paddingTop: verticalScale(32),
+    paddingTop: verticalScale(24),
+    backgroundColor: '#FFFFFF',
+    marginTop: verticalScale(8),
+    paddingBottom: verticalScale(24),
+  },
+  featuresTitleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: verticalScale(20),
+    gap: scale(8),
   },
   featuresTitle: {
-    fontSize: moderateScale(20),
+    fontSize: moderateScale(18),
     fontWeight: '700',
-    color: '#111827',
-    marginBottom: verticalScale(20),
+    color: '#1F2937',
   },
   featureItem: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    marginBottom: verticalScale(20),
+    marginBottom: verticalScale(16),
   },
   featureIconContainer: {
     width: scale(48),
@@ -557,36 +568,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: scale(16),
   },
-  featureEmoji: {
-    fontSize: moderateScale(24),
-    textAlign: 'center',
-  },
   featureContent: {
     flex: 1,
   },
   featureTitle: {
-    fontSize: moderateScale(16),
+    fontSize: moderateScale(15),
     fontWeight: '600',
-    color: '#111827',
+    color: '#1F2937',
     marginBottom: verticalScale(4),
   },
   featureDescription: {
     fontSize: moderateScale(14),
-    color: '#64748B',
+    color: '#6B7280',
     lineHeight: moderateScale(20),
   },
   permissionsNotice: {
     marginHorizontal: scale(20),
-    marginTop: verticalScale(24),
+    marginTop: verticalScale(16),
     padding: scale(20),
     backgroundColor: '#FEF3C7',
-    borderRadius: scale(16),
+    borderRadius: scale(12),
     borderWidth: 1,
     borderColor: '#FCD34D',
     alignItems: 'center',
-  },
-  permissionsIcon: {
-    fontSize: moderateScale(32),
   },
   permissionsText: {
     marginTop: verticalScale(12),
@@ -600,39 +604,40 @@ const styles = StyleSheet.create({
     paddingHorizontal: scale(24),
     paddingVertical: verticalScale(12),
     backgroundColor: '#F59E0B',
-    borderRadius: scale(12),
+    borderRadius: scale(10),
   },
   grantButtonText: {
-    fontSize: moderateScale(16),
+    fontSize: moderateScale(15),
     fontWeight: '600',
     color: '#FFFFFF',
   },
   // OCR Engine Selector styles
   ocrEngineSection: {
-    marginHorizontal: scale(20),
-    marginTop: verticalScale(24),
-    marginBottom: verticalScale(8),
+    backgroundColor: '#FFFFFF',
+    paddingHorizontal: scale(20),
+    paddingVertical: verticalScale(20),
+    marginTop: verticalScale(8),
+  },
+  ocrEngineTitleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: verticalScale(12),
+    gap: scale(8),
   },
   ocrEngineTitle: {
     fontSize: moderateScale(16),
     fontWeight: '700',
-    color: '#111827',
-    marginBottom: verticalScale(12),
+    color: '#1F2937',
   },
   ocrEngineCard: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#FFFFFF',
-    borderRadius: scale(12),
+    backgroundColor: '#F9FAFB',
+    borderRadius: scale(10),
     padding: scale(16),
     borderWidth: 1,
     borderColor: '#E5E7EB',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: verticalScale(1) },
-    shadowOpacity: 0.05,
-    shadowRadius: scale(3),
-    elevation: 2,
   },
   ocrEngineInfo: {
     flex: 1,
@@ -640,7 +645,7 @@ const styles = StyleSheet.create({
   ocrEngineName: {
     fontSize: moderateScale(15),
     fontWeight: '600',
-    color: '#111827',
+    color: '#1F2937',
     marginBottom: verticalScale(4),
   },
   ocrEngineSubtext: {
@@ -648,13 +653,15 @@ const styles = StyleSheet.create({
     color: '#6B7280',
     lineHeight: moderateScale(18),
   },
-  ocrEngineHint: {
+  ocrEngineHintContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     marginTop: verticalScale(8),
+    gap: scale(4),
+  },
+  ocrEngineHint: {
     fontSize: moderateScale(12),
     color: '#9CA3AF',
-    textAlign: 'center',
-  },
-  chevronEmoji: {
-    fontSize: moderateScale(18),
   },
 });

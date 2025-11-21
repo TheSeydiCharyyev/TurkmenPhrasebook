@@ -77,6 +77,18 @@ export const TRANSLATOR_LANGUAGES: TranslatorLanguage[] = [
   { code: 'vi', name: 'Vietnamese', nativeName: 'Tiếng Việt', flag: '🇻🇳', isSupported: true },
   { code: 'pl', name: 'Polish', nativeName: 'Polski', flag: '🇵🇱', isSupported: true },
   { code: 'uk', name: 'Ukrainian', nativeName: 'Українська', flag: '🇺🇦', isSupported: true },
+  { code: 'nl', name: 'Dutch', nativeName: 'Nederlands', flag: '🇳🇱', isSupported: true },
+  { code: 'uz', name: 'Uzbek', nativeName: 'O\'zbek', flag: '🇺🇿', isSupported: true },
+  { code: 'az', name: 'Azerbaijani', nativeName: 'Azərbaycan', flag: '🇦🇿', isSupported: true },
+  { code: 'kk', name: 'Kazakh', nativeName: 'Қазақ', flag: '🇰🇿', isSupported: true },
+  { code: 'ky', name: 'Kyrgyz', nativeName: 'Кыргыз', flag: '🇰🇬', isSupported: true },
+  { code: 'tg', name: 'Tajik', nativeName: 'Тоҷикӣ', flag: '🇹🇯', isSupported: true },
+  { code: 'id', name: 'Indonesian', nativeName: 'Bahasa Indonesia', flag: '🇮🇩', isSupported: true },
+  { code: 'ms', name: 'Malay', nativeName: 'Bahasa Melayu', flag: '🇲🇾', isSupported: true },
+  { code: 'ur', name: 'Urdu', nativeName: 'اردو', flag: '🇵🇰', isSupported: true },
+  { code: 'ps', name: 'Pashto', nativeName: 'پښتو', flag: '🏳️', isSupported: true },
+  { code: 'hy', name: 'Armenian', nativeName: 'Հայերեն', flag: '🇦🇲', isSupported: true },
+  { code: 'ka', name: 'Georgian', nativeName: 'ქართული', flag: '🇬🇪', isSupported: true },
 ];
 
 /**

@@ -105,6 +105,13 @@ export default function SettingsScreen() {
   const [showSpeechRateModal, setShowSpeechRateModal] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  // Скрываем стандартный header навигации
+  React.useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: false,
+    });
+  }, [navigation]);
+
   const { isOnline, isDataCached, refreshCache, getCacheInfo } = useOffline();
   const { clearHistory, getStats } = useHistory();
   const { selectedLanguage } = useConfig();
@@ -318,14 +325,21 @@ export default function SettingsScreen() {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['top']}>
+      {/* Header with Back Button */}
+      <View style={styles.headerBar}>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}
+          activeOpacity={0.7}
+        >
+          <Ionicons name="arrow-back" size={24} color="#1F2937" />
+        </TouchableOpacity>
+        <Text style={styles.headerBarTitle}>{texts.settingsTitle}</Text>
+        <View style={styles.placeholder} />
+      </View>
+
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View style={styles.header}>
-          <Text style={styles.headerTitle}>{texts.settingsTitle}</Text>
-          <Text style={styles.headerSubtitle}>
-            {settingsTexts.interfaceSettings}
-          </Text>
-        </View>
 
         <View style={styles.settingsContainer}>
           {/* Секция языка */}
@@ -335,21 +349,21 @@ export default function SettingsScreen() {
             {/* Interface Language */}
             <SettingsItem
               icon="language"
-              iconColor={Colors.primary}
+              iconColor="#FF8008"
               title={texts.switchLanguage}
               subtitle={`${texts.currentLanguage}${getLanguageByCode(config.mode)?.name || config.mode}`}
               onPress={handleLanguageToggle}
-              rightComponent={<Ionicons name="chevron-forward" size={20} color={Colors.textLight} />}
+              rightComponent={<Ionicons name="chevron-forward" size={20} color="#9CA3AF" />}
             />
 
             {/* Phrasebook Language */}
             <SettingsItem
               icon="book"
-              iconColor={Colors.accent}
+              iconColor="#FF8008"
               title={texts.phrasebookLanguage}
               subtitle={`${texts.currentLanguage}${getLanguageByCode(selectedLanguage)?.nameEn || selectedLanguage}-Turkmen`}
               onPress={handlePhrasebookLanguageChange}
-              rightComponent={<Ionicons name="chevron-forward" size={20} color={Colors.textLight} />}
+              rightComponent={<Ionicons name="chevron-forward" size={20} color="#9CA3AF" />}
             />
           </View>
 
@@ -359,44 +373,44 @@ export default function SettingsScreen() {
 
             <SettingsItem
               icon="volume-high"
-              iconColor={Colors.accent}
+              iconColor="#FF8008"
               title={texts.soundEffects}
               subtitle={texts.pronunciationPlayback}
               rightComponent={
                 <Switch
                   value={preferences.soundEnabled}
                   onValueChange={() => handleTogglePreference('soundEnabled')}
-                  trackColor={{ false: Colors.textLight, true: Colors.accent }}
-                  thumbColor={Colors.textWhite}
+                  trackColor={{ false: '#D1D5DB', true: '#FF8008' }}
+                  thumbColor="#FFFFFF"
                 />
               }
             />
 
             <SettingsItem
               icon="play-circle"
-              iconColor={Colors.success}
+              iconColor="#10B981"
               title={texts.testVoice}
               subtitle={`${availableVoices.length} ${texts.voicesAvailable}`}
               onPress={testTTS}
-              rightComponent={<Ionicons name="play" size={20} color={Colors.textLight} />}
+              rightComponent={<Ionicons name="play" size={20} color="#9CA3AF" />}
             />
 
             <SettingsItem
               icon="checkmark-circle"
-              iconColor={Colors.primary}
+              iconColor="#3B82F6"
               title={texts.checkVoices}
               subtitle={texts.checkVoicesDesc}
               onPress={checkVoiceAvailability}
-              rightComponent={<Ionicons name="search" size={20} color={Colors.textLight} />}
+              rightComponent={<Ionicons name="search" size={20} color="#9CA3AF" />}
             />
 
             <SettingsItem
               icon="list"
-              iconColor="#10B981"
+              iconColor="#8B5CF6"
               title="Установленные голоса"
               subtitle="Просмотр всех доступных TTS голосов"
               onPress={checkInstalledVoices}
-              rightComponent={<Ionicons name="arrow-forward" size={20} color={Colors.textLight} />}
+              rightComponent={<Ionicons name="arrow-forward" size={20} color="#9CA3AF" />}
             />
           </View>
 
@@ -406,24 +420,24 @@ export default function SettingsScreen() {
 
             <SettingsItem
               icon="text"
-              iconColor={Colors.primary}
+              iconColor="#FF8008"
               title={texts.fontSize}
               subtitle={`${texts.currentFontSize}${preferences.fontSize}px`}
               onPress={() => setShowFontSizeModal(true)}
-              rightComponent={<Ionicons name="chevron-forward" size={20} color={Colors.textLight} />}
+              rightComponent={<Ionicons name="chevron-forward" size={20} color="#9CA3AF" />}
             />
 
             <SettingsItem
               icon="phone-portrait"
-              iconColor={Colors.accent}
+              iconColor="#FF8008"
               title={texts.hapticFeedback}
               subtitle={texts.hapticFeedbackDesc}
               rightComponent={
                 <Switch
                   value={preferences.hapticFeedback}
                   onValueChange={() => handleTogglePreference('hapticFeedback')}
-                  trackColor={{ false: Colors.textLight, true: Colors.accent }}
-                  thumbColor={Colors.textWhite}
+                  trackColor={{ false: '#D1D5DB', true: '#FF8008' }}
+                  thumbColor="#FFFFFF"
                 />
               }
             />
@@ -435,7 +449,7 @@ export default function SettingsScreen() {
 
             <SettingsItem
               icon="time"
-              iconColor={Colors.warning}
+              iconColor="#EF4444"
               title={texts.clearHistory}
               subtitle={`${stats.uniquePhrases} ${texts.phrases} • ${stats.totalViews} ${texts.views}`}
               onPress={() => {
@@ -455,7 +469,7 @@ export default function SettingsScreen() {
                   ]
                 );
               }}
-              rightComponent={<Ionicons name="chevron-forward" size={20} color={Colors.textLight} />}
+              rightComponent={<Ionicons name="chevron-forward" size={20} color="#9CA3AF" />}
             />
           </View>
 
@@ -465,11 +479,11 @@ export default function SettingsScreen() {
 
             <SettingsItem
               icon="information-circle"
-              iconColor={Colors.textLight}
+              iconColor="#6B7280"
               title={texts.about}
               subtitle={texts.versionAndInfo}
               onPress={handleAbout}
-              rightComponent={<Ionicons name="chevron-forward" size={20} color={Colors.textLight} />}
+              rightComponent={<Ionicons name="chevron-forward" size={20} color="#9CA3AF" />}
             />
           </View>
         </View>
@@ -490,58 +504,75 @@ export default function SettingsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.background,
+    backgroundColor: '#F8F9FA',
   },
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#FFFFFF',
   },
-  header: {
-    padding: scale(20),
-    paddingBottom: verticalScale(10),
+  headerBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: scale(16),
+    paddingVertical: verticalScale(16),
+    backgroundColor: '#FFFFFF',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E7EB',
   },
-  headerTitle: {
-    fontSize: moderateScale(28),
-    fontWeight: 'bold',
-    color: Colors.text,
-    marginBottom: verticalScale(5),
+  backButton: {
+    width: scale(40),
+    height: scale(40),
+    borderRadius: scale(20),
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  headerSubtitle: {
-    fontSize: moderateScale(16),
-    color: Colors.textLight,
+  headerBarTitle: {
+    fontSize: moderateScale(18),
+    fontWeight: '700',
+    color: '#1F2937',
+  },
+  placeholder: {
+    width: scale(40),
   },
   settingsContainer: {
     flex: 1,
-    paddingHorizontal: scale(20),
+    paddingHorizontal: scale(16),
+    paddingTop: verticalScale(16),
     paddingBottom: verticalScale(20),
   },
   section: {
-    marginBottom: verticalScale(30),
+    marginBottom: verticalScale(24),
   },
   sectionTitle: {
-    fontSize: moderateScale(18),
+    fontSize: moderateScale(13),
     fontWeight: '600',
-    color: Colors.text,
-    marginBottom: verticalScale(15),
-    paddingLeft: scale(5),
+    color: '#6B7280',
+    marginBottom: verticalScale(12),
+    paddingLeft: scale(4),
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
   },
   settingItem: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: Colors.cardBackground,
+    backgroundColor: '#FFFFFF',
     borderRadius: scale(12),
     padding: scale(16),
     marginBottom: verticalScale(8),
-    elevation: 1,
-    shadowColor: Colors.cardShadow,
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 1,
     },
     shadowOpacity: 0.05,
     shadowRadius: 2,
+    elevation: 1,
   },
   settingLeft: {
     flexDirection: 'row',
@@ -554,12 +585,12 @@ const styles = StyleSheet.create({
   },
   settingTitle: {
     fontSize: moderateScale(16),
-    fontWeight: '500',
-    color: Colors.text,
+    fontWeight: '600',
+    color: '#1F2937',
     marginBottom: verticalScale(2),
   },
   settingSubtitle: {
     fontSize: moderateScale(14),
-    color: Colors.textLight,
+    color: '#6B7280',
   },
 });
