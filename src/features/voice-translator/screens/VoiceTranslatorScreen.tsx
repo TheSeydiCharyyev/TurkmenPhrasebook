@@ -14,9 +14,9 @@ import {
   Linking,
   Platform,
   Modal,
+  StatusBar,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import Voice from '@react-native-voice/voice';
@@ -263,29 +263,25 @@ export default function VoiceTranslatorScreen() {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
+      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" translucent={false} />
+
+      {/* Header */}
+      <View style={styles.header}>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}
+          activeOpacity={0.7}
+        >
+          <Ionicons name="arrow-back" size={24} color="#1F2937" />
+        </TouchableOpacity>
+        <Text style={styles.headerTitle}>{texts.vtHeroTitle}</Text>
+        <View style={styles.placeholder} />
+      </View>
+
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
-        {/* Gradient Header */}
-        <LinearGradient
-          colors={['#FF6B35', '#F7931E']}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={styles.header}
-        >
-          {/* Back Button */}
-          <TouchableOpacity
-            style={styles.backButton}
-            onPress={() => navigation.goBack()}
-          >
-            <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
-          </TouchableOpacity>
-
-          <Text style={styles.headerEmoji}>🎤</Text>
-          <Text style={styles.headerTitle}>{texts.vtHeroTitle}</Text>
-          <Text style={styles.headerSubtitle}>{texts.vtHeroSubtitle}</Text>
-        </LinearGradient>
 
         {/* Language Selector Bar */}
         <View style={styles.languageBar}>
@@ -302,7 +298,7 @@ export default function VoiceTranslatorScreen() {
             style={styles.swapButton}
             onPress={handleSwapLanguages}
           >
-            <Text style={styles.swapIcon}>⇄</Text>
+            <Ionicons name="swap-horizontal" size={24} color="#8B5CF6" />
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -386,22 +382,23 @@ export default function VoiceTranslatorScreen() {
           {/* Mic button */}
           <Animated.View style={{ transform: [{ scale: pulseAnim }] }}>
             <TouchableOpacity
-              style={styles.micButton}
+              style={[
+                styles.micButton,
+                state === 'listening' && styles.micButtonListening,
+                state === 'processing' && styles.micButtonProcessing,
+              ]}
               onPress={handleMicPress}
               activeOpacity={0.8}
             >
-              <LinearGradient
-                colors={getMicButtonColor()}
-                style={styles.micGradient}
-              >
-                {state === 'processing' ? (
-                  <ActivityIndicator size="large" color="white" />
-                ) : (
-                  <Text style={styles.micIcon}>
-                    {state === 'listening' ? '⏹️' : '🎤'}
-                  </Text>
-                )}
-              </LinearGradient>
+              {state === 'processing' ? (
+                <ActivityIndicator size="large" color="white" />
+              ) : (
+                <Ionicons
+                  name={state === 'listening' ? 'stop-circle' : 'mic'}
+                  size={48}
+                  color="#FFFFFF"
+                />
+              )}
             </TouchableOpacity>
           </Animated.View>
         </View>
@@ -410,8 +407,9 @@ export default function VoiceTranslatorScreen() {
         {recognizedText && (
           <View style={styles.card}>
             <View style={styles.cardHeader}>
+              <Ionicons name="chatbubble-outline" size={20} color="#6B7280" />
               <Text style={styles.cardTitle}>
-                🗣️ {texts.vtRecognized} ({getLanguageByCode(sourceLang)?.nameEn})
+                {texts.vtRecognized} ({getLanguageByCode(sourceLang)?.nameEn})
               </Text>
             </View>
             <Text style={styles.cardText}>{recognizedText}</Text>
@@ -420,50 +418,52 @@ export default function VoiceTranslatorScreen() {
               onPress={handlePlayOriginal}
               disabled={isPlayingOriginal}
             >
-              <Text style={styles.playButtonText}>
-                {isPlayingOriginal ? '⏸️' : '🔊'} {texts.vtPlayOriginal}
-              </Text>
+              <Ionicons
+                name={isPlayingOriginal ? 'pause' : 'volume-high'}
+                size={20}
+                color="#FFFFFF"
+              />
+              <Text style={styles.playButtonText}>{texts.vtPlayOriginal}</Text>
             </TouchableOpacity>
           </View>
         )}
 
         {/* Translation Card */}
         {translatedText && (
-          <LinearGradient
-            colors={['#22C55E', '#16A34A']}
-            style={styles.translationCard}
-          >
+          <View style={styles.translationCard}>
             <View style={styles.cardHeader}>
-              <Text style={[styles.cardTitle, styles.whiteText]}>
-                🌐 {texts.vtTranslation} ({getLanguageByCode(targetLang)?.nameEn})
+              <Ionicons name="language-outline" size={20} color="#8B5CF6" />
+              <Text style={styles.cardTitle}>
+                {texts.vtTranslation} ({getLanguageByCode(targetLang)?.nameEn})
               </Text>
             </View>
-            <Text style={[styles.cardText, styles.whiteText]}>
-              {translatedText}
-            </Text>
+            <Text style={styles.cardText}>{translatedText}</Text>
             <View style={styles.buttonRow}>
               <TouchableOpacity
-                style={styles.whiteButton}
+                style={styles.actionButton}
                 onPress={handlePlayTranslation}
                 disabled={isPlayingTranslation}
               >
-                <Text style={styles.whiteButtonText}>
-                  {isPlayingTranslation ? '⏸️' : '🔊'} {texts.vtPlayTranslation}
-                </Text>
+                <Ionicons
+                  name={isPlayingTranslation ? 'pause' : 'volume-high'}
+                  size={20}
+                  color="#8B5CF6"
+                />
+                <Text style={styles.actionButtonText}>{texts.vtPlayTranslation}</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.whiteButton} onPress={handleCopy}>
-                <Text style={styles.whiteButtonText}>
-                  📋 {texts.vtCopyTranslation}
-                </Text>
+              <TouchableOpacity style={styles.actionButton} onPress={handleCopy}>
+                <Ionicons name="copy-outline" size={20} color="#8B5CF6" />
+                <Text style={styles.actionButtonText}>{texts.vtCopyTranslation}</Text>
               </TouchableOpacity>
             </View>
-          </LinearGradient>
+          </View>
         )}
 
         {/* Error Message */}
         {state === 'error' && errorMessage && (
           <View style={styles.errorCard}>
-            <Text style={styles.errorText}>⚠️ {errorMessage}</Text>
+            <Ionicons name="warning-outline" size={24} color="#EF4444" />
+            <Text style={styles.errorText}>{errorMessage}</Text>
           </View>
         )}
 
@@ -471,9 +471,8 @@ export default function VoiceTranslatorScreen() {
         {(recognizedText || translatedText) && (
           <View style={styles.actionButtons}>
             <TouchableOpacity style={styles.clearButton} onPress={handleClear}>
-              <Text style={styles.clearButtonText}>
-                🗑️ {texts.vtClear}
-              </Text>
+              <Ionicons name="trash-outline" size={20} color="#6B7280" />
+              <Text style={styles.clearButtonText}>{texts.vtClear}</Text>
             </TouchableOpacity>
           </View>
         )}
@@ -570,56 +569,36 @@ function LanguageModal({ visible, onClose, onSelect, selectedLanguage, title }: 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.background || '#F9FAFB',
+    backgroundColor: '#F8F9FA',
   },
   scrollContent: {
     paddingBottom: verticalScale(30),
   },
   // Header
   header: {
-    paddingHorizontal: scale(20),
-    paddingTop: verticalScale(30),
-    paddingBottom: verticalScale(30),
-    borderBottomLeftRadius: scale(30),
-    borderBottomRightRadius: scale(30),
-    elevation: 8,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: verticalScale(4) },
-    shadowOpacity: 0.2,
-    shadowRadius: scale(8),
-  },
-  headerEmoji: {
-    fontSize: moderateScale(56),
-    textAlign: 'center',
-    marginBottom: verticalScale(10),
-  },
-  headerTitle: {
-    fontSize: moderateScale(32),
-    fontWeight: 'bold',
-    color: '#FFFFFF',
-    textAlign: 'center',
-    textShadowColor: 'rgba(0, 0, 0, 0.3)',
-    textShadowOffset: { width: 0, height: 2 },
-    textShadowRadius: 4,
-    marginBottom: verticalScale(8),
-  },
-  headerSubtitle: {
-    fontSize: moderateScale(16),
-    color: '#FFFFFF',
-    textAlign: 'center',
-    opacity: 0.9,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: scale(16),
+    paddingVertical: verticalScale(16),
+    backgroundColor: '#FFFFFF',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E7EB',
   },
   backButton: {
-    position: 'absolute',
-    top: verticalScale(10),
-    left: scale(10),
     width: scale(40),
     height: scale(40),
     borderRadius: scale(20),
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     justifyContent: 'center',
     alignItems: 'center',
-    zIndex: 10,
+  },
+  headerTitle: {
+    fontSize: moderateScale(18),
+    fontWeight: '700',
+    color: '#1F2937',
+  },
+  placeholder: {
+    width: scale(40),
   },
   // Language Bar
   languageBar: {
@@ -627,24 +606,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: '#FFFFFF',
-    marginHorizontal: scale(20),
-    marginTop: verticalScale(-20),
-    paddingVertical: verticalScale(15),
-    paddingHorizontal: scale(20),
-    borderRadius: scale(20),
-    elevation: 6,
+    marginHorizontal: scale(16),
+    marginTop: verticalScale(16),
+    paddingVertical: verticalScale(16),
+    paddingHorizontal: scale(16),
+    borderRadius: scale(12),
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: verticalScale(2) },
-    shadowOpacity: 0.1,
-    shadowRadius: scale(4),
+    shadowOpacity: 0.05,
+    shadowRadius: scale(3),
+    elevation: 2,
   },
   languageButton: {
     flex: 1,
   },
   languageText: {
-    fontSize: moderateScale(16),
+    fontSize: moderateScale(15),
     fontWeight: '600',
-    color: Colors.text || '#1F2937',
+    color: '#1F2937',
     textAlign: 'center',
   },
   swapButton: {
@@ -656,18 +637,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: scale(10),
   },
-  swapIcon: {
-    fontSize: moderateScale(24),
-    color: '#6B7280',
-  },
   // Status
   statusText: {
-    fontSize: moderateScale(18),
+    fontSize: moderateScale(16),
     fontWeight: '600',
-    color: Colors.text || '#1F2937',
+    color: '#6B7280',
     textAlign: 'center',
-    marginTop: verticalScale(30),
-    marginBottom: verticalScale(10),
+    marginTop: verticalScale(24),
+    marginBottom: verticalScale(8),
   },
   // Microphone Button
   micContainer: {
@@ -687,72 +664,79 @@ const styles = StyleSheet.create({
     width: scale(120),
     height: scale(120),
     borderRadius: scale(60),
-    elevation: 12,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: verticalScale(6) },
-    shadowOpacity: 0.3,
-    shadowRadius: scale(8),
-  },
-  micGradient: {
-    width: '100%',
-    height: '100%',
-    borderRadius: scale(60),
+    backgroundColor: '#8B5CF6',
     justifyContent: 'center',
     alignItems: 'center',
+    shadowColor: '#8B5CF6',
+    shadowOffset: { width: 0, height: verticalScale(4) },
+    shadowOpacity: 0.3,
+    shadowRadius: scale(12),
+    elevation: 8,
   },
-  micIcon: {
-    fontSize: moderateScale(48),
+  micButtonListening: {
+    backgroundColor: '#EF4444',
+    shadowColor: '#EF4444',
+  },
+  micButtonProcessing: {
+    backgroundColor: '#F59E0B',
+    shadowColor: '#F59E0B',
   },
   // Cards
   card: {
     backgroundColor: '#FFFFFF',
-    marginHorizontal: scale(20),
-    marginTop: verticalScale(20),
+    marginHorizontal: scale(16),
+    marginTop: verticalScale(16),
     padding: scale(20),
-    borderRadius: scale(20),
-    elevation: 6,
+    borderRadius: scale(12),
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: verticalScale(2) },
-    shadowOpacity: 0.1,
-    shadowRadius: scale(8),
+    shadowOpacity: 0.05,
+    shadowRadius: scale(3),
+    elevation: 2,
   },
   translationCard: {
-    marginHorizontal: scale(20),
-    marginTop: verticalScale(20),
+    backgroundColor: '#F5F3FF',
+    marginHorizontal: scale(16),
+    marginTop: verticalScale(16),
     padding: scale(20),
-    borderRadius: scale(20),
-    elevation: 8,
-    shadowColor: '#22C55E',
-    shadowOffset: { width: 0, height: verticalScale(4) },
-    shadowOpacity: 0.3,
-    shadowRadius: scale(12),
+    borderRadius: scale(12),
+    borderWidth: 2,
+    borderColor: '#8B5CF6',
   },
   cardHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: scale(8),
     marginBottom: verticalScale(12),
   },
   cardTitle: {
-    fontSize: moderateScale(18),
-    fontWeight: 'bold',
-    color: Colors.text || '#1F2937',
+    fontSize: moderateScale(14),
+    fontWeight: '600',
+    color: '#6B7280',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
   },
   cardText: {
-    fontSize: moderateScale(24),
-    color: Colors.text || '#1F2937',
-    lineHeight: moderateScale(32),
-    marginBottom: verticalScale(15),
-  },
-  whiteText: {
-    color: '#FFFFFF',
+    fontSize: moderateScale(20),
+    fontWeight: '600',
+    color: '#1F2937',
+    lineHeight: moderateScale(28),
+    marginBottom: verticalScale(16),
   },
   playButton: {
-    backgroundColor: '#3B82F6',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: scale(8),
+    backgroundColor: '#8B5CF6',
     paddingVertical: verticalScale(12),
     paddingHorizontal: scale(20),
-    borderRadius: scale(12),
+    borderRadius: scale(10),
     alignSelf: 'flex-start',
   },
   playButtonText: {
-    fontSize: moderateScale(16),
+    fontSize: moderateScale(15),
     fontWeight: '600',
     color: '#FFFFFF',
   },
@@ -760,52 +744,64 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: scale(10),
   },
-  whiteButton: {
+  actionButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: scale(8),
     backgroundColor: '#FFFFFF',
     paddingVertical: verticalScale(12),
-    paddingHorizontal: scale(20),
-    borderRadius: scale(12),
+    paddingHorizontal: scale(16),
+    borderRadius: scale(10),
     flex: 1,
+    borderWidth: 1,
+    borderColor: '#E5E7EB',
   },
-  whiteButtonText: {
-    fontSize: moderateScale(16),
+  actionButtonText: {
+    fontSize: moderateScale(14),
     fontWeight: '600',
-    color: '#22C55E',
-    textAlign: 'center',
+    color: '#8B5CF6',
   },
   // Error
   errorCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: scale(12),
     backgroundColor: '#FEE2E2',
-    marginHorizontal: scale(20),
-    marginTop: verticalScale(20),
+    marginHorizontal: scale(16),
+    marginTop: verticalScale(16),
     padding: scale(20),
-    borderRadius: scale(20),
-    borderWidth: 2,
+    borderRadius: scale(12),
+    borderWidth: 1,
     borderColor: '#EF4444',
   },
   errorText: {
-    fontSize: moderateScale(16),
+    fontSize: moderateScale(15),
+    fontWeight: '500',
     color: '#991B1B',
-    textAlign: 'center',
   },
   // Action Buttons
   actionButtons: {
-    marginHorizontal: scale(20),
-    marginTop: verticalScale(20),
+    marginHorizontal: scale(16),
+    marginTop: verticalScale(16),
   },
   clearButton: {
-    backgroundColor: '#F3F4F6',
-    paddingVertical: verticalScale(15),
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: scale(8),
+    backgroundColor: '#FFFFFF',
+    paddingVertical: verticalScale(14),
     paddingHorizontal: scale(20),
-    borderRadius: scale(12),
+    borderRadius: scale(10),
     borderWidth: 1,
-    borderColor: '#D1D5DB',
+    borderColor: '#E5E7EB',
   },
   clearButtonText: {
-    fontSize: moderateScale(16),
+    fontSize: moderateScale(15),
     fontWeight: '600',
     color: '#6B7280',
-    textAlign: 'center',
   },
 });
 
