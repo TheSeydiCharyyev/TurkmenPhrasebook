@@ -22,8 +22,8 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ message, isLastMessage }) => {
     >
       {/* Avatar/Icon */}
       {!isUser && (
-        <View style={styles.avatarContainer}>
-          <Text style={styles.avatar}>🤖</Text>
+        <View style={[styles.avatarContainer, styles.aiAvatar]}>
+          <Text style={styles.avatarText}>AI</Text>
         </View>
       )}
 
@@ -32,14 +32,12 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ message, isLastMessage }) => {
         style={[
           styles.bubble,
           isUser ? styles.userBubble : styles.assistantBubble,
-          isSystem && styles.systemBubble,
         ]}
       >
         <Text
           style={[
             styles.text,
             isUser ? styles.userText : styles.assistantText,
-            isSystem && styles.systemText,
           ]}
         >
           {message.content}
@@ -56,8 +54,8 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ message, isLastMessage }) => {
 
       {/* User Avatar */}
       {isUser && (
-        <View style={styles.avatarContainer}>
-          <Text style={styles.avatar}>👤</Text>
+        <View style={[styles.avatarContainer, styles.userAvatar]}>
+          <Text style={styles.avatarText}>You</Text>
         </View>
       )}
     </View>
@@ -84,13 +82,21 @@ const styles = StyleSheet.create({
     width: scale(32),
     height: scale(32),
     borderRadius: scale(16),
-    backgroundColor: '#F0F0F0',
     justifyContent: 'center',
     alignItems: 'center',
     marginHorizontal: scale(8),
   },
-  avatar: {
-    fontSize: moderateScale(18),
+  aiAvatar: {
+    backgroundColor: '#7C3AED', // Purple like the theme
+  },
+  userAvatar: {
+    backgroundColor: '#007AFF', // Blue
+  },
+  avatarText: {
+    fontSize: moderateScale(11),
+    fontWeight: '700',
+    color: '#FFFFFF',
+    letterSpacing: 0.3,
   },
   bubble: {
     maxWidth: '70%',

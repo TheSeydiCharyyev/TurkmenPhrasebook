@@ -10,6 +10,7 @@ export enum AssistantType {
   GRAMMAR_HELPER = 'grammar_helper',
   CULTURAL_ADVISOR = 'cultural_advisor',
   GENERAL_ASSISTANT = 'general_assistant',
+  UNIVERSAL = 'universal', // Universal AI assistant (all-in-one)
 }
 
 // Message Types

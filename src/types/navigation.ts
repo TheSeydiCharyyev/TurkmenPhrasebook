@@ -31,12 +31,7 @@ export type RootStackParamList = {
   VoiceTranslator: undefined;
 
   // AI Assistants Module (Phase 4 - Ready)
-  AIAssistantsHome: undefined;
-  ContextualTips: undefined;
-  ConversationTrainer: undefined;
-  GrammarHelper: undefined;
-  CulturalAdvisor: undefined;
-  GeneralAssistant: undefined;
+  UniversalAIChat: undefined; // Universal AI assistant (replaces old separate assistants)
 
   // Dictionary Module (v2.0 - Coming Soon Placeholder)
   Dictionary: undefined;
