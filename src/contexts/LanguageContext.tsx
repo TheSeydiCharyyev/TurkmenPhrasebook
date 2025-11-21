@@ -246,7 +246,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     voiceTranslatorSubtitle: 'Sesli terjime (v2.0)',
     dictionaryTitle: 'Sözlük',
     dictionarySubtitle: 'v2.0-de çykar',
-    aiAssistantsTitle: 'Emeli Aň çat botlar',
+    aiAssistantsTitle: 'Emeli Aň kömekçiler',
     aiAssistantsSubtitle: 'Akylly maslahatlar we goldaw',
     myFavoritesTitle: 'Halanýanlarym',
     myFavoritesSubtitle: 'Saklan maglumatlar',
@@ -385,7 +385,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'Salam! Geliň, Türkmen dilinde söhbetdeşlik öwreneliň. Men siziň geplemek ukybyny gowulandyrmaga kömek ederin!',
     aiGrammarHelperWelcome: 'Hoş geldiňiz! Men siziň grammatika kömekçiňiz. Türkmen grammatika düzgünleri ýa-da gurluşlary barada soraň.',
     aiCulturalAdvisorWelcome: 'Salam! Geliň, Türkmen medeniýeti, adatlary we däp-dessurlar hakda düşüneli.',
-    aiGeneralAssistantWelcome: 'Salam! Men umumy okuw kömekçiňiz. Türkmen dilini öwrenmek barada islendik zat soraň!',
+    aiGeneralAssistantWelcome: 'Salam! Men siziň AI kömekçiňiz. Terjimeler, sözlemler we dürli dillerde aragatnaşyk bilen kömek ederin.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'Hatyňyzy ýazyň...',
@@ -582,7 +582,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: '您好！让我们练习土库曼语对话吧。我会帮您提高口语能力！',
     aiGrammarHelperWelcome: '欢迎！我是您的语法助手。问我任何土库曼语语法规则或结构的问题。',
     aiCulturalAdvisorWelcome: '您好！让我帮您了解土库曼文化、习俗和传统。',
-    aiGeneralAssistantWelcome: '您好！我是您的通用学习助手。请随便问我关于学习土库曼语的任何问题！',
+    aiGeneralAssistantWelcome: '您好！我是您的AI助手。我可以帮助您进行翻译、短语和多语言交流。',
 
     // ChatScreen UI
     aiInputPlaceholder: '输入您的消息...',
@@ -778,7 +778,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'Привет! Давайте попрактикуем разговоры на туркменском. Я помогу улучшить ваши разговорные навыки!',
     aiGrammarHelperWelcome: 'Добро пожаловать! Я ваш помощник по грамматике. Спрашивайте меня о любых правилах или структурах туркменской грамматики.',
     aiCulturalAdvisorWelcome: 'Салам! Позвольте мне помочь вам понять туркменскую культуру, обычаи и традиции.',
-    aiGeneralAssistantWelcome: 'Привет! Я ваш общий помощник по обучению. Задавайте любые вопросы об изучении туркменского языка!',
+    aiGeneralAssistantWelcome: 'Привет! Я ваш AI помощник. Помогу с переводами, фразами и общением на разных языках.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'Введите ваше сообщение...',
@@ -974,7 +974,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: "Hi there! Let's practice some conversations in Turkmen. I'll help you improve your speaking skills!",
     aiGrammarHelperWelcome: "Welcome! I'm your grammar assistant. Ask me about any Turkmen grammar rules or structures.",
     aiCulturalAdvisorWelcome: "Salam! Let me help you understand Turkmen culture, customs, and traditions.",
-    aiGeneralAssistantWelcome: "Hello! I'm your general learning assistant. Feel free to ask me anything about learning Turkmen!",
+    aiGeneralAssistantWelcome: "Hello! I'm your AI assistant. I can help with translations, phrases, and communication in different languages.",
 
     // ChatScreen UI
     aiInputPlaceholder: 'Type your message...',
@@ -1170,7 +1170,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'Merhaba! Türkmen dilinde konuşma pratiği yapalım. Konuşma becerilerinizi geliştirmenize yardımcı olacağım!',
     aiGrammarHelperWelcome: 'Hoş geldiniz! Ben sizin dilbilgisi asistanınızım. Herhangi bir Türkmen dilbilgisi kuralı veya yapısı hakkında bana sorun.',
     aiCulturalAdvisorWelcome: 'Salam! Türkmen kültürünü, geleneklerini ve göreneklerini anlamanıza yardımcı olayım.',
-    aiGeneralAssistantWelcome: 'Merhaba! Ben sizin genel öğrenme asistanınızım. Türkmen dili öğrenimi hakkında bana herhangi bir şey sorabilirsiniz!',
+    aiGeneralAssistantWelcome: 'Merhaba! Ben sizin AI asistanınızım. Çeviriler, ifadeler ve farklı dillerde iletişim konusunda yardımcı olabilirim.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'Mesajınızı yazın...',
@@ -1345,7 +1345,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'Hallo! Lassen Sie uns einige Gespräche auf Turkmenisch üben. Ich helfe Ihnen, Ihre Sprechfähigkeiten zu verbessern!',
     aiGrammarHelperWelcome: 'Willkommen! Ich bin Ihr Grammatik-Assistent. Fragen Sie mich nach turkmenischen Grammatikregeln oder Strukturen.',
     aiCulturalAdvisorWelcome: 'Salam! Lassen Sie mich Ihnen helfen, die turkmenische Kultur, Bräuche und Traditionen zu verstehen.',
-    aiGeneralAssistantWelcome: 'Hallo! Ich bin Ihr allgemeiner Lernassistent. Fragen Sie mich gerne alles über das Lernen von Turkmenisch!',
+    aiGeneralAssistantWelcome: 'Hallo! Ich bin Ihr KI-Assistent. Ich kann Ihnen bei Übersetzungen, Phrasen und der Kommunikation in verschiedenen Sprachen helfen.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'Geben Sie Ihre Nachricht ein...',
@@ -1520,7 +1520,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'Salut ! Pratiquons des conversations en turkmène. Je vous aiderai à améliorer vos compétences orales !',
     aiGrammarHelperWelcome: 'Bienvenue ! Je suis votre assistant de grammaire. Posez-moi des questions sur les règles ou structures grammaticales turkmènes.',
     aiCulturalAdvisorWelcome: 'Salam ! Laissez-moi vous aider à comprendre la culture, les coutumes et les traditions turkmènes.',
-    aiGeneralAssistantWelcome: 'Bonjour ! Je suis votre assistant d\'apprentissage général. N\'hésitez pas à me poser des questions sur l\'apprentissage du turkmène !',
+    aiGeneralAssistantWelcome: 'Bonjour ! Je suis votre assistant IA. Je peux vous aider avec les traductions, les phrases et la communication dans différentes langues.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'Tapez votre message...',
@@ -1692,7 +1692,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: '¡Hola! Practiquemos algunas conversaciones en turcomano. ¡Te ayudaré a mejorar tus habilidades para hablar!',
     aiGrammarHelperWelcome: '¡Bienvenido! Soy tu asistente de gramática. Pregúntame sobre cualquier regla o estructura gramatical del turcomano.',
     aiCulturalAdvisorWelcome: '¡Salam! Déjame ayudarte a comprender la cultura, costumbres y tradiciones turcomanas.',
-    aiGeneralAssistantWelcome: '¡Hola! Soy tu asistente de aprendizaje general. ¡No dudes en preguntarme cualquier cosa sobre el aprendizaje del turcomano!',
+    aiGeneralAssistantWelcome: '¡Hola! Soy tu asistente de IA. Puedo ayudarte con traducciones, frases y comunicación en diferentes idiomas.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'Escribe tu mensaje...',
@@ -1864,7 +1864,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'Ciao! Pratichiamo alcune conversazioni in turkmeno. Ti aiuterò a migliorare le tue capacità di parlare!',
     aiGrammarHelperWelcome: 'Benvenuto! Sono il tuo assistente grammaticale. Chiedimi qualsiasi regola o struttura grammaticale turkmena.',
     aiCulturalAdvisorWelcome: 'Salam! Lascia che ti aiuti a capire la cultura, le usanze e le tradizioni turkmene.',
-    aiGeneralAssistantWelcome: 'Ciao! Sono il tuo assistente di apprendimento generale. Sentiti libero di chiedermi qualsiasi cosa sull\'apprendimento del turkmeno!',
+    aiGeneralAssistantWelcome: 'Ciao! Sono il tuo assistente IA. Posso aiutarti con traduzioni, frasi e comunicazione in diverse lingue.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'Scrivi il tuo messaggio...',
@@ -2035,7 +2035,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'Oi! Vamos praticar algumas conversas em turcomano. Vou ajudá-lo a melhorar suas habilidades de fala!',
     aiGrammarHelperWelcome: 'Bem-vindo! Sou seu assistente de gramática. Pergunte-me sobre qualquer regra ou estrutura gramatical do turcomano.',
     aiCulturalAdvisorWelcome: 'Salam! Deixe-me ajudá-lo a entender a cultura, costumes e tradições turcomanas.',
-    aiGeneralAssistantWelcome: 'Olá! Sou seu assistente de aprendizagem geral. Sinta-se à vontade para me perguntar qualquer coisa sobre aprender turcomano!',
+    aiGeneralAssistantWelcome: 'Olá! Sou seu assistente de IA. Posso ajudar com traduções, frases e comunicação em diferentes idiomas.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'Digite sua mensagem...',
@@ -2206,7 +2206,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'Hoi! Laten we wat gesprekken in het Turkmeen oefenen. Ik help je je spreekvaardigheid te verbeteren!',
     aiGrammarHelperWelcome: 'Welkom! Ik ben je grammatica-assistent. Vraag me naar Turkmeense grammaticaregels of -structuren.',
     aiCulturalAdvisorWelcome: 'Salam! Laat me je helpen de Turkmeense cultuur, gebruiken en tradities te begrijpen.',
-    aiGeneralAssistantWelcome: 'Hallo! Ik ben je algemene leerassistent. Stel me gerust elke vraag over het leren van Turkmeen!',
+    aiGeneralAssistantWelcome: 'Hallo! Ik ben je AI-assistent. Ik kan helpen met vertalingen, zinnen en communicatie in verschillende talen.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'Typ je bericht...',
@@ -2377,7 +2377,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'Cześć! Poćwiczmy kilka rozmów po turkmeńsku. Pomogę Ci poprawić Twoje umiejętności mówienia!',
     aiGrammarHelperWelcome: 'Witaj! Jestem Twoim asystentem gramatyki. Pytaj mnie o turkmeńskie zasady lub struktury gramatyczne.',
     aiCulturalAdvisorWelcome: 'Salam! Pozwól, że pomogę Ci zrozumieć turkmeńską kulturę, zwyczaje i tradycje.',
-    aiGeneralAssistantWelcome: 'Cześć! Jestem Twoim ogólnym asystentem nauki. Zadawaj mi dowolne pytania dotyczące nauki turkmeńskiego!',
+    aiGeneralAssistantWelcome: 'Cześć! Jestem Twoim asystentem AI. Mogę pomóc w tłumaczeniach, frazach i komunikacji w różnych językach.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'Wpisz swoją wiadomość...',
@@ -2551,7 +2551,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'Привіт! Давайте попрактикуємо кілька розмов туркменською. Я допоможу вам покращити ваші навички спілкування!',
     aiGrammarHelperWelcome: 'Ласкаво просимо! Я ваш помічник з граматики. Запитайте мене про будь-які туркменські граматичні правила або структури.',
     aiCulturalAdvisorWelcome: 'Салам! Дозвольте мені допомогти вам зрозуміти туркменську культуру, звичаї та традиції.',
-    aiGeneralAssistantWelcome: 'Привіт! Я ваш загальний асистент з навчання. Не соромтеся запитувати мене про будь-що щодо вивчення туркменської мови!',
+    aiGeneralAssistantWelcome: 'Привіт! Я ваш AI помічник. Можу допомогти з перекладами, фразами та спілкуванням різними мовами.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'Введіть ваше повідомлення...',
@@ -2724,7 +2724,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'こんにちは！トルクメン語で会話を練習しましょう。スピーキングスキルの向上をお手伝いします！',
     aiGrammarHelperWelcome: 'ようこそ！文法アシスタントです。トルクメン語の文法規則や構造について質問してください。',
     aiCulturalAdvisorWelcome: 'サラーム！トルクメンの文化、習慣、伝統を理解するお手伝いをします。',
-    aiGeneralAssistantWelcome: 'こんにちは！一般学習アシスタントです。トルクメン語学習について何でもお気軽に質問してください！',
+    aiGeneralAssistantWelcome: 'こんにちは！AIアシスタントです。翻訳、フレーズ、さまざまな言語でのコミュニケーションをお手伝いします。',
 
     // ChatScreen UI
     aiInputPlaceholder: 'メッセージを入力...',
@@ -2897,7 +2897,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: '안녕하세요! 투르크멘어로 대화를 연습해봅시다. 말하기 기술 향상을 도와드릴게요!',
     aiGrammarHelperWelcome: '환영합니다! 문법 도우미입니다. 투르크멘어 문법 규칙이나 구조에 대해 질문해주세요.',
     aiCulturalAdvisorWelcome: '살람! 투르크멘 문화, 관습 및 전통을 이해하도록 도와드리겠습니다.',
-    aiGeneralAssistantWelcome: '안녕하세요! 일반 학습 도우미입니다. 투르크멘어 학습에 대해 무엇이든 편하게 질문하세요!',
+    aiGeneralAssistantWelcome: '안녕하세요! AI 도우미입니다. 번역, 문구, 다양한 언어로의 의사소통을 도와드릴 수 있습니다.',
 
     // ChatScreen UI
     aiInputPlaceholder: '메시지를 입력하세요...',
@@ -3070,7 +3070,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'สวัสดี! มาฝึกฝนการสนทนาภาษาเติร์กเมนกันเถอะ ฉันจะช่วยคุณพัฒนาทักษะการพูด!',
     aiGrammarHelperWelcome: 'ยินดีต้อนรับ! ฉันเป็นผู้ช่วยไวยากรณ์ของคุณ ถามฉันเกี่ยวกับกฎไวยากรณ์หรือโครงสร้างภาษาเติร์กเมน',
     aiCulturalAdvisorWelcome: 'ซาลาม! ให้ฉันช่วยคุณทำความเข้าใจวัฒนธรรม ประเพณี และขนบธรรมเนียมของเติร์กเมน',
-    aiGeneralAssistantWelcome: 'สวัสดี! ฉันเป็นผู้ช่วยการเรียนรู้ทั่วไปของคุณ อย่าลังเลที่จะถามฉันเกี่ยวกับการเรียนภาษาเติร์กเมน!',
+    aiGeneralAssistantWelcome: 'สวัสดี! ฉันคือผู้ช่วย AI ของคุณ สามารถช่วยเรื่องการแปล วลี และการสื่อสารในภาษาต่างๆ ได้',
 
     // ChatScreen UI
     aiInputPlaceholder: 'พิมพ์ข้อความของคุณ...',
@@ -3243,7 +3243,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'Xin chào! Hãy thực hành một số cuộc hội thoại bằng tiếng Turkmen. Tôi sẽ giúp bạn cải thiện kỹ năng nói!',
     aiGrammarHelperWelcome: 'Chào mừng! Tôi là trợ lý ngữ pháp của bạn. Hỏi tôi về bất kỳ quy tắc hoặc cấu trúc ngữ pháp tiếng Turkmen nào.',
     aiCulturalAdvisorWelcome: 'Salam! Hãy để tôi giúp bạn hiểu văn hóa, phong tục và truyền thống của Turkmen.',
-    aiGeneralAssistantWelcome: 'Xin chào! Tôi là trợ lý học tập chung của bạn. Hãy thoải mái hỏi tôi bất cứ điều gì về việc học tiếng Turkmen!',
+    aiGeneralAssistantWelcome: 'Xin chào! Tôi là trợ lý AI của bạn. Tôi có thể giúp với dịch thuật, cụm từ và giao tiếp bằng nhiều ngôn ngữ khác nhau.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'Nhập tin nhắn của bạn...',
@@ -3416,7 +3416,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'Halo! Mari kita latih beberapa percakapan dalam bahasa Turkmen. Saya akan membantu Anda meningkatkan keterampilan berbicara!',
     aiGrammarHelperWelcome: 'Selamat datang! Saya asisten tata bahasa Anda. Tanyakan kepada saya tentang aturan atau struktur tata bahasa Turkmen.',
     aiCulturalAdvisorWelcome: 'Salam! Biarkan saya membantu Anda memahami budaya, adat istiadat, dan tradisi Turkmen.',
-    aiGeneralAssistantWelcome: 'Halo! Saya asisten pembelajaran umum Anda. Jangan ragu untuk bertanya apa saja tentang belajar bahasa Turkmen!',
+    aiGeneralAssistantWelcome: 'Halo! Saya asisten AI Anda. Saya dapat membantu dengan terjemahan, frasa, dan komunikasi dalam berbagai bahasa.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'Ketik pesan Anda...',
@@ -3589,7 +3589,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'Helo! Mari kita latih beberapa perbualan dalam bahasa Turkmen. Saya akan membantu anda meningkatkan kemahiran bercakap!',
     aiGrammarHelperWelcome: 'Selamat datang! Saya pembantu tatabahasa anda. Tanya saya tentang sebarang peraturan atau struktur tatabahasa Turkmen.',
     aiCulturalAdvisorWelcome: 'Salam! Biarkan saya membantu anda memahami budaya, adat resam dan tradisi Turkmen.',
-    aiGeneralAssistantWelcome: 'Helo! Saya pembantu pembelajaran am anda. Jangan ragu untuk bertanya apa sahaja tentang belajar Turkmen!',
+    aiGeneralAssistantWelcome: 'Helo! Saya pembantu AI anda. Saya boleh membantu dengan terjemahan, frasa, dan komunikasi dalam pelbagai bahasa.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'Taip mesej anda...',
@@ -3762,7 +3762,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'नमस्ते! चलिए तुर्कमेन में कुछ बातचीत का अभ्यास करते हैं। मैं आपके बोलने के कौशल को बेहतर बनाने में मदद करूंगा!',
     aiGrammarHelperWelcome: 'स्वागत है! मैं आपका व्याकरण सहायक हूं। मुझसे किसी भी तुर्कमेन व्याकरण नियम या संरचना के बारे में पूछें।',
     aiCulturalAdvisorWelcome: 'सलाम! मुझे आपको तुर्कमेन संस्कृति, रीति-रिवाजों और परंपराओं को समझने में मदद करने दें।',
-    aiGeneralAssistantWelcome: 'नमस्ते! मैं आपका सामान्य सीखने का सहायक हूं। तुर्कमेन सीखने के बारे में मुझसे कुछ भी पूछने में संकोच न करें!',
+    aiGeneralAssistantWelcome: 'नमस्ते! मैं आपका AI सहायक हूं। मैं अनुवाद, वाक्यांश और विभिन्न भाषाओं में संवाद में मदद कर सकता हूं।',
 
     // ChatScreen UI
     aiInputPlaceholder: 'अपना संदेश टाइप करें...',
@@ -3935,7 +3935,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'ہیلو! آئیے ترکمان میں کچھ گفتگو کی مشق کریں۔ میں آپ کی بولنے کی مہارت کو بہتر بنانے میں مدد کروں گا!',
     aiGrammarHelperWelcome: 'خوش آمدید! میں آپ کا گرامر اسسٹنٹ ہوں۔ مجھ سے کسی بھی ترکمان گرامر کے قواعد یا ڈھانچے کے بارے میں پوچھیں۔',
     aiCulturalAdvisorWelcome: 'سلام! مجھے آپ کو ترکمان ثقافت، رسم و رواج اور روایات کو سمجھنے میں مدد کرنے دیں۔',
-    aiGeneralAssistantWelcome: 'ہیلو! میں آپ کا عمومی سیکھنے کا اسسٹنٹ ہوں۔ ترکمان سیکھنے کے بارے میں مجھ سے کچھ بھی پوچھنے میں ہچکچاہٹ محسوس نہ کریں!',
+    aiGeneralAssistantWelcome: 'ہیلو! میں آپ کا AI اسسٹنٹ ہوں۔ میں ترجمہ، فقرے اور مختلف زبانوں میں بات چیت میں مدد کر سکتا ہوں۔',
 
     // ChatScreen UI
     aiInputPlaceholder: 'اپنا پیغام ٹائپ کریں...',
@@ -4108,7 +4108,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'سلام! بیایید چند مکالمه به زبان ترکمنی تمرین کنیم. من به شما کمک می‌کنم مهارت‌های گفتاری خود را بهبود بخشید!',
     aiGrammarHelperWelcome: 'خوش آمدید! من دستیار دستور زبان شما هستم. از من درباره هر قاعده یا ساختار دستوری ترکمنی بپرسید.',
     aiCulturalAdvisorWelcome: 'سلام! بگذارید به شما کمک کنم فرهنگ، آداب و رسوم ترکمنی را درک کنید.',
-    aiGeneralAssistantWelcome: 'سلام! من دستیار یادگیری عمومی شما هستم. در مورد یادگیری ترکمنی هر سوالی داشتید، بپرسید!',
+    aiGeneralAssistantWelcome: 'سلام! من دستیار هوش مصنوعی شما هستم. می‌توانم در ترجمه، عبارات و ارتباط به زبان‌های مختلف کمک کنم.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'پیام خود را تایپ کنید...',
@@ -4281,7 +4281,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'سلام! راځئ په ترکمني کې یو څو خبرې اترې تمرین کړو. زه به ستاسو د خبرو کولو مهارتونو په ښه کولو کې مرسته وکړم!',
     aiGrammarHelperWelcome: 'ښه راغلاست! زه ستاسو د ګرامر مرستندوی یم. له ما څخه د ترکمني ګرامر د هرې قاعدې یا جوړښت په اړه وپوښتئ.',
     aiCulturalAdvisorWelcome: 'سلام! راځئ چې زه تاسو سره د ترکمني کلتور، دودونو او روایاتو په پوهیدو کې مرسته وکړم.',
-    aiGeneralAssistantWelcome: 'سلام! زه ستاسو عمومي زده کړې مرستندوی یم. د ترکمني زده کړې په اړه له ما څخه هر څه په آرامۍ سره وپوښتئ!',
+    aiGeneralAssistantWelcome: 'سلام! زه ستاسو AI مرستندوی یم. په ژباړه، جملو او مختلفو ژبو کې خبرو اترو کې مرسته کولی شم.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'خپل پیغام ولیکئ...',
@@ -4454,7 +4454,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'Salom! Keling, turkman tilida suhbatlarni mashq qilaylik. Men sizga gapirish ko\'nikmalaringizni yaxshilashga yordam beraman!',
     aiGrammarHelperWelcome: 'Xush kelibsiz! Men sizning grammatika yordamchingizman. Menga har qanday turkman grammatika qoidasi yoki tuzilmasi haqida so\'rang.',
     aiCulturalAdvisorWelcome: 'Salam! Sizga turkman madaniyati, urf-odatlari va an\'analarini tushunishda yordam berishimga ruxsat bering.',
-    aiGeneralAssistantWelcome: 'Salom! Men sizning umumiy o\'rganish yordamchingizman. Turkman tilini o\'rganish haqida menga har qanday savol berishdan tortinmang!',
+    aiGeneralAssistantWelcome: 'Salom! Men sizning AI yordamchingizman. Tarjimalar, iboralar va turli tillarda muloqot qilishda yordam bera olaman.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'Xabaringizni yozing...',
@@ -4627,7 +4627,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'Сәлеметсіз бе! Түрікмен тілінде бірнеше сөйлесуді жаттықтырайық. Мен сізге сөйлеу дағдыларыңызды жақсартуға көмектесемін!',
     aiGrammarHelperWelcome: 'Қош келдіңіз! Мен сіздің грамматика көмекшіңізбін. Маған түрікмен грамматикасының кез келген ережесі немесе құрылымы туралы сұраңыз.',
     aiCulturalAdvisorWelcome: 'Салам! Сізге түрікмен мәдениеті, әдет-ғұрыптары мен дәстүрлерін түсінуге көмектесейін.',
-    aiGeneralAssistantWelcome: 'Сәлеметсіз бе! Мен сіздің жалпы оқу көмекшіңізбін. Түрікмен тілін үйрену туралы маған кез келген сұрақ қоюдан тартынбаңыз!',
+    aiGeneralAssistantWelcome: 'Сәлеметсіз бе! Мен сіздің AI көмекшіңізбін. Аудармалар, сөз тіркестері және әртүрлі тілдерде қарым-қатынас жасауда көмектесе аламын.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'Хабарламаңызды теріңіз...',
@@ -4800,7 +4800,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'Salam! Gəlin türkmən dilində bir neçə söhbət məşq edək. Mən sizə danışıq bacarıqlarınızı təkmilləşdirməyə kömək edəcəyəm!',
     aiGrammarHelperWelcome: 'Xoş gəlmisiniz! Mən sizin qrammatika köməkçinizəm. Mənə türkmən qrammatikasının hər hansı qaydası və ya strukturu haqqında soruşun.',
     aiCulturalAdvisorWelcome: 'Salam! Qoy mən sizə türkmən mədəniyyəti, adət-ənənələri və ənənələrini başa düşməyə kömək edim.',
-    aiGeneralAssistantWelcome: 'Salam! Mən sizin ümumi öyrənmə köməkçinizəm. Türkmən dilini öyrənmək haqqında mənə hər hansı sual verməkdən çəkinməyin!',
+    aiGeneralAssistantWelcome: 'Salam! Mən sizin AI köməkçinizəm. Tərcümələr, ifadələr və müxtəlif dillərdə ünsiyyətdə kömək edə bilərəm.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'Mesajınızı yazın...',
@@ -4973,7 +4973,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'Саламатсызбы! Түркмөн тилинде бир нече сүйлөшүүнү машыктырайлы. Мен сизге сүйлөө жөндөмүңүздү өркүндөтүүгө жардам берем!',
     aiGrammarHelperWelcome: 'Кош келиңиз! Мен сиздин грамматика жардамчыңызмын. Мага түркмөн грамматикасынын каалаган эрежеси же түзүлүшү жөнүндө сураңыз.',
     aiCulturalAdvisorWelcome: 'Салам! Сизге түркмөн маданиятын, салттарын жана үрп-адаттарын түшүнүүгө жардам берейин.',
-    aiGeneralAssistantWelcome: 'Саламатсызбы! Мен сиздин жалпы окуу жардамчыңызмын. Түркмөн тилин үйрөнүү жөнүндө мага каалаган суроо берүүдөн тартынбаңыз!',
+    aiGeneralAssistantWelcome: 'Саламатсызбы! Мен сиздин AI жардамчыңызмын. Которуулар, сөз айкаштар жана ар кандай тилдерде баарлашууда жардам бере алам.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'Билдирүүңүздү жазыңыз...',
@@ -5146,7 +5146,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'Салом! Биёед якчанд гуфтугӯ ба забони туркманӣ машқ кунем. Ман ба шумо дар беҳтар кардани малакаҳои суханронӣ кӯмак мекунам!',
     aiGrammarHelperWelcome: 'Хуш омадед! Ман ёвардиҳои грамматикаи шумо ҳастам. Аз ман дар бораи ҳар қоида ё сохтори грамматикии туркманӣ бипурсед.',
     aiCulturalAdvisorWelcome: 'Салом! Бигзор ба шумо дар фаҳмидани фарҳанг, урфу одатҳо ва суннатҳои туркманӣ кӯмак кунам.',
-    aiGeneralAssistantWelcome: 'Салом! Ман ёвардиҳои омӯзиши умумии шумо ҳастам. Аз ман дар бораи омӯзиши туркманӣ ҳар чиз бипурсед!',
+    aiGeneralAssistantWelcome: 'Салом! Ман ёвардиҳои AI-и шумо ҳастам. Ман метавонам дар тарҷума, ибораҳо ва муошират бо забонҳои гуногун кӯмак кунам.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'Паёми худро нависед...',
@@ -5319,7 +5319,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'Բարև! Եկեք վարժենք մի քանի զրույց թուրքմեներեն: Ես կօգնեմ ձեզ բարելավել ձեր խոսելու հմտությունները:',
     aiGrammarHelperWelcome: 'Բարի գալուստ: Ես ձեր քերականության օգնականն եմ: Հարցրեք ինձ թուրքմեներեն քերականական ցանկացած կանոնի կամ կառուցվածքի մասին:',
     aiCulturalAdvisorWelcome: 'Սալամ: Թույլ տվեք ինձ օգնել ձեզ հասկանալ թուրքմենական մշակույթը, սովորույթները և ավանդույթները:',
-    aiGeneralAssistantWelcome: 'Բարև: Ես ձեր ընդհանուր ուսուցման օգնականն եմ: Ազատ զգացեք հարցնել ինձ ցանկացած բան թուրքմեներեն սովորելու մասին:',
+    aiGeneralAssistantWelcome: 'Բարև: Ես ձեր AI օգնականն եմ: Կարող եմ օգնել թարգմանություններում, արտահայտություններում և տարբեր լեզուներով հաղորդակցությանը:',
 
     // ChatScreen UI
     aiInputPlaceholder: 'Մուտքագրեք ձեր հաղորդագրությունը...',
@@ -5492,7 +5492,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'გამარჯობა! მოდით ვივარჯიშოთ რამდენიმე საუბარი თურქმენულად. დაგეხმარებით თქვენი საუბრის უნარების გაუმჯობესებაში!',
     aiGrammarHelperWelcome: 'კეთილი იყოს თქვენი მობრძანება! მე ვარ თქვენი გრამატიკის ასისტენტი. იკითხეთ ნებისმიერი თურქმენული გრამატიკის წესის ან სტრუქტურის შესახებ.',
     aiCulturalAdvisorWelcome: 'სალამი! ნება მომეცით დაგეხმაროთ თურქმენული კულტურის, ტრადიციებისა და ჩვეულებების გაგებაში.',
-    aiGeneralAssistantWelcome: 'გამარჯობა! მე ვარ თქვენი ზოგადი სასწავლო ასისტენტი. არ მოგერიდოთ იკითხოთ რაც გნებავთ თურქმენულის სასწავლად!',
+    aiGeneralAssistantWelcome: 'გამარჯობა! მე ვარ თქვენი AI ასისტენტი. შემიძლია დაგეხმაროთ თარგმანებში, ფრაზებსა და სხვადასხვა ენაზე კომუნიკაციაში.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'აკრიფეთ თქვენი შეტყობინება...',
@@ -5665,7 +5665,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiConversationTrainerWelcome: 'مرحباً! دعنا نتدرب على بعض المحادثات بالتركمانية. سأساعدك على تحسين مهارات التحدث لديك!',
     aiGrammarHelperWelcome: 'مرحباً بك! أنا مساعد القواعد الخاص بك. اسألني عن أي قاعدة أو هيكل نحوي تركماني.',
     aiCulturalAdvisorWelcome: 'سلام! دعني أساعدك على فهم الثقافة والعادات والتقاليد التركمانية.',
-    aiGeneralAssistantWelcome: 'مرحباً! أنا مساعد التعلم العام الخاص بك. لا تتردد في سؤالي أي شيء عن تعلم التركمانية!',
+    aiGeneralAssistantWelcome: 'مرحباً! أنا مساعدك الذكي. يمكنني المساعدة في الترجمات والعبارات والتواصل بلغات مختلفة.',
 
     // ChatScreen UI
     aiInputPlaceholder: 'اكتب رسالتك...',

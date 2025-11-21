@@ -16,7 +16,6 @@ import {
   ActivityIndicator,
   StatusBar,
 } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useAppLanguage } from '../../../contexts/LanguageContext';
 import AIAssistantService from '../services/AIAssistantService';
@@ -43,6 +42,7 @@ const getTranslatedAssistantName = (type: AssistantType, texts: any): string => 
     [AssistantType.GRAMMAR_HELPER]: texts.aiGrammarHelperName,
     [AssistantType.CULTURAL_ADVISOR]: texts.aiCulturalAdvisorName,
     [AssistantType.GENERAL_ASSISTANT]: texts.aiGeneralAssistantName,
+    [AssistantType.UNIVERSAL]: texts.aiHomeTitle, // Use the AI home title for universal
   };
   return nameMap[type];
 };
@@ -95,6 +95,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
       [AssistantType.GRAMMAR_HELPER]: texts.aiGrammarHelperWelcome,
       [AssistantType.CULTURAL_ADVISOR]: texts.aiCulturalAdvisorWelcome,
       [AssistantType.GENERAL_ASSISTANT]: texts.aiGeneralAssistantWelcome,
+      [AssistantType.UNIVERSAL]: texts.aiGeneralAssistantWelcome, // Use general welcome for universal
     };
 
     return welcomeMessages[assistantType];
@@ -182,8 +183,8 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
   return (
     <View style={styles.safeArea}>
       <StatusBar
-        barStyle="light-content"
-        backgroundColor={assistantConfig.color}
+        barStyle="dark-content"
+        backgroundColor="#FFFFFF"
         translucent={false}
       />
       <KeyboardAvoidingView
@@ -191,29 +192,23 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={Platform.OS === 'ios' ? 90 : 0}
       >
-        {/* Header */}
-        <LinearGradient
-          colors={[assistantConfig.color, adjustColor(assistantConfig.color, -20)]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
-          style={styles.header}
-        >
+        {/* Header - Clean minimal design like Claude/ChatGPT */}
+        <View style={styles.header}>
           <TouchableOpacity style={styles.backButton} onPress={onBack}>
-            <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
+            <Ionicons name="arrow-back" size={24} color="#1F2937" />
           </TouchableOpacity>
 
           <View style={styles.headerContent}>
-            <Text style={styles.headerIcon}>{assistantConfig.icon}</Text>
             <Text style={styles.headerTitle}>{translatedName}</Text>
           </View>
 
           <TouchableOpacity
-            style={styles.clearButton}
+            style={styles.menuButton}
             onPress={handleClearHistory}
           >
-            <Text style={styles.clearButtonText}>🗑️</Text>
+            <Ionicons name="ellipsis-vertical" size={20} color="#6B7280" />
           </TouchableOpacity>
-        </LinearGradient>
+        </View>
 
         {/* Messages */}
         <ScrollView
@@ -272,88 +267,55 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
   );
 };
 
-// Helper function to adjust color brightness
-function adjustColor(color: string, amount: number): string {
-  const clamp = (num: number) => Math.min(255, Math.max(0, num));
-  const hex = color.replace('#', '');
-  const r = parseInt(hex.substring(0, 2), 16);
-  const g = parseInt(hex.substring(2, 4), 16);
-  const b = parseInt(hex.substring(4, 6), 16);
-
-  const newR = clamp(r + amount);
-  const newG = clamp(g + amount);
-  const newB = clamp(b + amount);
-
-  return `#${newR.toString(16).padStart(2, '0')}${newG
-    .toString(16)
-    .padStart(2, '0')}${newB.toString(16).padStart(2, '0')}`;
-}
-
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#FFFFFF',
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   container: {
     flex: 1,
+    backgroundColor: '#FFFFFF',
   },
-  // Header - RESPONSIVE
+  // Header - Clean minimal design (Claude/ChatGPT style)
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: scale(20),
-    paddingVertical: verticalScale(16),
-    elevation: 8,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: scale(4) },
-    shadowOpacity: 0.3,
-    shadowRadius: scale(12),
+    paddingHorizontal: scale(16),
+    paddingVertical: verticalScale(14),
+    backgroundColor: '#FFFFFF',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E7EB',
   },
   backButton: {
     width: scale(40),
     height: scale(40),
     borderRadius: scale(20),
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
   },
   headerContent: {
     flex: 1,
-    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  headerIcon: {
-    fontSize: moderateScale(28),
-    marginRight: scale(8),
   },
   headerTitle: {
-    fontSize: moderateScale(19),
-    fontWeight: '800',
-    color: '#FFF',
-    letterSpacing: 0.3,
+    fontSize: moderateScale(17),
+    fontWeight: '600',
+    color: '#1F2937',
+    letterSpacing: -0.2,
   },
-  clearButton: {
-    width: scale(44),
-    height: scale(44),
-    borderRadius: scale(22),
-    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+  menuButton: {
+    width: scale(40),
+    height: scale(40),
+    borderRadius: scale(20),
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  clearButtonText: {
-    fontSize: moderateScale(22),
   },
   messagesContainer: {
     flex: 1,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#FFFFFF',
   },
   messagesContent: {
     paddingTop: verticalScale(20),

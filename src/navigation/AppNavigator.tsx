@@ -33,12 +33,7 @@ import TextTranslatorScreen from '../features/text-translator/screens/TextTransl
 import VoiceTranslatorScreen from '../features/voice-translator/screens/VoiceTranslatorScreen';
 
 // AI Assistants screens (Phase 4)
-import AIAssistantsHomeScreen from '../features/ai-assistants/screens/AIAssistantsHomeScreen';
-import ContextualTipsScreen from '../features/ai-assistants/screens/ContextualTipsScreen';
-import ConversationTrainerScreen from '../features/ai-assistants/screens/ConversationTrainerScreen';
-import GrammarHelperScreen from '../features/ai-assistants/screens/GrammarHelperScreen';
-import CulturalAdvisorScreen from '../features/ai-assistants/screens/CulturalAdvisorScreen';
-import GeneralAssistantScreen from '../features/ai-assistants/screens/GeneralAssistantScreen';
+import UniversalAIChatScreen from '../features/ai-assistants/screens/UniversalAIChatScreen';
 
 // Dictionary screen (Phase 5)
 import DictionaryScreen from '../screens/DictionaryScreen';
@@ -227,33 +222,8 @@ export default function AppNavigator() {
 
         {/* AI Assistants (Phase 4) */}
         <RootStack.Screen
-          name="AIAssistantsHome"
-          component={AIAssistantsHomeScreen}
-          options={{ headerShown: false }}
-        />
-        <RootStack.Screen
-          name="ContextualTips"
-          component={ContextualTipsScreen}
-          options={{ headerShown: false }}
-        />
-        <RootStack.Screen
-          name="ConversationTrainer"
-          component={ConversationTrainerScreen}
-          options={{ headerShown: false }}
-        />
-        <RootStack.Screen
-          name="GrammarHelper"
-          component={GrammarHelperScreen}
-          options={{ headerShown: false }}
-        />
-        <RootStack.Screen
-          name="CulturalAdvisor"
-          component={CulturalAdvisorScreen}
-          options={{ headerShown: false }}
-        />
-        <RootStack.Screen
-          name="GeneralAssistant"
-          component={GeneralAssistantScreen}
+          name="UniversalAIChat"
+          component={UniversalAIChatScreen}
           options={{ headerShown: false }}
         />
 

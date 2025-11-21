@@ -82,7 +82,7 @@ const getModules = (texts: any): ModuleCard[] => [
     icon: '🤖',
     iconName: 'sparkles',
     gradientColors: ['#7C3AED', '#5B21B6'], // Dark Purple gradient
-    route: 'AIAssistantsHome',
+    route: 'UniversalAIChat',
   },
   {
     id: 'dictionary',
@@ -172,7 +172,7 @@ export default function MainHubScreen() {
     } else if (module.id === 'voice-translator') {
       navigation.navigate('VoiceTranslator');
     } else if (module.id === 'ai-assistants') {
-      navigation.navigate('AIAssistantsHome');
+      navigation.navigate('UniversalAIChat');
     } else if (module.id === 'dictionary') {
       navigation.navigate('Dictionary');
     } else if (module.id === 'favorites') {
