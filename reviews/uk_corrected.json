@@ -1,0 +1,2759 @@
+{
+  "language": "Ukrainian",
+  "languageCode": "uk",
+  "timestamp": "2025-11-23T12:47:37.856Z",
+  "summary": {
+    "total": 305,
+    "verified": 0,
+    "corrected": 305,
+    "needsReview": 0,
+    "verificationRate": "100.0%"
+  },
+  "results": [
+    {
+      "phraseId": "phrase_001",
+      "english": "Hello",
+      "originalTranslation": "Привіт",
+      "translation": "Доброго дня",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Привіт' to 'Доброго дня' based on 'myMemory' (English: 'Hello')"
+    },
+    {
+      "phraseId": "phrase_002",
+      "english": "Thank you",
+      "originalTranslation": "Добрий ранок",
+      "translation": "Дякую",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Добрий ранок' to 'Дякую' based on 'myMemory' (English: 'Thank you')"
+    },
+    {
+      "phraseId": "phrase_003",
+      "english": "Goodbye",
+      "originalTranslation": "Добрий день",
+      "translation": "До побачення",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Добрий день' to 'До побачення' based on 'myMemory' (English: 'Goodbye')"
+    },
+    {
+      "phraseId": "phrase_004",
+      "english": "Excuse me",
+      "originalTranslation": "Добрий вечір",
+      "translation": "Перепрошую",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Добрий вечір' to 'Перепрошую' based on 'myMemory' (English: 'Excuse me')"
+    },
+    {
+      "phraseId": "phrase_005",
+      "english": "Good morning",
+      "originalTranslation": "Добраніч",
+      "translation": "Доброго ранку",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Добраніч' to 'Доброго ранку' based on 'myMemory' (English: 'Good morning')"
+    },
+    {
+      "phraseId": "phrase_006",
+      "english": "Good night",
+      "originalTranslation": "До побачення",
+      "translation": "Спокійної ночі",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'До побачення' to 'Спокійної ночі' based on 'myMemory' (English: 'Good night')"
+    },
+    {
+      "phraseId": "phrase_007",
+      "english": "My name is...",
+      "originalTranslation": "Бувайте",
+      "translation": "Мене звати…",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Бувайте' to 'Мене звати…' based on 'myMemory' (English: 'My name is...')"
+    },
+    {
+      "phraseId": "phrase_008",
+      "english": "What is your name?",
+      "originalTranslation": "Як справи?",
+      "translation": "Як вас звати?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Як справи?' to 'Як вас звати?' based on 'myMemory' (English: 'What is your name?')"
+    },
+    {
+      "phraseId": "phrase_009",
+      "english": "Nice to meet you",
+      "originalTranslation": "Добре, дякую",
+      "translation": "Приємно познайомитися.",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Добре, дякую' to 'Приємно познайомитися.' based on 'myMemory' (English: 'Nice to meet you')"
+    },
+    {
+      "phraseId": "phrase_010",
+      "english": "Please",
+      "originalTranslation": "А у вас?",
+      "translation": "Будь-ласка",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'А у вас?' to 'Будь-ласка' based on 'myMemory' (English: 'Please')"
+    },
+    {
+      "phraseId": "phrase_011",
+      "english": "You're welcome",
+      "originalTranslation": "Будь ласка",
+      "translation": "Прошу.",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Будь ласка' to 'Прошу.' based on 'myMemory' (English: 'You're welcome')"
+    },
+    {
+      "phraseId": "phrase_012",
+      "english": "How are you?",
+      "originalTranslation": "Дякую",
+      "translation": "Як твої справи?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Дякую' to 'Як твої справи?' based on 'myMemory' (English: 'How are you?')"
+    },
+    {
+      "phraseId": "phrase_013",
+      "english": "Good luck!",
+      "originalTranslation": "Дуже дякую",
+      "translation": "Хай щастить",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Дуже дякую' to 'Хай щастить' based on 'myMemory' (English: 'Good luck!')"
+    },
+    {
+      "phraseId": "phrase_014",
+      "english": "Welcome!",
+      "originalTranslation": "Вибачте",
+      "translation": "Вітаємо",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Вибачте' to 'Вітаємо' based on 'myMemory' (English: 'Welcome!')"
+    },
+    {
+      "phraseId": "phrase_015",
+      "english": "Very glad to see you",
+      "originalTranslation": "Перепрошую",
+      "translation": "Дуже радий вас бачити",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Перепрошую' to 'Дуже радий вас бачити' based on 'myMemory' (English: 'Very glad to see you')"
+    },
+    {
+      "phraseId": "phrase_016",
+      "english": "Welcome! (arrival greeting)",
+      "originalTranslation": "Так",
+      "translation": "Ласкаво просимо! (привітання з приїздом)",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Так' to 'Ласкаво просимо! (привітання з приїздом)' based on 'myMemory' (English: 'Welcome! (arrival greeting)')"
+    },
+    {
+      "phraseId": "phrase_017",
+      "english": "How are you doing?",
+      "originalTranslation": "Ні",
+      "translation": "Як у тебе справи?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Ні' to 'Як у тебе справи?' based on 'myMemory' (English: 'How are you doing?')"
+    },
+    {
+      "phraseId": "phrase_018",
+      "english": "Let me introduce my friend",
+      "originalTranslation": "Можливо",
+      "translation": "Дозвольте представити мого друга",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Можливо' to 'Дозвольте представити мого друга' based on 'myMemory' (English: 'Let me introduce my friend')"
+    },
+    {
+      "phraseId": "phrase_019",
+      "english": "Pleased to meet you!",
+      "originalTranslation": "Добре",
+      "translation": "Дуже приємно",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Добре' to 'Дуже приємно' based on 'myMemory' (English: 'Pleased to meet you!')"
+    },
+    {
+      "phraseId": "phrase_020",
+      "english": "Please come in",
+      "originalTranslation": "Звичайно",
+      "translation": "Прошу.",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Звичайно' to 'Прошу.' based on 'myMemory' (English: 'Please come in')"
+    },
+    {
+      "phraseId": "phrase_021",
+      "english": "Please sit down",
+      "originalTranslation": "Як вас звати?",
+      "translation": "Сідайте, будь ласка.",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Як вас звати?' to 'Сідайте, будь ласка.' based on 'myMemory' (English: 'Please sit down')"
+    },
+    {
+      "phraseId": "phrase_022",
+      "english": "Yes",
+      "originalTranslation": "Мене звати...",
+      "translation": "Так",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Мене звати...' to 'Так' based on 'myMemory' (English: 'Yes')"
+    },
+    {
+      "phraseId": "phrase_023",
+      "english": "No",
+      "originalTranslation": "Приємно познайомитися",
+      "translation": "Ні",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Приємно познайомитися' to 'Ні' based on 'myMemory' (English: 'No')"
+    },
+    {
+      "phraseId": "phrase_024",
+      "english": "I agree",
+      "originalTranslation": "Радий вас бачити",
+      "translation": "Я згоден",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Радий вас бачити' to 'Я згоден' based on 'myMemory' (English: 'I agree')"
+    },
+    {
+      "phraseId": "phrase_025",
+      "english": "Thank you very much for your help",
+      "originalTranslation": "Як ви поживаєте?",
+      "translation": "Дуже дякує за допомогу.",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Як ви поживаєте?' to 'Дуже дякує за допомогу.' based on 'myMemory' (English: 'Thank you very much for your help')"
+    },
+    {
+      "phraseId": "phrase_026",
+      "english": "Thank you very much for your support",
+      "originalTranslation": "Звідки ви?",
+      "translation": "Дуже дякую за вашу підтримку.",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Звідки ви?' to 'Дуже дякую за вашу підтримку.' based on 'myMemory' (English: 'Thank you very much for your support')"
+    },
+    {
+      "phraseId": "phrase_027",
+      "english": "Thank you very much for your understanding",
+      "originalTranslation": "Я з...",
+      "translation": "Дякуємо за розуміння",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Я з...' to 'Дякуємо за розуміння' based on 'myMemory' (English: 'Thank you very much for your understanding')"
+    },
+    {
+      "phraseId": "phrase_028",
+      "english": "Help!",
+      "originalTranslation": "Ласкаво просимо",
+      "translation": "Допоможіть",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Ласкаво просимо' to 'Допоможіть' based on 'myMemory' (English: 'Help!')"
+    },
+    {
+      "phraseId": "phrase_029",
+      "english": "I need a doctor",
+      "originalTranslation": "Не має за що",
+      "translation": "Мені потрібен лікар",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Не має за що' to 'Мені потрібен лікар' based on 'myMemory' (English: 'I need a doctor')"
+    },
+    {
+      "phraseId": "phrase_030",
+      "english": "Call the police",
+      "originalTranslation": "Вітаю",
+      "translation": "Викличте поліцію",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Вітаю' to 'Викличте поліцію' based on 'myMemory' (English: 'Call the police')"
+    },
+    {
+      "phraseId": "phrase_031",
+      "english": "Fire!",
+      "originalTranslation": "Хай щастить",
+      "translation": "Вогонь",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Хай щастить' to 'Вогонь' based on 'myMemory' (English: 'Fire!')"
+    },
+    {
+      "phraseId": "phrase_032",
+      "english": "I am lost",
+      "originalTranslation": "Бережіть себе",
+      "translation": "Я загубився",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Бережіть себе' to 'Я загубився' based on 'myMemory' (English: 'I am lost')"
+    },
+    {
+      "phraseId": "phrase_033",
+      "english": "I am sick",
+      "originalTranslation": "До зустрічі",
+      "translation": "Я хворий (-а)",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'До зустрічі' to 'Я хворий (-а)' based on 'myMemory' (English: 'I am sick')"
+    },
+    {
+      "phraseId": "phrase_034",
+      "english": "Call an ambulance",
+      "originalTranslation": "Побачимось пізніше",
+      "translation": "Викличте швидку.",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Побачимось пізніше' to 'Викличте швидку.' based on 'myMemory' (English: 'Call an ambulance')"
+    },
+    {
+      "phraseId": "phrase_035",
+      "english": "My wallet was stolen",
+      "originalTranslation": "Гарного дня",
+      "translation": "Мій гаманець викрадено",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Гарного дня' to 'Мій гаманець викрадено' based on 'myMemory' (English: 'My wallet was stolen')"
+    },
+    {
+      "phraseId": "phrase_036",
+      "english": "Help me",
+      "originalTranslation": "Смачного",
+      "translation": "Допоможіть мені.",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Смачного' to 'Допоможіть мені.' based on 'myMemory' (English: 'Help me')"
+    },
+    {
+      "phraseId": "phrase_037",
+      "english": "Danger!",
+      "originalTranslation": "Будьмо",
+      "translation": "Небезпечно",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Будьмо' to 'Небезпечно' based on 'myMemory' (English: 'Danger!')"
+    },
+    {
+      "phraseId": "phrase_038",
+      "english": "Call a doctor!",
+      "originalTranslation": "Вітання",
+      "translation": "Викличте лікаря",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Вітання' to 'Викличте лікаря' based on 'myMemory' (English: 'Call a doctor!')"
+    },
+    {
+      "phraseId": "phrase_039",
+      "english": "I want a room",
+      "originalTranslation": "Вибачте за турботу",
+      "translation": "Я хочу кімнату",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Вибачте за турботу' to 'Я хочу кімнату' based on 'myMemory' (English: 'I want a room')"
+    },
+    {
+      "phraseId": "phrase_040",
+      "english": "How much per night?",
+      "originalTranslation": "Немає проблем",
+      "translation": "Скільки за ніч?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Немає проблем' to 'Скільки за ніч?' based on 'myMemory' (English: 'How much per night?')"
+    },
+    {
+      "phraseId": "phrase_041",
+      "english": "Is there WiFi here?",
+      "originalTranslation": "Один",
+      "translation": "Тут є Wi-Fi?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Один' to 'Тут є Wi-Fi?' based on 'myMemory' (English: 'Is there WiFi here?')"
+    },
+    {
+      "phraseId": "phrase_042",
+      "english": "I have a reservation",
+      "originalTranslation": "Два",
+      "translation": "У мене є бронювання",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Два' to 'У мене є бронювання' based on 'myMemory' (English: 'I have a reservation')"
+    },
+    {
+      "phraseId": "phrase_043",
+      "english": "Single room",
+      "originalTranslation": "Три",
+      "translation": "Одномісний номер",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Три' to 'Одномісний номер' based on 'myMemory' (English: 'Single room')"
+    },
+    {
+      "phraseId": "phrase_044",
+      "english": "Double room",
+      "originalTranslation": "Чотири",
+      "translation": "Двомісний номер",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Чотири' to 'Двомісний номер' based on 'myMemory' (English: 'Double room')"
+    },
+    {
+      "phraseId": "phrase_045",
+      "english": "What time is check-out?",
+      "originalTranslation": "П'ять",
+      "translation": "О котрій годині виїзд?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'П'ять' to 'О котрій годині виїзд?' based on 'myMemory' (English: 'What time is check-out?')"
+    },
+    {
+      "phraseId": "phrase_046",
+      "english": "Key",
+      "originalTranslation": "Шість",
+      "translation": "Позначення",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Шість' to 'Позначення' based on 'myMemory' (English: 'Key')"
+    },
+    {
+      "phraseId": "phrase_047",
+      "english": "Room number",
+      "originalTranslation": "Сім",
+      "translation": "номер кімнати",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Сім' to 'номер кімнати' based on 'myMemory' (English: 'Room number')"
+    },
+    {
+      "phraseId": "phrase_048",
+      "english": "Is breakfast included?",
+      "originalTranslation": "Вісім",
+      "translation": "Чи сніданок включено у вартість номеру?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Вісім' to 'Чи сніданок включено у вартість номеру?' based on 'myMemory' (English: 'Is breakfast included?')"
+    },
+    {
+      "phraseId": "phrase_049",
+      "english": "Please clean the room",
+      "originalTranslation": "Дев'ять",
+      "translation": "Приберіть кімнату",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Дев'ять' to 'Приберіть кімнату' based on 'myMemory' (English: 'Please clean the room')"
+    },
+    {
+      "phraseId": "phrase_050",
+      "english": "I want to extend my stay",
+      "originalTranslation": "Десять",
+      "translation": "Я хочу продовжити перебування",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Десять' to 'Я хочу продовжити перебування' based on 'myMemory' (English: 'I want to extend my stay')"
+    },
+    {
+      "phraseId": "phrase_051",
+      "english": "I am hungry",
+      "originalTranslation": "Одинадцять",
+      "translation": "Я голодний",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Одинадцять' to 'Я голодний' based on 'myMemory' (English: 'I am hungry')"
+    },
+    {
+      "phraseId": "phrase_052",
+      "english": "Menu, please",
+      "originalTranslation": "Дванадцять",
+      "translation": "Меню, будь ласка",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Дванадцять' to 'Меню, будь ласка' based on 'myMemory' (English: 'Menu, please')"
+    },
+    {
+      "phraseId": "phrase_053",
+      "english": "Delicious",
+      "originalTranslation": "Двадцять",
+      "translation": "Delicious",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Двадцять' to 'Delicious' based on 'myMemory' (English: 'Delicious')"
+    },
+    {
+      "phraseId": "phrase_054",
+      "english": "Bill, please",
+      "originalTranslation": "Тридцять",
+      "translation": "Рахунок, будь ласка",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Тридцять' to 'Рахунок, будь ласка' based on 'myMemory' (English: 'Bill, please')"
+    },
+    {
+      "phraseId": "phrase_055",
+      "english": "I am vegetarian",
+      "originalTranslation": "Сорок",
+      "translation": "Я вегетаріанець",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Сорок' to 'Я вегетаріанець' based on 'myMemory' (English: 'I am vegetarian')"
+    },
+    {
+      "phraseId": "phrase_056",
+      "english": "Not spicy",
+      "originalTranslation": "П'ятдесят",
+      "translation": "Не гострий",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'П'ятдесят' to 'Не гострий' based on 'myMemory' (English: 'Not spicy')"
+    },
+    {
+      "phraseId": "phrase_057",
+      "english": "Water",
+      "originalTranslation": "Сто",
+      "translation": "Вода",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Сто' to 'Вода' based on 'myMemory' (English: 'Water')"
+    },
+    {
+      "phraseId": "phrase_058",
+      "english": "Tea",
+      "originalTranslation": "Тисяча",
+      "translation": "Чай",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Тисяча' to 'Чай' based on 'myMemory' (English: 'Tea')"
+    },
+    {
+      "phraseId": "phrase_059",
+      "english": "Rice",
+      "originalTranslation": "Мільйон",
+      "translation": "Рис",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Мільйон' to 'Рис' based on 'myMemory' (English: 'Rice')"
+    },
+    {
+      "phraseId": "phrase_060",
+      "english": "Noodles",
+      "originalTranslation": "Нуль",
+      "translation": "ЛОКШИНА",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Нуль' to 'ЛОКШИНА' based on 'myMemory' (English: 'Noodles')"
+    },
+    {
+      "phraseId": "phrase_061",
+      "english": "Chicken",
+      "originalTranslation": "Понеділок",
+      "translation": "Курка",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Понеділок' to 'Курка' based on 'myMemory' (English: 'Chicken')"
+    },
+    {
+      "phraseId": "phrase_062",
+      "english": "Beef",
+      "originalTranslation": "Вівторок",
+      "translation": "Яловичина",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Вівторок' to 'Яловичина' based on 'myMemory' (English: 'Beef')"
+    },
+    {
+      "phraseId": "phrase_063",
+      "english": "How much does it cost?",
+      "originalTranslation": "Середа",
+      "translation": "Скільки це коштує?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Середа' to 'Скільки це коштує?' based on 'myMemory' (English: 'How much does it cost?')"
+    },
+    {
+      "phraseId": "phrase_064",
+      "english": "I am allergic to...",
+      "originalTranslation": "Четвер",
+      "translation": "У мене алергія на...",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Четвер' to 'У мене алергія на...' based on 'myMemory' (English: 'I am allergic to...')"
+    },
+    {
+      "phraseId": "phrase_065",
+      "english": "Can I take it to go?",
+      "originalTranslation": "П'ятниця",
+      "translation": "Чи можу я взяти його з собою?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'П'ятниця' to 'Чи можу я взяти його з собою?' based on 'myMemory' (English: 'Can I take it to go?')"
+    },
+    {
+      "phraseId": "phrase_066",
+      "english": "Very delicious",
+      "originalTranslation": "Субота",
+      "translation": "Дуже смачно",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Субота' to 'Дуже смачно' based on 'myMemory' (English: 'Very delicious')"
+    },
+    {
+      "phraseId": "phrase_067",
+      "english": "Appetizers",
+      "originalTranslation": "Неділя",
+      "translation": "Закуски",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Неділя' to 'Закуски' based on 'myMemory' (English: 'Appetizers')"
+    },
+    {
+      "phraseId": "phrase_068",
+      "english": "Ham",
+      "originalTranslation": "Січень",
+      "translation": "Хем",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Січень' to 'Хем' based on 'myMemory' (English: 'Ham')"
+    },
+    {
+      "phraseId": "phrase_069",
+      "english": "Cheese platter",
+      "originalTranslation": "Лютий",
+      "translation": "Сир до вина",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Лютий' to 'Сир до вина' based on 'myMemory' (English: 'Cheese platter')"
+    },
+    {
+      "phraseId": "phrase_070",
+      "english": "Soup",
+      "originalTranslation": "Березень",
+      "translation": "Суп",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Березень' to 'Суп' based on 'myMemory' (English: 'Soup')"
+    },
+    {
+      "phraseId": "phrase_071",
+      "english": "Borscht",
+      "originalTranslation": "Квітень",
+      "translation": "Борщ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Квітень' to 'Борщ' based on 'myMemory' (English: 'Borscht')"
+    },
+    {
+      "phraseId": "phrase_072",
+      "english": "Chicken noodle soup",
+      "originalTranslation": "Травень",
+      "translation": "Суп з локшиною і курятиною",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Травень' to 'Суп з локшиною і курятиною' based on 'myMemory' (English: 'Chicken noodle soup')"
+    },
+    {
+      "phraseId": "phrase_073",
+      "english": "Meat broth",
+      "originalTranslation": "Червень",
+      "translation": "М 'ясний бульйон",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Червень' to 'М 'ясний бульйон' based on 'myMemory' (English: 'Meat broth')"
+    },
+    {
+      "phraseId": "phrase_074",
+      "english": "Meat",
+      "originalTranslation": "Липень",
+      "translation": "М'ясо",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Липень' to 'М'ясо' based on 'myMemory' (English: 'Meat')"
+    },
+    {
+      "phraseId": "phrase_075",
+      "english": "Lamb",
+      "originalTranslation": "Серпень",
+      "translation": "Баранина",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Серпень' to 'Баранина' based on 'myMemory' (English: 'Lamb')"
+    },
+    {
+      "phraseId": "phrase_076",
+      "english": "Pork",
+      "originalTranslation": "Вересень",
+      "translation": "Свинина",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Вересень' to 'Свинина' based on 'myMemory' (English: 'Pork')"
+    },
+    {
+      "phraseId": "phrase_077",
+      "english": "Fried",
+      "originalTranslation": "Жовтень",
+      "translation": "Смажений",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Жовтень' to 'Смажений' based on 'myMemory' (English: 'Fried')"
+    },
+    {
+      "phraseId": "phrase_078",
+      "english": "Boiled",
+      "originalTranslation": "Листопад",
+      "translation": "Кипіння",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Листопад' to 'Кипіння' based on 'myMemory' (English: 'Boiled')"
+    },
+    {
+      "phraseId": "phrase_079",
+      "english": "Fish dishes",
+      "originalTranslation": "Грудень",
+      "translation": "Страви з риби",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Грудень' to 'Страви з риби' based on 'myMemory' (English: 'Fish dishes')"
+    },
+    {
+      "phraseId": "phrase_080",
+      "english": "Fish",
+      "originalTranslation": "Сьогодні",
+      "translation": "Риба",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Сьогодні' to 'Риба' based on 'myMemory' (English: 'Fish')"
+    },
+    {
+      "phraseId": "phrase_081",
+      "english": "Salmon",
+      "originalTranslation": "Вчора",
+      "translation": "Лосось",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Вчора' to 'Лосось' based on 'myMemory' (English: 'Salmon')"
+    },
+    {
+      "phraseId": "phrase_082",
+      "english": "Shrimp",
+      "originalTranslation": "Завтра",
+      "translation": "Креветки",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Завтра' to 'Креветки' based on 'myMemory' (English: 'Shrimp')"
+    },
+    {
+      "phraseId": "phrase_083",
+      "english": "Crabs",
+      "originalTranslation": "Зараз",
+      "translation": "Краби",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Зараз' to 'Краби' based on 'myMemory' (English: 'Crabs')"
+    },
+    {
+      "phraseId": "phrase_084",
+      "english": "Is there a vegetarian menu?",
+      "originalTranslation": "Пізніше",
+      "translation": "Чи є вегетаріанське меню?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Пізніше' to 'Чи є вегетаріанське меню?' based on 'myMemory' (English: 'Is there a vegetarian menu?')"
+    },
+    {
+      "phraseId": "phrase_085",
+      "english": "Is this dish spicy?",
+      "originalTranslation": "Котра година?",
+      "translation": "Ця страва гостра?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Котра година?' to 'Ця страва гостра?' based on 'myMemory' (English: 'Is this dish spicy?')"
+    },
+    {
+      "phraseId": "phrase_086",
+      "english": "Not spicy",
+      "originalTranslation": "Їжа",
+      "translation": "Не гострий",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Їжа' to 'Не гострий' based on 'myMemory' (English: 'Not spicy')"
+    },
+    {
+      "phraseId": "phrase_087",
+      "english": "Apple",
+      "originalTranslation": "Вода",
+      "translation": "Яблуня",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Вода' to 'Яблуня' based on 'myMemory' (English: 'Apple')"
+    },
+    {
+      "phraseId": "phrase_088",
+      "english": "Banana",
+      "originalTranslation": "Хліб",
+      "translation": "Банан",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Хліб' to 'Банан' based on 'myMemory' (English: 'Banana')"
+    },
+    {
+      "phraseId": "phrase_089",
+      "english": "Orange",
+      "originalTranslation": "М'ясо",
+      "translation": "Апельсин",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'М'ясо' to 'Апельсин' based on 'myMemory' (English: 'Orange')"
+    },
+    {
+      "phraseId": "phrase_090",
+      "english": "Grapes",
+      "originalTranslation": "Риба",
+      "translation": "Виноград",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Риба' to 'Виноград' based on 'myMemory' (English: 'Grapes')"
+    },
+    {
+      "phraseId": "phrase_091",
+      "english": "Watermelon",
+      "originalTranslation": "Овочі",
+      "translation": "Кавун",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Овочі' to 'Кавун' based on 'myMemory' (English: 'Watermelon')"
+    },
+    {
+      "phraseId": "phrase_092",
+      "english": "Potato",
+      "originalTranslation": "Фрукти",
+      "translation": "Картопля",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Фрукти' to 'Картопля' based on 'myMemory' (English: 'Potato')"
+    },
+    {
+      "phraseId": "phrase_093",
+      "english": "Tomato",
+      "originalTranslation": "Молоко",
+      "translation": "Помідор",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Молоко' to 'Помідор' based on 'myMemory' (English: 'Tomato')"
+    },
+    {
+      "phraseId": "phrase_094",
+      "english": "How much does it cost?",
+      "originalTranslation": "Сир",
+      "translation": "Скільки це коштує?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Сир' to 'Скільки це коштує?' based on 'myMemory' (English: 'How much does it cost?')"
+    },
+    {
+      "phraseId": "phrase_095",
+      "english": "Too expensive",
+      "originalTranslation": "Яйця",
+      "translation": "Занадто дорого",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Яйця' to 'Занадто дорого' based on 'myMemory' (English: 'Too expensive')"
+    },
+    {
+      "phraseId": "phrase_096",
+      "english": "Can it be cheaper?",
+      "originalTranslation": "Рис",
+      "translation": "Чи може бути дешевше?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Рис' to 'Чи може бути дешевше?' based on 'myMemory' (English: 'Can it be cheaper?')"
+    },
+    {
+      "phraseId": "phrase_097",
+      "english": "I will buy this",
+      "originalTranslation": "Суп",
+      "translation": "Я куплю це",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Суп' to 'Я куплю це' based on 'myMemory' (English: 'I will buy this')"
+    },
+    {
+      "phraseId": "phrase_098",
+      "english": "Can I try it on?",
+      "originalTranslation": "Салат",
+      "translation": "Можна приміряти?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Салат' to 'Можна приміряти?' based on 'myMemory' (English: 'Can I try it on?')"
+    },
+    {
+      "phraseId": "phrase_099",
+      "english": "Bigger size",
+      "originalTranslation": "Кава",
+      "translation": "Більший розмір",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Кава' to 'Більший розмір' based on 'myMemory' (English: 'Bigger size')"
+    },
+    {
+      "phraseId": "phrase_100",
+      "english": "Smaller size",
+      "originalTranslation": "Чай",
+      "translation": "менший розмір шрифту",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Чай' to 'менший розмір шрифту' based on 'myMemory' (English: 'Smaller size')"
+    },
+    {
+      "phraseId": "phrase_101",
+      "english": "Cash",
+      "originalTranslation": "Сік",
+      "translation": "Готівка",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Сік' to 'Готівка' based on 'myMemory' (English: 'Cash')"
+    },
+    {
+      "phraseId": "phrase_102",
+      "english": "Credit card",
+      "originalTranslation": "Пиво",
+      "translation": "Кредитна карта",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Пиво' to 'Кредитна карта' based on 'myMemory' (English: 'Credit card')"
+    },
+    {
+      "phraseId": "phrase_103",
+      "english": "Receipt",
+      "originalTranslation": "Вино",
+      "translation": "квитанція.",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Вино' to 'квитанція.' based on 'myMemory' (English: 'Receipt')"
+    },
+    {
+      "phraseId": "phrase_104",
+      "english": "Return/Exchange",
+      "originalTranslation": "Ресторан",
+      "translation": "Повернення/обмін",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Ресторан' to 'Повернення/обмін' based on 'myMemory' (English: 'Return/Exchange')"
+    },
+    {
+      "phraseId": "phrase_105",
+      "english": "Where is the market?",
+      "originalTranslation": "Меню",
+      "translation": "Де ринок?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Меню' to 'Де ринок?' based on 'myMemory' (English: 'Where is the market?')"
+    },
+    {
+      "phraseId": "phrase_106",
+      "english": "Is there a discount?",
+      "originalTranslation": "Сніданок",
+      "translation": "Чи є знижка?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Сніданок' to 'Чи є знижка?' based on 'myMemory' (English: 'Is there a discount?')"
+    },
+    {
+      "phraseId": "phrase_107",
+      "english": "Can I try it on?",
+      "originalTranslation": "Обід",
+      "translation": "Можна приміряти?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Обід' to 'Можна приміряти?' based on 'myMemory' (English: 'Can I try it on?')"
+    },
+    {
+      "phraseId": "phrase_108",
+      "english": "What is your size?",
+      "originalTranslation": "Вечеря",
+      "translation": "Який у вас розмір?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Вечеря' to 'Який у вас розмір?' based on 'myMemory' (English: 'What is your size?')"
+    },
+    {
+      "phraseId": "phrase_109",
+      "english": "Are there other colors?",
+      "originalTranslation": "Я голодний/голодна",
+      "translation": "Чи є інші кольори?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Я голодний/голодна' to 'Чи є інші кольори?' based on 'myMemory' (English: 'Are there other colors?')"
+    },
+    {
+      "phraseId": "phrase_110",
+      "english": "Where is the train station?",
+      "originalTranslation": "Я хочу пити",
+      "translation": "Де залізничний вокзал?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Я хочу пити' to 'Де залізничний вокзал?' based on 'myMemory' (English: 'Where is the train station?')"
+    },
+    {
+      "phraseId": "phrase_111",
+      "english": "Airport",
+      "originalTranslation": "Смачно",
+      "translation": "Аеропорт",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Смачно' to 'Аеропорт' based on 'myMemory' (English: 'Airport')"
+    },
+    {
+      "phraseId": "phrase_112",
+      "english": "Taxi",
+      "originalTranslation": "Рахунок, будь ласка",
+      "translation": "Таксі",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Рахунок, будь ласка' to 'Таксі' based on 'myMemory' (English: 'Taxi')"
+    },
+    {
+      "phraseId": "phrase_113",
+      "english": "Bus",
+      "originalTranslation": "Я вегетаріанець",
+      "translation": "Автобус",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Я вегетаріанець' to 'Автобус' based on 'myMemory' (English: 'Bus')"
+    },
+    {
+      "phraseId": "phrase_114",
+      "english": "Metro",
+      "originalTranslation": "Алергія",
+      "translation": "Метро",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Алергія' to 'Метро' based on 'myMemory' (English: 'Metro')"
+    },
+    {
+      "phraseId": "phrase_115",
+      "english": "Train ticket",
+      "originalTranslation": "Гостро",
+      "translation": "Квиток на поїзд",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Гостро' to 'Квиток на поїзд' based on 'myMemory' (English: 'Train ticket')"
+    },
+    {
+      "phraseId": "phrase_116",
+      "english": "Schedule",
+      "originalTranslation": "Магазин",
+      "translation": "Графік",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Магазин' to 'Графік' based on 'myMemory' (English: 'Schedule')"
+    },
+    {
+      "phraseId": "phrase_117",
+      "english": "Platform",
+      "originalTranslation": "Ринок",
+      "translation": "Платформа",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Ринок' to 'Платформа' based on 'myMemory' (English: 'Platform')"
+    },
+    {
+      "phraseId": "phrase_118",
+      "english": "Next stop",
+      "originalTranslation": "Скільки це коштує?",
+      "translation": "Наступна зупинка",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Скільки це коштує?' to 'Наступна зупинка' based on 'myMemory' (English: 'Next stop')"
+    },
+    {
+      "phraseId": "phrase_119",
+      "english": "Stop",
+      "originalTranslation": "Дорого",
+      "translation": "Зупинити",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Дорого' to 'Зупинити' based on 'myMemory' (English: 'Stop')"
+    },
+    {
+      "phraseId": "phrase_120",
+      "english": "How long until...?",
+      "originalTranslation": "Дешево",
+      "translation": "Як довго до...?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Дешево' to 'Як довго до...?' based on 'myMemory' (English: 'How long until...?')"
+    },
+    {
+      "phraseId": "phrase_121",
+      "english": "I need to go to...",
+      "originalTranslation": "Ціна",
+      "translation": "Мені треба до...",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Ціна' to 'Мені треба до...' based on 'myMemory' (English: 'I need to go to...')"
+    },
+    {
+      "phraseId": "phrase_122",
+      "english": "When will the next bus arrive?",
+      "originalTranslation": "Я куплю це",
+      "translation": "Коли прибуде наступний автобус?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Я куплю це' to 'Коли прибуде наступний автобус?' based on 'myMemory' (English: 'When will the next bus arrive?')"
+    },
+    {
+      "phraseId": "phrase_123",
+      "english": "I want to go to the airport",
+      "originalTranslation": "Я просто дивлюся",
+      "translation": "Я хочу поїхати в аеропорт",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Я просто дивлюся' to 'Я хочу поїхати в аеропорт' based on 'myMemory' (English: 'I want to go to the airport')"
+    },
+    {
+      "phraseId": "phrase_124",
+      "english": "On the left",
+      "originalTranslation": "Знижка",
+      "translation": "Зліва",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Знижка' to 'Зліва' based on 'myMemory' (English: 'On the left')"
+    },
+    {
+      "phraseId": "phrase_125",
+      "english": "On the right",
+      "originalTranslation": "Розмір",
+      "translation": "Справа",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Розмір' to 'Справа' based on 'myMemory' (English: 'On the right')"
+    },
+    {
+      "phraseId": "phrase_126",
+      "english": "Straight",
+      "originalTranslation": "Колір",
+      "translation": "Пряма",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Колір' to 'Пряма' based on 'myMemory' (English: 'Straight')"
+    },
+    {
+      "phraseId": "phrase_127",
+      "english": "Turn",
+      "originalTranslation": "Велике",
+      "translation": "Хід",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Велике' to 'Хід' based on 'myMemory' (English: 'Turn')"
+    },
+    {
+      "phraseId": "phrase_128",
+      "english": "Intersection",
+      "originalTranslation": "Маленьке",
+      "translation": "Перетин",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Маленьке' to 'Перетин' based on 'myMemory' (English: 'Intersection')"
+    },
+    {
+      "phraseId": "phrase_129",
+      "english": "Traffic light",
+      "originalTranslation": "Середнє",
+      "translation": "світлофор",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Середнє' to 'світлофор' based on 'myMemory' (English: 'Traffic light')"
+    },
+    {
+      "phraseId": "phrase_130",
+      "english": "Far",
+      "originalTranslation": "Новий",
+      "translation": "Далеко",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Новий' to 'Далеко' based on 'myMemory' (English: 'Far')"
+    },
+    {
+      "phraseId": "phrase_131",
+      "english": "Near",
+      "originalTranslation": "Старий",
+      "translation": "Близько",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Старий' to 'Близько' based on 'myMemory' (English: 'Near')"
+    },
+    {
+      "phraseId": "phrase_132",
+      "english": "Map",
+      "originalTranslation": "Гарний",
+      "translation": "Мапа",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Гарний' to 'Мапа' based on 'myMemory' (English: 'Map')"
+    },
+    {
+      "phraseId": "phrase_133",
+      "english": "Where is...?",
+      "originalTranslation": "Поганий",
+      "translation": "Де...?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Поганий' to 'Де...?' based on 'myMemory' (English: 'Where is...?')"
+    },
+    {
+      "phraseId": "phrase_134",
+      "english": "Hospital",
+      "originalTranslation": "Відкрито",
+      "translation": "Стаціонар",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Відкрито' to 'Стаціонар' based on 'myMemory' (English: 'Hospital')"
+    },
+    {
+      "phraseId": "phrase_135",
+      "english": "Pharmacy",
+      "originalTranslation": "Закрито",
+      "translation": "Аптека",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Закрито' to 'Аптека' based on 'myMemory' (English: 'Pharmacy')"
+    },
+    {
+      "phraseId": "phrase_136",
+      "english": "I have a headache",
+      "originalTranslation": "Готівка",
+      "translation": "Мені болить голова.",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Готівка' to 'Мені болить голова.' based on 'myMemory' (English: 'I have a headache')"
+    },
+    {
+      "phraseId": "phrase_137",
+      "english": "I have a stomachache",
+      "originalTranslation": "Кредитна картка",
+      "translation": "У мене болить шлунок.",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Кредитна картка' to 'У мене болить шлунок.' based on 'myMemory' (English: 'I have a stomachache')"
+    },
+    {
+      "phraseId": "phrase_138",
+      "english": "Temperature",
+      "originalTranslation": "Квитанція",
+      "translation": "Температура",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Квитанція' to 'Температура' based on 'myMemory' (English: 'Temperature')"
+    },
+    {
+      "phraseId": "phrase_139",
+      "english": "Cough",
+      "originalTranslation": "Сувенір",
+      "translation": "Кашель",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Сувенір' to 'Кашель' based on 'myMemory' (English: 'Cough')"
+    },
+    {
+      "phraseId": "phrase_140",
+      "english": "Medicine",
+      "originalTranslation": "Подарунок",
+      "translation": "Медикаменти",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Подарунок' to 'Медикаменти' based on 'myMemory' (English: 'Medicine')"
+    },
+    {
+      "phraseId": "phrase_141",
+      "english": "Doctor",
+      "originalTranslation": "Автобус",
+      "translation": "Лікар",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Автобус' to 'Лікар' based on 'myMemory' (English: 'Doctor')"
+    },
+    {
+      "phraseId": "phrase_142",
+      "english": "Nurse",
+      "originalTranslation": "Таксі",
+      "translation": "Медсестра",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Таксі' to 'Медсестра' based on 'myMemory' (English: 'Nurse')"
+    },
+    {
+      "phraseId": "phrase_143",
+      "english": "Ambulance",
+      "originalTranslation": "Поїзд",
+      "translation": "Ambulance",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Поїзд' to 'Ambulance' based on 'myMemory' (English: 'Ambulance')"
+    },
+    {
+      "phraseId": "phrase_144",
+      "english": "I have a headache",
+      "originalTranslation": "Літак",
+      "translation": "Мені болить голова.",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Літак' to 'Мені болить голова.' based on 'myMemory' (English: 'I have a headache')"
+    },
+    {
+      "phraseId": "phrase_145",
+      "english": "I need a painkiller",
+      "originalTranslation": "Автомобіль",
+      "translation": "Мені потрібен знеболюючий засіб",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Автомобіль' to 'Мені потрібен знеболюючий засіб' based on 'myMemory' (English: 'I need a painkiller')"
+    },
+    {
+      "phraseId": "phrase_146",
+      "english": "Yuan",
+      "originalTranslation": "Велосипед",
+      "translation": "юань; юані; юанів; юаняхamount in units",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Велосипед' to 'юань; юані; юанів; юаняхamount in units' based on 'myMemory' (English: 'Yuan')"
+    },
+    {
+      "phraseId": "phrase_147",
+      "english": "Manat",
+      "originalTranslation": "Аеропорт",
+      "translation": "Манат",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Аеропорт' to 'Манат' based on 'myMemory' (English: 'Manat')"
+    },
+    {
+      "phraseId": "phrase_148",
+      "english": "Card payment",
+      "originalTranslation": "Вокзал",
+      "translation": "Оплата карткою",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Вокзал' to 'Оплата карткою' based on 'myMemory' (English: 'Card payment')"
+    },
+    {
+      "phraseId": "phrase_149",
+      "english": "Bank",
+      "originalTranslation": "Автобусна зупинка",
+      "translation": "Банк",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Автобусна зупинка' to 'Банк' based on 'myMemory' (English: 'Bank')"
+    },
+    {
+      "phraseId": "phrase_150",
+      "english": "ATM",
+      "originalTranslation": "Квиток",
+      "translation": "ПТМ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Квиток' to 'ПТМ' based on 'myMemory' (English: 'ATM')"
+    },
+    {
+      "phraseId": "phrase_151",
+      "english": "Currency exchange",
+      "originalTranslation": "Де це?",
+      "translation": "Обмін валют",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Де це?' to 'Обмін валют' based on 'myMemory' (English: 'Currency exchange')"
+    },
+    {
+      "phraseId": "phrase_152",
+      "english": "Change",
+      "originalTranslation": "Як дістатися до...?",
+      "translation": "Змн.",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Як дістатися до...?' to 'Змн.' based on 'myMemory' (English: 'Change')"
+    },
+    {
+      "phraseId": "phrase_153",
+      "english": "Free",
+      "originalTranslation": "Ліворуч",
+      "translation": "Безкоштовно",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Ліворуч' to 'Безкоштовно' based on 'myMemory' (English: 'Free')"
+    },
+    {
+      "phraseId": "phrase_154",
+      "english": "Price",
+      "originalTranslation": "Праворуч",
+      "translation": "Сума",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Праворуч' to 'Сума' based on 'myMemory' (English: 'Price')"
+    },
+    {
+      "phraseId": "phrase_155",
+      "english": "Mobile phone",
+      "originalTranslation": "Прямо",
+      "translation": "Мобільний телефон",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Прямо' to 'Мобільний телефон' based on 'myMemory' (English: 'Mobile phone')"
+    },
+    {
+      "phraseId": "phrase_156",
+      "english": "Wi-Fi",
+      "originalTranslation": "Близько",
+      "translation": "Wi-Fi",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Близько' to 'Wi-Fi' based on 'myMemory' (English: 'Wi-Fi')"
+    },
+    {
+      "phraseId": "phrase_157",
+      "english": "What is the password?",
+      "originalTranslation": "Далеко",
+      "translation": "Який пароль?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Далеко' to 'Який пароль?' based on 'myMemory' (English: 'What is the password?')"
+    },
+    {
+      "phraseId": "phrase_158",
+      "english": "Send SMS",
+      "originalTranslation": "Тут",
+      "translation": "Відправити SMS",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Тут' to 'Відправити SMS' based on 'myMemory' (English: 'Send SMS')"
+    },
+    {
+      "phraseId": "phrase_159",
+      "english": "Cinema",
+      "originalTranslation": "Там",
+      "translation": "Кінематограф",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Там' to 'Кінематограф' based on 'myMemory' (English: 'Cinema')"
+    },
+    {
+      "phraseId": "phrase_160",
+      "english": "Museum",
+      "originalTranslation": "Адреса",
+      "translation": "Музей",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Адреса' to 'Музей' based on 'myMemory' (English: 'Museum')"
+    },
+    {
+      "phraseId": "phrase_161",
+      "english": "Park",
+      "originalTranslation": "Готель",
+      "translation": "Парк",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Готель' to 'Парк' based on 'myMemory' (English: 'Park')"
+    },
+    {
+      "phraseId": "phrase_162",
+      "english": "Concert",
+      "originalTranslation": "Кімната",
+      "translation": "Концерт",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Кімната' to 'Концерт' based on 'myMemory' (English: 'Concert')"
+    },
+    {
+      "phraseId": "phrase_163",
+      "english": "Shopping mall",
+      "originalTranslation": "Бронювання",
+      "translation": "Торговий центр",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Бронювання' to 'Торговий центр' based on 'myMemory' (English: 'Shopping mall')"
+    },
+    {
+      "phraseId": "phrase_164",
+      "english": "Swimming pool",
+      "originalTranslation": "У мене бронювання",
+      "translation": "Плавальний басейн",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'У мене бронювання' to 'Плавальний басейн' based on 'myMemory' (English: 'Swimming pool')"
+    },
+    {
+      "phraseId": "phrase_165",
+      "english": "Gym",
+      "originalTranslation": "Одномісна кімната",
+      "translation": "Тренажерна зала",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Одномісна кімната' to 'Тренажерна зала' based on 'myMemory' (English: 'Gym')"
+    },
+    {
+      "phraseId": "phrase_166",
+      "english": "Library",
+      "originalTranslation": "Двомісна кімната",
+      "translation": "Бібліотека",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Двомісна кімната' to 'Бібліотека' based on 'myMemory' (English: 'Library')"
+    },
+    {
+      "phraseId": "phrase_167",
+      "english": "Night market",
+      "originalTranslation": "Одна ніч",
+      "translation": "Нічний Ринок",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Одна ніч' to 'Нічний Ринок' based on 'myMemory' (English: 'Night market')"
+    },
+    {
+      "phraseId": "phrase_168",
+      "english": "How much is the ticket?",
+      "originalTranslation": "Дві ночі",
+      "translation": "Скільки коштує квиток?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Дві ночі' to 'Скільки коштує квиток?' based on 'myMemory' (English: 'How much is the ticket?')"
+    },
+    {
+      "phraseId": "phrase_169",
+      "english": "What time is it?",
+      "originalTranslation": "Тиждень",
+      "translation": "Котра зараз година?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Тиждень' to 'Котра зараз година?' based on 'myMemory' (English: 'What time is it?')"
+    },
+    {
+      "phraseId": "phrase_170",
+      "english": "Today",
+      "originalTranslation": "Ключ",
+      "translation": "Сьогодні",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Ключ' to 'Сьогодні' based on 'myMemory' (English: 'Today')"
+    },
+    {
+      "phraseId": "phrase_171",
+      "english": "Tomorrow",
+      "originalTranslation": "Ліжко",
+      "translation": "Завтра",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Ліжко' to 'Завтра' based on 'myMemory' (English: 'Tomorrow')"
+    },
+    {
+      "phraseId": "phrase_172",
+      "english": "Yesterday",
+      "originalTranslation": "Ванна кімната",
+      "translation": "Учора",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Ванна кімната' to 'Учора' based on 'myMemory' (English: 'Yesterday')"
+    },
+    {
+      "phraseId": "phrase_173",
+      "english": "Monday",
+      "originalTranslation": "Душ",
+      "translation": "Понеділок",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Душ' to 'Понеділок' based on 'myMemory' (English: 'Monday')"
+    },
+    {
+      "phraseId": "phrase_174",
+      "english": "Sunday",
+      "originalTranslation": "Wi-Fi",
+      "translation": "Неділя",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Wi-Fi' to 'Неділя' based on 'myMemory' (English: 'Sunday')"
+    },
+    {
+      "phraseId": "phrase_175",
+      "english": "In the morning",
+      "originalTranslation": "Пароль",
+      "translation": "Зранку",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Пароль' to 'Зранку' based on 'myMemory' (English: 'In the morning')"
+    },
+    {
+      "phraseId": "phrase_176",
+      "english": "In the afternoon",
+      "originalTranslation": "Сніданок включено?",
+      "translation": "пополудні",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Сніданок включено?' to 'пополудні' based on 'myMemory' (English: 'In the afternoon')"
+    },
+    {
+      "phraseId": "phrase_177",
+      "english": "In the evening",
+      "originalTranslation": "Виїзд",
+      "translation": "Ввечері",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Виїзд' to 'Ввечері' based on 'myMemory' (English: 'In the evening')"
+    },
+    {
+      "phraseId": "phrase_178",
+      "english": "What month?",
+      "originalTranslation": "Заїзд",
+      "translation": "Місяць?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Заїзд' to 'Місяць?' based on 'myMemory' (English: 'What month?')"
+    },
+    {
+      "phraseId": "phrase_179",
+      "english": "Monday",
+      "originalTranslation": "Рецепція",
+      "translation": "Понеділок",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Рецепція' to 'Понеділок' based on 'myMemory' (English: 'Monday')"
+    },
+    {
+      "phraseId": "phrase_180",
+      "english": "Tuesday",
+      "originalTranslation": "Консьєрж",
+      "translation": "Вівторок",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Консьєрж' to 'Вівторок' based on 'myMemory' (English: 'Tuesday')"
+    },
+    {
+      "phraseId": "phrase_181",
+      "english": "Wednesday",
+      "originalTranslation": "Обслуговування номерів",
+      "translation": "Середа",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Обслуговування номерів' to 'Середа' based on 'myMemory' (English: 'Wednesday')"
+    },
+    {
+      "phraseId": "phrase_182",
+      "english": "Thursday",
+      "originalTranslation": "Прибирання",
+      "translation": "Четвер",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Прибирання' to 'Четвер' based on 'myMemory' (English: 'Thursday')"
+    },
+    {
+      "phraseId": "phrase_183",
+      "english": "Friday",
+      "originalTranslation": "Рушник",
+      "translation": "П'ятниця",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Рушник' to 'П'ятниця' based on 'myMemory' (English: 'Friday')"
+    },
+    {
+      "phraseId": "phrase_184",
+      "english": "Saturday",
+      "originalTranslation": "Кондиціонер",
+      "translation": "Субота",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Кондиціонер' to 'Субота' based on 'myMemory' (English: 'Saturday')"
+    },
+    {
+      "phraseId": "phrase_185",
+      "english": "Sunday",
+      "originalTranslation": "Опалення",
+      "translation": "Неділя",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Опалення' to 'Неділя' based on 'myMemory' (English: 'Sunday')"
+    },
+    {
+      "phraseId": "phrase_186",
+      "english": "January",
+      "originalTranslation": "Допоможіть!",
+      "translation": "Січень",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Допоможіть!' to 'Січень' based on 'myMemory' (English: 'January')"
+    },
+    {
+      "phraseId": "phrase_187",
+      "english": "February",
+      "originalTranslation": "Поліція",
+      "translation": "Лютий",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Поліція' to 'Лютий' based on 'myMemory' (English: 'February')"
+    },
+    {
+      "phraseId": "phrase_188",
+      "english": "March",
+      "originalTranslation": "Лікар",
+      "translation": "Березень",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Лікар' to 'Березень' based on 'myMemory' (English: 'March')"
+    },
+    {
+      "phraseId": "phrase_189",
+      "english": "April",
+      "originalTranslation": "Лікарня",
+      "translation": "Квітень",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Лікарня' to 'Квітень' based on 'myMemory' (English: 'April')"
+    },
+    {
+      "phraseId": "phrase_190",
+      "english": "May",
+      "originalTranslation": "Швидка допомога",
+      "translation": "Травень",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Швидка допомога' to 'Травень' based on 'myMemory' (English: 'May')"
+    },
+    {
+      "phraseId": "phrase_191",
+      "english": "June",
+      "originalTranslation": "Пожежа",
+      "translation": "Червень",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Пожежа' to 'Червень' based on 'myMemory' (English: 'June')"
+    },
+    {
+      "phraseId": "phrase_192",
+      "english": "July",
+      "originalTranslation": "Небезпека",
+      "translation": "Липень",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Небезпека' to 'Липень' based on 'myMemory' (English: 'July')"
+    },
+    {
+      "phraseId": "phrase_193",
+      "english": "August",
+      "originalTranslation": "Мені погано",
+      "translation": "Серпень",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Мені погано' to 'Серпень' based on 'myMemory' (English: 'August')"
+    },
+    {
+      "phraseId": "phrase_194",
+      "english": "September",
+      "originalTranslation": "Мені потрібен лікар",
+      "translation": "Вересень",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Мені потрібен лікар' to 'Вересень' based on 'myMemory' (English: 'September')"
+    },
+    {
+      "phraseId": "phrase_195",
+      "english": "October",
+      "originalTranslation": "Я загубився/загубилася",
+      "translation": "Жовтень",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Я загубився/загубилася' to 'Жовтень' based on 'myMemory' (English: 'October')"
+    },
+    {
+      "phraseId": "phrase_196",
+      "english": "November",
+      "originalTranslation": "Де туалет?",
+      "translation": "Листопад",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Де туалет?' to 'Листопад' based on 'myMemory' (English: 'November')"
+    },
+    {
+      "phraseId": "phrase_197",
+      "english": "December",
+      "originalTranslation": "Я не розумію",
+      "translation": "Грудень",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Я не розумію' to 'Грудень' based on 'myMemory' (English: 'December')"
+    },
+    {
+      "phraseId": "phrase_198",
+      "english": "One",
+      "originalTranslation": "Ви говорите англійською?",
+      "translation": "один",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Ви говорите англійською?' to 'один' based on 'myMemory' (English: 'One')"
+    },
+    {
+      "phraseId": "phrase_199",
+      "english": "Two",
+      "originalTranslation": "Зателефонуйте в посольство",
+      "translation": "Другий",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Зателефонуйте в посольство' to 'Другий' based on 'myMemory' (English: 'Two')"
+    },
+    {
+      "phraseId": "phrase_200",
+      "english": "Three",
+      "originalTranslation": "Аптека",
+      "translation": "Третій",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Аптека' to 'Третій' based on 'myMemory' (English: 'Three')"
+    },
+    {
+      "phraseId": "phrase_201",
+      "english": "Four",
+      "originalTranslation": "Що?",
+      "translation": "Четвертий",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Що?' to 'Четвертий' based on 'myMemory' (English: 'Four')"
+    },
+    {
+      "phraseId": "phrase_202",
+      "english": "Five",
+      "originalTranslation": "Хто?",
+      "translation": "П’ятий",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Хто?' to 'П’ятий' based on 'myMemory' (English: 'Five')"
+    },
+    {
+      "phraseId": "phrase_203",
+      "english": "Six",
+      "originalTranslation": "Де?",
+      "translation": "Шостий",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Де?' to 'Шостий' based on 'myMemory' (English: 'Six')"
+    },
+    {
+      "phraseId": "phrase_204",
+      "english": "Seven",
+      "originalTranslation": "Коли?",
+      "translation": "7",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Коли?' to '7' based on 'myMemory' (English: 'Seven')"
+    },
+    {
+      "phraseId": "phrase_205",
+      "english": "Eight",
+      "originalTranslation": "Чому?",
+      "translation": "Вісімка",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Чому?' to 'Вісімка' based on 'myMemory' (English: 'Eight')"
+    },
+    {
+      "phraseId": "phrase_206",
+      "english": "Nine",
+      "originalTranslation": "Як?",
+      "translation": "Дев’ять",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Як?' to 'Дев’ять' based on 'myMemory' (English: 'Nine')"
+    },
+    {
+      "phraseId": "phrase_207",
+      "english": "Ten",
+      "originalTranslation": "Скільки?",
+      "translation": "Десятка",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Скільки?' to 'Десятка' based on 'myMemory' (English: 'Ten')"
+    },
+    {
+      "phraseId": "phrase_208",
+      "english": "Twenty",
+      "originalTranslation": "Який?",
+      "translation": "Двадцять.",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Який?' to 'Двадцять.' based on 'myMemory' (English: 'Twenty')"
+    },
+    {
+      "phraseId": "phrase_209",
+      "english": "One hundred",
+      "originalTranslation": "Чий?",
+      "translation": "СТО",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Чий?' to 'СТО' based on 'myMemory' (English: 'One hundred')"
+    },
+    {
+      "phraseId": "phrase_210",
+      "english": "One thousand",
+      "originalTranslation": "Що це?",
+      "translation": "(Одна тисяча)",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Що це?' to '(Одна тисяча)' based on 'myMemory' (English: 'One thousand')"
+    },
+    {
+      "phraseId": "phrase_211",
+      "english": "Ten thousand",
+      "originalTranslation": "Це що?",
+      "translation": "десятки тисяч",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Це що?' to 'десятки тисяч' based on 'myMemory' (English: 'Ten thousand')"
+    },
+    {
+      "phraseId": "phrase_212",
+      "english": "First",
+      "originalTranslation": "Можна?",
+      "translation": "Перший",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Можна?' to 'Перший' based on 'myMemory' (English: 'First')"
+    },
+    {
+      "phraseId": "phrase_213",
+      "english": "One thousand",
+      "originalTranslation": "Є...?",
+      "translation": "(Одна тисяча)",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Є...?' to '(Одна тисяча)' based on 'myMemory' (English: 'One thousand')"
+    },
+    {
+      "phraseId": "phrase_214",
+      "english": "Two thousand",
+      "originalTranslation": "Скільки часу?",
+      "translation": "(дві тисячі гривень).",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Скільки часу?' to '(дві тисячі гривень).' based on 'myMemory' (English: 'Two thousand')"
+    },
+    {
+      "phraseId": "phrase_215",
+      "english": "Ten thousand",
+      "originalTranslation": "Ви можете допомогти?",
+      "translation": "десятки тисяч",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Ви можете допомогти?' to 'десятки тисяч' based on 'myMemory' (English: 'Ten thousand')"
+    },
+    {
+      "phraseId": "phrase_216",
+      "english": "One hundred thousand",
+      "originalTranslation": "Де знаходиться...?",
+      "translation": "(сто тисяч гривень 00 копійок).",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Де знаходиться...?' to '(сто тисяч гривень 00 копійок).' based on 'myMemory' (English: 'One hundred thousand')"
+    },
+    {
+      "phraseId": "phrase_217",
+      "english": "One million",
+      "originalTranslation": "Як це називається?",
+      "translation": "1 000 000",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Як це називається?' to '1 000 000' based on 'myMemory' (English: 'One million')"
+    },
+    {
+      "phraseId": "phrase_218",
+      "english": "What is the weather today?",
+      "originalTranslation": "Ви не знаєте...?",
+      "translation": "-  What is the weather like today?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Ви не знаєте...?' to '-  What is the weather like today?' based on 'myMemory' (English: 'What is the weather today?')"
+    },
+    {
+      "phraseId": "phrase_219",
+      "english": "Rain",
+      "originalTranslation": "Можна подивитися?",
+      "translation": "Дощ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Можна подивитися?' to 'Дощ' based on 'myMemory' (English: 'Rain')"
+    },
+    {
+      "phraseId": "phrase_220",
+      "english": "Sunny",
+      "originalTranslation": "Чи правильно?",
+      "translation": "Сонячно",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Чи правильно?' to 'Сонячно' based on 'myMemory' (English: 'Sunny')"
+    },
+    {
+      "phraseId": "phrase_221",
+      "english": "Cloudy",
+      "originalTranslation": "Сім'я",
+      "translation": "Хмарно",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Сім'я' to 'Хмарно' based on 'myMemory' (English: 'Cloudy')"
+    },
+    {
+      "phraseId": "phrase_222",
+      "english": "Windy",
+      "originalTranslation": "Мати",
+      "translation": "Вітряноweather forecast",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Мати' to 'Вітряноweather forecast' based on 'myMemory' (English: 'Windy')"
+    },
+    {
+      "phraseId": "phrase_223",
+      "english": "Snow",
+      "originalTranslation": "Батько",
+      "translation": "Сніг",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Батько' to 'Сніг' based on 'myMemory' (English: 'Snow')"
+    },
+    {
+      "phraseId": "phrase_224",
+      "english": "Hot",
+      "originalTranslation": "Син",
+      "translation": "Гаряче",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Син' to 'Гаряче' based on 'myMemory' (English: 'Hot')"
+    },
+    {
+      "phraseId": "phrase_225",
+      "english": "Cold",
+      "originalTranslation": "Дочка",
+      "translation": "Застуда",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Дочка' to 'Застуда' based on 'myMemory' (English: 'Cold')"
+    },
+    {
+      "phraseId": "phrase_226",
+      "english": "My name is...",
+      "originalTranslation": "Брат",
+      "translation": "Мене звати…",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Брат' to 'Мене звати…' based on 'myMemory' (English: 'My name is...')"
+    },
+    {
+      "phraseId": "phrase_227",
+      "english": "My last name is...",
+      "originalTranslation": "Сестра",
+      "translation": "Моє прізвище Діаз.",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Сестра' to 'Моє прізвище Діаз.' based on 'myMemory' (English: 'My last name is...')"
+    },
+    {
+      "phraseId": "phrase_228",
+      "english": "What is your name?",
+      "originalTranslation": "Чоловік",
+      "translation": "Як вас звати?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Чоловік' to 'Як вас звати?' based on 'myMemory' (English: 'What is your name?')"
+    },
+    {
+      "phraseId": "phrase_229",
+      "english": "I am from Turkmenistan",
+      "originalTranslation": "Дружина",
+      "translation": "Я з Туркменістану",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Дружина' to 'Я з Туркменістану' based on 'myMemory' (English: 'I am from Turkmenistan')"
+    },
+    {
+      "phraseId": "phrase_230",
+      "english": "I live in Ashgabat",
+      "originalTranslation": "Дідусь",
+      "translation": "Я живу в Ашхабаді",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Дідусь' to 'Я живу в Ашхабаді' based on 'myMemory' (English: 'I live in Ashgabat')"
+    },
+    {
+      "phraseId": "phrase_231",
+      "english": "There are 4 people in our family",
+      "originalTranslation": "Бабуся",
+      "translation": "У нашій родині 4 людини",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Бабуся' to 'У нашій родині 4 людини' based on 'myMemory' (English: 'There are 4 people in our family')"
+    },
+    {
+      "phraseId": "phrase_232",
+      "english": "Do you have children?",
+      "originalTranslation": "Онук",
+      "translation": "У Вас є діти?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Онук' to 'У Вас є діти?' based on 'myMemory' (English: 'Do you have children?')"
+    },
+    {
+      "phraseId": "phrase_233",
+      "english": "I have no children",
+      "originalTranslation": "Онука",
+      "translation": "Не маю дітей",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Онука' to 'Не маю дітей' based on 'myMemory' (English: 'I have no children')"
+    },
+    {
+      "phraseId": "phrase_234",
+      "english": "I have one child",
+      "originalTranslation": "Діти",
+      "translation": "так, маю одну дитину",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Діти' to 'так, маю одну дитину' based on 'myMemory' (English: 'I have one child')"
+    },
+    {
+      "phraseId": "phrase_235",
+      "english": "I have two children",
+      "originalTranslation": "Батьки",
+      "translation": "маю двох дітей",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Батьки' to 'маю двох дітей' based on 'myMemory' (English: 'I have two children')"
+    },
+    {
+      "phraseId": "phrase_236",
+      "english": "What do you do?",
+      "originalTranslation": "Здоров'я",
+      "translation": "Чим ви займаєтеся?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Здоров'я' to 'Чим ви займаєтеся?' based on 'myMemory' (English: 'What do you do?')"
+    },
+    {
+      "phraseId": "phrase_237",
+      "english": "I work at a factory",
+      "originalTranslation": "Хворий/Хвора",
+      "translation": "Я працюю на заводі",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Хворий/Хвора' to 'Я працюю на заводі' based on 'myMemory' (English: 'I work at a factory')"
+    },
+    {
+      "phraseId": "phrase_238",
+      "english": "I work at a bank",
+      "originalTranslation": "Біль",
+      "translation": "Я працюю в банку",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Біль' to 'Я працюю в банку' based on 'myMemory' (English: 'I work at a bank')"
+    },
+    {
+      "phraseId": "phrase_239",
+      "english": "I work at a hospital",
+      "originalTranslation": "У мене болить голова",
+      "translation": "Я працюю в лікарні",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'У мене болить голова' to 'Я працюю в лікарні' based on 'myMemory' (English: 'I work at a hospital')"
+    },
+    {
+      "phraseId": "phrase_240",
+      "english": "I study foreign languages",
+      "originalTranslation": "У мене болить живіт",
+      "translation": "Вивчаю іноземні мови",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'У мене болить живіт' to 'Вивчаю іноземні мови' based on 'myMemory' (English: 'I study foreign languages')"
+    },
+    {
+      "phraseId": "phrase_241",
+      "english": "Do you speak Russian?",
+      "originalTranslation": "Температура",
+      "translation": "Ви говорите російською?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Температура' to 'Ви говорите російською?' based on 'myMemory' (English: 'Do you speak Russian?')"
+    },
+    {
+      "phraseId": "phrase_242",
+      "english": "I don't speak",
+      "originalTranslation": "Кашель",
+      "translation": "Я не розмовляю",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Кашель' to 'Я не розмовляю' based on 'myMemory' (English: 'I don't speak')"
+    },
+    {
+      "phraseId": "phrase_243",
+      "english": "I speak a little",
+      "originalTranslation": "Застуда",
+      "translation": "Я трохи розмовляю",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Застуда' to 'Я трохи розмовляю' based on 'myMemory' (English: 'I speak a little')"
+    },
+    {
+      "phraseId": "phrase_244",
+      "english": "When does the conference start?",
+      "originalTranslation": "Грип",
+      "translation": "Коли починається конференція?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Грип' to 'Коли починається конференція?' based on 'myMemory' (English: 'When does the conference start?')"
+    },
+    {
+      "phraseId": "phrase_245",
+      "english": "What is the schedule for presentations?",
+      "originalTranslation": "Ліки",
+      "translation": "Який графік проведення презентацій?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Ліки' to 'Який графік проведення презентацій?' based on 'myMemory' (English: 'What is the schedule for presentations?')"
+    },
+    {
+      "phraseId": "phrase_246",
+      "english": "Will there be translation to Russian?",
+      "originalTranslation": "Рецепт",
+      "translation": "Чи буде переклад на російську мову?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Рецепт' to 'Чи буде переклад на російську мову?' based on 'myMemory' (English: 'Will there be translation to Russian?')"
+    },
+    {
+      "phraseId": "phrase_247",
+      "english": "I will speak in Russian",
+      "originalTranslation": "Таблетки",
+      "translation": "Я буду говорити російською мовою",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Таблетки' to 'Я буду говорити російською мовою' based on 'myMemory' (English: 'I will speak in Russian')"
+    },
+    {
+      "phraseId": "phrase_248",
+      "english": "We want to see the exhibition",
+      "originalTranslation": "Стоматолог",
+      "translation": "Ми хочемо побачити виставку",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Стоматолог' to 'Ми хочемо побачити виставку' based on 'myMemory' (English: 'We want to see the exhibition')"
+    },
+    {
+      "phraseId": "phrase_249",
+      "english": "What time does the exhibition open?",
+      "originalTranslation": "Зуби",
+      "translation": "О котрій годині відкривається виставка?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Зуби' to 'О котрій годині відкривається виставка?' based on 'myMemory' (English: 'What time does the exhibition open?')"
+    },
+    {
+      "phraseId": "phrase_250",
+      "english": "How many countries are participating?",
+      "originalTranslation": "Очі",
+      "translation": "Скільки країн беруть участь?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Очі' to 'Скільки країн беруть участь?' based on 'myMemory' (English: 'How many countries are participating?')"
+    },
+    {
+      "phraseId": "phrase_251",
+      "english": "Can I get the exhibition catalog?",
+      "originalTranslation": "Вухо",
+      "translation": "Чи можу я отримати каталог виставки?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Вухо' to 'Чи можу я отримати каталог виставки?' based on 'myMemory' (English: 'Can I get the exhibition catalog?')"
+    },
+    {
+      "phraseId": "phrase_252",
+      "english": "I came to discuss business",
+      "originalTranslation": "Рука",
+      "translation": "Я приїхав, щоб обговорити бізнес",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Рука' to 'Я приїхав, щоб обговорити бізнес' based on 'myMemory' (English: 'I came to discuss business')"
+    },
+    {
+      "phraseId": "phrase_253",
+      "english": "We want to speak with the general director",
+      "originalTranslation": "Нога",
+      "translation": "Ми хочемо поговорити з генеральним директором",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Нога' to 'Ми хочемо поговорити з генеральним директором' based on 'myMemory' (English: 'We want to speak with the general director')"
+    },
+    {
+      "phraseId": "phrase_254",
+      "english": "We want to learn about the production",
+      "originalTranslation": "Спина",
+      "translation": "Ми хочемо дізнатися про виробництво",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Спина' to 'Ми хочемо дізнатися про виробництво' based on 'myMemory' (English: 'We want to learn about the production')"
+    },
+    {
+      "phraseId": "phrase_255",
+      "english": "Length",
+      "originalTranslation": "Серце",
+      "translation": "Довжина",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Серце' to 'Довжина' based on 'myMemory' (English: 'Length')"
+    },
+    {
+      "phraseId": "phrase_256",
+      "english": "Meter",
+      "originalTranslation": "Погода",
+      "translation": "Метр",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Погода' to 'Метр' based on 'myMemory' (English: 'Meter')"
+    },
+    {
+      "phraseId": "phrase_257",
+      "english": "Centimeter",
+      "originalTranslation": "Сонце",
+      "translation": "Сантиметр",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Сонце' to 'Сантиметр' based on 'myMemory' (English: 'Centimeter')"
+    },
+    {
+      "phraseId": "phrase_258",
+      "english": "Weight",
+      "originalTranslation": "Дощ",
+      "translation": "Вага",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Дощ' to 'Вага' based on 'myMemory' (English: 'Weight')"
+    },
+    {
+      "phraseId": "phrase_259",
+      "english": "Kilogram",
+      "originalTranslation": "Сніг",
+      "translation": "Кілограм",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Сніг' to 'Кілограм' based on 'myMemory' (English: 'Kilogram')"
+    },
+    {
+      "phraseId": "phrase_260",
+      "english": "Gram",
+      "originalTranslation": "Вітер",
+      "translation": "Грам",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Вітер' to 'Грам' based on 'myMemory' (English: 'Gram')"
+    },
+    {
+      "phraseId": "phrase_261",
+      "english": "Volume",
+      "originalTranslation": "Хмарно",
+      "translation": "тому",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Хмарно' to 'тому' based on 'myMemory' (English: 'Volume')"
+    },
+    {
+      "phraseId": "phrase_262",
+      "english": "Liter",
+      "originalTranslation": "Тепло",
+      "translation": "Літр",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Тепло' to 'Літр' based on 'myMemory' (English: 'Liter')"
+    },
+    {
+      "phraseId": "phrase_263",
+      "english": "White",
+      "originalTranslation": "Холодно",
+      "translation": "Біла",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Холодно' to 'Біла' based on 'myMemory' (English: 'White')"
+    },
+    {
+      "phraseId": "phrase_264",
+      "english": "Yellow",
+      "originalTranslation": "Гаряче",
+      "translation": "жовтий",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Гаряче' to 'жовтий' based on 'myMemory' (English: 'Yellow')"
+    },
+    {
+      "phraseId": "phrase_265",
+      "english": "Green",
+      "originalTranslation": "Морозно",
+      "translation": "Green",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Морозно' to 'Green' based on 'myMemory' (English: 'Green')"
+    },
+    {
+      "phraseId": "phrase_266",
+      "english": "Blue",
+      "originalTranslation": "Білий",
+      "translation": "Синій",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Білий' to 'Синій' based on 'myMemory' (English: 'Blue')"
+    },
+    {
+      "phraseId": "phrase_267",
+      "english": "Red",
+      "originalTranslation": "Чорний",
+      "translation": "Червоний",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Чорний' to 'Червоний' based on 'myMemory' (English: 'Red')"
+    },
+    {
+      "phraseId": "phrase_268",
+      "english": "Black",
+      "originalTranslation": "Червоний",
+      "translation": "Чорний",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Червоний' to 'Чорний' based on 'myMemory' (English: 'Black')"
+    },
+    {
+      "phraseId": "phrase_269",
+      "english": "Gray",
+      "originalTranslation": "Синій",
+      "translation": "Грей",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Синій' to 'Грей' based on 'myMemory' (English: 'Gray')"
+    },
+    {
+      "phraseId": "phrase_270",
+      "english": "Purple",
+      "originalTranslation": "Зелений",
+      "translation": "Фіолетовий",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Зелений' to 'Фіолетовий' based on 'myMemory' (English: 'Purple')"
+    },
+    {
+      "phraseId": "phrase_271",
+      "english": "Orange",
+      "originalTranslation": "Жовтий",
+      "translation": "Апельсин",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Жовтий' to 'Апельсин' based on 'myMemory' (English: 'Orange')"
+    },
+    {
+      "phraseId": "phrase_272",
+      "english": "Pink",
+      "originalTranslation": "Помаранчевий",
+      "translation": "Рожева",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Помаранчевий' to 'Рожева' based on 'myMemory' (English: 'Pink')"
+    },
+    {
+      "phraseId": "phrase_273",
+      "english": "Head",
+      "originalTranslation": "Рожевий",
+      "translation": "Голова",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Рожевий' to 'Голова' based on 'myMemory' (English: 'Head')"
+    },
+    {
+      "phraseId": "phrase_274",
+      "english": "Arm",
+      "originalTranslation": "Коричневий",
+      "translation": "Плече",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Коричневий' to 'Плече' based on 'myMemory' (English: 'Arm')"
+    },
+    {
+      "phraseId": "phrase_275",
+      "english": "Leg",
+      "originalTranslation": "Сірий",
+      "translation": "Нога",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Сірий' to 'Нога' based on 'myMemory' (English: 'Leg')"
+    },
+    {
+      "phraseId": "phrase_276",
+      "english": "Eyes",
+      "originalTranslation": "Фіолетовий",
+      "translation": "Очі",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Фіолетовий' to 'Очі' based on 'myMemory' (English: 'Eyes')"
+    },
+    {
+      "phraseId": "phrase_277",
+      "english": "Nose",
+      "originalTranslation": "Блакитний",
+      "translation": "Ніс",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Блакитний' to 'Ніс' based on 'myMemory' (English: 'Nose')"
+    },
+    {
+      "phraseId": "phrase_278",
+      "english": "Mouth",
+      "originalTranslation": "Північ",
+      "translation": "Рот",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Північ' to 'Рот' based on 'myMemory' (English: 'Mouth')"
+    },
+    {
+      "phraseId": "phrase_279",
+      "english": "Ear",
+      "originalTranslation": "Південь",
+      "translation": "Вухо",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Південь' to 'Вухо' based on 'myMemory' (English: 'Ear')"
+    },
+    {
+      "phraseId": "phrase_280",
+      "english": "House",
+      "originalTranslation": "Схід",
+      "translation": "Будинок",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Схід' to 'Будинок' based on 'myMemory' (English: 'House')"
+    },
+    {
+      "phraseId": "phrase_281",
+      "english": "Door",
+      "originalTranslation": "Захід",
+      "translation": "Двері",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Захід' to 'Двері' based on 'myMemory' (English: 'Door')"
+    },
+    {
+      "phraseId": "phrase_282",
+      "english": "Window",
+      "originalTranslation": "Карта",
+      "translation": "Вікно",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Карта' to 'Вікно' based on 'myMemory' (English: 'Window')"
+    },
+    {
+      "phraseId": "phrase_283",
+      "english": "Table",
+      "originalTranslation": "Дорога",
+      "translation": "Таблиця",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Дорога' to 'Таблиця' based on 'myMemory' (English: 'Table')"
+    },
+    {
+      "phraseId": "phrase_284",
+      "english": "Chair",
+      "originalTranslation": "Вулиця",
+      "translation": "Голова",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Вулиця' to 'Голова' based on 'myMemory' (English: 'Chair')"
+    },
+    {
+      "phraseId": "phrase_285",
+      "english": "Bed",
+      "originalTranslation": "Площа",
+      "translation": "Ліжко",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Площа' to 'Ліжко' based on 'myMemory' (English: 'Bed')"
+    },
+    {
+      "phraseId": "phrase_286",
+      "english": "Where is passport control?",
+      "originalTranslation": "Міст",
+      "translation": "Де паспортний контроль?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Міст' to 'Де паспортний контроль?' based on 'myMemory' (English: 'Where is passport control?')"
+    },
+    {
+      "phraseId": "phrase_287",
+      "english": "Here is my passport",
+      "originalTranslation": "Кут",
+      "translation": "Ось мій паспорт",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Кут' to 'Ось мій паспорт' based on 'myMemory' (English: 'Here is my passport')"
+    },
+    {
+      "phraseId": "phrase_288",
+      "english": "I intend to stay in China for a week",
+      "originalTranslation": "Світлофор",
+      "translation": "Я маю намір залишитися в Китаї на тиждень",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Світлофор' to 'Я маю намір залишитися в Китаї на тиждень' based on 'myMemory' (English: 'I intend to stay in China for a week')"
+    },
+    {
+      "phraseId": "phrase_289",
+      "english": "I have a single-entry visa",
+      "originalTranslation": "Розворот",
+      "translation": "Маю одноразову візу",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Розворот' to 'Маю одноразову візу' based on 'myMemory' (English: 'I have a single-entry visa')"
+    },
+    {
+      "phraseId": "phrase_290",
+      "english": "I am in transit in your country",
+      "originalTranslation": "Пройти",
+      "translation": "Я перебуваю у транзиті у вашій країні",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Пройти' to 'Я перебуваю у транзиті у вашій країні' based on 'myMemory' (English: 'I am in transit in your country')"
+    },
+    {
+      "phraseId": "phrase_291",
+      "english": "Here is my customs declaration",
+      "originalTranslation": "Повернути",
+      "translation": "Ось моя митна декларація",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Повернути' to 'Ось моя митна декларація' based on 'myMemory' (English: 'Here is my customs declaration')"
+    },
+    {
+      "phraseId": "phrase_292",
+      "english": "Here is my luggage",
+      "originalTranslation": "Перехрестя",
+      "translation": "Ось мій багаж",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Перехрестя' to 'Ось мій багаж' based on 'myMemory' (English: 'Here is my luggage')"
+    },
+    {
+      "phraseId": "phrase_293",
+      "english": "There are no prohibited items in my luggage",
+      "originalTranslation": "За рогом",
+      "translation": "У моєму багажі немає заборонених предметів",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'За рогом' to 'У моєму багажі немає заборонених предметів' based on 'myMemory' (English: 'There are no prohibited items in my luggage')"
+    },
+    {
+      "phraseId": "phrase_294",
+      "english": "These are my personal belongings",
+      "originalTranslation": "Напроти",
+      "translation": "Це мої особисті речі",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Напроти' to 'Це мої особисті речі' based on 'myMemory' (English: 'These are my personal belongings')"
+    },
+    {
+      "phraseId": "phrase_295",
+      "english": "What duty do I need to pay?",
+      "originalTranslation": "Поруч",
+      "translation": "Який обов 'язок мені потрібно сплатити?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Поруч' to 'Який обов 'язок мені потрібно сплатити?' based on 'myMemory' (English: 'What duty do I need to pay?')"
+    },
+    {
+      "phraseId": "phrase_296",
+      "english": "What sport do you like?",
+      "originalTranslation": "Телефон",
+      "translation": "Який вид спорту тобі подобається?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Телефон' to 'Який вид спорту тобі подобається?' based on 'myMemory' (English: 'What sport do you like?')"
+    },
+    {
+      "phraseId": "phrase_297",
+      "english": "I like to play football",
+      "originalTranslation": "Інтернет",
+      "translation": "Мені подобається грати у футбол",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Інтернет' to 'Мені подобається грати у футбол' based on 'myMemory' (English: 'I like to play football')"
+    },
+    {
+      "phraseId": "phrase_298",
+      "english": "Basketball",
+      "originalTranslation": "Електронна пошта",
+      "translation": "Баскетбол",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Електронна пошта' to 'Баскетбол' based on 'myMemory' (English: 'Basketball')"
+    },
+    {
+      "phraseId": "phrase_299",
+      "english": "Swimming",
+      "originalTranslation": "Повідомлення",
+      "translation": "Плавання",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Повідомлення' to 'Плавання' based on 'myMemory' (English: 'Swimming')"
+    },
+    {
+      "phraseId": "phrase_300",
+      "english": "Running",
+      "originalTranslation": "Дзвінок",
+      "translation": "Біг",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Дзвінок' to 'Біг' based on 'myMemory' (English: 'Running')"
+    },
+    {
+      "phraseId": "phrase_301",
+      "english": "Where is the gym?",
+      "originalTranslation": "Номер телефону",
+      "translation": "Де",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Номер телефону' to 'Де' based on 'myMemory' (English: 'Where is the gym?')"
+    },
+    {
+      "phraseId": "phrase_302",
+      "english": "I want to work out",
+      "originalTranslation": "Зв'язок",
+      "translation": "Я хочу тренуватися",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Зв'язок' to 'Я хочу тренуватися' based on 'myMemory' (English: 'I want to work out')"
+    },
+    {
+      "phraseId": "phrase_303",
+      "english": "Coach",
+      "originalTranslation": "Комп'ютер",
+      "translation": "Коуч",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Комп'ютер' to 'Коуч' based on 'myMemory' (English: 'Coach')"
+    },
+    {
+      "phraseId": "phrase_304",
+      "english": "Competition / Match",
+      "originalTranslation": "Мобільний телефон",
+      "translation": "Змагання / Матч",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Мобільний телефон' to 'Змагання / Матч' based on 'myMemory' (English: 'Competition / Match')"
+    },
+    {
+      "phraseId": "phrase_305",
+      "english": "Stadium",
+      "originalTranslation": "Гість",
+      "translation": "Стадіон",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'Гість' to 'Стадіон' based on 'myMemory' (English: 'Stadium')"
+    }
+  ]
+}
