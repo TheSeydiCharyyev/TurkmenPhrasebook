@@ -1,0 +1,3064 @@
+{
+  "language": "Urdu",
+  "languageCode": "ur",
+  "timestamp": "2025-11-23T03:34:29.356Z",
+  "summary": {
+    "total": 305,
+    "verified": 0,
+    "needsReview": 305,
+    "errors": 0,
+    "verificationRate": "0.0%"
+  },
+  "results": [
+    {
+      "phraseId": "Halo",
+      "category": "greetings",
+      "english": "Hello",
+      "current": "ہیلو",
+      "myMemory": "آداب ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat pagi",
+      "category": "greetings",
+      "english": "Thank you",
+      "current": "السلام علیکم",
+      "myMemory": "آپ کا شکریہ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat siang",
+      "category": "greetings",
+      "english": "Goodbye",
+      "current": "صبح بخیر",
+      "myMemory": "آہ ناشکری تم",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat sore",
+      "category": "greetings",
+      "english": "Excuse me",
+      "current": "شام بخیر",
+      "myMemory": "معاف کیجئے گا۔",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat malam",
+      "category": "greetings",
+      "english": "Good morning",
+      "current": "شب بخیر",
+      "myMemory": "صبح بخیر",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat tinggal",
+      "category": "greetings",
+      "english": "Good night",
+      "current": "خدا حافظ",
+      "myMemory": "شب بخیر خدا آپ کو خوش رکھے",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sampai jumpa",
+      "category": "greetings",
+      "english": "My name is...",
+      "current": "الوداع",
+      "myMemory": "میرا نام ہے",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apa kabar?",
+      "category": "greetings",
+      "english": "What is your name?",
+      "current": "آپ کا شکریہ",
+      "myMemory": "آپ کا نام کیا ہے؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Baik-baik saja, terima kasih",
+      "category": "greetings",
+      "english": "Nice to meet you",
+      "current": "برائے مہربانی",
+      "myMemory": "آپ سے مل کر خوشی ہوئی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Senang bertemu dengan Anda",
+      "category": "greetings",
+      "english": "Please",
+      "current": "معاف کیجیے",
+      "myMemory": "براہ کرم",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Nama saya...",
+      "category": "greetings",
+      "english": "You're welcome",
+      "current": "ہاں",
+      "myMemory": "- آپ کی نوازش ہے&#10;",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Siapa nama Anda?",
+      "category": "greetings",
+      "english": "How are you?",
+      "current": "نہیں",
+      "myMemory": "آپ کیسے ہو ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dari mana Anda?",
+      "category": "greetings",
+      "english": "Good luck!",
+      "current": "آپ کیسے ہیں؟",
+      "myMemory": "کامیابی آپکا مقدر ہو!",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya dari...",
+      "category": "greetings",
+      "english": "Welcome!",
+      "current": "میں ٹھیک ہوں",
+      "myMemory": "خوش آمدید!",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ya",
+      "category": "greetings",
+      "english": "Very glad to see you",
+      "current": "اور آپ؟",
+      "myMemory": "آپ کو دیکھ کر بہت خوشی ہوئی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tidak",
+      "category": "greetings",
+      "english": "Welcome! (arrival greeting)",
+      "current": "آپ کا نام کیا ہے؟",
+      "myMemory": "خوش آمدید! (آمد کی مبارکباد)",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Terima kasih",
+      "category": "greetings",
+      "english": "How are you doing?",
+      "current": "میرا نام... ہے",
+      "myMemory": "تم کیسے کر رہے ہو ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sama-sama",
+      "category": "greetings",
+      "english": "Let me introduce my friend",
+      "current": "خوشی ہوئی",
+      "myMemory": "مجھے اپنے دوست کا تعارف کرانے دیں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tolong",
+      "category": "greetings",
+      "english": "Pleased to meet you!",
+      "current": "آپ کہاں سے ہیں؟",
+      "myMemory": "آپ سے مل کر خوشی ہوئی!",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Maaf",
+      "category": "greetings",
+      "english": "Please come in",
+      "current": "میں... سے ہوں",
+      "myMemory": "براہ کرم اندر آئیں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Permisi",
+      "category": "greetings",
+      "english": "Please sit down",
+      "current": "میں ترکمانستان سے ہوں",
+      "myMemory": "براہ کرم بیٹھ جائیں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tidak apa-apa",
+      "category": "greetings",
+      "english": "Yes",
+      "current": "کیا آپ اردو بولتے ہیں؟",
+      "myMemory": "جی، ہاں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Baik",
+      "category": "greetings",
+      "english": "No",
+      "current": "میں اردو نہیں بولتا",
+      "myMemory": "نہیں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Buruk",
+      "category": "greetings",
+      "english": "I agree",
+      "current": "میں تھوڑی سی اردو بولتا ہوں",
+      "myMemory": "I agree",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sedikit",
+      "category": "greetings",
+      "english": "Thank you very much for your help",
+      "current": "کیا آپ انگریزی بولتے ہیں؟",
+      "myMemory": "آپ کی مدد کے لیے بہت شکریہ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Banyak",
+      "category": "greetings",
+      "english": "Thank you very much for your support",
+      "current": "میں سمجھتا نہیں",
+      "myMemory": "آپ کے تعاون کا شکریہ۔ ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Semua",
+      "category": "greetings",
+      "english": "Thank you very much for your understanding",
+      "current": "براہ کرم دوبارہ کہیے",
+      "myMemory": "اس صورتحال کو سمجھنے کے لیے شکریہ۔",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tidak ada",
+      "category": "emergency",
+      "english": "Help!",
+      "current": "آہستہ بولیے",
+      "myMemory": "مدد",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya tidak mengerti",
+      "category": "emergency",
+      "english": "I need a doctor",
+      "current": "کیا آپ مدد کر سکتے ہیں؟",
+      "myMemory": "مجھے ڈاکٹر کی ضرورت ہے",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda mengerti?",
+      "category": "emergency",
+      "english": "Call the police",
+      "current": "میری مدد کریں",
+      "myMemory": "پولیس کو کال کریں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya mengerti",
+      "category": "emergency",
+      "english": "Fire!",
+      "current": "خوش آمدید",
+      "myMemory": "آتشزدگی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bisakah Anda berbicara lebih lambat?",
+      "category": "emergency",
+      "english": "I am lost",
+      "current": "مبارک ہو",
+      "myMemory": "میں کھو گیا ہوں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ulangi lagi, tolong",
+      "category": "emergency",
+      "english": "I am sick",
+      "current": "سالگرہ مبارک",
+      "myMemory": "میں بیمار ہوں۔",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bagaimana?",
+      "category": "emergency",
+      "english": "Call an ambulance",
+      "current": "نیا سال مبارک",
+      "myMemory": "ایمبولینس کو کال کریں۔",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apa?",
+      "category": "emergency",
+      "english": "My wallet was stolen",
+      "current": "عید مبارک",
+      "myMemory": "میرا پرس چوری ہو گیا تھا",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di mana?",
+      "category": "emergency",
+      "english": "Help me",
+      "current": "اچھی قسمت",
+      "myMemory": "میری مدد کریں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kapan?",
+      "category": "emergency",
+      "english": "Danger!",
+      "current": "بہت اچھا",
+      "myMemory": "خطرہ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Siapa?",
+      "category": "emergency",
+      "english": "Call a doctor!",
+      "current": "ٹھیک ہے",
+      "myMemory": "ڈاکٹر کو کال کریں۔",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mengapa?",
+      "category": "hotel",
+      "english": "I want a room",
+      "current": "کوئی مسئلہ نہیں",
+      "myMemory": "مجھے ایک کمرہ چاہیے",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa?",
+      "category": "hotel",
+      "english": "How much per night?",
+      "current": "معذرت",
+      "myMemory": "فی رات کتنا ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Satu",
+      "category": "hotel",
+      "english": "Is there WiFi here?",
+      "current": "ایک",
+      "myMemory": "کیا یہاں وائی فائی ہے ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dua",
+      "category": "hotel",
+      "english": "I have a reservation",
+      "current": "دو",
+      "myMemory": "میرے پاس ریزرویشن ہے",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tiga",
+      "category": "hotel",
+      "english": "Single room",
+      "current": "تین",
+      "myMemory": "سنگل کمرہ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Empat",
+      "category": "hotel",
+      "english": "Double room",
+      "current": "چار",
+      "myMemory": "دوہرا کمرہ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lima",
+      "category": "hotel",
+      "english": "What time is check-out?",
+      "current": "پانچ",
+      "myMemory": "چیک آؤٹ کا وقت کیا ہے ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Enam",
+      "category": "hotel",
+      "english": "Key",
+      "current": "چھ",
+      "myMemory": "کی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tujuh",
+      "category": "hotel",
+      "english": "Room number",
+      "current": "سات",
+      "myMemory": "کمرہ نمبر:",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Delapan",
+      "category": "hotel",
+      "english": "Is breakfast included?",
+      "current": "آٹھ",
+      "myMemory": "کیا ناشتہ شامل ہے ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sembilan",
+      "category": "hotel",
+      "english": "Please clean the room",
+      "current": "نو",
+      "myMemory": "براہ کرم کمرے کو صاف کریں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sepuluh",
+      "category": "hotel",
+      "english": "I want to extend my stay",
+      "current": "دس",
+      "myMemory": "میں اپنے قیام میں توسیع کرنا چاہتا ہوں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sebelas",
+      "category": "food",
+      "english": "I am hungry",
+      "current": "گیارہ",
+      "myMemory": "mujhe bahut bhook lagri ha",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dua belas",
+      "category": "food",
+      "english": "Menu, please",
+      "current": "بارہ",
+      "myMemory": "مینیو، براہ کرم",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tiga belas",
+      "category": "food",
+      "english": "Delicious",
+      "current": "تیرہ",
+      "myMemory": "مزیدار.&#10;Delicious.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lima belas",
+      "category": "food",
+      "english": "Bill, please",
+      "current": "بیس",
+      "myMemory": "بل، براہ کرم",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dua puluh",
+      "category": "food",
+      "english": "I am vegetarian",
+      "current": "تیس",
+      "myMemory": "میں سبزی خور ہوں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tiga puluh",
+      "category": "food",
+      "english": "Not spicy",
+      "current": "پچاس",
+      "myMemory": "مسالیدار نہیں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lima puluh",
+      "category": "food",
+      "english": "Water",
+      "current": "سو",
+      "myMemory": "پانی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Seratus",
+      "category": "food",
+      "english": "Tea",
+      "current": "ہزار",
+      "myMemory": "چائے",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Seribu",
+      "category": "food",
+      "english": "Rice",
+      "current": "پہلا",
+      "myMemory": "چاول",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sejuta",
+      "category": "food",
+      "english": "Noodles",
+      "current": "آخری",
+      "myMemory": "نوڈلز",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hari ini",
+      "category": "food",
+      "english": "Chicken",
+      "current": "پیر",
+      "myMemory": "مرغی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kemarin",
+      "category": "food",
+      "english": "Beef",
+      "current": "منگل",
+      "myMemory": "گائے کا گوشت",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Besok",
+      "category": "food",
+      "english": "How much does it cost?",
+      "current": "بدھ",
+      "myMemory": "اس کے کتنے اخراجات ہیں؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pagi",
+      "category": "food",
+      "english": "I am allergic to...",
+      "current": "جمعرات",
+      "myMemory": "مجھے... سے الرجی ہے",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Siang",
+      "category": "food",
+      "english": "Can I take it to go?",
+      "current": "جمعہ",
+      "myMemory": "کیا میں اسے لے جا سکتا ہوں ؟ Can I take it to go?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sore",
+      "category": "food",
+      "english": "Very delicious",
+      "current": "ہفتہ",
+      "myMemory": "بہت لذیذ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Malam",
+      "category": "food",
+      "english": "Appetizers",
+      "current": "اتوار",
+      "myMemory": "ایپیٹائزر",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Minggu",
+      "category": "food",
+      "english": "Ham",
+      "current": "جنوری",
+      "myMemory": "ہیم",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bulan",
+      "category": "food",
+      "english": "Cheese platter",
+      "current": "فروری",
+      "myMemory": "پنیر کی تھالی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tahun",
+      "category": "food",
+      "english": "Soup",
+      "current": "مارچ",
+      "myMemory": "سُوپ ( یخنی) ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hari",
+      "category": "food",
+      "english": "Borscht",
+      "current": "اپریل",
+      "myMemory": "بورشٹ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jam",
+      "category": "food",
+      "english": "Chicken noodle soup",
+      "current": "مئی",
+      "myMemory": "چکن نوڈل سوپ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Menit",
+      "category": "food",
+      "english": "Meat broth",
+      "current": "جون",
+      "myMemory": "گوشت کا شوربہ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Detik",
+      "category": "food",
+      "english": "Meat",
+      "current": "جولائی",
+      "myMemory": "گوشت",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Senin",
+      "category": "food",
+      "english": "Lamb",
+      "current": "اگست",
+      "myMemory": "میمنا",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selasa",
+      "category": "food",
+      "english": "Pork",
+      "current": "ستمبر",
+      "myMemory": "سور کا گوشت",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Rabu",
+      "category": "food",
+      "english": "Fried",
+      "current": "اکتوبر",
+      "myMemory": "فرائیڈ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kamis",
+      "category": "food",
+      "english": "Boiled",
+      "current": "نومبر",
+      "myMemory": "ابلا ہوا",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jumat",
+      "category": "food",
+      "english": "Fish dishes",
+      "current": "دسمبر",
+      "myMemory": "مچھلی کی ڈشز",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sabtu",
+      "category": "food",
+      "english": "Fish",
+      "current": "آج",
+      "myMemory": "مچھلی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Minggu",
+      "category": "food",
+      "english": "Salmon",
+      "current": "کل",
+      "myMemory": "سالمن مچھلی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Januari",
+      "category": "food",
+      "english": "Shrimp",
+      "current": "پرسوں",
+      "myMemory": "کیکڑا",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Februari",
+      "category": "food",
+      "english": "Crabs",
+      "current": "اب",
+      "myMemory": "کیکڑے",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Maret",
+      "category": "food",
+      "english": "Is there a vegetarian menu?",
+      "current": "بعد میں",
+      "myMemory": "کیا کوئی سبزی خور مینو ہے ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "April",
+      "category": "food",
+      "english": "Is this dish spicy?",
+      "current": "کتنے بجے ہیں؟",
+      "myMemory": "کیا یہ ڈش مسالیدار ہے ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Restoran",
+      "category": "food",
+      "english": "Not spicy",
+      "current": "پانی",
+      "myMemory": "مسالیدار نہیں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Menu",
+      "category": "food",
+      "english": "Apple",
+      "current": "کھانا",
+      "myMemory": "سیب",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sarapan",
+      "category": "food",
+      "english": "Banana",
+      "current": "روٹی",
+      "myMemory": "کیلا ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Makan siang",
+      "category": "food",
+      "english": "Orange",
+      "current": "چاول",
+      "myMemory": "نارنجی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Makan malam",
+      "category": "food",
+      "english": "Grapes",
+      "current": "گوشت",
+      "myMemory": "انگور",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Air",
+      "category": "food",
+      "english": "Watermelon",
+      "current": "مچھلی",
+      "myMemory": "تربوز",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Teh",
+      "category": "food",
+      "english": "Potato",
+      "current": "مرغی",
+      "myMemory": "آلو",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kopi",
+      "category": "food",
+      "english": "Tomato",
+      "current": "سبزی",
+      "myMemory": "ٹماٹر",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Susu",
+      "category": "shopping",
+      "english": "How much does it cost?",
+      "current": "پھل",
+      "myMemory": "اس کے کتنے اخراجات ہیں؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jus",
+      "category": "shopping",
+      "english": "Too expensive",
+      "current": "دودھ",
+      "myMemory": "بہت مہنگا",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bir",
+      "category": "shopping",
+      "english": "Can it be cheaper?",
+      "current": "چائے",
+      "myMemory": "کیا یہ سستا ہو سکتا ہے ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Anggur",
+      "category": "shopping",
+      "english": "I will buy this",
+      "current": "کافی",
+      "myMemory": "میں یہ خریدوں گا",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Roti",
+      "category": "shopping",
+      "english": "Can I try it on?",
+      "current": "چینی",
+      "myMemory": "کیا میں اسے پر آزما سکتا ہوں ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Daging",
+      "category": "shopping",
+      "english": "Bigger size",
+      "current": "نمک",
+      "myMemory": "بڑا سائز",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ikan",
+      "category": "shopping",
+      "english": "Smaller size",
+      "current": "مرچ",
+      "myMemory": "چھوٹا سائز",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ayam",
+      "category": "shopping",
+      "english": "Cash",
+      "current": "ناشتہ",
+      "myMemory": "کیش",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sayuran",
+      "category": "shopping",
+      "english": "Credit card",
+      "current": "دوپہر کا کھانا",
+      "myMemory": "کریڈٹ کارڈ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Buah",
+      "category": "shopping",
+      "english": "Receipt",
+      "current": "رات کا کھانا",
+      "myMemory": "رسید",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Nasi",
+      "category": "shopping",
+      "english": "Return/Exchange",
+      "current": "مینو",
+      "myMemory": "واپسی/تبادلہ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sup",
+      "category": "shopping",
+      "english": "Where is the market?",
+      "current": "بل",
+      "myMemory": "مارکیٹ کہاں ہے ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Salad",
+      "category": "shopping",
+      "english": "Is there a discount?",
+      "current": "مزیدار",
+      "myMemory": "کیا کوئی رعایت ہے ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Keju",
+      "category": "shopping",
+      "english": "Can I try it on?",
+      "current": "میٹھا",
+      "myMemory": "کیا میں اسے پر آزما سکتا ہوں ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mentega",
+      "category": "shopping",
+      "english": "What is your size?",
+      "current": "کھٹا",
+      "myMemory": "آپ کا سائز کیا ہے ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Gula",
+      "category": "shopping",
+      "english": "Are there other colors?",
+      "current": "تیز",
+      "myMemory": "کیا اور بھی رنگ ہیں ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Garam",
+      "category": "transport",
+      "english": "Where is the train station?",
+      "current": "گرم",
+      "myMemory": "ٹرین اسٹیشن کہاں ہے ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Merica",
+      "category": "transport",
+      "english": "Airport",
+      "current": "ٹھنڈا",
+      "myMemory": "ائیر پورٹ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Es krim",
+      "category": "transport",
+      "english": "Taxi",
+      "current": "تازہ",
+      "myMemory": "ٹیکسی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kue",
+      "category": "transport",
+      "english": "Bus",
+      "current": "میں بھوکا ہوں",
+      "myMemory": "بس",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Enak",
+      "category": "transport",
+      "english": "Metro",
+      "current": "میں پیاسا ہوں",
+      "myMemory": "میٹرو",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bon appétit",
+      "category": "transport",
+      "english": "Train ticket",
+      "current": "بہت لذیذ",
+      "myMemory": "ٹرین کا ٹکٹ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Toko",
+      "category": "transport",
+      "english": "Schedule",
+      "current": "دکان",
+      "myMemory": "وقت طے کریں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pasar",
+      "category": "transport",
+      "english": "Platform",
+      "current": "بازار",
+      "myMemory": "پلیٹ فارم",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa harganya?",
+      "category": "transport",
+      "english": "Next stop",
+      "current": "قیمت",
+      "myMemory": "اگلا اسٹاپ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa biayanya?",
+      "category": "transport",
+      "english": "Stop",
+      "current": "کتنا؟",
+      "myMemory": "روکیں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya ingin membeli ini",
+      "category": "transport",
+      "english": "How long until...?",
+      "current": "یہ کتنے کا ہے؟",
+      "myMemory": "کب تک... ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mahal",
+      "category": "transport",
+      "english": "I need to go to...",
+      "current": "مہنگا",
+      "myMemory": "مجھے جانے کی ضرورت ہے...",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Murah",
+      "category": "transport",
+      "english": "When will the next bus arrive?",
+      "current": "سستا",
+      "myMemory": "اگلی بس کب پہنچے گی ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Diskon",
+      "category": "transport",
+      "english": "I want to go to the airport",
+      "current": "رعایت",
+      "myMemory": "میں ہوائی اڈے جانا چاہتا ہوں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Harga",
+      "category": "directions",
+      "english": "On the left",
+      "current": "میں خریدنا چاہتا ہوں",
+      "myMemory": "بائیں طرف",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Uang",
+      "category": "directions",
+      "english": "On the right",
+      "current": "میں صرف دیکھ رہا ہوں",
+      "myMemory": "دائیں طرف",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kartu kredit",
+      "category": "directions",
+      "english": "Straight",
+      "current": "میں یہ لیتا ہوں",
+      "myMemory": "سیدھا",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tunai",
+      "category": "directions",
+      "english": "Turn",
+      "current": "کریڈٹ کارڈ",
+      "myMemory": "ویئر ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tanda terima",
+      "category": "directions",
+      "english": "Intersection",
+      "current": "نقد",
+      "myMemory": "چوراہے",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda menerima kartu?",
+      "category": "directions",
+      "english": "Traffic light",
+      "current": "رسید",
+      "myMemory": "ٹریفک لائٹ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ukuran",
+      "category": "directions",
+      "english": "Far",
+      "current": "واپسی",
+      "myMemory": "دور",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Warna",
+      "category": "directions",
+      "english": "Near",
+      "current": "سائز",
+      "myMemory": "قریب",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Besar",
+      "category": "directions",
+      "english": "Map",
+      "current": "رنگ",
+      "myMemory": "نقشہ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kecil",
+      "category": "directions",
+      "english": "Where is...?",
+      "current": "بڑا",
+      "myMemory": "کہاں ہے... ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sedang",
+      "category": "health",
+      "english": "Hospital",
+      "current": "چھوٹا",
+      "myMemory": "ہسپتال",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Baru",
+      "category": "health",
+      "english": "Pharmacy",
+      "current": "نیا",
+      "myMemory": "فارمیسی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lama",
+      "category": "health",
+      "english": "I have a headache",
+      "current": "پرانا",
+      "myMemory": "میں سکول جاتا رہتا ہوں ے",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Cantik",
+      "category": "health",
+      "english": "I have a stomachache",
+      "current": "اچھا",
+      "myMemory": "میرے پیٹ میں درد ہے",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jelek",
+      "category": "health",
+      "english": "Temperature",
+      "current": "برا",
+      "myMemory": "درجہ حرارت",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berkualitas",
+      "category": "health",
+      "english": "Cough",
+      "current": "کھلا",
+      "myMemory": "کھانسی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bisakah saya mencoba ini?",
+      "category": "health",
+      "english": "Medicine",
+      "current": "بند",
+      "myMemory": "دوا",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Taksi",
+      "category": "health",
+      "english": "Doctor",
+      "current": "ٹیکسی",
+      "myMemory": "ڈاکٹر",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bus",
+      "category": "health",
+      "english": "Nurse",
+      "current": "بس",
+      "myMemory": "تمریض",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kereta",
+      "category": "health",
+      "english": "Ambulance",
+      "current": "ٹرین",
+      "myMemory": "ایمبولینس",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pesawat",
+      "category": "health",
+      "english": "I have a headache",
+      "current": "ہوائی جہاز",
+      "myMemory": "میں سکول جاتا رہتا ہوں ے",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bandara",
+      "category": "health",
+      "english": "I need a painkiller",
+      "current": "کار",
+      "myMemory": "مجھے ایک پین کِلر کی ضرورت ہے",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Stasiun",
+      "category": "money",
+      "english": "Yuan",
+      "current": "اسٹیشن",
+      "myMemory": "یوآن",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Halte",
+      "category": "money",
+      "english": "Manat",
+      "current": "ہوائی اڈہ",
+      "myMemory": "منات",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tiket",
+      "category": "money",
+      "english": "Card payment",
+      "current": "ٹکٹ",
+      "myMemory": "کارڈ کی ادائیگی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa tiketnya?",
+      "category": "money",
+      "english": "Bank",
+      "current": "کہاں؟",
+      "myMemory": "بینک",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di mana stasiun bus?",
+      "category": "money",
+      "english": "ATM",
+      "current": "یہاں",
+      "myMemory": "اے ٹی ایم",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bagaimana menuju...?",
+      "category": "money",
+      "english": "Currency exchange",
+      "current": "وہاں",
+      "myMemory": "کرنسی ایکسچینج",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kiri",
+      "category": "money",
+      "english": "Change",
+      "current": "دائیں",
+      "myMemory": "تبدیل",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kanan",
+      "category": "money",
+      "english": "Free",
+      "current": "بائیں",
+      "myMemory": "فری",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lurus",
+      "category": "money",
+      "english": "Price",
+      "current": "سیدھا",
+      "myMemory": "قیمت",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jauh",
+      "category": "communication",
+      "english": "Mobile phone",
+      "current": "قریب",
+      "myMemory": "موبائل فون",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dekat",
+      "category": "communication",
+      "english": "Wi-Fi",
+      "current": "دور",
+      "myMemory": "وائی فائی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di sini",
+      "category": "communication",
+      "english": "What is the password?",
+      "current": "نقشہ",
+      "myMemory": "پاس ورڈ کیا ہے ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di sana",
+      "category": "communication",
+      "english": "Send SMS",
+      "current": "پتہ",
+      "myMemory": "ایس ایم ایس بھیجیں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jalan",
+      "category": "entertainment",
+      "english": "Cinema",
+      "current": "مجھے لے چلو...",
+      "myMemory": "سنیما",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Alamat",
+      "category": "entertainment",
+      "english": "Museum",
+      "current": "کتنی دیر لگے گی؟",
+      "myMemory": " عجائب گھر",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hotel",
+      "category": "entertainment",
+      "english": "Park",
+      "current": "ہوٹل",
+      "myMemory": "پارک",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kamar",
+      "category": "entertainment",
+      "english": "Concert",
+      "current": "کمرہ",
+      "myMemory": "کنسرٹ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Reservasi",
+      "category": "entertainment",
+      "english": "Shopping mall",
+      "current": "بکنگ",
+      "myMemory": "شاپنگ مال",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya sudah memesan",
+      "category": "entertainment",
+      "english": "Swimming pool",
+      "current": "ریزرویشن",
+      "myMemory": "سوئمنگ پول",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya ingin kamar",
+      "category": "entertainment",
+      "english": "Gym",
+      "current": "کلید",
+      "myMemory": "جم",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk satu orang",
+      "category": "entertainment",
+      "english": "Library",
+      "current": "میرے پاس بکنگ ہے",
+      "myMemory": "لائبریری",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk dua orang",
+      "category": "entertainment",
+      "english": "Night market",
+      "current": "ایک کمرہ دستیاب ہے؟",
+      "myMemory": "نائٹ مارکیٹ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk satu malam",
+      "category": "entertainment",
+      "english": "How much is the ticket?",
+      "current": "ایک رات کے لیے",
+      "myMemory": "ٹکٹ کی قیمت کتنی ہے ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk dua malam",
+      "category": "time",
+      "english": "What time is it?",
+      "current": "دو راتوں کے لیے",
+      "myMemory": "وہ کیا ہے؟ ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk seminggu",
+      "category": "time",
+      "english": "Today",
+      "current": "ایک ہفتے کے لیے",
+      "myMemory": "آج",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa harga kamarnya?",
+      "category": "time",
+      "english": "Tomorrow",
+      "current": "سنگل بیڈ",
+      "myMemory": " Kal",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah sudah termasuk sarapan?",
+      "category": "time",
+      "english": "Yesterday",
+      "current": "ڈبل بیڈ",
+      "myMemory": "کل",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kunci",
+      "category": "time",
+      "english": "Monday",
+      "current": "باتھ روم",
+      "myMemory": "سوموار",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kunci kamar",
+      "category": "time",
+      "english": "Sunday",
+      "current": "شاور",
+      "myMemory": "اتوار",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tempat tidur",
+      "category": "time",
+      "english": "In the morning",
+      "current": "تولیہ",
+      "myMemory": "صبح کو",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kamar mandi",
+      "category": "time",
+      "english": "In the afternoon",
+      "current": "صابن",
+      "myMemory": "سہ پہر کو",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Shower",
+      "category": "time",
+      "english": "In the evening",
+      "current": "ایئر کنڈیشنر",
+      "myMemory": "شام کو",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "AC",
+      "category": "time",
+      "english": "What month?",
+      "current": "وائی فائی",
+      "myMemory": "کون سا مہینہ ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "WiFi",
+      "category": "time",
+      "english": "Monday",
+      "current": "پاس ورڈ",
+      "myMemory": "سوموار",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apa kata sandi WiFi?",
+      "category": "time",
+      "english": "Tuesday",
+      "current": "ناشتہ",
+      "myMemory": "منگل",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Handuk",
+      "category": "time",
+      "english": "Wednesday",
+      "current": "چیک ان",
+      "myMemory": "بدھ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sabun",
+      "category": "time",
+      "english": "Thursday",
+      "current": "چیک آؤٹ",
+      "myMemory": "جمعرات",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Layanan kamar",
+      "category": "time",
+      "english": "Friday",
+      "current": "سامان",
+      "myMemory": "جمعہ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Check-in",
+      "category": "time",
+      "english": "Saturday",
+      "current": "لفٹ",
+      "myMemory": "ہفتہ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Check-out",
+      "category": "time",
+      "english": "Sunday",
+      "current": "ریسپشن",
+      "myMemory": "اتوار",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tolong!",
+      "category": "time",
+      "english": "January",
+      "current": "مدد!",
+      "myMemory": "جنوری",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Darurat",
+      "category": "time",
+      "english": "February",
+      "current": "ایمرجنسی",
+      "myMemory": "فروری",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Polisi",
+      "category": "time",
+      "english": "March",
+      "current": "پولیس",
+      "myMemory": "مارچ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dokter",
+      "category": "time",
+      "english": "April",
+      "current": "ڈاکٹر",
+      "myMemory": "اپریل",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Rumah sakit",
+      "category": "time",
+      "english": "May",
+      "current": "ہسپتال",
+      "myMemory": "مئی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ambulans",
+      "category": "time",
+      "english": "June",
+      "current": "فارمیسی",
+      "myMemory": "جون",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apotik",
+      "category": "time",
+      "english": "July",
+      "current": "میں بیمار ہوں",
+      "myMemory": "جولائی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya sakit",
+      "category": "time",
+      "english": "August",
+      "current": "میں زخمی ہوں",
+      "myMemory": "اگست",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya butuh dokter",
+      "category": "time",
+      "english": "September",
+      "current": "دوا",
+      "myMemory": "ستمبر",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya kehilangan...",
+      "category": "time",
+      "english": "October",
+      "current": "درد",
+      "myMemory": "اکتوبر",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya tersesat",
+      "category": "time",
+      "english": "November",
+      "current": "بخار",
+      "myMemory": "نومبر",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Api",
+      "category": "time",
+      "english": "December",
+      "current": "ایمبولینس بلائیں",
+      "myMemory": "دسمبر",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bahaya",
+      "category": "numbers",
+      "english": "One",
+      "current": "خطرہ",
+      "myMemory": "ایک",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hati-hati",
+      "category": "numbers",
+      "english": "Two",
+      "current": "آگ",
+      "myMemory": "دو",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dilarang",
+      "category": "numbers",
+      "english": "Three",
+      "current": "چوری",
+      "myMemory": "تین",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apa itu?",
+      "category": "numbers",
+      "english": "Four",
+      "current": "کیا؟",
+      "myMemory": "فور",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di mana itu?",
+      "category": "numbers",
+      "english": "Five",
+      "current": "کون؟",
+      "myMemory": "پانچ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa ini?",
+      "category": "numbers",
+      "english": "Six",
+      "current": "کب؟",
+      "myMemory": "چھ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kapan?",
+      "category": "numbers",
+      "english": "Seven",
+      "current": "کہاں؟",
+      "myMemory": "سات",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Siapa?",
+      "category": "numbers",
+      "english": "Eight",
+      "current": "کیوں؟",
+      "myMemory": "دائيں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mengapa?",
+      "category": "numbers",
+      "english": "Nine",
+      "current": "کیسے؟",
+      "myMemory": "نو",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bagaimana?",
+      "category": "numbers",
+      "english": "Ten",
+      "current": "کتنا؟",
+      "myMemory": "دس",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di mana toilet?",
+      "category": "numbers",
+      "english": "Twenty",
+      "current": "یہ کیا ہے؟",
+      "myMemory": "بیس",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda bisa membantu?",
+      "category": "numbers",
+      "english": "One hundred",
+      "current": "یہ کہاں ہے؟",
+      "myMemory": "ایک سو",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda tahu...?",
+      "category": "numbers",
+      "english": "One thousand",
+      "current": "یہ کب ہے؟",
+      "myMemory": "ایک ہزار",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bisakah Anda menunjukkan?",
+      "category": "numbers",
+      "english": "Ten thousand",
+      "current": "کتنے بجے؟",
+      "myMemory": "دس ہزار",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah mungkin?",
+      "category": "numbers",
+      "english": "First",
+      "current": "کیا آپ کر سکتے ہیں؟",
+      "myMemory": "پہلا ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda punya...?",
+      "category": "numbers",
+      "english": "One thousand",
+      "current": "میں کیسے...؟",
+      "myMemory": "ایک ہزار",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah itu tersedia?",
+      "category": "numbers",
+      "english": "Two thousand",
+      "current": "کیا آپ کے پاس ہے؟",
+      "myMemory": "دو ہزار",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa lama?",
+      "category": "numbers",
+      "english": "Ten thousand",
+      "current": "کیا یہ ممکن ہے؟",
+      "myMemory": "دس ہزار",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa jauh?",
+      "category": "numbers",
+      "english": "One hundred thousand",
+      "current": "ٹوائلٹ کہاں ہے؟",
+      "myMemory": "ایک لاکھ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jam berapa sekarang?",
+      "category": "numbers",
+      "english": "One million",
+      "current": "یہ کتنے کا ہے؟",
+      "myMemory": "دس لاکھ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jam berapa buka?",
+      "category": "weather",
+      "english": "What is the weather today?",
+      "current": "کیا آپ مدد کر سکتے ہیں؟",
+      "myMemory": "آج موسم کیسا ہے ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jam berapa tutup?",
+      "category": "weather",
+      "english": "Rain",
+      "current": "کیا آپ انگریزی بولتے ہیں؟",
+      "myMemory": "بارش",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah buka hari ini?",
+      "category": "weather",
+      "english": "Sunny",
+      "current": "کیا میں دیکھ سکتا ہوں؟",
+      "myMemory": "تاباں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Keluarga",
+      "category": "weather",
+      "english": "Cloudy",
+      "current": "خاندان",
+      "myMemory": "ابر آلود",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ayah",
+      "category": "weather",
+      "english": "Windy",
+      "current": "والد",
+      "myMemory": "ہوا",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ibu",
+      "category": "weather",
+      "english": "Snow",
+      "current": "والدہ",
+      "myMemory": "برف باری",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Anak laki-laki",
+      "category": "weather",
+      "english": "Hot",
+      "current": "بھائی",
+      "myMemory": "گرم",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Anak perempuan",
+      "category": "weather",
+      "english": "Cold",
+      "current": "بہن",
+      "myMemory": "ٹھنڈی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saudara laki-laki",
+      "category": "personal_info",
+      "english": "My name is...",
+      "current": "بیٹا",
+      "myMemory": "میرا نام ہے",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saudara perempuan",
+      "category": "personal_info",
+      "english": "My last name is...",
+      "current": "بیٹی",
+      "myMemory": "میرا آخری نام ہے...",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Suami",
+      "category": "personal_info",
+      "english": "What is your name?",
+      "current": "شوہر",
+      "myMemory": "آپ کا نام کیا ہے؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Istri",
+      "category": "personal_info",
+      "english": "I am from Turkmenistan",
+      "current": "بیوی",
+      "myMemory": "میں ترکمانستان سے ہوں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kakek",
+      "category": "personal_info",
+      "english": "I live in Ashgabat",
+      "current": "دادا",
+      "myMemory": "میں اشک آباد میں رہتا ہوں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Nenek",
+      "category": "personal_info",
+      "english": "There are 4 people in our family",
+      "current": "دادی",
+      "myMemory": "ہمارے خاندان میں 4 افراد ہیں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Paman",
+      "category": "personal_info",
+      "english": "Do you have children?",
+      "current": "چچا",
+      "myMemory": "کیا آپ کے بچے ہیں ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bibi",
+      "category": "personal_info",
+      "english": "I have no children",
+      "current": "پھوپھی",
+      "myMemory": "میرے بچے ہیں۔",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Anak-anak",
+      "category": "personal_info",
+      "english": "I have one child",
+      "current": "دوست",
+      "myMemory": "میرا ایک بچہ ہے",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Orang tua",
+      "category": "personal_info",
+      "english": "I have two children",
+      "current": "بچہ",
+      "myMemory": "میرے بچے ہیں۔",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sakit",
+      "category": "personal_info",
+      "english": "What do you do?",
+      "current": "صحت",
+      "myMemory": "تم کیا کرتے ہو ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Demam",
+      "category": "personal_info",
+      "english": "I work at a factory",
+      "current": "میں بیمار ہوں",
+      "myMemory": "میں ایک فیکٹری میں کام کرتا ہوں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sakit kepala",
+      "category": "personal_info",
+      "english": "I work at a bank",
+      "current": "مجھے درد ہے",
+      "myMemory": "میں ایک بینک میں کام کرتا/کرتی ہوں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sakit perut",
+      "category": "personal_info",
+      "english": "I work at a hospital",
+      "current": "سر درد",
+      "myMemory": "میں ایک ہسپتال میں کام کرتا/کرتی ہوں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Flu",
+      "category": "personal_info",
+      "english": "I study foreign languages",
+      "current": "پیٹ درد",
+      "myMemory": "میں غیر ملکی زبانوں کا مطالعہ کرتا/کرتی ہوں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Batuk",
+      "category": "personal_info",
+      "english": "Do you speak Russian?",
+      "current": "دانت درد",
+      "myMemory": "کیا آپ روسی بولتے ہیں ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hidung tersumbat",
+      "category": "personal_info",
+      "english": "I don't speak",
+      "current": "کھانسی",
+      "myMemory": "میں نہیں بولتا",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Obat",
+      "category": "personal_info",
+      "english": "I speak a little",
+      "current": "زکام",
+      "myMemory": "میں تھوڑا بولتا ہوں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pil",
+      "category": "business",
+      "english": "When does the conference start?",
+      "current": "بخار",
+      "myMemory": "کانفرنس کب شروع ہوتی ہے ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Resep",
+      "category": "business",
+      "english": "What is the schedule for presentations?",
+      "current": "الرجی",
+      "myMemory": "پریزنٹیشنز کا شیڈول کیا ہے ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Asuransi",
+      "category": "business",
+      "english": "Will there be translation to Russian?",
+      "current": "انفیکشن",
+      "myMemory": "کیا روسی زبان میں ترجمہ ہوگا ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Alergi",
+      "category": "business",
+      "english": "I will speak in Russian",
+      "current": "زخم",
+      "myMemory": "میں روسی زبان میں بات کروں گا",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya alergi terhadap...",
+      "category": "business",
+      "english": "We want to see the exhibition",
+      "current": "خون",
+      "myMemory": "ہم نمائش دیکھنا چاہتے ہیں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Asma",
+      "category": "business",
+      "english": "What time does the exhibition open?",
+      "current": "گولی",
+      "myMemory": "نمائش کتنے بجے کھلتی ہے ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Diabetes",
+      "category": "business",
+      "english": "How many countries are participating?",
+      "current": "انجیکشن",
+      "myMemory": "کتنے ممالک حصہ لے رہے ہیں ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tekanan darah",
+      "category": "business",
+      "english": "Can I get the exhibition catalog?",
+      "current": "نسخہ",
+      "myMemory": "کیا میں نمائش کا کیٹلاگ حاصل کر سکتا ہوں ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jantung",
+      "category": "business",
+      "english": "I came to discuss business",
+      "current": "مجھے ڈاکٹر کی ضرورت ہے",
+      "myMemory": "میں کاروبار پر تبادلہ خیال کرنے آیا ہوں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Perut",
+      "category": "business",
+      "english": "We want to speak with the general director",
+      "current": "مجھے الرجی ہے",
+      "myMemory": "ہم جنرل ڈائریکٹر سے بات کرنا چاہتے ہیں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Punggung",
+      "category": "business",
+      "english": "We want to learn about the production",
+      "current": "انتہائی نگہداشت",
+      "myMemory": "ہم پیداوار کے بارے میں جاننا چاہتے ہیں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Gigi",
+      "category": "measurements",
+      "english": "Length",
+      "current": "بیمہ",
+      "myMemory": "لمبائی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Cuaca",
+      "category": "measurements",
+      "english": "Meter",
+      "current": "موسم",
+      "myMemory": "میٹر",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Panas",
+      "category": "measurements",
+      "english": "Centimeter",
+      "current": "گرم",
+      "myMemory": "سینٹی میٹر",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dingin",
+      "category": "measurements",
+      "english": "Weight",
+      "current": "ٹھنڈا",
+      "myMemory": "وزن",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hujan",
+      "category": "measurements",
+      "english": "Kilogram",
+      "current": "بارش",
+      "myMemory": "کلوگرام",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Salju",
+      "category": "measurements",
+      "english": "Gram",
+      "current": "برف",
+      "myMemory": "گرام",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Angin",
+      "category": "measurements",
+      "english": "Volume",
+      "current": "دھوپ",
+      "myMemory": "حجم",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mendung",
+      "category": "measurements",
+      "english": "Liter",
+      "current": "بادل",
+      "myMemory": "(لیٹر)",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Cerah",
+      "category": "colors",
+      "english": "White",
+      "current": "ہوا",
+      "myMemory": "سفید فام",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Suhu",
+      "category": "colors",
+      "english": "Yellow",
+      "current": "طوفان",
+      "myMemory": "زرد",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Iklim",
+      "category": "colors",
+      "english": "Green",
+      "current": "درجہ حرارت",
+      "myMemory": "سبز",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Putih",
+      "category": "colors",
+      "english": "Blue",
+      "current": "رنگ",
+      "myMemory": "نیلا",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hitam",
+      "category": "colors",
+      "english": "Red",
+      "current": "سفید",
+      "myMemory": "سرخ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Merah",
+      "category": "colors",
+      "english": "Black",
+      "current": "کالا",
+      "myMemory": "سیاہ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Biru",
+      "category": "colors",
+      "english": "Gray",
+      "current": "سرخ",
+      "myMemory": "سرمئی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hijau",
+      "category": "colors",
+      "english": "Purple",
+      "current": "نیلا",
+      "myMemory": "بنفشی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kuning",
+      "category": "colors",
+      "english": "Orange",
+      "current": "سبز",
+      "myMemory": "نارنجی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Oranye",
+      "category": "colors",
+      "english": "Pink",
+      "current": "زرد",
+      "myMemory": "گلابی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ungu",
+      "category": "body",
+      "english": "Head",
+      "current": "نارنجی",
+      "myMemory": "اوپری سرا",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Merah muda",
+      "category": "body",
+      "english": "Arm",
+      "current": "گلابی",
+      "myMemory": "بازو",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Coklat",
+      "category": "body",
+      "english": "Leg",
+      "current": "بھورا",
+      "myMemory": "ٹانگ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Abu-abu",
+      "category": "body",
+      "english": "Eyes",
+      "current": "بنفشی",
+      "myMemory": "آنکھوں کو چُھونے کی حالت میں:",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Emas",
+      "category": "body",
+      "english": "Nose",
+      "current": "سرمئی",
+      "myMemory": "ناک",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Utara",
+      "category": "body",
+      "english": "Mouth",
+      "current": "شمال",
+      "myMemory": "منہ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selatan",
+      "category": "body",
+      "english": "Ear",
+      "current": "جنوب",
+      "myMemory": "کان",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Timur",
+      "category": "home",
+      "english": "House",
+      "current": "مشرق",
+      "myMemory": "گھر",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Barat",
+      "category": "home",
+      "english": "Door",
+      "current": "مغرب",
+      "myMemory": "دروازہ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Peta",
+      "category": "home",
+      "english": "Window",
+      "current": "سیدھا",
+      "myMemory": "کھڑکی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kompas",
+      "category": "home",
+      "english": "Table",
+      "current": "مڑیں",
+      "myMemory": "جدول",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "GPS",
+      "category": "home",
+      "english": "Chair",
+      "current": "دائیں طرف",
+      "myMemory": "صدارت",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lokasi",
+      "category": "home",
+      "english": "Bed",
+      "current": "بائیں طرف",
+      "myMemory": "بستر",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tujuan",
+      "category": "customs",
+      "english": "Where is passport control?",
+      "current": "چوراہا",
+      "myMemory": "پاسپورٹ کنٹرول کہاں ہے ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Rute",
+      "category": "customs",
+      "english": "Here is my passport",
+      "current": "سڑک",
+      "myMemory": "یہ رہا میرا پاسپورٹ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Persimpangan",
+      "category": "customs",
+      "english": "I intend to stay in China for a week",
+      "current": "گلی",
+      "myMemory": "میں ایک ہفتے کے لئے چین میں رہنے کا ارادہ رکھتا ہوں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bundaran",
+      "category": "customs",
+      "english": "I have a single-entry visa",
+      "current": "پل",
+      "myMemory": "میرے پاس سنگل انٹری ویزا ہے",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jembatan",
+      "category": "customs",
+      "english": "I am in transit in your country",
+      "current": "عمارت",
+      "myMemory": "میں آپ کے ملک میں ٹرانزٹ میں ہوں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Gedung",
+      "category": "customs",
+      "english": "Here is my customs declaration",
+      "current": "چوک",
+      "myMemory": "یہ رہا میرا کسٹم ڈیکلیریشن",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Depan",
+      "category": "customs",
+      "english": "Here is my luggage",
+      "current": "آگے",
+      "myMemory": "یہ رہا میرا سامان",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Belakang",
+      "category": "customs",
+      "english": "There are no prohibited items in my luggage",
+      "current": "پیچھے",
+      "myMemory": "میرے سامان میں کوئی ممنوعہ آئٹمز نہیں ہیں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Seberang",
+      "category": "customs",
+      "english": "These are my personal belongings",
+      "current": "اوپر",
+      "myMemory": "یہ میرے ذاتی سامان ہیں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di sebelah",
+      "category": "customs",
+      "english": "What duty do I need to pay?",
+      "current": "نیچے",
+      "myMemory": "مجھے کس ڈیوٹی کی ادائیگی کرنے کی ضرورت ہے ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Telepon",
+      "category": "sports",
+      "english": "What sport do you like?",
+      "current": "فون",
+      "myMemory": "آپ کو کون سا کھیل پسند ہے ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Nomor telepon",
+      "category": "sports",
+      "english": "I like to play football",
+      "current": "انٹرنیٹ",
+      "myMemory": "مجھے فٹ بال کھیلنا پسند ہے",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Email",
+      "category": "sports",
+      "english": "Basketball",
+      "current": "ای میل",
+      "myMemory": "باسکٹ بال",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Internet",
+      "category": "sports",
+      "english": "Swimming",
+      "current": "پیغام",
+      "myMemory": "تیراکی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "WiFi",
+      "category": "sports",
+      "english": "Running",
+      "current": "خط",
+      "myMemory": "چلتی ہوئی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Komputer",
+      "category": "sports",
+      "english": "Where is the gym?",
+      "current": "پوسٹ آفس",
+      "myMemory": "جم کہاں ہے ؟",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ponsel",
+      "category": "sports",
+      "english": "I want to work out",
+      "current": "نمبر",
+      "myMemory": "میں ورزش کرنا چاہتا ہوں",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pesan",
+      "category": "sports",
+      "english": "Coach",
+      "current": "کال کریں",
+      "myMemory": "پالکی گاڑی",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Surat",
+      "category": "sports",
+      "english": "Competition / Match",
+      "current": "سگنل",
+      "myMemory": "مقابلہ / میچ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Stadion",
+      "category": "sports",
+      "english": "Stadium",
+      "current": "چارجر",
+      "myMemory": "مدرج",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    }
+  ]
+}
