@@ -1,0 +1,2759 @@
+{
+  "language": "Hindi",
+  "languageCode": "hi",
+  "timestamp": "2025-11-23T11:07:58.377Z",
+  "summary": {
+    "total": 305,
+    "verified": 0,
+    "corrected": 300,
+    "needsReview": 5,
+    "verificationRate": "98.4%"
+  },
+  "results": [
+    {
+      "phraseId": "phrase_001",
+      "english": "Hello",
+      "originalTranslation": "नमस्ते",
+      "translation": "किसके लिए",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'नमस्ते' to 'किसके लिए' based on 'myMemory' (English: 'Hello')"
+    },
+    {
+      "phraseId": "phrase_002",
+      "english": "Thank you",
+      "originalTranslation": "सुप्रभात",
+      "translation": "मैं आज मछली के बारे में एक कविता सुनाने जा रहा हूँ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सुप्रभात' to 'मैं आज मछली के बारे में एक कविता सुनाने जा रहा हूँ' based on 'myMemory' (English: 'Thank you')"
+    },
+    {
+      "phraseId": "phrase_003",
+      "english": "Goodbye",
+      "originalTranslation": "नमस्कार",
+      "translation": "खुदा हाफिज़",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'नमस्कार' to 'खुदा हाफिज़' based on 'myMemory' (English: 'Goodbye')"
+    },
+    {
+      "phraseId": "phrase_004",
+      "english": "Excuse me",
+      "originalTranslation": "शुभ संध्या",
+      "translation": "इश्क में",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'शुभ संध्या' to 'इश्क में' based on 'myMemory' (English: 'Excuse me')"
+    },
+    {
+      "phraseId": "phrase_005",
+      "english": "Good morning",
+      "originalTranslation": "शुभ रात्रि",
+      "translation": "मुझे गुड नाइट मत कहो",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'शुभ रात्रि' to 'मुझे गुड नाइट मत कहो' based on 'myMemory' (English: 'Good morning')"
+    },
+    {
+      "phraseId": "phrase_006",
+      "english": "Good night",
+      "originalTranslation": "अलविदा",
+      "translation": "मैं हमेशा तुम्हारे साथ हूँ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'अलविदा' to 'मैं हमेशा तुम्हारे साथ हूँ' based on 'myMemory' (English: 'Good night')"
+    },
+    {
+      "phraseId": "phrase_007",
+      "english": "My name is...",
+      "originalTranslation": "फिर मिलेंगे",
+      "translation": "अगर मैं एक लड़की हूँ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'फिर मिलेंगे' to 'अगर मैं एक लड़की हूँ' based on 'myMemory' (English: 'My name is...')"
+    },
+    {
+      "phraseId": "phrase_008",
+      "english": "What is your name?",
+      "originalTranslation": "आप कैसे हैं?",
+      "translation": "खेल दो प्रकार के कौन से हैं?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'आप कैसे हैं?' to 'खेल दो प्रकार के कौन से हैं?' based on 'myMemory' (English: 'What is your name?')"
+    },
+    {
+      "phraseId": "phrase_009",
+      "english": "Nice to meet you",
+      "originalTranslation": "मैं ठीक हूँ, धन्यवाद",
+      "translation": "आप किस देश से चैट कर रहे हैं",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मैं ठीक हूँ, धन्यवाद' to 'आप किस देश से चैट कर रहे हैं' based on 'myMemory' (English: 'Nice to meet you')"
+    },
+    {
+      "phraseId": "phrase_010",
+      "english": "Please",
+      "originalTranslation": "आपसे मिलकर खुशी हुई",
+      "translation": "क्या आप पैसे के साथ मेरी मदद कर सकते हैं",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'आपसे मिलकर खुशी हुई' to 'क्या आप पैसे के साथ मेरी मदद कर सकते हैं' based on 'myMemory' (English: 'Please')"
+    },
+    {
+      "phraseId": "phrase_011",
+      "english": "You're welcome",
+      "originalTranslation": "मेरा नाम...",
+      "translation": "",
+      "status": "needs_review",
+      "confidence": "medium",
+      "notes": "Review required: English is 'You're welcome', current Hindi is 'मेरा नाम...', MyMemory had no clear suggestion."
+    },
+    {
+      "phraseId": "phrase_012",
+      "english": "How are you?",
+      "originalTranslation": "आपका नाम क्या है?",
+      "translation": "आप कैसे हैं?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'आपका नाम क्या है?' to 'आप कैसे हैं?' based on 'myMemory' (English: 'How are you?')"
+    },
+    {
+      "phraseId": "phrase_013",
+      "english": "Good luck!",
+      "originalTranslation": "आप कहाँ से हैं?",
+      "translation": "आपकी सफलता के लिए शुभकामनाएँ!",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'आप कहाँ से हैं?' to 'आपकी सफलता के लिए शुभकामनाएँ!' based on 'myMemory' (English: 'Good luck!')"
+    },
+    {
+      "phraseId": "phrase_014",
+      "english": "Welcome!",
+      "originalTranslation": "मैं... से हूँ",
+      "translation": "स्वागत है!",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मैं... से हूँ' to 'स्वागत है!' based on 'myMemory' (English: 'Welcome!')"
+    },
+    {
+      "phraseId": "phrase_015",
+      "english": "Very glad to see you",
+      "originalTranslation": "हाँ",
+      "translation": "आपसे मिलकर बहुत खुशी हुई",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'हाँ' to 'आपसे मिलकर बहुत खुशी हुई' based on 'myMemory' (English: 'Very glad to see you')"
+    },
+    {
+      "phraseId": "phrase_016",
+      "english": "Welcome! (arrival greeting)",
+      "originalTranslation": "नहीं",
+      "translation": "आपका स्वागत है! (आगमन अभिवादन)",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'नहीं' to 'आपका स्वागत है! (आगमन अभिवादन)' based on 'myMemory' (English: 'Welcome! (arrival greeting)')"
+    },
+    {
+      "phraseId": "phrase_017",
+      "english": "How are you doing?",
+      "originalTranslation": "धन्यवाद",
+      "translation": "",
+      "status": "needs_review",
+      "confidence": "medium",
+      "notes": "Review required: English is 'How are you doing?', current Hindi is 'धन्यवाद', MyMemory had no clear suggestion."
+    },
+    {
+      "phraseId": "phrase_018",
+      "english": "Let me introduce my friend",
+      "originalTranslation": "स्वागत है",
+      "translation": "मुझे अपने दोस्त का परिचय देने दो",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'स्वागत है' to 'मुझे अपने दोस्त का परिचय देने दो' based on 'myMemory' (English: 'Let me introduce my friend')"
+    },
+    {
+      "phraseId": "phrase_019",
+      "english": "Pleased to meet you!",
+      "originalTranslation": "कृपया",
+      "translation": "-मैड्लिन स्वान। -मिलकर खुशी हुई।",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कृपया' to '-मैड्लिन स्वान। -मिलकर खुशी हुई।' based on 'myMemory' (English: 'Pleased to meet you!')"
+    },
+    {
+      "phraseId": "phrase_020",
+      "english": "Please come in",
+      "originalTranslation": "माफ़ कीजिए",
+      "translation": "अंदर चलिए.",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'माफ़ कीजिए' to 'अंदर चलिए.' based on 'myMemory' (English: 'Please come in')"
+    },
+    {
+      "phraseId": "phrase_021",
+      "english": "Please sit down",
+      "originalTranslation": "क्षमा करें",
+      "translation": "बैठिए।",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'क्षमा करें' to 'बैठिए।' based on 'myMemory' (English: 'Please sit down')"
+    },
+    {
+      "phraseId": "phrase_022",
+      "english": "Yes",
+      "originalTranslation": "कोई बात नहीं",
+      "translation": "हाँ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कोई बात नहीं' to 'हाँ' based on 'myMemory' (English: 'Yes')"
+    },
+    {
+      "phraseId": "phrase_023",
+      "english": "No",
+      "originalTranslation": "अच्छा",
+      "translation": "नहीं",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'अच्छा' to 'नहीं' based on 'myMemory' (English: 'No')"
+    },
+    {
+      "phraseId": "phrase_024",
+      "english": "I agree",
+      "originalTranslation": "बुरा",
+      "translation": "मैं सहमत हूँ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बुरा' to 'मैं सहमत हूँ' based on 'myMemory' (English: 'I agree')"
+    },
+    {
+      "phraseId": "phrase_025",
+      "english": "Thank you very much for your help",
+      "originalTranslation": "थोड़ा",
+      "translation": "अपना समय देने के लिए बहुत-बहुत धन्यवाद।",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'थोड़ा' to 'अपना समय देने के लिए बहुत-बहुत धन्यवाद।' based on 'myMemory' (English: 'Thank you very much for your help')"
+    },
+    {
+      "phraseId": "phrase_026",
+      "english": "Thank you very much for your support",
+      "originalTranslation": "बहुत",
+      "translation": "आपके समर्थन के लिए बहुत - बहुत धन्यवाद",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बहुत' to 'आपके समर्थन के लिए बहुत - बहुत धन्यवाद' based on 'myMemory' (English: 'Thank you very much for your support')"
+    },
+    {
+      "phraseId": "phrase_027",
+      "english": "Thank you very much for your understanding",
+      "originalTranslation": "सब",
+      "translation": "समझने के लिए बहुत बहुत धन्यवाद।",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सब' to 'समझने के लिए बहुत बहुत धन्यवाद।' based on 'myMemory' (English: 'Thank you very much for your understanding')"
+    },
+    {
+      "phraseId": "phrase_028",
+      "english": "Help!",
+      "originalTranslation": "कुछ नहीं",
+      "translation": "बचाओ!",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कुछ नहीं' to 'बचाओ!' based on 'myMemory' (English: 'Help!')"
+    },
+    {
+      "phraseId": "phrase_029",
+      "english": "I need a doctor",
+      "originalTranslation": "मैं समझ नहीं पाया",
+      "translation": "मुझे एक डॉक्टर की जरूरत है.",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मैं समझ नहीं पाया' to 'मुझे एक डॉक्टर की जरूरत है.' based on 'myMemory' (English: 'I need a doctor')"
+    },
+    {
+      "phraseId": "phrase_030",
+      "english": "Call the police",
+      "originalTranslation": "क्या आप समझते हैं?",
+      "translation": "पुलिस को बुलाइए.",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'क्या आप समझते हैं?' to 'पुलिस को बुलाइए.' based on 'myMemory' (English: 'Call the police')"
+    },
+    {
+      "phraseId": "phrase_031",
+      "english": "Fire!",
+      "originalTranslation": "मैं समझता हूँ",
+      "translation": "आग!",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मैं समझता हूँ' to 'आग!' based on 'myMemory' (English: 'Fire!')"
+    },
+    {
+      "phraseId": "phrase_032",
+      "english": "I am lost",
+      "originalTranslation": "क्या आप धीरे बोल सकते हैं?",
+      "translation": "i am lost.",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'क्या आप धीरे बोल सकते हैं?' to 'i am lost.' based on 'myMemory' (English: 'I am lost')"
+    },
+    {
+      "phraseId": "phrase_033",
+      "english": "I am sick",
+      "originalTranslation": "कृपया दोहराइए",
+      "translation": "मै बिमार हू",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कृपया दोहराइए' to 'मै बिमार हू' based on 'myMemory' (English: 'I am sick')"
+    },
+    {
+      "phraseId": "phrase_034",
+      "english": "Call an ambulance",
+      "originalTranslation": "कैसे?",
+      "translation": "एक एम्बुलेंस को बुलाओ!",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कैसे?' to 'एक एम्बुलेंस को बुलाओ!' based on 'myMemory' (English: 'Call an ambulance')"
+    },
+    {
+      "phraseId": "phrase_035",
+      "english": "My wallet was stolen",
+      "originalTranslation": "क्या?",
+      "translation": "मेरा वॉलेट चोरी हो गया था",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'क्या?' to 'मेरा वॉलेट चोरी हो गया था' based on 'myMemory' (English: 'My wallet was stolen')"
+    },
+    {
+      "phraseId": "phrase_036",
+      "english": "Help me",
+      "originalTranslation": "कहाँ?",
+      "translation": "हमारी मेरी मदद करें",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कहाँ?' to 'हमारी मेरी मदद करें' based on 'myMemory' (English: 'Help me')"
+    },
+    {
+      "phraseId": "phrase_037",
+      "english": "Danger!",
+      "originalTranslation": "कब?",
+      "translation": "ख़तरा!",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कब?' to 'ख़तरा!' based on 'myMemory' (English: 'Danger!')"
+    },
+    {
+      "phraseId": "phrase_038",
+      "english": "Call a doctor!",
+      "originalTranslation": "कौन?",
+      "translation": "डॉक्टर को बुलाएँ।",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कौन?' to 'डॉक्टर को बुलाएँ।' based on 'myMemory' (English: 'Call a doctor!')"
+    },
+    {
+      "phraseId": "phrase_039",
+      "english": "I want a room",
+      "originalTranslation": "क्यों?",
+      "translation": "मुझे एक कमरा चाहिए",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'क्यों?' to 'मुझे एक कमरा चाहिए' based on 'myMemory' (English: 'I want a room')"
+    },
+    {
+      "phraseId": "phrase_040",
+      "english": "How much per night?",
+      "originalTranslation": "कितना?",
+      "translation": "प्रति रात कितना है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कितना?' to 'प्रति रात कितना है?' based on 'myMemory' (English: 'How much per night?')"
+    },
+    {
+      "phraseId": "phrase_041",
+      "english": "Is there WiFi here?",
+      "originalTranslation": "एक",
+      "translation": "क्या यहाँ वाईफ़ाई है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'एक' to 'क्या यहाँ वाईफ़ाई है?' based on 'myMemory' (English: 'Is there WiFi here?')"
+    },
+    {
+      "phraseId": "phrase_042",
+      "english": "I have a reservation",
+      "originalTranslation": "दो",
+      "translation": "मेरा रिज़र्वेशन है",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'दो' to 'मेरा रिज़र्वेशन है' based on 'myMemory' (English: 'I have a reservation')"
+    },
+    {
+      "phraseId": "phrase_043",
+      "english": "Single room",
+      "originalTranslation": "तीन",
+      "translation": "सिंगल रूम",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'तीन' to 'सिंगल रूम' based on 'myMemory' (English: 'Single room')"
+    },
+    {
+      "phraseId": "phrase_044",
+      "english": "Double room",
+      "originalTranslation": "चार",
+      "translation": "डबल कमरा",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'चार' to 'डबल कमरा' based on 'myMemory' (English: 'Double room')"
+    },
+    {
+      "phraseId": "phrase_045",
+      "english": "What time is check-out?",
+      "originalTranslation": "पाँच",
+      "translation": "चेक आउट का समय क्या है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पाँच' to 'चेक आउट का समय क्या है?' based on 'myMemory' (English: 'What time is check-out?')"
+    },
+    {
+      "phraseId": "phrase_046",
+      "english": "Key",
+      "originalTranslation": "छह",
+      "translation": "कुंजी",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'छह' to 'कुंजी' based on 'myMemory' (English: 'Key')"
+    },
+    {
+      "phraseId": "phrase_047",
+      "english": "Room number",
+      "originalTranslation": "सात",
+      "translation": "कमरा नंबर",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सात' to 'कमरा नंबर' based on 'myMemory' (English: 'Room number')"
+    },
+    {
+      "phraseId": "phrase_048",
+      "english": "Is breakfast included?",
+      "originalTranslation": "आठ",
+      "translation": "क्या नाश्ता शामिल है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'आठ' to 'क्या नाश्ता शामिल है?' based on 'myMemory' (English: 'Is breakfast included?')"
+    },
+    {
+      "phraseId": "phrase_049",
+      "english": "Please clean the room",
+      "originalTranslation": "नौ",
+      "translation": "कृपया कमरा साफ़ करें",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'नौ' to 'कृपया कमरा साफ़ करें' based on 'myMemory' (English: 'Please clean the room')"
+    },
+    {
+      "phraseId": "phrase_050",
+      "english": "I want to extend my stay",
+      "originalTranslation": "दस",
+      "translation": "मैं अपने ठहरने की अवधि बढ़ाना चाहता हूँ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'दस' to 'मैं अपने ठहरने की अवधि बढ़ाना चाहता हूँ' based on 'myMemory' (English: 'I want to extend my stay')"
+    },
+    {
+      "phraseId": "phrase_051",
+      "english": "I am hungry",
+      "originalTranslation": "ग्यारह",
+      "translation": "जब आप शुरू करें तो मुझे कॉल करें",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'ग्यारह' to 'जब आप शुरू करें तो मुझे कॉल करें' based on 'myMemory' (English: 'I am hungry')"
+    },
+    {
+      "phraseId": "phrase_052",
+      "english": "Menu, please",
+      "originalTranslation": "बारह",
+      "translation": "मेन्यू, कृपया",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बारह' to 'मेन्यू, कृपया' based on 'myMemory' (English: 'Menu, please')"
+    },
+    {
+      "phraseId": "phrase_053",
+      "english": "Delicious",
+      "originalTranslation": "तेरह",
+      "translation": "ज़ायकेदार",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'तेरह' to 'ज़ायकेदार' based on 'myMemory' (English: 'Delicious')"
+    },
+    {
+      "phraseId": "phrase_054",
+      "english": "Bill, please",
+      "originalTranslation": "पंद्रह",
+      "translation": "बिल, कृपया",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पंद्रह' to 'बिल, कृपया' based on 'myMemory' (English: 'Bill, please')"
+    },
+    {
+      "phraseId": "phrase_055",
+      "english": "I am vegetarian",
+      "originalTranslation": "बीस",
+      "translation": "मैं शाकाहारी हूँ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बीस' to 'मैं शाकाहारी हूँ' based on 'myMemory' (English: 'I am vegetarian')"
+    },
+    {
+      "phraseId": "phrase_056",
+      "english": "Not spicy",
+      "originalTranslation": "तीस",
+      "translation": "मसालेदार नहीं",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'तीस' to 'मसालेदार नहीं' based on 'myMemory' (English: 'Not spicy')"
+    },
+    {
+      "phraseId": "phrase_057",
+      "english": "Water",
+      "originalTranslation": "पचास",
+      "translation": "जल",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पचास' to 'जल' based on 'myMemory' (English: 'Water')"
+    },
+    {
+      "phraseId": "phrase_058",
+      "english": "Tea",
+      "originalTranslation": "सौ",
+      "translation": "चाय",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सौ' to 'चाय' based on 'myMemory' (English: 'Tea')"
+    },
+    {
+      "phraseId": "phrase_059",
+      "english": "Rice",
+      "originalTranslation": "हज़ार",
+      "translation": "चावल",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'हज़ार' to 'चावल' based on 'myMemory' (English: 'Rice')"
+    },
+    {
+      "phraseId": "phrase_060",
+      "english": "Noodles",
+      "originalTranslation": "दस लाख",
+      "translation": "नूडल्स",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'दस लाख' to 'नूडल्स' based on 'myMemory' (English: 'Noodles')"
+    },
+    {
+      "phraseId": "phrase_061",
+      "english": "Chicken",
+      "originalTranslation": "आज",
+      "translation": "चिकन",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'आज' to 'चिकन' based on 'myMemory' (English: 'Chicken')"
+    },
+    {
+      "phraseId": "phrase_062",
+      "english": "Beef",
+      "originalTranslation": "कल (बीता हुआ)",
+      "translation": "बीफ़",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कल (बीता हुआ)' to 'बीफ़' based on 'myMemory' (English: 'Beef')"
+    },
+    {
+      "phraseId": "phrase_063",
+      "english": "How much does it cost?",
+      "originalTranslation": "कल (आने वाला)",
+      "translation": "इसकी क्या कीमत है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कल (आने वाला)' to 'इसकी क्या कीमत है?' based on 'myMemory' (English: 'How much does it cost?')"
+    },
+    {
+      "phraseId": "phrase_064",
+      "english": "I am allergic to...",
+      "originalTranslation": "सुबह",
+      "translation": "Mere ko allergy hua hai",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सुबह' to 'Mere ko allergy hua hai' based on 'myMemory' (English: 'I am allergic to...')"
+    },
+    {
+      "phraseId": "phrase_065",
+      "english": "Can I take it to go?",
+      "originalTranslation": "दोपहर",
+      "translation": "क्या मैं इसे ले जा सकती हूँ?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'दोपहर' to 'क्या मैं इसे ले जा सकती हूँ?' based on 'myMemory' (English: 'Can I take it to go?')"
+    },
+    {
+      "phraseId": "phrase_066",
+      "english": "Very delicious",
+      "originalTranslation": "शाम",
+      "translation": "बहुत स्वादिष्ट",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'शाम' to 'बहुत स्वादिष्ट' based on 'myMemory' (English: 'Very delicious')"
+    },
+    {
+      "phraseId": "phrase_067",
+      "english": "Appetizers",
+      "originalTranslation": "रात",
+      "translation": "ऐपेटाइज़र",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'रात' to 'ऐपेटाइज़र' based on 'myMemory' (English: 'Appetizers')"
+    },
+    {
+      "phraseId": "phrase_068",
+      "english": "Ham",
+      "originalTranslation": "सप्ताह",
+      "translation": "पूर्वाह्नEthiopian weekday 5 - ShortDayName",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सप्ताह' to 'पूर्वाह्नEthiopian weekday 5 - ShortDayName' based on 'myMemory' (English: 'Ham')"
+    },
+    {
+      "phraseId": "phrase_069",
+      "english": "Cheese platter",
+      "originalTranslation": "महीना",
+      "translation": "पनीर की थाली",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'महीना' to 'पनीर की थाली' based on 'myMemory' (English: 'Cheese platter')"
+    },
+    {
+      "phraseId": "phrase_070",
+      "english": "Soup",
+      "originalTranslation": "साल",
+      "translation": "सूप",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'साल' to 'सूप' based on 'myMemory' (English: 'Soup')"
+    },
+    {
+      "phraseId": "phrase_071",
+      "english": "Borscht",
+      "originalTranslation": "दिन",
+      "translation": "बोर्श्ट",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'दिन' to 'बोर्श्ट' based on 'myMemory' (English: 'Borscht')"
+    },
+    {
+      "phraseId": "phrase_072",
+      "english": "Chicken noodle soup",
+      "originalTranslation": "घंटा",
+      "translation": "चिकन नूडल सूप",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'घंटा' to 'चिकन नूडल सूप' based on 'myMemory' (English: 'Chicken noodle soup')"
+    },
+    {
+      "phraseId": "phrase_073",
+      "english": "Meat broth",
+      "originalTranslation": "मिनट",
+      "translation": "मांस शोरबा",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मिनट' to 'मांस शोरबा' based on 'myMemory' (English: 'Meat broth')"
+    },
+    {
+      "phraseId": "phrase_074",
+      "english": "Meat",
+      "originalTranslation": "सेकंड",
+      "translation": "मांस",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सेकंड' to 'मांस' based on 'myMemory' (English: 'Meat')"
+    },
+    {
+      "phraseId": "phrase_075",
+      "english": "Lamb",
+      "originalTranslation": "सोमवार",
+      "translation": "मेमना",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सोमवार' to 'मेमना' based on 'myMemory' (English: 'Lamb')"
+    },
+    {
+      "phraseId": "phrase_076",
+      "english": "Pork",
+      "originalTranslation": "मंगलवार",
+      "translation": "पोर्क",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मंगलवार' to 'पोर्क' based on 'myMemory' (English: 'Pork')"
+    },
+    {
+      "phraseId": "phrase_077",
+      "english": "Fried",
+      "originalTranslation": "बुधवार",
+      "translation": "तला हुआ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बुधवार' to 'तला हुआ' based on 'myMemory' (English: 'Fried')"
+    },
+    {
+      "phraseId": "phrase_078",
+      "english": "Boiled",
+      "originalTranslation": "गुरुवार",
+      "translation": "उबला हुआ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'गुरुवार' to 'उबला हुआ' based on 'myMemory' (English: 'Boiled')"
+    },
+    {
+      "phraseId": "phrase_079",
+      "english": "Fish dishes",
+      "originalTranslation": "शुक्रवार",
+      "translation": "मछली के व्यंजन",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'शुक्रवार' to 'मछली के व्यंजन' based on 'myMemory' (English: 'Fish dishes')"
+    },
+    {
+      "phraseId": "phrase_080",
+      "english": "Fish",
+      "originalTranslation": "शनिवार",
+      "translation": "मछली",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'शनिवार' to 'मछली' based on 'myMemory' (English: 'Fish')"
+    },
+    {
+      "phraseId": "phrase_081",
+      "english": "Salmon",
+      "originalTranslation": "रविवार",
+      "translation": "गेरुआCity name (optional, probably does not need a translation)",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'रविवार' to 'गेरुआCity name (optional, probably does not need a translation)' based on 'myMemory' (English: 'Salmon')"
+    },
+    {
+      "phraseId": "phrase_082",
+      "english": "Shrimp",
+      "originalTranslation": "जनवरी",
+      "translation": "झींगा",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'जनवरी' to 'झींगा' based on 'myMemory' (English: 'Shrimp')"
+    },
+    {
+      "phraseId": "phrase_083",
+      "english": "Crabs",
+      "originalTranslation": "फरवरी",
+      "translation": "केकड़ा",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'फरवरी' to 'केकड़ा' based on 'myMemory' (English: 'Crabs')"
+    },
+    {
+      "phraseId": "phrase_084",
+      "english": "Is there a vegetarian menu?",
+      "originalTranslation": "मार्च",
+      "translation": "क्या कोई शाकाहारी मेन्यू है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मार्च' to 'क्या कोई शाकाहारी मेन्यू है?' based on 'myMemory' (English: 'Is there a vegetarian menu?')"
+    },
+    {
+      "phraseId": "phrase_085",
+      "english": "Is this dish spicy?",
+      "originalTranslation": "अप्रैल",
+      "translation": "क्या यह पकवान मसालेदार है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'अप्रैल' to 'क्या यह पकवान मसालेदार है?' based on 'myMemory' (English: 'Is this dish spicy?')"
+    },
+    {
+      "phraseId": "phrase_086",
+      "english": "Not spicy",
+      "originalTranslation": "रेस्तरां",
+      "translation": "मसालेदार नहीं",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'रेस्तरां' to 'मसालेदार नहीं' based on 'myMemory' (English: 'Not spicy')"
+    },
+    {
+      "phraseId": "phrase_087",
+      "english": "Apple",
+      "originalTranslation": "मेन्यू",
+      "translation": "अंग्रेजी में सेब के पेड़ पर निबंध",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मेन्यू' to 'अंग्रेजी में सेब के पेड़ पर निबंध' based on 'myMemory' (English: 'Apple')"
+    },
+    {
+      "phraseId": "phrase_088",
+      "english": "Banana",
+      "originalTranslation": "नाश्ता",
+      "translation": "केला",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'नाश्ता' to 'केला' based on 'myMemory' (English: 'Banana')"
+    },
+    {
+      "phraseId": "phrase_089",
+      "english": "Orange",
+      "originalTranslation": "दोपहर का खाना",
+      "translation": "नारंगी",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'दोपहर का खाना' to 'नारंगी' based on 'myMemory' (English: 'Orange')"
+    },
+    {
+      "phraseId": "phrase_090",
+      "english": "Grapes",
+      "originalTranslation": "रात का खाना",
+      "translation": "अंगूर",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'रात का खाना' to 'अंगूर' based on 'myMemory' (English: 'Grapes')"
+    },
+    {
+      "phraseId": "phrase_091",
+      "english": "Watermelon",
+      "originalTranslation": "पानी",
+      "translation": "तरबूज़",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पानी' to 'तरबूज़' based on 'myMemory' (English: 'Watermelon')"
+    },
+    {
+      "phraseId": "phrase_092",
+      "english": "Potato",
+      "originalTranslation": "चाय",
+      "translation": "आलू",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'चाय' to 'आलू' based on 'myMemory' (English: 'Potato')"
+    },
+    {
+      "phraseId": "phrase_093",
+      "english": "Tomato",
+      "originalTranslation": "कॉफी",
+      "translation": "टमाटर",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कॉफी' to 'टमाटर' based on 'myMemory' (English: 'Tomato')"
+    },
+    {
+      "phraseId": "phrase_094",
+      "english": "How much does it cost?",
+      "originalTranslation": "दूध",
+      "translation": "इसकी क्या कीमत है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'दूध' to 'इसकी क्या कीमत है?' based on 'myMemory' (English: 'How much does it cost?')"
+    },
+    {
+      "phraseId": "phrase_095",
+      "english": "Too expensive",
+      "originalTranslation": "जूस",
+      "translation": "बहुत महंगा",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'जूस' to 'बहुत महंगा' based on 'myMemory' (English: 'Too expensive')"
+    },
+    {
+      "phraseId": "phrase_096",
+      "english": "Can it be cheaper?",
+      "originalTranslation": "बीयर",
+      "translation": "क्या यह सस्ता हो सकता है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बीयर' to 'क्या यह सस्ता हो सकता है?' based on 'myMemory' (English: 'Can it be cheaper?')"
+    },
+    {
+      "phraseId": "phrase_097",
+      "english": "I will buy this",
+      "originalTranslation": "वाइन",
+      "translation": "मैं इसे खरीदूंगा",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'वाइन' to 'मैं इसे खरीदूंगा' based on 'myMemory' (English: 'I will buy this')"
+    },
+    {
+      "phraseId": "phrase_098",
+      "english": "Can I try it on?",
+      "originalTranslation": "रोटी",
+      "translation": "क्या मैं कोशिश कर सकता हूं?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'रोटी' to 'क्या मैं कोशिश कर सकता हूं?' based on 'myMemory' (English: 'Can I try it on?')"
+    },
+    {
+      "phraseId": "phrase_099",
+      "english": "Bigger size",
+      "originalTranslation": "मांस",
+      "translation": "बड़ा",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मांस' to 'बड़ा' based on 'myMemory' (English: 'Bigger size')"
+    },
+    {
+      "phraseId": "phrase_100",
+      "english": "Smaller size",
+      "originalTranslation": "मछली",
+      "translation": "निस्बतन लौह्‌का",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मछली' to 'निस्बतन लौह्‌का' based on 'myMemory' (English: 'Smaller size')"
+    },
+    {
+      "phraseId": "phrase_101",
+      "english": "Cash",
+      "originalTranslation": "मुर्गी",
+      "translation": "कैश",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मुर्गी' to 'कैश' based on 'myMemory' (English: 'Cash')"
+    },
+    {
+      "phraseId": "phrase_102",
+      "english": "Credit card",
+      "originalTranslation": "सब्ज़ियाँ",
+      "translation": "क्रेडिट कार्ड",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सब्ज़ियाँ' to 'क्रेडिट कार्ड' based on 'myMemory' (English: 'Credit card')"
+    },
+    {
+      "phraseId": "phrase_103",
+      "english": "Receipt",
+      "originalTranslation": "फल",
+      "translation": "रसीद",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'फल' to 'रसीद' based on 'myMemory' (English: 'Receipt')"
+    },
+    {
+      "phraseId": "phrase_104",
+      "english": "Return/Exchange",
+      "originalTranslation": "चावल",
+      "translation": "वापसी/विनिमय",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'चावल' to 'वापसी/विनिमय' based on 'myMemory' (English: 'Return/Exchange')"
+    },
+    {
+      "phraseId": "phrase_105",
+      "english": "Where is the market?",
+      "originalTranslation": "सूप",
+      "translation": "मैं बाजार जाना चाहता हूँ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सूप' to 'मैं बाजार जाना चाहता हूँ' based on 'myMemory' (English: 'Where is the market?')"
+    },
+    {
+      "phraseId": "phrase_106",
+      "english": "Is there a discount?",
+      "originalTranslation": "सलाद",
+      "translation": "क्या कोई छूट है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सलाद' to 'क्या कोई छूट है?' based on 'myMemory' (English: 'Is there a discount?')"
+    },
+    {
+      "phraseId": "phrase_107",
+      "english": "Can I try it on?",
+      "originalTranslation": "पनीर",
+      "translation": "क्या मैं कोशिश कर सकता हूं?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पनीर' to 'क्या मैं कोशिश कर सकता हूं?' based on 'myMemory' (English: 'Can I try it on?')"
+    },
+    {
+      "phraseId": "phrase_108",
+      "english": "What is your size?",
+      "originalTranslation": "मक्खन",
+      "translation": "आपका आकार क्या है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मक्खन' to 'आपका आकार क्या है?' based on 'myMemory' (English: 'What is your size?')"
+    },
+    {
+      "phraseId": "phrase_109",
+      "english": "Are there other colors?",
+      "originalTranslation": "चीनी",
+      "translation": "क्या आपके पास और भी रंग हैं?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'चीनी' to 'क्या आपके पास और भी रंग हैं?' based on 'myMemory' (English: 'Are there other colors?')"
+    },
+    {
+      "phraseId": "phrase_110",
+      "english": "Where is the train station?",
+      "originalTranslation": "नमक",
+      "translation": "Bharthana\nKa time",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'नमक' to 'Bharthana\nKa time' based on 'myMemory' (English: 'Where is the train station?')"
+    },
+    {
+      "phraseId": "phrase_111",
+      "english": "Airport",
+      "originalTranslation": "काली मिर्च",
+      "translation": "हवाई अड्डा",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'काली मिर्च' to 'हवाई अड्डा' based on 'myMemory' (English: 'Airport')"
+    },
+    {
+      "phraseId": "phrase_112",
+      "english": "Taxi",
+      "originalTranslation": "आइसक्रीम",
+      "translation": "टैक्सी",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'आइसक्रीम' to 'टैक्सी' based on 'myMemory' (English: 'Taxi')"
+    },
+    {
+      "phraseId": "phrase_113",
+      "english": "Bus",
+      "originalTranslation": "केक",
+      "translation": "बस में",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'केक' to 'बस में' based on 'myMemory' (English: 'Bus')"
+    },
+    {
+      "phraseId": "phrase_114",
+      "english": "Metro",
+      "originalTranslation": "स्वादिष्ट",
+      "translation": "मेट्रो",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'स्वादिष्ट' to 'मेट्रो' based on 'myMemory' (English: 'Metro')"
+    },
+    {
+      "phraseId": "phrase_115",
+      "english": "Train ticket",
+      "originalTranslation": "भोजन का आनंद लें",
+      "translation": "ट्रेन टिकट",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'भोजन का आनंद लें' to 'ट्रेन टिकट' based on 'myMemory' (English: 'Train ticket')"
+    },
+    {
+      "phraseId": "phrase_116",
+      "english": "Schedule",
+      "originalTranslation": "दुकान",
+      "translation": "अनुसूची",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'दुकान' to 'अनुसूची' based on 'myMemory' (English: 'Schedule')"
+    },
+    {
+      "phraseId": "phrase_117",
+      "english": "Platform",
+      "originalTranslation": "बाज़ार",
+      "translation": "प्लेटफॉर्म",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बाज़ार' to 'प्लेटफॉर्म' based on 'myMemory' (English: 'Platform')"
+    },
+    {
+      "phraseId": "phrase_118",
+      "english": "Next stop",
+      "originalTranslation": "यह कितने का है?",
+      "translation": "अगला स्टॉप",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'यह कितने का है?' to 'अगला स्टॉप' based on 'myMemory' (English: 'Next stop')"
+    },
+    {
+      "phraseId": "phrase_119",
+      "english": "Stop",
+      "originalTranslation": "कितना खर्च होगा?",
+      "translation": "रोकें",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कितना खर्च होगा?' to 'रोकें' based on 'myMemory' (English: 'Stop')"
+    },
+    {
+      "phraseId": "phrase_120",
+      "english": "How long until...?",
+      "originalTranslation": "मैं यह खरीदना चाहता हूँ",
+      "translation": "कब तक...?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मैं यह खरीदना चाहता हूँ' to 'कब तक...?' based on 'myMemory' (English: 'How long until...?')"
+    },
+    {
+      "phraseId": "phrase_121",
+      "english": "I need to go to...",
+      "originalTranslation": "महंगा",
+      "translation": "मुझे जाना है।",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'महंगा' to 'मुझे जाना है।' based on 'myMemory' (English: 'I need to go to...')"
+    },
+    {
+      "phraseId": "phrase_122",
+      "english": "When will the next bus arrive?",
+      "originalTranslation": "सस्ता",
+      "translation": "अगली बस कब आएगी?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सस्ता' to 'अगली बस कब आएगी?' based on 'myMemory' (English: 'When will the next bus arrive?')"
+    },
+    {
+      "phraseId": "phrase_123",
+      "english": "I want to go to the airport",
+      "originalTranslation": "छूट",
+      "translation": "मुझे एयरपोर्ट जाना है",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'छूट' to 'मुझे एयरपोर्ट जाना है' based on 'myMemory' (English: 'I want to go to the airport')"
+    },
+    {
+      "phraseId": "phrase_124",
+      "english": "On the left",
+      "originalTranslation": "कीमत",
+      "translation": "बाईं ओर",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कीमत' to 'बाईं ओर' based on 'myMemory' (English: 'On the left')"
+    },
+    {
+      "phraseId": "phrase_125",
+      "english": "On the right",
+      "originalTranslation": "पैसे",
+      "translation": "दाईं ओर",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पैसे' to 'दाईं ओर' based on 'myMemory' (English: 'On the right')"
+    },
+    {
+      "phraseId": "phrase_126",
+      "english": "Straight",
+      "originalTranslation": "क्रेडिट कार्ड",
+      "translation": "सीधा",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'क्रेडिट कार्ड' to 'सीधा' based on 'myMemory' (English: 'Straight')"
+    },
+    {
+      "phraseId": "phrase_127",
+      "english": "Turn",
+      "originalTranslation": "नकद",
+      "translation": "बारी",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'नकद' to 'बारी' based on 'myMemory' (English: 'Turn')"
+    },
+    {
+      "phraseId": "phrase_128",
+      "english": "Intersection",
+      "originalTranslation": "रसीद",
+      "translation": "प्रतिच्छेदन",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'रसीद' to 'प्रतिच्छेदन' based on 'myMemory' (English: 'Intersection')"
+    },
+    {
+      "phraseId": "phrase_129",
+      "english": "Traffic light",
+      "originalTranslation": "क्या आप कार्ड लेते हैं?",
+      "translation": "ट्रैफ़िक लाइट",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'क्या आप कार्ड लेते हैं?' to 'ट्रैफ़िक लाइट' based on 'myMemory' (English: 'Traffic light')"
+    },
+    {
+      "phraseId": "phrase_130",
+      "english": "Far",
+      "originalTranslation": "साइज़",
+      "translation": "Far",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'साइज़' to 'Far' based on 'myMemory' (English: 'Far')"
+    },
+    {
+      "phraseId": "phrase_131",
+      "english": "Near",
+      "originalTranslation": "रंग",
+      "translation": "पास",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'रंग' to 'पास' based on 'myMemory' (English: 'Near')"
+    },
+    {
+      "phraseId": "phrase_132",
+      "english": "Map",
+      "originalTranslation": "बड़ा",
+      "translation": "मैप",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बड़ा' to 'मैप' based on 'myMemory' (English: 'Map')"
+    },
+    {
+      "phraseId": "phrase_133",
+      "english": "Where is...?",
+      "originalTranslation": "छोटा",
+      "translation": "kaha par hai",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'छोटा' to 'kaha par hai' based on 'myMemory' (English: 'Where is...?')"
+    },
+    {
+      "phraseId": "phrase_134",
+      "english": "Hospital",
+      "originalTranslation": "मध्यम",
+      "translation": "चिकित्सालय",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मध्यम' to 'चिकित्सालय' based on 'myMemory' (English: 'Hospital')"
+    },
+    {
+      "phraseId": "phrase_135",
+      "english": "Pharmacy",
+      "originalTranslation": "नया",
+      "translation": "फार्मेसी",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'नया' to 'फार्मेसी' based on 'myMemory' (English: 'Pharmacy')"
+    },
+    {
+      "phraseId": "phrase_136",
+      "english": "I have a headache",
+      "originalTranslation": "पुराना",
+      "translation": "मुझे सिर दर्द है",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पुराना' to 'मुझे सिर दर्द है' based on 'myMemory' (English: 'I have a headache')"
+    },
+    {
+      "phraseId": "phrase_137",
+      "english": "I have a stomachache",
+      "originalTranslation": "सुंदर",
+      "translation": "मुझे पेट में दर्द हो रहा है।",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सुंदर' to 'मुझे पेट में दर्द हो रहा है।' based on 'myMemory' (English: 'I have a stomachache')"
+    },
+    {
+      "phraseId": "phrase_138",
+      "english": "Temperature",
+      "originalTranslation": "बदसूरत",
+      "translation": "तापक्रम",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बदसूरत' to 'तापक्रम' based on 'myMemory' (English: 'Temperature')"
+    },
+    {
+      "phraseId": "phrase_139",
+      "english": "Cough",
+      "originalTranslation": "गुणवत्ता",
+      "translation": "खाँसी",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'गुणवत्ता' to 'खाँसी' based on 'myMemory' (English: 'Cough')"
+    },
+    {
+      "phraseId": "phrase_140",
+      "english": "Medicine",
+      "originalTranslation": "क्या मैं इसे पहन सकता हूँ?",
+      "translation": "दवाई",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'क्या मैं इसे पहन सकता हूँ?' to 'दवाई' based on 'myMemory' (English: 'Medicine')"
+    },
+    {
+      "phraseId": "phrase_141",
+      "english": "Doctor",
+      "originalTranslation": "टैक्सी",
+      "translation": "डॉक्टर",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'टैक्सी' to 'डॉक्टर' based on 'myMemory' (English: 'Doctor')"
+    },
+    {
+      "phraseId": "phrase_142",
+      "english": "Nurse",
+      "originalTranslation": "बस",
+      "translation": "नर्स",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बस' to 'नर्स' based on 'myMemory' (English: 'Nurse')"
+    },
+    {
+      "phraseId": "phrase_143",
+      "english": "Ambulance",
+      "originalTranslation": "ट्रेन",
+      "translation": "एम्बुलेंस",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'ट्रेन' to 'एम्बुलेंस' based on 'myMemory' (English: 'Ambulance')"
+    },
+    {
+      "phraseId": "phrase_144",
+      "english": "I have a headache",
+      "originalTranslation": "हवाई जहाज़",
+      "translation": "मुझे सिर दर्द है",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'हवाई जहाज़' to 'मुझे सिर दर्द है' based on 'myMemory' (English: 'I have a headache')"
+    },
+    {
+      "phraseId": "phrase_145",
+      "english": "I need a painkiller",
+      "originalTranslation": "हवाई अड्डा",
+      "translation": "मुझे पेनकिलर की ज़रूरत है",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'हवाई अड्डा' to 'मुझे पेनकिलर की ज़रूरत है' based on 'myMemory' (English: 'I need a painkiller')"
+    },
+    {
+      "phraseId": "phrase_146",
+      "english": "Yuan",
+      "originalTranslation": "स्टेशन",
+      "translation": "यूआन",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'स्टेशन' to 'यूआन' based on 'myMemory' (English: 'Yuan')"
+    },
+    {
+      "phraseId": "phrase_147",
+      "english": "Manat",
+      "originalTranslation": "बस स्टॉप",
+      "translation": "मनात",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बस स्टॉप' to 'मनात' based on 'myMemory' (English: 'Manat')"
+    },
+    {
+      "phraseId": "phrase_148",
+      "english": "Card payment",
+      "originalTranslation": "टिकट",
+      "translation": "कार्ड से भुगतान 3",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'टिकट' to 'कार्ड से भुगतान 3' based on 'myMemory' (English: 'Card payment')"
+    },
+    {
+      "phraseId": "phrase_149",
+      "english": "Bank",
+      "originalTranslation": "टिकट कितने का है?",
+      "translation": "बैंक",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'टिकट कितने का है?' to 'बैंक' based on 'myMemory' (English: 'Bank')"
+    },
+    {
+      "phraseId": "phrase_150",
+      "english": "ATM",
+      "originalTranslation": "बस स्टेशन कहाँ है?",
+      "translation": "एटीएम",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बस स्टेशन कहाँ है?' to 'एटीएम' based on 'myMemory' (English: 'ATM')"
+    },
+    {
+      "phraseId": "phrase_151",
+      "english": "Currency exchange",
+      "originalTranslation": "...कैसे पहुँचें?",
+      "translation": "करेंसी एक्सचेंज",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from '...कैसे पहुँचें?' to 'करेंसी एक्सचेंज' based on 'myMemory' (English: 'Currency exchange')"
+    },
+    {
+      "phraseId": "phrase_152",
+      "english": "Change",
+      "originalTranslation": "बाएं",
+      "translation": "बदलें",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बाएं' to 'बदलें' based on 'myMemory' (English: 'Change')"
+    },
+    {
+      "phraseId": "phrase_153",
+      "english": "Free",
+      "originalTranslation": "दाएं",
+      "translation": "मुफ़्त",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'दाएं' to 'मुफ़्त' based on 'myMemory' (English: 'Free')"
+    },
+    {
+      "phraseId": "phrase_154",
+      "english": "Price",
+      "originalTranslation": "सीधे",
+      "translation": "मूल्य",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सीधे' to 'मूल्य' based on 'myMemory' (English: 'Price')"
+    },
+    {
+      "phraseId": "phrase_155",
+      "english": "Mobile phone",
+      "originalTranslation": "दूर",
+      "translation": "मोबाइल फ़ोन",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'दूर' to 'मोबाइल फ़ोन' based on 'myMemory' (English: 'Mobile phone')"
+    },
+    {
+      "phraseId": "phrase_156",
+      "english": "Wi-Fi",
+      "originalTranslation": "पास",
+      "translation": "वाई-फ़ाई",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पास' to 'वाई-फ़ाई' based on 'myMemory' (English: 'Wi-Fi')"
+    },
+    {
+      "phraseId": "phrase_157",
+      "english": "What is the password?",
+      "originalTranslation": "यहाँ",
+      "translation": "पासवर्ड क्या है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'यहाँ' to 'पासवर्ड क्या है?' based on 'myMemory' (English: 'What is the password?')"
+    },
+    {
+      "phraseId": "phrase_158",
+      "english": "Send SMS",
+      "originalTranslation": "वहाँ",
+      "translation": "एसएमएस भेजें",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'वहाँ' to 'एसएमएस भेजें' based on 'myMemory' (English: 'Send SMS')"
+    },
+    {
+      "phraseId": "phrase_159",
+      "english": "Cinema",
+      "originalTranslation": "सड़क",
+      "translation": "सिनेमा",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सड़क' to 'सिनेमा' based on 'myMemory' (English: 'Cinema')"
+    },
+    {
+      "phraseId": "phrase_160",
+      "english": "Museum",
+      "originalTranslation": "पता",
+      "translation": "संग्रहालय",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पता' to 'संग्रहालय' based on 'myMemory' (English: 'Museum')"
+    },
+    {
+      "phraseId": "phrase_161",
+      "english": "Park",
+      "originalTranslation": "होटल",
+      "translation": "पार्क",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'होटल' to 'पार्क' based on 'myMemory' (English: 'Park')"
+    },
+    {
+      "phraseId": "phrase_162",
+      "english": "Concert",
+      "originalTranslation": "कमरा",
+      "translation": "कॉन्सर्ट",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कमरा' to 'कॉन्सर्ट' based on 'myMemory' (English: 'Concert')"
+    },
+    {
+      "phraseId": "phrase_163",
+      "english": "Shopping mall",
+      "originalTranslation": "आरक्षण",
+      "translation": "शॉपिंग मॉल",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'आरक्षण' to 'शॉपिंग मॉल' based on 'myMemory' (English: 'Shopping mall')"
+    },
+    {
+      "phraseId": "phrase_164",
+      "english": "Swimming pool",
+      "originalTranslation": "मैंने बुकिंग की है",
+      "translation": "तरण ताल",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मैंने बुकिंग की है' to 'तरण ताल' based on 'myMemory' (English: 'Swimming pool')"
+    },
+    {
+      "phraseId": "phrase_165",
+      "english": "Gym",
+      "originalTranslation": "मुझे एक कमरा चाहिए",
+      "translation": "जिम",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मुझे एक कमरा चाहिए' to 'जिम' based on 'myMemory' (English: 'Gym')"
+    },
+    {
+      "phraseId": "phrase_166",
+      "english": "Library",
+      "originalTranslation": "एक व्यक्ति के लिए",
+      "translation": "किताब पढ़कर हमें ज्ञान मिलता है",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'एक व्यक्ति के लिए' to 'किताब पढ़कर हमें ज्ञान मिलता है' based on 'myMemory' (English: 'Library')"
+    },
+    {
+      "phraseId": "phrase_167",
+      "english": "Night market",
+      "originalTranslation": "दो लोगों के लिए",
+      "translation": "रात का बाज़ार",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'दो लोगों के लिए' to 'रात का बाज़ार' based on 'myMemory' (English: 'Night market')"
+    },
+    {
+      "phraseId": "phrase_168",
+      "english": "How much is the ticket?",
+      "originalTranslation": "एक रात के लिए",
+      "translation": "टिकट की कीमत कितनी है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'एक रात के लिए' to 'टिकट की कीमत कितनी है?' based on 'myMemory' (English: 'How much is the ticket?')"
+    },
+    {
+      "phraseId": "phrase_169",
+      "english": "What time is it?",
+      "originalTranslation": "दो रात के लिए",
+      "translation": "अभी कितने बजे हैं?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'दो रात के लिए' to 'अभी कितने बजे हैं?' based on 'myMemory' (English: 'What time is it?')"
+    },
+    {
+      "phraseId": "phrase_170",
+      "english": "Today",
+      "originalTranslation": "एक हफ्ते के लिए",
+      "translation": "आज",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'एक हफ्ते के लिए' to 'आज' based on 'myMemory' (English: 'Today')"
+    },
+    {
+      "phraseId": "phrase_171",
+      "english": "Tomorrow",
+      "originalTranslation": "कमरा कितने का है?",
+      "translation": "आप सुंदर लग रही हैं",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कमरा कितने का है?' to 'आप सुंदर लग रही हैं' based on 'myMemory' (English: 'Tomorrow')"
+    },
+    {
+      "phraseId": "phrase_172",
+      "english": "Yesterday",
+      "originalTranslation": "क्या नाश्ता शामिल है?",
+      "translation": "मैं क्या पी रहा हूँ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'क्या नाश्ता शामिल है?' to 'मैं क्या पी रहा हूँ' based on 'myMemory' (English: 'Yesterday')"
+    },
+    {
+      "phraseId": "phrase_173",
+      "english": "Monday",
+      "originalTranslation": "चाबी",
+      "translation": "सोमवार",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'चाबी' to 'सोमवार' based on 'myMemory' (English: 'Monday')"
+    },
+    {
+      "phraseId": "phrase_174",
+      "english": "Sunday",
+      "originalTranslation": "कमरे की चाबी",
+      "translation": "रविवार",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कमरे की चाबी' to 'रविवार' based on 'myMemory' (English: 'Sunday')"
+    },
+    {
+      "phraseId": "phrase_175",
+      "english": "In the morning",
+      "originalTranslation": "बिस्तर",
+      "translation": "﻿सुबह को",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बिस्तर' to '﻿सुबह को' based on 'myMemory' (English: 'In the morning')"
+    },
+    {
+      "phraseId": "phrase_176",
+      "english": "In the afternoon",
+      "originalTranslation": "बाथरूम",
+      "translation": "दोपहर को",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बाथरूम' to 'दोपहर को' based on 'myMemory' (English: 'In the afternoon')"
+    },
+    {
+      "phraseId": "phrase_177",
+      "english": "In the evening",
+      "originalTranslation": "शावर",
+      "translation": "गोधूलि के समय ताज",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'शावर' to 'गोधूलि के समय ताज' based on 'myMemory' (English: 'In the evening')"
+    },
+    {
+      "phraseId": "phrase_178",
+      "english": "What month?",
+      "originalTranslation": "एयर कंडीशनर",
+      "translation": "किस महीने?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'एयर कंडीशनर' to 'किस महीने?' based on 'myMemory' (English: 'What month?')"
+    },
+    {
+      "phraseId": "phrase_179",
+      "english": "Monday",
+      "originalTranslation": "वाई-फ़ाई",
+      "translation": "सोमवार",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'वाई-फ़ाई' to 'सोमवार' based on 'myMemory' (English: 'Monday')"
+    },
+    {
+      "phraseId": "phrase_180",
+      "english": "Tuesday",
+      "originalTranslation": "वाई-फ़ाई का पासवर्ड क्या है?",
+      "translation": "मंगलवार",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'वाई-फ़ाई का पासवर्ड क्या है?' to 'मंगलवार' based on 'myMemory' (English: 'Tuesday')"
+    },
+    {
+      "phraseId": "phrase_181",
+      "english": "Wednesday",
+      "originalTranslation": "तौलिया",
+      "translation": "बुधवार",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'तौलिया' to 'बुधवार' based on 'myMemory' (English: 'Wednesday')"
+    },
+    {
+      "phraseId": "phrase_182",
+      "english": "Thursday",
+      "originalTranslation": "साबुन",
+      "translation": "गुरुवार",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'साबुन' to 'गुरुवार' based on 'myMemory' (English: 'Thursday')"
+    },
+    {
+      "phraseId": "phrase_183",
+      "english": "Friday",
+      "originalTranslation": "रूम सर्विस",
+      "translation": "शुक्रवार",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'रूम सर्विस' to 'शुक्रवार' based on 'myMemory' (English: 'Friday')"
+    },
+    {
+      "phraseId": "phrase_184",
+      "english": "Saturday",
+      "originalTranslation": "चेक-इन",
+      "translation": "शनिवार",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'चेक-इन' to 'शनिवार' based on 'myMemory' (English: 'Saturday')"
+    },
+    {
+      "phraseId": "phrase_185",
+      "english": "Sunday",
+      "originalTranslation": "चेक-आउट",
+      "translation": "रविवार",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'चेक-आउट' to 'रविवार' based on 'myMemory' (English: 'Sunday')"
+    },
+    {
+      "phraseId": "phrase_186",
+      "english": "January",
+      "originalTranslation": "मदद!",
+      "translation": "केवल चौवालीस हजार सात सौ दस रुपये",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मदद!' to 'केवल चौवालीस हजार सात सौ दस रुपये' based on 'myMemory' (English: 'January')"
+    },
+    {
+      "phraseId": "phrase_187",
+      "english": "February",
+      "originalTranslation": "आपातकाल",
+      "translation": "फरवरी",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'आपातकाल' to 'फरवरी' based on 'myMemory' (English: 'February')"
+    },
+    {
+      "phraseId": "phrase_188",
+      "english": "March",
+      "originalTranslation": "पुलिस",
+      "translation": "मार्च",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पुलिस' to 'मार्च' based on 'myMemory' (English: 'March')"
+    },
+    {
+      "phraseId": "phrase_189",
+      "english": "April",
+      "originalTranslation": "डॉक्टर",
+      "translation": "अप्रैल",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'डॉक्टर' to 'अप्रैल' based on 'myMemory' (English: 'April')"
+    },
+    {
+      "phraseId": "phrase_190",
+      "english": "May",
+      "originalTranslation": "अस्पताल",
+      "translation": "मई",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'अस्पताल' to 'मई' based on 'myMemory' (English: 'May')"
+    },
+    {
+      "phraseId": "phrase_191",
+      "english": "June",
+      "originalTranslation": "एम्बुलेंस",
+      "translation": "जून",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'एम्बुलेंस' to 'जून' based on 'myMemory' (English: 'June')"
+    },
+    {
+      "phraseId": "phrase_192",
+      "english": "July",
+      "originalTranslation": "फार्मेसी",
+      "translation": "जुलाई",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'फार्मेसी' to 'जुलाई' based on 'myMemory' (English: 'July')"
+    },
+    {
+      "phraseId": "phrase_193",
+      "english": "August",
+      "originalTranslation": "मैं बीमार हूँ",
+      "translation": "सेंट ऐनी गर्ल्स हाई स्कूल",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मैं बीमार हूँ' to 'सेंट ऐनी गर्ल्स हाई स्कूल' based on 'myMemory' (English: 'August')"
+    },
+    {
+      "phraseId": "phrase_194",
+      "english": "September",
+      "originalTranslation": "मुझे डॉक्टर की ज़रूरत है",
+      "translation": "सितम्बर",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मुझे डॉक्टर की ज़रूरत है' to 'सितम्बर' based on 'myMemory' (English: 'September')"
+    },
+    {
+      "phraseId": "phrase_195",
+      "english": "October",
+      "originalTranslation": "मैंने...खो दिया",
+      "translation": "अक्टूबर",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मैंने...खो दिया' to 'अक्टूबर' based on 'myMemory' (English: 'October')"
+    },
+    {
+      "phraseId": "phrase_196",
+      "english": "November",
+      "originalTranslation": "मैं खो गया हूँ",
+      "translation": "नवम्बर",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मैं खो गया हूँ' to 'नवम्बर' based on 'myMemory' (English: 'November')"
+    },
+    {
+      "phraseId": "phrase_197",
+      "english": "December",
+      "originalTranslation": "आग",
+      "translation": "श्री गणेश शंकर गुप्ता",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'आग' to 'श्री गणेश शंकर गुप्ता' based on 'myMemory' (English: 'December')"
+    },
+    {
+      "phraseId": "phrase_198",
+      "english": "One",
+      "originalTranslation": "खतरा",
+      "translation": "",
+      "status": "needs_review",
+      "confidence": "medium",
+      "notes": "Review required: English is 'One', current Hindi is 'खतरा', MyMemory had no clear suggestion."
+    },
+    {
+      "phraseId": "phrase_199",
+      "english": "Two",
+      "originalTranslation": "सावधान",
+      "translation": "एक लाख तीस हजार",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सावधान' to 'एक लाख तीस हजार' based on 'myMemory' (English: 'Two')"
+    },
+    {
+      "phraseId": "phrase_200",
+      "english": "Three",
+      "originalTranslation": "मना है",
+      "translation": "प्रसंग (T)",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मना है' to 'प्रसंग (T)' based on 'myMemory' (English: 'Three')"
+    },
+    {
+      "phraseId": "phrase_201",
+      "english": "Four",
+      "originalTranslation": "यह क्या है?",
+      "translation": "या",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'यह क्या है?' to 'या' based on 'myMemory' (English: 'Four')"
+    },
+    {
+      "phraseId": "phrase_202",
+      "english": "Five",
+      "originalTranslation": "यह कहाँ है?",
+      "translation": "पांच",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'यह कहाँ है?' to 'पांच' based on 'myMemory' (English: 'Five')"
+    },
+    {
+      "phraseId": "phrase_203",
+      "english": "Six",
+      "originalTranslation": "यह कितने का है?",
+      "translation": "छक्का",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'यह कितने का है?' to 'छक्का' based on 'myMemory' (English: 'Six')"
+    },
+    {
+      "phraseId": "phrase_204",
+      "english": "Seven",
+      "originalTranslation": "कब?",
+      "translation": "2 साल और 7 महीने के लिए रिश्ते में",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कब?' to '2 साल और 7 महीने के लिए रिश्ते में' based on 'myMemory' (English: 'Seven')"
+    },
+    {
+      "phraseId": "phrase_205",
+      "english": "Eight",
+      "originalTranslation": "कौन?",
+      "translation": "आठ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कौन?' to 'आठ' based on 'myMemory' (English: 'Eight')"
+    },
+    {
+      "phraseId": "phrase_206",
+      "english": "Nine",
+      "originalTranslation": "क्यों?",
+      "translation": "नौ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'क्यों?' to 'नौ' based on 'myMemory' (English: 'Nine')"
+    },
+    {
+      "phraseId": "phrase_207",
+      "english": "Ten",
+      "originalTranslation": "कैसे?",
+      "translation": "दस",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कैसे?' to 'दस' based on 'myMemory' (English: 'Ten')"
+    },
+    {
+      "phraseId": "phrase_208",
+      "english": "Twenty",
+      "originalTranslation": "शौचालय कहाँ है?",
+      "translation": "बीस",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'शौचालय कहाँ है?' to 'बीस' based on 'myMemory' (English: 'Twenty')"
+    },
+    {
+      "phraseId": "phrase_209",
+      "english": "One hundred",
+      "originalTranslation": "क्या आप मदद कर सकते हैं?",
+      "translation": "एक सौ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'क्या आप मदद कर सकते हैं?' to 'एक सौ' based on 'myMemory' (English: 'One hundred')"
+    },
+    {
+      "phraseId": "phrase_210",
+      "english": "One thousand",
+      "originalTranslation": "क्या आप जानते हैं...?",
+      "translation": "",
+      "status": "needs_review",
+      "confidence": "medium",
+      "notes": "Review required: English is 'One thousand', current Hindi is 'क्या आप जानते हैं...?', MyMemory had no clear suggestion."
+    },
+    {
+      "phraseId": "phrase_211",
+      "english": "Ten thousand",
+      "originalTranslation": "क्या आप दिखा सकते हैं?",
+      "translation": "दस हजार",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'क्या आप दिखा सकते हैं?' to 'दस हजार' based on 'myMemory' (English: 'Ten thousand')"
+    },
+    {
+      "phraseId": "phrase_212",
+      "english": "First",
+      "originalTranslation": "क्या यह संभव है?",
+      "translation": "पहला",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'क्या यह संभव है?' to 'पहला' based on 'myMemory' (English: 'First')"
+    },
+    {
+      "phraseId": "phrase_213",
+      "english": "One thousand",
+      "originalTranslation": "क्या आपके पास...है?",
+      "translation": "",
+      "status": "needs_review",
+      "confidence": "medium",
+      "notes": "Review required: English is 'One thousand', current Hindi is 'क्या आपके पास...है?', MyMemory had no clear suggestion."
+    },
+    {
+      "phraseId": "phrase_214",
+      "english": "Two thousand",
+      "originalTranslation": "क्या यह उपलब्ध है?",
+      "translation": "dho hazar",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'क्या यह उपलब्ध है?' to 'dho hazar' based on 'myMemory' (English: 'Two thousand')"
+    },
+    {
+      "phraseId": "phrase_215",
+      "english": "Ten thousand",
+      "originalTranslation": "कितना समय?",
+      "translation": "दस हजार",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कितना समय?' to 'दस हजार' based on 'myMemory' (English: 'Ten thousand')"
+    },
+    {
+      "phraseId": "phrase_216",
+      "english": "One hundred thousand",
+      "originalTranslation": "कितनी दूर?",
+      "translation": "एक लाख",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कितनी दूर?' to 'एक लाख' based on 'myMemory' (English: 'One hundred thousand')"
+    },
+    {
+      "phraseId": "phrase_217",
+      "english": "One million",
+      "originalTranslation": "अभी क्या समय है?",
+      "translation": "एक लाख पांच सौ हजार",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'अभी क्या समय है?' to 'एक लाख पांच सौ हजार' based on 'myMemory' (English: 'One million')"
+    },
+    {
+      "phraseId": "phrase_218",
+      "english": "What is the weather today?",
+      "originalTranslation": "कब खुलता है?",
+      "translation": "aaj ka mausam kaisa hoga",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कब खुलता है?' to 'aaj ka mausam kaisa hoga' based on 'myMemory' (English: 'What is the weather today?')"
+    },
+    {
+      "phraseId": "phrase_219",
+      "english": "Rain",
+      "originalTranslation": "कब बंद होता है?",
+      "translation": "बरसात",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कब बंद होता है?' to 'बरसात' based on 'myMemory' (English: 'Rain')"
+    },
+    {
+      "phraseId": "phrase_220",
+      "english": "Sunny",
+      "originalTranslation": "क्या आज खुला है?",
+      "translation": "धूपweather forecast",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'क्या आज खुला है?' to 'धूपweather forecast' based on 'myMemory' (English: 'Sunny')"
+    },
+    {
+      "phraseId": "phrase_221",
+      "english": "Cloudy",
+      "originalTranslation": "परिवार",
+      "translation": "बादल भरा मौसमweather forecast",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'परिवार' to 'बादल भरा मौसमweather forecast' based on 'myMemory' (English: 'Cloudy')"
+    },
+    {
+      "phraseId": "phrase_222",
+      "english": "Windy",
+      "originalTranslation": "पिता",
+      "translation": "तेज हवाweather forecast",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पिता' to 'तेज हवाweather forecast' based on 'myMemory' (English: 'Windy')"
+    },
+    {
+      "phraseId": "phrase_223",
+      "english": "Snow",
+      "originalTranslation": "माता",
+      "translation": "Comment",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'माता' to 'Comment' based on 'myMemory' (English: 'Snow')"
+    },
+    {
+      "phraseId": "phrase_224",
+      "english": "Hot",
+      "originalTranslation": "बेटा",
+      "translation": "गर्मweather forecast",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बेटा' to 'गर्मweather forecast' based on 'myMemory' (English: 'Hot')"
+    },
+    {
+      "phraseId": "phrase_225",
+      "english": "Cold",
+      "originalTranslation": "बेटी",
+      "translation": "सर्दweather forecast",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बेटी' to 'सर्दweather forecast' based on 'myMemory' (English: 'Cold')"
+    },
+    {
+      "phraseId": "phrase_226",
+      "english": "My name is...",
+      "originalTranslation": "भाई",
+      "translation": "अगर मैं एक लड़की हूँ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'भाई' to 'अगर मैं एक लड़की हूँ' based on 'myMemory' (English: 'My name is...')"
+    },
+    {
+      "phraseId": "phrase_227",
+      "english": "My last name is...",
+      "originalTranslation": "बहन",
+      "translation": "मेरा उपनाम है...",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बहन' to 'मेरा उपनाम है...' based on 'myMemory' (English: 'My last name is...')"
+    },
+    {
+      "phraseId": "phrase_228",
+      "english": "What is your name?",
+      "originalTranslation": "पति",
+      "translation": "खेल दो प्रकार के कौन से हैं?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पति' to 'खेल दो प्रकार के कौन से हैं?' based on 'myMemory' (English: 'What is your name?')"
+    },
+    {
+      "phraseId": "phrase_229",
+      "english": "I am from Turkmenistan",
+      "originalTranslation": "पत्नी",
+      "translation": "मैं तुर्कमेनिस्तान से हूँ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पत्नी' to 'मैं तुर्कमेनिस्तान से हूँ' based on 'myMemory' (English: 'I am from Turkmenistan')"
+    },
+    {
+      "phraseId": "phrase_230",
+      "english": "I live in Ashgabat",
+      "originalTranslation": "दादा",
+      "translation": "मैं अश्गाबात में रहता हूँ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'दादा' to 'मैं अश्गाबात में रहता हूँ' based on 'myMemory' (English: 'I live in Ashgabat')"
+    },
+    {
+      "phraseId": "phrase_231",
+      "english": "There are 4 people in our family",
+      "originalTranslation": "दादी",
+      "translation": "हमारे परिवार में 4 लोग हैं",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'दादी' to 'हमारे परिवार में 4 लोग हैं' based on 'myMemory' (English: 'There are 4 people in our family')"
+    },
+    {
+      "phraseId": "phrase_232",
+      "english": "Do you have children?",
+      "originalTranslation": "चाचा",
+      "translation": "क्या आपके बच्चे हैं?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'चाचा' to 'क्या आपके बच्चे हैं?' based on 'myMemory' (English: 'Do you have children?')"
+    },
+    {
+      "phraseId": "phrase_233",
+      "english": "I have no children",
+      "originalTranslation": "चाची",
+      "translation": "मेरे कोई बच्चे नहीं हैं",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'चाची' to 'मेरे कोई बच्चे नहीं हैं' based on 'myMemory' (English: 'I have no children')"
+    },
+    {
+      "phraseId": "phrase_234",
+      "english": "I have one child",
+      "originalTranslation": "बच्चे",
+      "translation": "मेरा एक बच्चा है",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बच्चे' to 'मेरा एक बच्चा है' based on 'myMemory' (English: 'I have one child')"
+    },
+    {
+      "phraseId": "phrase_235",
+      "english": "I have two children",
+      "originalTranslation": "माता-पिता",
+      "translation": "Sambhalna",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'माता-पिता' to 'Sambhalna' based on 'myMemory' (English: 'I have two children')"
+    },
+    {
+      "phraseId": "phrase_236",
+      "english": "What do you do?",
+      "originalTranslation": "बीमार",
+      "translation": "हम बाद में चैट कर सकते हैं",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बीमार' to 'हम बाद में चैट कर सकते हैं' based on 'myMemory' (English: 'What do you do?')"
+    },
+    {
+      "phraseId": "phrase_237",
+      "english": "I work at a factory",
+      "originalTranslation": "बुखार",
+      "translation": "मैं एक कारखाने में काम करता हूँ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बुखार' to 'मैं एक कारखाने में काम करता हूँ' based on 'myMemory' (English: 'I work at a factory')"
+    },
+    {
+      "phraseId": "phrase_238",
+      "english": "I work at a bank",
+      "originalTranslation": "सिरदर्द",
+      "translation": "मैं एक बैंक में काम करता हूँ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सिरदर्द' to 'मैं एक बैंक में काम करता हूँ' based on 'myMemory' (English: 'I work at a bank')"
+    },
+    {
+      "phraseId": "phrase_239",
+      "english": "I work at a hospital",
+      "originalTranslation": "पेट दर्द",
+      "translation": "मैं एक अस्पताल में काम करता/करती हूँ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पेट दर्द' to 'मैं एक अस्पताल में काम करता/करती हूँ' based on 'myMemory' (English: 'I work at a hospital')"
+    },
+    {
+      "phraseId": "phrase_240",
+      "english": "I study foreign languages",
+      "originalTranslation": "सर्दी-जुकाम",
+      "translation": "मैं विदेशी भाषाओं का अध्ययन करता/करती हूँ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सर्दी-जुकाम' to 'मैं विदेशी भाषाओं का अध्ययन करता/करती हूँ' based on 'myMemory' (English: 'I study foreign languages')"
+    },
+    {
+      "phraseId": "phrase_241",
+      "english": "Do you speak Russian?",
+      "originalTranslation": "खांसी",
+      "translation": "क्या आप रूसी बोलते हैं?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'खांसी' to 'क्या आप रूसी बोलते हैं?' based on 'myMemory' (English: 'Do you speak Russian?')"
+    },
+    {
+      "phraseId": "phrase_242",
+      "english": "I don't speak",
+      "originalTranslation": "नाक बंद",
+      "translation": "मैं नहीं बोलता",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'नाक बंद' to 'मैं नहीं बोलता' based on 'myMemory' (English: 'I don't speak')"
+    },
+    {
+      "phraseId": "phrase_243",
+      "english": "I speak a little",
+      "originalTranslation": "दवा",
+      "translation": "main thoda sa araam kar leta hun",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'दवा' to 'main thoda sa araam kar leta hun' based on 'myMemory' (English: 'I speak a little')"
+    },
+    {
+      "phraseId": "phrase_244",
+      "english": "When does the conference start?",
+      "originalTranslation": "गोली",
+      "translation": "सम्मेलन कब शुरू होता है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'गोली' to 'सम्मेलन कब शुरू होता है?' based on 'myMemory' (English: 'When does the conference start?')"
+    },
+    {
+      "phraseId": "phrase_245",
+      "english": "What is the schedule for presentations?",
+      "originalTranslation": "नुस्खा",
+      "translation": "प्रेज़ेंटेशन का शेड्यूल क्या है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'नुस्खा' to 'प्रेज़ेंटेशन का शेड्यूल क्या है?' based on 'myMemory' (English: 'What is the schedule for presentations?')"
+    },
+    {
+      "phraseId": "phrase_246",
+      "english": "Will there be translation to Russian?",
+      "originalTranslation": "बीमा",
+      "translation": "क्या रूसी में अनुवाद होगा?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बीमा' to 'क्या रूसी में अनुवाद होगा?' based on 'myMemory' (English: 'Will there be translation to Russian?')"
+    },
+    {
+      "phraseId": "phrase_247",
+      "english": "I will speak in Russian",
+      "originalTranslation": "एलर्जी",
+      "translation": "मैं रूसी में बात करूंगा",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'एलर्जी' to 'मैं रूसी में बात करूंगा' based on 'myMemory' (English: 'I will speak in Russian')"
+    },
+    {
+      "phraseId": "phrase_248",
+      "english": "We want to see the exhibition",
+      "originalTranslation": "मुझे...से एलर्जी है",
+      "translation": "हम प्रदर्शनी देखना चाहते हैं",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मुझे...से एलर्जी है' to 'हम प्रदर्शनी देखना चाहते हैं' based on 'myMemory' (English: 'We want to see the exhibition')"
+    },
+    {
+      "phraseId": "phrase_249",
+      "english": "What time does the exhibition open?",
+      "originalTranslation": "अस्थमा",
+      "translation": "प्रदर्शनी कितने बजे खुलती है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'अस्थमा' to 'प्रदर्शनी कितने बजे खुलती है?' based on 'myMemory' (English: 'What time does the exhibition open?')"
+    },
+    {
+      "phraseId": "phrase_250",
+      "english": "How many countries are participating?",
+      "originalTranslation": "मधुमेह",
+      "translation": "कितने देश भाग ले रहे हैं?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मधुमेह' to 'कितने देश भाग ले रहे हैं?' based on 'myMemory' (English: 'How many countries are participating?')"
+    },
+    {
+      "phraseId": "phrase_251",
+      "english": "Can I get the exhibition catalog?",
+      "originalTranslation": "रक्तचाप",
+      "translation": "क्या मुझे प्रदर्शनी सूची मिल सकती है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'रक्तचाप' to 'क्या मुझे प्रदर्शनी सूची मिल सकती है?' based on 'myMemory' (English: 'Can I get the exhibition catalog?')"
+    },
+    {
+      "phraseId": "phrase_252",
+      "english": "I came to discuss business",
+      "originalTranslation": "दिल",
+      "translation": "मैं व्यवसाय पर चर्चा करने आया था",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'दिल' to 'मैं व्यवसाय पर चर्चा करने आया था' based on 'myMemory' (English: 'I came to discuss business')"
+    },
+    {
+      "phraseId": "phrase_253",
+      "english": "We want to speak with the general director",
+      "originalTranslation": "पेट",
+      "translation": "हम जनरल डायरेक्टर से बात करना चाहते हैं",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पेट' to 'हम जनरल डायरेक्टर से बात करना चाहते हैं' based on 'myMemory' (English: 'We want to speak with the general director')"
+    },
+    {
+      "phraseId": "phrase_254",
+      "english": "We want to learn about the production",
+      "originalTranslation": "पीठ",
+      "translation": "हम उत्पादन के बारे में जानना चाहते हैं",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पीठ' to 'हम उत्पादन के बारे में जानना चाहते हैं' based on 'myMemory' (English: 'We want to learn about the production')"
+    },
+    {
+      "phraseId": "phrase_255",
+      "english": "Length",
+      "originalTranslation": "दांत",
+      "translation": "लंबाई",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'दांत' to 'लंबाई' based on 'myMemory' (English: 'Length')"
+    },
+    {
+      "phraseId": "phrase_256",
+      "english": "Meter",
+      "originalTranslation": "मौसम",
+      "translation": "मीटर",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मौसम' to 'मीटर' based on 'myMemory' (English: 'Meter')"
+    },
+    {
+      "phraseId": "phrase_257",
+      "english": "Centimeter",
+      "originalTranslation": "गर्म",
+      "translation": "सेंटीमीटर",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'गर्म' to 'सेंटीमीटर' based on 'myMemory' (English: 'Centimeter')"
+    },
+    {
+      "phraseId": "phrase_258",
+      "english": "Weight",
+      "originalTranslation": "ठंडा",
+      "translation": "भार",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'ठंडा' to 'भार' based on 'myMemory' (English: 'Weight')"
+    },
+    {
+      "phraseId": "phrase_259",
+      "english": "Kilogram",
+      "originalTranslation": "बारिश",
+      "translation": "किलोग्राम",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बारिश' to 'किलोग्राम' based on 'myMemory' (English: 'Kilogram')"
+    },
+    {
+      "phraseId": "phrase_260",
+      "english": "Gram",
+      "originalTranslation": "बर्फ़",
+      "translation": "ग्राम",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बर्फ़' to 'ग्राम' based on 'myMemory' (English: 'Gram')"
+    },
+    {
+      "phraseId": "phrase_261",
+      "english": "Volume",
+      "originalTranslation": "हवा",
+      "translation": "आवाज़ निर्धारक",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'हवा' to 'आवाज़ निर्धारक' based on 'myMemory' (English: 'Volume')"
+    },
+    {
+      "phraseId": "phrase_262",
+      "english": "Liter",
+      "originalTranslation": "बादल",
+      "translation": "लीटर",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बादल' to 'लीटर' based on 'myMemory' (English: 'Liter')"
+    },
+    {
+      "phraseId": "phrase_263",
+      "english": "White",
+      "originalTranslation": "धूप",
+      "translation": "नहीं, मैं रिश्ते में नहीं हूँ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'धूप' to 'नहीं, मैं रिश्ते में नहीं हूँ' based on 'myMemory' (English: 'White')"
+    },
+    {
+      "phraseId": "phrase_264",
+      "english": "Yellow",
+      "originalTranslation": "तापमान",
+      "translation": "पीला",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'तापमान' to 'पीला' based on 'myMemory' (English: 'Yellow')"
+    },
+    {
+      "phraseId": "phrase_265",
+      "english": "Green",
+      "originalTranslation": "जलवायु",
+      "translation": "हरा",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'जलवायु' to 'हरा' based on 'myMemory' (English: 'Green')"
+    },
+    {
+      "phraseId": "phrase_266",
+      "english": "Blue",
+      "originalTranslation": "सफ़ेद",
+      "translation": "नीला",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सफ़ेद' to 'नीला' based on 'myMemory' (English: 'Blue')"
+    },
+    {
+      "phraseId": "phrase_267",
+      "english": "Red",
+      "originalTranslation": "काला",
+      "translation": "लाल",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'काला' to 'लाल' based on 'myMemory' (English: 'Red')"
+    },
+    {
+      "phraseId": "phrase_268",
+      "english": "Black",
+      "originalTranslation": "लाल",
+      "translation": "काला",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'लाल' to 'काला' based on 'myMemory' (English: 'Black')"
+    },
+    {
+      "phraseId": "phrase_269",
+      "english": "Gray",
+      "originalTranslation": "नीला",
+      "translation": "सलेटी",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'नीला' to 'सलेटी' based on 'myMemory' (English: 'Gray')"
+    },
+    {
+      "phraseId": "phrase_270",
+      "english": "Purple",
+      "originalTranslation": "हरा",
+      "translation": "बैंगनी",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'हरा' to 'बैंगनी' based on 'myMemory' (English: 'Purple')"
+    },
+    {
+      "phraseId": "phrase_271",
+      "english": "Orange",
+      "originalTranslation": "पीला",
+      "translation": "नारंगी",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पीला' to 'नारंगी' based on 'myMemory' (English: 'Orange')"
+    },
+    {
+      "phraseId": "phrase_272",
+      "english": "Pink",
+      "originalTranslation": "नारंगी",
+      "translation": "गुलाबी",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'नारंगी' to 'गुलाबी' based on 'myMemory' (English: 'Pink')"
+    },
+    {
+      "phraseId": "phrase_273",
+      "english": "Head",
+      "originalTranslation": "बैंगनी",
+      "translation": "सिर",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बैंगनी' to 'सिर' based on 'myMemory' (English: 'Head')"
+    },
+    {
+      "phraseId": "phrase_274",
+      "english": "Arm",
+      "originalTranslation": "गुलाबी",
+      "translation": "बांह पर",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'गुलाबी' to 'बांह पर' based on 'myMemory' (English: 'Arm')"
+    },
+    {
+      "phraseId": "phrase_275",
+      "english": "Leg",
+      "originalTranslation": "भूरा",
+      "translation": "पैर",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'भूरा' to 'पैर' based on 'myMemory' (English: 'Leg')"
+    },
+    {
+      "phraseId": "phrase_276",
+      "english": "Eyes",
+      "originalTranslation": "धूसर",
+      "translation": "आँखें",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'धूसर' to 'आँखें' based on 'myMemory' (English: 'Eyes')"
+    },
+    {
+      "phraseId": "phrase_277",
+      "english": "Nose",
+      "originalTranslation": "सुनहरा",
+      "translation": "नाक",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सुनहरा' to 'नाक' based on 'myMemory' (English: 'Nose')"
+    },
+    {
+      "phraseId": "phrase_278",
+      "english": "Mouth",
+      "originalTranslation": "उत्तर",
+      "translation": "मुंह",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'उत्तर' to 'मुंह' based on 'myMemory' (English: 'Mouth')"
+    },
+    {
+      "phraseId": "phrase_279",
+      "english": "Ear",
+      "originalTranslation": "दक्षिण",
+      "translation": "कान",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'दक्षिण' to 'कान' based on 'myMemory' (English: 'Ear')"
+    },
+    {
+      "phraseId": "phrase_280",
+      "english": "House",
+      "originalTranslation": "पूर्व",
+      "translation": "शाकाहारी बिक्री वाली गाड़ी",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पूर्व' to 'शाकाहारी बिक्री वाली गाड़ी' based on 'myMemory' (English: 'House')"
+    },
+    {
+      "phraseId": "phrase_281",
+      "english": "Door",
+      "originalTranslation": "पश्चिम",
+      "translation": "द्वार",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पश्चिम' to 'द्वार' based on 'myMemory' (English: 'Door')"
+    },
+    {
+      "phraseId": "phrase_282",
+      "english": "Window",
+      "originalTranslation": "नक्शा",
+      "translation": "कृपया प्लेटें साफ करे",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'नक्शा' to 'कृपया प्लेटें साफ करे' based on 'myMemory' (English: 'Window')"
+    },
+    {
+      "phraseId": "phrase_283",
+      "english": "Table",
+      "originalTranslation": "कंपास",
+      "translation": "मेज़",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कंपास' to 'मेज़' based on 'myMemory' (English: 'Table')"
+    },
+    {
+      "phraseId": "phrase_284",
+      "english": "Chair",
+      "originalTranslation": "जीपीएस",
+      "translation": "सभापति@ item participation is required",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'जीपीएस' to 'सभापति@ item participation is required' based on 'myMemory' (English: 'Chair')"
+    },
+    {
+      "phraseId": "phrase_285",
+      "english": "Bed",
+      "originalTranslation": "स्थान",
+      "translation": "मेरी किताबें मेज पर हैं",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'स्थान' to 'मेरी किताबें मेज पर हैं' based on 'myMemory' (English: 'Bed')"
+    },
+    {
+      "phraseId": "phrase_286",
+      "english": "Where is passport control?",
+      "originalTranslation": "गंतव्य",
+      "translation": "पासपोर्ट नियंत्रण कहाँ है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'गंतव्य' to 'पासपोर्ट नियंत्रण कहाँ है?' based on 'myMemory' (English: 'Where is passport control?')"
+    },
+    {
+      "phraseId": "phrase_287",
+      "english": "Here is my passport",
+      "originalTranslation": "मार्ग",
+      "translation": "यह रहा मेरा पासपोर्ट",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मार्ग' to 'यह रहा मेरा पासपोर्ट' based on 'myMemory' (English: 'Here is my passport')"
+    },
+    {
+      "phraseId": "phrase_288",
+      "english": "I intend to stay in China for a week",
+      "originalTranslation": "चौराहा",
+      "translation": "मेरा एक हफ़्ते के लिए चीन में रहने का इरादा है",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'चौराहा' to 'मेरा एक हफ़्ते के लिए चीन में रहने का इरादा है' based on 'myMemory' (English: 'I intend to stay in China for a week')"
+    },
+    {
+      "phraseId": "phrase_289",
+      "english": "I have a single-entry visa",
+      "originalTranslation": "गोल चक्कर",
+      "translation": "मेरे पास सिंगल - एंट्री वीज़ा है",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'गोल चक्कर' to 'मेरे पास सिंगल - एंट्री वीज़ा है' based on 'myMemory' (English: 'I have a single-entry visa')"
+    },
+    {
+      "phraseId": "phrase_290",
+      "english": "I am in transit in your country",
+      "originalTranslation": "पुल",
+      "translation": "मैं आपके देश में ट्रांज़िट में हूँ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पुल' to 'मैं आपके देश में ट्रांज़िट में हूँ' based on 'myMemory' (English: 'I am in transit in your country')"
+    },
+    {
+      "phraseId": "phrase_291",
+      "english": "Here is my customs declaration",
+      "originalTranslation": "इमारत",
+      "translation": "यह रहा मेरा कस्टम डिक्लेरेशन",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'इमारत' to 'यह रहा मेरा कस्टम डिक्लेरेशन' based on 'myMemory' (English: 'Here is my customs declaration')"
+    },
+    {
+      "phraseId": "phrase_292",
+      "english": "Here is my luggage",
+      "originalTranslation": "सामने",
+      "translation": "यह रहा मेरा सामान",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सामने' to 'यह रहा मेरा सामान' based on 'myMemory' (English: 'Here is my luggage')"
+    },
+    {
+      "phraseId": "phrase_293",
+      "english": "There are no prohibited items in my luggage",
+      "originalTranslation": "पीछे",
+      "translation": "मेरे सामान में कोई भी प्रतिबंधित आइटम नहीं है",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पीछे' to 'मेरे सामान में कोई भी प्रतिबंधित आइटम नहीं है' based on 'myMemory' (English: 'There are no prohibited items in my luggage')"
+    },
+    {
+      "phraseId": "phrase_294",
+      "english": "These are my personal belongings",
+      "originalTranslation": "सामने की ओर",
+      "translation": "ये मेरे निजी सामान हैं",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'सामने की ओर' to 'ये मेरे निजी सामान हैं' based on 'myMemory' (English: 'These are my personal belongings')"
+    },
+    {
+      "phraseId": "phrase_295",
+      "english": "What duty do I need to pay?",
+      "originalTranslation": "बगल में",
+      "translation": "मुझे किस शुल्क का भुगतान करने की आवश्यकता है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'बगल में' to 'मुझे किस शुल्क का भुगतान करने की आवश्यकता है?' based on 'myMemory' (English: 'What duty do I need to pay?')"
+    },
+    {
+      "phraseId": "phrase_296",
+      "english": "What sport do you like?",
+      "originalTranslation": "फ़ोन",
+      "translation": "आपको कौन सा खेल पसंद है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'फ़ोन' to 'आपको कौन सा खेल पसंद है?' based on 'myMemory' (English: 'What sport do you like?')"
+    },
+    {
+      "phraseId": "phrase_297",
+      "english": "I like to play football",
+      "originalTranslation": "फ़ोन नंबर",
+      "translation": "आपका पसंदीदा खेल कौन सा है",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'फ़ोन नंबर' to 'आपका पसंदीदा खेल कौन सा है' based on 'myMemory' (English: 'I like to play football')"
+    },
+    {
+      "phraseId": "phrase_298",
+      "english": "Basketball",
+      "originalTranslation": "ईमेल",
+      "translation": "बास्केटबॉल",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'ईमेल' to 'बास्केटबॉल' based on 'myMemory' (English: 'Basketball')"
+    },
+    {
+      "phraseId": "phrase_299",
+      "english": "Swimming",
+      "originalTranslation": "इंटरनेट",
+      "translation": "तैराकी",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'इंटरनेट' to 'तैराकी' based on 'myMemory' (English: 'Swimming')"
+    },
+    {
+      "phraseId": "phrase_300",
+      "english": "Running",
+      "originalTranslation": "वाई-फ़ाई",
+      "translation": "दौड़ लगाना",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'वाई-फ़ाई' to 'दौड़ लगाना' based on 'myMemory' (English: 'Running')"
+    },
+    {
+      "phraseId": "phrase_301",
+      "english": "Where is the gym?",
+      "originalTranslation": "कंप्यूटर",
+      "translation": "जिम कहाँ है?",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'कंप्यूटर' to 'जिम कहाँ है?' based on 'myMemory' (English: 'Where is the gym?')"
+    },
+    {
+      "phraseId": "phrase_302",
+      "english": "I want to work out",
+      "originalTranslation": "मोबाइल",
+      "translation": "I want to work",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'मोबाइल' to 'I want to work' based on 'myMemory' (English: 'I want to work out')"
+    },
+    {
+      "phraseId": "phrase_303",
+      "english": "Coach",
+      "originalTranslation": "संदेश",
+      "translation": "मैं बहुत धन्यवाद करता हूं",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'संदेश' to 'मैं बहुत धन्यवाद करता हूं' based on 'myMemory' (English: 'Coach')"
+    },
+    {
+      "phraseId": "phrase_304",
+      "english": "Competition / Match",
+      "originalTranslation": "पत्र",
+      "translation": "प्रतियोगिता / मैच",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'पत्र' to 'प्रतियोगिता / मैच' based on 'myMemory' (English: 'Competition / Match')"
+    },
+    {
+      "phraseId": "phrase_305",
+      "english": "Stadium",
+      "originalTranslation": "स्टेडियम",
+      "translation": "क्रीडांगन",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Corrected from 'स्टेडियम' to 'क्रीडांगन' based on 'myMemory' (English: 'Stadium')"
+    }
+  ]
+}
