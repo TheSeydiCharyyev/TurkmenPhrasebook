@@ -1,6 +1,6 @@
 # 📊 GEMINI TRANSLATION PROGRESS
 
-**Last Updated:** November 24, 2025
+**Last Updated:** November 24, 2025 (Evening)
 **Task:** Fix and verify 17 languages for TurkmenPhrasebook
 
 ---
@@ -8,11 +8,11 @@
 ## 🎯 OVERALL PROGRESS
 
 **Total Languages to Fix:** 17
-**Completed:** 6 ✅ (35%)
-**Remaining:** 11 ❌ (65%)
+**Completed/Verified:** 9 ✅ (53%)
+**Remaining:** 8 ❌ (47%)
 
 ```
-█████████░░░░░░░░░░░░░░░░ 35%
+█████████████░░░░░░░░░░░░ 53%
 ```
 
 ---
@@ -30,7 +30,24 @@
 
 ---
 
-## ❌ REMAINING (11/17)
+## 🟢 VERIFIED - Need Correction (3/17)
+
+These languages have been verified today and need corrections:
+
+| Language | Code | Status | Date | Notes |
+|----------|------|--------|------|-------|
+| Uzbek | uz | 🟢 Verified | 2025-11-24 | 145 verified (47.5%), 160 needs review |
+| Kazakh | kk | 🟢 Verified | 2025-11-24 | 133 verified (43.6%), 172 needs review |
+| Azerbaijani | az | 🟢 Verified | 2025-11-24 | 134 verified (43.9%), 171 needs review |
+
+**Verification reports:**
+- `reviews/uz_verification.json` ✅
+- `reviews/kk_verification.json` ✅
+- `reviews/az_verification.json` ✅
+
+---
+
+## ❌ REMAINING (8/17)
 
 ### 🔴 CRITICAL - Need Correction (3 languages)
 
@@ -49,15 +66,12 @@ These languages have verification reports showing errors, but corrections not do
 
 ---
 
-### 🟡 NEW - Need Verification (8 languages)
+### 🟡 NEW - Need Verification (5 languages)
 
 These languages have not been checked yet:
 
 | Language | Code | Status |
 |----------|------|--------|
-| Uzbek | uz | ⏳ Not Started |
-| Kazakh | kk | ⏳ Not Started |
-| Azerbaijani | az | ⏳ Not Started |
 | Kyrgyz | ky | ⏳ Not Started |
 | Tajik | tg | ⏳ Not Started |
 | Armenian | hy | ⏳ Not Started |
@@ -74,6 +88,9 @@ These languages have not been checked yet:
 - `reviews/th_verification.json`
 - `reviews/ms_verification.json`
 - `reviews/fa_verification.json`
+- `reviews/uz_verification.json` ✅ NEW
+- `reviews/kk_verification.json` ✅ NEW
+- `reviews/az_verification.json` ✅ NEW
 
 **Correction reports (work completed):**
 - `reviews/ar_corrected.json` ✅
@@ -87,50 +104,63 @@ These languages have not been checked yet:
 
 ## 📝 NEXT STEPS FOR GEMINI
 
-1. **Start with Thai (th)** - Worst case (0% match)
-   - Read `reviews/th_verification.json` to see errors
-   - Fix all 305 phrases in `data/phrases.ts`
-   - Create `reviews/th_corrected.json`
+**Priority 1: Fix newly verified languages (uz, kk, az)**
+1. **Uzbek (uz)** - 160 phrases need review (47.5% verified)
+   - Read `reviews/uz_verification.json` to see issues
+   - Fix phrases in `data/phrases.ts`
+   - Create `reviews/uz_corrected.json`
 
-2. **Then Malay (ms)** - 0.3% match
-   - Read `reviews/ms_verification.json`
-   - Fix 304 phrases in `data/phrases.ts`
-   - Create `reviews/ms_corrected.json`
+2. **Kazakh (kk)** - 172 phrases need review (43.6% verified)
+   - Read `reviews/kk_verification.json` to see issues
+   - Fix phrases in `data/phrases.ts`
+   - Create `reviews/kk_corrected.json`
 
-3. **Then Persian (fa)** - 0.7% match
-   - Read `reviews/fa_verification.json`
-   - Fix 303 phrases in `data/phrases.ts`
-   - Create `reviews/fa_corrected.json`
+3. **Azerbaijani (az)** - 171 phrases need review (43.9% verified)
+   - Read `reviews/az_verification.json` to see issues
+   - Fix phrases in `data/phrases.ts`
+   - Create `reviews/az_corrected.json`
 
-4. **Then 8 new languages** (uz, kk, az, ky, tg, hy, ka, ps)
-   - Verify all 305 phrases for each
-   - Fix any errors found
-   - Create verification reports
+**Priority 2: Fix critical languages (th, ms, fa)**
+4. **Thai (th)** - 305 phrases need fixing (0% match)
+5. **Malay (ms)** - 304 phrases need fixing (0.3% match)
+6. **Persian (fa)** - 303 phrases need fixing (0.7% match)
+
+**Priority 3: Verify remaining languages (ky, tg, hy, ka, ps)**
+7. Verify 5 remaining languages
 
 ---
 
 ## 📊 STATISTICS
 
 **Work completed:**
-- 6 languages fully corrected
+- 6 languages fully corrected (ar, vi, id, hi, ur, uk)
+- 3 languages verified today (uz, kk, az)
 - ~1,830 phrases fixed (6 × 305)
+- 915 phrases verified today (3 × 305)
 - Quality: High (most 100% corrected)
 
 **Work remaining:**
-- 3 critical languages: ~912 phrases to fix
-- 8 new languages: ~2,440 phrases to verify
-- **Total: ~3,352 phrases remaining**
+- 3 newly verified languages: ~503 phrases need correction (uz: 160, kk: 172, az: 171)
+- 3 critical languages: ~912 phrases to fix (th, ms, fa)
+- 5 new languages: ~1,525 phrases to verify (ky, tg, hy, ka, ps)
+- **Total: ~2,940 phrases remaining**
+
+**API Usage Today:**
+- Used: 915 requests (3 languages × 305 phrases)
+- Remaining: 85 requests
+- Limit: 1,000 requests/day (MyMemory API)
 
 ---
 
 ## 🎯 INSTRUCTIONS
 
 See `GEMINI_TASK.md` for detailed instructions on how to:
+- Fix the 3 newly verified languages (uz, kk, az) ✅ NEW
 - Fix the 3 critical languages (th, ms, fa)
-- Verify the 8 new languages (uz, kk, az, ky, tg, hy, ka, ps)
+- Verify the 5 remaining languages (ky, tg, hy, ka, ps)
 - Create correction reports
 - What files to edit and what NOT to touch
 
 ---
 
-**Next task:** Start with Thai (th) ⏳
+**Next task:** Fix Uzbek (uz), Kazakh (kk), and Azerbaijani (az) using verification reports 🟢
