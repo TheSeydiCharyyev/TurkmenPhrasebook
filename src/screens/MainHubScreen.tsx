@@ -232,7 +232,7 @@ export default function MainHubScreen() {
           onPress={handleSettingsPress}
           activeOpacity={0.7}
         >
-          <Ionicons name="settings-outline" size={26} color={DesignColors.text} />
+          <Ionicons name="settings-outline" size={moderateScale(26)} color={DesignColors.text} />
         </TouchableOpacity>
       </Animated.View>
 
@@ -323,7 +323,7 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
         ]}>
           <Ionicons
             name={module.iconName as any}
-            size={44}
+            size={moderateScale(44)}
             color={iconFgColor}
           />
         </View>
@@ -354,7 +354,7 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
         {/* Lock icon if locked */}
         {module.isLocked && (
           <View style={styles.lockBadge}>
-            <Ionicons name="lock-closed" size={16} color="#fff" />
+            <Ionicons name="lock-closed" size={moderateScale(16)} color="#fff" />
           </View>
         )}
       </LinearGradient>

@@ -118,7 +118,7 @@ export default function PhraseDetailScreen() {
           onPress={() => navigation.goBack()}
           activeOpacity={0.7}
         >
-          <Ionicons name="arrow-back" size={24} color="#111827" />
+          <Ionicons name="arrow-back" size={moderateScale(24)} color="#111827" />
         </TouchableOpacity>
 
         {/* Category Badge Only */}

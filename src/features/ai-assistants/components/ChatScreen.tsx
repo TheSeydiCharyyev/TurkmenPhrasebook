@@ -303,7 +303,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
         {/* Header - Clean minimal design like Claude/ChatGPT */}
         <View style={styles.header}>
           <TouchableOpacity style={styles.backButton} onPress={onBack}>
-            <Ionicons name="arrow-back" size={24} color="#1F2937" />
+            <Ionicons name="arrow-back" size={moderateScale(24)} color="#1F2937" />
           </TouchableOpacity>
 
           <View style={styles.headerContent}>
@@ -315,7 +315,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
             onPress={() => setShowMenu(true)}
             activeOpacity={0.7}
           >
-            <Ionicons name="ellipsis-vertical" size={20} color="#6B7280" />
+            <Ionicons name="ellipsis-vertical" size={moderateScale(20)} color="#6B7280" />
           </TouchableOpacity>
         </View>
 
@@ -392,7 +392,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
               onPress={handleClearHistory}
               activeOpacity={0.7}
             >
-              <Ionicons name="trash-outline" size={22} color="#EF4444" />
+              <Ionicons name="trash-outline" size={moderateScale(22)} color="#EF4444" />
               <Text style={[styles.menuText, { color: '#EF4444' }]}>
                 {texts.aiClearHistory || 'Clear History'}
               </Text>
@@ -404,7 +404,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
               onPress={handleSelectModel}
               activeOpacity={0.7}
             >
-              <Ionicons name="hardware-chip-outline" size={22} color="#1F2937" />
+              <Ionicons name="hardware-chip-outline" size={moderateScale(22)} color="#1F2937" />
               <Text style={styles.menuText}>
                 {texts.aiSelectModel || 'Select AI Model'}
               </Text>
@@ -416,7 +416,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
               onPress={handleExportChat}
               activeOpacity={0.7}
             >
-              <Ionicons name="share-outline" size={22} color="#1F2937" />
+              <Ionicons name="share-outline" size={moderateScale(22)} color="#1F2937" />
               <Text style={styles.menuText}>
                 {texts.aiExportChat || 'Export Chat'}
               </Text>
@@ -428,7 +428,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
               onPress={handleCopyAll}
               activeOpacity={0.7}
             >
-              <Ionicons name="copy-outline" size={22} color="#1F2937" />
+              <Ionicons name="copy-outline" size={moderateScale(22)} color="#1F2937" />
               <Text style={styles.menuText}>
                 {texts.aiCopyAll || 'Copy All'}
               </Text>
@@ -440,7 +440,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
               onPress={handleResponseSettings}
               activeOpacity={0.7}
             >
-              <Ionicons name="options-outline" size={22} color="#1F2937" />
+              <Ionicons name="options-outline" size={moderateScale(22)} color="#1F2937" />
               <Text style={styles.menuText}>
                 {texts.aiResponseSettings || 'Response Settings'}
               </Text>
@@ -452,7 +452,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
               onPress={handleChangeLanguage}
               activeOpacity={0.7}
             >
-              <Ionicons name="language-outline" size={22} color="#1F2937" />
+              <Ionicons name="language-outline" size={moderateScale(22)} color="#1F2937" />
               <Text style={styles.menuText}>
                 {texts.aiResponseLanguage || 'Response Language'}
               </Text>

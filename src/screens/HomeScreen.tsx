@@ -28,7 +28,7 @@ import { TabScreen } from '../components/Screen';
 type HomeScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'CategoryScreen'>;
 
 // Высота новой минималистичной шапки (для анимации скрытия)
-const HEADER_HEIGHT = 104; // Увеличена для кнопки назад
+const HEADER_HEIGHT = verticalScale(104); // Увеличена для кнопки назад
 
 // Минималистичная шапка с индикатором языка
 const MinimalHeader = React.memo<{
@@ -46,17 +46,17 @@ const MinimalHeader = React.memo<{
     return (
       <Animated.View style={[styles.headerContainer, animatedStyle]}>
         <TouchableOpacity style={styles.backButton} onPress={onBackPress} activeOpacity={0.7}>
-          <Ionicons name="arrow-back" size={24} color={Colors.text} />
+          <Ionicons name="arrow-back" size={moderateScale(24)} color={Colors.text} />
         </TouchableOpacity>
-        
+
         <TouchableOpacity style={styles.languageInfo} onPress={onLanguagePress} activeOpacity={0.7}>
           <Text style={styles.flagIcon}>{selectedLang?.flag || '🌍'}</Text>
-          <Ionicons name="swap-horizontal" size={20} color="#9CA3AF" style={{ marginHorizontal: 6 }} />
+          <Ionicons name="swap-horizontal" size={moderateScale(20)} color="#9CA3AF" style={{ marginHorizontal: scale(6) }} />
           <Text style={styles.flagIcon}>{secondLang?.flag || '🇹🇲'}</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.settingsButton} onPress={onLanguagePress} activeOpacity={0.7}>
-          <Ionicons name="settings-outline" size={24} color={Colors.text} />
+          <Ionicons name="settings-outline" size={moderateScale(24)} color={Colors.text} />
         </TouchableOpacity>
       </Animated.View>
     );
@@ -168,7 +168,7 @@ export default function HomeScreen() {
           if (scrollDirection.current !== 'down') {
             scrollDirection.current = 'down';
             Animated.timing(headerTranslateY, {
-              toValue: -HEADER_HEIGHT - 20,
+              toValue: -HEADER_HEIGHT - verticalScale(20),
               duration: 250,
               useNativeDriver: true,
             }).start();
@@ -236,8 +236,8 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    paddingTop: 44,
-    height: 104,
+    paddingTop: verticalScale(44),
+    height: verticalScale(104),
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -248,15 +248,15 @@ const styles = StyleSheet.create({
     zIndex: 1000,
     elevation: 4,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 0, height: verticalScale(2) },
     shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowRadius: scale(4),
   },
 
   backButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    width: scale(40),
+    height: verticalScale(40),
+    borderRadius: scale(20),
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -270,20 +270,20 @@ const styles = StyleSheet.create({
   },
 
   flagIcon: {
-    fontSize: 28,
-    marginRight: 8,
+    fontSize: moderateScale(28),
+    marginRight: scale(8),
   },
 
   languageName: {
-    fontSize: 16,
+    fontSize: moderateScale(16),
     fontWeight: '700',
     color: Colors.text,
   },
 
   settingsButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    width: scale(40),
+    height: verticalScale(40),
+    borderRadius: scale(20),
     justifyContent: 'center',
     alignItems: 'center',
   },

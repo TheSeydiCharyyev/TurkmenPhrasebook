@@ -221,7 +221,7 @@ export default function VisualTranslatorHomeScreen() {
           onPress={() => navigation.goBack()}
           activeOpacity={0.7}
         >
-          <Ionicons name="arrow-back" size={24} color="#1F2937" />
+          <Ionicons name="arrow-back" size={moderateScale(24)} color="#1F2937" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{texts.visualTranslatorTitle}</Text>
         <View style={styles.placeholder} />
