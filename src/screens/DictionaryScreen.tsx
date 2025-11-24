@@ -70,7 +70,7 @@ const DictionaryScreen: React.FC = () => {
             style={styles.backButton}
             onPress={() => navigation.goBack()}
           >
-            <Ionicons name="arrow-back" size={24} color="#FFFFFF" />
+            <Ionicons name="arrow-back" size={moderateScale(24)} color="#FFFFFF" />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Dictionary</Text>
           <View style={styles.placeholder} />

@@ -233,7 +233,7 @@ const PhraseItem = React.memo<{
           >
             <Ionicons
               name={isFavorite(phrase.id) ? "heart" : "heart-outline"}
-              size={20}
+              size={moderateScale(20)}
               color={isFavorite(phrase.id) ? Colors.error : Colors.textLight}
             />
           </TouchableOpacity>
@@ -380,7 +380,7 @@ export default function CategoryScreen() {
             }
           }}
         >
-          <Ionicons name="arrow-back" size={24} color={Colors.text} />
+          <Ionicons name="arrow-back" size={moderateScale(24)} color={Colors.text} />
         </TouchableOpacity>
 
         <View style={styles.headerContent}>
@@ -515,23 +515,23 @@ const styles = StyleSheet.create({
 
   headerContainer: {
     backgroundColor: '#FFFFFF',
-    paddingTop: 44,
-    paddingBottom: 16,
-    paddingHorizontal: 16,
+    paddingTop: verticalScale(44),
+    paddingBottom: verticalScale(16),
+    paddingHorizontal: scale(16),
     flexDirection: 'row',
     alignItems: 'center',
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 0, height: verticalScale(2) },
     shadowOpacity: 0.1,
-    shadowRadius: 4,
+    shadowRadius: scale(4),
     elevation: 4,
     zIndex: 1000,
   },
 
   backButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    width: scale(40),
+    height: verticalScale(40),
+    borderRadius: scale(20),
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -541,7 +541,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    height: 4,
+    height: verticalScale(4),
   },
 
   gridEmoji: {

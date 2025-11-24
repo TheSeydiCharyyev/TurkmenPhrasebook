@@ -167,7 +167,7 @@ export default function LanguageSelectionScreen({ navigation, onLanguageSelect }
               style={styles.backButton}
               onPress={() => navigation.goBack()}
             >
-              <Ionicons name="arrow-back" size={28} color="#fff" />
+              <Ionicons name="arrow-back" size={moderateScale(28)} color="#fff" />
             </TouchableOpacity>
           )}
 
