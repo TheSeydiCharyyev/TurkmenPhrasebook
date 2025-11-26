@@ -57,11 +57,31 @@ export interface Phrase {
   pinyin: string;
   russian: string;
   turkmen: string;
-  
+
+  // ✅ ДОПОЛНИТЕЛЬНЫЕ ЯЗЫКИ (optional)
+  vietnamese?: string;   // vi
+  indonesian?: string;   // id (в данных используется как 'id:', но это конфликт)
+  arabic?: string;       // ar
+  ukrainian?: string;    // uk
+  urdu?: string;         // ur
+  hindi?: string;        // hi
+  thai?: string;         // th
+  japanese?: string;     // ja
+  uzbek?: string;        // uz
+  kazakh?: string;       // kk
+  azerbaijani?: string;  // az
+  malay?: string;        // ms
+  persian?: string;      // fa
+  kyrgyz?: string;       // ky
+  tajik?: string;        // tg
+  armenian?: string;     // hy
+  georgian?: string;     // ka
+  pashto?: string;       // ps
+
   // ✅ НОВЫЕ ПОЛЯ: отдельные пути к аудио для каждого языка
   audioFileChinese?: string;  // Путь к китайскому MP3 или undefined
   audioFileTurkmen?: string;  // Путь к туркменскому MP3 или undefined
-  
+
   // ⚠️ DEPRECATED: старое поле, оставлено для совместимости
   audioFile?: string;
 }

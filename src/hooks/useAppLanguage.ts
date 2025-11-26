@@ -188,7 +188,7 @@ export function useAppLanguage() {
         if (validateConfig(parsedConfig)) {
           // Проверяем версию для миграций
           if (parsedConfig.version !== LANGUAGE_VERSION) {
-            console.log('Миграция языковых настроек с версии', parsedConfig.version, 'на', LANGUAGE_VERSION);
+            // Migration from older version
             const migratedConfig = createConfig(parsedConfig.mode || 'tk');
             await saveConfig(migratedConfig);
             setConfig(migratedConfig);

@@ -231,7 +231,7 @@ export default function SettingsScreen() {
             text: texts.checkVoices,
             onPress: () => {
               Alert.alert(
-                texts.checkVoices,
+                texts.checkVoices ?? 'Check Voices',
                 recommendation.instructions?.join('\n\n') || ''
               );
             }
@@ -360,8 +360,8 @@ export default function SettingsScreen() {
             <SettingsItem
               icon="book"
               iconColor="#FF8008"
-              title={texts.phrasebookLanguage}
-              subtitle={`${texts.currentLanguage}${getLanguageByCode(selectedLanguage)?.nameEn || selectedLanguage}-Turkmen`}
+              title={texts.phrasebookLanguage ?? 'Phrasebook Language'}
+              subtitle={`${texts.currentLanguage ?? 'Current: '}${getLanguageByCode(selectedLanguage)?.nameEn || selectedLanguage}-Turkmen`}
               onPress={handlePhrasebookLanguageChange}
               rightComponent={<Ionicons name="chevron-forward" size={20} color="#9CA3AF" />}
             />
@@ -369,7 +369,7 @@ export default function SettingsScreen() {
 
           {/* Секция аудио */}
           <View style={styles.section}>
-            <SectionHeader title={settingsTexts.audioSettings} />
+            <SectionHeader title={settingsTexts.audioSettings ?? 'Audio Settings'} />
 
             <SettingsItem
               icon="volume-high"
@@ -389,8 +389,8 @@ export default function SettingsScreen() {
             <SettingsItem
               icon="play-circle"
               iconColor="#10B981"
-              title={texts.testVoice}
-              subtitle={`${availableVoices.length} ${texts.voicesAvailable}`}
+              title={texts.testVoice ?? 'Test Voice'}
+              subtitle={`${availableVoices.length} ${texts.voicesAvailable ?? 'voices available'}`}
               onPress={testTTS}
               rightComponent={<Ionicons name="play" size={20} color="#9CA3AF" />}
             />
@@ -398,8 +398,8 @@ export default function SettingsScreen() {
             <SettingsItem
               icon="checkmark-circle"
               iconColor="#3B82F6"
-              title={texts.checkVoices}
-              subtitle={texts.checkVoicesDesc}
+              title={texts.checkVoices ?? 'Check Voices'}
+              subtitle={texts.checkVoicesDesc ?? 'Check voice availability'}
               onPress={checkVoiceAvailability}
               rightComponent={<Ionicons name="search" size={20} color="#9CA3AF" />}
             />
@@ -416,13 +416,13 @@ export default function SettingsScreen() {
 
           {/* Секция интерфейса */}
           <View style={styles.section}>
-            <SectionHeader title={settingsTexts.interfaceSettings} />
+            <SectionHeader title={settingsTexts.interfaceSettings ?? 'Interface Settings'} />
 
             <SettingsItem
               icon="text"
               iconColor="#FF8008"
-              title={texts.fontSize}
-              subtitle={`${texts.currentFontSize}${preferences.fontSize}px`}
+              title={texts.fontSize ?? 'Font Size'}
+              subtitle={`${texts.currentFontSize ?? 'Current: '}${preferences.fontSize}px`}
               onPress={() => setShowFontSizeModal(true)}
               rightComponent={<Ionicons name="chevron-forward" size={20} color="#9CA3AF" />}
             />
@@ -430,8 +430,8 @@ export default function SettingsScreen() {
             <SettingsItem
               icon="phone-portrait"
               iconColor="#FF8008"
-              title={texts.hapticFeedback}
-              subtitle={texts.hapticFeedbackDesc}
+              title={texts.hapticFeedback ?? 'Haptic Feedback'}
+              subtitle={texts.hapticFeedbackDesc ?? 'Vibration on interactions'}
               rightComponent={
                 <Switch
                   value={preferences.hapticFeedback}
@@ -445,7 +445,7 @@ export default function SettingsScreen() {
 
           {/* Секция данных */}
           <View style={styles.section}>
-            <SectionHeader title={settingsTexts.dataSettings} />
+            <SectionHeader title={settingsTexts.dataSettings ?? 'Data Settings'} />
 
             <SettingsItem
               icon="time"
@@ -475,7 +475,7 @@ export default function SettingsScreen() {
 
           {/* Секция приложения */}
           <View style={styles.section}>
-            <SectionHeader title={settingsTexts.appInfo} />
+            <SectionHeader title={settingsTexts.appInfo ?? 'App Info'} />
 
             <SettingsItem
               icon="information-circle"

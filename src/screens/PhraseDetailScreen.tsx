@@ -25,6 +25,7 @@ import { useAppLanguage } from '../contexts/LanguageContext';
 import { useConfig } from '../contexts/ConfigContext';
 import { getTranslationsForLanguage } from '../data/languages';
 import AudioPlayer from '../components/AudioPlayer';
+import { useAudio } from '../hooks/useAudio';
 
 type PhraseDetailScreenRouteProp = RouteProp<RootStackParamList, 'PhraseDetail'>;
 
@@ -38,6 +39,7 @@ export default function PhraseDetailScreen() {
   const { isFavorite, toggleFavorite } = useFavorites();
   const { getTexts, config: appConfig, getPhraseTexts } = useAppLanguage();
   const { selectedLanguage } = useConfig();
+  const { stopAudio } = useAudio();
 
   const texts = getTexts();
 
@@ -45,6 +47,13 @@ export default function PhraseDetailScreen() {
   useEffect(() => {
     addToHistory(phrase.id);
   }, [phrase.id, addToHistory]);
+
+  // ✅ FIXED: Cleanup audio on unmount (CRITICAL memory leak fix)
+  useEffect(() => {
+    return () => {
+      stopAudio();
+    };
+  }, [stopAudio]);
 
   // ✅ ИСПРАВЛЕНО: Получаем перевод для ТЕКУЩЕГО выбранного языка
   const currentLanguageTranslation = phrase.translation; // Уже содержит перевод для выбранного языка

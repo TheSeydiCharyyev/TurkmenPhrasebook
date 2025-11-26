@@ -33,8 +33,6 @@ class TextTranslationService {
 
       // Загружаем настройки
       await this.loadSettings();
-
-      console.log('[TextTranslationService] Initialized successfully');
     } catch (error) {
       console.error('[TextTranslationService] Initialization error:', error);
     }
@@ -59,7 +57,6 @@ class TextTranslationService {
       }
 
       // Используем TranslationService из visual-translator
-      console.log(`[TextTranslationService] Translating: ${sourceLanguage} -> ${targetLanguage}`);
       const translatedText = await TranslationService.translate(
         text,
         sourceLanguage,
@@ -130,7 +127,6 @@ class TextTranslationService {
     try {
       this.history = [];
       await AsyncStorage.removeItem(HISTORY_STORAGE_KEY);
-      console.log('[TextTranslationService] History cleared');
     } catch (error) {
       console.error('[TextTranslationService] Clear history error:', error);
       throw error;
@@ -181,7 +177,6 @@ class TextTranslationService {
       const data = await AsyncStorage.getItem(HISTORY_STORAGE_KEY);
       if (data) {
         this.history = JSON.parse(data);
-        console.log(`[TextTranslationService] Loaded ${this.history.length} translations from history`);
       }
     } catch (error) {
       console.error('[TextTranslationService] Load history error:', error);
@@ -209,7 +204,6 @@ class TextTranslationService {
       const data = await AsyncStorage.getItem(SETTINGS_STORAGE_KEY);
       if (data) {
         this.settings = JSON.parse(data);
-        console.log('[TextTranslationService] Settings loaded');
       }
     } catch (error) {
       console.error('[TextTranslationService] Load settings error:', error);
@@ -223,7 +217,6 @@ class TextTranslationService {
     try {
       this.settings = { ...this.settings, ...settings };
       await AsyncStorage.setItem(SETTINGS_STORAGE_KEY, JSON.stringify(this.settings));
-      console.log('[TextTranslationService] Settings saved');
     } catch (error) {
       console.error('[TextTranslationService] Save settings error:', error);
       throw error;

@@ -1,6 +1,6 @@
 // src/contexts/LanguageContext.tsx - ИСПРАВЛЕНО с правильными заголовками
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode, useCallback, useMemo } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const APP_LANGUAGE_KEY = 'shapak_app_language';
@@ -65,27 +65,27 @@ export interface InterfaceTexts {
   offlineMode: string;
   about: string;
   feedback: string;
-  // Дополнительные для SettingsScreen
-  audioSettings: string;
-  interfaceSettings: string;
-  dataSettings: string;
-  appInfo: string;
-  currentLanguage: string;
-  phrasebookLanguage: string;
-  fontSize: string;
-  currentFontSize: string;
-  hapticFeedback: string;
-  hapticFeedbackDesc: string;
-  testVoice: string;
-  voicesAvailable: string;
-  checkVoices: string;
-  checkVoicesDesc: string;
-  clearHistoryConfirm: string;
-  historyCleared: string;
-  versionAndInfo: string;
-  phrases: string;
-  views: string;
-  pronunciationPlayback: string;
+  // Дополнительные для SettingsScreen (optional - не все языки имеют эти переводы)
+  audioSettings?: string;
+  interfaceSettings?: string;
+  dataSettings?: string;
+  appInfo?: string;
+  currentLanguage?: string;
+  phrasebookLanguage?: string;
+  fontSize?: string;
+  currentFontSize?: string;
+  hapticFeedback?: string;
+  hapticFeedbackDesc?: string;
+  testVoice?: string;
+  voicesAvailable?: string;
+  checkVoices?: string;
+  checkVoicesDesc?: string;
+  clearHistoryConfirm?: string;
+  historyCleared?: string;
+  versionAndInfo?: string;
+  phrases?: string;
+  views?: string;
+  pronunciationPlayback?: string;
   
   // Поиск
   searchPlaceholder: string;
@@ -215,6 +215,25 @@ export interface InterfaceTexts {
   vtPermissionTitle: string;
   vtPermissionMessage: string;
   vtGrantPermission: string;
+
+  // AI Chat Screen - Additional UI elements
+  aiBalancedMode?: string;
+  aiClear?: string;
+  aiClearHistoryMessage?: string;
+  aiClearHistoryTitle?: string;
+  aiCopied?: string;
+  aiCopyAll?: string;
+  aiCreativeMode?: string;
+  aiError?: string;
+  aiExportChat?: string;
+  aiNoMessages?: string;
+  aiPreciseMode?: string;
+  aiResponseLanguage?: string;
+  aiResponseLanguageMessage?: string;
+  aiResponseSettings?: string;
+  aiResponseSettingsMessage?: string;
+  aiSelectModel?: string;
+  aiSelectModelMessage?: string;
 }
 
 // ✅ ИСПРАВЛЕНО: Правильные заголовки согласно требованиям
@@ -5762,28 +5781,42 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
 
   // Загрузка сохраненной конфигурации при запуске
   useEffect(() => {
-    loadConfig();
-  }, []);
+    let isMounted = true;
 
-  const loadConfig = async () => {
-    try {
-      const saved = await AsyncStorage.getItem(APP_LANGUAGE_KEY);
-      if (saved) {
-        const parsedConfig = JSON.parse(saved);
-        if (validateConfig(parsedConfig)) {
-          setConfig(parsedConfig);
-          setIsFirstLaunch(false);
+    const loadConfig = async () => {
+      try {
+        const saved = await AsyncStorage.getItem(APP_LANGUAGE_KEY);
+        if (!isMounted) return; // Prevent state update if unmounted
+
+        if (saved) {
+          const parsedConfig = JSON.parse(saved);
+          if (validateConfig(parsedConfig)) {
+            if (isMounted) {
+              setConfig(parsedConfig);
+              setIsFirstLaunch(false);
+            }
+          }
+        }
+      } catch (error) {
+        console.warn('Ошибка загрузки языковой конфигурации:', error);
+        if (isMounted) {
+          setError('Не удалось загрузить настройки языка');
+        }
+      } finally {
+        if (isMounted) {
+          setIsLoading(false);
         }
       }
-    } catch (error) {
-      console.warn('Ошибка загрузки языковой конфигурации:', error);
-      setError('Не удалось загрузить настройки языка');
-    } finally {
-      setIsLoading(false);
-    }
-  };
+    };
 
-  const saveConfig = async (config: AppLanguageConfig): Promise<boolean> => {
+    loadConfig();
+
+    return () => {
+      isMounted = false; // Cleanup: prevent state updates after unmount
+    };
+  }, []);
+
+  const saveConfig = useCallback(async (config: AppLanguageConfig): Promise<boolean> => {
     try {
       await AsyncStorage.setItem(APP_LANGUAGE_KEY, JSON.stringify(config));
       return true;
@@ -5792,9 +5825,9 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       setError('Не удалось сохранить настройки языка');
       return false;
     }
-  };
+  }, []);
 
-  const setLanguageMode = async (mode: AppLanguageMode, shouldSave: boolean = true) => {
+  const setLanguageMode = useCallback(async (mode: AppLanguageMode, shouldSave: boolean = true) => {
     try {
       if (!['tk', 'zh', 'ru', 'en', 'tr', 'de', 'fr', 'es', 'it', 'pt', 'nl', 'pl', 'uk', 'ja', 'ko', 'th', 'vi', 'id', 'ms', 'hi', 'ur', 'fa', 'ps', 'uz', 'kk', 'az', 'ky', 'tg', 'hy', 'ka', 'ar'].includes(mode)) {
         throw new Error(`Invalid language mode: ${mode}`);
@@ -5815,9 +5848,9 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       console.warn('Ошибка установки языкового режима:', error);
       setError('Не удалось изменить язык');
     }
-  };
+  }, [saveConfig]);
 
-  const switchMode = async (): Promise<boolean> => {
+  const switchMode = useCallback(async (): Promise<boolean> => {
     try {
       const newMode: AppLanguageMode = config.mode === 'tk' ? 'zh' : 'tk';
       await setLanguageMode(newMode, true);
@@ -5826,9 +5859,9 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       console.warn('Ошибка переключения режима:', error);
       return false;
     }
-  };
+  }, [config.mode, setLanguageMode]);
 
-  const resetLanguageSettings = async (): Promise<void> => {
+  const resetLanguageSettings = useCallback(async (): Promise<void> => {
     try {
       await AsyncStorage.removeItem(APP_LANGUAGE_KEY);
       setConfig(createConfig('tk'));
@@ -5838,27 +5871,27 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
       console.warn('Ошибка сброса настроек языка:', error);
       setError('Не удалось сбросить настройки языка');
     }
-  };
+  }, []);
 
-  const getTexts = (): InterfaceTexts => {
+  const getTexts = useCallback((): InterfaceTexts => {
     try {
       return INTERFACE_TEXTS[config.mode] || INTERFACE_TEXTS.tk;
     } catch (error) {
       console.warn('Ошибка получения текстов интерфейса:', error);
       return INTERFACE_TEXTS.tk;
     }
-  };
+  }, [config.mode]);
 
-  const getLanguageName = (lang: 'tk' | 'zh' | 'ru'): string => {
+  const getLanguageName = useCallback((lang: 'tk' | 'zh' | 'ru'): string => {
     const names = {
       tk: config.primaryLanguage === 'tk' ? 'Türkmençe' : '土库曼语',
       zh: config.primaryLanguage === 'tk' ? 'Hytaýça' : '中文',
       ru: config.primaryLanguage === 'tk' ? 'Rusça' : '俄语'
     };
     return names[lang] || lang;
-  };
+  }, [config.primaryLanguage]);
 
-  const getPhraseTexts = (phrase: { translation: { text: string; transcription?: string }; turkmen: string }) => {
+  const getPhraseTexts = useCallback((phrase: { translation: { text: string; transcription?: string }; turkmen: string }) => {
     try {
       if (config.mode === 'tk') {
         // Туркмен изучает выбранный язык (китайский/русский/английский)
@@ -5883,9 +5916,9 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
         helper: ''
       };
     }
-  };
+  }, [config.mode]);
 
-  const contextValue: LanguageContextValue = {
+  const contextValue: LanguageContextValue = useMemo(() => ({
     config,
     isLoading,
     setLanguageMode,
@@ -5896,7 +5929,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
     getPhraseTexts,
     isFirstLaunch,
     error,
-  };
+  }), [config, isLoading, setLanguageMode, switchMode, resetLanguageSettings, getTexts, getLanguageName, getPhraseTexts, isFirstLaunch, error]);
 
   return (
     <LanguageContext.Provider value={contextValue}>

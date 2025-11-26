@@ -30,6 +30,17 @@ import { LanguageConfig } from '../../../types';
 
 type TranslatorState = 'idle' | 'listening' | 'processing' | 'completed' | 'error';
 
+interface SpeechResultsEvent {
+  value?: string[];
+}
+
+interface SpeechErrorEvent {
+  error?: {
+    message?: string;
+    code?: string;
+  };
+}
+
 export default function VoiceTranslatorScreen() {
   const navigation = useNavigation();
   const { getTexts, config } = useAppLanguage();
@@ -59,16 +70,14 @@ export default function VoiceTranslatorScreen() {
 
     // Setup Voice callbacks
     Voice.onSpeechStart = () => {
-      console.log('Speech started');
+      // Speech started
     };
 
     Voice.onSpeechEnd = () => {
-      console.log('Speech ended');
       setState('processing');
     };
 
-    Voice.onSpeechResults = async (e: any) => {
-      console.log('Speech results:', e.value);
+    Voice.onSpeechResults = async (e: SpeechResultsEvent) => {
       if (e.value && e.value.length > 0) {
         const text = e.value[0];
         setRecognizedText(text);
@@ -78,7 +87,7 @@ export default function VoiceTranslatorScreen() {
       }
     };
 
-    Voice.onSpeechError = (e: any) => {
+    Voice.onSpeechError = (e: SpeechErrorEvent) => {
       console.error('Speech error:', e);
       setState('error');
       setErrorMessage(texts.vtErrorRecognitionFailed);

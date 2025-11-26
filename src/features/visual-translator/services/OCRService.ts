@@ -26,7 +26,6 @@ class OCRService {
    * Распознаёт текст на изображении используя выбранный движок
    */
   async recognizeText(imagePath: string): Promise<OCRResult> {
-    console.log(`[OCRService] Using engine: ${this.selectedEngine}`);
 
     try {
       switch (this.selectedEngine) {
@@ -54,7 +53,6 @@ class OCRService {
    * Fallback: пробуем другие движки если выбранный не сработал
    */
   private async fallbackRecognition(imagePath: string, originalError: any): Promise<OCRResult> {
-    console.log('[OCRService] Attempting fallback recognition...');
 
     // Порядок fallback: ML Kit → OCR.space → Google Vision
     const fallbackEngines = this.getFallbackOrder();
@@ -63,7 +61,6 @@ class OCRService {
       if (engine === this.selectedEngine) continue; // Пропускаем уже упавший движок
 
       try {
-        console.log(`[OCRService] Trying fallback: ${engine}`);
 
         switch (engine) {
           case OCREngine.ML_KIT:
@@ -107,7 +104,6 @@ class OCRService {
         throw new Error('ML Kit library not available');
       }
 
-      console.log('[OCRService/MLKit] Recognizing text...');
       const result = await TextRecognition.recognize(imagePath);
 
       const fullText = result.blocks.map(block => block.text).join('\n');
@@ -118,8 +114,6 @@ class OCRService {
 
       const detectedLanguage = this.detectLanguage(fullText);
       const confidence = this.calculateConfidence(result.blocks);
-
-      console.log('[OCRService/MLKit] ✅ Text recognized:', fullText.substring(0, 100));
 
       return {
         text: fullText,
@@ -201,7 +195,6 @@ class OCRService {
   async setSelectedEngine(engine: OCREngine): Promise<void> {
     this.selectedEngine = engine;
     await AsyncStorage.setItem(STORAGE_KEY_SELECTED_ENGINE, engine);
-    console.log(`[OCRService] Engine set to: ${engine}`);
   }
 
   /**
@@ -219,7 +212,6 @@ class OCRService {
       const saved = await AsyncStorage.getItem(STORAGE_KEY_SELECTED_ENGINE);
       if (saved && Object.values(OCREngine).includes(saved as OCREngine)) {
         this.selectedEngine = saved as OCREngine;
-        console.log(`[OCRService] Loaded saved engine: ${saved}`);
       }
     } catch (error) {
       console.warn('[OCRService] Failed to load saved engine:', error);

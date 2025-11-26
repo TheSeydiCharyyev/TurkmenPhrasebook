@@ -360,36 +360,35 @@ export const HapticUtils = {
    * Light haptic feedback
    */
   light: () => {
-    // Implementation would depend on your haptic library
-    console.log('Light haptic feedback');
+    // Placeholder - implement with expo-haptics if needed
   },
 
   /**
    * Medium haptic feedback
    */
   medium: () => {
-    console.log('Medium haptic feedback');
+    // Placeholder - implement with expo-haptics if needed
   },
 
   /**
    * Heavy haptic feedback
    */
   heavy: () => {
-    console.log('Heavy haptic feedback');
+    // Placeholder - implement with expo-haptics if needed
   },
 
   /**
    * Success haptic feedback
    */
   success: () => {
-    console.log('Success haptic feedback');
+    // Placeholder - implement with expo-haptics if needed
   },
 
   /**
    * Error haptic feedback
    */
   error: () => {
-    console.log('Error haptic feedback');
+    // Placeholder - implement with expo-haptics if needed
   },
 };
 

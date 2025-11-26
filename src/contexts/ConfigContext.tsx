@@ -107,8 +107,6 @@ export const ConfigProvider: React.FC<ConfigProviderProps> = ({ children }) => {
       ]);
 
       setIsFirstLaunch(false);
-
-      console.log(`✅ Language changed to: ${language.name} (${code})`);
     } catch (error) {
       console.error('Failed to save language:', error);
       throw error; // Пробрасываем ошибку для обработки в UI
@@ -119,7 +117,6 @@ export const ConfigProvider: React.FC<ConfigProviderProps> = ({ children }) => {
     try {
       await AsyncStorage.setItem(STORAGE_KEY_ONBOARDING, completed ? 'true' : 'false');
       setOnboardingCompleted(completed);
-      console.log(`✅ Onboarding completed: ${completed}`);
     } catch (error) {
       console.error('Failed to save onboarding status:', error);
       throw error;

@@ -59,7 +59,6 @@ export function useAudioMultilingual() {
   ) => {
     // Защита от повторного воспроизведения
     if (isPlaying || isLoading) {
-      console.log('[useAudioMultilingual] Already playing or loading, skipping');
       return;
     }
 
@@ -97,7 +96,6 @@ export function useAudioMultilingual() {
 
           setIsPlaying(true);
           setIsLoading(false);
-          console.log(`[useAudioMultilingual] Playing MP3 for Turkmen: ${audioPath}`);
           return;
         } else {
           console.warn(`[useAudioMultilingual] Audio source not found for: ${audioPath}`);
@@ -114,8 +112,6 @@ export function useAudioMultilingual() {
 
       setIsPlaying(true);
       setIsLoading(false);
-
-      console.log(`[useAudioMultilingual] Playing TTS for ${language.name} (${language.ttsCode}): "${text.substring(0, 30)}..."`);
 
       // Оптимизированные параметры для более естественного звучания каждого языка
       let ttsRate = 0.9;   // Базовая скорость
@@ -178,11 +174,9 @@ export function useAudioMultilingual() {
         pitch: ttsPitch,
         onDone: () => {
           setIsPlaying(false);
-          console.log('[useAudioMultilingual] TTS playback finished');
         },
         onStopped: () => {
           setIsPlaying(false);
-          console.log('[useAudioMultilingual] TTS playback stopped');
         },
         onError: (error) => {
           setIsPlaying(false);
@@ -210,7 +204,6 @@ export function useAudioMultilingual() {
       Speech.stop();
       setIsPlaying(false);
       setIsLoading(false);
-      console.log('[useAudioMultilingual] Audio stopped');
     } catch (error) {
       console.warn('[useAudioMultilingual] Stop error:', error);
     }

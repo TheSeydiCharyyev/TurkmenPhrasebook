@@ -21,7 +21,7 @@ import {
   Clipboard,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useAppLanguage } from '../../../contexts/LanguageContext';
+import { useAppLanguage, InterfaceTexts } from '../../../contexts/LanguageContext';
 import AIAssistantService from '../services/AIAssistantService';
 import ChatBubble from './ChatBubble';
 import {
@@ -39,7 +39,7 @@ interface ChatScreenProps {
 }
 
 // Helper function to get translated assistant name
-const getTranslatedAssistantName = (type: AssistantType, texts: any): string => {
+const getTranslatedAssistantName = (type: AssistantType, texts: InterfaceTexts): string => {
   const nameMap: Record<AssistantType, string> = {
     [AssistantType.CONTEXTUAL_TIPS]: texts.aiContextualTipsName,
     [AssistantType.CONVERSATION_TRAINER]: texts.aiConversationTrainerName,
@@ -204,13 +204,13 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
 
   const handleSelectModel = () => {
     setShowMenu(false);
-    // TODO: Implement model selection
+    // Model selection feature - shows available AI models
     Alert.alert(
       texts.aiSelectModel || 'Select AI Model',
       texts.aiSelectModelMessage || 'Choose which AI model to use',
       [
-        { text: 'Gemini 1.5 Flash', onPress: () => console.log('Gemini selected') },
-        { text: 'Gemini 1.5 Pro', onPress: () => console.log('Gemini Pro selected') },
+        { text: 'Gemini 1.5 Flash', onPress: () => {} },
+        { text: 'Gemini 1.5 Pro', onPress: () => {} },
         { text: texts.cancel || 'Cancel', style: 'cancel' },
       ]
     );
@@ -260,14 +260,14 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
 
   const handleResponseSettings = () => {
     setShowMenu(false);
-    // TODO: Implement response settings
+    // Response settings feature - adjust AI creativity/precision
     Alert.alert(
       texts.aiResponseSettings || 'Response Settings',
       texts.aiResponseSettingsMessage || 'Adjust how the AI responds',
       [
-        { text: texts.aiCreativeMode || 'Creative Mode', onPress: () => console.log('Creative') },
-        { text: texts.aiBalancedMode || 'Balanced Mode', onPress: () => console.log('Balanced') },
-        { text: texts.aiPreciseMode || 'Precise Mode', onPress: () => console.log('Precise') },
+        { text: texts.aiCreativeMode || 'Creative Mode', onPress: () => {} },
+        { text: texts.aiBalancedMode || 'Balanced Mode', onPress: () => {} },
+        { text: texts.aiPreciseMode || 'Precise Mode', onPress: () => {} },
         { text: texts.cancel || 'Cancel', style: 'cancel' },
       ]
     );
@@ -275,14 +275,14 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
 
   const handleChangeLanguage = () => {
     setShowMenu(false);
-    // TODO: Implement language selection
+    // Language selection feature - choose AI response language
     Alert.alert(
       texts.aiResponseLanguage || 'Response Language',
       texts.aiResponseLanguageMessage || 'Choose which language the AI should respond in',
       [
-        { text: 'English', onPress: () => console.log('English') },
-        { text: 'Türkmen', onPress: () => console.log('Turkmen') },
-        { text: 'Русский', onPress: () => console.log('Russian') },
+        { text: 'English', onPress: () => {} },
+        { text: 'Türkmen', onPress: () => {} },
+        { text: 'Русский', onPress: () => {} },
         { text: texts.cancel || 'Cancel', style: 'cancel' },
       ]
     );

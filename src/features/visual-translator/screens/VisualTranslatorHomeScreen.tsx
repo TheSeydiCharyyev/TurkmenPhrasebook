@@ -17,6 +17,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { scale, verticalScale, moderateScale } from '../../../utils/ResponsiveUtils';
 import { Camera } from 'expo-camera';
 import * as ImagePicker from 'expo-image-picker';
+import * as FileSystem from 'expo-file-system';
 import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
 import { useConfig } from '../../../contexts/ConfigContext';
@@ -56,6 +57,39 @@ export default function VisualTranslatorHomeScreen() {
     }
   };
 
+  // ✅ SECURITY FIX: Validate image before processing
+  const validateImage = async (imageUri: string): Promise<{ valid: boolean; error?: string }> => {
+    try {
+      // Check file exists and get info
+      const fileInfo = await FileSystem.getInfoAsync(imageUri);
+
+      if (!fileInfo.exists) {
+        return { valid: false, error: 'File does not exist' };
+      }
+
+      // Validate file size (max 5MB)
+      const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+      if (fileInfo.size && fileInfo.size > MAX_FILE_SIZE) {
+        return {
+          valid: false,
+          error: `Image too large (${(fileInfo.size / 1024 / 1024).toFixed(1)}MB). Maximum size is 5MB.`
+        };
+      }
+
+      // Validate file extension
+      const validExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp'];
+      const extension = imageUri.toLowerCase().substring(imageUri.lastIndexOf('.'));
+      if (!validExtensions.includes(extension)) {
+        return { valid: false, error: 'Invalid image format. Supported: JPG, PNG, GIF, BMP, WebP' };
+      }
+
+      return { valid: true };
+    } catch (error) {
+      console.error('Image validation error:', error);
+      return { valid: false, error: 'Failed to validate image' };
+    }
+  };
+
   const handleTakePhoto = async () => {
     if (!hasPermissions) {
       Alert.alert(
@@ -77,6 +111,12 @@ export default function VisualTranslatorHomeScreen() {
       });
 
       if (!result.canceled && result.assets[0]) {
+        // ✅ SECURITY FIX: Validate image before processing
+        const validation = await validateImage(result.assets[0].uri);
+        if (!validation.valid) {
+          Alert.alert('Invalid Image', validation.error || 'Please select a valid image');
+          return;
+        }
         await processImage(result.assets[0].uri);
       }
     } catch (error) {
@@ -106,6 +146,12 @@ export default function VisualTranslatorHomeScreen() {
       });
 
       if (!result.canceled && result.assets[0]) {
+        // ✅ SECURITY FIX: Validate image before processing
+        const validation = await validateImage(result.assets[0].uri);
+        if (!validation.valid) {
+          Alert.alert('Invalid Image', validation.error || 'Please select a valid image');
+          return;
+        }
         await processImage(result.assets[0].uri);
       }
     } catch (error) {
@@ -119,14 +165,12 @@ export default function VisualTranslatorHomeScreen() {
 
     try {
       // 1. OCR - распознаём текст
-      console.log('[VisualTranslator] Starting OCR...');
       const ocrResult = await OCRService.recognizeText(imageUri);
 
       let translationResult: TranslationResult;
 
       if (ocrResult.text.trim().length > 0) {
         // Текст найден - переводим его
-        console.log('[VisualTranslator] Text found, translating...');
 
         // Проверяем, нужен ли перевод (если язык источника совпадает с целевым)
         const sourceLanguage = ocrResult.language === 'unknown' ? 'auto' : ocrResult.language;
@@ -141,7 +185,6 @@ export default function VisualTranslatorHomeScreen() {
           );
         } else {
           // Если языки совпадают, просто используем оригинальный текст
-          console.log('[VisualTranslator] Same language detected, skipping translation');
           translatedText = ocrResult.text;
         }
 
@@ -156,7 +199,6 @@ export default function VisualTranslatorHomeScreen() {
         };
       } else {
         // Текст не найден - используем AI для описания объекта
-        console.log('[VisualTranslator] No text found, using AI description...');
         const aiDescription = await AIService.categorizeImage(imageUri);
 
         const translatedDescription = await TranslationService.translate(

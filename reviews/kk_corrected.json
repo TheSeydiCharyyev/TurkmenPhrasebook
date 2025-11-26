@@ -1,0 +1,2759 @@
+{
+  "language": "Kazakh",
+  "languageCode": "kk",
+  "timestamp": "2025-11-26T08:18:46.583Z",
+  "summary": {
+    "total": 305,
+    "verified": 133,
+    "corrected": 172,
+    "needsReview": 0,
+    "verificationRate": "100.0%"
+  },
+  "results": [
+    {
+      "phraseId": "phrase_001",
+      "english": "Hello",
+      "originalTranslation": "Сәлем",
+      "translation": "Сәлем",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Сәлем\""
+    },
+    {
+      "phraseId": "phrase_002",
+      "english": "Thank you",
+      "originalTranslation": "Рахмет",
+      "translation": "Рахмет",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Рахмет\""
+    },
+    {
+      "phraseId": "phrase_003",
+      "english": "Goodbye",
+      "originalTranslation": "Сау болыңыз",
+      "translation": "Қоштасу",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Сау болыңыз\""
+    },
+    {
+      "phraseId": "phrase_004",
+      "english": "Excuse me",
+      "originalTranslation": "Кешіріңіз",
+      "translation": "Кешіріңіз",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Кешіріңіз\""
+    },
+    {
+      "phraseId": "phrase_005",
+      "english": "Good morning",
+      "originalTranslation": "Қайырлы таң!",
+      "translation": "Қайырлы таң",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Қайырлы таң!\""
+    },
+    {
+      "phraseId": "phrase_006",
+      "english": "Good night",
+      "originalTranslation": "Қайырлы түн!",
+      "translation": "Қайырлы түн!'",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Қайырлы түн!\""
+    },
+    {
+      "phraseId": "phrase_007",
+      "english": "My name is...",
+      "originalTranslation": "Менің атым...",
+      "translation": "Атым",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Менің атым...\""
+    },
+    {
+      "phraseId": "phrase_008",
+      "english": "What is your name?",
+      "originalTranslation": "Сіздің атыңыз кім?",
+      "translation": "Сіздің атыңыз кім?",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_009",
+      "english": "Nice to meet you",
+      "originalTranslation": "Сізбен танысқаныма қуаныштымын!",
+      "translation": "жақсы қарсы мен сендерді",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Сізбен танысқаныма қуаныштымын!\""
+    },
+    {
+      "phraseId": "phrase_010",
+      "english": "Please",
+      "originalTranslation": "Өтінемін",
+      "translation": "Өтінемін",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Өтінемін\""
+    },
+    {
+      "phraseId": "phrase_011",
+      "english": "You're welcome",
+      "originalTranslation": "Ештеме емес",
+      "translation": "Қош келдіңіз",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Ештеме емес\""
+    },
+    {
+      "phraseId": "phrase_012",
+      "english": "How are you?",
+      "originalTranslation": "Қалыңыз қалай?",
+      "translation": "Ар",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Қалыңыз қалай?\""
+    },
+    {
+      "phraseId": "phrase_013",
+      "english": "Good luck!",
+      "originalTranslation": "Сәттілік!",
+      "translation": "Сізге сәттілік тілеймін",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Сәттілік!\""
+    },
+    {
+      "phraseId": "phrase_014",
+      "english": "Welcome!",
+      "originalTranslation": "Қош келдіңіз!",
+      "translation": "Қош келдіңіз!",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_015",
+      "english": "Very glad to see you",
+      "originalTranslation": "Сізді көргеніме қуаныштымын!",
+      "translation": "Сізді көргеніме өте қуаныштымын",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Сізді көргеніме қуаныштымын!\""
+    },
+    {
+      "phraseId": "phrase_016",
+      "english": "Welcome! (arrival greeting)",
+      "originalTranslation": "Келгеніңізбен!",
+      "translation": "Қош келдіңіз! (келу сәлемі",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Келгеніңізбен!\""
+    },
+    {
+      "phraseId": "phrase_017",
+      "english": "How are you doing?",
+      "originalTranslation": "Жағдайыңыз қалай?",
+      "translation": "Сәлеметсіз бе",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Жағдайыңыз қалай?\""
+    },
+    {
+      "phraseId": "phrase_018",
+      "english": "Let me introduce my friend",
+      "originalTranslation": "Сізге досымды таныстыруға рұқсат етіңіз",
+      "translation": "Досымды таныстыруға рұқсат етіңіз",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Сізге досымды таныстыруға рұқсат етіңіз\""
+    },
+    {
+      "phraseId": "phrase_019",
+      "english": "Pleased to meet you!",
+      "originalTranslation": "Сізбен танысқаныма қуаныштымын!",
+      "translation": "Сізбен танысқаныма қуаныштымын!",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_020",
+      "english": "Please come in",
+      "originalTranslation": "Өтінемін, кіріңіз!",
+      "translation": "Кіріңіз",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Өтінемін, кіріңіз!\""
+    },
+    {
+      "phraseId": "phrase_021",
+      "english": "Please sit down",
+      "originalTranslation": "Өтінемін, отырыңыз!",
+      "translation": "Отырыңыз",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Өтінемін, отырыңыз!\""
+    },
+    {
+      "phraseId": "phrase_022",
+      "english": "Yes",
+      "originalTranslation": "Иә",
+      "translation": "Иә",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_023",
+      "english": "No",
+      "originalTranslation": "Жоқ",
+      "translation": "Жоқ",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_024",
+      "english": "I agree",
+      "originalTranslation": "Мен келісемін",
+      "translation": "Мен келісемін.&#10",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Мен келісемін\""
+    },
+    {
+      "phraseId": "phrase_025",
+      "english": "Thank you very much for your help",
+      "originalTranslation": "Көмегіңізге көп рахмет",
+      "translation": "Көмегіңіз үшін көп рақмет",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Көмегіңізге көп рахмет\""
+    },
+    {
+      "phraseId": "phrase_026",
+      "english": "Thank you very much for your support",
+      "originalTranslation": "Қолдауыңызға көп рахмет",
+      "translation": "Қолдау көрсеткеніңіз үшін көп рақмет",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Қолдауыңызға көп рахмет\""
+    },
+    {
+      "phraseId": "phrase_027",
+      "english": "Thank you very much for your understanding",
+      "originalTranslation": "Түсінгеніңізге көп рахмет",
+      "translation": "Түсінгеніңіз үшін көп рақмет",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Түсінгеніңізге көп рахмет\""
+    },
+    {
+      "phraseId": "phrase_028",
+      "english": "Help!",
+      "originalTranslation": "Көмектесіңіз!",
+      "translation": "Анықтама",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Көмектесіңіз!\""
+    },
+    {
+      "phraseId": "phrase_029",
+      "english": "I need a doctor",
+      "originalTranslation": "Маған дәрігер керек",
+      "translation": "Маған дәрігер керек",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_030",
+      "english": "Call the police",
+      "originalTranslation": "Полиция шақырыңыз",
+      "translation": "Полицияға қоңырау шалыңыз",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Полиция шақырыңыз\""
+    },
+    {
+      "phraseId": "phrase_031",
+      "english": "Fire!",
+      "originalTranslation": "Өрт!",
+      "translation": "От",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Өрт!\""
+    },
+    {
+      "phraseId": "phrase_032",
+      "english": "I am lost",
+      "originalTranslation": "Мен адастым, жолымды жоғалттым",
+      "translation": "Жоғалдым",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Мен адастым, жолымды жоғалттым\""
+    },
+    {
+      "phraseId": "phrase_033",
+      "english": "I am sick",
+      "originalTranslation": "Мен ауырып тұрмын",
+      "translation": "Мен ауырып тұрмын",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_034",
+      "english": "Call an ambulance",
+      "originalTranslation": "Жедел жәрдем шақырыңыз",
+      "translation": "Жедел жәрдем шақырыңыз",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_035",
+      "english": "My wallet was stolen",
+      "originalTranslation": "Менің әмиянымды ұрлады",
+      "translation": "Менің әмияным ұрланды",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Менің әмиянымды ұрлады\""
+    },
+    {
+      "phraseId": "phrase_036",
+      "english": "Help me",
+      "originalTranslation": "Өтінемін, маған көмектесіңіз",
+      "translation": "Маған көмектесіңіз",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Өтінемін, маған көмектесіңіз\""
+    },
+    {
+      "phraseId": "phrase_037",
+      "english": "Danger!",
+      "originalTranslation": "Қауіпті!",
+      "translation": "Қауіпті",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Қауіпті!\""
+    },
+    {
+      "phraseId": "phrase_038",
+      "english": "Call a doctor!",
+      "originalTranslation": "Өтінемін, дәрігер шақырыңыз!",
+      "translation": "Дәрігерді шақырыңыз",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Өтінемін, дәрігер шақырыңыз!\""
+    },
+    {
+      "phraseId": "phrase_039",
+      "english": "I want a room",
+      "originalTranslation": "Маған бөлме керек",
+      "translation": "Бөлме алғым келеді",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Маған бөлме керек\""
+    },
+    {
+      "phraseId": "phrase_040",
+      "english": "How much per night?",
+      "originalTranslation": "Бір түнге қанша тұрады?",
+      "translation": "Бір түнде қанша",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Бір түнге қанша тұрады?\""
+    },
+    {
+      "phraseId": "phrase_041",
+      "english": "Is there WiFi here?",
+      "originalTranslation": "Мұнда WiFi бар ма?",
+      "translation": "Мұнда WiFi бар ма?",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_042",
+      "english": "I have a reservation",
+      "originalTranslation": "Менің брондауым бар",
+      "translation": "Менде резерв бар",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Менің брондауым бар\""
+    },
+    {
+      "phraseId": "phrase_043",
+      "english": "Single room",
+      "originalTranslation": "Бір жылдық бөлме",
+      "translation": "Бір адамдық бөлме",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Бір жылдық бөлме\""
+    },
+    {
+      "phraseId": "phrase_044",
+      "english": "Double room",
+      "originalTranslation": "Екі жылдық бөлме",
+      "translation": "Қос бөлме",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Екі жылдық бөлме\""
+    },
+    {
+      "phraseId": "phrase_045",
+      "english": "What time is check-out?",
+      "originalTranslation": "Бөлмені сағат қаншада тапсыру керек?",
+      "translation": "Шығу уақыты қандай",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Бөлмені сағат қаншада тапсыру керек?\""
+    },
+    {
+      "phraseId": "phrase_046",
+      "english": "Key",
+      "originalTranslation": "Кілт",
+      "translation": "Анықтағыш",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Кілт\""
+    },
+    {
+      "phraseId": "phrase_047",
+      "english": "Room number",
+      "originalTranslation": "Бөлме нөмірі",
+      "translation": "Бөлме нөмірі",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_048",
+      "english": "Is breakfast included?",
+      "originalTranslation": "Таңғы ас кіреді ме?",
+      "translation": "Таңғы ас қосылған ба",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Таңғы ас кіреді ме?\""
+    },
+    {
+      "phraseId": "phrase_049",
+      "english": "Please clean the room",
+      "originalTranslation": "Өтінемін, бөлмені тазалаңыз",
+      "translation": "Бөлмені тазалаңыз",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Өтінемін, бөлмені тазалаңыз\""
+    },
+    {
+      "phraseId": "phrase_050",
+      "english": "I want to extend my stay",
+      "originalTranslation": "Қалуды ұзарту керек",
+      "translation": "Мен тұрғылықты жерімді ұзартқым келеді",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Қалуды ұзарту керек\""
+    },
+    {
+      "phraseId": "phrase_051",
+      "english": "I am hungry",
+      "originalTranslation": "Мен аштымын",
+      "translation": "Мен ашпын",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Мен аштымын\""
+    },
+    {
+      "phraseId": "phrase_052",
+      "english": "Menu, please",
+      "originalTranslation": "Мәзір, өтінемін",
+      "translation": "Мәзір, өтінемін",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_053",
+      "english": "Delicious",
+      "originalTranslation": "Дәмді",
+      "translation": "Дәмді",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_054",
+      "english": "Bill, please",
+      "originalTranslation": "Төлем",
+      "translation": "Билл, өтінемін",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Төлем\""
+    },
+    {
+      "phraseId": "phrase_055",
+      "english": "I am vegetarian",
+      "originalTranslation": "Мен вегетарианмын",
+      "translation": "Мен вегетарианшымын",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Мен вегетарианмын\""
+    },
+    {
+      "phraseId": "phrase_056",
+      "english": "Not spicy",
+      "originalTranslation": "Ащысыз",
+      "translation": "Ащы емес",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Ащысыз\""
+    },
+    {
+      "phraseId": "phrase_057",
+      "english": "Water",
+      "originalTranslation": "Су",
+      "translation": "Су",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_058",
+      "english": "Tea",
+      "originalTranslation": "Шай",
+      "translation": "Шай",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_059",
+      "english": "Rice",
+      "originalTranslation": "Тұз",
+      "translation": "Күріш",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Тұз\""
+    },
+    {
+      "phraseId": "phrase_060",
+      "english": "Noodles",
+      "originalTranslation": "Күріш",
+      "translation": "Шұңқырлар",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Күріш\""
+    },
+    {
+      "phraseId": "phrase_061",
+      "english": "Chicken",
+      "originalTranslation": "Тауық еті",
+      "translation": "Тауық",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Тауық еті\""
+    },
+    {
+      "phraseId": "phrase_062",
+      "english": "Beef",
+      "originalTranslation": "Сиыр еті",
+      "translation": "Сиыр еті",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_063",
+      "english": "How much does it cost?",
+      "originalTranslation": "Бұның бағасы қанша?",
+      "translation": "Бұл қанша тұрады",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Бұның бағасы қанша?\""
+    },
+    {
+      "phraseId": "phrase_064",
+      "english": "I am allergic to...",
+      "originalTranslation": "Менде ... аллергиясы бар",
+      "translation": "Мен аллергияға шалдықтым",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Менде ... аллергиясы бар\""
+    },
+    {
+      "phraseId": "phrase_065",
+      "english": "Can I take it to go?",
+      "originalTranslation": "Өзіммен алып кете аламын ба?",
+      "translation": "Мен оны жібере аламын ба",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Өзіммен алып кете аламын ба?\""
+    },
+    {
+      "phraseId": "phrase_066",
+      "english": "Very delicious",
+      "originalTranslation": "Өте дәмді",
+      "translation": "Өте дәмді",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_067",
+      "english": "Appetizers",
+      "originalTranslation": "Тағамдар",
+      "translation": "Аппетиттер",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Тағамдар\""
+    },
+    {
+      "phraseId": "phrase_068",
+      "english": "Ham",
+      "originalTranslation": "Ветчина",
+      "translation": "ХамEthiopian weekday 5 - ShortDayName",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Ветчина\""
+    },
+    {
+      "phraseId": "phrase_069",
+      "english": "Cheese platter",
+      "originalTranslation": "Ірімшік ассортименті",
+      "translation": "Ірімшік табақшасы",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Ірімшік ассортименті\""
+    },
+    {
+      "phraseId": "phrase_070",
+      "english": "Soup",
+      "originalTranslation": "Сорпа",
+      "translation": "Сорпа",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_071",
+      "english": "Borscht",
+      "originalTranslation": "Борщ",
+      "translation": "Боршт",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Борщ\""
+    },
+    {
+      "phraseId": "phrase_072",
+      "english": "Chicken noodle soup",
+      "originalTranslation": "Тауықты кеспе",
+      "translation": "Тауық кеспесі сорпасы",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Тауықты кеспе\""
+    },
+    {
+      "phraseId": "phrase_073",
+      "english": "Meat broth",
+      "originalTranslation": "Ет сорпасы",
+      "translation": "Ет сорпасы",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_074",
+      "english": "Meat",
+      "originalTranslation": "Ет",
+      "translation": "Ет",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_075",
+      "english": "Lamb",
+      "originalTranslation": "Қой еті",
+      "translation": "Қозы",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Қой еті\""
+    },
+    {
+      "phraseId": "phrase_076",
+      "english": "Pork",
+      "originalTranslation": "Шошқа еті",
+      "translation": "Шошқа еті",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_077",
+      "english": "Fried",
+      "originalTranslation": "Қуырылған",
+      "translation": "Қуырылған",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_078",
+      "english": "Boiled",
+      "originalTranslation": "Қайнатылған",
+      "translation": "Қайнатылған",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_079",
+      "english": "Fish dishes",
+      "originalTranslation": "Балық тағамдары",
+      "translation": "Балық тағамдары",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_080",
+      "english": "Fish",
+      "originalTranslation": "Балық",
+      "translation": "Балықтар",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Балық\""
+    },
+    {
+      "phraseId": "phrase_081",
+      "english": "Salmon",
+      "originalTranslation": "Лосось",
+      "translation": "СэлмонCity in Idaho USA",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Лосось\""
+    },
+    {
+      "phraseId": "phrase_082",
+      "english": "Shrimp",
+      "originalTranslation": "Креветкалар",
+      "translation": "Асшаян",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Креветкалар\""
+    },
+    {
+      "phraseId": "phrase_083",
+      "english": "Crabs",
+      "originalTranslation": "Шаяндар",
+      "translation": "Crabs",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Шаяндар\""
+    },
+    {
+      "phraseId": "phrase_084",
+      "english": "Is there a vegetarian menu?",
+      "originalTranslation": "Вегетариандық мәзір бар ма?",
+      "translation": "Вегетариандық мәзір бар ма?",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_085",
+      "english": "Is this dish spicy?",
+      "originalTranslation": "Бұл ащы тағам ба?",
+      "translation": "Бұл тағам дәмді ме",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Бұл ащы тағам ба?\""
+    },
+    {
+      "phraseId": "phrase_086",
+      "english": "Not spicy",
+      "originalTranslation": "Ащысыз",
+      "translation": "Ащы емес",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Ащысыз\""
+    },
+    {
+      "phraseId": "phrase_087",
+      "english": "Apple",
+      "originalTranslation": "Алма",
+      "translation": "Алма",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_088",
+      "english": "Banana",
+      "originalTranslation": "Банан",
+      "translation": "Банан",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_089",
+      "english": "Orange",
+      "originalTranslation": "Апельсин",
+      "translation": "waters_ world- class. kgm",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Апельсин\""
+    },
+    {
+      "phraseId": "phrase_090",
+      "english": "Grapes",
+      "originalTranslation": "Жүзім",
+      "translation": "Жүзім",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_091",
+      "english": "Watermelon",
+      "originalTranslation": "Қарбыз",
+      "translation": "Ірімшік",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Қарбыз\""
+    },
+    {
+      "phraseId": "phrase_092",
+      "english": "Potato",
+      "originalTranslation": "Картоп",
+      "translation": "Картоп",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_093",
+      "english": "Tomato",
+      "originalTranslation": "Қызанақ",
+      "translation": "トマト",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Қызанақ\""
+    },
+    {
+      "phraseId": "phrase_094",
+      "english": "How much does it cost?",
+      "originalTranslation": "Бағасы қанша?",
+      "translation": "Бұл қанша тұрады",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Бағасы қанша?\""
+    },
+    {
+      "phraseId": "phrase_095",
+      "english": "Too expensive",
+      "originalTranslation": "Өте қымбат",
+      "translation": "Өте қымбат",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_096",
+      "english": "Can it be cheaper?",
+      "originalTranslation": "Жеңілдік жасай аласыз ба?",
+      "translation": "Арзан болуы мүмкін бе",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Жеңілдік жасай аласыз ба?\""
+    },
+    {
+      "phraseId": "phrase_097",
+      "english": "I will buy this",
+      "originalTranslation": "Мен мұны аламын",
+      "translation": "Мен бұны сатып аламын",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Мен мұны аламын\""
+    },
+    {
+      "phraseId": "phrase_098",
+      "english": "Can I try it on?",
+      "originalTranslation": "Сынап көруге бола ма?",
+      "translation": "Мен оны сынап көре аламын ба",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Сынап көруге бола ма?\""
+    },
+    {
+      "phraseId": "phrase_099",
+      "english": "Bigger size",
+      "originalTranslation": "Үлкенірек өлшемде",
+      "translation": "Үлкенірек өлшем",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Үлкенірек өлшемде\""
+    },
+    {
+      "phraseId": "phrase_100",
+      "english": "Smaller size",
+      "originalTranslation": "Кішірек өлшемде",
+      "translation": "Шағын өлшем",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Кішірек өлшемде\""
+    },
+    {
+      "phraseId": "phrase_101",
+      "english": "Cash",
+      "originalTranslation": "Қолма-қол ақша",
+      "translation": "Қолма-қол ақша",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_102",
+      "english": "Credit card",
+      "originalTranslation": "Несие картасы",
+      "translation": "НЕСИЕ КАРТАСЫ ЖОҚ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Несие картасы\""
+    },
+    {
+      "phraseId": "phrase_103",
+      "english": "Receipt",
+      "originalTranslation": "Түбіртек",
+      "translation": "Қабылдау",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Түбіртек\""
+    },
+    {
+      "phraseId": "phrase_104",
+      "english": "Return/Exchange",
+      "originalTranslation": "Қайтару",
+      "translation": "Қайтару/алмасу",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Қайтару\""
+    },
+    {
+      "phraseId": "phrase_105",
+      "english": "Where is the market?",
+      "originalTranslation": "Базар қайда орналасқан?",
+      "translation": "Нарық қайда",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Базар қайда орналасқан?\""
+    },
+    {
+      "phraseId": "phrase_106",
+      "english": "Is there a discount?",
+      "originalTranslation": "Жеңілдік бар ма?",
+      "translation": "Жеңілдік бар ма?",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_107",
+      "english": "Can I try it on?",
+      "originalTranslation": "Сынап көруге бола ма?",
+      "translation": "Мен оны сынап көре аламын ба",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Сынап көруге бола ма?\""
+    },
+    {
+      "phraseId": "phrase_108",
+      "english": "What is your size?",
+      "originalTranslation": "Сіздің өлшеміңіз қанша?",
+      "translation": "Сіздің өлшеміңіз қандай",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Сіздің өлшеміңіз қанша?\""
+    },
+    {
+      "phraseId": "phrase_109",
+      "english": "Are there other colors?",
+      "originalTranslation": "Басқа түстері бар ма?",
+      "translation": "Басқа түстер бар ма",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Басқа түстері бар ма?\""
+    },
+    {
+      "phraseId": "phrase_110",
+      "english": "Where is the train station?",
+      "originalTranslation": "Вокзал қайда?",
+      "translation": "Вокзал қайда?",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_111",
+      "english": "Airport",
+      "originalTranslation": "Әуежай",
+      "translation": "Әуежай",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_112",
+      "english": "Taxi",
+      "originalTranslation": "Такси",
+      "translation": "Такси",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_113",
+      "english": "Bus",
+      "originalTranslation": "Автобус",
+      "translation": "Шина",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Автобус\""
+    },
+    {
+      "phraseId": "phrase_114",
+      "english": "Metro",
+      "originalTranslation": "Метро",
+      "translation": "Метро",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_115",
+      "english": "Train ticket",
+      "originalTranslation": "Темір жол вокзалы",
+      "translation": "Пойыз билеті",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Темір жол вокзалы\""
+    },
+    {
+      "phraseId": "phrase_116",
+      "english": "Schedule",
+      "originalTranslation": "Кесте",
+      "translation": "Кесте",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_117",
+      "english": "Platform",
+      "originalTranslation": "Платформа",
+      "translation": "Платформа",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_118",
+      "english": "Next stop",
+      "originalTranslation": "Келесі аялдама",
+      "translation": "Келесі аялдама",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_119",
+      "english": "Stop",
+      "originalTranslation": "Тоқтаңыз",
+      "translation": "Тоқтату",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Тоқтаңыз\""
+    },
+    {
+      "phraseId": "phrase_120",
+      "english": "How long until...?",
+      "originalTranslation": "...ға дейін қанша уақыт?",
+      "translation": "Қанша уақытқа дейін",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"...ға дейін қанша уақыт?\""
+    },
+    {
+      "phraseId": "phrase_121",
+      "english": "I need to go to...",
+      "originalTranslation": "Мен ...ға баруым керек",
+      "translation": "Мен баруым керек",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Мен ...ға баруым керек\""
+    },
+    {
+      "phraseId": "phrase_122",
+      "english": "When will the next bus arrive?",
+      "originalTranslation": "Келесі автобус қашан келеді?",
+      "translation": "Келесі автобус қашан келеді?",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_123",
+      "english": "I want to go to the airport",
+      "originalTranslation": "Мен әуежайға бару керекпін",
+      "translation": "Мен әуежайға барғым келеді",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Мен әуежайға бару керекпін\""
+    },
+    {
+      "phraseId": "phrase_124",
+      "english": "On the left",
+      "originalTranslation": "Сол жақ",
+      "translation": "Сол жақта",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Сол жақ\""
+    },
+    {
+      "phraseId": "phrase_125",
+      "english": "On the right",
+      "originalTranslation": "Оң жақ",
+      "translation": "Оң жақта",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Оң жақ\""
+    },
+    {
+      "phraseId": "phrase_126",
+      "english": "Straight",
+      "originalTranslation": "Тура жүріңіз!",
+      "translation": "Түзу",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Тура жүріңіз!\""
+    },
+    {
+      "phraseId": "phrase_127",
+      "english": "Turn",
+      "originalTranslation": "Бұрылу",
+      "translation": "Бұрылу",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_128",
+      "english": "Intersection",
+      "originalTranslation": "Айқас, Қиылыс",
+      "translation": "Жол қиылысы",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Айқас, Қиылыс\""
+    },
+    {
+      "phraseId": "phrase_129",
+      "english": "Traffic light",
+      "originalTranslation": "Бағдаршам",
+      "translation": "Трафиктің жеңілдеуі",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Бағдаршам\""
+    },
+    {
+      "phraseId": "phrase_130",
+      "english": "Far",
+      "originalTranslation": "Алыста",
+      "translation": "Алыстау",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Алыста\""
+    },
+    {
+      "phraseId": "phrase_131",
+      "english": "Near",
+      "originalTranslation": "Жақында",
+      "translation": "Жақындау",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Жақында\""
+    },
+    {
+      "phraseId": "phrase_132",
+      "english": "Map",
+      "originalTranslation": "Карта",
+      "translation": "Карта",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_133",
+      "english": "Where is...?",
+      "originalTranslation": "... қайда орналасқан?",
+      "translation": "Қайда",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"... қайда орналасқан?\""
+    },
+    {
+      "phraseId": "phrase_134",
+      "english": "Hospital",
+      "originalTranslation": "Аурухана",
+      "translation": "Аурухана",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_135",
+      "english": "Pharmacy",
+      "originalTranslation": "Дәріхана",
+      "translation": "Фармация",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Дәріхана\""
+    },
+    {
+      "phraseId": "phrase_136",
+      "english": "I have a headache",
+      "originalTranslation": "Басым ауырып тұр",
+      "translation": "Менде бас ауруы бар",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Басым ауырып тұр\""
+    },
+    {
+      "phraseId": "phrase_137",
+      "english": "I have a stomachache",
+      "originalTranslation": "Қарным ауырып тұр",
+      "translation": "Асқазаным ауырады",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Қарным ауырып тұр\""
+    },
+    {
+      "phraseId": "phrase_138",
+      "english": "Temperature",
+      "originalTranslation": "Температура, Қызба",
+      "translation": "Температура",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Температура, Қызба\""
+    },
+    {
+      "phraseId": "phrase_139",
+      "english": "Cough",
+      "originalTranslation": "Жөтел",
+      "translation": "Жөтеліңіз бар ма",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Жөтел\""
+    },
+    {
+      "phraseId": "phrase_140",
+      "english": "Medicine",
+      "originalTranslation": "Дәрі",
+      "translation": "Медицина",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Дәрі\""
+    },
+    {
+      "phraseId": "phrase_141",
+      "english": "Doctor",
+      "originalTranslation": "Дәрігер",
+      "translation": "Дәрігер",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_142",
+      "english": "Nurse",
+      "originalTranslation": "Медбике",
+      "translation": "Мейірбике",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Медбике\""
+    },
+    {
+      "phraseId": "phrase_143",
+      "english": "Ambulance",
+      "originalTranslation": "Жедел жәрдем",
+      "translation": "Жедел жәрдем",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_144",
+      "english": "I have a headache",
+      "originalTranslation": "Басым ауырады",
+      "translation": "Менде бас ауруы бар",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Басым ауырады\""
+    },
+    {
+      "phraseId": "phrase_145",
+      "english": "I need a painkiller",
+      "originalTranslation": "Маған ауырсынуды басатын дәрі керек",
+      "translation": "Маған ауырсынуды басатын құрал қажет",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Маған ауырсынуды басатын дәрі керек\""
+    },
+    {
+      "phraseId": "phrase_146",
+      "english": "Yuan",
+      "originalTranslation": "Юань",
+      "translation": "юань; юаніamount in units (real",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Юань\""
+    },
+    {
+      "phraseId": "phrase_147",
+      "english": "Manat",
+      "originalTranslation": "Манат",
+      "translation": "Манат",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_148",
+      "english": "Card payment",
+      "originalTranslation": "Картамен төлеу",
+      "translation": "Картаны төлеу",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Картамен төлеу\""
+    },
+    {
+      "phraseId": "phrase_149",
+      "english": "Bank",
+      "originalTranslation": "Банк",
+      "translation": "Банк",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_150",
+      "english": "ATM",
+      "originalTranslation": "Банкомат",
+      "translation": "unit description in lists",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Банкомат\""
+    },
+    {
+      "phraseId": "phrase_151",
+      "english": "Currency exchange",
+      "originalTranslation": "Валюта айырбастау",
+      "translation": "Валюта айырбастау",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_152",
+      "english": "Change",
+      "originalTranslation": "Қалдық ақша",
+      "translation": "Өзгерту",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Қалдық ақша\""
+    },
+    {
+      "phraseId": "phrase_153",
+      "english": "Free",
+      "originalTranslation": "Тегін",
+      "translation": "Тегін",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_154",
+      "english": "Price",
+      "originalTranslation": "Баға",
+      "translation": "Бағасы",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Баға\""
+    },
+    {
+      "phraseId": "phrase_155",
+      "english": "Mobile phone",
+      "originalTranslation": "Ұялы телефон",
+      "translation": "Қалта телефоны",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Ұялы телефон\""
+    },
+    {
+      "phraseId": "phrase_156",
+      "english": "Wi-Fi",
+      "originalTranslation": "Wi-Fi",
+      "translation": "Wi-Fi",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_157",
+      "english": "What is the password?",
+      "originalTranslation": "Пароль не?",
+      "translation": "Құпия сөз дегеніміз не",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Пароль не?\""
+    },
+    {
+      "phraseId": "phrase_158",
+      "english": "Send SMS",
+      "originalTranslation": "SMS жіберу",
+      "translation": "SMS жіберу",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_159",
+      "english": "Cinema",
+      "originalTranslation": "Кинотеатр",
+      "translation": "Кино",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Кинотеатр\""
+    },
+    {
+      "phraseId": "phrase_160",
+      "english": "Museum",
+      "originalTranslation": "Мұражай",
+      "translation": "Музей",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Мұражай\""
+    },
+    {
+      "phraseId": "phrase_161",
+      "english": "Park",
+      "originalTranslation": "Саябақ",
+      "translation": "Парк",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Саябақ\""
+    },
+    {
+      "phraseId": "phrase_162",
+      "english": "Concert",
+      "originalTranslation": "Концерт",
+      "translation": "Концерт",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_163",
+      "english": "Shopping mall",
+      "originalTranslation": "Сауда орталығы",
+      "translation": "Сауда орталығы",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_164",
+      "english": "Swimming pool",
+      "originalTranslation": "Бассейн",
+      "translation": "Бассейн",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_165",
+      "english": "Gym",
+      "originalTranslation": "Спорт залы",
+      "translation": "Гимназия",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Спорт залы\""
+    },
+    {
+      "phraseId": "phrase_166",
+      "english": "Library",
+      "originalTranslation": "Кітапхана",
+      "translation": "Жиыны",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Кітапхана\""
+    },
+    {
+      "phraseId": "phrase_167",
+      "english": "Night market",
+      "originalTranslation": "Түнгі базар",
+      "translation": "Түнгі нарық",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Түнгі базар\""
+    },
+    {
+      "phraseId": "phrase_168",
+      "english": "How much is the ticket?",
+      "originalTranslation": "Билеттің бағасы қанша?",
+      "translation": "Билет қанша тұрады",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Билеттің бағасы қанша?\""
+    },
+    {
+      "phraseId": "phrase_169",
+      "english": "What time is it?",
+      "originalTranslation": "Сағат неше?",
+      "translation": "Òóғàí үéäiң òàáàëäûðûғûíäà",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Сағат неше?\""
+    },
+    {
+      "phraseId": "phrase_170",
+      "english": "Today",
+      "originalTranslation": "Бүгін",
+      "translation": "Бүгінdays",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Бүгін\""
+    },
+    {
+      "phraseId": "phrase_171",
+      "english": "Tomorrow",
+      "originalTranslation": "Ертең",
+      "translation": "& Ертең",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Ертең\""
+    },
+    {
+      "phraseId": "phrase_172",
+      "english": "Yesterday",
+      "originalTranslation": "Кеше",
+      "translation": "Жүйелік & сөре",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Кеше\""
+    },
+    {
+      "phraseId": "phrase_173",
+      "english": "Monday",
+      "originalTranslation": "Дүйсенбі",
+      "translation": "Дүйсенбі",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_174",
+      "english": "Sunday",
+      "originalTranslation": "Жексенбі",
+      "translation": "Жексенбі",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_175",
+      "english": "In the morning",
+      "originalTranslation": "Таңертең",
+      "translation": "Таңертең",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_176",
+      "english": "In the afternoon",
+      "originalTranslation": "Түстен кейін",
+      "translation": "Түстен кейін",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_177",
+      "english": "In the evening",
+      "originalTranslation": "Кеш",
+      "translation": "Кешке",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Кеш\""
+    },
+    {
+      "phraseId": "phrase_178",
+      "english": "What month?",
+      "originalTranslation": "Қандай ай?",
+      "translation": "Қандай ай?",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_179",
+      "english": "Monday",
+      "originalTranslation": "Дүйсенбі",
+      "translation": "Дүйсенбі",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_180",
+      "english": "Tuesday",
+      "originalTranslation": "Сейсенбі",
+      "translation": "Сейсенбі",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_181",
+      "english": "Wednesday",
+      "originalTranslation": "Сәрсенбі",
+      "translation": "Сәрсенбі",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_182",
+      "english": "Thursday",
+      "originalTranslation": "Бейсенбі",
+      "translation": "Бейсенбі",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_183",
+      "english": "Friday",
+      "originalTranslation": "Жұма",
+      "translation": "Жұма",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_184",
+      "english": "Saturday",
+      "originalTranslation": "Сенбі",
+      "translation": "Сенбі",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_185",
+      "english": "Sunday",
+      "originalTranslation": "Жексенбі",
+      "translation": "Жексенбі",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_186",
+      "english": "January",
+      "originalTranslation": "Қаңтар",
+      "translation": "Қаңтар",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_187",
+      "english": "February",
+      "originalTranslation": "Ақпан",
+      "translation": "Ақпан",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_188",
+      "english": "March",
+      "originalTranslation": "Наурыз",
+      "translation": "Наурыз",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_189",
+      "english": "April",
+      "originalTranslation": "Сәуір",
+      "translation": "Сәуір",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_190",
+      "english": "May",
+      "originalTranslation": "Мамыр",
+      "translation": "Мамыр",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_191",
+      "english": "June",
+      "originalTranslation": "Маусым",
+      "translation": "Маусым",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_192",
+      "english": "July",
+      "originalTranslation": "Шілде",
+      "translation": "Шілде",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_193",
+      "english": "August",
+      "originalTranslation": "Тамыз",
+      "translation": "Тамыз",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_194",
+      "english": "September",
+      "originalTranslation": "Қыркүйек",
+      "translation": "Қыркүйек",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_195",
+      "english": "October",
+      "originalTranslation": "Қазан",
+      "translation": "Қазан",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_196",
+      "english": "November",
+      "originalTranslation": "Қараша",
+      "translation": "Қараша",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_197",
+      "english": "December",
+      "originalTranslation": "Желтоқсан",
+      "translation": "Желтоқсан",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_198",
+      "english": "One",
+      "originalTranslation": "Бір",
+      "translation": "Бір",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_199",
+      "english": "Two",
+      "originalTranslation": "Екі",
+      "translation": "Екі",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_200",
+      "english": "Three",
+      "originalTranslation": "Үш",
+      "translation": "Үш",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Үш\""
+    },
+    {
+      "phraseId": "phrase_201",
+      "english": "Four",
+      "originalTranslation": "Төрт",
+      "translation": "Төрт",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_202",
+      "english": "Five",
+      "originalTranslation": "Бес",
+      "translation": "Бес",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_203",
+      "english": "Six",
+      "originalTranslation": "Алты",
+      "translation": "Алты",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_204",
+      "english": "Seven",
+      "originalTranslation": "Жеті",
+      "translation": "Жеті",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_205",
+      "english": "Eight",
+      "originalTranslation": "Сегіз",
+      "translation": "Сегіз",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_206",
+      "english": "Nine",
+      "originalTranslation": "Тоғыз",
+      "translation": "Тоғыз",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_207",
+      "english": "Ten",
+      "originalTranslation": "Он",
+      "translation": "Он",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_208",
+      "english": "Twenty",
+      "originalTranslation": "Он бір",
+      "translation": "Жиырма",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Он бір\""
+    },
+    {
+      "phraseId": "phrase_209",
+      "english": "One hundred",
+      "originalTranslation": "Жүз",
+      "translation": "Жүз",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_210",
+      "english": "One thousand",
+      "originalTranslation": "Мың",
+      "translation": "Мың",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_211",
+      "english": "Ten thousand",
+      "originalTranslation": "Он мың",
+      "translation": "Он мың",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_212",
+      "english": "First",
+      "originalTranslation": "Бірінші",
+      "translation": "Бірінші",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_213",
+      "english": "One thousand",
+      "originalTranslation": "Мың",
+      "translation": "Мың",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_214",
+      "english": "Two thousand",
+      "originalTranslation": "Екі мың",
+      "translation": "Екі мың",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_215",
+      "english": "Ten thousand",
+      "originalTranslation": "Он мың",
+      "translation": "Он мың",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_216",
+      "english": "One hundred thousand",
+      "originalTranslation": "Жүз мың",
+      "translation": "Жүз мың",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_217",
+      "english": "One million",
+      "originalTranslation": "Бір миллион",
+      "translation": "Бір миллион",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_218",
+      "english": "What is the weather today?",
+      "originalTranslation": "Бүгін ауа райы қандай?",
+      "translation": "Бүгін ауа райы қандай?",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_219",
+      "english": "Rain",
+      "originalTranslation": "Жаңбыр",
+      "translation": "Жамбыр",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Жаңбыр\""
+    },
+    {
+      "phraseId": "phrase_220",
+      "english": "Sunny",
+      "originalTranslation": "Ашық",
+      "translation": "Күн ашықweather forecast",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Ашық\""
+    },
+    {
+      "phraseId": "phrase_221",
+      "english": "Cloudy",
+      "originalTranslation": "Бұлтты",
+      "translation": "Бұлттар",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Бұлтты\""
+    },
+    {
+      "phraseId": "phrase_222",
+      "english": "Windy",
+      "originalTranslation": "Желді",
+      "translation": "Жел тұрадыweather forecast",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Желді\""
+    },
+    {
+      "phraseId": "phrase_223",
+      "english": "Snow",
+      "originalTranslation": "Қар",
+      "translation": "Қар",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_224",
+      "english": "Hot",
+      "originalTranslation": "Ыстық",
+      "translation": "Ыстықweather forecast",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Ыстық\""
+    },
+    {
+      "phraseId": "phrase_225",
+      "english": "Cold",
+      "originalTranslation": "Суық",
+      "translation": "Суықweather forecast",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Суық\""
+    },
+    {
+      "phraseId": "phrase_226",
+      "english": "My name is...",
+      "originalTranslation": "Менің атым...",
+      "translation": "Атым",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Менің атым...\""
+    },
+    {
+      "phraseId": "phrase_227",
+      "english": "My last name is...",
+      "originalTranslation": "Менің тегім...",
+      "translation": "Менің фамилиям",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Менің тегім...\""
+    },
+    {
+      "phraseId": "phrase_228",
+      "english": "What is your name?",
+      "originalTranslation": "Сіздің атыңыз кім?",
+      "translation": "Сіздің атыңыз кім?",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_229",
+      "english": "I am from Turkmenistan",
+      "originalTranslation": "Мен Түрікменстаннанмын",
+      "translation": "Мен Түрікменстаннанмын",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_230",
+      "english": "I live in Ashgabat",
+      "originalTranslation": "Мен Ашхабадта тұрамын",
+      "translation": "Мен Ашхабадта тұрамын",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_231",
+      "english": "There are 4 people in our family",
+      "originalTranslation": "Біздің отбасында 4 адам бар",
+      "translation": "Біздің отбасымызда 4 адам бар",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Біздің отбасында 4 адам бар\""
+    },
+    {
+      "phraseId": "phrase_232",
+      "english": "Do you have children?",
+      "originalTranslation": "Сіздің балаларыңыз бар ма?",
+      "translation": "Балаларыңыз бар ма",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Сіздің балаларыңыз бар ма?\""
+    },
+    {
+      "phraseId": "phrase_233",
+      "english": "I have no children",
+      "originalTranslation": "Менде бала жоқ",
+      "translation": "Менің балаларым жоқ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Менде бала жоқ\""
+    },
+    {
+      "phraseId": "phrase_234",
+      "english": "I have one child",
+      "originalTranslation": "Менде бір бала бар",
+      "translation": "Менің бір балам бар",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Менде бір бала бар\""
+    },
+    {
+      "phraseId": "phrase_235",
+      "english": "I have two children",
+      "originalTranslation": "Менде екі бала бар",
+      "translation": "Менің екі балам бар",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Менде екі бала бар\""
+    },
+    {
+      "phraseId": "phrase_236",
+      "english": "What do you do?",
+      "originalTranslation": "Сіз не жұмыс істейсіз?",
+      "translation": "Сіз не істейсіз",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Сіз не жұмыс істейсіз?\""
+    },
+    {
+      "phraseId": "phrase_237",
+      "english": "I work at a factory",
+      "originalTranslation": "Мен зауытта жұмыс істеймін",
+      "translation": "Мен зауытта жұмыс істеймін",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_238",
+      "english": "I work at a bank",
+      "originalTranslation": "Мен банкте жұмыс істеймін",
+      "translation": "Мен банкте жұмыс істеймін",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_239",
+      "english": "I work at a hospital",
+      "originalTranslation": "Мен ауруханада жұмыс істеймін",
+      "translation": "Мен ауруханада жұмыс істеймін",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_240",
+      "english": "I study foreign languages",
+      "originalTranslation": "Мен шет тілдерін үйренемін",
+      "translation": "Мен шет тілдерін оқимын",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Мен шет тілдерін үйренемін\""
+    },
+    {
+      "phraseId": "phrase_241",
+      "english": "Do you speak Russian?",
+      "originalTranslation": "Сіз орысша сөйлейсіз бе?",
+      "translation": "Сіз орысша сөйлейсіз бе?",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_242",
+      "english": "I don't speak",
+      "originalTranslation": "Мен сөйлемеймін",
+      "translation": "Мен сөйлемеймін",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_243",
+      "english": "I speak a little",
+      "originalTranslation": "Мен аздап сөйлеймін",
+      "translation": "Мен аздап сөйлеймін",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_244",
+      "english": "When does the conference start?",
+      "originalTranslation": "Конференция қашан басталады?",
+      "translation": "Конференция қашан басталады?",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_245",
+      "english": "What is the schedule for presentations?",
+      "originalTranslation": "Шығыстардың регламенті қандай?",
+      "translation": "Презентациялардың кестесі қандай",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Шығыстардың регламенті қандай?\""
+    },
+    {
+      "phraseId": "phrase_246",
+      "english": "Will there be translation to Russian?",
+      "originalTranslation": "Орыс тіліне аударма бола ма?",
+      "translation": "Орыс тіліне аударма бола ма?",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_247",
+      "english": "I will speak in Russian",
+      "originalTranslation": "Мен орыс тілінде шығыс жасаймын",
+      "translation": "Мен орыс тілінде сөйлеймін",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Мен орыс тілінде шығыс жасаймын\""
+    },
+    {
+      "phraseId": "phrase_248",
+      "english": "We want to see the exhibition",
+      "originalTranslation": "Біз көрмені көру керекпіз",
+      "translation": "Көрмені көргіміз келеді",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Біз көрмені көру керекпіз\""
+    },
+    {
+      "phraseId": "phrase_249",
+      "english": "What time does the exhibition open?",
+      "originalTranslation": "Көрме сағат қаншада ашылады?",
+      "translation": "Көрме сағат нешеде ашылады",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Көрме сағат қаншада ашылады?\""
+    },
+    {
+      "phraseId": "phrase_250",
+      "english": "How many countries are participating?",
+      "originalTranslation": "Көрмеге қанша ел қатысады?",
+      "translation": "Қанша ел қатысады",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Көрмеге қанша ел қатысады?\""
+    },
+    {
+      "phraseId": "phrase_251",
+      "english": "Can I get the exhibition catalog?",
+      "originalTranslation": "Көрменің каталогын алуға бола ма?",
+      "translation": "Көрме каталогын ала аламын ба",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Көрменің каталогын алуға бола ма?\""
+    },
+    {
+      "phraseId": "phrase_252",
+      "english": "I came to discuss business",
+      "originalTranslation": "Мен мәселені талқылауға келдім",
+      "translation": "Мен бизнесті талқылауға келдім",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Мен мәселені талқылауға келдім\""
+    },
+    {
+      "phraseId": "phrase_253",
+      "english": "We want to speak with the general director",
+      "originalTranslation": "Біз бас директормен кездесу керекпіз",
+      "translation": "Бас директормен сөйлескіміз келеді",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Біз бас директормен кездесу керекпіз\""
+    },
+    {
+      "phraseId": "phrase_254",
+      "english": "We want to learn about the production",
+      "originalTranslation": "Біз өндіріспен танысу керекпіз",
+      "translation": "Біз өндіріс туралы білгіміз келеді",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Біз өндіріспен танысу керекпіз\""
+    },
+    {
+      "phraseId": "phrase_255",
+      "english": "Length",
+      "originalTranslation": "Ұзындық",
+      "translation": "Ұзындық",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_256",
+      "english": "Meter",
+      "originalTranslation": "Метр",
+      "translation": "Метр",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_257",
+      "english": "Centimeter",
+      "originalTranslation": "Сантиметр",
+      "translation": "Сантиметр",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_258",
+      "english": "Weight",
+      "originalTranslation": "Салмақ",
+      "translation": "Салмағы",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Салмақ\""
+    },
+    {
+      "phraseId": "phrase_259",
+      "english": "Kilogram",
+      "originalTranslation": "Килограмм",
+      "translation": "Килограмм",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_260",
+      "english": "Gram",
+      "originalTranslation": "Грамм",
+      "translation": "Грамм",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_261",
+      "english": "Volume",
+      "originalTranslation": "Көлем",
+      "translation": "Дыбысы",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Көлем\""
+    },
+    {
+      "phraseId": "phrase_262",
+      "english": "Liter",
+      "originalTranslation": "Литр",
+      "translation": "Литр",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_263",
+      "english": "White",
+      "originalTranslation": "Ақ",
+      "translation": "Ақ",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_264",
+      "english": "Yellow",
+      "originalTranslation": "Сары",
+      "translation": "Сары",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_265",
+      "english": "Green",
+      "originalTranslation": "Жасыл",
+      "translation": "Жасыл",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_266",
+      "english": "Blue",
+      "originalTranslation": "Көк",
+      "translation": "Көк",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_267",
+      "english": "Red",
+      "originalTranslation": "Қызыл",
+      "translation": "Қызыл",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_268",
+      "english": "Black",
+      "originalTranslation": "Қара",
+      "translation": "< & ШегінуQFontDatabase",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Қара\""
+    },
+    {
+      "phraseId": "phrase_269",
+      "english": "Gray",
+      "originalTranslation": "Сұр",
+      "translation": "ÐÑÑÑÒ±ÑÐ°Ñ ÑÐ¾Ð»ÑÑÑÑ",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Сұр\""
+    },
+    {
+      "phraseId": "phrase_270",
+      "english": "Purple",
+      "originalTranslation": "Көгілдір",
+      "translation": "қан- қызылcolor",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Көгілдір\""
+    },
+    {
+      "phraseId": "phrase_271",
+      "english": "Orange",
+      "originalTranslation": "Қызғылт сары",
+      "translation": "waters_ world- class. kgm",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Қызғылт сары\""
+    },
+    {
+      "phraseId": "phrase_272",
+      "english": "Pink",
+      "originalTranslation": "Қызғылт",
+      "translation": "қызғылтcolor",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Қызғылт\""
+    },
+    {
+      "phraseId": "phrase_273",
+      "english": "Head",
+      "originalTranslation": "Бас",
+      "translation": "Бастиек",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Бас\""
+    },
+    {
+      "phraseId": "phrase_274",
+      "english": "Arm",
+      "originalTranslation": "Қол",
+      "translation": "Arm",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Қол\""
+    },
+    {
+      "phraseId": "phrase_275",
+      "english": "Leg",
+      "originalTranslation": "Аяқ",
+      "translation": "Аяқ",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_276",
+      "english": "Eyes",
+      "originalTranslation": "Көз",
+      "translation": "Көз",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_277",
+      "english": "Nose",
+      "originalTranslation": "Мұрын",
+      "translation": "Мұрын",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_278",
+      "english": "Mouth",
+      "originalTranslation": "Ауыз",
+      "translation": "Ауыз қуысы",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Ауыз\""
+    },
+    {
+      "phraseId": "phrase_279",
+      "english": "Ear",
+      "originalTranslation": "Құлақ",
+      "translation": "Құлақ",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_280",
+      "english": "House",
+      "originalTranslation": "Үй",
+      "translation": "Үй",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_281",
+      "english": "Door",
+      "originalTranslation": "Есік",
+      "translation": "Есік",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_282",
+      "english": "Window",
+      "originalTranslation": "Терезе",
+      "translation": "Терезе",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_283",
+      "english": "Table",
+      "originalTranslation": "Үстел",
+      "translation": "Үстел",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_284",
+      "english": "Chair",
+      "originalTranslation": "Орындық",
+      "translation": "Төраға/ Төрайым",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Орындық\""
+    },
+    {
+      "phraseId": "phrase_285",
+      "english": "Bed",
+      "originalTranslation": "Төсек",
+      "translation": "Төсек",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_286",
+      "english": "Where is passport control?",
+      "originalTranslation": "Паспорт бақылауы қайда?",
+      "translation": "Паспортты бақылау қайда",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Паспорт бақылауы қайда?\""
+    },
+    {
+      "phraseId": "phrase_287",
+      "english": "Here is my passport",
+      "originalTranslation": "Міне менің паспортым",
+      "translation": "Міне, менің төлқұжатым",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Міне менің паспортым\""
+    },
+    {
+      "phraseId": "phrase_288",
+      "english": "I intend to stay in China for a week",
+      "originalTranslation": "Мен Қытайда бір апта болуды ойлап тұрмын",
+      "translation": "Мен Қытайда бір апта болуды жоспарлап отырмын",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Мен Қытайда бір апта болуды ойлап тұрмын\""
+    },
+    {
+      "phraseId": "phrase_289",
+      "english": "I have a single-entry visa",
+      "originalTranslation": "Менің бір реттік визам бар",
+      "translation": "Менде бір рет кіру визасы бар",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Менің бір реттік визам бар\""
+    },
+    {
+      "phraseId": "phrase_290",
+      "english": "I am in transit in your country",
+      "originalTranslation": "Мен сіздің еліңізден транзитпен өтемін",
+      "translation": "Мен сіздің еліңізде транзиттемін",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Мен сіздің еліңізден транзитпен өтемін\""
+    },
+    {
+      "phraseId": "phrase_291",
+      "english": "Here is my customs declaration",
+      "originalTranslation": "Міне менің кеден декларациям",
+      "translation": "Міне, менің кедендік декларациям",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Міне менің кеден декларациям\""
+    },
+    {
+      "phraseId": "phrase_292",
+      "english": "Here is my luggage",
+      "originalTranslation": "Міне менің багажым",
+      "translation": "Міне, менің багажым",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Міне менің багажым\""
+    },
+    {
+      "phraseId": "phrase_293",
+      "english": "There are no prohibited items in my luggage",
+      "originalTranslation": "Менің багажымда тыйым салынған заттар жоқ",
+      "translation": "Менің багажымда тыйым салынған заттар жоқ",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_294",
+      "english": "These are my personal belongings",
+      "originalTranslation": "Бұлар менің жеке заттарым",
+      "translation": "Бұл менің жеке заттарым",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Бұлар менің жеке заттарым\""
+    },
+    {
+      "phraseId": "phrase_295",
+      "english": "What duty do I need to pay?",
+      "originalTranslation": "Қанша баж төлеу керек?",
+      "translation": "Мен қандай баж төлеуім керек",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Қанша баж төлеу керек?\""
+    },
+    {
+      "phraseId": "phrase_296",
+      "english": "What sport do you like?",
+      "originalTranslation": "Сіз қандай спорт түрін ұнатасыз?",
+      "translation": "Сізге қандай спорт түрі ұнайды",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Сіз қандай спорт түрін ұнатасыз?\""
+    },
+    {
+      "phraseId": "phrase_297",
+      "english": "I like to play football",
+      "originalTranslation": "Мен футбол ойнауды ұнатамын",
+      "translation": "Футбол ойнағанды ұнатамын",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Мен футбол ойнауды ұнатамын\""
+    },
+    {
+      "phraseId": "phrase_298",
+      "english": "Basketball",
+      "originalTranslation": "Баскетбол",
+      "translation": "Баскетбол",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_299",
+      "english": "Swimming",
+      "originalTranslation": "Жүзу",
+      "translation": "Жүзу",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_300",
+      "english": "Running",
+      "originalTranslation": "Жүгіру",
+      "translation": "Жегілген",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Жүгіру\""
+    },
+    {
+      "phraseId": "phrase_301",
+      "english": "Where is the gym?",
+      "originalTranslation": "Спорт залы қайда?",
+      "translation": "Спортзал қайда",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Спорт залы қайда?\""
+    },
+    {
+      "phraseId": "phrase_302",
+      "english": "I want to work out",
+      "originalTranslation": "Мен жаттығу керекпін",
+      "translation": "Мен жұмыс істегім келеді",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Мен жаттығу керекпін\""
+    },
+    {
+      "phraseId": "phrase_303",
+      "english": "Coach",
+      "originalTranslation": "Жаттықтырушы",
+      "translation": "Жаттықтырушы",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "phraseId": "phrase_304",
+      "english": "Competition / Match",
+      "originalTranslation": "Жарыс / Ойын",
+      "translation": "Бәсекелестік / сәйкестік",
+      "status": "corrected",
+      "confidence": "high",
+      "notes": "Fixed: was \"Жарыс / Ойын\""
+    },
+    {
+      "phraseId": "phrase_305",
+      "english": "Stadium",
+      "originalTranslation": "Стадион",
+      "translation": "Стадион",
+      "status": "verified",
+      "confidence": "high",
+      "notes": ""
+    }
+  ]
+}

@@ -129,7 +129,10 @@ export default function OnboardingScreen({ navigation, onComplete }: OnboardingS
   const renderSlide = ({ item }: { item: OnboardingSlide }) => {
     return (
       <View style={styles.slide}>
-        <LinearGradient colors={item.gradient} style={styles.gradientBackground}>
+        <LinearGradient
+          colors={item.gradient as readonly [string, string, ...string[]]}
+          style={styles.gradientBackground}
+        >
           <SafeAreaView style={styles.safeArea}>
             {/* Skip button */}
             {currentIndex < slides.length - 1 && (

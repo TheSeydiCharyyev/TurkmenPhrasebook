@@ -115,7 +115,6 @@ class TranslationService {
 
     try {
       // Пробуем MyMemory (лучшее качество)
-      console.log(`[TranslationService] Translating ${normalizedFrom} → ${normalizedTo} via MyMemory`);
       return await this.translateWithMyMemory(text, normalizedFrom, normalizedTo);
     } catch (myMemoryError) {
       console.warn('[TranslationService] MyMemory failed, falling back to LibreTranslate');

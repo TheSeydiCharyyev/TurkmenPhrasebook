@@ -82,7 +82,7 @@ export function useAudio() {
 
     const buttons = Platform.OS === 'android'
       ? [
-          { text: 'ОК', style: 'cancel' },
+          { text: 'ОК', style: 'cancel' as const },
           {
             text: '⚙️ Настройки',
             onPress: openTTSSettings
@@ -93,7 +93,7 @@ export function useAudio() {
           }
         ]
       : [
-          { text: 'ОК', style: 'cancel' },
+          { text: 'ОК', style: 'cancel' as const },
           {
             text: '⚙️ Открыть настройки',
             onPress: openTTSSettings
@@ -294,8 +294,6 @@ export function useAudio() {
           // Кэшируем что Alert был показан
           await AsyncStorage.setItem(alertKey, 'true');
         }
-
-        console.log(`[useAudio] Voice not found for ${language} (${requestedLanguageCode}), using fallback: ${actualLanguageCode}`);
       }
 
       setIsPlaying(true);

@@ -9,7 +9,7 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "plugins": [
-      "@react-native-voice/voice"
+      "expo-font"
     ],
     "platforms": [
       "ios",

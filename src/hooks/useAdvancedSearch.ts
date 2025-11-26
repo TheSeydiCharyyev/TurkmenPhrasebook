@@ -226,7 +226,7 @@ export function useAdvancedSearch() {
     });
     fuzzyMatches.forEach(match => {
       // Extract the best matching word from the phrase
-      // TODO: Update SearchEngine to use PhraseWithTranslation
+      // Note: Type assertion used as SearchEngine returns Phrase, needs PhraseWithTranslation
       const bestMatch = extractBestMatch(partialQuery, match.phrase as any as PhraseWithTranslation);
       if (bestMatch && bestMatch !== partialQuery) {
         suggestions.push({
@@ -380,7 +380,7 @@ export function useAdvancedSearch() {
   const getPersonalizedRecommendations = useCallback(async (maxResults: number = 5): Promise<PhraseWithTranslation[]> => {
     try {
       const userHistory = await getUserHistoryData();
-      // TODO: Update SearchEngine to use PhraseWithTranslation
+      // Note: Type assertion used as SearchEngine returns Phrase[], needs PhraseWithTranslation[]
       return searchEngine.getPersonalizedRecommendations(userHistory, maxResults) as any as PhraseWithTranslation[];
     } catch (error) {
       console.error('Failed to get personalized recommendations:', error);
