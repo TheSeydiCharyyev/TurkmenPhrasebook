@@ -609,7 +609,7 @@ const styles = StyleSheet.create({
 
   subcategoriesSection: {
     paddingVertical: scale(12),
-    paddingHorizontal: scale(8),
+    paddingHorizontal: scale(16),
     backgroundColor: '#fff',
   },
 
