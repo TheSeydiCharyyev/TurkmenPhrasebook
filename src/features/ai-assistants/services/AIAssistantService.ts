@@ -318,12 +318,6 @@ Your goal is to make learning Turkmen enjoyable, effective, and culturally enric
     model: string,
     prompt: string
   ): Promise<string> {
-    console.log('🤖 Gemini AI Request:', {
-      model,
-      hasApiKey: !!GEMINI_API_KEY,
-      promptLength: prompt.length,
-    });
-
     if (!genAI) {
       throw new Error('Gemini API key not configured. Please add GEMINI_API_KEY to .env file.');
     }
@@ -336,11 +330,6 @@ Your goal is to make learning Turkmen enjoyable, effective, and culturally enric
       const result = await geminiModel.generateContent(prompt);
       const response = await result.response;
       const text = response.text();
-
-      console.log('✅ Gemini Response received:', {
-        length: text.length,
-        preview: text.substring(0, 100) + '...',
-      });
 
       return text || 'I apologize, I could not generate a response.';
     } catch (error) {
@@ -390,6 +379,8 @@ Your goal is to make learning Turkmen enjoyable, effective, and culturally enric
         "I'm having connection issues. Fun fact: Turkmen people are known for their hospitality. Always greet elders with respect!",
       [AssistantType.GENERAL_ASSISTANT]:
         "I'm having trouble connecting right now. Please try again in a moment. In the meantime, keep practicing!",
+      [AssistantType.UNIVERSAL]:
+        "I'm having connection issues. Please try again later. Keep learning in the meantime!",
     };
 
     return fallbacks[assistantType];

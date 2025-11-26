@@ -176,7 +176,7 @@ export default function AppNavigator() {
         {/* Onboarding (после выбора языка, если первый запуск) */}
         <RootStack.Screen
           name="Onboarding"
-          component={OnboardingScreen}
+          component={OnboardingScreen as any}
           options={{ headerShown: false }}
         />
 

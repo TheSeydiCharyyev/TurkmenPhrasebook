@@ -16,6 +16,9 @@ export type RootStackParamList = {
   // Language Selection - выбор языка интерфейса
   LanguageSelection: undefined;
 
+  // Onboarding - первичная настройка приложения
+  Onboarding: undefined;
+
   // Phrasebook Module (Phase 1 - Ready)
   Home: undefined;  // Phrasebook Home Stack
   PhraseDetail: { phrase: PhraseWithTranslation };
@@ -55,6 +58,7 @@ export type HomeStackParamList = {
     subcategory: SubCategory;
     parentCategory: Category;
   };
+  PhraseDetail: { phrase: PhraseWithTranslation };
 };
 
 /**
@@ -95,12 +99,17 @@ export type MainTabParamList = {
 /**
  * Типы для хуков навигации
  */
+interface NavigationState {
+  index: number;
+  routes: Array<{ name: string; params?: Record<string, unknown> }>;
+}
+
 export type NavigationProp<T extends keyof RootStackParamList> = {
   navigate: (screen: T, params?: RootStackParamList[T]) => void;
   goBack: () => void;
   push: (screen: T, params?: RootStackParamList[T]) => void;
   replace: (screen: T, params?: RootStackParamList[T]) => void;
-  reset: (state: any) => void;
+  reset: (state: NavigationState) => void;
 };
 
 /**

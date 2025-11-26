@@ -9,8 +9,8 @@ export function getCategoryTranslation(categoryId: string, langCode: string): st
   const translations = CATEGORY_TRANSLATIONS[categoryId];
   if (!translations) return categoryId; // fallback на ID
 
-  // @ts-ignore - динамический доступ по language code
-  return translations[langCode] || translations.en; // fallback на английский
+  // ✅ FIXED: Properly typed dynamic access with index signature
+  return (translations as Record<string, string>)[langCode] || translations.en; // fallback на английский
 }
 
 // ✅ Helper функция для создания категории с переводами на все языки

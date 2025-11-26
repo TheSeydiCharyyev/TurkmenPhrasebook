@@ -43,9 +43,6 @@ class OCRSpaceService {
    */
   async recognizeText(imageUri: string, apiKey?: string): Promise<OCRResult> {
     try {
-      console.log('[OCRSpaceService] Starting OCR with OCR.space API...');
-      console.log('[OCRSpaceService] Image URI:', imageUri);
-
       // Конвертируем изображение в base64
       const base64Image = await this.imageToBase64(imageUri);
 
@@ -71,7 +68,6 @@ class OCRSpaceService {
       }
 
       const data: OCRSpaceResponse = await response.json();
-      console.log('[OCRSpaceService] API Response:', JSON.stringify(data, null, 2));
 
       // Проверяем на ошибки
       if (data.IsErroredOnProcessing) {
@@ -97,8 +93,6 @@ class OCRSpaceService {
       if (!recognizedText) {
         throw new Error('No text found in image');
       }
-
-      console.log('[OCRSpaceService] ✅ Text recognized:', recognizedText.substring(0, 100));
 
       // Определяем язык (упрощённо, по символам)
       const language = this.detectLanguage(recognizedText);

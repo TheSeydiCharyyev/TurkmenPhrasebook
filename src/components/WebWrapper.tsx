@@ -20,18 +20,18 @@ export default function WebWrapper({ children }: WebWrapperProps) {
   );
 }
 
+// ✅ FIXED: Use type assertion for web-specific CSS properties
 const styles = StyleSheet.create({
   webContainer: {
     flex: 1,
     backgroundColor: '#2c3e50',
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: '100vh',
+    ...(Platform.OS === 'web' && { minHeight: '100vh' as any }),
   },
   mobileFrame: {
     width: 414,
     height: 896,
-    maxHeight: '100vh',
     backgroundColor: '#fff',
     overflow: 'hidden',
     borderRadius: 16,
@@ -39,7 +39,9 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 20 },
     shadowOpacity: 0.3,
     shadowRadius: 40,
-    // @ts-ignore
-    boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
+    ...(Platform.OS === 'web' && {
+      maxHeight: '100vh' as any,
+      boxShadow: '0 20px 60px rgba(0,0,0,0.3)' as any,
+    }),
   },
 });

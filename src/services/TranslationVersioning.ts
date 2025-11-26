@@ -87,7 +87,6 @@ export class TranslationVersioningService {
       };
 
       await AsyncStorage.setItem(STORAGE_KEYS.LANGUAGE_VERSIONS, JSON.stringify(versions));
-      console.log(`[TranslationVersioning] Updated version for ${languageCode}: ${version}`);
     } catch (error) {
       console.error('[TranslationVersioning] Error setting language version:', error);
     }
@@ -212,7 +211,6 @@ export class TranslationVersioningService {
         STORAGE_KEYS.DOWNLOAD_HISTORY,
         STORAGE_KEYS.LANGUAGE_VERSIONS,
       ]);
-      console.log('[TranslationVersioning] Cleared all versioning data');
     } catch (error) {
       console.error('[TranslationVersioning] Error clearing data:', error);
     }

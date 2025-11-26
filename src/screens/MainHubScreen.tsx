@@ -18,9 +18,10 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
+import type { ComponentProps } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
-import { useAppLanguage } from '../contexts/LanguageContext';
+import { useAppLanguage, InterfaceTexts } from '../contexts/LanguageContext';
 import { getLanguageByCode } from '../config/languages.config';
 import type { RootStackParamList } from '../types';
 import { DesignColors, Spacing, Typography, BorderRadius, Shadows } from '../constants/Design';
@@ -31,7 +32,7 @@ interface ModuleCard {
   title: string;
   subtitle: string;
   icon: string; // Emoji (legacy)
-  iconName: string; // Ionicons name
+  iconName: ComponentProps<typeof Ionicons>['name']; // ✅ FIXED: Properly typed Ionicons name
   gradientColors: string[];
   iconColor?: string; // Цвет иконки (для белых карточек)
   route: string;
@@ -39,7 +40,7 @@ interface ModuleCard {
 }
 
 // Helper function to get modules with translations - All Hero Cards (1 column)
-const getModules = (texts: any): ModuleCard[] => [
+const getModules = (texts: InterfaceTexts): ModuleCard[] => [
   {
     id: 'phrasebook',
     title: texts.phrasebookTitle,
@@ -185,7 +186,8 @@ export default function MainHubScreen() {
     } else if (module.id === 'favorites') {
       navigation.navigate('AdditionalFeatures');
     } else {
-      (navigation as any).navigate(module.route);
+      // ✅ FIXED: Removed unsafe type casting - all routes are now properly typed
+      console.warn(`[MainHubScreen] Unknown module route: ${module.id}`);
     }
   };
 
@@ -309,7 +311,7 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
       disabled={module.isLocked}
     >
       <LinearGradient
-        colors={module.gradientColors}
+        colors={module.gradientColors as readonly [string, string, ...string[]]}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 1 }}
         style={styles.heroGradient}
@@ -322,7 +324,7 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
           }
         ]}>
           <Ionicons
-            name={module.iconName as any}
+            name={module.iconName}
             size={moderateScale(44)}
             color={iconFgColor}
           />

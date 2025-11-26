@@ -234,7 +234,7 @@ export function SubCategoriesGrid({
 
 const gridStyles = StyleSheet.create({
   container: {
-    paddingHorizontal: 16, // Как в основных категориях
+    // paddingHorizontal убран - уже есть padding в subcategoriesSection
   },
   
   row: {

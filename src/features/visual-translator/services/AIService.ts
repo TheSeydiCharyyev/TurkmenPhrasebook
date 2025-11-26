@@ -27,8 +27,6 @@ class AIService {
    */
   async describeImage(imageUri: string): Promise<string> {
     try {
-      console.log('[AIService] Describing image with BLIP model');
-
       // Конвертируем изображение в base64
       const imageBase64 = await this.imageToBase64(imageUri);
 
@@ -64,9 +62,7 @@ class AIService {
       const result: HuggingFaceBLIPResponse[] = await response.json();
 
       if (Array.isArray(result) && result.length > 0 && result[0].generated_text) {
-        const description = result[0].generated_text;
-        console.log('[AIService] Image described:', description);
-        return description;
+        return result[0].generated_text;
       }
 
       throw new Error('Invalid response from AI service');
@@ -88,8 +84,6 @@ class AIService {
    */
   async categorizeImage(imageUri: string): Promise<AIDescription> {
     try {
-      console.log('[AIService] Categorizing image with CLIP model');
-
       const imageBase64 = await this.imageToBase64(imageUri);
 
       const categories: ImageCategory[] = [

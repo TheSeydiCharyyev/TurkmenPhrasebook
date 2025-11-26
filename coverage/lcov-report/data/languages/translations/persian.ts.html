@@ -1,0 +1,1099 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for data/languages/translations/persian.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">data/languages/translations</a> persian.ts</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>0/1</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/0</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>0/0</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>0/1</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line low'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a>
+<a name='L148'></a><a href='#L148'>148</a>
+<a name='L149'></a><a href='#L149'>149</a>
+<a name='L150'></a><a href='#L150'>150</a>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a>
+<a name='L153'></a><a href='#L153'>153</a>
+<a name='L154'></a><a href='#L154'>154</a>
+<a name='L155'></a><a href='#L155'>155</a>
+<a name='L156'></a><a href='#L156'>156</a>
+<a name='L157'></a><a href='#L157'>157</a>
+<a name='L158'></a><a href='#L158'>158</a>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a>
+<a name='L161'></a><a href='#L161'>161</a>
+<a name='L162'></a><a href='#L162'>162</a>
+<a name='L163'></a><a href='#L163'>163</a>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a>
+<a name='L170'></a><a href='#L170'>170</a>
+<a name='L171'></a><a href='#L171'>171</a>
+<a name='L172'></a><a href='#L172'>172</a>
+<a name='L173'></a><a href='#L173'>173</a>
+<a name='L174'></a><a href='#L174'>174</a>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a>
+<a name='L177'></a><a href='#L177'>177</a>
+<a name='L178'></a><a href='#L178'>178</a>
+<a name='L179'></a><a href='#L179'>179</a>
+<a name='L180'></a><a href='#L180'>180</a>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a>
+<a name='L184'></a><a href='#L184'>184</a>
+<a name='L185'></a><a href='#L185'>185</a>
+<a name='L186'></a><a href='#L186'>186</a>
+<a name='L187'></a><a href='#L187'>187</a>
+<a name='L188'></a><a href='#L188'>188</a>
+<a name='L189'></a><a href='#L189'>189</a>
+<a name='L190'></a><a href='#L190'>190</a>
+<a name='L191'></a><a href='#L191'>191</a>
+<a name='L192'></a><a href='#L192'>192</a>
+<a name='L193'></a><a href='#L193'>193</a>
+<a name='L194'></a><a href='#L194'>194</a>
+<a name='L195'></a><a href='#L195'>195</a>
+<a name='L196'></a><a href='#L196'>196</a>
+<a name='L197'></a><a href='#L197'>197</a>
+<a name='L198'></a><a href='#L198'>198</a>
+<a name='L199'></a><a href='#L199'>199</a>
+<a name='L200'></a><a href='#L200'>200</a>
+<a name='L201'></a><a href='#L201'>201</a>
+<a name='L202'></a><a href='#L202'>202</a>
+<a name='L203'></a><a href='#L203'>203</a>
+<a name='L204'></a><a href='#L204'>204</a>
+<a name='L205'></a><a href='#L205'>205</a>
+<a name='L206'></a><a href='#L206'>206</a>
+<a name='L207'></a><a href='#L207'>207</a>
+<a name='L208'></a><a href='#L208'>208</a>
+<a name='L209'></a><a href='#L209'>209</a>
+<a name='L210'></a><a href='#L210'>210</a>
+<a name='L211'></a><a href='#L211'>211</a>
+<a name='L212'></a><a href='#L212'>212</a>
+<a name='L213'></a><a href='#L213'>213</a>
+<a name='L214'></a><a href='#L214'>214</a>
+<a name='L215'></a><a href='#L215'>215</a>
+<a name='L216'></a><a href='#L216'>216</a>
+<a name='L217'></a><a href='#L217'>217</a>
+<a name='L218'></a><a href='#L218'>218</a>
+<a name='L219'></a><a href='#L219'>219</a>
+<a name='L220'></a><a href='#L220'>220</a>
+<a name='L221'></a><a href='#L221'>221</a>
+<a name='L222'></a><a href='#L222'>222</a>
+<a name='L223'></a><a href='#L223'>223</a>
+<a name='L224'></a><a href='#L224'>224</a>
+<a name='L225'></a><a href='#L225'>225</a>
+<a name='L226'></a><a href='#L226'>226</a>
+<a name='L227'></a><a href='#L227'>227</a>
+<a name='L228'></a><a href='#L228'>228</a>
+<a name='L229'></a><a href='#L229'>229</a>
+<a name='L230'></a><a href='#L230'>230</a>
+<a name='L231'></a><a href='#L231'>231</a>
+<a name='L232'></a><a href='#L232'>232</a>
+<a name='L233'></a><a href='#L233'>233</a>
+<a name='L234'></a><a href='#L234'>234</a>
+<a name='L235'></a><a href='#L235'>235</a>
+<a name='L236'></a><a href='#L236'>236</a>
+<a name='L237'></a><a href='#L237'>237</a>
+<a name='L238'></a><a href='#L238'>238</a>
+<a name='L239'></a><a href='#L239'>239</a>
+<a name='L240'></a><a href='#L240'>240</a>
+<a name='L241'></a><a href='#L241'>241</a>
+<a name='L242'></a><a href='#L242'>242</a>
+<a name='L243'></a><a href='#L243'>243</a>
+<a name='L244'></a><a href='#L244'>244</a>
+<a name='L245'></a><a href='#L245'>245</a>
+<a name='L246'></a><a href='#L246'>246</a>
+<a name='L247'></a><a href='#L247'>247</a>
+<a name='L248'></a><a href='#L248'>248</a>
+<a name='L249'></a><a href='#L249'>249</a>
+<a name='L250'></a><a href='#L250'>250</a>
+<a name='L251'></a><a href='#L251'>251</a>
+<a name='L252'></a><a href='#L252'>252</a>
+<a name='L253'></a><a href='#L253'>253</a>
+<a name='L254'></a><a href='#L254'>254</a>
+<a name='L255'></a><a href='#L255'>255</a>
+<a name='L256'></a><a href='#L256'>256</a>
+<a name='L257'></a><a href='#L257'>257</a>
+<a name='L258'></a><a href='#L258'>258</a>
+<a name='L259'></a><a href='#L259'>259</a>
+<a name='L260'></a><a href='#L260'>260</a>
+<a name='L261'></a><a href='#L261'>261</a>
+<a name='L262'></a><a href='#L262'>262</a>
+<a name='L263'></a><a href='#L263'>263</a>
+<a name='L264'></a><a href='#L264'>264</a>
+<a name='L265'></a><a href='#L265'>265</a>
+<a name='L266'></a><a href='#L266'>266</a>
+<a name='L267'></a><a href='#L267'>267</a>
+<a name='L268'></a><a href='#L268'>268</a>
+<a name='L269'></a><a href='#L269'>269</a>
+<a name='L270'></a><a href='#L270'>270</a>
+<a name='L271'></a><a href='#L271'>271</a>
+<a name='L272'></a><a href='#L272'>272</a>
+<a name='L273'></a><a href='#L273'>273</a>
+<a name='L274'></a><a href='#L274'>274</a>
+<a name='L275'></a><a href='#L275'>275</a>
+<a name='L276'></a><a href='#L276'>276</a>
+<a name='L277'></a><a href='#L277'>277</a>
+<a name='L278'></a><a href='#L278'>278</a>
+<a name='L279'></a><a href='#L279'>279</a>
+<a name='L280'></a><a href='#L280'>280</a>
+<a name='L281'></a><a href='#L281'>281</a>
+<a name='L282'></a><a href='#L282'>282</a>
+<a name='L283'></a><a href='#L283'>283</a>
+<a name='L284'></a><a href='#L284'>284</a>
+<a name='L285'></a><a href='#L285'>285</a>
+<a name='L286'></a><a href='#L286'>286</a>
+<a name='L287'></a><a href='#L287'>287</a>
+<a name='L288'></a><a href='#L288'>288</a>
+<a name='L289'></a><a href='#L289'>289</a>
+<a name='L290'></a><a href='#L290'>290</a>
+<a name='L291'></a><a href='#L291'>291</a>
+<a name='L292'></a><a href='#L292'>292</a>
+<a name='L293'></a><a href='#L293'>293</a>
+<a name='L294'></a><a href='#L294'>294</a>
+<a name='L295'></a><a href='#L295'>295</a>
+<a name='L296'></a><a href='#L296'>296</a>
+<a name='L297'></a><a href='#L297'>297</a>
+<a name='L298'></a><a href='#L298'>298</a>
+<a name='L299'></a><a href='#L299'>299</a>
+<a name='L300'></a><a href='#L300'>300</a>
+<a name='L301'></a><a href='#L301'>301</a>
+<a name='L302'></a><a href='#L302'>302</a>
+<a name='L303'></a><a href='#L303'>303</a>
+<a name='L304'></a><a href='#L304'>304</a>
+<a name='L305'></a><a href='#L305'>305</a>
+<a name='L306'></a><a href='#L306'>306</a>
+<a name='L307'></a><a href='#L307'>307</a>
+<a name='L308'></a><a href='#L308'>308</a>
+<a name='L309'></a><a href='#L309'>309</a>
+<a name='L310'></a><a href='#L310'>310</a>
+<a name='L311'></a><a href='#L311'>311</a>
+<a name='L312'></a><a href='#L312'>312</a>
+<a name='L313'></a><a href='#L313'>313</a>
+<a name='L314'></a><a href='#L314'>314</a>
+<a name='L315'></a><a href='#L315'>315</a>
+<a name='L316'></a><a href='#L316'>316</a>
+<a name='L317'></a><a href='#L317'>317</a>
+<a name='L318'></a><a href='#L318'>318</a>
+<a name='L319'></a><a href='#L319'>319</a>
+<a name='L320'></a><a href='#L320'>320</a>
+<a name='L321'></a><a href='#L321'>321</a>
+<a name='L322'></a><a href='#L322'>322</a>
+<a name='L323'></a><a href='#L323'>323</a>
+<a name='L324'></a><a href='#L324'>324</a>
+<a name='L325'></a><a href='#L325'>325</a>
+<a name='L326'></a><a href='#L326'>326</a>
+<a name='L327'></a><a href='#L327'>327</a>
+<a name='L328'></a><a href='#L328'>328</a>
+<a name='L329'></a><a href='#L329'>329</a>
+<a name='L330'></a><a href='#L330'>330</a>
+<a name='L331'></a><a href='#L331'>331</a>
+<a name='L332'></a><a href='#L332'>332</a>
+<a name='L333'></a><a href='#L333'>333</a>
+<a name='L334'></a><a href='#L334'>334</a>
+<a name='L335'></a><a href='#L335'>335</a>
+<a name='L336'></a><a href='#L336'>336</a>
+<a name='L337'></a><a href='#L337'>337</a>
+<a name='L338'></a><a href='#L338'>338</a>
+<a name='L339'></a><a href='#L339'>339</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { LanguageTranslation } from '../../../types';
+&nbsp;
+export const persianTranslations: LanguageTranslation[] = <span class="cstat-no" title="statement not covered" >[</span>
+  // Greetings (40 phrases)
+  { phraseId: "phrase_001", text: "سلام", transcription: "Salâm" },
+  { phraseId: "phrase_002", text: "صبح بخیر", transcription: "Sobh bekheyr" },
+  { phraseId: "phrase_003", text: "سلام علیکم", transcription: "Salâm aleykum" },
+  { phraseId: "phrase_004", text: "عصر بخیر", transcription: "Asr bekheyr" },
+  { phraseId: "phrase_005", text: "شب بخیر", transcription: "Shab bekheyr" },
+  { phraseId: "phrase_006", text: "خداحافظ", transcription: "Khodâhâfez" },
+  { phraseId: "phrase_007", text: "به امید دیدار", transcription: "Be omid-e didâr" },
+  { phraseId: "phrase_008", text: "حال شما چطور است؟", transcription: "Hâl-e shomâ chetor ast?" },
+  { phraseId: "phrase_009", text: "من خوبم، متشکرم", transcription: "Man khubam, moteshakkeram" },
+  { phraseId: "phrase_010", text: "از آشنایی با شما خوشحالم", transcription: "Az âshnâyi bâ shomâ khoshhâlam" },
+  { phraseId: "phrase_011", text: "اسم من...", transcription: "Esm-e man..." },
+  { phraseId: "phrase_012", text: "اسم شما چیست؟", transcription: "Esm-e shomâ chist?" },
+  { phraseId: "phrase_013", text: "شما اهل کجا هستید؟", transcription: "Shomâ ahl-e kojâ hastid?" },
+  { phraseId: "phrase_014", text: "من اهل... هستم", transcription: "Man ahl-e... hastam" },
+  { phraseId: "phrase_015", text: "بله", transcription: "Bale" },
+  { phraseId: "phrase_016", text: "خیر", transcription: "Kheyr" },
+  { phraseId: "phrase_017", text: "متشکرم", transcription: "Moteshakkeram" },
+  { phraseId: "phrase_018", text: "خواهش می‌کنم", transcription: "Khâhesh mikonam" },
+  { phraseId: "phrase_019", text: "لطفا", transcription: "Lotfan" },
+  { phraseId: "phrase_020", text: "ببخشید", transcription: "Bebakhshid" },
+  { phraseId: "phrase_021", text: "عذر می‌خواهم", transcription: "Ozr mikhâham" },
+  { phraseId: "phrase_022", text: "اشکالی ندارد", transcription: "Eshkâli nadârad" },
+  { phraseId: "phrase_023", text: "خوب", transcription: "Khub" },
+  { phraseId: "phrase_024", text: "بد", transcription: "Bad" },
+  { phraseId: "phrase_025", text: "کم", transcription: "Kam" },
+  { phraseId: "phrase_026", text: "زیاد", transcription: "Ziyâd" },
+  { phraseId: "phrase_027", text: "همه", transcription: "Hame" },
+  { phraseId: "phrase_028", text: "هیچی", transcription: "Hichi" },
+  { phraseId: "phrase_029", text: "من نمی‌فهمم", transcription: "Man nemifahmam" },
+  { phraseId: "phrase_030", text: "شما می‌فهمید؟", transcription: "Shomâ mifahmid?" },
+  { phraseId: "phrase_031", text: "من می‌فهمم", transcription: "Man mifahmam" },
+  { phraseId: "phrase_032", text: "می‌توانید آهسته‌تر صحبت کنید؟", transcription: "Mitavânid âhestetar sohbat konid?" },
+  { phraseId: "phrase_033", text: "لطفا تکرار کنید", transcription: "Lotfan tekrâr konid" },
+  { phraseId: "phrase_034", text: "چطور؟", transcription: "Chetor?" },
+  { phraseId: "phrase_035", text: "چی؟", transcription: "Chi?" },
+  { phraseId: "phrase_036", text: "کجا؟", transcription: "Kojâ?" },
+  { phraseId: "phrase_037", text: "کی؟", transcription: "Key?" },
+  { phraseId: "phrase_038", text: "کی؟", transcription: "Ki?" },
+  { phraseId: "phrase_039", text: "چرا؟", transcription: "Cherâ?" },
+  { phraseId: "phrase_040", text: "چقدر؟", transcription: "Cheqadr?" },
+&nbsp;
+  // Numbers (20 phrases)
+  { phraseId: "phrase_041", text: "یک", transcription: "Yek" },
+  { phraseId: "phrase_042", text: "دو", transcription: "Do" },
+  { phraseId: "phrase_043", text: "سه", transcription: "Se" },
+  { phraseId: "phrase_044", text: "چهار", transcription: "Chahâr" },
+  { phraseId: "phrase_045", text: "پنج", transcription: "Panj" },
+  { phraseId: "phrase_046", text: "شش", transcription: "Shesh" },
+  { phraseId: "phrase_047", text: "هفت", transcription: "Haft" },
+  { phraseId: "phrase_048", text: "هشت", transcription: "Hasht" },
+  { phraseId: "phrase_049", text: "نه", transcription: "Noh" },
+  { phraseId: "phrase_050", text: "ده", transcription: "Dah" },
+  { phraseId: "phrase_051", text: "یازده", transcription: "Yâzdah" },
+  { phraseId: "phrase_052", text: "دوازده", transcription: "Davâzdah" },
+  { phraseId: "phrase_053", text: "سیزده", transcription: "Sizdah" },
+  { phraseId: "phrase_054", text: "پانزده", transcription: "Pânzdah" },
+  { phraseId: "phrase_055", text: "بیست", transcription: "Bist" },
+  { phraseId: "phrase_056", text: "سی", transcription: "Si" },
+  { phraseId: "phrase_057", text: "پنجاه", transcription: "Panjâh" },
+  { phraseId: "phrase_058", text: "صد", transcription: "Sad" },
+  { phraseId: "phrase_059", text: "هزار", transcription: "Hezâr" },
+  { phraseId: "phrase_060", text: "یک میلیون", transcription: "Yek milyun" },
+&nbsp;
+  // Time (25 phrases)
+  { phraseId: "phrase_061", text: "امروز", transcription: "Emruz" },
+  { phraseId: "phrase_062", text: "دیروز", transcription: "Diruz" },
+  { phraseId: "phrase_063", text: "فردا", transcription: "Fardâ" },
+  { phraseId: "phrase_064", text: "صبح", transcription: "Sobh" },
+  { phraseId: "phrase_065", text: "ظهر", transcription: "Zohr" },
+  { phraseId: "phrase_066", text: "عصر", transcription: "Asr" },
+  { phraseId: "phrase_067", text: "شب", transcription: "Shab" },
+  { phraseId: "phrase_068", text: "هفته", transcription: "Hafte" },
+  { phraseId: "phrase_069", text: "ماه", transcription: "Mâh" },
+  { phraseId: "phrase_070", text: "سال", transcription: "Sâl" },
+  { phraseId: "phrase_071", text: "روز", transcription: "Ruz" },
+  { phraseId: "phrase_072", text: "ساعت", transcription: "Sâ'at" },
+  { phraseId: "phrase_073", text: "دقیقه", transcription: "Daqiqe" },
+  { phraseId: "phrase_074", text: "ثانیه", transcription: "Sâniye" },
+  { phraseId: "phrase_075", text: "دوشنبه", transcription: "Doshanbe" },
+  { phraseId: "phrase_076", text: "سه‌شنبه", transcription: "Seshanbe" },
+  { phraseId: "phrase_077", text: "چهارشنبه", transcription: "Chahârshanbe" },
+  { phraseId: "phrase_078", text: "پنج‌شنبه", transcription: "Panjshanbe" },
+  { phraseId: "phrase_079", text: "جمعه", transcription: "Jom'e" },
+  { phraseId: "phrase_080", text: "شنبه", transcription: "Shanbe" },
+  { phraseId: "phrase_081", text: "یکشنبه", transcription: "Yekshanbe" },
+  { phraseId: "phrase_082", text: "ژانویه", transcription: "Zhânviye" },
+  { phraseId: "phrase_083", text: "فوریه", transcription: "Fevriye" },
+  { phraseId: "phrase_084", text: "مارس", transcription: "Mârs" },
+  { phraseId: "phrase_085", text: "آوریل", transcription: "Âvril" },
+&nbsp;
+  // Food (30 phrases)
+  { phraseId: "phrase_086", text: "رستوران", transcription: "Resturân" },
+  { phraseId: "phrase_087", text: "منو", transcription: "Menu" },
+  { phraseId: "phrase_088", text: "صبحانه", transcription: "Sobhâne" },
+  { phraseId: "phrase_089", text: "ناهار", transcription: "Nâhâr" },
+  { phraseId: "phrase_090", text: "شام", transcription: "Shâm" },
+  { phraseId: "phrase_091", text: "آب", transcription: "Âb" },
+  { phraseId: "phrase_092", text: "چای", transcription: "Châi" },
+  { phraseId: "phrase_093", text: "قهوه", transcription: "Qahve" },
+  { phraseId: "phrase_094", text: "شیر", transcription: "Shir" },
+  { phraseId: "phrase_095", text: "آبمیوه", transcription: "Âbmive" },
+  { phraseId: "phrase_096", text: "آبجو", transcription: "Âbju" },
+  { phraseId: "phrase_097", text: "شراب", transcription: "Sharâb" },
+  { phraseId: "phrase_098", text: "نان", transcription: "Nân" },
+  { phraseId: "phrase_099", text: "گوشت", transcription: "Gusht" },
+  { phraseId: "phrase_100", text: "ماهی", transcription: "Mâhi" },
+  { phraseId: "phrase_101", text: "مرغ", transcription: "Morgh" },
+  { phraseId: "phrase_102", text: "سبزیجات", transcription: "Sabzijât" },
+  { phraseId: "phrase_103", text: "میوه", transcription: "Mive" },
+  { phraseId: "phrase_104", text: "برنج", transcription: "Berenj" },
+  { phraseId: "phrase_105", text: "سوپ", transcription: "Sup" },
+  { phraseId: "phrase_106", text: "سالاد", transcription: "Sâlâd" },
+  { phraseId: "phrase_107", text: "پنیر", transcription: "Panir" },
+  { phraseId: "phrase_108", text: "کره", transcription: "Kare" },
+  { phraseId: "phrase_109", text: "شکر", transcription: "Shekar" },
+  { phraseId: "phrase_110", text: "نمک", transcription: "Namak" },
+  { phraseId: "phrase_111", text: "فلفل", transcription: "Felfel" },
+  { phraseId: "phrase_112", text: "بستنی", transcription: "Bastani" },
+  { phraseId: "phrase_113", text: "کیک", transcription: "Keyk" },
+  { phraseId: "phrase_114", text: "خوشمزه", transcription: "Khoshmaze" },
+  { phraseId: "phrase_115", text: "نوش جان", transcription: "Nush-e jân" },
+&nbsp;
+  // Shopping (25 phrases)
+  { phraseId: "phrase_116", text: "مغازه", transcription: "Maghâze" },
+  { phraseId: "phrase_117", text: "بازار", transcription: "Bâzâr" },
+  { phraseId: "phrase_118", text: "قیمت چقدر است؟", transcription: "Qeymat cheqadr ast?" },
+  { phraseId: "phrase_119", text: "چقدر هزینه دارد؟", transcription: "Cheqadr hazine dârad?" },
+  { phraseId: "phrase_120", text: "من می‌خواهم این را بخرم", transcription: "Man mikhâham in râ bekharam" },
+  { phraseId: "phrase_121", text: "گران", transcription: "Gerân" },
+  { phraseId: "phrase_122", text: "ارزان", transcription: "Arzân" },
+  { phraseId: "phrase_123", text: "تخفیف", transcription: "Takhfif" },
+  { phraseId: "phrase_124", text: "قیمت", transcription: "Qeymat" },
+  { phraseId: "phrase_125", text: "پول", transcription: "Pul" },
+  { phraseId: "phrase_126", text: "کارت اعتباری", transcription: "Kârt-e e'tebâri" },
+  { phraseId: "phrase_127", text: "نقدی", transcription: "Naqdi" },
+  { phraseId: "phrase_128", text: "رسید", transcription: "Resid" },
+  { phraseId: "phrase_129", text: "کارت قبول می‌کنید؟", transcription: "Kârt qabul mikonid?" },
+  { phraseId: "phrase_130", text: "سایز", transcription: "Sâyz" },
+  { phraseId: "phrase_131", text: "رنگ", transcription: "Rang" },
+  { phraseId: "phrase_132", text: "بزرگ", transcription: "Bozorg" },
+  { phraseId: "phrase_133", text: "کوچک", transcription: "Kuchak" },
+  { phraseId: "phrase_134", text: "متوسط", transcription: "Motavasset" },
+  { phraseId: "phrase_135", text: "نو", transcription: "Now" },
+  { phraseId: "phrase_136", text: "کهنه", transcription: "Kohne" },
+  { phraseId: "phrase_137", text: "زیبا", transcription: "Zibâ" },
+  { phraseId: "phrase_138", text: "زشت", transcription: "Zesht" },
+  { phraseId: "phrase_139", text: "کیفیت", transcription: "Keyfiyat" },
+  { phraseId: "phrase_140", text: "می‌توانم امتحان کنم؟", transcription: "Mitavânam emtehân konam?" },
+&nbsp;
+  // Transportation (20 phrases)
+  { phraseId: "phrase_141", text: "تاکسی", transcription: "Tâksi" },
+  { phraseId: "phrase_142", text: "اتوبوس", transcription: "Otubus" },
+  { phraseId: "phrase_143", text: "قطار", transcription: "Qatâr" },
+  { phraseId: "phrase_144", text: "هواپیما", transcription: "Havâpeymâ" },
+  { phraseId: "phrase_145", text: "فرودگاه", transcription: "Forudgâh" },
+  { phraseId: "phrase_146", text: "ایستگاه", transcription: "Istgâh" },
+  { phraseId: "phrase_147", text: "ایستگاه اتوبوس", transcription: "Istgâh-e otubus" },
+  { phraseId: "phrase_148", text: "بلیط", transcription: "Belit" },
+  { phraseId: "phrase_149", text: "بلیط چقدر است؟", transcription: "Belit cheqadr ast?" },
+  { phraseId: "phrase_150", text: "ایستگاه اتوبوس کجاست؟", transcription: "Istgâh-e otubus kojâst?" },
+  { phraseId: "phrase_151", text: "چطور به... بروم؟", transcription: "Chetor be... beravam?" },
+  { phraseId: "phrase_152", text: "چپ", transcription: "Chap" },
+  { phraseId: "phrase_153", text: "راست", transcription: "Râst" },
+  { phraseId: "phrase_154", text: "مستقیم", transcription: "Mostaqim" },
+  { phraseId: "phrase_155", text: "دور", transcription: "Dur" },
+  { phraseId: "phrase_156", text: "نزدیک", transcription: "Nazdik" },
+  { phraseId: "phrase_157", text: "اینجا", transcription: "Injâ" },
+  { phraseId: "phrase_158", text: "آنجا", transcription: "Ânjâ" },
+  { phraseId: "phrase_159", text: "خیابان", transcription: "Khiyâbân" },
+  { phraseId: "phrase_160", text: "آدرس", transcription: "Âdres" },
+&nbsp;
+  // Hotel (25 phrases)
+  { phraseId: "phrase_161", text: "هتل", transcription: "Hotel" },
+  { phraseId: "phrase_162", text: "اتاق", transcription: "Otâq" },
+  { phraseId: "phrase_163", text: "رزرو", transcription: "Rezerv" },
+  { phraseId: "phrase_164", text: "من رزرو دارم", transcription: "Man rezerv dâram" },
+  { phraseId: "phrase_165", text: "من یک اتاق می‌خواهم", transcription: "Man yek otâq mikhâham" },
+  { phraseId: "phrase_166", text: "برای یک نفر", transcription: "Barâye yek nafar" },
+  { phraseId: "phrase_167", text: "برای دو نفر", transcription: "Barâye do nafar" },
+  { phraseId: "phrase_168", text: "برای یک شب", transcription: "Barâye yek shab" },
+  { phraseId: "phrase_169", text: "برای دو شب", transcription: "Barâye do shab" },
+  { phraseId: "phrase_170", text: "برای یک هفته", transcription: "Barâye yek hafte" },
+  { phraseId: "phrase_171", text: "اتاق چقدر است؟", transcription: "Otâq cheqadr ast?" },
+  { phraseId: "phrase_172", text: "آیا صبحانه شامل است؟", transcription: "Âyâ sobhâne shâmel ast?" },
+  { phraseId: "phrase_173", text: "کلید", transcription: "Kelid" },
+  { phraseId: "phrase_174", text: "کلید اتاق", transcription: "Kelid-e otâq" },
+  { phraseId: "phrase_175", text: "تخت", transcription: "Takht" },
+  { phraseId: "phrase_176", text: "حمام", transcription: "Hammâm" },
+  { phraseId: "phrase_177", text: "دوش", transcription: "Dush" },
+  { phraseId: "phrase_178", text: "کولر", transcription: "Kuler" },
+  { phraseId: "phrase_179", text: "وای‌فای", transcription: "Wâi-fâi" },
+  { phraseId: "phrase_180", text: "رمز وای‌فای چیست؟", transcription: "Ramz-e wâi-fâi chist?" },
+  { phraseId: "phrase_181", text: "حوله", transcription: "Howle" },
+  { phraseId: "phrase_182", text: "صابون", transcription: "Sâbun" },
+  { phraseId: "phrase_183", text: "سرویس اتاق", transcription: "Servis-e otâq" },
+  { phraseId: "phrase_184", text: "ثبت‌نام ورود", transcription: "Sabt-nâm-e vorud" },
+  { phraseId: "phrase_185", text: "ثبت‌نام خروج", transcription: "Sabt-nâm-e khoruj" },
+&nbsp;
+  // Emergency (15 phrases)
+  { phraseId: "phrase_186", text: "کمک!", transcription: "Komak!" },
+  { phraseId: "phrase_187", text: "اورژانس", transcription: "Urzhâns" },
+  { phraseId: "phrase_188", text: "پلیس", transcription: "Polis" },
+  { phraseId: "phrase_189", text: "دکتر", transcription: "Doktor" },
+  { phraseId: "phrase_190", text: "بیمارستان", transcription: "Bimârestân" },
+  { phraseId: "phrase_191", text: "آمبولانس", transcription: "Âmbulâns" },
+  { phraseId: "phrase_192", text: "داروخانه", transcription: "Dârukhâne" },
+  { phraseId: "phrase_193", text: "من مریضم", transcription: "Man marizam" },
+  { phraseId: "phrase_194", text: "من به دکتر نیاز دارم", transcription: "Man be doktor niyâz dâram" },
+  { phraseId: "phrase_195", text: "من...را گم کردم", transcription: "Man...râ gom kardam" },
+  { phraseId: "phrase_196", text: "من گم شده‌ام", transcription: "Man gom shodam" },
+  { phraseId: "phrase_197", text: "آتش", transcription: "Âtash" },
+  { phraseId: "phrase_198", text: "خطر", transcription: "Khatar" },
+  { phraseId: "phrase_199", text: "احتیاط", transcription: "Ehtiyât" },
+  { phraseId: "phrase_200", text: "ممنوع", transcription: "Mamnu'" },
+&nbsp;
+  // Questions (20 phrases)
+  { phraseId: "phrase_201", text: "این چیست؟", transcription: "In chist?" },
+  { phraseId: "phrase_202", text: "این کجاست؟", transcription: "In kojâst?" },
+  { phraseId: "phrase_203", text: "این چقدر است؟", transcription: "In cheqadr ast?" },
+  { phraseId: "phrase_204", text: "کی؟", transcription: "Key?" },
+  { phraseId: "phrase_205", text: "کی؟", transcription: "Ki?" },
+  { phraseId: "phrase_206", text: "چرا؟", transcription: "Cherâ?" },
+  { phraseId: "phrase_207", text: "چطور؟", transcription: "Chetor?" },
+  { phraseId: "phrase_208", text: "دستشویی کجاست؟", transcription: "Dast-shuyi kojâst?" },
+  { phraseId: "phrase_209", text: "می‌توانید کمک کنید؟", transcription: "Mitavânid komak konid?" },
+  { phraseId: "phrase_210", text: "آیا می‌دانید...؟", transcription: "Âyâ midânid...?" },
+  { phraseId: "phrase_211", text: "می‌توانید نشان دهید؟", transcription: "Mitavânid neshân dahid?" },
+  { phraseId: "phrase_212", text: "آیا این ممکن است؟", transcription: "Âyâ in momken ast?" },
+  { phraseId: "phrase_213", text: "آیا شما...دارید؟", transcription: "Âyâ shomâ...dârid?" },
+  { phraseId: "phrase_214", text: "آیا این موجود است؟", transcription: "Âyâ in mowjud ast?" },
+  { phraseId: "phrase_215", text: "چقدر زمان؟", transcription: "Cheqadr zamân?" },
+  { phraseId: "phrase_216", text: "چقدر دور؟", transcription: "Cheqadr dur?" },
+  { phraseId: "phrase_217", text: "الان ساعت چند است؟", transcription: "Alân sâ'at chand ast?" },
+  { phraseId: "phrase_218", text: "کی باز می‌شود؟", transcription: "Key bâz mishavad?" },
+  { phraseId: "phrase_219", text: "کی بسته می‌شود؟", transcription: "Key baste mishavad?" },
+  { phraseId: "phrase_220", text: "آیا امروز باز است؟", transcription: "Âyâ emruz bâz ast?" },
+&nbsp;
+  // Family (15 phrases)
+  { phraseId: "phrase_221", text: "خانواده", transcription: "Khânevâde" },
+  { phraseId: "phrase_222", text: "پدر", transcription: "Pedar" },
+  { phraseId: "phrase_223", text: "مادر", transcription: "Mâdar" },
+  { phraseId: "phrase_224", text: "پسر", transcription: "Pesar" },
+  { phraseId: "phrase_225", text: "دختر", transcription: "Dokhtar" },
+  { phraseId: "phrase_226", text: "برادر", transcription: "Barâdar" },
+  { phraseId: "phrase_227", text: "خواهر", transcription: "Khâhar" },
+  { phraseId: "phrase_228", text: "شوهر", transcription: "Showhar" },
+  { phraseId: "phrase_229", text: "همسر", transcription: "Hamsar" },
+  { phraseId: "phrase_230", text: "پدربزرگ", transcription: "Pedarbozorg" },
+  { phraseId: "phrase_231", text: "مادربزرگ", transcription: "Mâdarbozorg" },
+  { phraseId: "phrase_232", text: "عمو", transcription: "Ammu" },
+  { phraseId: "phrase_233", text: "عمه", transcription: "Amme" },
+  { phraseId: "phrase_234", text: "بچه‌ها", transcription: "Bachchehâ" },
+  { phraseId: "phrase_235", text: "والدین", transcription: "Vâledeyn" },
+&nbsp;
+  // Health (20 phrases)
+  { phraseId: "phrase_236", text: "مریض", transcription: "Mariz" },
+  { phraseId: "phrase_237", text: "تب", transcription: "Tab" },
+  { phraseId: "phrase_238", text: "سردرد", transcription: "Sardard" },
+  { phraseId: "phrase_239", text: "دل درد", transcription: "Deldard" },
+  { phraseId: "phrase_240", text: "سرماخوردگی", transcription: "Sarmâkhordegi" },
+  { phraseId: "phrase_241", text: "سرفه", transcription: "Sorfe" },
+  { phraseId: "phrase_242", text: "گرفتگی بینی", transcription: "Gereftegi-ye bini" },
+  { phraseId: "phrase_243", text: "دارو", transcription: "Dâru" },
+  { phraseId: "phrase_244", text: "قرص", transcription: "Qors" },
+  { phraseId: "phrase_245", text: "نسخه", transcription: "Noskhe" },
+  { phraseId: "phrase_246", text: "بیمه", transcription: "Bime" },
+  { phraseId: "phrase_247", text: "حساسیت", transcription: "Hassâsiyat" },
+  { phraseId: "phrase_248", text: "من به...حساسیت دارم", transcription: "Man be...hassâsiyat dâram" },
+  { phraseId: "phrase_249", text: "آسم", transcription: "Âsm" },
+  { phraseId: "phrase_250", text: "دیابت", transcription: "Diyâbet" },
+  { phraseId: "phrase_251", text: "فشار خون", transcription: "Feshâr-e khun" },
+  { phraseId: "phrase_252", text: "قلب", transcription: "Qalb" },
+  { phraseId: "phrase_253", text: "معده", transcription: "Me'de" },
+  { phraseId: "phrase_254", text: "کمر", transcription: "Kamar" },
+  { phraseId: "phrase_255", text: "دندان", transcription: "Dandân" },
+&nbsp;
+  // Weather (10 phrases)
+  { phraseId: "phrase_256", text: "هوا", transcription: "Havâ" },
+  { phraseId: "phrase_257", text: "گرم", transcription: "Garm" },
+  { phraseId: "phrase_258", text: "سرد", transcription: "Sard" },
+  { phraseId: "phrase_259", text: "باران", transcription: "Bârân" },
+  { phraseId: "phrase_260", text: "برف", transcription: "Barf" },
+  { phraseId: "phrase_261", text: "باد", transcription: "Bâd" },
+  { phraseId: "phrase_262", text: "ابری", transcription: "Abri" },
+  { phraseId: "phrase_263", text: "آفتابی", transcription: "Âftâbi" },
+  { phraseId: "phrase_264", text: "دما", transcription: "Damâ" },
+  { phraseId: "phrase_265", text: "اقلیم", transcription: "Eqlim" },
+&nbsp;
+  // Colors (12 phrases)
+  { phraseId: "phrase_266", text: "سفید", transcription: "Sefid" },
+  { phraseId: "phrase_267", text: "سیاه", transcription: "Siyâh" },
+  { phraseId: "phrase_268", text: "قرمز", transcription: "Qermez" },
+  { phraseId: "phrase_269", text: "آبی", transcription: "Âbi" },
+  { phraseId: "phrase_270", text: "سبز", transcription: "Sabz" },
+  { phraseId: "phrase_271", text: "زرد", transcription: "Zard" },
+  { phraseId: "phrase_272", text: "نارنجی", transcription: "Nârenji" },
+  { phraseId: "phrase_273", text: "بنفش", transcription: "Banafsh" },
+  { phraseId: "phrase_274", text: "صورتی", transcription: "Surati" },
+  { phraseId: "phrase_275", text: "قهوه‌ای", transcription: "Qahve'i" },
+  { phraseId: "phrase_276", text: "خاکستری", transcription: "Khâkestari" },
+  { phraseId: "phrase_277", text: "طلایی", transcription: "Talâyi" },
+&nbsp;
+  // Directions (18 phrases)
+  { phraseId: "phrase_278", text: "شمال", transcription: "Shomâl" },
+  { phraseId: "phrase_279", text: "جنوب", transcription: "Jonub" },
+  { phraseId: "phrase_280", text: "شرق", transcription: "Sharq" },
+  { phraseId: "phrase_281", text: "غرب", transcription: "Gharb" },
+  { phraseId: "phrase_282", text: "نقشه", transcription: "Naqshe" },
+  { phraseId: "phrase_283", text: "قطب‌نما", transcription: "Qotb-namâ" },
+  { phraseId: "phrase_284", text: "جی‌پی‌اس", transcription: "Ji-pi-es" },
+  { phraseId: "phrase_285", text: "موقعیت", transcription: "Mowqe'iyat" },
+  { phraseId: "phrase_286", text: "مقصد", transcription: "Maqsad" },
+  { phraseId: "phrase_287", text: "مسیر", transcription: "Masir" },
+  { phraseId: "phrase_288", text: "تقاطع", transcription: "Taqâto'" },
+  { phraseId: "phrase_289", text: "میدان", transcription: "Meydân" },
+  { phraseId: "phrase_290", text: "پل", transcription: "Pol" },
+  { phraseId: "phrase_291", text: "ساختمان", transcription: "Sâkhtemân" },
+  { phraseId: "phrase_292", text: "جلو", transcription: "Jelo" },
+  { phraseId: "phrase_293", text: "پشت", transcription: "Posht" },
+  { phraseId: "phrase_294", text: "روبرو", transcription: "Ruberu" },
+  { phraseId: "phrase_295", text: "کنار", transcription: "Kenâr" },
+&nbsp;
+  // Communication (15 phrases)
+  { phraseId: "phrase_296", text: "تلفن", transcription: "Telefon" },
+  { phraseId: "phrase_297", text: "شماره تلفن", transcription: "Shomâre-ye telefon" },
+  { phraseId: "phrase_298", text: "ایمیل", transcription: "Imeyl" },
+  { phraseId: "phrase_299", text: "اینترنت", transcription: "Internet" },
+  { phraseId: "phrase_300", text: "وای‌فای", transcription: "Wâi-fâi" },
+  { phraseId: "phrase_301", text: "کامپیوتر", transcription: "Kâmpyuter" },
+  { phraseId: "phrase_302", text: "موبایل", transcription: "Mobâyl" },
+  { phraseId: "phrase_303", text: "پیام", transcription: "Payâm" },
+  { phraseId: "phrase_304", text: "نامه", transcription: "Nâme" },
+  { phraseId: "phrase_305", text: "ورزشگاه", transcription: "Varzeshgâh" },
+];
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2025-11-26T03:37:09.236Z
+            </div>
+        <script src="../../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../../sorter.js"></script>
+        <script src="../../../block-navigation.js"></script>
+    </body>
+</html>
+    

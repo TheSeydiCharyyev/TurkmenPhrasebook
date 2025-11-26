@@ -58,8 +58,6 @@ export class LanguageAnalyticsService {
           startTime: Date.now(),
         })
       );
-
-      console.log(`[LanguageAnalytics] Session started for ${languageCode}`);
     } catch (error) {
       console.error('[LanguageAnalytics] Error starting session:', error);
     }
@@ -86,8 +84,6 @@ export class LanguageAnalyticsService {
 
       // Очищаем текущую сессию
       await AsyncStorage.removeItem(STORAGE_KEYS.SESSION_START);
-
-      console.log(`[LanguageAnalytics] Session ended for ${session.languageCode}, duration: ${duration}ms`);
     } catch (error) {
       console.error('[LanguageAnalytics] Error ending session:', error);
     }
@@ -149,8 +145,6 @@ export class LanguageAnalyticsService {
       const trimmedSwitches = switches.slice(0, 100);
 
       await AsyncStorage.setItem(STORAGE_KEYS.LANGUAGE_SWITCHES, JSON.stringify(trimmedSwitches));
-
-      console.log(`[LanguageAnalytics] Language switch recorded: ${fromLanguage} → ${toLanguage}`);
     } catch (error) {
       console.error('[LanguageAnalytics] Error recording language switch:', error);
     }
@@ -263,7 +257,6 @@ export class LanguageAnalyticsService {
         STORAGE_KEYS.LANGUAGE_SWITCHES,
         STORAGE_KEYS.SESSION_START,
       ]);
-      console.log('[LanguageAnalytics] Cleared all analytics data');
     } catch (error) {
       console.error('[LanguageAnalytics] Error clearing analytics:', error);
     }

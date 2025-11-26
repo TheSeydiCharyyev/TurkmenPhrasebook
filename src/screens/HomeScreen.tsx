@@ -1,6 +1,6 @@
 // src/screens/HomeScreen.tsx - ОБНОВЛЕНО для мультиязычности (Phase 3)
 
-import React, { useCallback, useRef, useMemo, useState } from 'react';
+import React, { useCallback, useRef, useMemo, useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -202,6 +202,14 @@ export default function HomeScreen() {
       parentNavigation.navigate('MainHub');
     }
   }, [navigation]);
+
+  // ✅ FIXED: Cleanup Animated.Value on unmount (CRITICAL memory leak fix)
+  useEffect(() => {
+    return () => {
+      scrollY.stopAnimation();
+      headerTranslateY.stopAnimation();
+    };
+  }, [scrollY, headerTranslateY]);
 
   return (
     <ErrorBoundary>

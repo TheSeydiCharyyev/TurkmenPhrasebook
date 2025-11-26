@@ -43,13 +43,11 @@ export const useOTAUpdates = () => {
   const checkForUpdate = useCallback(async () => {
     // Проверяем наличие expo-updates
     if (!Updates) {
-      console.log('[OTA] expo-updates not available');
       return false;
     }
 
     // Проверяем только в production билдах
     if (__DEV__) {
-      console.log('[OTA] Skipping update check in development');
       return false;
     }
 
@@ -66,11 +64,7 @@ export const useOTAUpdates = () => {
         availableVersion: update.isAvailable ? 'new' : null,
       }));
 
-      if (update.isAvailable) {
-        console.log('[OTA] Update available!');
-      } else {
-        console.log('[OTA] App is up to date');
-      }
+      // Update status set in state
 
       return update.isAvailable;
     } catch (error) {
@@ -89,12 +83,10 @@ export const useOTAUpdates = () => {
    */
   const downloadAndApplyUpdate = useCallback(async () => {
     if (!Updates) {
-      console.log('[OTA] expo-updates not available');
       return false;
     }
 
     if (__DEV__) {
-      console.log('[OTA] Skipping update download in development');
       return false;
     }
 
@@ -105,13 +97,10 @@ export const useOTAUpdates = () => {
       const result = await Updates.fetchUpdateAsync();
 
       if (result.isNew) {
-        console.log('[OTA] New update downloaded, reloading...');
-
         // Перезагружаем приложение с новым обновлением
         await Updates.reloadAsync();
         return true;
       } else {
-        console.log('[OTA] No new update to download');
         setStatus(prev => ({ ...prev, isDownloading: false }));
         return false;
       }

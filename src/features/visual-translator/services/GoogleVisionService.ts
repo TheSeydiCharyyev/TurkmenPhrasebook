@@ -54,9 +54,6 @@ class GoogleVisionService {
         throw new Error('Google Cloud Vision API key is required');
       }
 
-      console.log('[GoogleVisionService] Starting OCR with Google Cloud Vision...');
-      console.log('[GoogleVisionService] Image URI:', imageUri);
-
       // Конвертируем изображение в base64
       const base64Image = await this.imageToBase64(imageUri);
 
@@ -91,7 +88,6 @@ class GoogleVisionService {
       }
 
       const data: GoogleVisionResponse = await response.json();
-      console.log('[GoogleVisionService] API Response received');
 
       if (!data.responses || data.responses.length === 0) {
         throw new Error('No response from Google Vision API');
@@ -116,8 +112,6 @@ class GoogleVisionService {
       if (!recognizedText) {
         throw new Error('No text found in image');
       }
-
-      console.log('[GoogleVisionService] ✅ Text recognized:', recognizedText.substring(0, 100));
 
       // Определяем язык
       const language = fullText.locale || this.detectLanguage(recognizedText);

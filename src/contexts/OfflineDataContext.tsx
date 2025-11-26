@@ -96,20 +96,14 @@ export function OfflineDataProvider({ children }: OfflineDataProviderProps) {
           }
         }
         
-        console.log('✅ Loaded data from cache:', {
-          phrases: cachedData.phrases.length,
-          categories: cachedData.categories.length
-        });
       } else {
         // Используем локальные данные
         setPhrases(defaultPhrases);
         setCategories(defaultCategories);
         setDataSource('local');
         setLastUpdate(new Date());
-        
-        console.log('📱 Using local data as fallback');
       }
-      
+
     } catch (error) {
       console.warn('Data initialization failed:', error);
       

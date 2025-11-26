@@ -45,8 +45,9 @@ const PhraseItem = React.memo<{
   phrase: PhraseWithTranslation;
   onPress: (phrase: PhraseWithTranslation) => void;
   config: any;
-}>(({ phrase, onPress, config }) => {
-  const { isFavorite, toggleFavorite } = useFavorites();
+  isFavorite: (id: string) => boolean;
+  toggleFavorite: (id: string) => void;
+}>(({ phrase, onPress, config, isFavorite, toggleFavorite }) => {
   const { playAudio, isPlaying, isLoading } = useAudio(); // ✅ Добавил isLoading
   const { selectedLanguage } = useConfig();
 
@@ -253,6 +254,9 @@ export default function CategoryScreen() {
   // Use multilingual phrases
   const { getPhrasesByCategory, getPhrasesBySubcategory } = usePhrases();
 
+  // ✅ FIXED: Move useFavorites to parent component (was called 100+ times in child)
+  const { isFavorite, toggleFavorite } = useFavorites();
+
   // Анимация скролла для заголовка
   const scrollY = useRef(new Animated.Value(0)).current;
   const { category } = route.params;
@@ -419,7 +423,18 @@ export default function CategoryScreen() {
         <View style={[styles.accentLine, { backgroundColor: gradientStart }]} />
       </View>
 
-      <ScrollView
+      <FlatList
+        data={filteredPhrases}
+        renderItem={({ item }) => (
+          <PhraseItem
+            phrase={item}
+            onPress={handlePhrasePress}
+            config={config}
+            isFavorite={isFavorite}
+            toggleFavorite={toggleFavorite}
+          />
+        )}
+        keyExtractor={(item) => item.id}
         style={styles.content}
         showsVerticalScrollIndicator={false}
         onScroll={Animated.event(
@@ -427,50 +442,38 @@ export default function CategoryScreen() {
           { useNativeDriver: false }
         )}
         scrollEventThrottle={16}
-      >
-
-        {/* ПОДКАТЕГОРИИ - показываем ПЕРВЫМИ если есть и не выбрана конкретная */}
-        {subcategories.length > 0 && !selectedSubcategory && (
-          <View style={styles.subcategoriesSection}>
-            <Text style={styles.sectionTitle}>
-              {config.mode === 'tk' ? 'Bölümler' :
-               config.mode === 'zh' ? '分类' : 'Разделы'}
-            </Text>
-            <SubCategoriesGrid
-              subcategories={subcategories}
-              onSubcategoryPress={handleSubcategoryPress}
-              getPhrasesCount={getPhrasesCountForSubcategory}
-            />
-          </View>
-        )}
-
-        {/* ФРАЗЫ - показываем всегда когда есть */}
-        {filteredPhrases.length > 0 && (
-          <View style={styles.phrasesSection}>
-            {/* Заголовок для фраз (только если есть подкатегории и не выбрана конкретная) */}
+        windowSize={10}
+        maxToRenderPerBatch={10}
+        removeClippedSubviews={true}
+        initialNumToRender={15}
+        contentContainerStyle={styles.flatListContent}
+        ListHeaderComponent={
+          <>
+            {/* ПОДКАТЕГОРИИ - показываем ПЕРВЫМИ если есть и не выбрана конкретная */}
             {subcategories.length > 0 && !selectedSubcategory && (
+              <View style={styles.subcategoriesSection}>
+                <Text style={styles.sectionTitle}>
+                  {config.mode === 'tk' ? 'Bölümler' :
+                   config.mode === 'zh' ? '分类' : 'Разделы'}
+                </Text>
+                <SubCategoriesGrid
+                  subcategories={subcategories}
+                  onSubcategoryPress={handleSubcategoryPress}
+                  getPhrasesCount={getPhrasesCountForSubcategory}
+                />
+              </View>
+            )}
+
+            {/* Заголовок для фраз (только если есть подкатегории и не выбрана конкретная) */}
+            {filteredPhrases.length > 0 && subcategories.length > 0 && !selectedSubcategory && (
               <Text style={styles.sectionTitle}>
                 {config.mode === 'tk' ? 'Ähli sözlemler' :
                  config.mode === 'zh' ? '所有短语' : 'Все фразы'}
               </Text>
             )}
-
-            {/* Список фраз */}
-            <View style={styles.phrasesList}>
-              {filteredPhrases.map((phrase) => (
-                <PhraseItem 
-                  key={phrase.id}
-                  phrase={phrase} 
-                  onPress={handlePhrasePress}
-                  config={config}
-                />
-              ))}
-            </View>
-          </View>
-        )}
-
-        {/* Сообщение о пустом списке */}
-        {filteredPhrases.length === 0 && (
+          </>
+        }
+        ListEmptyComponent={
           <View style={styles.emptyContainer}>
             <Text style={styles.emptyEmoji}>💬</Text>
             <Text style={styles.emptyTitle}>
@@ -486,10 +489,9 @@ export default function CategoryScreen() {
               }
             </Text>
           </View>
-        )}
-
-        <View style={styles.bottomSpacing} />
-      </ScrollView>
+        }
+        ListFooterComponent={<View style={styles.bottomSpacing} />}
+      />
     </SafeAreaView>
   );
 }
@@ -606,7 +608,8 @@ const styles = StyleSheet.create({
   // ✅ ИСПРАВЛЕННЫЙ заголовок - только языковая пара
 
   subcategoriesSection: {
-    padding: scale(16),
+    paddingVertical: scale(12),
+    paddingHorizontal: scale(8),
     backgroundColor: '#fff',
   },
 
@@ -623,8 +626,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: scale(16),
   },
 
-  phrasesList: {
+  flatListContent: {
     paddingHorizontal: scale(16),
+    paddingTop: verticalScale(24),
   },
 
   // ✅ МИНИМАЛИСТИЧНЫЕ стили для фразы (Phase 12)
