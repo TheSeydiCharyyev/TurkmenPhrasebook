@@ -59,6 +59,7 @@ export type HomeStackParamList = {
     parentCategory: Category;
   };
   PhraseDetail: { phrase: PhraseWithTranslation };
+  AskAIScreen: { phrase: PhraseWithTranslation; categoryId: string };
 };
 
 /**
