@@ -1,0 +1,3064 @@
+{
+  "language": "Kyrgyz",
+  "languageCode": "ky",
+  "timestamp": "2025-11-27T09:36:31.798Z",
+  "summary": {
+    "total": 305,
+    "verified": 106,
+    "needsReview": 199,
+    "errors": 0,
+    "verificationRate": "34.8%"
+  },
+  "results": [
+    {
+      "phraseId": "Halo",
+      "category": "greetings",
+      "english": "Hello",
+      "current": "Салам",
+      "myMemory": "Салам",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat pagi",
+      "category": "greetings",
+      "english": "Thank you",
+      "current": "Рахмат",
+      "myMemory": "Ыракмат.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat siang",
+      "category": "greetings",
+      "english": "Goodbye",
+      "current": "Кош болуңуз",
+      "myMemory": "Куттуктайм.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat sore",
+      "category": "greetings",
+      "english": "Excuse me",
+      "current": "Кечиресиз",
+      "myMemory": "Кечиресиз.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat malam",
+      "category": "greetings",
+      "english": "Good morning",
+      "current": "Кутман таң!",
+      "myMemory": "Жакшы эртең менен",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat tinggal",
+      "category": "greetings",
+      "english": "Good night",
+      "current": "Жакшы түн!",
+      "myMemory": "Жакшы түн",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sampai jumpa",
+      "category": "greetings",
+      "english": "My name is...",
+      "current": "Менин атым...",
+      "myMemory": "Менин атым...",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apa kabar?",
+      "category": "greetings",
+      "english": "What is your name?",
+      "current": "Сиздин атыңыз ким?",
+      "myMemory": "Аты-жөнүңүз? ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Baik-baik saja, terima kasih",
+      "category": "greetings",
+      "english": "Nice to meet you",
+      "current": "Сиз менен таанышканыма кубанычтуумун!",
+      "myMemory": "Сиз менен таанышканыма кубанычтамын",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Senang bertemu dengan Anda",
+      "category": "greetings",
+      "english": "Please",
+      "current": "Өтүнөмүн",
+      "myMemory": "Сураныч! ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Nama saya...",
+      "category": "greetings",
+      "english": "You're welcome",
+      "current": "Эч нерсе эмес",
+      "myMemory": "Сизге кош келиңиз",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Siapa nama Anda?",
+      "category": "greetings",
+      "english": "How are you?",
+      "current": "Кандайсыз?",
+      "myMemory": "Кандайсыңар?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dari mana Anda?",
+      "category": "greetings",
+      "english": "Good luck!",
+      "current": "Ийгилик!",
+      "myMemory": "Ийгилик!",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya dari...",
+      "category": "greetings",
+      "english": "Welcome!",
+      "current": "Кош келдиңиз!",
+      "myMemory": "Кош келиңиз!",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ya",
+      "category": "greetings",
+      "english": "Very glad to see you",
+      "current": "Сизди көргөнүмө кубанычтуумун!",
+      "myMemory": "Сизди көргөнүмө абдан кубанычтамын",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tidak",
+      "category": "greetings",
+      "english": "Welcome! (arrival greeting)",
+      "current": "Келгениңизбен!",
+      "myMemory": "Кош келиңиздер! (келүү куттуктоосу)",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Terima kasih",
+      "category": "greetings",
+      "english": "How are you doing?",
+      "current": "Кандай иштериңиз?",
+      "myMemory": "Кандайсыңар?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sama-sama",
+      "category": "greetings",
+      "english": "Let me introduce my friend",
+      "current": "Сизге досумду тааныштырууга уруксат бериңиз",
+      "myMemory": "Досум менен тааныштырайын",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tolong",
+      "category": "greetings",
+      "english": "Pleased to meet you!",
+      "current": "Сиз менен таанышканыма кубанычтуумун!",
+      "myMemory": "Сиз менен таанышканыма кубанычтамын!",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Maaf",
+      "category": "greetings",
+      "english": "Please come in",
+      "current": "Өтүнөмүн, кириңиз!",
+      "myMemory": "Кирүү",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Permisi",
+      "category": "greetings",
+      "english": "Please sit down",
+      "current": "Өтүнөмүн, отуруңуз!",
+      "myMemory": "Отуруңуз",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tidak apa-apa",
+      "category": "greetings",
+      "english": "Yes",
+      "current": "Ооба",
+      "myMemory": "Ооба",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Baik",
+      "category": "greetings",
+      "english": "No",
+      "current": "Жок",
+      "myMemory": "Жок",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Buruk",
+      "category": "greetings",
+      "english": "I agree",
+      "current": "Мен макулмун",
+      "myMemory": "Мен макулмун",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sedikit",
+      "category": "greetings",
+      "english": "Thank you very much for your help",
+      "current": "Жардамыңызга чоң рахмат",
+      "myMemory": "Жардамыңыз үчүн чоң рахмат",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Banyak",
+      "category": "greetings",
+      "english": "Thank you very much for your support",
+      "current": "Колдооңузга чоң рахмат",
+      "myMemory": "Колдооңуз үчүн чоң рахмат",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Semua",
+      "category": "greetings",
+      "english": "Thank you very much for your understanding",
+      "current": "Түшүнгөнүңүзгө чоң рахмат",
+      "myMemory": "Түшүнгөнүңүз үчүн чоң рахмат",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tidak ada",
+      "category": "emergency",
+      "english": "Help!",
+      "current": "Жардам бериңиз!",
+      "myMemory": "_Жардам",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya tidak mengerti",
+      "category": "emergency",
+      "english": "I need a doctor",
+      "current": "Мага дарыгер керек",
+      "myMemory": "Мага дарыгер керек",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda mengerti?",
+      "category": "emergency",
+      "english": "Call the police",
+      "current": "Полиция чакырыңыз",
+      "myMemory": "Милицияга чалыңыз",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya mengerti",
+      "category": "emergency",
+      "english": "Fire!",
+      "current": "Өрт!",
+      "myMemory": "Өрт!",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bisakah Anda berbicara lebih lambat?",
+      "category": "emergency",
+      "english": "I am lost",
+      "current": "Мен адаштым, жолумду жоготтум",
+      "myMemory": "Мен жоголуп кеттим",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ulangi lagi, tolong",
+      "category": "emergency",
+      "english": "I am sick",
+      "current": "Мен оорулуумун",
+      "myMemory": "Мен ооруп жатам",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bagaimana?",
+      "category": "emergency",
+      "english": "Call an ambulance",
+      "current": "Тез жардам чакырыңыз",
+      "myMemory": "Тез жардамды чакырыңыз",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apa?",
+      "category": "emergency",
+      "english": "My wallet was stolen",
+      "current": "Менин капчыгымды уурдашты",
+      "myMemory": "Менин капчыгым уурдалды",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di mana?",
+      "category": "emergency",
+      "english": "Help me",
+      "current": "Өтүнөмүн, мага жардам бериңиз",
+      "myMemory": "Мага жардам бериңиз",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kapan?",
+      "category": "emergency",
+      "english": "Danger!",
+      "current": "Коркунучтуу!",
+      "myMemory": "Кооптуу!",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Siapa?",
+      "category": "emergency",
+      "english": "Call a doctor!",
+      "current": "Өтүнөмүн, дарыгер чакырыңыз!",
+      "myMemory": "Дарыгерди чакырыңыз!",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mengapa?",
+      "category": "hotel",
+      "english": "I want a room",
+      "current": "Мага бөлмө керек",
+      "myMemory": "Мен бөлмө каалайм",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa?",
+      "category": "hotel",
+      "english": "How much per night?",
+      "current": "Бир түнгө канча турат?",
+      "myMemory": "Бир түнгө канча?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Satu",
+      "category": "hotel",
+      "english": "Is there WiFi here?",
+      "current": "Бул жерде WiFi барбы?",
+      "myMemory": "Бул жерде WiFi барбы?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dua",
+      "category": "hotel",
+      "english": "I have a reservation",
+      "current": "Менин броньум бар",
+      "myMemory": "Менде резервация бар",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tiga",
+      "category": "hotel",
+      "english": "Single room",
+      "current": "Бир адамдык бөлмө",
+      "myMemory": "Жалгыз бөлмө",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Empat",
+      "category": "hotel",
+      "english": "Double room",
+      "current": "Эки адамдык бөлмө",
+      "myMemory": "Double бөлмө",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lima",
+      "category": "hotel",
+      "english": "What time is check-out?",
+      "current": "Бөлмөнү саат канчада тапшыруу керек?",
+      "myMemory": "Чакыруу убактысы канчада?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Enam",
+      "category": "hotel",
+      "english": "Key",
+      "current": "Ачкыч",
+      "myMemory": "Ачкыч:",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tujuh",
+      "category": "hotel",
+      "english": "Room number",
+      "current": "Бөлмө номери",
+      "myMemory": "Бөлмөнүн номери",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Delapan",
+      "category": "hotel",
+      "english": "Is breakfast included?",
+      "current": "Эртең мененки тамак киреби?",
+      "myMemory": "Эртең мененки тамак камтылганбы?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sembilan",
+      "category": "hotel",
+      "english": "Please clean the room",
+      "current": "Өтүнөмүн, бөлмөнү тазалаңыз",
+      "myMemory": "Бөлмөнү тазалаңыз",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sepuluh",
+      "category": "hotel",
+      "english": "I want to extend my stay",
+      "current": "Калууну узартуу керек",
+      "myMemory": "Мен жашоомду узартууну каалайм",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sebelas",
+      "category": "food",
+      "english": "I am hungry",
+      "current": "Мен ачкамын",
+      "myMemory": "Мен ачка жатам",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dua belas",
+      "category": "food",
+      "english": "Menu, please",
+      "current": "Меню, өтүнөмүн",
+      "myMemory": "Меню, сураныч",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tiga belas",
+      "category": "food",
+      "english": "Delicious",
+      "current": "Даамдуу",
+      "myMemory": "Даамдуу",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lima belas",
+      "category": "food",
+      "english": "Bill, please",
+      "current": "Төлөм",
+      "myMemory": "Билл, сураныч",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dua puluh",
+      "category": "food",
+      "english": "I am vegetarian",
+      "current": "Мен вегетарианмын",
+      "myMemory": "Мен вегетарианмын",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tiga puluh",
+      "category": "food",
+      "english": "Not spicy",
+      "current": "Ачуусуз",
+      "myMemory": "Ачыткы эмес",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lima puluh",
+      "category": "food",
+      "english": "Water",
+      "current": "Суу",
+      "myMemory": "Суу",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Seratus",
+      "category": "food",
+      "english": "Tea",
+      "current": "Чай",
+      "myMemory": "Чай",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Seribu",
+      "category": "food",
+      "english": "Rice",
+      "current": "Туз",
+      "myMemory": "Күрүч",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sejuta",
+      "category": "food",
+      "english": "Noodles",
+      "current": "Күрүч",
+      "myMemory": "Noodles",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hari ini",
+      "category": "food",
+      "english": "Chicken",
+      "current": "Тоок эти",
+      "myMemory": "Тоок",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kemarin",
+      "category": "food",
+      "english": "Beef",
+      "current": "Уй эти",
+      "myMemory": "Сиыр эти",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Besok",
+      "category": "food",
+      "english": "How much does it cost?",
+      "current": "Мунун баасы канча?",
+      "myMemory": "Бул канча турат?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pagi",
+      "category": "food",
+      "english": "I am allergic to...",
+      "current": "Менде ... аллергиям бар",
+      "myMemory": "Мен аллергиям бар...",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Siang",
+      "category": "food",
+      "english": "Can I take it to go?",
+      "current": "Өзүм менен алып кете аламбы?",
+      "myMemory": "Мен аны кетүү үчүн алсам болобу?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sore",
+      "category": "food",
+      "english": "Very delicious",
+      "current": "Абдан даамдуу",
+      "myMemory": "Абдан даамдуу",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Malam",
+      "category": "food",
+      "english": "Appetizers",
+      "current": "Тамактар",
+      "myMemory": "Аппетиттер",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Minggu",
+      "category": "food",
+      "english": "Ham",
+      "current": "Ветчина",
+      "myMemory": "Ham",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bulan",
+      "category": "food",
+      "english": "Cheese platter",
+      "current": "Быштак ассортименти",
+      "myMemory": "Печенье табак",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tahun",
+      "category": "food",
+      "english": "Soup",
+      "current": "Шорпо",
+      "myMemory": "Шорпо",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hari",
+      "category": "food",
+      "english": "Borscht",
+      "current": "Борщ",
+      "myMemory": "Borscht",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jam",
+      "category": "food",
+      "english": "Chicken noodle soup",
+      "current": "Тоокту кесме",
+      "myMemory": "Тооктун нодл шорпосу",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Menit",
+      "category": "food",
+      "english": "Meat broth",
+      "current": "Эт шорпосу",
+      "myMemory": "Эт шорпо",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Detik",
+      "category": "food",
+      "english": "Meat",
+      "current": "Эт",
+      "myMemory": "Эт, эт азыктары",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Senin",
+      "category": "food",
+      "english": "Lamb",
+      "current": "Кой эти",
+      "myMemory": "Сүт",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selasa",
+      "category": "food",
+      "english": "Pork",
+      "current": "Чочко эти",
+      "myMemory": "Pork",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Rabu",
+      "category": "food",
+      "english": "Fried",
+      "current": "Куурулган",
+      "myMemory": "Fried",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kamis",
+      "category": "food",
+      "english": "Boiled",
+      "current": "Кайнатылган",
+      "myMemory": "Бышырылган",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jumat",
+      "category": "food",
+      "english": "Fish dishes",
+      "current": "Балык тамактары",
+      "myMemory": "Балык идиштер",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sabtu",
+      "category": "food",
+      "english": "Fish",
+      "current": "Балык",
+      "myMemory": "Балык",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Minggu",
+      "category": "food",
+      "english": "Salmon",
+      "current": "Лосось",
+      "myMemory": "Салмон",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Januari",
+      "category": "food",
+      "english": "Shrimp",
+      "current": "Креветкалар",
+      "myMemory": "Шорпо",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Februari",
+      "category": "food",
+      "english": "Crabs",
+      "current": "Крабтар",
+      "myMemory": "Crabs",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Maret",
+      "category": "food",
+      "english": "Is there a vegetarian menu?",
+      "current": "Вегетариандык меню барбы?",
+      "myMemory": "Вегетариандык меню барбы?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "April",
+      "category": "food",
+      "english": "Is this dish spicy?",
+      "current": "Бул ачуу тамакпы?",
+      "myMemory": "Бул тамак таттуубу?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Restoran",
+      "category": "food",
+      "english": "Not spicy",
+      "current": "Ачуусуз",
+      "myMemory": "Ачыткы эмес",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Menu",
+      "category": "food",
+      "english": "Apple",
+      "current": "Алма",
+      "myMemory": "Алма",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sarapan",
+      "category": "food",
+      "english": "Banana",
+      "current": "Банан",
+      "myMemory": "Банан",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Makan siang",
+      "category": "food",
+      "english": "Orange",
+      "current": "Апельсин",
+      "myMemory": "Оранж",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Makan malam",
+      "category": "food",
+      "english": "Grapes",
+      "current": "Жүзүм",
+      "myMemory": "Жүзүм",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Air",
+      "category": "food",
+      "english": "Watermelon",
+      "current": "Дарбыз",
+      "myMemory": "Арбуз",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Teh",
+      "category": "food",
+      "english": "Potato",
+      "current": "Картөшкө",
+      "myMemory": "Картошка",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kopi",
+      "category": "food",
+      "english": "Tomato",
+      "current": "Помидор",
+      "myMemory": "Помидор",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Susu",
+      "category": "shopping",
+      "english": "How much does it cost?",
+      "current": "Баасы канча?",
+      "myMemory": "Бул канча турат?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jus",
+      "category": "shopping",
+      "english": "Too expensive",
+      "current": "Абдан кымбат",
+      "myMemory": "Өтө кымбат",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bir",
+      "category": "shopping",
+      "english": "Can it be cheaper?",
+      "current": "Арзандатууга болобу?",
+      "myMemory": "Бул арзаныраак болушу мүмкүнбү?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Anggur",
+      "category": "shopping",
+      "english": "I will buy this",
+      "current": "Мен муну аламын",
+      "myMemory": "Мен муну сатып алам",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Roti",
+      "category": "shopping",
+      "english": "Can I try it on?",
+      "current": "Сынап көрүүгө болобу?",
+      "myMemory": "Аны сынап көрсөм болобу?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Daging",
+      "category": "shopping",
+      "english": "Bigger size",
+      "current": "Чоңураак өлчөмдө",
+      "myMemory": "Чоңураак өлчөм",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ikan",
+      "category": "shopping",
+      "english": "Smaller size",
+      "current": "Кичүүрөөк өлчөмдө",
+      "myMemory": "Кичине өлчөм",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ayam",
+      "category": "shopping",
+      "english": "Cash",
+      "current": "Накталай акча",
+      "myMemory": "Накталай акча",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sayuran",
+      "category": "shopping",
+      "english": "Credit card",
+      "current": "Кредит картасы",
+      "myMemory": "Кредиттик карта",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Buah",
+      "category": "shopping",
+      "english": "Receipt",
+      "current": "Квитанция",
+      "myMemory": "Кабыл алуу",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Nasi",
+      "category": "shopping",
+      "english": "Return/Exchange",
+      "current": "Кайтаруу",
+      "myMemory": "Кайтаруу/алмашуу",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sup",
+      "category": "shopping",
+      "english": "Where is the market?",
+      "current": "Базар кайда жайгашкан?",
+      "myMemory": "Базар кайда?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Salad",
+      "category": "shopping",
+      "english": "Is there a discount?",
+      "current": "Арзандатуу барбы?",
+      "myMemory": "Арзандатуу барбы?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Keju",
+      "category": "shopping",
+      "english": "Can I try it on?",
+      "current": "Сынап көрүүгө болобу?",
+      "myMemory": "Аны сынап көрсөм болобу?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mentega",
+      "category": "shopping",
+      "english": "What is your size?",
+      "current": "Сиздин өлчөмүңүз канча?",
+      "myMemory": "Сиздин өлчөмүңүз кандай?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Gula",
+      "category": "shopping",
+      "english": "Are there other colors?",
+      "current": "Башка түстөрү барбы?",
+      "myMemory": "Башка түстөр барбы?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Garam",
+      "category": "transport",
+      "english": "Where is the train station?",
+      "current": "Вокзал кайда?",
+      "myMemory": "Темир жол бекети кайда?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Merica",
+      "category": "transport",
+      "english": "Airport",
+      "current": "Аэропорт",
+      "myMemory": "Airport",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Es krim",
+      "category": "transport",
+      "english": "Taxi",
+      "current": "Такси",
+      "myMemory": "Такси",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kue",
+      "category": "transport",
+      "english": "Bus",
+      "current": "Автобус",
+      "myMemory": "Автобус",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Enak",
+      "category": "transport",
+      "english": "Metro",
+      "current": "Метро",
+      "myMemory": "Metro",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bon appétit",
+      "category": "transport",
+      "english": "Train ticket",
+      "current": "Темир жол вокзалы",
+      "myMemory": "Поезд билеттери",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Toko",
+      "category": "transport",
+      "english": "Schedule",
+      "current": "Расписание",
+      "myMemory": "Расписание",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pasar",
+      "category": "transport",
+      "english": "Platform",
+      "current": "Платформа",
+      "myMemory": "Платформа",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa harganya?",
+      "category": "transport",
+      "english": "Next stop",
+      "current": "Кийинки аялдама",
+      "myMemory": "Кийинки аялдама",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa biayanya?",
+      "category": "transport",
+      "english": "Stop",
+      "current": "Токтоңуз",
+      "myMemory": "Стоп",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya ingin membeli ini",
+      "category": "transport",
+      "english": "How long until...?",
+      "current": "...га чейин канча убакыт?",
+      "myMemory": "Канчага чейин...?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mahal",
+      "category": "transport",
+      "english": "I need to go to...",
+      "current": "Мен ...га баруу керек",
+      "myMemory": "Мен барышым керек...",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Murah",
+      "category": "transport",
+      "english": "When will the next bus arrive?",
+      "current": "Кийинки автобус качан келет?",
+      "myMemory": "Кийинки автобус качан келет?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Diskon",
+      "category": "transport",
+      "english": "I want to go to the airport",
+      "current": "Мен аэропортко баруу керек",
+      "myMemory": "Мен аэропортко баргым келет",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Harga",
+      "category": "directions",
+      "english": "On the left",
+      "current": "Сол жак",
+      "myMemory": "Сол жагында",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Uang",
+      "category": "directions",
+      "english": "On the right",
+      "current": "Оң жак",
+      "myMemory": "Оң тарапта",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kartu kredit",
+      "category": "directions",
+      "english": "Straight",
+      "current": "Түз жүрүңүз!",
+      "myMemory": "Түз",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tunai",
+      "category": "directions",
+      "english": "Turn",
+      "current": "Буруулуу",
+      "myMemory": "Буруу",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tanda terima",
+      "category": "directions",
+      "english": "Intersection",
+      "current": "Кесилиш, Айкалыш",
+      "myMemory": "Кесилиш",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda menerima kartu?",
+      "category": "directions",
+      "english": "Traffic light",
+      "current": "Светофор",
+      "myMemory": "Трафиктин жарыгы",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ukuran",
+      "category": "directions",
+      "english": "Far",
+      "current": "Алыста",
+      "myMemory": "Алыс",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Warna",
+      "category": "directions",
+      "english": "Near",
+      "current": "Жакында",
+      "myMemory": "Жакын",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Besar",
+      "category": "directions",
+      "english": "Map",
+      "current": "Карта",
+      "myMemory": "Географиялык карталар",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kecil",
+      "category": "directions",
+      "english": "Where is...?",
+      "current": "... кайда жайгашкан?",
+      "myMemory": "Кайда...?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sedang",
+      "category": "health",
+      "english": "Hospital",
+      "current": "Оорукана",
+      "myMemory": "- Оорукана",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Baru",
+      "category": "health",
+      "english": "Pharmacy",
+      "current": "Дарыкана",
+      "myMemory": "Дарыкана",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lama",
+      "category": "health",
+      "english": "I have a headache",
+      "current": "Башым оорууда",
+      "myMemory": "Мен башым ооруйт",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Cantik",
+      "category": "health",
+      "english": "I have a stomachache",
+      "current": "Ичим оорууда",
+      "myMemory": "Мен ашказан оорусу бар",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jelek",
+      "category": "health",
+      "english": "Temperature",
+      "current": "Температура, Ысык",
+      "myMemory": "Температура",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berkualitas",
+      "category": "health",
+      "english": "Cough",
+      "current": "Жөтөл",
+      "myMemory": "Жөтөл",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bisakah saya mencoba ini?",
+      "category": "health",
+      "english": "Medicine",
+      "current": "Дары",
+      "myMemory": "Медицина",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Taksi",
+      "category": "health",
+      "english": "Doctor",
+      "current": "Дарыгер",
+      "myMemory": "Доктор",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bus",
+      "category": "health",
+      "english": "Nurse",
+      "current": "Медайым",
+      "myMemory": "Медайым",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kereta",
+      "category": "health",
+      "english": "Ambulance",
+      "current": "Тез жардам",
+      "myMemory": "Тез жардам",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pesawat",
+      "category": "health",
+      "english": "I have a headache",
+      "current": "Башым ооруйт",
+      "myMemory": "Мен башым ооруйт",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bandara",
+      "category": "health",
+      "english": "I need a painkiller",
+      "current": "Мага оору басаткан дары керек",
+      "myMemory": "Мен бир Painkiller керек",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Stasiun",
+      "category": "money",
+      "english": "Yuan",
+      "current": "Юань",
+      "myMemory": "Юань",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Halte",
+      "category": "money",
+      "english": "Manat",
+      "current": "Манат",
+      "myMemory": "Manat",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tiket",
+      "category": "money",
+      "english": "Card payment",
+      "current": "Карта менен төлөө",
+      "myMemory": "Карта менен төлөө",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa tiketnya?",
+      "category": "money",
+      "english": "Bank",
+      "current": "Банк",
+      "myMemory": "Банк",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di mana stasiun bus?",
+      "category": "money",
+      "english": "ATM",
+      "current": "Банкомат",
+      "myMemory": "Банкомат",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bagaimana menuju...?",
+      "category": "money",
+      "english": "Currency exchange",
+      "current": "Валюта алмашуу",
+      "myMemory": "Валюта алмашуу",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kiri",
+      "category": "money",
+      "english": "Change",
+      "current": "Калдык акча",
+      "myMemory": "Өзгөртүү",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kanan",
+      "category": "money",
+      "english": "Free",
+      "current": "Акысыз",
+      "myMemory": "Шашылыш",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lurus",
+      "category": "money",
+      "english": "Price",
+      "current": "Баа",
+      "myMemory": "Баасы",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jauh",
+      "category": "communication",
+      "english": "Mobile phone",
+      "current": "Уюлдук телефон",
+      "myMemory": "Уюлдук телефон",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dekat",
+      "category": "communication",
+      "english": "Wi-Fi",
+      "current": "Wi-Fi",
+      "myMemory": "Wi-Fi",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di sini",
+      "category": "communication",
+      "english": "What is the password?",
+      "current": "Пароль эмне?",
+      "myMemory": "Сырсөз деген эмне?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di sana",
+      "category": "communication",
+      "english": "Send SMS",
+      "current": "SMS жиберүү",
+      "myMemory": "SMS жөнөтүү",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jalan",
+      "category": "entertainment",
+      "english": "Cinema",
+      "current": "Кинотеатр",
+      "myMemory": "Кино",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Alamat",
+      "category": "entertainment",
+      "english": "Museum",
+      "current": "Музей",
+      "myMemory": "Музей",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hotel",
+      "category": "entertainment",
+      "english": "Park",
+      "current": "Саякат бакчасы",
+      "myMemory": "- Парк",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kamar",
+      "category": "entertainment",
+      "english": "Concert",
+      "current": "Концерт",
+      "myMemory": "Концерт",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Reservasi",
+      "category": "entertainment",
+      "english": "Shopping mall",
+      "current": "Соода борбору",
+      "myMemory": "Соода борбору",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya sudah memesan",
+      "category": "entertainment",
+      "english": "Swimming pool",
+      "current": "Бассейн",
+      "myMemory": "Сууда сүзүүчү бассейн",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya ingin kamar",
+      "category": "entertainment",
+      "english": "Gym",
+      "current": "Спорт залы",
+      "myMemory": "Гимназия",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk satu orang",
+      "category": "entertainment",
+      "english": "Library",
+      "current": "Китепкана",
+      "myMemory": "Коллекция",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk dua orang",
+      "category": "entertainment",
+      "english": "Night market",
+      "current": "Түнкү базар",
+      "myMemory": "Түнкү базар",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk satu malam",
+      "category": "entertainment",
+      "english": "How much is the ticket?",
+      "current": "Билеттин баасы канча?",
+      "myMemory": "Билет канча турат?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk dua malam",
+      "category": "time",
+      "english": "What time is it?",
+      "current": "Саат канча?",
+      "myMemory": "Саат канча болду?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk seminggu",
+      "category": "time",
+      "english": "Today",
+      "current": "Бүгүн",
+      "myMemory": "Бүгүн",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa harga kamarnya?",
+      "category": "time",
+      "english": "Tomorrow",
+      "current": "Эртең",
+      "myMemory": "Эртең",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah sudah termasuk sarapan?",
+      "category": "time",
+      "english": "Yesterday",
+      "current": "Кечээ",
+      "myMemory": "Кечээ",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kunci",
+      "category": "time",
+      "english": "Monday",
+      "current": "Дүйшөмбү",
+      "myMemory": "Дүйшөмбү",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kunci kamar",
+      "category": "time",
+      "english": "Sunday",
+      "current": "Жекшемби",
+      "myMemory": "Жекшемби",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tempat tidur",
+      "category": "time",
+      "english": "In the morning",
+      "current": "Эртең менен",
+      "myMemory": "Эртең менен",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kamar mandi",
+      "category": "time",
+      "english": "In the afternoon",
+      "current": "Түштөн кийин",
+      "myMemory": "Түштөн кийин",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Shower",
+      "category": "time",
+      "english": "In the evening",
+      "current": "Кеч",
+      "myMemory": "Кечинде",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "AC",
+      "category": "time",
+      "english": "What month?",
+      "current": "Кайсы ай?",
+      "myMemory": "Кайсы ай?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "WiFi",
+      "category": "time",
+      "english": "Monday",
+      "current": "Дүйшөмбү",
+      "myMemory": "Дүйшөмбү",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apa kata sandi WiFi?",
+      "category": "time",
+      "english": "Tuesday",
+      "current": "Шейшемби",
+      "myMemory": "Шейшемби",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Handuk",
+      "category": "time",
+      "english": "Wednesday",
+      "current": "Шаршемби",
+      "myMemory": "Шаршемби",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sabun",
+      "category": "time",
+      "english": "Thursday",
+      "current": "Бейшемби",
+      "myMemory": "Бейшемби",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Layanan kamar",
+      "category": "time",
+      "english": "Friday",
+      "current": "Жума",
+      "myMemory": "Жума",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Check-in",
+      "category": "time",
+      "english": "Saturday",
+      "current": "Ишемби",
+      "myMemory": "Ишемби",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Check-out",
+      "category": "time",
+      "english": "Sunday",
+      "current": "Жекшемби",
+      "myMemory": "Жекшемби",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tolong!",
+      "category": "time",
+      "english": "January",
+      "current": "Үчтүн айы",
+      "myMemory": "Үчтүн айы ",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Darurat",
+      "category": "time",
+      "english": "February",
+      "current": "Бирдин айы",
+      "myMemory": "Бирдин айы",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Polisi",
+      "category": "time",
+      "english": "March",
+      "current": "Жалган куран",
+      "myMemory": "Жалган куран айы ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dokter",
+      "category": "time",
+      "english": "April",
+      "current": "Чын куран",
+      "myMemory": "Чын куран айы ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Rumah sakit",
+      "category": "time",
+      "english": "May",
+      "current": "Бугу айы",
+      "myMemory": "Бугу айы",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ambulans",
+      "category": "time",
+      "english": "June",
+      "current": "Кулжа айы",
+      "myMemory": "Кулжа айы",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apotik",
+      "category": "time",
+      "english": "July",
+      "current": "Теке айы",
+      "myMemory": "Июль",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya sakit",
+      "category": "time",
+      "english": "August",
+      "current": "Баш оона",
+      "myMemory": "Баш оона айы",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya butuh dokter",
+      "category": "time",
+      "english": "September",
+      "current": "Аяк оона",
+      "myMemory": "Сентябрь",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya kehilangan...",
+      "category": "time",
+      "english": "October",
+      "current": "Тогуздун айы",
+      "myMemory": "Тогуздун айы",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya tersesat",
+      "category": "time",
+      "english": "November",
+      "current": "Жетинин айы",
+      "myMemory": "Жетинин айы",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Api",
+      "category": "time",
+      "english": "December",
+      "current": "Бештин айы",
+      "myMemory": "Бештин айы",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bahaya",
+      "category": "numbers",
+      "english": "One",
+      "current": "Бир",
+      "myMemory": "бир ",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hati-hati",
+      "category": "numbers",
+      "english": "Two",
+      "current": "Эки",
+      "myMemory": "\"Эки!\"",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dilarang",
+      "category": "numbers",
+      "english": "Three",
+      "current": "Үч",
+      "myMemory": "Үч",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apa itu?",
+      "category": "numbers",
+      "english": "Four",
+      "current": "Төрт",
+      "myMemory": "\"Төрт!\"",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di mana itu?",
+      "category": "numbers",
+      "english": "Five",
+      "current": "Беш",
+      "myMemory": "\"Беш!\"",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa ini?",
+      "category": "numbers",
+      "english": "Six",
+      "current": "Алты",
+      "myMemory": "\"Алты!\"",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kapan?",
+      "category": "numbers",
+      "english": "Seven",
+      "current": "Жети",
+      "myMemory": "Жети",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Siapa?",
+      "category": "numbers",
+      "english": "Eight",
+      "current": "Сегиз",
+      "myMemory": "Сегиз",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mengapa?",
+      "category": "numbers",
+      "english": "Nine",
+      "current": "Тогуз",
+      "myMemory": "Тогуз",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bagaimana?",
+      "category": "numbers",
+      "english": "Ten",
+      "current": "Он",
+      "myMemory": "ТЕН",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di mana toilet?",
+      "category": "numbers",
+      "english": "Twenty",
+      "current": "Он бир",
+      "myMemory": "Жыйырма",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda bisa membantu?",
+      "category": "numbers",
+      "english": "One hundred",
+      "current": "Жүз",
+      "myMemory": "Жүз",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda tahu...?",
+      "category": "numbers",
+      "english": "One thousand",
+      "current": "Миң",
+      "myMemory": "Бир миң",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bisakah Anda menunjukkan?",
+      "category": "numbers",
+      "english": "Ten thousand",
+      "current": "Он миң",
+      "myMemory": "Он миң",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah mungkin?",
+      "category": "numbers",
+      "english": "First",
+      "current": "Биринчи",
+      "myMemory": "Биринчи",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda punya...?",
+      "category": "numbers",
+      "english": "One thousand",
+      "current": "Миң",
+      "myMemory": "Бир миң",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah itu tersedia?",
+      "category": "numbers",
+      "english": "Two thousand",
+      "current": "Эки миң",
+      "myMemory": "Эки миң",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa lama?",
+      "category": "numbers",
+      "english": "Ten thousand",
+      "current": "Он миң",
+      "myMemory": "Он миң",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa jauh?",
+      "category": "numbers",
+      "english": "One hundred thousand",
+      "current": "Жүз миң",
+      "myMemory": "Жүз миң",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jam berapa sekarang?",
+      "category": "numbers",
+      "english": "One million",
+      "current": "Бир миллион",
+      "myMemory": "Бир миллион",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jam berapa buka?",
+      "category": "weather",
+      "english": "What is the weather today?",
+      "current": "Бүгүн аба ырайы кандай?",
+      "myMemory": "Бүгүн аба ырайы кандай?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jam berapa tutup?",
+      "category": "weather",
+      "english": "Rain",
+      "current": "Жамгыр",
+      "myMemory": "Жаан",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah buka hari ini?",
+      "category": "weather",
+      "english": "Sunny",
+      "current": "Ачык",
+      "myMemory": "Sunny",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Keluarga",
+      "category": "weather",
+      "english": "Cloudy",
+      "current": "Булуттуу",
+      "myMemory": "Булуттуу",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ayah",
+      "category": "weather",
+      "english": "Windy",
+      "current": "Шамалдуу",
+      "myMemory": "Windy",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ibu",
+      "category": "weather",
+      "english": "Snow",
+      "current": "Кар",
+      "myMemory": "Кар",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Anak laki-laki",
+      "category": "weather",
+      "english": "Hot",
+      "current": "Ысык",
+      "myMemory": "Ысык",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Anak perempuan",
+      "category": "weather",
+      "english": "Cold",
+      "current": "Суук",
+      "myMemory": "Cold",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saudara laki-laki",
+      "category": "personal_info",
+      "english": "My name is...",
+      "current": "Менин атым...",
+      "myMemory": "Менин атым...",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saudara perempuan",
+      "category": "personal_info",
+      "english": "My last name is...",
+      "current": "Менин фамилиям...",
+      "myMemory": "Менин фамилиям...",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Suami",
+      "category": "personal_info",
+      "english": "What is your name?",
+      "current": "Сиздин атыңыз ким?",
+      "myMemory": "Аты-жөнүңүз? ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Istri",
+      "category": "personal_info",
+      "english": "I am from Turkmenistan",
+      "current": "Мен Түркмөнстандан",
+      "myMemory": "Мен Түркмөнстанданмын",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kakek",
+      "category": "personal_info",
+      "english": "I live in Ashgabat",
+      "current": "Мен Ашгабатта жашайм",
+      "myMemory": "Мен Ашхабадда жашайм",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Nenek",
+      "category": "personal_info",
+      "english": "There are 4 people in our family",
+      "current": "Биздин үй-бүлөдө 4 адам бар",
+      "myMemory": "Биздин үй-бүлөдө 4 адам бар",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Paman",
+      "category": "personal_info",
+      "english": "Do you have children?",
+      "current": "Сиздин балдарыңыз барбы?",
+      "myMemory": "Балдарыңыз барбы?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bibi",
+      "category": "personal_info",
+      "english": "I have no children",
+      "current": "Менде бала жок",
+      "myMemory": "Менин балдарым жок",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Anak-anak",
+      "category": "personal_info",
+      "english": "I have one child",
+      "current": "Менде бир бала бар",
+      "myMemory": "Менин бир балам бар",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Orang tua",
+      "category": "personal_info",
+      "english": "I have two children",
+      "current": "Менде эки бала бар",
+      "myMemory": "Менин эки балам бар",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sakit",
+      "category": "personal_info",
+      "english": "What do you do?",
+      "current": "Сиз эмне иш менен алектенесиз?",
+      "myMemory": "Сиз эмне кыласыз?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Demam",
+      "category": "personal_info",
+      "english": "I work at a factory",
+      "current": "Мен заводдо иштейм",
+      "myMemory": "Мен фабрикада иштейм",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sakit kepala",
+      "category": "personal_info",
+      "english": "I work at a bank",
+      "current": "Мен банкта иштейм",
+      "myMemory": "Мен банкта иштейм",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sakit perut",
+      "category": "personal_info",
+      "english": "I work at a hospital",
+      "current": "Мен ооруканада иштейм",
+      "myMemory": "Мен ооруканада иштейм",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Flu",
+      "category": "personal_info",
+      "english": "I study foreign languages",
+      "current": "Мен чет тилдерин үйрөнөм",
+      "myMemory": "Мен чет тилдерди окуйм",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Batuk",
+      "category": "personal_info",
+      "english": "Do you speak Russian?",
+      "current": "Сиз орусча сүйлөйсүзбү?",
+      "myMemory": "Сиз орусча сүйлөйсүзбү?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hidung tersumbat",
+      "category": "personal_info",
+      "english": "I don't speak",
+      "current": "Мен сүйлөбөймүн",
+      "myMemory": "Мен сүйлөбөйм",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Obat",
+      "category": "personal_info",
+      "english": "I speak a little",
+      "current": "Мен азыраак сүйлөймүн",
+      "myMemory": "Мен бир аз сүйлөйм",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pil",
+      "category": "business",
+      "english": "When does the conference start?",
+      "current": "Конференция качан башталат?",
+      "myMemory": "Конференция качан башталат?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Resep",
+      "category": "business",
+      "english": "What is the schedule for presentations?",
+      "current": "Чыгуулардын регламенти кандай?",
+      "myMemory": "Презентациялардын графиги кандай?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Asuransi",
+      "category": "business",
+      "english": "Will there be translation to Russian?",
+      "current": "Орус тилине которуу боло беби?",
+      "myMemory": "Орус тилине котормо болобу?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Alergi",
+      "category": "business",
+      "english": "I will speak in Russian",
+      "current": "Мен орус тилинде чыгуу жасаймын",
+      "myMemory": "Мен орусча сүйлөйм",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya alergi terhadap...",
+      "category": "business",
+      "english": "We want to see the exhibition",
+      "current": "Биз көргөзмөнү көрүү керек",
+      "myMemory": "Биз көргөзмөнү көргүбүз келет",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Asma",
+      "category": "business",
+      "english": "What time does the exhibition open?",
+      "current": "Көргөзмө саат канчада ачылат?",
+      "myMemory": "Көргөзмө саат канчада ачылат?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Diabetes",
+      "category": "business",
+      "english": "How many countries are participating?",
+      "current": "Көргөзмөгө канча өлкө катышат?",
+      "myMemory": "Канча өлкө катышып жатат?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tekanan darah",
+      "category": "business",
+      "english": "Can I get the exhibition catalog?",
+      "current": "Көргөзмөнүн каталогун алууга болобу?",
+      "myMemory": "Көргөзмө каталогун алсам болобу?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jantung",
+      "category": "business",
+      "english": "I came to discuss business",
+      "current": "Мен маселени талкуулоого келдим",
+      "myMemory": "Мен бизнести талкуулоо үчүн келдим",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Perut",
+      "category": "business",
+      "english": "We want to speak with the general director",
+      "current": "Биз баш директор менен жолугууну каалайбыз",
+      "myMemory": "Биз башкы директор менен сүйлөшкүбүз келет",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Punggung",
+      "category": "business",
+      "english": "We want to learn about the production",
+      "current": "Биз өндүрүш менен тааныша кетүү керек",
+      "myMemory": "Биз өндүрүш жөнүндө билгибиз келет",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Gigi",
+      "category": "measurements",
+      "english": "Length",
+      "current": "Узундугу",
+      "myMemory": "узундугу",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Cuaca",
+      "category": "measurements",
+      "english": "Meter",
+      "current": "Метр",
+      "myMemory": "Метр",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Panas",
+      "category": "measurements",
+      "english": "Centimeter",
+      "current": "Сантиметр",
+      "myMemory": "Unit-format",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dingin",
+      "category": "measurements",
+      "english": "Weight",
+      "current": "Салмагы",
+      "myMemory": "Салмагы:",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hujan",
+      "category": "measurements",
+      "english": "Kilogram",
+      "current": "Килограмм",
+      "myMemory": "Килограмм",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Salju",
+      "category": "measurements",
+      "english": "Gram",
+      "current": "Грамм",
+      "myMemory": "Грамм",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Angin",
+      "category": "measurements",
+      "english": "Volume",
+      "current": "Көлөмү",
+      "myMemory": "Толук үн",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mendung",
+      "category": "measurements",
+      "english": "Liter",
+      "current": "Литр",
+      "myMemory": "Литра",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Cerah",
+      "category": "colors",
+      "english": "White",
+      "current": "Ак",
+      "myMemory": "Ак",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Suhu",
+      "category": "colors",
+      "english": "Yellow",
+      "current": "Сары",
+      "myMemory": "Сары",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Iklim",
+      "category": "colors",
+      "english": "Green",
+      "current": "Жашыл",
+      "myMemory": "Жашылselect-criterion",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Putih",
+      "category": "colors",
+      "english": "Blue",
+      "current": "Көк",
+      "myMemory": "Көкselect-criterion",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hitam",
+      "category": "colors",
+      "english": "Red",
+      "current": "Кызыл",
+      "myMemory": "Кызылselect-criterion",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Merah",
+      "category": "colors",
+      "english": "Black",
+      "current": "Кара",
+      "myMemory": "Кара:",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Biru",
+      "category": "colors",
+      "english": "Gray",
+      "current": "Боз",
+      "myMemory": "Боз",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hijau",
+      "category": "colors",
+      "english": "Purple",
+      "current": "Көгүлтүр",
+      "myMemory": "Purple",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kuning",
+      "category": "colors",
+      "english": "Orange",
+      "current": "Кызгылт сары",
+      "myMemory": "Оранж",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Oranye",
+      "category": "colors",
+      "english": "Pink",
+      "current": "Кызгылт",
+      "myMemory": "Pink",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ungu",
+      "category": "body",
+      "english": "Head",
+      "current": "Баш",
+      "myMemory": "Баш",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Merah muda",
+      "category": "body",
+      "english": "Arm",
+      "current": "Кол",
+      "myMemory": "Arm",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Coklat",
+      "category": "body",
+      "english": "Leg",
+      "current": "Буут",
+      "myMemory": "Leg",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Abu-abu",
+      "category": "body",
+      "english": "Eyes",
+      "current": "Көз",
+      "myMemory": "көз",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Emas",
+      "category": "body",
+      "english": "Nose",
+      "current": "Мурун",
+      "myMemory": "<g id=\"1\">мурун</g>",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Utara",
+      "category": "body",
+      "english": "Mouth",
+      "current": "Ооз",
+      "myMemory": "Ооз",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selatan",
+      "category": "body",
+      "english": "Ear",
+      "current": "Кулак",
+      "myMemory": "Кулак",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Timur",
+      "category": "home",
+      "english": "House",
+      "current": "Үй",
+      "myMemory": "Хаус",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Barat",
+      "category": "home",
+      "english": "Door",
+      "current": "Эшик",
+      "myMemory": "eshik",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Peta",
+      "category": "home",
+      "english": "Window",
+      "current": "Терезе",
+      "myMemory": "Терезе",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kompas",
+      "category": "home",
+      "english": "Table",
+      "current": "Стол",
+      "myMemory": "Dastarhan",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "GPS",
+      "category": "home",
+      "english": "Chair",
+      "current": "Отургуч",
+      "myMemory": "Төрагасы",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lokasi",
+      "category": "home",
+      "english": "Bed",
+      "current": "Төшөк",
+      "myMemory": "Жатакана",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tujuan",
+      "category": "customs",
+      "english": "Where is passport control?",
+      "current": "Паспорттук текшерүү кайда?",
+      "myMemory": "Паспорттук көзөмөл кайда?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Rute",
+      "category": "customs",
+      "english": "Here is my passport",
+      "current": "Мына менин паспортум",
+      "myMemory": "Бул жерде менин паспортум",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Persimpangan",
+      "category": "customs",
+      "english": "I intend to stay in China for a week",
+      "current": "Мен Кытайда бир жума болууну ойлонуп жатам",
+      "myMemory": "Мен Кытайда бир жума болгум келет",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bundaran",
+      "category": "customs",
+      "english": "I have a single-entry visa",
+      "current": "Менин бир жолку визам бар",
+      "myMemory": "Менде бир жолку кирүү визасы бар",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jembatan",
+      "category": "customs",
+      "english": "I am in transit in your country",
+      "current": "Мен сиздин өлкөңүздөн транзит менен өтөм",
+      "myMemory": "Мен сиздин өлкөдө транзит жатам",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Gedung",
+      "category": "customs",
+      "english": "Here is my customs declaration",
+      "current": "Мына менин бажы декларациям",
+      "myMemory": "Бул жерде менин бажы декларациям",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Depan",
+      "category": "customs",
+      "english": "Here is my luggage",
+      "current": "Мына менин багажым",
+      "myMemory": "Бул жерде менин багаж",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Belakang",
+      "category": "customs",
+      "english": "There are no prohibited items in my luggage",
+      "current": "Менин багажымда тыюу салынган буюмдар жок",
+      "myMemory": "Менин багажымда тыюу салынган буюмдар жок",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Seberang",
+      "category": "customs",
+      "english": "These are my personal belongings",
+      "current": "Булар менин жеке буюмдарым",
+      "myMemory": "Бул менин жеке буюмдарым",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di sebelah",
+      "category": "customs",
+      "english": "What duty do I need to pay?",
+      "current": "Канча баж төлөө керек?",
+      "myMemory": "Мен кандай милдетти төлөшүм керек?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Telepon",
+      "category": "sports",
+      "english": "What sport do you like?",
+      "current": "Сиз кандай спорт түрүн жактырасыз?",
+      "myMemory": "Кайсы спортту жактырасыз?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Nomor telepon",
+      "category": "sports",
+      "english": "I like to play football",
+      "current": "Мен футбол ойноону жактырам",
+      "myMemory": "Мен футбол ойногонду жакшы көрөм",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Email",
+      "category": "sports",
+      "english": "Basketball",
+      "current": "Баскетбол",
+      "myMemory": "Баскетбол",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Internet",
+      "category": "sports",
+      "english": "Swimming",
+      "current": "Суу сүзүү",
+      "myMemory": "Сууда сүзүү",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "WiFi",
+      "category": "sports",
+      "english": "Running",
+      "current": "Чуркоо",
+      "myMemory": "Аткарылып жатат",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Komputer",
+      "category": "sports",
+      "english": "Where is the gym?",
+      "current": "Спорт залы кайда?",
+      "myMemory": "Спорт залы кайда?",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ponsel",
+      "category": "sports",
+      "english": "I want to work out",
+      "current": "Мен машыгууну каалайм",
+      "myMemory": "Мен иштеп чыгууну каалайм",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pesan",
+      "category": "sports",
+      "english": "Coach",
+      "current": "Машыктыруучу",
+      "myMemory": "Машыктыруучу",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Surat",
+      "category": "sports",
+      "english": "Competition / Match",
+      "current": "Жарыш / Оюн",
+      "myMemory": "Конкурстук / дал келүү",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Stadion",
+      "category": "sports",
+      "english": "Stadium",
+      "current": "Стадион",
+      "myMemory": "- Стадион",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    }
+  ]
+}
