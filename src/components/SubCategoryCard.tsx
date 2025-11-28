@@ -16,7 +16,7 @@ import { useAppLanguage } from '../contexts/LanguageContext';
 import { useConfig } from '../contexts/ConfigContext';  // ✅ ДОБАВЛЕНО: для мультиязычности
 
 const { width } = Dimensions.get('window');
-const cardWidth = (width - 48) / 2; // 2 колонки с отступами как в основных категориях
+const cardWidth = (width - 48) / 2; // 16 padding слева + 16 справа + 16 gap = 48
 
 interface SubCategoryCardProps {
   subcategory: SubCategory;
@@ -234,25 +234,26 @@ export function SubCategoriesGrid({
 
 const gridStyles = StyleSheet.create({
   container: {
-    // paddingHorizontal убран - уже есть padding в subcategoriesSection
+    // Убрал paddingHorizontal - padding будет в subcategoriesSection
   },
   
   row: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 0, // Убираем дополнительный отступ, карточки сами имеют marginBottom
+    justifyContent: 'flex-start', // Вместо space-between
+    marginBottom: 0,
+    gap: 16, // Отступ между карточками
   },
   
   cardWrapper: {
     width: cardWidth,
   },
-  
+
   leftCard: {
-    marginRight: 8,
+    // marginRight убран
   },
-  
+
   rightCard: {
-    marginLeft: 8,
+    // marginLeft убран
   },
 });
 

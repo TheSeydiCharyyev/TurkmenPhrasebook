@@ -1,0 +1,3064 @@
+{
+  "language": "Georgian",
+  "languageCode": "ka",
+  "timestamp": "2025-11-28T02:28:58.043Z",
+  "summary": {
+    "total": 305,
+    "verified": 2,
+    "needsReview": 303,
+    "errors": 0,
+    "verificationRate": "0.7%"
+  },
+  "results": [
+    {
+      "phraseId": "Halo",
+      "category": "greetings",
+      "english": "Hello",
+      "current": "გამარჯობა",
+      "myMemory": "გამარჯობა",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat pagi",
+      "category": "greetings",
+      "english": "Thank you",
+      "current": "გამარჯობათ",
+      "myMemory": "გმადლობთ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat siang",
+      "category": "greetings",
+      "english": "Goodbye",
+      "current": "დილა მშვიდობისა",
+      "myMemory": "ნახვამდის",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat sore",
+      "category": "greetings",
+      "english": "Excuse me",
+      "current": "საღამო მშვიდობისა",
+      "myMemory": "თჱგთნვრვ?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat malam",
+      "category": "greetings",
+      "english": "Good morning",
+      "current": "ღამე მშვიდობისა",
+      "myMemory": "- გთზ კჲი ვ რსკ!",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat tinggal",
+      "category": "greetings",
+      "english": "Good night",
+      "current": "ნახვამდის",
+      "myMemory": "- ლაკს ნჲ.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sampai jumpa",
+      "category": "greetings",
+      "english": "My name is...",
+      "current": "კარგად იყავი",
+      "myMemory": "თმვრჲ მთ ვ...",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apa kabar?",
+      "category": "greetings",
+      "english": "What is your name?",
+      "current": "მადლობა",
+      "myMemory": "კაკ ჟვ კაჱგარვ?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Baik-baik saja, terima kasih",
+      "category": "greetings",
+      "english": "Nice to meet you",
+      "current": "გთხოვთ",
+      "myMemory": "- ოპთწრნჲ მთ ვ.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Senang bertemu dengan Anda",
+      "category": "greetings",
+      "english": "Please",
+      "current": "ბოდიში",
+      "myMemory": "მჲლწ.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Nama saya...",
+      "category": "greetings",
+      "english": "You're welcome",
+      "current": "დიახ",
+      "myMemory": "- ბლადჲეაპწ.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Siapa nama Anda?",
+      "category": "greetings",
+      "english": "How are you?",
+      "current": "არა",
+      "myMemory": "კაკ ჟრვ?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dari mana Anda?",
+      "category": "greetings",
+      "english": "Good luck!",
+      "current": "როგორ ხართ?",
+      "myMemory": "გისურვებთ წარმატებას!",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya dari...",
+      "category": "greetings",
+      "english": "Welcome!",
+      "current": "კარგად ვარ",
+      "myMemory": "მოგესალმებით!",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ya",
+      "category": "greetings",
+      "english": "Very glad to see you",
+      "current": "თქვენ?",
+      "myMemory": "Მოხარული ვარ, რომ გხედავთ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tidak",
+      "category": "greetings",
+      "english": "Welcome! (arrival greeting)",
+      "current": "რა გქვიათ?",
+      "myMemory": "Მოგესალმებით! (მისალმება)",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Terima kasih",
+      "category": "greetings",
+      "english": "How are you doing?",
+      "current": "მე მქვია...",
+      "myMemory": "კაკ ჟრვ?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sama-sama",
+      "category": "greetings",
+      "english": "Let me introduce my friend",
+      "current": "სასიამოვნოა",
+      "myMemory": "Ნება მომეცით წარმოგიდგინოთ ჩემი მეგობარი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tolong",
+      "category": "greetings",
+      "english": "Pleased to meet you!",
+      "current": "საიდან ხართ?",
+      "myMemory": "პაეგამ ჟვ ეა ჟვ ჱაოჲჱნავმ.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Maaf",
+      "category": "greetings",
+      "english": "Please come in",
+      "current": "მე ვარ...",
+      "myMemory": "მობრძანდით, გთხოვთ.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Permisi",
+      "category": "greetings",
+      "english": "Please sit down",
+      "current": "მე თურქმენეთიდან ვარ",
+      "myMemory": "მჲლწ რვ, ჟვენთ.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tidak apa-apa",
+      "category": "greetings",
+      "english": "Yes",
+      "current": "ლაპარაკობთ ქართულად?",
+      "myMemory": "დიახ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Baik",
+      "category": "greetings",
+      "english": "No",
+      "current": "არ ვლაპარაკობ ქართულად",
+      "myMemory": "არა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Buruk",
+      "category": "greetings",
+      "english": "I agree",
+      "current": "ცოტა ვიცი ქართული",
+      "myMemory": "ვეთანხმები",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sedikit",
+      "category": "greetings",
+      "english": "Thank you very much for your help",
+      "current": "ლაპარაკობთ ინგლისურად?",
+      "myMemory": "- გთ ბლადჲეაპამ მნჲდს ნა ოჲმჲქრა.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Banyak",
+      "category": "greetings",
+      "english": "Thank you very much for your support",
+      "current": "არ მესმის",
+      "myMemory": "ბლადჲეაპწ ჱა ნვგვპჲწრნარა გთ ოჲეკპვოა.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Semua",
+      "category": "greetings",
+      "english": "Thank you very much for your understanding",
+      "current": "გთხოვთ გაიმეორეთ",
+      "myMemory": "Მადლობა, რომ გამიგეთ. ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tidak ada",
+      "category": "emergency",
+      "english": "Help!",
+      "current": "ნელა ილაპარაკეთ",
+      "myMemory": "დახმარება!",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya tidak mengerti",
+      "category": "emergency",
+      "english": "I need a doctor",
+      "current": "შეგიძლიათ დამეხმაროთ?",
+      "myMemory": "თჟკამ ლვკაპ.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda mengerti?",
+      "category": "emergency",
+      "english": "Call the police",
+      "current": "დამეხმარეთ",
+      "myMemory": "ოჲგთკა£რვ ოჲლთუთ£ა!",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya mengerti",
+      "category": "emergency",
+      "english": "Fire!",
+      "current": "კეთილი იყოს თქვენი მობრძანება",
+      "myMemory": "- გარპა!",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bisakah Anda berbicara lebih lambat?",
+      "category": "emergency",
+      "english": "I am lost",
+      "current": "გილოცავთ",
+      "myMemory": "Დავიკარგე",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ulangi lagi, tolong",
+      "category": "emergency",
+      "english": "I am sick",
+      "current": "გილოცავ დაბადების დღეს",
+      "myMemory": "Ავად ვარ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bagaimana?",
+      "category": "emergency",
+      "english": "Call an ambulance",
+      "current": "გილოცავ ახალ წელს",
+      "myMemory": "- £აგთ ჟვ ნა ბპჱა ოჲმჲქ.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apa?",
+      "category": "emergency",
+      "english": "My wallet was stolen",
+      "current": "გილოცავ დღესასწაულს",
+      "myMemory": "Საფულე მომპარეს",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di mana?",
+      "category": "emergency",
+      "english": "Help me",
+      "current": "წარმატებები",
+      "myMemory": "კაზვრვ მთ.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kapan?",
+      "category": "emergency",
+      "english": "Danger!",
+      "current": "ძალიან კარგი",
+      "myMemory": "საშიშია",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Siapa?",
+      "category": "emergency",
+      "english": "Call a doctor!",
+      "current": "კარგია",
+      "myMemory": "Დაურეკეთ ექიმს!",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mengapa?",
+      "category": "hotel",
+      "english": "I want a room",
+      "current": "პრობლემა არ არის",
+      "myMemory": "Მსურს ოთახი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa?",
+      "category": "hotel",
+      "english": "How much per night?",
+      "current": "უკაცრავად",
+      "myMemory": "Რა ოდენობით ღამეში?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Satu",
+      "category": "hotel",
+      "english": "Is there WiFi here?",
+      "current": "ერთი",
+      "myMemory": "Არის თუ არა აქ Wi ‑ Fi?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dua",
+      "category": "hotel",
+      "english": "I have a reservation",
+      "current": "ორი",
+      "myMemory": "Ჯავშანი მაქვს",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tiga",
+      "category": "hotel",
+      "english": "Single room",
+      "current": "სამი",
+      "myMemory": "Ერთადგილიანი ოთახი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Empat",
+      "category": "hotel",
+      "english": "Double room",
+      "current": "ოთხი",
+      "myMemory": "Ორადგილიანი ოთახი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lima",
+      "category": "hotel",
+      "english": "What time is check-out?",
+      "current": "ხუთი",
+      "myMemory": "Გასვლის რომელი საათია?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Enam",
+      "category": "hotel",
+      "english": "Key",
+      "current": "ექვსი",
+      "myMemory": "გასაღები",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tujuh",
+      "category": "hotel",
+      "english": "Room number",
+      "current": "შვიდი",
+      "myMemory": "Ოთახის ნომერი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Delapan",
+      "category": "hotel",
+      "english": "Is breakfast included?",
+      "current": "რვა",
+      "myMemory": "Შედის თუ არა საუზმე?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sembilan",
+      "category": "hotel",
+      "english": "Please clean the room",
+      "current": "ცხრა",
+      "myMemory": "Გაწმინდეთ ოთახი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sepuluh",
+      "category": "hotel",
+      "english": "I want to extend my stay",
+      "current": "ათი",
+      "myMemory": "Მსურს სტუმრობის გახანგრძლივება",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sebelas",
+      "category": "food",
+      "english": "I am hungry",
+      "current": "თერთმეტი",
+      "myMemory": "Მშია",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dua belas",
+      "category": "food",
+      "english": "Menu, please",
+      "current": "თორმეტი",
+      "myMemory": "Მენიუ, გთხოვთ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tiga belas",
+      "category": "food",
+      "english": "Delicious",
+      "current": "ცამეტი",
+      "myMemory": "გკსჟნჲ.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lima belas",
+      "category": "food",
+      "english": "Bill, please",
+      "current": "ოცი",
+      "myMemory": "Ბილი, გთხოვთ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dua puluh",
+      "category": "food",
+      "english": "I am vegetarian",
+      "current": "ოცდაათი",
+      "myMemory": "მე ვეგეტარიანელი ვარ.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tiga puluh",
+      "category": "food",
+      "english": "Not spicy",
+      "current": "ორმოცდაათი",
+      "myMemory": "Არ არის ცხარე",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lima puluh",
+      "category": "food",
+      "english": "Water",
+      "current": "ასი",
+      "myMemory": "წყალი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Seratus",
+      "category": "food",
+      "english": "Tea",
+      "current": "ათასი",
+      "myMemory": "ჩაი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Seribu",
+      "category": "food",
+      "english": "Rice",
+      "current": "პირველი",
+      "myMemory": "ბრინჯი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sejuta",
+      "category": "food",
+      "english": "Noodles",
+      "current": "ბოლო",
+      "myMemory": "Ატრია",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hari ini",
+      "category": "food",
+      "english": "Chicken",
+      "current": "ორშაბათი",
+      "myMemory": "ქათამი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kemarin",
+      "category": "food",
+      "english": "Beef",
+      "current": "სამშაბათი",
+      "myMemory": "საქონლის ხორცი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Besok",
+      "category": "food",
+      "english": "How much does it cost?",
+      "current": "ოთხშაბათი",
+      "myMemory": "რა ღირს?\n\n",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pagi",
+      "category": "food",
+      "english": "I am allergic to...",
+      "current": "ხუთშაბათი",
+      "myMemory": "Ალერგიული ვარ...",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Siang",
+      "category": "food",
+      "english": "Can I take it to go?",
+      "current": "პარასკევი",
+      "myMemory": "Შემიძლია წავიყვანო?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sore",
+      "category": "food",
+      "english": "Very delicious",
+      "current": "შაბათი",
+      "myMemory": "Ძალიან გემრიელი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Malam",
+      "category": "food",
+      "english": "Appetizers",
+      "current": "კვირა",
+      "myMemory": "Აპეტაიზერები",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Minggu",
+      "category": "food",
+      "english": "Ham",
+      "current": "იანვარი",
+      "myMemory": "amEthiopian weekday 5 - ShortDayName",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bulan",
+      "category": "food",
+      "english": "Cheese platter",
+      "current": "თებერვალი",
+      "myMemory": "Ყველის ფირფიტა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tahun",
+      "category": "food",
+      "english": "Soup",
+      "current": "მარტი",
+      "myMemory": "სუპი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hari",
+      "category": "food",
+      "english": "Borscht",
+      "current": "აპრილი",
+      "myMemory": "Ბორში",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jam",
+      "category": "food",
+      "english": "Chicken noodle soup",
+      "current": "მაისი",
+      "myMemory": "Ქათმის ატრიის წვნიანი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Menit",
+      "category": "food",
+      "english": "Meat broth",
+      "current": "ივნისი",
+      "myMemory": "Ხორცის ბულიონი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Detik",
+      "category": "food",
+      "english": "Meat",
+      "current": "ივლისი",
+      "myMemory": "ხორცი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Senin",
+      "category": "food",
+      "english": "Lamb",
+      "current": "აგვისტო",
+      "myMemory": "ბატკანი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selasa",
+      "category": "food",
+      "english": "Pork",
+      "current": "სექტემბერი",
+      "myMemory": "ღორის ხორცი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Rabu",
+      "category": "food",
+      "english": "Fried",
+      "current": "ოქტომბერი",
+      "myMemory": "Შემწვარი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kamis",
+      "category": "food",
+      "english": "Boiled",
+      "current": "ნოემბერი",
+      "myMemory": "Მოხარშული",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jumat",
+      "category": "food",
+      "english": "Fish dishes",
+      "current": "დეკემბერი",
+      "myMemory": "Თევზის კერძები",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sabtu",
+      "category": "food",
+      "english": "Fish",
+      "current": "დღეს",
+      "myMemory": "Fish",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Minggu",
+      "category": "food",
+      "english": "Salmon",
+      "current": "ხვალ",
+      "myMemory": "სალმონი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Januari",
+      "category": "food",
+      "english": "Shrimp",
+      "current": "გუშინ",
+      "myMemory": "კრევეტი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Februari",
+      "category": "food",
+      "english": "Crabs",
+      "current": "ახლა",
+      "myMemory": "Კიბორჩხალები",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Maret",
+      "category": "food",
+      "english": "Is there a vegetarian menu?",
+      "current": "მოგვიანებით",
+      "myMemory": "Არსებობს ვეგეტარიანული მენიუ?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "April",
+      "category": "food",
+      "english": "Is this dish spicy?",
+      "current": "რომელი საათია?",
+      "myMemory": "Ეს კერძი ცხარეა?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Restoran",
+      "category": "food",
+      "english": "Not spicy",
+      "current": "წყალი",
+      "myMemory": "Არ არის ცხარე",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Menu",
+      "category": "food",
+      "english": "Apple",
+      "current": "საკვები",
+      "myMemory": "გამოყენება",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sarapan",
+      "category": "food",
+      "english": "Banana",
+      "current": "პური",
+      "myMemory": "ბანანი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Makan siang",
+      "category": "food",
+      "english": "Orange",
+      "current": "ბრინჯი",
+      "myMemory": "ნარინჯისფერი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Makan malam",
+      "category": "food",
+      "english": "Grapes",
+      "current": "ხორცი",
+      "myMemory": "ყურძენი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Air",
+      "category": "food",
+      "english": "Watermelon",
+      "current": "თევზი",
+      "myMemory": "საზამთრო",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Teh",
+      "category": "food",
+      "english": "Potato",
+      "current": "ქათამი",
+      "myMemory": "კარტოფილი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kopi",
+      "category": "food",
+      "english": "Tomato",
+      "current": "ბოსტნეული",
+      "myMemory": "პომიდორი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Susu",
+      "category": "shopping",
+      "english": "How much does it cost?",
+      "current": "ხილი",
+      "myMemory": "რა ღირს?\n\n",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jus",
+      "category": "shopping",
+      "english": "Too expensive",
+      "current": "რძე",
+      "myMemory": "Მეტისმეტად ძვირი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bir",
+      "category": "shopping",
+      "english": "Can it be cheaper?",
+      "current": "ჩაი",
+      "myMemory": "Შეიძლება უფრო იაფი იყოს?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Anggur",
+      "category": "shopping",
+      "english": "I will buy this",
+      "current": "ყავა",
+      "myMemory": "Ამას ვიყიდი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Roti",
+      "category": "shopping",
+      "english": "Can I try it on?",
+      "current": "შაქარი",
+      "myMemory": "მჲზვ £აჟ ეა ოპჲბამ?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Daging",
+      "category": "shopping",
+      "english": "Bigger size",
+      "current": "მარილი",
+      "myMemory": "Უფრო დიდი ზომა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ikan",
+      "category": "shopping",
+      "english": "Smaller size",
+      "current": "პილპილი",
+      "myMemory": "Მცირე ზომა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ayam",
+      "category": "shopping",
+      "english": "Cash",
+      "current": "საუზმე",
+      "myMemory": "ნაღდი ფული",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sayuran",
+      "category": "shopping",
+      "english": "Credit card",
+      "current": "სადილი",
+      "myMemory": "საკრედიტო ბარათი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Buah",
+      "category": "shopping",
+      "english": "Receipt",
+      "current": "ვახშამი",
+      "myMemory": "ქვითარი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Nasi",
+      "category": "shopping",
+      "english": "Return/Exchange",
+      "current": "მენიუ",
+      "myMemory": "Დაბრუნება/გაცვლა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sup",
+      "category": "shopping",
+      "english": "Where is the market?",
+      "current": "ანგარიში",
+      "myMemory": "Სად არის ბაზარი?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Salad",
+      "category": "shopping",
+      "english": "Is there a discount?",
+      "current": "გემრიელი",
+      "myMemory": "Ფასდაკლებაა?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Keju",
+      "category": "shopping",
+      "english": "Can I try it on?",
+      "current": "ტკბილი",
+      "myMemory": "მჲზვ £აჟ ეა ოპჲბამ?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mentega",
+      "category": "shopping",
+      "english": "What is your size?",
+      "current": "მჟავე",
+      "myMemory": "Რა ზომის ხართ?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Gula",
+      "category": "shopping",
+      "english": "Are there other colors?",
+      "current": "ცხარე",
+      "myMemory": "Არსებობს თუ არა სხვა ფერები?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Garam",
+      "category": "transport",
+      "english": "Where is the train station?",
+      "current": "ცხელი",
+      "myMemory": "Სად არის მატარებლის სადგური?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Merica",
+      "category": "transport",
+      "english": "Airport",
+      "current": "ცივი",
+      "myMemory": "აეროპორტი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Es krim",
+      "category": "transport",
+      "english": "Taxi",
+      "current": "ახალი",
+      "myMemory": "ტაქსი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kue",
+      "category": "transport",
+      "english": "Bus",
+      "current": "მშია",
+      "myMemory": "მატარებელი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Enak",
+      "category": "transport",
+      "english": "Metro",
+      "current": "მწყურია",
+      "myMemory": "Metro",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bon appétit",
+      "category": "transport",
+      "english": "Train ticket",
+      "current": "ძალიან გემრიელია",
+      "myMemory": "Მატარებლის ბილეთი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Toko",
+      "category": "transport",
+      "english": "Schedule",
+      "current": "მაღაზია",
+      "myMemory": "განრიგი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pasar",
+      "category": "transport",
+      "english": "Platform",
+      "current": "ბაზარი",
+      "myMemory": "პლატფორმა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa harganya?",
+      "category": "transport",
+      "english": "Next stop",
+      "current": "ფასი",
+      "myMemory": "ჟლვენა ჟრანთუა ვ ოპგა აგვნთ£ა.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa biayanya?",
+      "category": "transport",
+      "english": "Stop",
+      "current": "რამდენი?",
+      "myMemory": "გაჩერება",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya ingin membeli ini",
+      "category": "transport",
+      "english": "How long until...?",
+      "current": "ეს რამდენი ღირს?",
+      "myMemory": "Რამდენ ხანს დარჩება...?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mahal",
+      "category": "transport",
+      "english": "I need to go to...",
+      "current": "ძვირი",
+      "myMemory": "Უნდა წავიდე...",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Murah",
+      "category": "transport",
+      "english": "When will the next bus arrive?",
+      "current": "იაფი",
+      "myMemory": "Როდის მოვა შემდეგი ავტობუსი?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Diskon",
+      "category": "transport",
+      "english": "I want to go to the airport",
+      "current": "ფასდაკლება",
+      "myMemory": "Აეროპორტში წასვლა მსურს",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Harga",
+      "category": "directions",
+      "english": "On the left",
+      "current": "მინდა ვიყიდო",
+      "myMemory": "მარცხნივ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Uang",
+      "category": "directions",
+      "english": "On the right",
+      "current": "უბრალოდ ვუყურებ",
+      "myMemory": "Მარჯვნივ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kartu kredit",
+      "category": "directions",
+      "english": "Straight",
+      "current": "ამას ავიღებ",
+      "myMemory": "სწორი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tunai",
+      "category": "directions",
+      "english": "Turn",
+      "current": "საკრედიტო ბარათი",
+      "myMemory": "გრუპეტო",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tanda terima",
+      "category": "directions",
+      "english": "Intersection",
+      "current": "ნაღდი ფული",
+      "myMemory": "კვეთა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda menerima kartu?",
+      "category": "directions",
+      "english": "Traffic light",
+      "current": "ქვითარი",
+      "myMemory": "შუქნიშანი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ukuran",
+      "category": "directions",
+      "english": "Far",
+      "current": "დაბრუნება",
+      "myMemory": "ორდ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Warna",
+      "category": "directions",
+      "english": "Near",
+      "current": "ზომა",
+      "myMemory": "Ახლოს",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Besar",
+      "category": "directions",
+      "english": "Map",
+      "current": "ფერი",
+      "myMemory": "რუკა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kecil",
+      "category": "directions",
+      "english": "Where is...?",
+      "current": "დიდი",
+      "myMemory": "სადაა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sedang",
+      "category": "health",
+      "english": "Hospital",
+      "current": "პატარა",
+      "myMemory": "საავადმყოფო",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Baru",
+      "category": "health",
+      "english": "Pharmacy",
+      "current": "ახალი",
+      "myMemory": "ფარმაცია",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lama",
+      "category": "health",
+      "english": "I have a headache",
+      "current": "ძველი",
+      "myMemory": "Თავის ტკივილი მაქვს",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Cantik",
+      "category": "health",
+      "english": "I have a stomachache",
+      "current": "კარგი",
+      "myMemory": "Კუჭის ტკივილი მაქვს",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jelek",
+      "category": "health",
+      "english": "Temperature",
+      "current": "ცუდი",
+      "myMemory": "ტემპერატურა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berkualitas",
+      "category": "health",
+      "english": "Cough",
+      "current": "ღია",
+      "myMemory": "ხველა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bisakah saya mencoba ini?",
+      "category": "health",
+      "english": "Medicine",
+      "current": "დახურული",
+      "myMemory": "მედიცინა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Taksi",
+      "category": "health",
+      "english": "Doctor",
+      "current": "ტაქსი",
+      "myMemory": "ექიმი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bus",
+      "category": "health",
+      "english": "Nurse",
+      "current": "ავტობუსი",
+      "myMemory": "მედდა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kereta",
+      "category": "health",
+      "english": "Ambulance",
+      "current": "მატარებელი",
+      "myMemory": "სასწრაფო სამდიცინო დახმარება",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pesawat",
+      "category": "health",
+      "english": "I have a headache",
+      "current": "თვითმფრინავი",
+      "myMemory": "Თავის ტკივილი მაქვს",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bandara",
+      "category": "health",
+      "english": "I need a painkiller",
+      "current": "მანქანა",
+      "myMemory": "Მჭირდება ტკივილგამაყუჩებელი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Stasiun",
+      "category": "money",
+      "english": "Yuan",
+      "current": "სადგური",
+      "myMemory": "ძან.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Halte",
+      "category": "money",
+      "english": "Manat",
+      "current": "აეროპორტი",
+      "myMemory": "მანატი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tiket",
+      "category": "money",
+      "english": "Card payment",
+      "current": "ბილეთი",
+      "myMemory": "Ბარათით გადახდა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa tiketnya?",
+      "category": "money",
+      "english": "Bank",
+      "current": "სად?",
+      "myMemory": "ბანკი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di mana stasiun bus?",
+      "category": "money",
+      "english": "ATM",
+      "current": "აქ",
+      "myMemory": "ATM",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bagaimana menuju...?",
+      "category": "money",
+      "english": "Currency exchange",
+      "current": "იქ",
+      "myMemory": "Currency Exchange",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kiri",
+      "category": "money",
+      "english": "Change",
+      "current": "მარჯვნივ",
+      "myMemory": "Change",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kanan",
+      "category": "money",
+      "english": "Free",
+      "current": "მარცხნივ",
+      "myMemory": "თავისუფალი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lurus",
+      "category": "money",
+      "english": "Price",
+      "current": "პირდაპირ",
+      "myMemory": "ფასი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jauh",
+      "category": "communication",
+      "english": "Mobile phone",
+      "current": "ახლოს",
+      "myMemory": "Მობილური ტელეფონი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dekat",
+      "category": "communication",
+      "english": "Wi-Fi",
+      "current": "შორს",
+      "myMemory": "Wi-Fi",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di sini",
+      "category": "communication",
+      "english": "What is the password?",
+      "current": "რუკა",
+      "myMemory": "Რა არის პაროლი?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di sana",
+      "category": "communication",
+      "english": "Send SMS",
+      "current": "მისამართი",
+      "myMemory": "SMS-ის გაგზავნა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jalan",
+      "category": "entertainment",
+      "english": "Cinema",
+      "current": "წაიყვანეთ მე...",
+      "myMemory": "კინო",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Alamat",
+      "category": "entertainment",
+      "english": "Museum",
+      "current": "რამდენ ხანს გასტანს?",
+      "myMemory": "მუზეუმი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hotel",
+      "category": "entertainment",
+      "english": "Park",
+      "current": "სასტუმრო",
+      "myMemory": "პარკი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kamar",
+      "category": "entertainment",
+      "english": "Concert",
+      "current": "ოთახი",
+      "myMemory": "Კონცერტი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Reservasi",
+      "category": "entertainment",
+      "english": "Shopping mall",
+      "current": "დაჯავშნა",
+      "myMemory": "Სავაჭრო ცენტრი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya sudah memesan",
+      "category": "entertainment",
+      "english": "Swimming pool",
+      "current": "რეზერვაცია",
+      "myMemory": "საცურაო აუზი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya ingin kamar",
+      "category": "entertainment",
+      "english": "Gym",
+      "current": "გასაღები",
+      "myMemory": "Სპორტდარბაზი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk satu orang",
+      "category": "entertainment",
+      "english": "Library",
+      "current": "დაჯავშნილი მაქვს",
+      "myMemory": "ბიბლიოთეკა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk dua orang",
+      "category": "entertainment",
+      "english": "Night market",
+      "current": "თავისუფალი ოთახი გაქვთ?",
+      "myMemory": "Ღამის ბაზარი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk satu malam",
+      "category": "entertainment",
+      "english": "How much is the ticket?",
+      "current": "ერთი ღამით",
+      "myMemory": "Რა ღირს ბილეთი?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk dua malam",
+      "category": "time",
+      "english": "What time is it?",
+      "current": "ორი ღამით",
+      "myMemory": "- კჲლთკჲ £ვ ჟართ?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk seminggu",
+      "category": "time",
+      "english": "Today",
+      "current": "ერთი კვირით",
+      "myMemory": "დღეს",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa harga kamarnya?",
+      "category": "time",
+      "english": "Tomorrow",
+      "current": "ერთსაწოლიანი",
+      "myMemory": "ხვალ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah sudah termasuk sarapan?",
+      "category": "time",
+      "english": "Yesterday",
+      "current": "ორსაწოლიანი",
+      "myMemory": "გუშინ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kunci",
+      "category": "time",
+      "english": "Monday",
+      "current": "სააბაზანო",
+      "myMemory": "ორშაბათი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kunci kamar",
+      "category": "time",
+      "english": "Sunday",
+      "current": "შხაპი",
+      "myMemory": "კვირა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tempat tidur",
+      "category": "time",
+      "english": "In the morning",
+      "current": "პირსახოცი",
+      "myMemory": "სრპვ თჱსრპთნა.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kamar mandi",
+      "category": "time",
+      "english": "In the afternoon",
+      "current": "საპონი",
+      "myMemory": "Შუადღისას",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Shower",
+      "category": "time",
+      "english": "In the evening",
+      "current": "კონდიციონერი",
+      "myMemory": "საღამოს",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "AC",
+      "category": "time",
+      "english": "What month?",
+      "current": "ვაი-ფაი",
+      "myMemory": "Რომელ თვეში?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "WiFi",
+      "category": "time",
+      "english": "Monday",
+      "current": "პაროლი",
+      "myMemory": "ორშაბათი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apa kata sandi WiFi?",
+      "category": "time",
+      "english": "Tuesday",
+      "current": "საუზმე",
+      "myMemory": "სამშაბათი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Handuk",
+      "category": "time",
+      "english": "Wednesday",
+      "current": "დარეგისტრირება",
+      "myMemory": "ოთხშაბათი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sabun",
+      "category": "time",
+      "english": "Thursday",
+      "current": "გასვლა",
+      "myMemory": "ხუთშაბათი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Layanan kamar",
+      "category": "time",
+      "english": "Friday",
+      "current": "ბარგი",
+      "myMemory": "პარასკევი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Check-in",
+      "category": "time",
+      "english": "Saturday",
+      "current": "ლიფტი",
+      "myMemory": "შაბათი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Check-out",
+      "category": "time",
+      "english": "Sunday",
+      "current": "რეცეფცია",
+      "myMemory": "კვირა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tolong!",
+      "category": "time",
+      "english": "January",
+      "current": "დახმარება!",
+      "myMemory": "იანვარი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Darurat",
+      "category": "time",
+      "english": "February",
+      "current": "გადაუდებელი",
+      "myMemory": "თებერვალი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Polisi",
+      "category": "time",
+      "english": "March",
+      "current": "პოლიცია",
+      "myMemory": "მარტი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dokter",
+      "category": "time",
+      "english": "April",
+      "current": "ექიმი",
+      "myMemory": "აპრილი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Rumah sakit",
+      "category": "time",
+      "english": "May",
+      "current": "საავადმყოფო",
+      "myMemory": "მაისი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ambulans",
+      "category": "time",
+      "english": "June",
+      "current": "აფთიაქი",
+      "myMemory": "ივნისი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apotik",
+      "category": "time",
+      "english": "July",
+      "current": "ავად ვარ",
+      "myMemory": "ივლისი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya sakit",
+      "category": "time",
+      "english": "August",
+      "current": "დაჭრილი ვარ",
+      "myMemory": "აგვისტო",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya butuh dokter",
+      "category": "time",
+      "english": "September",
+      "current": "წამალი",
+      "myMemory": "სექტემბერი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya kehilangan...",
+      "category": "time",
+      "english": "October",
+      "current": "ტკივილი",
+      "myMemory": "ოქტომბერი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya tersesat",
+      "category": "time",
+      "english": "November",
+      "current": "ცხელება",
+      "myMemory": "ნოემბერი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Api",
+      "category": "time",
+      "english": "December",
+      "current": "გამოიძახეთ სასწრაფო",
+      "myMemory": "დეკემბერი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bahaya",
+      "category": "numbers",
+      "english": "One",
+      "current": "საშიშროება",
+      "myMemory": "ერთი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hati-hati",
+      "category": "numbers",
+      "english": "Two",
+      "current": "ხანძარი",
+      "myMemory": "ორი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dilarang",
+      "category": "numbers",
+      "english": "Three",
+      "current": "ქურდობა",
+      "myMemory": "სამი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apa itu?",
+      "category": "numbers",
+      "english": "Four",
+      "current": "რა?",
+      "myMemory": "ოთხი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di mana itu?",
+      "category": "numbers",
+      "english": "Five",
+      "current": "ვინ?",
+      "myMemory": "ხუთი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa ini?",
+      "category": "numbers",
+      "english": "Six",
+      "current": "როდის?",
+      "myMemory": "ექვსი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kapan?",
+      "category": "numbers",
+      "english": "Seven",
+      "current": "სად?",
+      "myMemory": "შვიდი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Siapa?",
+      "category": "numbers",
+      "english": "Eight",
+      "current": "რატომ?",
+      "myMemory": "რვა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mengapa?",
+      "category": "numbers",
+      "english": "Nine",
+      "current": "როგორ?",
+      "myMemory": "ცხრა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bagaimana?",
+      "category": "numbers",
+      "english": "Ten",
+      "current": "რამდენი?",
+      "myMemory": "ათი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di mana toilet?",
+      "category": "numbers",
+      "english": "Twenty",
+      "current": "ეს რა არის?",
+      "myMemory": "ოცი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda bisa membantu?",
+      "category": "numbers",
+      "english": "One hundred",
+      "current": "ეს სად არის?",
+      "myMemory": "100.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda tahu...?",
+      "category": "numbers",
+      "english": "One thousand",
+      "current": "ეს როდის არის?",
+      "myMemory": "Ათასი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bisakah Anda menunjukkan?",
+      "category": "numbers",
+      "english": "Ten thousand",
+      "current": "რომელი საათია?",
+      "myMemory": "ათი ათასი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah mungkin?",
+      "category": "numbers",
+      "english": "First",
+      "current": "შეგიძლიათ?",
+      "myMemory": "პირველი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda punya...?",
+      "category": "numbers",
+      "english": "One thousand",
+      "current": "როგორ...?",
+      "myMemory": "Ათასი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah itu tersedia?",
+      "category": "numbers",
+      "english": "Two thousand",
+      "current": "გაქვთ?",
+      "myMemory": "Ორი ათასი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa lama?",
+      "category": "numbers",
+      "english": "Ten thousand",
+      "current": "შესაძლებელია?",
+      "myMemory": "ათი ათასი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa jauh?",
+      "category": "numbers",
+      "english": "One hundred thousand",
+      "current": "ტუალეტი სად არის?",
+      "myMemory": "- ეა.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jam berapa sekarang?",
+      "category": "numbers",
+      "english": "One million",
+      "current": "ეს რამდენი ღირს?",
+      "myMemory": "ვეთნ მთლთჲნ.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jam berapa buka?",
+      "category": "weather",
+      "english": "What is the weather today?",
+      "current": "შეგიძლიათ დამეხმაროთ?",
+      "myMemory": "Როგორი ამინდია დღეს?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jam berapa tutup?",
+      "category": "weather",
+      "english": "Rain",
+      "current": "ლაპარაკობთ ინგლისურად?",
+      "myMemory": "წვიმა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah buka hari ini?",
+      "category": "weather",
+      "english": "Sunny",
+      "current": "შემიძლია ვნახო?",
+      "myMemory": "მზიანი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Keluarga",
+      "category": "weather",
+      "english": "Cloudy",
+      "current": "ოჯახი",
+      "myMemory": "მოღრუბლული",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ayah",
+      "category": "weather",
+      "english": "Windy",
+      "current": "მამა",
+      "myMemory": "ქარიანი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ibu",
+      "category": "weather",
+      "english": "Snow",
+      "current": "დედა",
+      "myMemory": "თოვლი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Anak laki-laki",
+      "category": "weather",
+      "english": "Hot",
+      "current": "ძმა",
+      "myMemory": "ცხელი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Anak perempuan",
+      "category": "weather",
+      "english": "Cold",
+      "current": "და",
+      "myMemory": "ჟრსევნჲ...",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saudara laki-laki",
+      "category": "personal_info",
+      "english": "My name is...",
+      "current": "ვაჟი",
+      "myMemory": "თმვრჲ მთ ვ...",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saudara perempuan",
+      "category": "personal_info",
+      "english": "My last name is...",
+      "current": "ქალიშვილი",
+      "myMemory": "Გვარი:...",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Suami",
+      "category": "personal_info",
+      "english": "What is your name?",
+      "current": "ქმარი",
+      "myMemory": "კაკ ჟვ კაჱგარვ?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Istri",
+      "category": "personal_info",
+      "english": "I am from Turkmenistan",
+      "current": "ცოლი",
+      "myMemory": "Მე თურქმენეთიდან ვარ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kakek",
+      "category": "personal_info",
+      "english": "I live in Ashgabat",
+      "current": "ბაბუა",
+      "myMemory": "Ვცხოვრობ აშხაბადში",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Nenek",
+      "category": "personal_info",
+      "english": "There are 4 people in our family",
+      "current": "ბებია",
+      "myMemory": "Ჩვენს ოჯახში 4 ადამიანია",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Paman",
+      "category": "personal_info",
+      "english": "Do you have children?",
+      "current": "ბიძა",
+      "myMemory": "გყავთ შვილები?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bibi",
+      "category": "personal_info",
+      "english": "I have no children",
+      "current": "დეიდა",
+      "myMemory": "Მე არ მყავს შვილები",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Anak-anak",
+      "category": "personal_info",
+      "english": "I have one child",
+      "current": "მეგობარი",
+      "myMemory": "Მყავს ერთი შვილი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Orang tua",
+      "category": "personal_info",
+      "english": "I have two children",
+      "current": "ბავშვი",
+      "myMemory": "ეა.",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sakit",
+      "category": "personal_info",
+      "english": "What do you do?",
+      "current": "ჯანმრთელობა",
+      "myMemory": "ანა მთ კაჱა, ფვ ჟვ ჱანთმაგაქ ჟ...",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Demam",
+      "category": "personal_info",
+      "english": "I work at a factory",
+      "current": "ავად ვარ",
+      "myMemory": "Ვმუშაობ ქარხანაში",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sakit kepala",
+      "category": "personal_info",
+      "english": "I work at a bank",
+      "current": "მტკივა",
+      "myMemory": "Ვმუშაობ ბანკში",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sakit perut",
+      "category": "personal_info",
+      "english": "I work at a hospital",
+      "current": "თავის ტკივილი",
+      "myMemory": "Ვმუშაობ საავადმყოფოში",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Flu",
+      "category": "personal_info",
+      "english": "I study foreign languages",
+      "current": "მუცლის ტკივილი",
+      "myMemory": "Ვსწავლობ უცხო ენებს",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Batuk",
+      "category": "personal_info",
+      "english": "Do you speak Russian?",
+      "current": "კბილის ტკივილი",
+      "myMemory": "Საუბრობთ რუსულად?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hidung tersumbat",
+      "category": "personal_info",
+      "english": "I don't speak",
+      "current": "ხველა",
+      "myMemory": "Მე არ ვსაუბრობ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Obat",
+      "category": "personal_info",
+      "english": "I speak a little",
+      "current": "ნაყოფი",
+      "myMemory": "Ცოტას ვლაპარაკობ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pil",
+      "category": "business",
+      "english": "When does the conference start?",
+      "current": "ცხელება",
+      "myMemory": "Როდის დაიწყება კონფერენცია?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Resep",
+      "category": "business",
+      "english": "What is the schedule for presentations?",
+      "current": "ალერგია",
+      "myMemory": "Როგორია პრეზენტაციების ჩატარების გრაფიკი?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Asuransi",
+      "category": "business",
+      "english": "Will there be translation to Russian?",
+      "current": "ინფექცია",
+      "myMemory": "Იქნება თუ არა თარგმანი რუსულ ენაზე?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Alergi",
+      "category": "business",
+      "english": "I will speak in Russian",
+      "current": "ჭრილობა",
+      "myMemory": "Ვსაუბრობ რუსულ ენაზე",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya alergi terhadap...",
+      "category": "business",
+      "english": "We want to see the exhibition",
+      "current": "სისხლი",
+      "myMemory": "Გვსურს გამოფენის ნახვა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Asma",
+      "category": "business",
+      "english": "What time does the exhibition open?",
+      "current": "აბი",
+      "myMemory": "Რომელ საათზე იხსნება გამოფენა?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Diabetes",
+      "category": "business",
+      "english": "How many countries are participating?",
+      "current": "ინექცია",
+      "myMemory": "Რამდენი ქვეყანა მონაწილეობს?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tekanan darah",
+      "category": "business",
+      "english": "Can I get the exhibition catalog?",
+      "current": "რეცეპტი",
+      "myMemory": "Შემიძლია თუ არა საგამოფენო კატალოგის მიღება?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jantung",
+      "category": "business",
+      "english": "I came to discuss business",
+      "current": "ექიმი მჭირდება",
+      "myMemory": "Ბიზნესის განსახილველად მოვედი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Perut",
+      "category": "business",
+      "english": "We want to speak with the general director",
+      "current": "ალერგია მაქვს",
+      "myMemory": "Გვსურს, გავესაუბროთ გენერალურ დირექტორს",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Punggung",
+      "category": "business",
+      "english": "We want to learn about the production",
+      "current": "გადაუდებელი დახმარება",
+      "myMemory": "Გვსურს, შეიტყოთ წარმოების შესახებ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Gigi",
+      "category": "measurements",
+      "english": "Length",
+      "current": "დაზღვევა",
+      "myMemory": "სიგრძე",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Cuaca",
+      "category": "measurements",
+      "english": "Meter",
+      "current": "ამინდი",
+      "myMemory": "მთვლელი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Panas",
+      "category": "measurements",
+      "english": "Centimeter",
+      "current": "ცხელი",
+      "myMemory": "Სანტიმეტრი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dingin",
+      "category": "measurements",
+      "english": "Weight",
+      "current": "ცივი",
+      "myMemory": "წონა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hujan",
+      "category": "measurements",
+      "english": "Kilogram",
+      "current": "წვიმა",
+      "myMemory": "კილოგრამი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Salju",
+      "category": "measurements",
+      "english": "Gram",
+      "current": "თოვლი",
+      "myMemory": "Gram",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Angin",
+      "category": "measurements",
+      "english": "Volume",
+      "current": "მზე",
+      "myMemory": "ხმა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mendung",
+      "category": "measurements",
+      "english": "Liter",
+      "current": "ღრუბელი",
+      "myMemory": "ლიტრი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Cerah",
+      "category": "colors",
+      "english": "White",
+      "current": "ქარი",
+      "myMemory": "ევროპეოიდული",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Suhu",
+      "category": "colors",
+      "english": "Yellow",
+      "current": "ქარიშხალი",
+      "myMemory": "ყვითელი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Iklim",
+      "category": "colors",
+      "english": "Green",
+      "current": "ტემპერატურა",
+      "myMemory": "მწვანე",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Putih",
+      "category": "colors",
+      "english": "Blue",
+      "current": "ფერი",
+      "myMemory": "ლურჯი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hitam",
+      "category": "colors",
+      "english": "Red",
+      "current": "თეთრი",
+      "myMemory": "წითელი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Merah",
+      "category": "colors",
+      "english": "Black",
+      "current": "შავი",
+      "myMemory": "შავი",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Biru",
+      "category": "colors",
+      "english": "Gray",
+      "current": "წითელი",
+      "myMemory": "ნაცრისფერი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hijau",
+      "category": "colors",
+      "english": "Purple",
+      "current": "ლურჯი",
+      "myMemory": "იისფერი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kuning",
+      "category": "colors",
+      "english": "Orange",
+      "current": "მწვანე",
+      "myMemory": "ნარინჯისფერი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Oranye",
+      "category": "colors",
+      "english": "Pink",
+      "current": "ყვითელი",
+      "myMemory": "ვარდისფერი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ungu",
+      "category": "body",
+      "english": "Head",
+      "current": "ნარინჯისფერი",
+      "myMemory": "თავი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Merah muda",
+      "category": "body",
+      "english": "Arm",
+      "current": "ვარდისფერი",
+      "myMemory": "ჯგუფი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Coklat",
+      "category": "body",
+      "english": "Leg",
+      "current": "ყავისფერი",
+      "myMemory": "ფეხი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Abu-abu",
+      "category": "body",
+      "english": "Eyes",
+      "current": "იისფერი",
+      "myMemory": "თვალი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Emas",
+      "category": "body",
+      "english": "Nose",
+      "current": "რუხი",
+      "myMemory": "ცხვირი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Utara",
+      "category": "body",
+      "english": "Mouth",
+      "current": "ჩრდილოეთი",
+      "myMemory": "პირის ღრუ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selatan",
+      "category": "body",
+      "english": "Ear",
+      "current": "სამხრეთი",
+      "myMemory": "ყური",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Timur",
+      "category": "home",
+      "english": "House",
+      "current": "აღმოსავლეთი",
+      "myMemory": "ჰაუსი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Barat",
+      "category": "home",
+      "english": "Door",
+      "current": "დასავლეთი",
+      "myMemory": "კარ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Peta",
+      "category": "home",
+      "english": "Window",
+      "current": "პირდაპირ",
+      "myMemory": "ფანჯარა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kompas",
+      "category": "home",
+      "english": "Table",
+      "current": "მოხვიეთ",
+      "myMemory": "ცხრილი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "GPS",
+      "category": "home",
+      "english": "Chair",
+      "current": "მარჯვნივ",
+      "myMemory": "სკამი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lokasi",
+      "category": "home",
+      "english": "Bed",
+      "current": "მარცხნივ",
+      "myMemory": "საწოლი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tujuan",
+      "category": "customs",
+      "english": "Where is passport control?",
+      "current": "გზაჯვარედინი",
+      "myMemory": "Სად არის პასპორტის კონტროლი?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Rute",
+      "category": "customs",
+      "english": "Here is my passport",
+      "current": "ქუჩა",
+      "myMemory": "Აი, ჩემი პასპორტი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Persimpangan",
+      "category": "customs",
+      "english": "I intend to stay in China for a week",
+      "current": "ჩიხი",
+      "myMemory": "Ვაპირებ, ერთი კვირით დავრჩე ჩინეთში",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bundaran",
+      "category": "customs",
+      "english": "I have a single-entry visa",
+      "current": "ხიდი",
+      "myMemory": "Მაქვს ერთჯერადი ვიზა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jembatan",
+      "category": "customs",
+      "english": "I am in transit in your country",
+      "current": "შენობა",
+      "myMemory": "Თქვენს ქვეყანაში ვმოგზაურობ ტრანზიტით",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Gedung",
+      "category": "customs",
+      "english": "Here is my customs declaration",
+      "current": "მოედანი",
+      "myMemory": "Იხილეთ ჩემი საბაჟო დეკლარაცია",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Depan",
+      "category": "customs",
+      "english": "Here is my luggage",
+      "current": "წინ",
+      "myMemory": "Აი, ჩემი ბარგი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Belakang",
+      "category": "customs",
+      "english": "There are no prohibited items in my luggage",
+      "current": "უკან",
+      "myMemory": "Ბარგში აკრძალული ნივთები არ არის",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Seberang",
+      "category": "customs",
+      "english": "These are my personal belongings",
+      "current": "ზემოთ",
+      "myMemory": "Ეს არის ჩემი პირადი ნივთები",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di sebelah",
+      "category": "customs",
+      "english": "What duty do I need to pay?",
+      "current": "ქვემოთ",
+      "myMemory": "Რა მოვალეობა უნდა გადავიხადო?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Telepon",
+      "category": "sports",
+      "english": "What sport do you like?",
+      "current": "ტელეფონი",
+      "myMemory": "Სპორტის რომელი სახეობა მოგწონთ?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Nomor telepon",
+      "category": "sports",
+      "english": "I like to play football",
+      "current": "ინტერნეტი",
+      "myMemory": "Მიყვარს ფეხბურთის თამაში",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Email",
+      "category": "sports",
+      "english": "Basketball",
+      "current": "ელ-ფოსტა",
+      "myMemory": "კალათბურთი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Internet",
+      "category": "sports",
+      "english": "Swimming",
+      "current": "შეტყობინება",
+      "myMemory": "ცურვა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "WiFi",
+      "category": "sports",
+      "english": "Running",
+      "current": "წერილი",
+      "myMemory": "გაშვებული",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Komputer",
+      "category": "sports",
+      "english": "Where is the gym?",
+      "current": "ფოსტა",
+      "myMemory": "Სად არის სპორტდარბაზი?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ponsel",
+      "category": "sports",
+      "english": "I want to work out",
+      "current": "ნომერი",
+      "myMemory": "მე მინდა მივიდე სიყვარულით მათთან",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pesan",
+      "category": "sports",
+      "english": "Coach",
+      "current": "დარეკეთ",
+      "myMemory": "მწვრთნელი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Surat",
+      "category": "sports",
+      "english": "Competition / Match",
+      "current": "სიგნალი",
+      "myMemory": "Შეჯიბრი / დამთხვევა",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Stadion",
+      "category": "sports",
+      "english": "Stadium",
+      "current": "დამტენი",
+      "myMemory": "სტადიონი",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    }
+  ]
+}

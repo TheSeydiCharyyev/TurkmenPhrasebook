@@ -9,6 +9,7 @@ import {
   ActivityIndicator,
   Dimensions,
   ScrollView,
+  BackHandler,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRoute, useNavigation, RouteProp } from '@react-navigation/native';
@@ -306,6 +307,19 @@ export default function CategoryScreen() {
     setSelectedSubcategory(null);
   }, []);
 
+  // ✅ Обработчик кнопки "Назад" телефона (hardware back button)
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener('hardwareBackPress', () => {
+      if (selectedSubcategory) {
+        // Если выбрана подкатегория, вернуться к списку подкатегорий
+        handleBackToCategory();
+        return true; // Предотвращаем стандартное поведение
+      }
+      return false; // Разрешаем стандартное поведение (уход на предыдущий экран)
+    });
+
+    return () => backHandler.remove();
+  }, [selectedSubcategory, handleBackToCategory]);
 
   // ✅ ОБНОВЛЕНО: Получаем название категории на текущем языке с поддержкой всех 30 языков
   const { selectedLanguage } = useConfig();
@@ -379,7 +393,11 @@ export default function CategoryScreen() {
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => {
-            if (navigation.canGoBack()) {
+            if (selectedSubcategory) {
+              // Если выбрана подкатегория, вернуться к списку подкатегорий
+              handleBackToCategory();
+            } else if (navigation.canGoBack()) {
+              // Иначе вернуться на предыдущий экран
               navigation.goBack();
             }
           }}
@@ -452,7 +470,7 @@ export default function CategoryScreen() {
             {/* ПОДКАТЕГОРИИ - показываем ПЕРВЫМИ если есть и не выбрана конкретная */}
             {subcategories.length > 0 && !selectedSubcategory && (
               <View style={styles.subcategoriesSection}>
-                <Text style={styles.sectionTitle}>
+                <Text style={[styles.sectionTitle, { paddingHorizontal: 0 }]}>
                   {config.mode === 'tk' ? 'Bölümler' :
                    config.mode === 'zh' ? '分类' : 'Разделы'}
                 </Text>
@@ -608,8 +626,7 @@ const styles = StyleSheet.create({
   // ✅ ИСПРАВЛЕННЫЙ заголовок - только языковая пара
 
   subcategoriesSection: {
-    paddingVertical: scale(12),
-    paddingHorizontal: scale(16),
+    paddingVertical: scale(16),
     backgroundColor: '#fff',
   },
 

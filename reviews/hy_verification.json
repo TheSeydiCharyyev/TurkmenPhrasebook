@@ -1,0 +1,3064 @@
+{
+  "language": "Armenian",
+  "languageCode": "hy",
+  "timestamp": "2025-11-27T09:55:27.803Z",
+  "summary": {
+    "total": 305,
+    "verified": 1,
+    "needsReview": 304,
+    "errors": 0,
+    "verificationRate": "0.3%"
+  },
+  "results": [
+    {
+      "phraseId": "Halo",
+      "category": "greetings",
+      "english": "Hello",
+      "current": "Բարև",
+      "myMemory": "Բարև Ձեզ ։)",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat pagi",
+      "category": "greetings",
+      "english": "Thank you",
+      "current": "Բարև Ձեզ",
+      "myMemory": "Շնորհակալություն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat siang",
+      "category": "greetings",
+      "english": "Goodbye",
+      "current": "Բարի լույս",
+      "myMemory": "Ցտեսություն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat sore",
+      "category": "greetings",
+      "english": "Excuse me",
+      "current": "Բարի երեկո",
+      "myMemory": "Ներեցեք",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat malam",
+      "category": "greetings",
+      "english": "Good morning",
+      "current": "Բարի գիշեր",
+      "myMemory": "",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selamat tinggal",
+      "category": "greetings",
+      "english": "Good night",
+      "current": "Ցտեսություն",
+      "myMemory": "bari gisher,",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sampai jumpa",
+      "category": "greetings",
+      "english": "My name is...",
+      "current": "Հաջող",
+      "myMemory": "Իմ անունն է...",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apa kabar?",
+      "category": "greetings",
+      "english": "What is your name?",
+      "current": "Շնորհակալություն",
+      "myMemory": "Ի ՞ նչ է ձեր անունը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Baik-baik saja, terima kasih",
+      "category": "greetings",
+      "english": "Nice to meet you",
+      "current": "Խնդրում եմ",
+      "myMemory": "приятно встретиться с вами",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Senang bertemu dengan Anda",
+      "category": "greetings",
+      "english": "Please",
+      "current": "Ներողություն",
+      "myMemory": "Խնդրում եմ, ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Nama saya...",
+      "category": "greetings",
+      "english": "You're welcome",
+      "current": "Այո",
+      "myMemory": "Բարի գալուստ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Siapa nama Anda?",
+      "category": "greetings",
+      "english": "How are you?",
+      "current": "Ոչ",
+      "myMemory": "vonc es?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dari mana Anda?",
+      "category": "greetings",
+      "english": "Good luck!",
+      "current": "Ինչպե՞ս եք",
+      "myMemory": "Հաջողությո՜ւն։ ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya dari...",
+      "category": "greetings",
+      "english": "Welcome!",
+      "current": "Ես լավ եմ",
+      "myMemory": "Բարի գալուստ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ya",
+      "category": "greetings",
+      "english": "Very glad to see you",
+      "current": "Իսկ դուք?",
+      "myMemory": "Ուրախ եմ ձեզ տեսնել",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tidak",
+      "category": "greetings",
+      "english": "Welcome! (arrival greeting)",
+      "current": "Ձեր անունն ի՞նչ է",
+      "myMemory": "Բարի գալուստ (ժամանման ողջույն)",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Terima kasih",
+      "category": "greetings",
+      "english": "How are you doing?",
+      "current": "Իմ անունը... է",
+      "myMemory": "Ինչպե ՞ ս եք ։",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sama-sama",
+      "category": "greetings",
+      "english": "Let me introduce my friend",
+      "current": "Ուրախ եմ",
+      "myMemory": "Թույլ տվեք ներկայացնել իմ ընկերոջը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tolong",
+      "category": "greetings",
+      "english": "Pleased to meet you!",
+      "current": "Դուք որտեղի՞ց եք",
+      "myMemory": "Ուրախ եմ ձեզ հետ ծանոթանալու համար ։",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Maaf",
+      "category": "greetings",
+      "english": "Please come in",
+      "current": "Ես... եմ",
+      "myMemory": "Խնդրում ենք մուտք գործել",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Permisi",
+      "category": "greetings",
+      "english": "Please sit down",
+      "current": "Ես Թուրքմենստանից եմ",
+      "myMemory": "Խնդրում ենք նստել",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tidak apa-apa",
+      "category": "greetings",
+      "english": "Yes",
+      "current": "Դուք հայերեն խոսու՞մ եք",
+      "myMemory": "ԱՅՈ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Baik",
+      "category": "greetings",
+      "english": "No",
+      "current": "Ես հայերեն չեմ խոսում",
+      "myMemory": "Ոչ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Buruk",
+      "category": "greetings",
+      "english": "I agree",
+      "current": "Ես քիչ հայերեն գիտեմ",
+      "myMemory": "Ես համաձայն եմ։&#10;",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sedikit",
+      "category": "greetings",
+      "english": "Thank you very much for your help",
+      "current": "Դուք անգլերեն խոսու՞մ եք",
+      "myMemory": "Շնորհակալություն օգնության համար",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Banyak",
+      "category": "greetings",
+      "english": "Thank you very much for your support",
+      "current": "Ես չեմ հասկանում",
+      "myMemory": "Անչափ շնորհակալ ենք աջակցության համար",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Semua",
+      "category": "greetings",
+      "english": "Thank you very much for your understanding",
+      "current": "Խնդրում եմ կրկնեք",
+      "myMemory": "Շնորհակալություն ըմբռնման համար",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tidak ada",
+      "category": "emergency",
+      "english": "Help!",
+      "current": "Դանդաղ խոսեք",
+      "myMemory": "Օգնություն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya tidak mengerti",
+      "category": "emergency",
+      "english": "I need a doctor",
+      "current": "Կարո՞ղ եք օգնել",
+      "myMemory": "Ինձ բժիշկ է պետք",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda mengerti?",
+      "category": "emergency",
+      "english": "Call the police",
+      "current": "Օգնեք ինձ",
+      "myMemory": "Զանգեք ոստիկանություն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya mengerti",
+      "category": "emergency",
+      "english": "Fire!",
+      "current": "Բարի գալուստ",
+      "myMemory": "Կրակ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bisakah Anda berbicara lebih lambat?",
+      "category": "emergency",
+      "english": "I am lost",
+      "current": "Շնորհավոր",
+      "myMemory": "Կորած եմ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ulangi lagi, tolong",
+      "category": "emergency",
+      "english": "I am sick",
+      "current": "Ծննդյան օրվա",
+      "myMemory": "Հիվանդ եմ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bagaimana?",
+      "category": "emergency",
+      "english": "Call an ambulance",
+      "current": "Նոր տարի",
+      "myMemory": "Զանգահարեք շտապօգնություն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apa?",
+      "category": "emergency",
+      "english": "My wallet was stolen",
+      "current": "Շնորհավոր տոն",
+      "myMemory": "Իմ դրամապանակը գողացվել է",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di mana?",
+      "category": "emergency",
+      "english": "Help me",
+      "current": "Հաջողություն",
+      "myMemory": "Օգնեք ինձ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kapan?",
+      "category": "emergency",
+      "english": "Danger!",
+      "current": "Շատ լավ",
+      "myMemory": "վտանգ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Siapa?",
+      "category": "emergency",
+      "english": "Call a doctor!",
+      "current": "Լավ է",
+      "myMemory": "Զանգահարեք բժշկի:",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mengapa?",
+      "category": "hotel",
+      "english": "I want a room",
+      "current": "Խնդիր չկա",
+      "myMemory": "Ես սենյակ եմ ուզում",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa?",
+      "category": "hotel",
+      "english": "How much per night?",
+      "current": "Ներեցեք",
+      "myMemory": "Որքա ՞ ն մեկ գիշերվա համար",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Satu",
+      "category": "hotel",
+      "english": "Is there WiFi here?",
+      "current": "Մեկ",
+      "myMemory": "Այստեղ կա ՞ Wi - Fi",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dua",
+      "category": "hotel",
+      "english": "I have a reservation",
+      "current": "Երկու",
+      "myMemory": "Ես ամրագրում ունեմ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tiga",
+      "category": "hotel",
+      "english": "Single room",
+      "current": "Երեք",
+      "myMemory": "Մեկտեղանոց սենյակ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Empat",
+      "category": "hotel",
+      "english": "Double room",
+      "current": "Չորս",
+      "myMemory": "Երկտեղանոց սենյակ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lima",
+      "category": "hotel",
+      "english": "What time is check-out?",
+      "current": "Հինգ",
+      "myMemory": "Ո ՞ ր ժամին է մեկնումը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Enam",
+      "category": "hotel",
+      "english": "Key",
+      "current": "Վեց",
+      "myMemory": "Բանալի",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tujuh",
+      "category": "hotel",
+      "english": "Room number",
+      "current": "Յոթ",
+      "myMemory": "Սենյակ #",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Delapan",
+      "category": "hotel",
+      "english": "Is breakfast included?",
+      "current": "Ութ",
+      "myMemory": "Նախաճաշը ներառվա ՞ ծ է:",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sembilan",
+      "category": "hotel",
+      "english": "Please clean the room",
+      "current": "Ինը",
+      "myMemory": "Խնդրում ենք մաքրել սենյակը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sepuluh",
+      "category": "hotel",
+      "english": "I want to extend my stay",
+      "current": "Տաս",
+      "myMemory": "Ես ուզում եմ երկարացնել իմ այցը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sebelas",
+      "category": "food",
+      "english": "I am hungry",
+      "current": "Տասնմեկ",
+      "myMemory": "Ես քաղցած եմ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dua belas",
+      "category": "food",
+      "english": "Menu, please",
+      "current": "Տասներկու",
+      "myMemory": "Մենյու, խնդրում ենք",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tiga belas",
+      "category": "food",
+      "english": "Delicious",
+      "current": "Տասներեք",
+      "myMemory": "Delicious",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lima belas",
+      "category": "food",
+      "english": "Bill, please",
+      "current": "Քսան",
+      "myMemory": "Բիլ, խնդրում ենք",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dua puluh",
+      "category": "food",
+      "english": "I am vegetarian",
+      "current": "Երեսուն",
+      "myMemory": "Ես բուսակեր եմ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tiga puluh",
+      "category": "food",
+      "english": "Not spicy",
+      "current": "Հիսուն",
+      "myMemory": "Կծու չէ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lima puluh",
+      "category": "food",
+      "english": "Water",
+      "current": "Հարյուր",
+      "myMemory": "Ջուր",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Seratus",
+      "category": "food",
+      "english": "Tea",
+      "current": "Հազար",
+      "myMemory": "Թեյ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Seribu",
+      "category": "food",
+      "english": "Rice",
+      "current": "Առաջին",
+      "myMemory": "Բրինձ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sejuta",
+      "category": "food",
+      "english": "Noodles",
+      "current": "Վերջին",
+      "myMemory": "Լապշա",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hari ini",
+      "category": "food",
+      "english": "Chicken",
+      "current": "Երկուշաբթի",
+      "myMemory": "հավ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kemarin",
+      "category": "food",
+      "english": "Beef",
+      "current": "Երեքշաբթի",
+      "myMemory": "Տավարի միս",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Besok",
+      "category": "food",
+      "english": "How much does it cost?",
+      "current": "Չորեքշաբթի",
+      "myMemory": "Որքա ՞ ն արժե այն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pagi",
+      "category": "food",
+      "english": "I am allergic to...",
+      "current": "Հինգշաբթի",
+      "myMemory": "Ես ալերգիկ եմ...",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Siang",
+      "category": "food",
+      "english": "Can I take it to go?",
+      "current": "Ուրբաթ",
+      "myMemory": "Կարո ՞ ղ եմ վերցնել",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sore",
+      "category": "food",
+      "english": "Very delicious",
+      "current": "Շաբաթ",
+      "myMemory": "Շատ համեղ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Malam",
+      "category": "food",
+      "english": "Appetizers",
+      "current": "Կիրակի",
+      "myMemory": "Նախուտեստներ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Minggu",
+      "category": "food",
+      "english": "Ham",
+      "current": "Հունվար",
+      "myMemory": "Ազդրապուխտ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bulan",
+      "category": "food",
+      "english": "Cheese platter",
+      "current": "Փետրվար",
+      "myMemory": "Պանրային սալիկ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tahun",
+      "category": "food",
+      "english": "Soup",
+      "current": "Մարտ",
+      "myMemory": "ապուր",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hari",
+      "category": "food",
+      "english": "Borscht",
+      "current": "Ապրիլ",
+      "myMemory": "Բորշչ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jam",
+      "category": "food",
+      "english": "Chicken noodle soup",
+      "current": "Մայիս",
+      "myMemory": "Հավով լապշայով ապուր",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Menit",
+      "category": "food",
+      "english": "Meat broth",
+      "current": "Հունիս",
+      "myMemory": "Մսի արգանակ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Detik",
+      "category": "food",
+      "english": "Meat",
+      "current": "Հուլիս",
+      "myMemory": "Միս",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Senin",
+      "category": "food",
+      "english": "Lamb",
+      "current": "Օգոստոս",
+      "myMemory": "Գառան միս",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selasa",
+      "category": "food",
+      "english": "Pork",
+      "current": "Սեպտեմբեր",
+      "myMemory": "Խոզի միս",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Rabu",
+      "category": "food",
+      "english": "Fried",
+      "current": "Հոկտեմբեր",
+      "myMemory": "Տապակած",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kamis",
+      "category": "food",
+      "english": "Boiled",
+      "current": "Նոյեմբեր",
+      "myMemory": "Եփած",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jumat",
+      "category": "food",
+      "english": "Fish dishes",
+      "current": "Դեկտեմբեր",
+      "myMemory": "Ձկնային ուտեստներ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sabtu",
+      "category": "food",
+      "english": "Fish",
+      "current": "Այսօր",
+      "myMemory": "Ձկներ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Minggu",
+      "category": "food",
+      "english": "Salmon",
+      "current": "Վաղը",
+      "myMemory": "Սաղմոն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Januari",
+      "category": "food",
+      "english": "Shrimp",
+      "current": "Երեկ",
+      "myMemory": "Ծովախեցգետին",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Februari",
+      "category": "food",
+      "english": "Crabs",
+      "current": "Հիմա",
+      "myMemory": "Խեցգետիններ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Maret",
+      "category": "food",
+      "english": "Is there a vegetarian menu?",
+      "current": "Հետո",
+      "myMemory": "Կա ՞ բուսակերների ճաշացանկ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "April",
+      "category": "food",
+      "english": "Is this dish spicy?",
+      "current": "Ժամը քանի՞սն է",
+      "myMemory": "Այս ուտեստը կծու ՞ է",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Restoran",
+      "category": "food",
+      "english": "Not spicy",
+      "current": "Ջուր",
+      "myMemory": "Կծու չէ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Menu",
+      "category": "food",
+      "english": "Apple",
+      "current": "Սնունդ",
+      "myMemory": "Խնձոր",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sarapan",
+      "category": "food",
+      "english": "Banana",
+      "current": "Հաց",
+      "myMemory": "Բանան",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Makan siang",
+      "category": "food",
+      "english": "Orange",
+      "current": "Բրինձ",
+      "myMemory": "Օրանժ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Makan malam",
+      "category": "food",
+      "english": "Grapes",
+      "current": "Միս",
+      "myMemory": "խաղող",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Air",
+      "category": "food",
+      "english": "Watermelon",
+      "current": "Ձուկ",
+      "myMemory": "Ձմերուկ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Teh",
+      "category": "food",
+      "english": "Potato",
+      "current": "Հավ",
+      "myMemory": "Կարտոֆիլ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kopi",
+      "category": "food",
+      "english": "Tomato",
+      "current": "Բանջարեղեն",
+      "myMemory": "Լոլիկ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Susu",
+      "category": "shopping",
+      "english": "How much does it cost?",
+      "current": "Միրգ",
+      "myMemory": "Որքա ՞ ն արժե այն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jus",
+      "category": "shopping",
+      "english": "Too expensive",
+      "current": "Կաթ",
+      "myMemory": "Չափազանց թանկ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bir",
+      "category": "shopping",
+      "english": "Can it be cheaper?",
+      "current": "Թեյ",
+      "myMemory": "Կարո ՞ ղ է ավելի էժան լինել",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Anggur",
+      "category": "shopping",
+      "english": "I will buy this",
+      "current": "Սուրճ",
+      "myMemory": "Ես կգնեմ սա",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Roti",
+      "category": "shopping",
+      "english": "Can I try it on?",
+      "current": "Շաքար",
+      "myMemory": "Կարո ՞ ղ եմ փորձել",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Daging",
+      "category": "shopping",
+      "english": "Bigger size",
+      "current": "Աղ",
+      "myMemory": "Ավելի մեծ չափս",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ikan",
+      "category": "shopping",
+      "english": "Smaller size",
+      "current": "Պղպեղ",
+      "myMemory": "Ավելի փոքր չափս",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ayam",
+      "category": "shopping",
+      "english": "Cash",
+      "current": "Նախաճաш",
+      "myMemory": "Կանխիկի անդորրագիր",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sayuran",
+      "category": "shopping",
+      "english": "Credit card",
+      "current": "Ճաշ",
+      "myMemory": "Վարկային քարտ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Buah",
+      "category": "shopping",
+      "english": "Receipt",
+      "current": "Ընթրիք",
+      "myMemory": "Անդորրագիր",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Nasi",
+      "category": "shopping",
+      "english": "Return/Exchange",
+      "current": "Ցանկ",
+      "myMemory": "Վերադարձ/փոխանակում",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sup",
+      "category": "shopping",
+      "english": "Where is the market?",
+      "current": "Հաշիվ",
+      "myMemory": "Որտե ՞ ղ է շուկան",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Salad",
+      "category": "shopping",
+      "english": "Is there a discount?",
+      "current": "Համեղ",
+      "myMemory": "Զեղչ կա ՞։",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Keju",
+      "category": "shopping",
+      "english": "Can I try it on?",
+      "current": "Քաղցր",
+      "myMemory": "Կարո ՞ ղ եմ փորձել",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mentega",
+      "category": "shopping",
+      "english": "What is your size?",
+      "current": "Թթու",
+      "myMemory": "Որքա ՞ ն է ձեր չափը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Gula",
+      "category": "shopping",
+      "english": "Are there other colors?",
+      "current": "Սուր",
+      "myMemory": "Կա ՞ ն այլ գույներ ։",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Garam",
+      "category": "transport",
+      "english": "Where is the train station?",
+      "current": "Տաք",
+      "myMemory": "Որտե ՞ ղ է երկաթուղային կայարանը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Merica",
+      "category": "transport",
+      "english": "Airport",
+      "current": "Սառը",
+      "myMemory": "Օդանավակայան",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Es krim",
+      "category": "transport",
+      "english": "Taxi",
+      "current": "Թարմ",
+      "myMemory": "տաքսի",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kue",
+      "category": "transport",
+      "english": "Bus",
+      "current": "Ես սոված եմ",
+      "myMemory": "ավտոբուս",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Enak",
+      "category": "transport",
+      "english": "Metro",
+      "current": "Ես ծարավ եմ",
+      "myMemory": "Մետրո",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bon appétit",
+      "category": "transport",
+      "english": "Train ticket",
+      "current": "Շատ համեղ",
+      "myMemory": "Գնացքի տոմս",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Toko",
+      "category": "transport",
+      "english": "Schedule",
+      "current": "Խանութ",
+      "myMemory": "Հերթացուցակ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pasar",
+      "category": "transport",
+      "english": "Platform",
+      "current": "Շուկա",
+      "myMemory": "Հարթակ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa harganya?",
+      "category": "transport",
+      "english": "Next stop",
+      "current": "Գին",
+      "myMemory": "Հաջորդ կանգառը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa biayanya?",
+      "category": "transport",
+      "english": "Stop",
+      "current": "Որքա՞ն",
+      "myMemory": "Կանգնեցնե",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya ingin membeli ini",
+      "category": "transport",
+      "english": "How long until...?",
+      "current": "Սա քանի՞ է",
+      "myMemory": "Որքա ՞ ն ժամանակ մինչև...:",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mahal",
+      "category": "transport",
+      "english": "I need to go to...",
+      "current": "Թանկ",
+      "myMemory": "Ես պետք է գնամ...",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Murah",
+      "category": "transport",
+      "english": "When will the next bus arrive?",
+      "current": "Էժան",
+      "myMemory": "Ե ՞ րբ կժամանի հաջորդ ավտոբուսը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Diskon",
+      "category": "transport",
+      "english": "I want to go to the airport",
+      "current": "Զեղչ",
+      "myMemory": "Ես ուզում եմ գնալ օդանավակայան",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Harga",
+      "category": "directions",
+      "english": "On the left",
+      "current": "Ես ուզում եմ գնել",
+      "myMemory": "Ձախ կողմում",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Uang",
+      "category": "directions",
+      "english": "On the right",
+      "current": "Ես պարզապես նայում եմ",
+      "myMemory": "Աջ կողմում",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kartu kredit",
+      "category": "directions",
+      "english": "Straight",
+      "current": "Ես սա կվերցնեմ",
+      "myMemory": "Ուղիղ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tunai",
+      "category": "directions",
+      "english": "Turn",
+      "current": "Վարկային քարտ",
+      "myMemory": "Վիրաժ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tanda terima",
+      "category": "directions",
+      "english": "Intersection",
+      "current": "Կանխիկ",
+      "myMemory": "Խաչմերուկ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda menerima kartu?",
+      "category": "directions",
+      "english": "Traffic light",
+      "current": "Անդորրագիր",
+      "myMemory": "Երթևեկության լուսավորություն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ukuran",
+      "category": "directions",
+      "english": "Far",
+      "current": "Վերադարձ",
+      "myMemory": "ԴադարOrdibehesht short",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Warna",
+      "category": "directions",
+      "english": "Near",
+      "current": "Չափս",
+      "myMemory": "Մոտակայքում",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Besar",
+      "category": "directions",
+      "english": "Map",
+      "current": "Գույն",
+      "myMemory": "Քարտեզ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kecil",
+      "category": "directions",
+      "english": "Where is...?",
+      "current": "Մեծ",
+      "myMemory": "Որտե ՞ ղ է...",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sedang",
+      "category": "health",
+      "english": "Hospital",
+      "current": "Փոքր",
+      "myMemory": "Հիվադանոցում",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Baru",
+      "category": "health",
+      "english": "Pharmacy",
+      "current": "Նոր",
+      "myMemory": "Դեղատուն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lama",
+      "category": "health",
+      "english": "I have a headache",
+      "current": "Հին",
+      "myMemory": "Ես գլխացավ ունեմ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Cantik",
+      "category": "health",
+      "english": "I have a stomachache",
+      "current": "Լավ",
+      "myMemory": "Ես ստամոքսի ցավ ունեմ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jelek",
+      "category": "health",
+      "english": "Temperature",
+      "current": "Վատ",
+      "myMemory": "Ջերմաստիճան",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berkualitas",
+      "category": "health",
+      "english": "Cough",
+      "current": "Բաց",
+      "myMemory": "Հազ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bisakah saya mencoba ini?",
+      "category": "health",
+      "english": "Medicine",
+      "current": "Փակ",
+      "myMemory": "Բժշկություն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Taksi",
+      "category": "health",
+      "english": "Doctor",
+      "current": "Տաքսի",
+      "myMemory": "Բժիշկ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bus",
+      "category": "health",
+      "english": "Nurse",
+      "current": "Ավտոբուս",
+      "myMemory": "Բուժքույր",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kereta",
+      "category": "health",
+      "english": "Ambulance",
+      "current": "Գնացք",
+      "myMemory": "Շտապ օգնություն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pesawat",
+      "category": "health",
+      "english": "I have a headache",
+      "current": "Ինքնաթիռ",
+      "myMemory": "Ես գլխացավ ունեմ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bandara",
+      "category": "health",
+      "english": "I need a painkiller",
+      "current": "Մեքենա",
+      "myMemory": "Ինձ ցավազրկող է պետք",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Stasiun",
+      "category": "money",
+      "english": "Yuan",
+      "current": "Կայարան",
+      "myMemory": "Յուան",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Halte",
+      "category": "money",
+      "english": "Manat",
+      "current": "Օդանավակայան",
+      "myMemory": "Մանաթ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tiket",
+      "category": "money",
+      "english": "Card payment",
+      "current": "Տոմս",
+      "myMemory": "Քարտով վճարում",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa tiketnya?",
+      "category": "money",
+      "english": "Bank",
+      "current": "Որտե՞ղ",
+      "myMemory": "Բանկի անվանում",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di mana stasiun bus?",
+      "category": "money",
+      "english": "ATM",
+      "current": "Այստեղ",
+      "myMemory": "Բանկոմատ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bagaimana menuju...?",
+      "category": "money",
+      "english": "Currency exchange",
+      "current": "Այնտեղ",
+      "myMemory": "Տարադրամի փոխանակում",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kiri",
+      "category": "money",
+      "english": "Change",
+      "current": "Աջ",
+      "myMemory": "Փոխել",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kanan",
+      "category": "money",
+      "english": "Free",
+      "current": "Ձախ",
+      "myMemory": "Անվճար",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lurus",
+      "category": "money",
+      "english": "Price",
+      "current": "Ուղիղ",
+      "myMemory": "Գինը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jauh",
+      "category": "communication",
+      "english": "Mobile phone",
+      "current": "Մոտ",
+      "myMemory": "Բջջային հեռախոս",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dekat",
+      "category": "communication",
+      "english": "Wi-Fi",
+      "current": "Հեռու",
+      "myMemory": "Wi - Fi",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di sini",
+      "category": "communication",
+      "english": "What is the password?",
+      "current": "Քարտեզ",
+      "myMemory": "Ի ՞ նչ է գաղտնաբառը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di sana",
+      "category": "communication",
+      "english": "Send SMS",
+      "current": "Հասցե",
+      "myMemory": "Ուղարկել «SMS» հաղորդագրություն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jalan",
+      "category": "entertainment",
+      "english": "Cinema",
+      "current": "Տարեք ինձ...",
+      "myMemory": "Կինոթատրոն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Alamat",
+      "category": "entertainment",
+      "english": "Museum",
+      "current": "Որքա՞ն կտևի",
+      "myMemory": "Թանգարան",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hotel",
+      "category": "entertainment",
+      "english": "Park",
+      "current": "Հյուրանոց",
+      "myMemory": "Պուրակ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kamar",
+      "category": "entertainment",
+      "english": "Concert",
+      "current": "Սենյակ",
+      "myMemory": "Համերգ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Reservasi",
+      "category": "entertainment",
+      "english": "Shopping mall",
+      "current": "Ամրագրում",
+      "myMemory": "Առևտրի կենտրոն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya sudah memesan",
+      "category": "entertainment",
+      "english": "Swimming pool",
+      "current": "Ռեզերվացիա",
+      "myMemory": "Լողավազան",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya ingin kamar",
+      "category": "entertainment",
+      "english": "Gym",
+      "current": "Բանալի",
+      "myMemory": "Մարզասրահ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk satu orang",
+      "category": "entertainment",
+      "english": "Library",
+      "current": "Ես ամրագրում ունեմ",
+      "myMemory": "Դարան",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk dua orang",
+      "category": "entertainment",
+      "english": "Night market",
+      "current": "Ազատ սենյակ կա՞",
+      "myMemory": "Գիշերային շուկա",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk satu malam",
+      "category": "entertainment",
+      "english": "How much is the ticket?",
+      "current": "Մեկ գիշերով",
+      "myMemory": "Որքա ՞ ն է տոմսը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk dua malam",
+      "category": "time",
+      "english": "What time is it?",
+      "current": "Երկու գիշերով",
+      "myMemory": "Ժամը քանի ՞ սն է:",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Untuk seminggu",
+      "category": "time",
+      "english": "Today",
+      "current": "Մեկ շաբաթով",
+      "myMemory": "Այսօր",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa harga kamarnya?",
+      "category": "time",
+      "english": "Tomorrow",
+      "current": "Միանձնյա",
+      "myMemory": "Վաղը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah sudah termasuk sarapan?",
+      "category": "time",
+      "english": "Yesterday",
+      "current": "Երկանձնյա",
+      "myMemory": "Երեկ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kunci",
+      "category": "time",
+      "english": "Monday",
+      "current": "Լոգարան",
+      "myMemory": "Երկուշաբթի",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kunci kamar",
+      "category": "time",
+      "english": "Sunday",
+      "current": "Ցնցուղ",
+      "myMemory": "Կիրակի",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tempat tidur",
+      "category": "time",
+      "english": "In the morning",
+      "current": "Սրբիչ",
+      "myMemory": "Առավոտյան",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kamar mandi",
+      "category": "time",
+      "english": "In the afternoon",
+      "current": "Օճառ",
+      "myMemory": "Կեսօրին",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Shower",
+      "category": "time",
+      "english": "In the evening",
+      "current": "Օդորակիչ",
+      "myMemory": "Երեկոյան",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "AC",
+      "category": "time",
+      "english": "What month?",
+      "current": "Վայֆայ",
+      "myMemory": "Ո ՞ ր ամսում",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "WiFi",
+      "category": "time",
+      "english": "Monday",
+      "current": "Գաղտնաբառ",
+      "myMemory": "Երկուշաբթի",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apa kata sandi WiFi?",
+      "category": "time",
+      "english": "Tuesday",
+      "current": "Նախաճաշ",
+      "myMemory": "Երեքշաբթի",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Handuk",
+      "category": "time",
+      "english": "Wednesday",
+      "current": "Ներգրավում",
+      "myMemory": "Չորեքշաբթի",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sabun",
+      "category": "time",
+      "english": "Thursday",
+      "current": "Ելք",
+      "myMemory": "Հինգշաբթի",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Layanan kamar",
+      "category": "time",
+      "english": "Friday",
+      "current": "Ապրանքներ",
+      "myMemory": "Ուրբաթ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Check-in",
+      "category": "time",
+      "english": "Saturday",
+      "current": "Վերելակ",
+      "myMemory": "Շաբաթ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Check-out",
+      "category": "time",
+      "english": "Sunday",
+      "current": "Ընդունարան",
+      "myMemory": "Կիրակի",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tolong!",
+      "category": "time",
+      "english": "January",
+      "current": "Օգնություն!",
+      "myMemory": "Հունվար",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Darurat",
+      "category": "time",
+      "english": "February",
+      "current": "Արտակարգ",
+      "myMemory": "Փետրվար",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Polisi",
+      "category": "time",
+      "english": "March",
+      "current": "Ոստիկանություն",
+      "myMemory": "Մարտ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dokter",
+      "category": "time",
+      "english": "April",
+      "current": "Բժիշկ",
+      "myMemory": "ԱՊՐԻԼ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Rumah sakit",
+      "category": "time",
+      "english": "May",
+      "current": "Հիվանդանոց",
+      "myMemory": "Մայիս",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ambulans",
+      "category": "time",
+      "english": "June",
+      "current": "Դեղատուն",
+      "myMemory": "Հունիս",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apotik",
+      "category": "time",
+      "english": "July",
+      "current": "Ես հիվանդ եմ",
+      "myMemory": "ՀՈՒԼԻՍ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya sakit",
+      "category": "time",
+      "english": "August",
+      "current": "Ես վիրավորված եմ",
+      "myMemory": "ՕԳՈՍՏՈՍ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya butuh dokter",
+      "category": "time",
+      "english": "September",
+      "current": "Դեղորայք",
+      "myMemory": "ՍԵՊՏԵՄԲԵՐ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya kehilangan...",
+      "category": "time",
+      "english": "October",
+      "current": "Ցավ",
+      "myMemory": "Հոկտեմբեր",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya tersesat",
+      "category": "time",
+      "english": "November",
+      "current": "Տենդ",
+      "myMemory": "Նոյեմբեր",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Api",
+      "category": "time",
+      "english": "December",
+      "current": "Կանչեք շտապօգնություն",
+      "myMemory": "ԴԵԿՏԵՄԲԵՐ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bahaya",
+      "category": "numbers",
+      "english": "One",
+      "current": "Վտանգ",
+      "myMemory": "ձեր",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hati-hati",
+      "category": "numbers",
+      "english": "Two",
+      "current": "Հրդեհ",
+      "myMemory": "2",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dilarang",
+      "category": "numbers",
+      "english": "Three",
+      "current": "Գողություն",
+      "myMemory": "երեք",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apa itu?",
+      "category": "numbers",
+      "english": "Four",
+      "current": "Ի՞նչ",
+      "myMemory": "Չորս",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di mana itu?",
+      "category": "numbers",
+      "english": "Five",
+      "current": "Ո՞վ",
+      "myMemory": "հինգ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa ini?",
+      "category": "numbers",
+      "english": "Six",
+      "current": "Ե՞րբ",
+      "myMemory": "վեց",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kapan?",
+      "category": "numbers",
+      "english": "Seven",
+      "current": "Որտե՞ղ",
+      "myMemory": "յոթ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Siapa?",
+      "category": "numbers",
+      "english": "Eight",
+      "current": "Ինչո՞ւ",
+      "myMemory": "ութ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mengapa?",
+      "category": "numbers",
+      "english": "Nine",
+      "current": "Ինչպե՞ս",
+      "myMemory": "ինը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bagaimana?",
+      "category": "numbers",
+      "english": "Ten",
+      "current": "Քանի՞",
+      "myMemory": "տասը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di mana toilet?",
+      "category": "numbers",
+      "english": "Twenty",
+      "current": "Սա ի՞նչ է",
+      "myMemory": "Քսան",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda bisa membantu?",
+      "category": "numbers",
+      "english": "One hundred",
+      "current": "Սա որտե՞ղ է",
+      "myMemory": "Հարյուր",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda tahu...?",
+      "category": "numbers",
+      "english": "One thousand",
+      "current": "Սա ե՞րբ է",
+      "myMemory": "Հազար",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bisakah Anda menunjukkan?",
+      "category": "numbers",
+      "english": "Ten thousand",
+      "current": "Ժամը քանիսն է?",
+      "myMemory": "տաս հազար",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah mungkin?",
+      "category": "numbers",
+      "english": "First",
+      "current": "Կարո՞ղ եք",
+      "myMemory": "second\" is the ordinal number (like \"third\"), not the time division (like \"minute",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah Anda punya...?",
+      "category": "numbers",
+      "english": "One thousand",
+      "current": "Ես ինչպե՞ս...?",
+      "myMemory": "Հազար",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah itu tersedia?",
+      "category": "numbers",
+      "english": "Two thousand",
+      "current": "Դուք ունե՞ք",
+      "myMemory": "Երկու հազար",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa lama?",
+      "category": "numbers",
+      "english": "Ten thousand",
+      "current": "Հնարավո՞ր է",
+      "myMemory": "տաս հազար",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Berapa jauh?",
+      "category": "numbers",
+      "english": "One hundred thousand",
+      "current": "Զուգարանը որտե՞ղ է",
+      "myMemory": "Հարյուր հազար",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jam berapa sekarang?",
+      "category": "numbers",
+      "english": "One million",
+      "current": "Սա քանի՞ է",
+      "myMemory": "Մեկ միլիոն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jam berapa buka?",
+      "category": "weather",
+      "english": "What is the weather today?",
+      "current": "Կարո՞ղ եք օգնել",
+      "myMemory": "Ինչպիսի ՞ եղանակ է այսօր",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jam berapa tutup?",
+      "category": "weather",
+      "english": "Rain",
+      "current": "Դուք անգլերեն խոսու՞մ եք",
+      "myMemory": "Անձրև",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Apakah buka hari ini?",
+      "category": "weather",
+      "english": "Sunny",
+      "current": "Կարո՞ղ եմ տեսնել",
+      "myMemory": "Արևոտ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Keluarga",
+      "category": "weather",
+      "english": "Cloudy",
+      "current": "Ընտանիք",
+      "myMemory": "Ամպամած",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ayah",
+      "category": "weather",
+      "english": "Windy",
+      "current": "Հայր",
+      "myMemory": "Քամոտ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ibu",
+      "category": "weather",
+      "english": "Snow",
+      "current": "Մայր",
+      "myMemory": "Ձյուն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Anak laki-laki",
+      "category": "weather",
+      "english": "Hot",
+      "current": "Եղբայր",
+      "myMemory": "սկսած",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Anak perempuan",
+      "category": "weather",
+      "english": "Cold",
+      "current": "Քույր",
+      "myMemory": "ցուրտ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saudara laki-laki",
+      "category": "personal_info",
+      "english": "My name is...",
+      "current": "Որդի",
+      "myMemory": "Իմ անունն է...",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saudara perempuan",
+      "category": "personal_info",
+      "english": "My last name is...",
+      "current": "Դուստր",
+      "myMemory": "Իմ ազգանունն է...",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Suami",
+      "category": "personal_info",
+      "english": "What is your name?",
+      "current": "Ամուսին",
+      "myMemory": "Ի ՞ նչ է ձեր անունը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Istri",
+      "category": "personal_info",
+      "english": "I am from Turkmenistan",
+      "current": "Կին",
+      "myMemory": "Ես Թուրքմենստանից եմ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kakek",
+      "category": "personal_info",
+      "english": "I live in Ashgabat",
+      "current": "Պապ",
+      "myMemory": "Ես ապրում եմ Աշգաբատում",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Nenek",
+      "category": "personal_info",
+      "english": "There are 4 people in our family",
+      "current": "Տատ",
+      "myMemory": "Մեր ընտանիքում կա 4 մարդ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Paman",
+      "category": "personal_info",
+      "english": "Do you have children?",
+      "current": "Հորեղբայր",
+      "myMemory": "Ունե ՞ ք երեխաներ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bibi",
+      "category": "personal_info",
+      "english": "I have no children",
+      "current": "Հորաքույր",
+      "myMemory": "Ես երեխաներ չունեմ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Anak-anak",
+      "category": "personal_info",
+      "english": "I have one child",
+      "current": "Ընկեր",
+      "myMemory": "Ես ունեմ մեկ երեխա",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Orang tua",
+      "category": "personal_info",
+      "english": "I have two children",
+      "current": "Երեխա",
+      "myMemory": "Ես ունեմ երկու երեխա",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sakit",
+      "category": "personal_info",
+      "english": "What do you do?",
+      "current": "Առողջություն",
+      "myMemory": "Was machst du?",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Demam",
+      "category": "personal_info",
+      "english": "I work at a factory",
+      "current": "Ես հիվանդ եմ",
+      "myMemory": "Ես աշխատում եմ գործարանում",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sakit kepala",
+      "category": "personal_info",
+      "english": "I work at a bank",
+      "current": "Ցավում է",
+      "myMemory": "Ես աշխատում եմ բանկում",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Sakit perut",
+      "category": "personal_info",
+      "english": "I work at a hospital",
+      "current": "Գլխացավ",
+      "myMemory": "Ես աշխատում եմ հիվանդանոցում",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Flu",
+      "category": "personal_info",
+      "english": "I study foreign languages",
+      "current": "Փորացավ",
+      "myMemory": "Ես ուսումնասիրում եմ օտար լեզուներ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Batuk",
+      "category": "personal_info",
+      "english": "Do you speak Russian?",
+      "current": "Ատամնացավ",
+      "myMemory": "Խոսո ՞ ւմ եք ռուսերեն ։",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hidung tersumbat",
+      "category": "personal_info",
+      "english": "I don't speak",
+      "current": "Հազ",
+      "myMemory": "Ես չեմ խոսում",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Obat",
+      "category": "personal_info",
+      "english": "I speak a little",
+      "current": "Հարբուխ",
+      "myMemory": "Ես մի փոքր խոսում եմ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pil",
+      "category": "business",
+      "english": "When does the conference start?",
+      "current": "Տենդ",
+      "myMemory": "Ե ՞ րբ է սկսվում կոնֆերանսը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Resep",
+      "category": "business",
+      "english": "What is the schedule for presentations?",
+      "current": "Ալերգիա",
+      "myMemory": "Ո ՞ րն է շնորհանդեսների ժամանակացույցը:",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Asuransi",
+      "category": "business",
+      "english": "Will there be translation to Russian?",
+      "current": "Վարակ",
+      "myMemory": "Կլինի ՞ ռուսերեն թարգմանություն:",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Alergi",
+      "category": "business",
+      "english": "I will speak in Russian",
+      "current": "Վերք",
+      "myMemory": "Ես կխոսեմ ռուսերեն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Saya alergi terhadap...",
+      "category": "business",
+      "english": "We want to see the exhibition",
+      "current": "Արյուն",
+      "myMemory": "Մենք ուզում ենք տեսնել ցուցահանդեսը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Asma",
+      "category": "business",
+      "english": "What time does the exhibition open?",
+      "current": "Հաբ",
+      "myMemory": "Ո ՞ ր ժամին է բացվում ցուցահանդեսը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Diabetes",
+      "category": "business",
+      "english": "How many countries are participating?",
+      "current": "Ներարկում",
+      "myMemory": "Քանի ՞ երկիր է մասնակցում",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tekanan darah",
+      "category": "business",
+      "english": "Can I get the exhibition catalog?",
+      "current": "Դեղատոմս",
+      "myMemory": "Կարո ՞ ղ եմ ստանալ ցուցահանդեսի կատալոգը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jantung",
+      "category": "business",
+      "english": "I came to discuss business",
+      "current": "Ինձ բժիշկ է պետք",
+      "myMemory": "Ես եկել եմ քննարկելու բիզնեսը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Perut",
+      "category": "business",
+      "english": "We want to speak with the general director",
+      "current": "Ես ալերգիա ունեմ",
+      "myMemory": "Մենք ուզում ենք խոսել գլխավոր տնօրենի հետ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Punggung",
+      "category": "business",
+      "english": "We want to learn about the production",
+      "current": "Արտակարգ օգնություն",
+      "myMemory": "Մենք ուզում ենք իմանալ արտադրության մասին",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Gigi",
+      "category": "measurements",
+      "english": "Length",
+      "current": "Ապահովագրություն",
+      "myMemory": "Երկարություն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Cuaca",
+      "category": "measurements",
+      "english": "Meter",
+      "current": "Եղանակ",
+      "myMemory": "Մետր",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Panas",
+      "category": "measurements",
+      "english": "Centimeter",
+      "current": "Տաք",
+      "myMemory": "Սանտիմետր",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Dingin",
+      "category": "measurements",
+      "english": "Weight",
+      "current": "Սառը",
+      "myMemory": "Կշիռ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hujan",
+      "category": "measurements",
+      "english": "Kilogram",
+      "current": "Անձրև",
+      "myMemory": "Կիլոգրամ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Salju",
+      "category": "measurements",
+      "english": "Gram",
+      "current": "Ձյուն",
+      "myMemory": "Գրամ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Angin",
+      "category": "measurements",
+      "english": "Volume",
+      "current": "Արև",
+      "myMemory": "Ծավալ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Mendung",
+      "category": "measurements",
+      "english": "Liter",
+      "current": "Ամպ",
+      "myMemory": "Լիտր",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Cerah",
+      "category": "colors",
+      "english": "White",
+      "current": "Քամի",
+      "myMemory": "Սպիտակ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Suhu",
+      "category": "colors",
+      "english": "Yellow",
+      "current": "Փոթորիկ",
+      "myMemory": "դեղին",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Iklim",
+      "category": "colors",
+      "english": "Green",
+      "current": "Ջերմաստիճան",
+      "myMemory": "կանաչ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Putih",
+      "category": "colors",
+      "english": "Blue",
+      "current": "Գույն",
+      "myMemory": "Կապույտ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hitam",
+      "category": "colors",
+      "english": "Red",
+      "current": "Սպիտակ",
+      "myMemory": "կարմիր",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Merah",
+      "category": "colors",
+      "english": "Black",
+      "current": "Սև",
+      "myMemory": "սև",
+      "match": true,
+      "status": "verified",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Biru",
+      "category": "colors",
+      "english": "Gray",
+      "current": "Կարմիր",
+      "myMemory": "Մոխրագույն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Hijau",
+      "category": "colors",
+      "english": "Purple",
+      "current": "Կապույտ",
+      "myMemory": "մանուշակագույն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kuning",
+      "category": "colors",
+      "english": "Orange",
+      "current": "Կանաչ",
+      "myMemory": "Օրանժ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Oranye",
+      "category": "colors",
+      "english": "Pink",
+      "current": "Դեղին",
+      "myMemory": "Վարդագույն",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ungu",
+      "category": "body",
+      "english": "Head",
+      "current": "Նարնջագույն",
+      "myMemory": "Միայն անմիջական վերադասին",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Merah muda",
+      "category": "body",
+      "english": "Arm",
+      "current": "Վարդագույն",
+      "myMemory": "Հայ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Coklat",
+      "category": "body",
+      "english": "Leg",
+      "current": "Դարչնագույն",
+      "myMemory": "Բուդ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Abu-abu",
+      "category": "body",
+      "english": "Eyes",
+      "current": "Մանուշակագույն",
+      "myMemory": "Աչքեր",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Emas",
+      "category": "body",
+      "english": "Nose",
+      "current": "Մոխրագույն",
+      "myMemory": "քիթ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Utara",
+      "category": "body",
+      "english": "Mouth",
+      "current": "Հյուսիս",
+      "myMemory": "Բերանի խոռոչ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Selatan",
+      "category": "body",
+      "english": "Ear",
+      "current": "Հարավ",
+      "myMemory": "Ականջ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Timur",
+      "category": "home",
+      "english": "House",
+      "current": "Արևելք",
+      "myMemory": "Բնակարան",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Barat",
+      "category": "home",
+      "english": "Door",
+      "current": "Արևմուտք",
+      "myMemory": "Դուռ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Peta",
+      "category": "home",
+      "english": "Window",
+      "current": "Ուղիղ",
+      "myMemory": "Պատուհան",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Kompas",
+      "category": "home",
+      "english": "Table",
+      "current": "Շրջվել",
+      "myMemory": "Աղյուսակ․ ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "GPS",
+      "category": "home",
+      "english": "Chair",
+      "current": "Աջ կողմ",
+      "myMemory": "աթոռ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Lokasi",
+      "category": "home",
+      "english": "Bed",
+      "current": "Ձախ կողմ",
+      "myMemory": "մահճակալ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Tujuan",
+      "category": "customs",
+      "english": "Where is passport control?",
+      "current": "Խաչմերուկ",
+      "myMemory": "Որտե ՞ ղ է անձնագրային հսկողությունը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Rute",
+      "category": "customs",
+      "english": "Here is my passport",
+      "current": "Փողոց",
+      "myMemory": "Ահա իմ անձնագիրը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Persimpangan",
+      "category": "customs",
+      "english": "I intend to stay in China for a week",
+      "current": "Նրբանցք",
+      "myMemory": "Ես մտադիր եմ մեկ շաբաթ մնալ Չինաստանում",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Bundaran",
+      "category": "customs",
+      "english": "I have a single-entry visa",
+      "current": "Կամուրջ",
+      "myMemory": "Ես ունեմ միակողմանի մուտքի վիզա",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Jembatan",
+      "category": "customs",
+      "english": "I am in transit in your country",
+      "current": "Շենք",
+      "myMemory": "Ես տարանցիկ եմ ձեր երկրում",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Gedung",
+      "category": "customs",
+      "english": "Here is my customs declaration",
+      "current": "Հրապարակ",
+      "myMemory": "Ահա իմ մաքսային հայտարարագիրը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Depan",
+      "category": "customs",
+      "english": "Here is my luggage",
+      "current": "Առջև",
+      "myMemory": "Ահա իմ ուղեբեռը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Belakang",
+      "category": "customs",
+      "english": "There are no prohibited items in my luggage",
+      "current": "Հետևում",
+      "myMemory": "Իմ ուղեբեռում արգելված իրեր չկան",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Seberang",
+      "category": "customs",
+      "english": "These are my personal belongings",
+      "current": "Վերև",
+      "myMemory": "Սրանք իմ անձնական իրերն են",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Di sebelah",
+      "category": "customs",
+      "english": "What duty do I need to pay?",
+      "current": "Ներքև",
+      "myMemory": "Ի ՞ նչ տուրք պետք է վճարեմ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Telepon",
+      "category": "sports",
+      "english": "What sport do you like?",
+      "current": "Հեռախոս",
+      "myMemory": "Ի ՞ նչ սպորտաձև եք սիրում:",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Nomor telepon",
+      "category": "sports",
+      "english": "I like to play football",
+      "current": "Ինտերնետ",
+      "myMemory": "Ես սիրում եմ ֆուտբոլ խաղալ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Email",
+      "category": "sports",
+      "english": "Basketball",
+      "current": "Էլ․ փոստ",
+      "myMemory": "բասկետբոլ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Internet",
+      "category": "sports",
+      "english": "Swimming",
+      "current": "Հաղորդագրություն",
+      "myMemory": "լող",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "WiFi",
+      "category": "sports",
+      "english": "Running",
+      "current": "Նամակ",
+      "myMemory": "Աշխատեցում",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Komputer",
+      "category": "sports",
+      "english": "Where is the gym?",
+      "current": "Փոստ",
+      "myMemory": "Որտե ՞ ղ է մարզասրահը",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Ponsel",
+      "category": "sports",
+      "english": "I want to work out",
+      "current": "Համար",
+      "myMemory": "Ես ուզում եմ մարզվել",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Pesan",
+      "category": "sports",
+      "english": "Coach",
+      "current": "Զանգահարել",
+      "myMemory": "Մարզիչ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Surat",
+      "category": "sports",
+      "english": "Competition / Match",
+      "current": "Ազդանշան",
+      "myMemory": "Մրցակցություն / համընկնում",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    },
+    {
+      "phraseId": "Stadion",
+      "category": "sports",
+      "english": "Stadium",
+      "current": "Լիցքավորիչ",
+      "myMemory": "մարզադաշտ",
+      "match": false,
+      "status": "needs_review",
+      "confidence": 0
+    }
+  ]
+}
