@@ -10,12 +10,14 @@ import {
   Dimensions,
   ScrollView,
   BackHandler,
+  Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRoute, useNavigation, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import * as Clipboard from 'expo-clipboard';
 import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
 
 import { Colors } from '../constants/Colors';
@@ -48,7 +50,8 @@ const PhraseItem = React.memo<{
   config: any;
   isFavorite: (id: string) => boolean;
   toggleFavorite: (id: string) => void;
-}>(({ phrase, onPress, config, isFavorite, toggleFavorite }) => {
+  onAskAI: (phrase: PhraseWithTranslation) => void;
+}>(({ phrase, onPress, config, isFavorite, toggleFavorite, onAskAI }) => {
   const { playAudio, isPlaying, isLoading } = useAudio(); // ✅ Добавил isLoading
   const { selectedLanguage } = useConfig();
 
@@ -120,6 +123,16 @@ const PhraseItem = React.memo<{
       setPlayingButton(null);
     }
   }, [isPlaying, isLoading]);
+  const handleCopy = useCallback(async () => {
+    const textToCopy = `Turkmen: ${phrase.turkmen}
+${selectedLanguage.toUpperCase()}: ${phrase.translation.text}`;
+    await Clipboard.setStringAsync(textToCopy);
+    Alert.alert('✓', 'Скопировано', [{ text: 'OK' }], { cancelable: true });
+  }, [phrase, selectedLanguage]);
+
+  const handleAskAI = useCallback(() => {
+    onAskAI(phrase);
+  }, [phrase, onAskAI]);
 
   // Get language display label for button (Вариант 4: Флаг + Код/Название)
   const getLanguageLabel = () => {
@@ -227,6 +240,26 @@ const PhraseItem = React.memo<{
             </TouchableOpacity>
           </View>
 
+
+          {/* Новый ряд - Copy и AI кнопки */}
+          <View style={styles.secondaryButtons}>
+            <TouchableOpacity
+              style={styles.iconButton}
+              onPress={handleCopy}
+              activeOpacity={0.7}
+            >
+              <Ionicons name="copy-outline" size={moderateScale(18)} color="#374151" />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.iconButton}
+              onPress={handleAskAI}
+              activeOpacity={0.7}
+            >
+              <Ionicons name="sparkles" size={moderateScale(18)} color="#374151" />
+            </TouchableOpacity>
+          </View>
+
           {/* Кнопка избранного */}
           <TouchableOpacity
             style={styles.favoriteButton}
@@ -249,6 +282,7 @@ export default function CategoryScreen() {
   const route = useRoute<CategoryScreenRouteProp>();
   const navigation = useNavigation<CategoryScreenNavigationProp>();
   const { config } = useAppLanguage();
+  const { selectedLanguage } = useConfig();
   const [isLoading, setIsLoading] = useState(true);
   const [selectedSubcategory, setSelectedSubcategory] = useState<SubCategory | null>(null);
 
@@ -261,6 +295,10 @@ export default function CategoryScreen() {
   // Анимация скролла для заголовка
   const scrollY = useRef(new Animated.Value(0)).current;
   const { category } = route.params;
+
+  const handleOpenAIModal = useCallback((phrase: PhraseWithTranslation) => {
+    navigation.navigate('AskAIScreen', { phrase, categoryId: category.id });
+  }, [navigation, category.id]);
 
   // Получаем подкатегории для данной категории
   const subcategories = useMemo(() => {
@@ -321,8 +359,6 @@ export default function CategoryScreen() {
     return () => backHandler.remove();
   }, [selectedSubcategory, handleBackToCategory]);
 
-  // ✅ ОБНОВЛЕНО: Получаем название категории на текущем языке с поддержкой всех 30 языков
-  const { selectedLanguage } = useConfig();
 
   // ✅ УНИВЕРСАЛЬНАЯ функция для ВСЕХ 31 языков - Category
   const getCategoryNameByLanguage = (langCode: string): string => {
@@ -450,6 +486,7 @@ export default function CategoryScreen() {
             config={config}
             isFavorite={isFavorite}
             toggleFavorite={toggleFavorite}
+            onAskAI={handleOpenAIModal}
           />
         )}
         keyExtractor={(item) => item.id}
@@ -828,5 +865,25 @@ favoriteButton: {
 
   bottomSpacing: {
     height: verticalScale(20),
+  },
+
+
+  secondaryButtons: {
+    flexDirection: 'row',
+    gap: scale(6),
+    marginBottom: verticalScale(4),
+  },
+
+  iconButton: {
+    paddingHorizontal: scale(10),
+    paddingVertical: verticalScale(8),
+    borderRadius: scale(12),
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1.5,
+    borderColor: '#D1D5DB',
+    shadowOffset: { width: 0, height: verticalScale(1) },
+    shadowOpacity: 0.05,
+    shadowRadius: scale(2),
+    elevation: 1,
   },
 });
