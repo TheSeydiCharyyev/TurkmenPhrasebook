@@ -121,17 +121,17 @@ android {
             crunchPngs enablePngCrunchInRelease.toBoolean()
         }
     }
-    packagingOptions {
+    packaging {
         jniLibs {
             def enableLegacyPackaging = findProperty('expo.useLegacyPackaging') ?: 'false'
             useLegacyPackaging enableLegacyPackaging.toBoolean()
         }
         // ✅ FIX: Handle duplicate META-INF files from AndroidX conflicts
         resources {
-            pickFirst 'META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version'
-            pickFirst 'META-INF/androidx.core_core.version'
-            pickFirst 'META-INF/androidx.versionedparcelable_versionedparcelable.version'
-            pickFirst 'META-INF/androidx.customview_customview.version'
+            pickFirsts += 'META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version'
+            pickFirsts += 'META-INF/androidx.core_core.version'
+            pickFirsts += 'META-INF/androidx.versionedparcelable_versionedparcelable.version'
+            pickFirsts += 'META-INF/androidx.customview_customview.version'
         }
     }
     androidResources {
@@ -139,24 +139,33 @@ android {
     }
 }
 
-// Apply static values from `gradle.properties` to the `android.packagingOptions`
+// Apply static values from `gradle.properties` to the `android.packaging`
 // Accepts values in comma delimited lists, example:
-// android.packagingOptions.pickFirsts=/LICENSE,**/picasa.ini
+// android.packaging.pickFirsts=/LICENSE,**/picasa.ini
 ["pickFirsts", "excludes", "merges", "doNotStrip"].each { prop ->
     // Split option: 'foo,bar' -> ['foo', 'bar']
-    def options = (findProperty("android.packagingOptions.$prop") ?: "").split(",");
+    def options = (findProperty("android.packaging.$prop") ?: "").split(",");
     // Trim all elements in place.
     for (i in 0..<options.size()) options[i] = options[i].trim();
     // `[] - ""` is essentially `[""].filter(Boolean)` removing all empty strings.
     options -= ""
 
     if (options.length > 0) {
-        println "android.packagingOptions.$prop += $options ($options.length)"
-        // Ex: android.packagingOptions.pickFirsts += '**/SCCS/**'
+        println "android.packaging.$prop += $options ($options.length)"
+        // Ex: android.packaging.pickFirsts += '**/SCCS/**'
         options.each {
-            android.packagingOptions[prop] += it
+            android.packaging[prop] += it
         }
     }
+}
+
+// ✅ FIX: Exclude old Android Support Library to prevent conflicts with AndroidX
+configurations.all {
+    exclude group: 'com.android.support', module: 'support-compat'
+    exclude group: 'com.android.support', module: 'support-v4'
+    exclude group: 'com.android.support', module: 'versionedparcelable'
+    exclude group: 'com.android.support', module: 'localbroadcastmanager'
+    exclude group: 'com.android.support', module: 'customview'
 }
 
 dependencies {
@@ -185,14 +194,5 @@ dependencies {
         implementation("com.facebook.react:hermes-android")
     } else {
         implementation jscFlavor
-    }
-
-    // ✅ FIX: Exclude old Android Support Library to prevent conflicts with AndroidX
-    configurations.all {
-        exclude group: 'com.android.support', module: 'support-compat'
-        exclude group: 'com.android.support', module: 'support-v4'
-        exclude group: 'com.android.support', module: 'versionedparcelable'
-        exclude group: 'com.android.support', module: 'localbroadcastmanager'
-        exclude group: 'com.android.support', module: 'customview'
     }
 }
