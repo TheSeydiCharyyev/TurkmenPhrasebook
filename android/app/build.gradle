@@ -131,6 +131,7 @@ android {
             pickFirst 'META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version'
             pickFirst 'META-INF/androidx.core_core.version'
             pickFirst 'META-INF/androidx.versionedparcelable_versionedparcelable.version'
+            pickFirst 'META-INF/androidx.customview_customview.version'
         }
     }
     androidResources {
@@ -192,5 +193,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-v4'
         exclude group: 'com.android.support', module: 'versionedparcelable'
         exclude group: 'com.android.support', module: 'localbroadcastmanager'
+        exclude group: 'com.android.support', module: 'customview'
     }
 }
