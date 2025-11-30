@@ -1,0 +1,2149 @@
+{
+  "language": "Malay",
+  "languageCode": "ms",
+  "timestamp": "2025-11-30T03:51:06.730Z",
+  "status": "completed",
+  "summary": {
+    "total": 305,
+    "added": 305,
+    "expected": 305,
+    "matchRate": "100.0%"
+  },
+  "corrections": [
+    {
+      "index": 1,
+      "phraseId": "Halo",
+      "english": "Hello",
+      "translation": "Helo.",
+      "added": true
+    },
+    {
+      "index": 2,
+      "phraseId": "Selamat pagi",
+      "english": "Thank you",
+      "translation": "Terima kasih.",
+      "added": true
+    },
+    {
+      "index": 3,
+      "phraseId": "Selamat siang",
+      "english": "Goodbye",
+      "translation": "Selamat tinggal",
+      "added": true
+    },
+    {
+      "index": 4,
+      "phraseId": "Selamat sore",
+      "english": "Excuse me",
+      "translation": "minta diri",
+      "added": true
+    },
+    {
+      "index": 5,
+      "phraseId": "Selamat malam",
+      "english": "Good morning",
+      "translation": "Good",
+      "added": true
+    },
+    {
+      "index": 6,
+      "phraseId": "Selamat tinggal",
+      "english": "Good night",
+      "translation": "Malam yang baik",
+      "added": true
+    },
+    {
+      "index": 7,
+      "phraseId": "Sampai jumpa",
+      "english": "My name is...",
+      "translation": "Nama saya...",
+      "added": true
+    },
+    {
+      "index": 8,
+      "phraseId": "Apa kabar?",
+      "english": "What is your name?",
+      "translation": "Apa nama awak?",
+      "added": true
+    },
+    {
+      "index": 9,
+      "phraseId": "Baik-baik saja, terima kasih",
+      "english": "Nice to meet you",
+      "translation": "Selamat berkenalan.",
+      "added": true
+    },
+    {
+      "index": 10,
+      "phraseId": "Senang bertemu dengan Anda",
+      "english": "Please",
+      "translation": "Sila",
+      "added": true
+    },
+    {
+      "index": 11,
+      "phraseId": "Nama saya...",
+      "english": "You're welcome",
+      "translation": "Sama-sama.",
+      "added": true
+    },
+    {
+      "index": 12,
+      "phraseId": "Siapa nama Anda?",
+      "english": "How are you?",
+      "translation": "Anda apa khabar? ",
+      "added": true
+    },
+    {
+      "index": 13,
+      "phraseId": "Dari mana Anda?",
+      "english": "Good luck!",
+      "translation": "Selamat berjaya!",
+      "added": true
+    },
+    {
+      "index": 14,
+      "phraseId": "Saya dari...",
+      "english": "Welcome!",
+      "translation": "Selamat datang!",
+      "added": true
+    },
+    {
+      "index": 15,
+      "phraseId": "Ya",
+      "english": "Very glad to see you",
+      "translation": "Saya ayah awak！",
+      "added": true
+    },
+    {
+      "index": 16,
+      "phraseId": "Tidak",
+      "english": "Welcome! (arrival greeting)",
+      "translation": "Selamat datang! (ucapan ketibaan)",
+      "added": true
+    },
+    {
+      "index": 17,
+      "phraseId": "Terima kasih",
+      "english": "How are you doing?",
+      "translation": "Anda apa khabar? ",
+      "added": true
+    },
+    {
+      "index": 18,
+      "phraseId": "Sama-sama",
+      "english": "Let me introduce my friend",
+      "translation": "Biar saya perkenalkan kawan saya",
+      "added": true
+    },
+    {
+      "index": 19,
+      "phraseId": "Tolong",
+      "english": "Pleased to meet you!",
+      "translation": "Gembira bertemu awak.",
+      "added": true
+    },
+    {
+      "index": 20,
+      "phraseId": "Maaf",
+      "english": "Please come in",
+      "translation": "Sila masuk.",
+      "added": true
+    },
+    {
+      "index": 21,
+      "phraseId": "Permisi",
+      "english": "Please sit down",
+      "translation": "Sila duduk",
+      "added": true
+    },
+    {
+      "index": 22,
+      "phraseId": "Tidak apa-apa",
+      "english": "Yes",
+      "translation": "Yes",
+      "added": true
+    },
+    {
+      "index": 23,
+      "phraseId": "Baik",
+      "english": "No",
+      "translation": "No",
+      "added": true
+    },
+    {
+      "index": 24,
+      "phraseId": "Buruk",
+      "english": "I agree",
+      "translation": "Saya setuju.",
+      "added": true
+    },
+    {
+      "index": 25,
+      "phraseId": "Sedikit",
+      "english": "Thank you very much for your help",
+      "translation": "Terima kasih banyak atas bantuan awak.",
+      "added": true
+    },
+    {
+      "index": 26,
+      "phraseId": "Banyak",
+      "english": "Thank you very much for your support",
+      "translation": "Terima kasih banyak atas sokongan anda",
+      "added": true
+    },
+    {
+      "index": 27,
+      "phraseId": "Semua",
+      "english": "Thank you very much for your understanding",
+      "translation": "Terima kasih banyak atas kefahaman anda",
+      "added": true
+    },
+    {
+      "index": 28,
+      "phraseId": "Tidak ada",
+      "english": "Help!",
+      "translation": "Tolong!",
+      "added": true
+    },
+    {
+      "index": 29,
+      "phraseId": "Saya tidak mengerti",
+      "english": "I need a doctor",
+      "translation": "Saya perlukan doktor",
+      "added": true
+    },
+    {
+      "index": 30,
+      "phraseId": "Apakah Anda mengerti?",
+      "english": "Call the police",
+      "translation": "Hubungi polis.",
+      "added": true
+    },
+    {
+      "index": 31,
+      "phraseId": "Saya mengerti",
+      "english": "Fire!",
+      "translation": "Kebakaran!",
+      "added": true
+    },
+    {
+      "index": 32,
+      "phraseId": "Bisakah Anda berbicara lebih lambat?",
+      "english": "I am lost",
+      "translation": "Saya sesat",
+      "added": true
+    },
+    {
+      "index": 33,
+      "phraseId": "Ulangi lagi, tolong",
+      "english": "I am sick",
+      "translation": "Saya sakit",
+      "added": true
+    },
+    {
+      "index": 34,
+      "phraseId": "Bagaimana?",
+      "english": "Call an ambulance",
+      "translation": "Panggil ambulan",
+      "added": true
+    },
+    {
+      "index": 35,
+      "phraseId": "Apa?",
+      "english": "My wallet was stolen",
+      "translation": "Dompet saya dicuri",
+      "added": true
+    },
+    {
+      "index": 36,
+      "phraseId": "Di mana?",
+      "english": "Help me",
+      "translation": "sini",
+      "added": true
+    },
+    {
+      "index": 37,
+      "phraseId": "Kapan?",
+      "english": "Danger!",
+      "translation": "Bahaya!",
+      "added": true
+    },
+    {
+      "index": 38,
+      "phraseId": "Siapa?",
+      "english": "Call a doctor!",
+      "translation": "Hubungi doktor!",
+      "added": true
+    },
+    {
+      "index": 39,
+      "phraseId": "Mengapa?",
+      "english": "I want a room",
+      "translation": "Saya mahu bilik",
+      "added": true
+    },
+    {
+      "index": 40,
+      "phraseId": "Berapa?",
+      "english": "How much per night?",
+      "translation": "Berapakah harga semalam?",
+      "added": true
+    },
+    {
+      "index": 41,
+      "phraseId": "Satu",
+      "english": "Is there WiFi here?",
+      "translation": "Adakah terdapat WiFi di sini?",
+      "added": true
+    },
+    {
+      "index": 42,
+      "phraseId": "Dua",
+      "english": "I have a reservation",
+      "translation": "Saya ada tempahan",
+      "added": true
+    },
+    {
+      "index": 43,
+      "phraseId": "Tiga",
+      "english": "Single room",
+      "translation": "Bilik single",
+      "added": true
+    },
+    {
+      "index": 44,
+      "phraseId": "Empat",
+      "english": "Double room",
+      "translation": "Bilik kelamin",
+      "added": true
+    },
+    {
+      "index": 45,
+      "phraseId": "Lima",
+      "english": "What time is check-out?",
+      "translation": "Pukul berapa daftar keluar?",
+      "added": true
+    },
+    {
+      "index": 46,
+      "phraseId": "Enam",
+      "english": "Key",
+      "translation": "Kunci",
+      "added": true
+    },
+    {
+      "index": 47,
+      "phraseId": "Tujuh",
+      "english": "Room number",
+      "translation": "you mau berapa jam",
+      "added": true
+    },
+    {
+      "index": 48,
+      "phraseId": "Delapan",
+      "english": "Is breakfast included?",
+      "translation": "Adakah sarapan termasuk?",
+      "added": true
+    },
+    {
+      "index": 49,
+      "phraseId": "Sembilan",
+      "english": "Please clean the room",
+      "translation": "Sila bersihkan bilik",
+      "added": true
+    },
+    {
+      "index": 50,
+      "phraseId": "Sepuluh",
+      "english": "I want to extend my stay",
+      "translation": "Saya ingin melanjutkan penginapan saya",
+      "added": true
+    },
+    {
+      "index": 51,
+      "phraseId": "Sebelas",
+      "english": "I am hungry",
+      "translation": "port\n",
+      "added": true
+    },
+    {
+      "index": 52,
+      "phraseId": "Dua belas",
+      "english": "Menu, please",
+      "translation": "Menu, sila",
+      "added": true
+    },
+    {
+      "index": 53,
+      "phraseId": "Tiga belas",
+      "english": "Delicious",
+      "translation": "Sedap.",
+      "added": true
+    },
+    {
+      "index": 54,
+      "phraseId": "Lima belas",
+      "english": "Bill, please",
+      "translation": "Bil, sila",
+      "added": true
+    },
+    {
+      "index": 55,
+      "phraseId": "Dua puluh",
+      "english": "I am vegetarian",
+      "translation": "Saya vegetarian",
+      "added": true
+    },
+    {
+      "index": 56,
+      "phraseId": "Tiga puluh",
+      "english": "Not spicy",
+      "translation": "Tidak pedas",
+      "added": true
+    },
+    {
+      "index": 57,
+      "phraseId": "Lima puluh",
+      "english": "Water",
+      "translation": "Air",
+      "added": true
+    },
+    {
+      "index": 58,
+      "phraseId": "Seratus",
+      "english": "Tea",
+      "translation": "Teh",
+      "added": true
+    },
+    {
+      "index": 59,
+      "phraseId": "Seribu",
+      "english": "Rice",
+      "translation": "filem pendek",
+      "added": true
+    },
+    {
+      "index": 60,
+      "phraseId": "Sejuta",
+      "english": "Noodles",
+      "translation": "Mi",
+      "added": true
+    },
+    {
+      "index": 61,
+      "phraseId": "Hari ini",
+      "english": "Chicken",
+      "translation": "Adakah ini kali per",
+      "added": true
+    },
+    {
+      "index": 62,
+      "phraseId": "Kemarin",
+      "english": "Beef",
+      "translation": "Daging lembu",
+      "added": true
+    },
+    {
+      "index": 63,
+      "phraseId": "Besok",
+      "english": "How much does it cost?",
+      "translation": "Berapa harganya?",
+      "added": true
+    },
+    {
+      "index": 64,
+      "phraseId": "Pagi",
+      "english": "I am allergic to...",
+      "translation": "Saya alah kepada...",
+      "added": true
+    },
+    {
+      "index": 65,
+      "phraseId": "Siang",
+      "english": "Can I take it to go?",
+      "translation": "Boleh saya bawa pergi?",
+      "added": true
+    },
+    {
+      "index": 66,
+      "phraseId": "Sore",
+      "english": "Very delicious",
+      "translation": "Sangat sedap.",
+      "added": true
+    },
+    {
+      "index": 67,
+      "phraseId": "Malam",
+      "english": "Appetizers",
+      "translation": "Pembuka selera",
+      "added": true
+    },
+    {
+      "index": 68,
+      "phraseId": "Minggu",
+      "english": "Ham",
+      "translation": "Ham,",
+      "added": true
+    },
+    {
+      "index": 69,
+      "phraseId": "Bulan",
+      "english": "Cheese platter",
+      "translation": "Piring keju",
+      "added": true
+    },
+    {
+      "index": 70,
+      "phraseId": "Tahun",
+      "english": "Soup",
+      "translation": "periuk tanah liat",
+      "added": true
+    },
+    {
+      "index": 71,
+      "phraseId": "Hari",
+      "english": "Borscht",
+      "translation": "Borscht",
+      "added": true
+    },
+    {
+      "index": 72,
+      "phraseId": "Jam",
+      "english": "Chicken noodle soup",
+      "translation": "mi sup ayam",
+      "added": true
+    },
+    {
+      "index": 73,
+      "phraseId": "Menit",
+      "english": "Meat broth",
+      "translation": "masukkan bawang putih",
+      "added": true
+    },
+    {
+      "index": 74,
+      "phraseId": "Detik",
+      "english": "Meat",
+      "translation": "Daging",
+      "added": true
+    },
+    {
+      "index": 75,
+      "phraseId": "Senin",
+      "english": "Lamb",
+      "translation": "Daging biri-biri",
+      "added": true
+    },
+    {
+      "index": 76,
+      "phraseId": "Selasa",
+      "english": "Pork",
+      "translation": "Daging babi",
+      "added": true
+    },
+    {
+      "index": 77,
+      "phraseId": "Rabu",
+      "english": "Fried",
+      "translation": "kacang Panjang goreng",
+      "added": true
+    },
+    {
+      "index": 78,
+      "phraseId": "Kamis",
+      "english": "Boiled",
+      "translation": "Pendidihan",
+      "added": true
+    },
+    {
+      "index": 79,
+      "phraseId": "Jumat",
+      "english": "Fish dishes",
+      "translation": "Hidangan ikan",
+      "added": true
+    },
+    {
+      "index": 80,
+      "phraseId": "Sabtu",
+      "english": "Fish",
+      "translation": "Buat gapo",
+      "added": true
+    },
+    {
+      "index": 81,
+      "phraseId": "Minggu",
+      "english": "Salmon",
+      "translation": "Salmon",
+      "added": true
+    },
+    {
+      "index": 82,
+      "phraseId": "Januari",
+      "english": "Shrimp",
+      "translation": "Udang",
+      "added": true
+    },
+    {
+      "index": 83,
+      "phraseId": "Februari",
+      "english": "Crabs",
+      "translation": "KETAM",
+      "added": true
+    },
+    {
+      "index": 84,
+      "phraseId": "Maret",
+      "english": "Is there a vegetarian menu?",
+      "translation": "Adakah terdapat menu vegetarian?",
+      "added": true
+    },
+    {
+      "index": 85,
+      "phraseId": "April",
+      "english": "Is this dish spicy?",
+      "translation": "Adakah sajian ini pedas?",
+      "added": true
+    },
+    {
+      "index": 86,
+      "phraseId": "Restoran",
+      "english": "Not spicy",
+      "translation": "Tidak pedas",
+      "added": true
+    },
+    {
+      "index": 87,
+      "phraseId": "Menu",
+      "english": "Apple",
+      "translation": "Apple",
+      "added": true
+    },
+    {
+      "index": 88,
+      "phraseId": "Sarapan",
+      "english": "Banana",
+      "translation": "Pisang",
+      "added": true
+    },
+    {
+      "index": 89,
+      "phraseId": "Makan siang",
+      "english": "Orange",
+      "translation": "Jingga",
+      "added": true
+    },
+    {
+      "index": 90,
+      "phraseId": "Makan malam",
+      "english": "Grapes",
+      "translation": "Anggur",
+      "added": true
+    },
+    {
+      "index": 91,
+      "phraseId": "Air",
+      "english": "Watermelon",
+      "translation": "Tembikai",
+      "added": true
+    },
+    {
+      "index": 92,
+      "phraseId": "Teh",
+      "english": "Potato",
+      "translation": "Kentang",
+      "added": true
+    },
+    {
+      "index": 93,
+      "phraseId": "Kopi",
+      "english": "Tomato",
+      "translation": "Tomato",
+      "added": true
+    },
+    {
+      "index": 94,
+      "phraseId": "Susu",
+      "english": "How much does it cost?",
+      "translation": "Berapa harganya?",
+      "added": true
+    },
+    {
+      "index": 95,
+      "phraseId": "Jus",
+      "english": "Too expensive",
+      "translation": "harga",
+      "added": true
+    },
+    {
+      "index": 96,
+      "phraseId": "Bir",
+      "english": "Can it be cheaper?",
+      "translation": "Bolehkah ia lebih murah?",
+      "added": true
+    },
+    {
+      "index": 97,
+      "phraseId": "Anggur",
+      "english": "I will buy this",
+      "translation": "Saya akan beli ini",
+      "added": true
+    },
+    {
+      "index": 98,
+      "phraseId": "Roti",
+      "english": "Can I try it on?",
+      "translation": "Bolehkah saya mencubanya?",
+      "added": true
+    },
+    {
+      "index": 99,
+      "phraseId": "Daging",
+      "english": "Bigger size",
+      "translation": "Saiz lebih besar",
+      "added": true
+    },
+    {
+      "index": 100,
+      "phraseId": "Ikan",
+      "english": "Smaller size",
+      "translation": "Saiz lebih kecil",
+      "added": true
+    },
+    {
+      "index": 101,
+      "phraseId": "Ayam",
+      "english": "Cash",
+      "translation": "Tunai",
+      "added": true
+    },
+    {
+      "index": 102,
+      "phraseId": "Sayuran",
+      "english": "Credit card",
+      "translation": "Kad kredit",
+      "added": true
+    },
+    {
+      "index": 103,
+      "phraseId": "Buah",
+      "english": "Receipt",
+      "translation": "Resit",
+      "added": true
+    },
+    {
+      "index": 104,
+      "phraseId": "Nasi",
+      "english": "Return/Exchange",
+      "translation": "Pulangan/Pertukaran",
+      "added": true
+    },
+    {
+      "index": 105,
+      "phraseId": "Sup",
+      "english": "Where is the market?",
+      "translation": "Di manakah pasarannya?",
+      "added": true
+    },
+    {
+      "index": 106,
+      "phraseId": "Salad",
+      "english": "Is there a discount?",
+      "translation": "Adakah terdapat diskaun?",
+      "added": true
+    },
+    {
+      "index": 107,
+      "phraseId": "Keju",
+      "english": "Can I try it on?",
+      "translation": "Bolehkah saya mencubanya?",
+      "added": true
+    },
+    {
+      "index": 108,
+      "phraseId": "Mentega",
+      "english": "What is your size?",
+      "translation": "Apakah saiz anda?",
+      "added": true
+    },
+    {
+      "index": 109,
+      "phraseId": "Gula",
+      "english": "Are there other colors?",
+      "translation": "Adakah terdapat warna lain?",
+      "added": true
+    },
+    {
+      "index": 110,
+      "phraseId": "Garam",
+      "english": "Where is the train station?",
+      "translation": "Di mana stesen kereta api?",
+      "added": true
+    },
+    {
+      "index": 111,
+      "phraseId": "Merica",
+      "english": "Airport",
+      "translation": "Lapangan terbang",
+      "added": true
+    },
+    {
+      "index": 112,
+      "phraseId": "Es krim",
+      "english": "Taxi",
+      "translation": "Teksi",
+      "added": true
+    },
+    {
+      "index": 113,
+      "phraseId": "Kue",
+      "english": "Bus",
+      "translation": "Bas",
+      "added": true
+    },
+    {
+      "index": 114,
+      "phraseId": "Enak",
+      "english": "Metro",
+      "translation": "Metro",
+      "added": true
+    },
+    {
+      "index": 115,
+      "phraseId": "Bon appétit",
+      "english": "Train ticket",
+      "translation": "Tiket kereta api",
+      "added": true
+    },
+    {
+      "index": 116,
+      "phraseId": "Toko",
+      "english": "Schedule",
+      "translation": "Jadwal",
+      "added": true
+    },
+    {
+      "index": 117,
+      "phraseId": "Pasar",
+      "english": "Platform",
+      "translation": "Platform",
+      "added": true
+    },
+    {
+      "index": 118,
+      "phraseId": "Berapa harganya?",
+      "english": "Next stop",
+      "translation": "Hentian seterusnya",
+      "added": true
+    },
+    {
+      "index": 119,
+      "phraseId": "Berapa biayanya?",
+      "english": "Stop",
+      "translation": "Berhenti",
+      "added": true
+    },
+    {
+      "index": 120,
+      "phraseId": "Saya ingin membeli ini",
+      "english": "How long until...?",
+      "translation": "Berapa lama sehingga...?",
+      "added": true
+    },
+    {
+      "index": 121,
+      "phraseId": "Mahal",
+      "english": "I need to go to...",
+      "translation": "Saya perlu pergi!",
+      "added": true
+    },
+    {
+      "index": 122,
+      "phraseId": "Murah",
+      "english": "When will the next bus arrive?",
+      "translation": "Bilakah bas seterusnya akan tiba?",
+      "added": true
+    },
+    {
+      "index": 123,
+      "phraseId": "Diskon",
+      "english": "I want to go to the airport",
+      "translation": "Saya mahu pergi ke lapangan terbang",
+      "added": true
+    },
+    {
+      "index": 124,
+      "phraseId": "Harga",
+      "english": "On the left",
+      "translation": "Di sebelah kiri",
+      "added": true
+    },
+    {
+      "index": 125,
+      "phraseId": "Uang",
+      "english": "On the right",
+      "translation": "Di sebelah kanan",
+      "added": true
+    },
+    {
+      "index": 126,
+      "phraseId": "Kartu kredit",
+      "english": "Straight",
+      "translation": "Tegak",
+      "added": true
+    },
+    {
+      "index": 127,
+      "phraseId": "Tunai",
+      "english": "Turn",
+      "translation": "Pusing",
+      "added": true
+    },
+    {
+      "index": 128,
+      "phraseId": "Tanda terima",
+      "english": "Intersection",
+      "translation": "Bersilang",
+      "added": true
+    },
+    {
+      "index": 129,
+      "phraseId": "Apakah Anda menerima kartu?",
+      "english": "Traffic light",
+      "translation": "Lampu isyarat",
+      "added": true
+    },
+    {
+      "index": 130,
+      "phraseId": "Ukuran",
+      "english": "Far",
+      "translation": "Jauh",
+      "added": true
+    },
+    {
+      "index": 131,
+      "phraseId": "Warna",
+      "english": "Near",
+      "translation": "Dekat",
+      "added": true
+    },
+    {
+      "index": 132,
+      "phraseId": "Besar",
+      "english": "Map",
+      "translation": "Peta",
+      "added": true
+    },
+    {
+      "index": 133,
+      "phraseId": "Kecil",
+      "english": "Where is...?",
+      "translation": "Di mana...",
+      "added": true
+    },
+    {
+      "index": 134,
+      "phraseId": "Sedang",
+      "english": "Hospital",
+      "translation": "Hospital",
+      "added": true
+    },
+    {
+      "index": 135,
+      "phraseId": "Baru",
+      "english": "Pharmacy",
+      "translation": "Farmasi",
+      "added": true
+    },
+    {
+      "index": 136,
+      "phraseId": "Lama",
+      "english": "I have a headache",
+      "translation": "Saya sakit kepala.",
+      "added": true
+    },
+    {
+      "index": 137,
+      "phraseId": "Cantik",
+      "english": "I have a stomachache",
+      "translation": "lemak ditolak ke paha",
+      "added": true
+    },
+    {
+      "index": 138,
+      "phraseId": "Jelek",
+      "english": "Temperature",
+      "translation": "Suhu",
+      "added": true
+    },
+    {
+      "index": 139,
+      "phraseId": "Berkualitas",
+      "english": "Cough",
+      "translation": "Batuk",
+      "added": true
+    },
+    {
+      "index": 140,
+      "phraseId": "Bisakah saya mencoba ini?",
+      "english": "Medicine",
+      "translation": "Perubatan",
+      "added": true
+    },
+    {
+      "index": 141,
+      "phraseId": "Taksi",
+      "english": "Doctor",
+      "translation": "Doktor",
+      "added": true
+    },
+    {
+      "index": 142,
+      "phraseId": "Bus",
+      "english": "Nurse",
+      "translation": "Jururawat",
+      "added": true
+    },
+    {
+      "index": 143,
+      "phraseId": "Kereta",
+      "english": "Ambulance",
+      "translation": "Ambulans.",
+      "added": true
+    },
+    {
+      "index": 144,
+      "phraseId": "Pesawat",
+      "english": "I have a headache",
+      "translation": "Saya sakit kepala.",
+      "added": true
+    },
+    {
+      "index": 145,
+      "phraseId": "Bandara",
+      "english": "I need a painkiller",
+      "translation": "Saya perlukan ubat penahan sakit",
+      "added": true
+    },
+    {
+      "index": 146,
+      "phraseId": "Stasiun",
+      "english": "Yuan",
+      "translation": "amount in units (real)",
+      "added": true
+    },
+    {
+      "index": 147,
+      "phraseId": "Halte",
+      "english": "Manat",
+      "translation": "Manat",
+      "added": true
+    },
+    {
+      "index": 148,
+      "phraseId": "Tiket",
+      "english": "Card payment",
+      "translation": "Pembayaran kad",
+      "added": true
+    },
+    {
+      "index": 149,
+      "phraseId": "Berapa tiketnya?",
+      "english": "Bank",
+      "translation": "Bank",
+      "added": true
+    },
+    {
+      "index": 150,
+      "phraseId": "Di mana stasiun bus?",
+      "english": "ATM",
+      "translation": "ATM",
+      "added": true
+    },
+    {
+      "index": 151,
+      "phraseId": "Bagaimana menuju...?",
+      "english": "Currency exchange",
+      "translation": "Pertukaran mata wang",
+      "added": true
+    },
+    {
+      "index": 152,
+      "phraseId": "Kiri",
+      "english": "Change",
+      "translation": "Tukar",
+      "added": true
+    },
+    {
+      "index": 153,
+      "phraseId": "Kanan",
+      "english": "Free",
+      "translation": "Percuma",
+      "added": true
+    },
+    {
+      "index": 154,
+      "phraseId": "Lurus",
+      "english": "Price",
+      "translation": "Masukkan Kata Laluan Semasa yang betul",
+      "added": true
+    },
+    {
+      "index": 155,
+      "phraseId": "Jauh",
+      "english": "Mobile phone",
+      "translation": "Telefon bimbit",
+      "added": true
+    },
+    {
+      "index": 156,
+      "phraseId": "Dekat",
+      "english": "Wi-Fi",
+      "translation": "Wi-Fi",
+      "added": true
+    },
+    {
+      "index": 157,
+      "phraseId": "Di sini",
+      "english": "What is the password?",
+      "translation": "Apakah kata laluannya?",
+      "added": true
+    },
+    {
+      "index": 158,
+      "phraseId": "Di sana",
+      "english": "Send SMS",
+      "translation": "Name",
+      "added": true
+    },
+    {
+      "index": 159,
+      "phraseId": "Jalan",
+      "english": "Cinema",
+      "translation": "sinema",
+      "added": true
+    },
+    {
+      "index": 160,
+      "phraseId": "Alamat",
+      "english": "Museum",
+      "translation": "Muzium",
+      "added": true
+    },
+    {
+      "index": 161,
+      "phraseId": "Hotel",
+      "english": "Park",
+      "translation": "Taman",
+      "added": true
+    },
+    {
+      "index": 162,
+      "phraseId": "Kamar",
+      "english": "Concert",
+      "translation": "konsert",
+      "added": true
+    },
+    {
+      "index": 163,
+      "phraseId": "Reservasi",
+      "english": "Shopping mall",
+      "translation": "Pusat beli-belah",
+      "added": true
+    },
+    {
+      "index": 164,
+      "phraseId": "Saya sudah memesan",
+      "english": "Swimming pool",
+      "translation": "Kolam renang",
+      "added": true
+    },
+    {
+      "index": 165,
+      "phraseId": "Saya ingin kamar",
+      "english": "Gym",
+      "translation": "Gim",
+      "added": true
+    },
+    {
+      "index": 166,
+      "phraseId": "Untuk satu orang",
+      "english": "Library",
+      "translation": "Perpustakaan",
+      "added": true
+    },
+    {
+      "index": 167,
+      "phraseId": "Untuk dua orang",
+      "english": "Night market",
+      "translation": "Pasar malam.",
+      "added": true
+    },
+    {
+      "index": 168,
+      "phraseId": "Untuk satu malam",
+      "english": "How much is the ticket?",
+      "translation": "Berapa harga tiketnya?",
+      "added": true
+    },
+    {
+      "index": 169,
+      "phraseId": "Untuk dua malam",
+      "english": "What time is it?",
+      "translation": "Sekarang pukul berapa?",
+      "added": true
+    },
+    {
+      "index": 170,
+      "phraseId": "Untuk seminggu",
+      "english": "Today",
+      "translation": "Hari ini",
+      "added": true
+    },
+    {
+      "index": 171,
+      "phraseId": "Berapa harga kamarnya?",
+      "english": "Tomorrow",
+      "translation": "Esok",
+      "added": true
+    },
+    {
+      "index": 172,
+      "phraseId": "Apakah sudah termasuk sarapan?",
+      "english": "Yesterday",
+      "translation": "Semalam",
+      "added": true
+    },
+    {
+      "index": 173,
+      "phraseId": "Kunci",
+      "english": "Monday",
+      "translation": "Isnin",
+      "added": true
+    },
+    {
+      "index": 174,
+      "phraseId": "Kunci kamar",
+      "english": "Sunday",
+      "translation": "Ahad",
+      "added": true
+    },
+    {
+      "index": 175,
+      "phraseId": "Tempat tidur",
+      "english": "In the morning",
+      "translation": "Pagi",
+      "added": true
+    },
+    {
+      "index": 176,
+      "phraseId": "Kamar mandi",
+      "english": "In the afternoon",
+      "translation": "sebelah petang",
+      "added": true
+    },
+    {
+      "index": 177,
+      "phraseId": "Shower",
+      "english": "In the evening",
+      "translation": "Malam",
+      "added": true
+    },
+    {
+      "index": 178,
+      "phraseId": "AC",
+      "english": "What month?",
+      "translation": "Bulan apa?",
+      "added": true
+    },
+    {
+      "index": 179,
+      "phraseId": "WiFi",
+      "english": "Monday",
+      "translation": "Isnin",
+      "added": true
+    },
+    {
+      "index": 180,
+      "phraseId": "Apa kata sandi WiFi?",
+      "english": "Tuesday",
+      "translation": "Selasa",
+      "added": true
+    },
+    {
+      "index": 181,
+      "phraseId": "Handuk",
+      "english": "Wednesday",
+      "translation": "Rabu",
+      "added": true
+    },
+    {
+      "index": 182,
+      "phraseId": "Sabun",
+      "english": "Thursday",
+      "translation": "Khamis",
+      "added": true
+    },
+    {
+      "index": 183,
+      "phraseId": "Layanan kamar",
+      "english": "Friday",
+      "translation": "Jumaat",
+      "added": true
+    },
+    {
+      "index": 184,
+      "phraseId": "Check-in",
+      "english": "Saturday",
+      "translation": "Sabtu",
+      "added": true
+    },
+    {
+      "index": 185,
+      "phraseId": "Check-out",
+      "english": "Sunday",
+      "translation": "Ahad",
+      "added": true
+    },
+    {
+      "index": 186,
+      "phraseId": "Tolong!",
+      "english": "January",
+      "translation": "Januari",
+      "added": true
+    },
+    {
+      "index": 187,
+      "phraseId": "Darurat",
+      "english": "February",
+      "translation": "Februari",
+      "added": true
+    },
+    {
+      "index": 188,
+      "phraseId": "Polisi",
+      "english": "March",
+      "translation": "Mac",
+      "added": true
+    },
+    {
+      "index": 189,
+      "phraseId": "Dokter",
+      "english": "April",
+      "translation": "April",
+      "added": true
+    },
+    {
+      "index": 190,
+      "phraseId": "Rumah sakit",
+      "english": "May",
+      "translation": "Mei",
+      "added": true
+    },
+    {
+      "index": 191,
+      "phraseId": "Ambulans",
+      "english": "June",
+      "translation": "Jun",
+      "added": true
+    },
+    {
+      "index": 192,
+      "phraseId": "Apotik",
+      "english": "July",
+      "translation": "Julai",
+      "added": true
+    },
+    {
+      "index": 193,
+      "phraseId": "Saya sakit",
+      "english": "August",
+      "translation": "Ogos",
+      "added": true
+    },
+    {
+      "index": 194,
+      "phraseId": "Saya butuh dokter",
+      "english": "September",
+      "translation": "September",
+      "added": true
+    },
+    {
+      "index": 195,
+      "phraseId": "Saya kehilangan...",
+      "english": "October",
+      "translation": "Oktober",
+      "added": true
+    },
+    {
+      "index": 196,
+      "phraseId": "Saya tersesat",
+      "english": "November",
+      "translation": "November",
+      "added": true
+    },
+    {
+      "index": 197,
+      "phraseId": "Api",
+      "english": "December",
+      "translation": "Kerja juruteknik",
+      "added": true
+    },
+    {
+      "index": 198,
+      "phraseId": "Bahaya",
+      "english": "One",
+      "translation": "Satu",
+      "added": true
+    },
+    {
+      "index": 199,
+      "phraseId": "Hati-hati",
+      "english": "Two",
+      "translation": "Dua",
+      "added": true
+    },
+    {
+      "index": 200,
+      "phraseId": "Dilarang",
+      "english": "Three",
+      "translation": "Tiga",
+      "added": true
+    },
+    {
+      "index": 201,
+      "phraseId": "Apa itu?",
+      "english": "Four",
+      "translation": "Empat",
+      "added": true
+    },
+    {
+      "index": 202,
+      "phraseId": "Di mana itu?",
+      "english": "Five",
+      "translation": "5",
+      "added": true
+    },
+    {
+      "index": 203,
+      "phraseId": "Berapa ini?",
+      "english": "Six",
+      "translation": "6",
+      "added": true
+    },
+    {
+      "index": 204,
+      "phraseId": "Kapan?",
+      "english": "Seven",
+      "translation": "7",
+      "added": true
+    },
+    {
+      "index": 205,
+      "phraseId": "Siapa?",
+      "english": "Eight",
+      "translation": "eight",
+      "added": true
+    },
+    {
+      "index": 206,
+      "phraseId": "Mengapa?",
+      "english": "Nine",
+      "translation": "9",
+      "added": true
+    },
+    {
+      "index": 207,
+      "phraseId": "Bagaimana?",
+      "english": "Ten",
+      "translation": "10",
+      "added": true
+    },
+    {
+      "index": 208,
+      "phraseId": "Di mana toilet?",
+      "english": "Twenty",
+      "translation": "20",
+      "added": true
+    },
+    {
+      "index": 209,
+      "phraseId": "Apakah Anda bisa membantu?",
+      "english": "One hundred",
+      "translation": "ratus",
+      "added": true
+    },
+    {
+      "index": 210,
+      "phraseId": "Apakah Anda tahu...?",
+      "english": "One thousand",
+      "translation": "1000",
+      "added": true
+    },
+    {
+      "index": 211,
+      "phraseId": "Bisakah Anda menunjukkan?",
+      "english": "Ten thousand",
+      "translation": "10000",
+      "added": true
+    },
+    {
+      "index": 212,
+      "phraseId": "Apakah mungkin?",
+      "english": "First",
+      "translation": "Pertama",
+      "added": true
+    },
+    {
+      "index": 213,
+      "phraseId": "Apakah Anda punya...?",
+      "english": "One thousand",
+      "translation": "1000",
+      "added": true
+    },
+    {
+      "index": 214,
+      "phraseId": "Apakah itu tersedia?",
+      "english": "Two thousand",
+      "translation": "2000",
+      "added": true
+    },
+    {
+      "index": 215,
+      "phraseId": "Berapa lama?",
+      "english": "Ten thousand",
+      "translation": "10000",
+      "added": true
+    },
+    {
+      "index": 216,
+      "phraseId": "Berapa jauh?",
+      "english": "One hundred thousand",
+      "translation": "Seratus ribu",
+      "added": true
+    },
+    {
+      "index": 217,
+      "phraseId": "Jam berapa sekarang?",
+      "english": "One million",
+      "translation": "1 lakh",
+      "added": true
+    },
+    {
+      "index": 218,
+      "phraseId": "Jam berapa buka?",
+      "english": "What is the weather today?",
+      "translation": "Bagaimana cuaca hari ini?",
+      "added": true
+    },
+    {
+      "index": 219,
+      "phraseId": "Jam berapa tutup?",
+      "english": "Rain",
+      "translation": "Hujan",
+      "added": true
+    },
+    {
+      "index": 220,
+      "phraseId": "Apakah buka hari ini?",
+      "english": "Sunny",
+      "translation": "Cerah",
+      "added": true
+    },
+    {
+      "index": 221,
+      "phraseId": "Keluarga",
+      "english": "Cloudy",
+      "translation": "Mendung",
+      "added": true
+    },
+    {
+      "index": 222,
+      "phraseId": "Ayah",
+      "english": "Windy",
+      "translation": "weather forecast",
+      "added": true
+    },
+    {
+      "index": 223,
+      "phraseId": "Ibu",
+      "english": "Snow",
+      "translation": "Snow",
+      "added": true
+    },
+    {
+      "index": 224,
+      "phraseId": "Anak laki-laki",
+      "english": "Hot",
+      "translation": "Panas",
+      "added": true
+    },
+    {
+      "index": 225,
+      "phraseId": "Anak perempuan",
+      "english": "Cold",
+      "translation": "Dingin",
+      "added": true
+    },
+    {
+      "index": 226,
+      "phraseId": "Saudara laki-laki",
+      "english": "My name is...",
+      "translation": "Nama saya...",
+      "added": true
+    },
+    {
+      "index": 227,
+      "phraseId": "Saudara perempuan",
+      "english": "My last name is...",
+      "translation": "Nama keluarga saya ialah...",
+      "added": true
+    },
+    {
+      "index": 228,
+      "phraseId": "Suami",
+      "english": "What is your name?",
+      "translation": "Apa nama awak?",
+      "added": true
+    },
+    {
+      "index": 229,
+      "phraseId": "Istri",
+      "english": "I am from Turkmenistan",
+      "translation": "Saya dari Turkmenistan",
+      "added": true
+    },
+    {
+      "index": 230,
+      "phraseId": "Kakek",
+      "english": "I live in Ashgabat",
+      "translation": "Saya tinggal di Ashgabat",
+      "added": true
+    },
+    {
+      "index": 231,
+      "phraseId": "Nenek",
+      "english": "There are 4 people in our family",
+      "translation": "Ada 4 orang dalam keluarga kami",
+      "added": true
+    },
+    {
+      "index": 232,
+      "phraseId": "Paman",
+      "english": "Do you have children?",
+      "translation": "Berapa orang ",
+      "added": true
+    },
+    {
+      "index": 233,
+      "phraseId": "Bibi",
+      "english": "I have no children",
+      "translation": "Saya tidak mempunyai anak",
+      "added": true
+    },
+    {
+      "index": 234,
+      "phraseId": "Anak-anak",
+      "english": "I have one child",
+      "translation": "Saya ada seorang anak",
+      "added": true
+    },
+    {
+      "index": 235,
+      "phraseId": "Orang tua",
+      "english": "I have two children",
+      "translation": "\"Anak saya pun dua orang.",
+      "added": true
+    },
+    {
+      "index": 236,
+      "phraseId": "Sakit",
+      "english": "What do you do?",
+      "translation": "Apa awak buat?",
+      "added": true
+    },
+    {
+      "index": 237,
+      "phraseId": "Demam",
+      "english": "I work at a factory",
+      "translation": "Saya bekerja di kilang",
+      "added": true
+    },
+    {
+      "index": 238,
+      "phraseId": "Sakit kepala",
+      "english": "I work at a bank",
+      "translation": "Saya bekerja di bank",
+      "added": true
+    },
+    {
+      "index": 239,
+      "phraseId": "Sakit perut",
+      "english": "I work at a hospital",
+      "translation": "Saya bekerja di hospital",
+      "added": true
+    },
+    {
+      "index": 240,
+      "phraseId": "Flu",
+      "english": "I study foreign languages",
+      "translation": "Saya belajar bahasa asing",
+      "added": true
+    },
+    {
+      "index": 241,
+      "phraseId": "Batuk",
+      "english": "Do you speak Russian?",
+      "translation": "Adakah anda boleh berbahasa Rusia?",
+      "added": true
+    },
+    {
+      "index": 242,
+      "phraseId": "Hidung tersumbat",
+      "english": "I don't speak",
+      "translation": "Saya tidak bercakap",
+      "added": true
+    },
+    {
+      "index": 243,
+      "phraseId": "Obat",
+      "english": "I speak a little",
+      "translation": "Saya bercakap sedikit",
+      "added": true
+    },
+    {
+      "index": 244,
+      "phraseId": "Pil",
+      "english": "When does the conference start?",
+      "translation": "Bilakah persidangan bermula?",
+      "added": true
+    },
+    {
+      "index": 245,
+      "phraseId": "Resep",
+      "english": "What is the schedule for presentations?",
+      "translation": "Apakah jadual pembentangan?",
+      "added": true
+    },
+    {
+      "index": 246,
+      "phraseId": "Asuransi",
+      "english": "Will there be translation to Russian?",
+      "translation": "Adakah akan ada terjemahan ke bahasa Rusia?",
+      "added": true
+    },
+    {
+      "index": 247,
+      "phraseId": "Alergi",
+      "english": "I will speak in Russian",
+      "translation": "Saya akan bercakap dalam bahasa Rusia",
+      "added": true
+    },
+    {
+      "index": 248,
+      "phraseId": "Saya alergi terhadap...",
+      "english": "We want to see the exhibition",
+      "translation": "Kami mahu melihat pameran",
+      "added": true
+    },
+    {
+      "index": 249,
+      "phraseId": "Asma",
+      "english": "What time does the exhibition open?",
+      "translation": "Jam berapa pameran dibuka?",
+      "added": true
+    },
+    {
+      "index": 250,
+      "phraseId": "Diabetes",
+      "english": "How many countries are participating?",
+      "translation": "Berapa banyak negara yang mengambil bahagian?",
+      "added": true
+    },
+    {
+      "index": 251,
+      "phraseId": "Tekanan darah",
+      "english": "Can I get the exhibition catalog?",
+      "translation": "Bolehkah saya mendapatkan katalog pameran?",
+      "added": true
+    },
+    {
+      "index": 252,
+      "phraseId": "Jantung",
+      "english": "I came to discuss business",
+      "translation": "Saya datang untuk membincangkan perniagaan",
+      "added": true
+    },
+    {
+      "index": 253,
+      "phraseId": "Perut",
+      "english": "We want to speak with the general director",
+      "translation": "Kami mahu bercakap dengan pengarah besar",
+      "added": true
+    },
+    {
+      "index": 254,
+      "phraseId": "Punggung",
+      "english": "We want to learn about the production",
+      "translation": "Kami ingin mengetahui tentang pengeluaran",
+      "added": true
+    },
+    {
+      "index": 255,
+      "phraseId": "Gigi",
+      "english": "Length",
+      "translation": "Panjang",
+      "added": true
+    },
+    {
+      "index": 256,
+      "phraseId": "Cuaca",
+      "english": "Meter",
+      "translation": "Meter",
+      "added": true
+    },
+    {
+      "index": 257,
+      "phraseId": "Panas",
+      "english": "Centimeter",
+      "translation": "Sentimeter",
+      "added": true
+    },
+    {
+      "index": 258,
+      "phraseId": "Dingin",
+      "english": "Weight",
+      "translation": "Berat",
+      "added": true
+    },
+    {
+      "index": 259,
+      "phraseId": "Hujan",
+      "english": "Kilogram",
+      "translation": "Kilogram",
+      "added": true
+    },
+    {
+      "index": 260,
+      "phraseId": "Salju",
+      "english": "Gram",
+      "translation": "Gram",
+      "added": true
+    },
+    {
+      "index": 261,
+      "phraseId": "Angin",
+      "english": "Volume",
+      "translation": "Volum",
+      "added": true
+    },
+    {
+      "index": 262,
+      "phraseId": "Mendung",
+      "english": "Liter",
+      "translation": "Liter",
+      "added": true
+    },
+    {
+      "index": 263,
+      "phraseId": "Cerah",
+      "english": "White",
+      "translation": "Putih",
+      "added": true
+    },
+    {
+      "index": 264,
+      "phraseId": "Suhu",
+      "english": "Yellow",
+      "translation": "Kuning",
+      "added": true
+    },
+    {
+      "index": 265,
+      "phraseId": "Iklim",
+      "english": "Green",
+      "translation": "Hijau",
+      "added": true
+    },
+    {
+      "index": 266,
+      "phraseId": "Putih",
+      "english": "Blue",
+      "translation": "Biru",
+      "added": true
+    },
+    {
+      "index": 267,
+      "phraseId": "Hitam",
+      "english": "Red",
+      "translation": "Merah",
+      "added": true
+    },
+    {
+      "index": 268,
+      "phraseId": "Merah",
+      "english": "Black",
+      "translation": "Hitam",
+      "added": true
+    },
+    {
+      "index": 269,
+      "phraseId": "Biru",
+      "english": "Gray",
+      "translation": "Kelabu",
+      "added": true
+    },
+    {
+      "index": 270,
+      "phraseId": "Hijau",
+      "english": "Purple",
+      "translation": "Ungu",
+      "added": true
+    },
+    {
+      "index": 271,
+      "phraseId": "Kuning",
+      "english": "Orange",
+      "translation": "Jingga",
+      "added": true
+    },
+    {
+      "index": 272,
+      "phraseId": "Oranye",
+      "english": "Pink",
+      "translation": "Merah muda",
+      "added": true
+    },
+    {
+      "index": 273,
+      "phraseId": "Ungu",
+      "english": "Head",
+      "translation": "Kepala",
+      "added": true
+    },
+    {
+      "index": 274,
+      "phraseId": "Merah muda",
+      "english": "Arm",
+      "translation": "Arm",
+      "added": true
+    },
+    {
+      "index": 275,
+      "phraseId": "Coklat",
+      "english": "Leg",
+      "translation": "Tungkai",
+      "added": true
+    },
+    {
+      "index": 276,
+      "phraseId": "Abu-abu",
+      "english": "Eyes",
+      "translation": "Comment",
+      "added": true
+    },
+    {
+      "index": 277,
+      "phraseId": "Emas",
+      "english": "Nose",
+      "translation": "irung",
+      "added": true
+    },
+    {
+      "index": 278,
+      "phraseId": "Utara",
+      "english": "Mouth",
+      "translation": "Mulut",
+      "added": true
+    },
+    {
+      "index": 279,
+      "phraseId": "Selatan",
+      "english": "Ear",
+      "translation": "terdengar suatu bunyi yang aneh",
+      "added": true
+    },
+    {
+      "index": 280,
+      "phraseId": "Timur",
+      "english": "House",
+      "translation": "Rumah",
+      "added": true
+    },
+    {
+      "index": 281,
+      "phraseId": "Barat",
+      "english": "Door",
+      "translation": "Pintu",
+      "added": true
+    },
+    {
+      "index": 282,
+      "phraseId": "Peta",
+      "english": "Window",
+      "translation": "Tetingkap",
+      "added": true
+    },
+    {
+      "index": 283,
+      "phraseId": "Kompas",
+      "english": "Table",
+      "translation": "Jadual",
+      "added": true
+    },
+    {
+      "index": 284,
+      "phraseId": "GPS",
+      "english": "Chair",
+      "translation": "Kerusi",
+      "added": true
+    },
+    {
+      "index": 285,
+      "phraseId": "Lokasi",
+      "english": "Bed",
+      "translation": "",
+      "added": true
+    },
+    {
+      "index": 286,
+      "phraseId": "Tujuan",
+      "english": "Where is passport control?",
+      "translation": "Di manakah kawalan pasport?",
+      "added": true
+    },
+    {
+      "index": 287,
+      "phraseId": "Rute",
+      "english": "Here is my passport",
+      "translation": "Ini pasport saya",
+      "added": true
+    },
+    {
+      "index": 288,
+      "phraseId": "Persimpangan",
+      "english": "I intend to stay in China for a week",
+      "translation": "Saya bercadang untuk tinggal di China selama seminggu",
+      "added": true
+    },
+    {
+      "index": 289,
+      "phraseId": "Bundaran",
+      "english": "I have a single-entry visa",
+      "translation": "Saya mempunyai visa kemasukan tunggal",
+      "added": true
+    },
+    {
+      "index": 290,
+      "phraseId": "Jembatan",
+      "english": "I am in transit in your country",
+      "translation": "Saya dalam transit di negara anda",
+      "added": true
+    },
+    {
+      "index": 291,
+      "phraseId": "Gedung",
+      "english": "Here is my customs declaration",
+      "translation": "Berikut adalah pengisytiharan kastam saya",
+      "added": true
+    },
+    {
+      "index": 292,
+      "phraseId": "Depan",
+      "english": "Here is my luggage",
+      "translation": "Ini bagasi saya",
+      "added": true
+    },
+    {
+      "index": 293,
+      "phraseId": "Belakang",
+      "english": "There are no prohibited items in my luggage",
+      "translation": "Tiada barang terlarang dalam bagasi saya",
+      "added": true
+    },
+    {
+      "index": 294,
+      "phraseId": "Seberang",
+      "english": "These are my personal belongings",
+      "translation": "Ini barang-barang peribadi saya",
+      "added": true
+    },
+    {
+      "index": 295,
+      "phraseId": "Di sebelah",
+      "english": "What duty do I need to pay?",
+      "translation": "Apakah tugas yang perlu saya bayar?",
+      "added": true
+    },
+    {
+      "index": 296,
+      "phraseId": "Telepon",
+      "english": "What sport do you like?",
+      "translation": "Sukan apa yang anda suka?",
+      "added": true
+    },
+    {
+      "index": 297,
+      "phraseId": "Nomor telepon",
+      "english": "I like to play football",
+      "translation": "karangan sukan kegemaran saya",
+      "added": true
+    },
+    {
+      "index": 298,
+      "phraseId": "Email",
+      "english": "Basketball",
+      "translation": "Bola keranjang",
+      "added": true
+    },
+    {
+      "index": 299,
+      "phraseId": "Internet",
+      "english": "Swimming",
+      "translation": "Berenang",
+      "added": true
+    },
+    {
+      "index": 300,
+      "phraseId": "WiFi",
+      "english": "Running",
+      "translation": "Berjalan",
+      "added": true
+    },
+    {
+      "index": 301,
+      "phraseId": "Komputer",
+      "english": "Where is the gym?",
+      "translation": "Di mana gimnasium?",
+      "added": true
+    },
+    {
+      "index": 302,
+      "phraseId": "Ponsel",
+      "english": "I want to work out",
+      "translation": "saya perlu bekerja",
+      "added": true
+    },
+    {
+      "index": 303,
+      "phraseId": "Pesan",
+      "english": "Coach",
+      "translation": "Pembimbing",
+      "added": true
+    },
+    {
+      "index": 304,
+      "phraseId": "Surat",
+      "english": "Competition / Match",
+      "translation": "Pertandingan / Perlawanan",
+      "added": true
+    },
+    {
+      "index": 305,
+      "phraseId": "Stadion",
+      "english": "Stadium",
+      "translation": "Stadium",
+      "added": true
+    }
+  ]
+}

@@ -133,6 +133,7 @@ android {
             pickFirsts += 'META-INF/androidx.versionedparcelable_versionedparcelable.version'
             pickFirsts += 'META-INF/androidx.customview_customview.version'
             pickFirsts += 'META-INF/androidx.legacy_legacy-support-core-ui.version'
+            pickFirsts += 'META-INF/androidx.legacy_legacy-support-core-utils.version'
         }
     }
     androidResources {
@@ -168,6 +169,7 @@ configurations.all {
     exclude group: 'com.android.support', module: 'versionedparcelable'
     exclude group: 'com.android.support', module: 'localbroadcastmanager'
     exclude group: 'com.android.support', module: 'customview'
+    exclude group: 'com.android.support', module: 'support-core-utils'
 }
 
 dependencies {

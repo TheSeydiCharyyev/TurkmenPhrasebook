@@ -1,0 +1,2128 @@
+{
+  "language": "Kyrgyz",
+  "languageCode": "ky",
+  "timestamp": "2025-11-30T03:59:27.567Z",
+  "status": "partial",
+  "summary": {
+    "total": 305,
+    "added": 302,
+    "expected": 305,
+    "matchRate": "99.0%"
+  },
+  "corrections": [
+    {
+      "index": 1,
+      "phraseId": "Halo",
+      "english": "Hello",
+      "translation": "Салам",
+      "added": true
+    },
+    {
+      "index": 2,
+      "phraseId": "Selamat pagi",
+      "english": "Thank you",
+      "translation": "Ыракмат.",
+      "added": true
+    },
+    {
+      "index": 3,
+      "phraseId": "Selamat siang",
+      "english": "Goodbye",
+      "translation": "Куттуктайм.",
+      "added": true
+    },
+    {
+      "index": 4,
+      "phraseId": "Selamat sore",
+      "english": "Excuse me",
+      "translation": "Кечиресиз.",
+      "added": true
+    },
+    {
+      "index": 5,
+      "phraseId": "Selamat malam",
+      "english": "Good morning",
+      "translation": "Жакшы эртең менен",
+      "added": true
+    },
+    {
+      "index": 6,
+      "phraseId": "Selamat tinggal",
+      "english": "Good night",
+      "translation": "Жакшы түн",
+      "added": true
+    },
+    {
+      "index": 7,
+      "phraseId": "Sampai jumpa",
+      "english": "My name is...",
+      "translation": "Менин атым...",
+      "added": true
+    },
+    {
+      "index": 8,
+      "phraseId": "Apa kabar?",
+      "english": "What is your name?",
+      "translation": "Аты-жөнүңүз? ",
+      "added": true
+    },
+    {
+      "index": 9,
+      "phraseId": "Baik-baik saja, terima kasih",
+      "english": "Nice to meet you",
+      "translation": "Сиз менен таанышканыма кубанычтамын",
+      "added": true
+    },
+    {
+      "index": 10,
+      "phraseId": "Senang bertemu dengan Anda",
+      "english": "Please",
+      "translation": "Сураныч! ",
+      "added": true
+    },
+    {
+      "index": 11,
+      "phraseId": "Nama saya...",
+      "english": "You're welcome",
+      "translation": "Сизге кош келиңиз",
+      "added": true
+    },
+    {
+      "index": 12,
+      "phraseId": "Siapa nama Anda?",
+      "english": "How are you?",
+      "translation": "Кандайсыңар?",
+      "added": true
+    },
+    {
+      "index": 13,
+      "phraseId": "Dari mana Anda?",
+      "english": "Good luck!",
+      "translation": "Ийгилик!",
+      "added": true
+    },
+    {
+      "index": 14,
+      "phraseId": "Saya dari...",
+      "english": "Welcome!",
+      "translation": "Кош келиңиз!",
+      "added": true
+    },
+    {
+      "index": 15,
+      "phraseId": "Ya",
+      "english": "Very glad to see you",
+      "translation": "Сизди көргөнүмө абдан кубанычтамын",
+      "added": true
+    },
+    {
+      "index": 16,
+      "phraseId": "Tidak",
+      "english": "Welcome! (arrival greeting)",
+      "translation": "Кош келиңиздер! (келүү куттуктоосу)",
+      "added": true
+    },
+    {
+      "index": 17,
+      "phraseId": "Terima kasih",
+      "english": "How are you doing?",
+      "translation": "Кандайсыңар?",
+      "added": true
+    },
+    {
+      "index": 18,
+      "phraseId": "Sama-sama",
+      "english": "Let me introduce my friend",
+      "translation": "Досум менен тааныштырайын",
+      "added": true
+    },
+    {
+      "index": 19,
+      "phraseId": "Tolong",
+      "english": "Pleased to meet you!",
+      "translation": "Сиз менен таанышканыма кубанычтамын!",
+      "added": true
+    },
+    {
+      "index": 20,
+      "phraseId": "Maaf",
+      "english": "Please come in",
+      "translation": "Кирүү",
+      "added": true
+    },
+    {
+      "index": 21,
+      "phraseId": "Permisi",
+      "english": "Please sit down",
+      "translation": "Отуруңуз",
+      "added": true
+    },
+    {
+      "index": 22,
+      "phraseId": "Tidak apa-apa",
+      "english": "Yes",
+      "translation": "Ооба",
+      "added": true
+    },
+    {
+      "index": 23,
+      "phraseId": "Baik",
+      "english": "No",
+      "translation": "Жок",
+      "added": true
+    },
+    {
+      "index": 24,
+      "phraseId": "Buruk",
+      "english": "I agree",
+      "translation": "Мен макулмун",
+      "added": true
+    },
+    {
+      "index": 25,
+      "phraseId": "Sedikit",
+      "english": "Thank you very much for your help",
+      "translation": "Жардамыңыз үчүн чоң рахмат",
+      "added": true
+    },
+    {
+      "index": 26,
+      "phraseId": "Banyak",
+      "english": "Thank you very much for your support",
+      "translation": "Колдооңуз үчүн чоң рахмат",
+      "added": true
+    },
+    {
+      "index": 27,
+      "phraseId": "Semua",
+      "english": "Thank you very much for your understanding",
+      "translation": "Түшүнгөнүңүз үчүн чоң рахмат",
+      "added": true
+    },
+    {
+      "index": 28,
+      "phraseId": "Tidak ada",
+      "english": "Help!",
+      "translation": "_Жардам",
+      "added": true
+    },
+    {
+      "index": 29,
+      "phraseId": "Saya tidak mengerti",
+      "english": "I need a doctor",
+      "translation": "Мага дарыгер керек",
+      "added": true
+    },
+    {
+      "index": 30,
+      "phraseId": "Apakah Anda mengerti?",
+      "english": "Call the police",
+      "translation": "Милицияга чалыңыз",
+      "added": true
+    },
+    {
+      "index": 31,
+      "phraseId": "Saya mengerti",
+      "english": "Fire!",
+      "translation": "Өрт!",
+      "added": true
+    },
+    {
+      "index": 32,
+      "phraseId": "Bisakah Anda berbicara lebih lambat?",
+      "english": "I am lost",
+      "translation": "Мен жоголуп кеттим",
+      "added": true
+    },
+    {
+      "index": 33,
+      "phraseId": "Ulangi lagi, tolong",
+      "english": "I am sick",
+      "translation": "Мен ооруп жатам",
+      "added": true
+    },
+    {
+      "index": 34,
+      "phraseId": "Bagaimana?",
+      "english": "Call an ambulance",
+      "translation": "Тез жардамды чакырыңыз",
+      "added": true
+    },
+    {
+      "index": 35,
+      "phraseId": "Apa?",
+      "english": "My wallet was stolen",
+      "translation": "Менин капчыгым уурдалды",
+      "added": true
+    },
+    {
+      "index": 36,
+      "phraseId": "Di mana?",
+      "english": "Help me",
+      "translation": "Мага жардам бериңиз",
+      "added": true
+    },
+    {
+      "index": 37,
+      "phraseId": "Kapan?",
+      "english": "Danger!",
+      "translation": "Кооптуу!",
+      "added": true
+    },
+    {
+      "index": 38,
+      "phraseId": "Siapa?",
+      "english": "Call a doctor!",
+      "translation": "Дарыгерди чакырыңыз!",
+      "added": true
+    },
+    {
+      "index": 39,
+      "phraseId": "Mengapa?",
+      "english": "I want a room",
+      "translation": "Мен бөлмө каалайм",
+      "added": true
+    },
+    {
+      "index": 40,
+      "phraseId": "Berapa?",
+      "english": "How much per night?",
+      "translation": "Бир түнгө канча?",
+      "added": true
+    },
+    {
+      "index": 41,
+      "phraseId": "Satu",
+      "english": "Is there WiFi here?",
+      "translation": "Бул жерде WiFi барбы?",
+      "added": true
+    },
+    {
+      "index": 42,
+      "phraseId": "Dua",
+      "english": "I have a reservation",
+      "translation": "Менде резервация бар",
+      "added": true
+    },
+    {
+      "index": 43,
+      "phraseId": "Tiga",
+      "english": "Single room",
+      "translation": "Жалгыз бөлмө",
+      "added": true
+    },
+    {
+      "index": 44,
+      "phraseId": "Empat",
+      "english": "Double room",
+      "translation": "Double бөлмө",
+      "added": true
+    },
+    {
+      "index": 45,
+      "phraseId": "Lima",
+      "english": "What time is check-out?",
+      "translation": "Чакыруу убактысы канчада?",
+      "added": true
+    },
+    {
+      "index": 46,
+      "phraseId": "Enam",
+      "english": "Key",
+      "translation": "Ачкыч:",
+      "added": true
+    },
+    {
+      "index": 47,
+      "phraseId": "Tujuh",
+      "english": "Room number",
+      "translation": "Бөлмөнүн номери",
+      "added": true
+    },
+    {
+      "index": 48,
+      "phraseId": "Delapan",
+      "english": "Is breakfast included?",
+      "translation": "Эртең мененки тамак камтылганбы?",
+      "added": true
+    },
+    {
+      "index": 49,
+      "phraseId": "Sembilan",
+      "english": "Please clean the room",
+      "translation": "Бөлмөнү тазалаңыз",
+      "added": true
+    },
+    {
+      "index": 50,
+      "phraseId": "Sepuluh",
+      "english": "I want to extend my stay",
+      "translation": "Мен жашоомду узартууну каалайм",
+      "added": true
+    },
+    {
+      "index": 51,
+      "phraseId": "Sebelas",
+      "english": "I am hungry",
+      "translation": "Мен ачка жатам",
+      "added": true
+    },
+    {
+      "index": 52,
+      "phraseId": "Dua belas",
+      "english": "Menu, please",
+      "translation": "Меню, сураныч",
+      "added": true
+    },
+    {
+      "index": 53,
+      "phraseId": "Tiga belas",
+      "english": "Delicious",
+      "translation": "Даамдуу",
+      "added": true
+    },
+    {
+      "index": 54,
+      "phraseId": "Lima belas",
+      "english": "Bill, please",
+      "translation": "Билл, сураныч",
+      "added": true
+    },
+    {
+      "index": 55,
+      "phraseId": "Dua puluh",
+      "english": "I am vegetarian",
+      "translation": "Мен вегетарианмын",
+      "added": true
+    },
+    {
+      "index": 56,
+      "phraseId": "Tiga puluh",
+      "english": "Not spicy",
+      "translation": "Ачыткы эмес",
+      "added": true
+    },
+    {
+      "index": 57,
+      "phraseId": "Lima puluh",
+      "english": "Water",
+      "translation": "Суу",
+      "added": true
+    },
+    {
+      "index": 58,
+      "phraseId": "Seratus",
+      "english": "Tea",
+      "translation": "Чай",
+      "added": true
+    },
+    {
+      "index": 59,
+      "phraseId": "Seribu",
+      "english": "Rice",
+      "translation": "Күрүч",
+      "added": true
+    },
+    {
+      "index": 60,
+      "phraseId": "Sejuta",
+      "english": "Noodles",
+      "translation": "Noodles",
+      "added": true
+    },
+    {
+      "index": 61,
+      "phraseId": "Hari ini",
+      "english": "Chicken",
+      "translation": "Тоок",
+      "added": true
+    },
+    {
+      "index": 62,
+      "phraseId": "Kemarin",
+      "english": "Beef",
+      "translation": "Сиыр эти",
+      "added": true
+    },
+    {
+      "index": 63,
+      "phraseId": "Besok",
+      "english": "How much does it cost?",
+      "translation": "Бул канча турат?",
+      "added": true
+    },
+    {
+      "index": 64,
+      "phraseId": "Pagi",
+      "english": "I am allergic to...",
+      "translation": "Мен аллергиям бар...",
+      "added": true
+    },
+    {
+      "index": 65,
+      "phraseId": "Siang",
+      "english": "Can I take it to go?",
+      "translation": "Мен аны кетүү үчүн алсам болобу?",
+      "added": true
+    },
+    {
+      "index": 66,
+      "phraseId": "Sore",
+      "english": "Very delicious",
+      "translation": "Абдан даамдуу",
+      "added": true
+    },
+    {
+      "index": 67,
+      "phraseId": "Malam",
+      "english": "Appetizers",
+      "translation": "Аппетиттер",
+      "added": true
+    },
+    {
+      "index": 68,
+      "phraseId": "Minggu",
+      "english": "Ham",
+      "translation": "Ham",
+      "added": true
+    },
+    {
+      "index": 69,
+      "phraseId": "Bulan",
+      "english": "Cheese platter",
+      "translation": "Печенье табак",
+      "added": true
+    },
+    {
+      "index": 70,
+      "phraseId": "Tahun",
+      "english": "Soup",
+      "translation": "Шорпо",
+      "added": true
+    },
+    {
+      "index": 71,
+      "phraseId": "Hari",
+      "english": "Borscht",
+      "translation": "Borscht",
+      "added": true
+    },
+    {
+      "index": 72,
+      "phraseId": "Jam",
+      "english": "Chicken noodle soup",
+      "translation": "Тооктун нодл шорпосу",
+      "added": true
+    },
+    {
+      "index": 73,
+      "phraseId": "Menit",
+      "english": "Meat broth",
+      "translation": "Эт шорпо",
+      "added": true
+    },
+    {
+      "index": 74,
+      "phraseId": "Detik",
+      "english": "Meat",
+      "translation": "Эт, эт азыктары",
+      "added": true
+    },
+    {
+      "index": 75,
+      "phraseId": "Senin",
+      "english": "Lamb",
+      "translation": "Сүт",
+      "added": true
+    },
+    {
+      "index": 76,
+      "phraseId": "Selasa",
+      "english": "Pork",
+      "translation": "Pork",
+      "added": true
+    },
+    {
+      "index": 77,
+      "phraseId": "Rabu",
+      "english": "Fried",
+      "translation": "Fried",
+      "added": true
+    },
+    {
+      "index": 78,
+      "phraseId": "Kamis",
+      "english": "Boiled",
+      "translation": "Бышырылган",
+      "added": true
+    },
+    {
+      "index": 79,
+      "phraseId": "Jumat",
+      "english": "Fish dishes",
+      "translation": "Балык идиштер",
+      "added": true
+    },
+    {
+      "index": 80,
+      "phraseId": "Sabtu",
+      "english": "Fish",
+      "translation": "Балык",
+      "added": true
+    },
+    {
+      "index": 81,
+      "phraseId": "Minggu",
+      "english": "Salmon",
+      "translation": "Салмон",
+      "added": true
+    },
+    {
+      "index": 82,
+      "phraseId": "Januari",
+      "english": "Shrimp",
+      "translation": "Шорпо",
+      "added": true
+    },
+    {
+      "index": 83,
+      "phraseId": "Februari",
+      "english": "Crabs",
+      "translation": "Crabs",
+      "added": true
+    },
+    {
+      "index": 84,
+      "phraseId": "Maret",
+      "english": "Is there a vegetarian menu?",
+      "translation": "Вегетариандык меню барбы?",
+      "added": true
+    },
+    {
+      "index": 85,
+      "phraseId": "April",
+      "english": "Is this dish spicy?",
+      "translation": "Бул тамак таттуубу?",
+      "added": true
+    },
+    {
+      "index": 86,
+      "phraseId": "Restoran",
+      "english": "Not spicy",
+      "translation": "Ачыткы эмес",
+      "added": true
+    },
+    {
+      "index": 87,
+      "phraseId": "Menu",
+      "english": "Apple",
+      "translation": "Алма",
+      "added": true
+    },
+    {
+      "index": 88,
+      "phraseId": "Sarapan",
+      "english": "Banana",
+      "translation": "Банан",
+      "added": true
+    },
+    {
+      "index": 89,
+      "phraseId": "Makan siang",
+      "english": "Orange",
+      "translation": "Оранж",
+      "added": true
+    },
+    {
+      "index": 90,
+      "phraseId": "Makan malam",
+      "english": "Grapes",
+      "translation": "Жүзүм",
+      "added": true
+    },
+    {
+      "index": 91,
+      "phraseId": "Air",
+      "english": "Watermelon",
+      "translation": "Арбуз",
+      "added": true
+    },
+    {
+      "index": 92,
+      "phraseId": "Teh",
+      "english": "Potato",
+      "translation": "Картошка",
+      "added": true
+    },
+    {
+      "index": 93,
+      "phraseId": "Kopi",
+      "english": "Tomato",
+      "translation": "Помидор",
+      "added": true
+    },
+    {
+      "index": 94,
+      "phraseId": "Susu",
+      "english": "How much does it cost?",
+      "translation": "Бул канча турат?",
+      "added": true
+    },
+    {
+      "index": 95,
+      "phraseId": "Jus",
+      "english": "Too expensive",
+      "translation": "Өтө кымбат",
+      "added": true
+    },
+    {
+      "index": 96,
+      "phraseId": "Bir",
+      "english": "Can it be cheaper?",
+      "translation": "Бул арзаныраак болушу мүмкүнбү?",
+      "added": true
+    },
+    {
+      "index": 97,
+      "phraseId": "Anggur",
+      "english": "I will buy this",
+      "translation": "Мен муну сатып алам",
+      "added": true
+    },
+    {
+      "index": 98,
+      "phraseId": "Roti",
+      "english": "Can I try it on?",
+      "translation": "Аны сынап көрсөм болобу?",
+      "added": true
+    },
+    {
+      "index": 99,
+      "phraseId": "Daging",
+      "english": "Bigger size",
+      "translation": "Чоңураак өлчөм",
+      "added": true
+    },
+    {
+      "index": 100,
+      "phraseId": "Ikan",
+      "english": "Smaller size",
+      "translation": "Кичине өлчөм",
+      "added": true
+    },
+    {
+      "index": 101,
+      "phraseId": "Ayam",
+      "english": "Cash",
+      "translation": "Накталай акча",
+      "added": true
+    },
+    {
+      "index": 102,
+      "phraseId": "Sayuran",
+      "english": "Credit card",
+      "translation": "Кредиттик карта",
+      "added": true
+    },
+    {
+      "index": 103,
+      "phraseId": "Buah",
+      "english": "Receipt",
+      "translation": "Кабыл алуу",
+      "added": true
+    },
+    {
+      "index": 104,
+      "phraseId": "Nasi",
+      "english": "Return/Exchange",
+      "translation": "Кайтаруу/алмашуу",
+      "added": true
+    },
+    {
+      "index": 105,
+      "phraseId": "Sup",
+      "english": "Where is the market?",
+      "translation": "Базар кайда?",
+      "added": true
+    },
+    {
+      "index": 106,
+      "phraseId": "Salad",
+      "english": "Is there a discount?",
+      "translation": "Арзандатуу барбы?",
+      "added": true
+    },
+    {
+      "index": 107,
+      "phraseId": "Keju",
+      "english": "Can I try it on?",
+      "translation": "Аны сынап көрсөм болобу?",
+      "added": true
+    },
+    {
+      "index": 108,
+      "phraseId": "Mentega",
+      "english": "What is your size?",
+      "translation": "Сиздин өлчөмүңүз кандай?",
+      "added": true
+    },
+    {
+      "index": 109,
+      "phraseId": "Gula",
+      "english": "Are there other colors?",
+      "translation": "Башка түстөр барбы?",
+      "added": true
+    },
+    {
+      "index": 110,
+      "phraseId": "Garam",
+      "english": "Where is the train station?",
+      "translation": "Темир жол бекети кайда?",
+      "added": true
+    },
+    {
+      "index": 111,
+      "phraseId": "Merica",
+      "english": "Airport",
+      "translation": "Airport",
+      "added": true
+    },
+    {
+      "index": 112,
+      "phraseId": "Es krim",
+      "english": "Taxi",
+      "translation": "Такси",
+      "added": true
+    },
+    {
+      "index": 113,
+      "phraseId": "Kue",
+      "english": "Bus",
+      "translation": "Автобус",
+      "added": true
+    },
+    {
+      "index": 114,
+      "phraseId": "Enak",
+      "english": "Metro",
+      "translation": "Metro",
+      "added": true
+    },
+    {
+      "index": 115,
+      "phraseId": "Bon appétit",
+      "english": "Train ticket",
+      "translation": "Поезд билеттери",
+      "added": true
+    },
+    {
+      "index": 116,
+      "phraseId": "Toko",
+      "english": "Schedule",
+      "translation": "Расписание",
+      "added": true
+    },
+    {
+      "index": 117,
+      "phraseId": "Pasar",
+      "english": "Platform",
+      "translation": "Платформа",
+      "added": true
+    },
+    {
+      "index": 118,
+      "phraseId": "Berapa harganya?",
+      "english": "Next stop",
+      "translation": "Кийинки аялдама",
+      "added": true
+    },
+    {
+      "index": 119,
+      "phraseId": "Berapa biayanya?",
+      "english": "Stop",
+      "translation": "Стоп",
+      "added": true
+    },
+    {
+      "index": 120,
+      "phraseId": "Saya ingin membeli ini",
+      "english": "How long until...?",
+      "translation": "Канчага чейин...?",
+      "added": true
+    },
+    {
+      "index": 121,
+      "phraseId": "Mahal",
+      "english": "I need to go to...",
+      "translation": "Мен барышым керек...",
+      "added": true
+    },
+    {
+      "index": 122,
+      "phraseId": "Murah",
+      "english": "When will the next bus arrive?",
+      "translation": "Кийинки автобус качан келет?",
+      "added": true
+    },
+    {
+      "index": 123,
+      "phraseId": "Diskon",
+      "english": "I want to go to the airport",
+      "translation": "Мен аэропортко баргым келет",
+      "added": true
+    },
+    {
+      "index": 124,
+      "phraseId": "Harga",
+      "english": "On the left",
+      "translation": "Сол жагында",
+      "added": true
+    },
+    {
+      "index": 125,
+      "phraseId": "Uang",
+      "english": "On the right",
+      "translation": "Оң тарапта",
+      "added": true
+    },
+    {
+      "index": 126,
+      "phraseId": "Kartu kredit",
+      "english": "Straight",
+      "translation": "Түз",
+      "added": true
+    },
+    {
+      "index": 127,
+      "phraseId": "Tunai",
+      "english": "Turn",
+      "translation": "Буруу",
+      "added": true
+    },
+    {
+      "index": 128,
+      "phraseId": "Tanda terima",
+      "english": "Intersection",
+      "translation": "Кесилиш",
+      "added": true
+    },
+    {
+      "index": 129,
+      "phraseId": "Apakah Anda menerima kartu?",
+      "english": "Traffic light",
+      "translation": "Трафиктин жарыгы",
+      "added": true
+    },
+    {
+      "index": 130,
+      "phraseId": "Ukuran",
+      "english": "Far",
+      "translation": "Алыс",
+      "added": true
+    },
+    {
+      "index": 131,
+      "phraseId": "Warna",
+      "english": "Near",
+      "translation": "Жакын",
+      "added": true
+    },
+    {
+      "index": 132,
+      "phraseId": "Besar",
+      "english": "Map",
+      "translation": "Географиялык карталар",
+      "added": true
+    },
+    {
+      "index": 133,
+      "phraseId": "Kecil",
+      "english": "Where is...?",
+      "translation": "Кайда...?",
+      "added": true
+    },
+    {
+      "index": 134,
+      "phraseId": "Sedang",
+      "english": "Hospital",
+      "translation": "- Оорукана",
+      "added": true
+    },
+    {
+      "index": 135,
+      "phraseId": "Baru",
+      "english": "Pharmacy",
+      "translation": "Дарыкана",
+      "added": true
+    },
+    {
+      "index": 136,
+      "phraseId": "Lama",
+      "english": "I have a headache",
+      "translation": "Мен башым ооруйт",
+      "added": true
+    },
+    {
+      "index": 137,
+      "phraseId": "Cantik",
+      "english": "I have a stomachache",
+      "translation": "Мен ашказан оорусу бар",
+      "added": true
+    },
+    {
+      "index": 138,
+      "phraseId": "Jelek",
+      "english": "Temperature",
+      "translation": "Температура",
+      "added": true
+    },
+    {
+      "index": 139,
+      "phraseId": "Berkualitas",
+      "english": "Cough",
+      "translation": "Жөтөл",
+      "added": true
+    },
+    {
+      "index": 140,
+      "phraseId": "Bisakah saya mencoba ini?",
+      "english": "Medicine",
+      "translation": "Медицина",
+      "added": true
+    },
+    {
+      "index": 141,
+      "phraseId": "Taksi",
+      "english": "Doctor",
+      "translation": "Доктор",
+      "added": true
+    },
+    {
+      "index": 142,
+      "phraseId": "Bus",
+      "english": "Nurse",
+      "translation": "Медайым",
+      "added": true
+    },
+    {
+      "index": 143,
+      "phraseId": "Kereta",
+      "english": "Ambulance",
+      "translation": "Тез жардам",
+      "added": true
+    },
+    {
+      "index": 144,
+      "phraseId": "Pesawat",
+      "english": "I have a headache",
+      "translation": "Мен башым ооруйт",
+      "added": true
+    },
+    {
+      "index": 145,
+      "phraseId": "Bandara",
+      "english": "I need a painkiller",
+      "translation": "Мен бир Painkiller керек",
+      "added": true
+    },
+    {
+      "index": 146,
+      "phraseId": "Stasiun",
+      "english": "Yuan",
+      "translation": "Юань",
+      "added": true
+    },
+    {
+      "index": 147,
+      "phraseId": "Halte",
+      "english": "Manat",
+      "translation": "Manat",
+      "added": true
+    },
+    {
+      "index": 148,
+      "phraseId": "Tiket",
+      "english": "Card payment",
+      "translation": "Карта менен төлөө",
+      "added": true
+    },
+    {
+      "index": 149,
+      "phraseId": "Berapa tiketnya?",
+      "english": "Bank",
+      "translation": "Банк",
+      "added": true
+    },
+    {
+      "index": 150,
+      "phraseId": "Di mana stasiun bus?",
+      "english": "ATM",
+      "translation": "Банкомат",
+      "added": true
+    },
+    {
+      "index": 151,
+      "phraseId": "Bagaimana menuju...?",
+      "english": "Currency exchange",
+      "translation": "Валюта алмашуу",
+      "added": true
+    },
+    {
+      "index": 152,
+      "phraseId": "Kiri",
+      "english": "Change",
+      "translation": "Өзгөртүү",
+      "added": true
+    },
+    {
+      "index": 153,
+      "phraseId": "Kanan",
+      "english": "Free",
+      "translation": "Шашылыш",
+      "added": true
+    },
+    {
+      "index": 154,
+      "phraseId": "Lurus",
+      "english": "Price",
+      "translation": "Баасы",
+      "added": true
+    },
+    {
+      "index": 155,
+      "phraseId": "Jauh",
+      "english": "Mobile phone",
+      "translation": "Уюлдук телефон",
+      "added": true
+    },
+    {
+      "index": 156,
+      "phraseId": "Dekat",
+      "english": "Wi-Fi",
+      "translation": "Wi-Fi",
+      "added": true
+    },
+    {
+      "index": 157,
+      "phraseId": "Di sini",
+      "english": "What is the password?",
+      "translation": "Сырсөз деген эмне?",
+      "added": true
+    },
+    {
+      "index": 158,
+      "phraseId": "Di sana",
+      "english": "Send SMS",
+      "translation": "SMS жөнөтүү",
+      "added": true
+    },
+    {
+      "index": 159,
+      "phraseId": "Jalan",
+      "english": "Cinema",
+      "translation": "Кино",
+      "added": true
+    },
+    {
+      "index": 160,
+      "phraseId": "Alamat",
+      "english": "Museum",
+      "translation": "Музей",
+      "added": true
+    },
+    {
+      "index": 161,
+      "phraseId": "Hotel",
+      "english": "Park",
+      "translation": "- Парк",
+      "added": true
+    },
+    {
+      "index": 162,
+      "phraseId": "Kamar",
+      "english": "Concert",
+      "translation": "Концерт",
+      "added": true
+    },
+    {
+      "index": 163,
+      "phraseId": "Reservasi",
+      "english": "Shopping mall",
+      "translation": "Соода борбору",
+      "added": true
+    },
+    {
+      "index": 164,
+      "phraseId": "Saya sudah memesan",
+      "english": "Swimming pool",
+      "translation": "Сууда сүзүүчү бассейн",
+      "added": true
+    },
+    {
+      "index": 165,
+      "phraseId": "Saya ingin kamar",
+      "english": "Gym",
+      "translation": "Гимназия",
+      "added": true
+    },
+    {
+      "index": 166,
+      "phraseId": "Untuk satu orang",
+      "english": "Library",
+      "translation": "Коллекция",
+      "added": true
+    },
+    {
+      "index": 167,
+      "phraseId": "Untuk dua orang",
+      "english": "Night market",
+      "translation": "Түнкү базар",
+      "added": true
+    },
+    {
+      "index": 168,
+      "phraseId": "Untuk satu malam",
+      "english": "How much is the ticket?",
+      "translation": "Билет канча турат?",
+      "added": true
+    },
+    {
+      "index": 169,
+      "phraseId": "Untuk dua malam",
+      "english": "What time is it?",
+      "translation": "Саат канча болду?",
+      "added": true
+    },
+    {
+      "index": 170,
+      "phraseId": "Untuk seminggu",
+      "english": "Today",
+      "translation": "Бүгүн",
+      "added": true
+    },
+    {
+      "index": 171,
+      "phraseId": "Berapa harga kamarnya?",
+      "english": "Tomorrow",
+      "translation": "Эртең",
+      "added": true
+    },
+    {
+      "index": 172,
+      "phraseId": "Apakah sudah termasuk sarapan?",
+      "english": "Yesterday",
+      "translation": "Кечээ",
+      "added": true
+    },
+    {
+      "index": 173,
+      "phraseId": "Kunci",
+      "english": "Monday",
+      "translation": "Дүйшөмбү",
+      "added": true
+    },
+    {
+      "index": 174,
+      "phraseId": "Kunci kamar",
+      "english": "Sunday",
+      "translation": "Жекшемби",
+      "added": true
+    },
+    {
+      "index": 175,
+      "phraseId": "Tempat tidur",
+      "english": "In the morning",
+      "translation": "Эртең менен",
+      "added": true
+    },
+    {
+      "index": 176,
+      "phraseId": "Kamar mandi",
+      "english": "In the afternoon",
+      "translation": "Түштөн кийин",
+      "added": true
+    },
+    {
+      "index": 177,
+      "phraseId": "Shower",
+      "english": "In the evening",
+      "translation": "Кечинде",
+      "added": true
+    },
+    {
+      "index": 178,
+      "phraseId": "AC",
+      "english": "What month?",
+      "translation": "Кайсы ай?",
+      "added": true
+    },
+    {
+      "index": 179,
+      "phraseId": "WiFi",
+      "english": "Monday",
+      "translation": "Дүйшөмбү",
+      "added": true
+    },
+    {
+      "index": 180,
+      "phraseId": "Apa kata sandi WiFi?",
+      "english": "Tuesday",
+      "translation": "Шейшемби",
+      "added": true
+    },
+    {
+      "index": 181,
+      "phraseId": "Handuk",
+      "english": "Wednesday",
+      "translation": "Шаршемби",
+      "added": true
+    },
+    {
+      "index": 182,
+      "phraseId": "Sabun",
+      "english": "Thursday",
+      "translation": "Бейшемби",
+      "added": true
+    },
+    {
+      "index": 183,
+      "phraseId": "Layanan kamar",
+      "english": "Friday",
+      "translation": "Жума",
+      "added": true
+    },
+    {
+      "index": 184,
+      "phraseId": "Check-in",
+      "english": "Saturday",
+      "translation": "Ишемби",
+      "added": true
+    },
+    {
+      "index": 185,
+      "phraseId": "Check-out",
+      "english": "Sunday",
+      "translation": "Жекшемби",
+      "added": true
+    },
+    {
+      "index": 186,
+      "phraseId": "Tolong!",
+      "english": "January",
+      "translation": "Үчтүн айы ",
+      "added": true
+    },
+    {
+      "index": 187,
+      "phraseId": "Darurat",
+      "english": "February",
+      "translation": "Бирдин айы",
+      "added": true
+    },
+    {
+      "index": 188,
+      "phraseId": "Polisi",
+      "english": "March",
+      "translation": "Жалган куран айы ",
+      "added": true
+    },
+    {
+      "index": 189,
+      "phraseId": "Dokter",
+      "english": "April",
+      "translation": "Чын куран айы ",
+      "added": true
+    },
+    {
+      "index": 190,
+      "phraseId": "Rumah sakit",
+      "english": "May",
+      "translation": "Бугу айы",
+      "added": true
+    },
+    {
+      "index": 191,
+      "phraseId": "Ambulans",
+      "english": "June",
+      "translation": "Кулжа айы",
+      "added": true
+    },
+    {
+      "index": 192,
+      "phraseId": "Apotik",
+      "english": "July",
+      "translation": "Июль",
+      "added": true
+    },
+    {
+      "index": 193,
+      "phraseId": "Saya sakit",
+      "english": "August",
+      "translation": "Баш оона айы",
+      "added": true
+    },
+    {
+      "index": 194,
+      "phraseId": "Saya butuh dokter",
+      "english": "September",
+      "translation": "Сентябрь",
+      "added": true
+    },
+    {
+      "index": 195,
+      "phraseId": "Saya kehilangan...",
+      "english": "October",
+      "translation": "Тогуздун айы",
+      "added": true
+    },
+    {
+      "index": 196,
+      "phraseId": "Saya tersesat",
+      "english": "November",
+      "translation": "Жетинин айы",
+      "added": true
+    },
+    {
+      "index": 197,
+      "phraseId": "Api",
+      "english": "December",
+      "translation": "Бештин айы",
+      "added": true
+    },
+    {
+      "index": 198,
+      "phraseId": "Bahaya",
+      "english": "One",
+      "translation": "бир ",
+      "added": true
+    },
+    {
+      "index": 199,
+      "phraseId": "Hati-hati",
+      "english": "Two",
+      "translation": "\"Эки!\"",
+      "added": true
+    },
+    {
+      "index": 200,
+      "phraseId": "Dilarang",
+      "english": "Three",
+      "translation": "Үч",
+      "added": true
+    },
+    {
+      "index": 201,
+      "phraseId": "Apa itu?",
+      "english": "Four",
+      "translation": "\"Төрт!\"",
+      "added": true
+    },
+    {
+      "index": 202,
+      "phraseId": "Di mana itu?",
+      "english": "Five",
+      "translation": "\"Беш!\"",
+      "added": true
+    },
+    {
+      "index": 203,
+      "phraseId": "Berapa ini?",
+      "english": "Six",
+      "translation": "\"Алты!\"",
+      "added": true
+    },
+    {
+      "index": 204,
+      "phraseId": "Kapan?",
+      "english": "Seven",
+      "translation": "Жети",
+      "added": true
+    },
+    {
+      "index": 205,
+      "phraseId": "Siapa?",
+      "english": "Eight",
+      "translation": "Сегиз",
+      "added": true
+    },
+    {
+      "index": 206,
+      "phraseId": "Mengapa?",
+      "english": "Nine",
+      "translation": "Тогуз",
+      "added": true
+    },
+    {
+      "index": 207,
+      "phraseId": "Bagaimana?",
+      "english": "Ten",
+      "translation": "ТЕН",
+      "added": true
+    },
+    {
+      "index": 208,
+      "phraseId": "Di mana toilet?",
+      "english": "Twenty",
+      "translation": "Жыйырма",
+      "added": true
+    },
+    {
+      "index": 209,
+      "phraseId": "Apakah Anda bisa membantu?",
+      "english": "One hundred",
+      "translation": "Жүз",
+      "added": true
+    },
+    {
+      "index": 210,
+      "phraseId": "Apakah Anda tahu...?",
+      "english": "One thousand",
+      "translation": "Бир миң",
+      "added": true
+    },
+    {
+      "index": 211,
+      "phraseId": "Bisakah Anda menunjukkan?",
+      "english": "Ten thousand",
+      "translation": "Он миң",
+      "added": true
+    },
+    {
+      "index": 212,
+      "phraseId": "Apakah mungkin?",
+      "english": "First",
+      "translation": "Биринчи",
+      "added": true
+    },
+    {
+      "index": 213,
+      "phraseId": "Apakah Anda punya...?",
+      "english": "One thousand",
+      "translation": "Бир миң",
+      "added": true
+    },
+    {
+      "index": 214,
+      "phraseId": "Apakah itu tersedia?",
+      "english": "Two thousand",
+      "translation": "Эки миң",
+      "added": true
+    },
+    {
+      "index": 215,
+      "phraseId": "Berapa lama?",
+      "english": "Ten thousand",
+      "translation": "Он миң",
+      "added": true
+    },
+    {
+      "index": 216,
+      "phraseId": "Berapa jauh?",
+      "english": "One hundred thousand",
+      "translation": "Жүз миң",
+      "added": true
+    },
+    {
+      "index": 217,
+      "phraseId": "Jam berapa sekarang?",
+      "english": "One million",
+      "translation": "Бир миллион",
+      "added": true
+    },
+    {
+      "index": 218,
+      "phraseId": "Jam berapa buka?",
+      "english": "What is the weather today?",
+      "translation": "Бүгүн аба ырайы кандай?",
+      "added": true
+    },
+    {
+      "index": 219,
+      "phraseId": "Jam berapa tutup?",
+      "english": "Rain",
+      "translation": "Жаан",
+      "added": true
+    },
+    {
+      "index": 220,
+      "phraseId": "Apakah buka hari ini?",
+      "english": "Sunny",
+      "translation": "Sunny",
+      "added": true
+    },
+    {
+      "index": 221,
+      "phraseId": "Keluarga",
+      "english": "Cloudy",
+      "translation": "Булуттуу",
+      "added": true
+    },
+    {
+      "index": 222,
+      "phraseId": "Ayah",
+      "english": "Windy",
+      "translation": "Windy",
+      "added": true
+    },
+    {
+      "index": 223,
+      "phraseId": "Ibu",
+      "english": "Snow",
+      "translation": "Кар",
+      "added": true
+    },
+    {
+      "index": 224,
+      "phraseId": "Anak laki-laki",
+      "english": "Hot",
+      "translation": "Ысык",
+      "added": true
+    },
+    {
+      "index": 225,
+      "phraseId": "Anak perempuan",
+      "english": "Cold",
+      "translation": "Cold",
+      "added": true
+    },
+    {
+      "index": 226,
+      "phraseId": "Saudara laki-laki",
+      "english": "My name is...",
+      "translation": "Менин атым...",
+      "added": true
+    },
+    {
+      "index": 227,
+      "phraseId": "Saudara perempuan",
+      "english": "My last name is...",
+      "translation": "Менин фамилиям...",
+      "added": true
+    },
+    {
+      "index": 228,
+      "phraseId": "Suami",
+      "english": "What is your name?",
+      "translation": "Аты-жөнүңүз? ",
+      "added": true
+    },
+    {
+      "index": 229,
+      "phraseId": "Istri",
+      "english": "I am from Turkmenistan",
+      "translation": "Мен Түркмөнстанданмын",
+      "added": true
+    },
+    {
+      "index": 230,
+      "phraseId": "Kakek",
+      "english": "I live in Ashgabat",
+      "translation": "Мен Ашхабадда жашайм",
+      "added": true
+    },
+    {
+      "index": 231,
+      "phraseId": "Nenek",
+      "english": "There are 4 people in our family",
+      "translation": "Биздин үй-бүлөдө 4 адам бар",
+      "added": true
+    },
+    {
+      "index": 232,
+      "phraseId": "Paman",
+      "english": "Do you have children?",
+      "translation": "Балдарыңыз барбы?",
+      "added": true
+    },
+    {
+      "index": 233,
+      "phraseId": "Bibi",
+      "english": "I have no children",
+      "translation": "Менин балдарым жок",
+      "added": true
+    },
+    {
+      "index": 234,
+      "phraseId": "Anak-anak",
+      "english": "I have one child",
+      "translation": "Менин бир балам бар",
+      "added": true
+    },
+    {
+      "index": 235,
+      "phraseId": "Orang tua",
+      "english": "I have two children",
+      "translation": "Менин эки балам бар",
+      "added": true
+    },
+    {
+      "index": 236,
+      "phraseId": "Sakit",
+      "english": "What do you do?",
+      "translation": "Сиз эмне кыласыз?",
+      "added": true
+    },
+    {
+      "index": 237,
+      "phraseId": "Demam",
+      "english": "I work at a factory",
+      "translation": "Мен фабрикада иштейм",
+      "added": true
+    },
+    {
+      "index": 238,
+      "phraseId": "Sakit kepala",
+      "english": "I work at a bank",
+      "translation": "Мен банкта иштейм",
+      "added": true
+    },
+    {
+      "index": 239,
+      "phraseId": "Sakit perut",
+      "english": "I work at a hospital",
+      "translation": "Мен ооруканада иштейм",
+      "added": true
+    },
+    {
+      "index": 240,
+      "phraseId": "Flu",
+      "english": "I study foreign languages",
+      "translation": "Мен чет тилдерди окуйм",
+      "added": true
+    },
+    {
+      "index": 241,
+      "phraseId": "Batuk",
+      "english": "Do you speak Russian?",
+      "translation": "Сиз орусча сүйлөйсүзбү?",
+      "added": true
+    },
+    {
+      "index": 242,
+      "phraseId": "Hidung tersumbat",
+      "english": "I don't speak",
+      "translation": "Мен сүйлөбөйм",
+      "added": true
+    },
+    {
+      "index": 243,
+      "phraseId": "Obat",
+      "english": "I speak a little",
+      "translation": "Мен бир аз сүйлөйм",
+      "added": true
+    },
+    {
+      "index": 244,
+      "phraseId": "Pil",
+      "english": "When does the conference start?",
+      "translation": "Конференция качан башталат?",
+      "added": true
+    },
+    {
+      "index": 245,
+      "phraseId": "Resep",
+      "english": "What is the schedule for presentations?",
+      "translation": "Презентациялардын графиги кандай?",
+      "added": true
+    },
+    {
+      "index": 246,
+      "phraseId": "Asuransi",
+      "english": "Will there be translation to Russian?",
+      "translation": "Орус тилине котормо болобу?",
+      "added": true
+    },
+    {
+      "index": 247,
+      "phraseId": "Alergi",
+      "english": "I will speak in Russian",
+      "translation": "Мен орусча сүйлөйм",
+      "added": true
+    },
+    {
+      "index": 248,
+      "phraseId": "Saya alergi terhadap...",
+      "english": "We want to see the exhibition",
+      "translation": "Биз көргөзмөнү көргүбүз келет",
+      "added": true
+    },
+    {
+      "index": 249,
+      "phraseId": "Asma",
+      "english": "What time does the exhibition open?",
+      "translation": "Көргөзмө саат канчада ачылат?",
+      "added": true
+    },
+    {
+      "index": 250,
+      "phraseId": "Diabetes",
+      "english": "How many countries are participating?",
+      "translation": "Канча өлкө катышып жатат?",
+      "added": true
+    },
+    {
+      "index": 251,
+      "phraseId": "Tekanan darah",
+      "english": "Can I get the exhibition catalog?",
+      "translation": "Көргөзмө каталогун алсам болобу?",
+      "added": true
+    },
+    {
+      "index": 252,
+      "phraseId": "Jantung",
+      "english": "I came to discuss business",
+      "translation": "Мен бизнести талкуулоо үчүн келдим",
+      "added": true
+    },
+    {
+      "index": 253,
+      "phraseId": "Perut",
+      "english": "We want to speak with the general director",
+      "translation": "Биз башкы директор менен сүйлөшкүбүз келет",
+      "added": true
+    },
+    {
+      "index": 254,
+      "phraseId": "Punggung",
+      "english": "We want to learn about the production",
+      "translation": "Биз өндүрүш жөнүндө билгибиз келет",
+      "added": true
+    },
+    {
+      "index": 255,
+      "phraseId": "Gigi",
+      "english": "Length",
+      "translation": "узундугу",
+      "added": true
+    },
+    {
+      "index": 256,
+      "phraseId": "Cuaca",
+      "english": "Meter",
+      "translation": "Метр",
+      "added": true
+    },
+    {
+      "index": 257,
+      "phraseId": "Panas",
+      "english": "Centimeter",
+      "translation": "Unit-format",
+      "added": true
+    },
+    {
+      "index": 258,
+      "phraseId": "Dingin",
+      "english": "Weight",
+      "translation": "Салмагы:",
+      "added": true
+    },
+    {
+      "index": 259,
+      "phraseId": "Hujan",
+      "english": "Kilogram",
+      "translation": "Килограмм",
+      "added": true
+    },
+    {
+      "index": 260,
+      "phraseId": "Salju",
+      "english": "Gram",
+      "translation": "Грамм",
+      "added": true
+    },
+    {
+      "index": 261,
+      "phraseId": "Angin",
+      "english": "Volume",
+      "translation": "Толук үн",
+      "added": true
+    },
+    {
+      "index": 262,
+      "phraseId": "Mendung",
+      "english": "Liter",
+      "translation": "Литра",
+      "added": true
+    },
+    {
+      "index": 263,
+      "phraseId": "Cerah",
+      "english": "White",
+      "translation": "Ак",
+      "added": true
+    },
+    {
+      "index": 264,
+      "phraseId": "Suhu",
+      "english": "Yellow",
+      "translation": "Сары",
+      "added": true
+    },
+    {
+      "index": 265,
+      "phraseId": "Iklim",
+      "english": "Green",
+      "translation": "Жашылselect-criterion",
+      "added": true
+    },
+    {
+      "index": 266,
+      "phraseId": "Putih",
+      "english": "Blue",
+      "translation": "Көкselect-criterion",
+      "added": true
+    },
+    {
+      "index": 267,
+      "phraseId": "Hitam",
+      "english": "Red",
+      "translation": "Кызылselect-criterion",
+      "added": true
+    },
+    {
+      "index": 268,
+      "phraseId": "Merah",
+      "english": "Black",
+      "translation": "Кара:",
+      "added": true
+    },
+    {
+      "index": 269,
+      "phraseId": "Biru",
+      "english": "Gray",
+      "translation": "Боз",
+      "added": true
+    },
+    {
+      "index": 270,
+      "phraseId": "Hijau",
+      "english": "Purple",
+      "translation": "Purple",
+      "added": true
+    },
+    {
+      "index": 271,
+      "phraseId": "Kuning",
+      "english": "Orange",
+      "translation": "Оранж",
+      "added": true
+    },
+    {
+      "index": 272,
+      "phraseId": "Oranye",
+      "english": "Pink",
+      "translation": "Pink",
+      "added": true
+    },
+    {
+      "index": 273,
+      "phraseId": "Ungu",
+      "english": "Head",
+      "translation": "Баш",
+      "added": true
+    },
+    {
+      "index": 274,
+      "phraseId": "Merah muda",
+      "english": "Arm",
+      "translation": "Arm",
+      "added": true
+    },
+    {
+      "index": 275,
+      "phraseId": "Coklat",
+      "english": "Leg",
+      "translation": "Leg",
+      "added": true
+    },
+    {
+      "index": 276,
+      "phraseId": "Abu-abu",
+      "english": "Eyes",
+      "translation": "көз",
+      "added": true
+    },
+    {
+      "index": 277,
+      "phraseId": "Emas",
+      "english": "Nose",
+      "translation": "<g id=\"1\">мурун</g>",
+      "added": true
+    },
+    {
+      "index": 278,
+      "phraseId": "Utara",
+      "english": "Mouth",
+      "translation": "Ооз",
+      "added": true
+    },
+    {
+      "index": 279,
+      "phraseId": "Selatan",
+      "english": "Ear",
+      "translation": "Кулак",
+      "added": true
+    },
+    {
+      "index": 280,
+      "phraseId": "Timur",
+      "english": "House",
+      "translation": "Хаус",
+      "added": true
+    },
+    {
+      "index": 281,
+      "phraseId": "Barat",
+      "english": "Door",
+      "translation": "eshik",
+      "added": true
+    },
+    {
+      "index": 282,
+      "phraseId": "Peta",
+      "english": "Window",
+      "translation": "Терезе",
+      "added": true
+    },
+    {
+      "index": 283,
+      "phraseId": "Kompas",
+      "english": "Table",
+      "translation": "Dastarhan",
+      "added": true
+    },
+    {
+      "index": 284,
+      "phraseId": "GPS",
+      "english": "Chair",
+      "translation": "Төрагасы",
+      "added": true
+    },
+    {
+      "index": 285,
+      "phraseId": "Lokasi",
+      "english": "Bed",
+      "translation": "Жатакана",
+      "added": true
+    },
+    {
+      "index": 286,
+      "phraseId": "Tujuan",
+      "english": "Where is passport control?",
+      "translation": "Паспорттук көзөмөл кайда?",
+      "added": true
+    },
+    {
+      "index": 287,
+      "phraseId": "Rute",
+      "english": "Here is my passport",
+      "translation": "Бул жерде менин паспортум",
+      "added": true
+    },
+    {
+      "index": 288,
+      "phraseId": "Persimpangan",
+      "english": "I intend to stay in China for a week",
+      "translation": "Мен Кытайда бир жума болгум келет",
+      "added": true
+    },
+    {
+      "index": 289,
+      "phraseId": "Bundaran",
+      "english": "I have a single-entry visa",
+      "translation": "Менде бир жолку кирүү визасы бар",
+      "added": true
+    },
+    {
+      "index": 290,
+      "phraseId": "Jembatan",
+      "english": "I am in transit in your country",
+      "translation": "Мен сиздин өлкөдө транзит жатам",
+      "added": true
+    },
+    {
+      "index": 291,
+      "phraseId": "Gedung",
+      "english": "Here is my customs declaration",
+      "translation": "Бул жерде менин бажы декларациям",
+      "added": true
+    },
+    {
+      "index": 292,
+      "phraseId": "Depan",
+      "english": "Here is my luggage",
+      "translation": "Бул жерде менин багаж",
+      "added": true
+    },
+    {
+      "index": 293,
+      "phraseId": "Belakang",
+      "english": "There are no prohibited items in my luggage",
+      "translation": "Менин багажымда тыюу салынган буюмдар жок",
+      "added": true
+    },
+    {
+      "index": 294,
+      "phraseId": "Seberang",
+      "english": "These are my personal belongings",
+      "translation": "Бул менин жеке буюмдарым",
+      "added": true
+    },
+    {
+      "index": 295,
+      "phraseId": "Di sebelah",
+      "english": "What duty do I need to pay?",
+      "translation": "Мен кандай милдетти төлөшүм керек?",
+      "added": true
+    },
+    {
+      "index": 296,
+      "phraseId": "Telepon",
+      "english": "What sport do you like?",
+      "translation": "Кайсы спортту жактырасыз?",
+      "added": true
+    },
+    {
+      "index": 297,
+      "phraseId": "Nomor telepon",
+      "english": "I like to play football",
+      "translation": "Мен футбол ойногонду жакшы көрөм",
+      "added": true
+    },
+    {
+      "index": 298,
+      "phraseId": "Email",
+      "english": "Basketball",
+      "translation": "Баскетбол",
+      "added": true
+    },
+    {
+      "index": 299,
+      "phraseId": "Internet",
+      "english": "Swimming",
+      "translation": "Сууда сүзүү",
+      "added": true
+    },
+    {
+      "index": 300,
+      "phraseId": "WiFi",
+      "english": "Running",
+      "translation": "Аткарылып жатат",
+      "added": true
+    },
+    {
+      "index": 301,
+      "phraseId": "Komputer",
+      "english": "Where is the gym?",
+      "translation": "Спорт залы кайда?",
+      "added": true
+    },
+    {
+      "index": 302,
+      "phraseId": "Ponsel",
+      "english": "I want to work out",
+      "translation": "Мен иштеп чыгууну каалайм",
+      "added": true
+    }
+  ]
+}

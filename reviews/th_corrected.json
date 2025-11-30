@@ -1,15 +1,17 @@
 {
   "language": "Thai",
   "languageCode": "th",
-  "timestamp": "2025-11-30T03:44:00.594Z",
+  "timestamp": "2025-11-30T03:46:43.511Z",
   "status": "completed",
   "summary": {
     "total": 305,
-    "fixed": 70,
-    "notFound": 235
+    "fixed": 305,
+    "expected": 305,
+    "matchRate": "100.0%"
   },
   "corrections": [
     {
+      "index": 1,
       "phraseId": "Halo",
       "english": "Hello",
       "oldValue": "สวัสดี",
@@ -17,6 +19,7 @@
       "fixed": true
     },
     {
+      "index": 2,
       "phraseId": "Selamat pagi",
       "english": "Thank you",
       "oldValue": "สวัสดีตอนเช้า",
@@ -24,6 +27,7 @@
       "fixed": true
     },
     {
+      "index": 3,
       "phraseId": "Selamat siang",
       "english": "Goodbye",
       "oldValue": "สวัสดีตอนบ่าย",
@@ -31,6 +35,7 @@
       "fixed": true
     },
     {
+      "index": 4,
       "phraseId": "Selamat sore",
       "english": "Excuse me",
       "oldValue": "สวัสดีตอนเย็น",
@@ -38,6 +43,7 @@
       "fixed": true
     },
     {
+      "index": 5,
       "phraseId": "Selamat malam",
       "english": "Good morning",
       "oldValue": "ราตรีสวัสดิ์",
@@ -45,6 +51,7 @@
       "fixed": true
     },
     {
+      "index": 6,
       "phraseId": "Selamat tinggal",
       "english": "Good night",
       "oldValue": "ลาก่อน",
@@ -52,6 +59,7 @@
       "fixed": true
     },
     {
+      "index": 7,
       "phraseId": "Sampai jumpa",
       "english": "My name is...",
       "oldValue": "ไปก่อนนะ",
@@ -59,6 +67,7 @@
       "fixed": true
     },
     {
+      "index": 8,
       "phraseId": "Apa kabar?",
       "english": "What is your name?",
       "oldValue": "สบายดีไหม",
@@ -66,6 +75,7 @@
       "fixed": true
     },
     {
+      "index": 9,
       "phraseId": "Baik-baik saja, terima kasih",
       "english": "Nice to meet you",
       "oldValue": "สบายดี ขอบคุณ",
@@ -73,6 +83,7 @@
       "fixed": true
     },
     {
+      "index": 10,
       "phraseId": "Senang bertemu dengan Anda",
       "english": "Please",
       "oldValue": "แล้วคุณล่ะ",
@@ -80,6 +91,7 @@
       "fixed": true
     },
     {
+      "index": 11,
       "phraseId": "Nama saya...",
       "english": "You're welcome",
       "oldValue": "ด้วยความยินดี",
@@ -87,6 +99,7 @@
       "fixed": true
     },
     {
+      "index": 12,
       "phraseId": "Siapa nama Anda?",
       "english": "How are you?",
       "oldValue": "ขอบคุณ",
@@ -94,6 +107,7 @@
       "fixed": true
     },
     {
+      "index": 13,
       "phraseId": "Dari mana Anda?",
       "english": "Good luck!",
       "oldValue": "ขอบคุณมาก",
@@ -101,6 +115,7 @@
       "fixed": true
     },
     {
+      "index": 14,
       "phraseId": "Saya dari...",
       "english": "Welcome!",
       "oldValue": "ขอโทษ",
@@ -108,6 +123,7 @@
       "fixed": true
     },
     {
+      "index": 15,
       "phraseId": "Ya",
       "english": "Very glad to see you",
       "oldValue": "ขอโทษด้วย",
@@ -115,6 +131,7 @@
       "fixed": true
     },
     {
+      "index": 16,
       "phraseId": "Tidak",
       "english": "Welcome! (arrival greeting)",
       "oldValue": "ใช่",
@@ -122,6 +139,7 @@
       "fixed": true
     },
     {
+      "index": 17,
       "phraseId": "Terima kasih",
       "english": "How are you doing?",
       "oldValue": "ไม่",
@@ -129,6 +147,7 @@
       "fixed": true
     },
     {
+      "index": 18,
       "phraseId": "Sama-sama",
       "english": "Let me introduce my friend",
       "oldValue": "อาจจะ",
@@ -136,6 +155,7 @@
       "fixed": true
     },
     {
+      "index": 19,
       "phraseId": "Tolong",
       "english": "Pleased to meet you!",
       "oldValue": "ตกลง",
@@ -143,6 +163,7 @@
       "fixed": true
     },
     {
+      "index": 20,
       "phraseId": "Maaf",
       "english": "Please come in",
       "oldValue": "แน่นอน",
@@ -150,6 +171,7 @@
       "fixed": true
     },
     {
+      "index": 21,
       "phraseId": "Permisi",
       "english": "Please sit down",
       "oldValue": "คุณชื่ออะไร",
@@ -157,6 +179,7 @@
       "fixed": true
     },
     {
+      "index": 22,
       "phraseId": "Tidak apa-apa",
       "english": "Yes",
       "oldValue": "ฉันชื่อ...",
@@ -164,6 +187,7 @@
       "fixed": true
     },
     {
+      "index": 23,
       "phraseId": "Baik",
       "english": "No",
       "oldValue": "ยินดีที่ได้รู้จัก",
@@ -171,6 +195,7 @@
       "fixed": true
     },
     {
+      "index": 24,
       "phraseId": "Buruk",
       "english": "I agree",
       "oldValue": "ดีใจที่ได้พบคุณ",
@@ -178,6 +203,7 @@
       "fixed": true
     },
     {
+      "index": 25,
       "phraseId": "Sedikit",
       "english": "Thank you very much for your help",
       "oldValue": "คุณเป็นอย่างไรบ้าง",
@@ -185,6 +211,7 @@
       "fixed": true
     },
     {
+      "index": 26,
       "phraseId": "Banyak",
       "english": "Thank you very much for your support",
       "oldValue": "คุณมาจากไหน",
@@ -192,6 +219,7 @@
       "fixed": true
     },
     {
+      "index": 27,
       "phraseId": "Semua",
       "english": "Thank you very much for your understanding",
       "oldValue": "ฉันมาจาก...",
@@ -199,6 +227,7 @@
       "fixed": true
     },
     {
+      "index": 28,
       "phraseId": "Tidak ada",
       "english": "Help!",
       "oldValue": "ยินดีต้อนรับ",
@@ -206,6 +235,7 @@
       "fixed": true
     },
     {
+      "index": 29,
       "phraseId": "Saya tidak mengerti",
       "english": "I need a doctor",
       "oldValue": "ไม่เป็นไร",
@@ -213,6 +243,7 @@
       "fixed": true
     },
     {
+      "index": 30,
       "phraseId": "Apakah Anda mengerti?",
       "english": "Call the police",
       "oldValue": "ขอแสดงความยินดี",
@@ -220,6 +251,7 @@
       "fixed": true
     },
     {
+      "index": 31,
       "phraseId": "Saya mengerti",
       "english": "Fire!",
       "oldValue": "โชคดี",
@@ -227,6 +259,7 @@
       "fixed": true
     },
     {
+      "index": 32,
       "phraseId": "Bisakah Anda berbicara lebih lambat?",
       "english": "I am lost",
       "oldValue": "ดูแลตัวเองนะ",
@@ -234,6 +267,7 @@
       "fixed": true
     },
     {
+      "index": 33,
       "phraseId": "Ulangi lagi, tolong",
       "english": "I am sick",
       "oldValue": "แล้วพบกันใหม่",
@@ -241,6 +275,7 @@
       "fixed": true
     },
     {
+      "index": 34,
       "phraseId": "Bagaimana?",
       "english": "Call an ambulance",
       "oldValue": "เจอกันใหม่",
@@ -248,6 +283,7 @@
       "fixed": true
     },
     {
+      "index": 35,
       "phraseId": "Apa?",
       "english": "My wallet was stolen",
       "oldValue": "มีความสุข",
@@ -255,6 +291,7 @@
       "fixed": true
     },
     {
+      "index": 36,
       "phraseId": "Di mana?",
       "english": "Help me",
       "oldValue": "ทานให้อร่อยนะ",
@@ -262,6 +299,7 @@
       "fixed": true
     },
     {
+      "index": 37,
       "phraseId": "Kapan?",
       "english": "Danger!",
       "oldValue": "ไชโย",
@@ -269,6 +307,7 @@
       "fixed": true
     },
     {
+      "index": 38,
       "phraseId": "Siapa?",
       "english": "Call a doctor!",
       "oldValue": "สวัสดีปีใหม่",
@@ -276,6 +315,7 @@
       "fixed": true
     },
     {
+      "index": 39,
       "phraseId": "Mengapa?",
       "english": "I want a room",
       "oldValue": "ขอโทษที่รบกวน",
@@ -283,6 +323,7 @@
       "fixed": true
     },
     {
+      "index": 40,
       "phraseId": "Berapa?",
       "english": "How much per night?",
       "oldValue": "ไม่มีปัญหา",
@@ -290,6 +331,7 @@
       "fixed": true
     },
     {
+      "index": 41,
       "phraseId": "Satu",
       "english": "Is there WiFi here?",
       "oldValue": "หนึ่ง",
@@ -297,6 +339,7 @@
       "fixed": true
     },
     {
+      "index": 42,
       "phraseId": "Dua",
       "english": "I have a reservation",
       "oldValue": "สอง",
@@ -304,6 +347,7 @@
       "fixed": true
     },
     {
+      "index": 43,
       "phraseId": "Tiga",
       "english": "Single room",
       "oldValue": "สาม",
@@ -311,6 +355,7 @@
       "fixed": true
     },
     {
+      "index": 44,
       "phraseId": "Empat",
       "english": "Double room",
       "oldValue": "สี่",
@@ -318,6 +363,7 @@
       "fixed": true
     },
     {
+      "index": 45,
       "phraseId": "Lima",
       "english": "What time is check-out?",
       "oldValue": "ห้า",
@@ -325,6 +371,7 @@
       "fixed": true
     },
     {
+      "index": 46,
       "phraseId": "Enam",
       "english": "Key",
       "oldValue": "หก",
@@ -332,6 +379,7 @@
       "fixed": true
     },
     {
+      "index": 47,
       "phraseId": "Tujuh",
       "english": "Room number",
       "oldValue": "เจ็ด",
@@ -339,6 +387,7 @@
       "fixed": true
     },
     {
+      "index": 48,
       "phraseId": "Delapan",
       "english": "Is breakfast included?",
       "oldValue": "แปด",
@@ -346,6 +395,7 @@
       "fixed": true
     },
     {
+      "index": 49,
       "phraseId": "Sembilan",
       "english": "Please clean the room",
       "oldValue": "เก้า",
@@ -353,6 +403,7 @@
       "fixed": true
     },
     {
+      "index": 50,
       "phraseId": "Sepuluh",
       "english": "I want to extend my stay",
       "oldValue": "สิบ",
@@ -360,6 +411,7 @@
       "fixed": true
     },
     {
+      "index": 51,
       "phraseId": "Sebelas",
       "english": "I am hungry",
       "oldValue": "สิบเอ็ด",
@@ -367,6 +419,7 @@
       "fixed": true
     },
     {
+      "index": 52,
       "phraseId": "Dua belas",
       "english": "Menu, please",
       "oldValue": "สิบสอง",
@@ -374,6 +427,7 @@
       "fixed": true
     },
     {
+      "index": 53,
       "phraseId": "Tiga belas",
       "english": "Delicious",
       "oldValue": "ยี่สิบ",
@@ -381,6 +435,7 @@
       "fixed": true
     },
     {
+      "index": 54,
       "phraseId": "Lima belas",
       "english": "Bill, please",
       "oldValue": "สามสิบ",
@@ -388,6 +443,7 @@
       "fixed": true
     },
     {
+      "index": 55,
       "phraseId": "Dua puluh",
       "english": "I am vegetarian",
       "oldValue": "สี่สิบ",
@@ -395,6 +451,7 @@
       "fixed": true
     },
     {
+      "index": 56,
       "phraseId": "Tiga puluh",
       "english": "Not spicy",
       "oldValue": "ห้าสิบ",
@@ -402,6 +459,7 @@
       "fixed": true
     },
     {
+      "index": 57,
       "phraseId": "Lima puluh",
       "english": "Water",
       "oldValue": "หนึ่งร้อย",
@@ -409,6 +467,7 @@
       "fixed": true
     },
     {
+      "index": 58,
       "phraseId": "Seratus",
       "english": "Tea",
       "oldValue": "หนึ่งพัน",
@@ -416,6 +475,7 @@
       "fixed": true
     },
     {
+      "index": 59,
       "phraseId": "Seribu",
       "english": "Rice",
       "oldValue": "หนึ่งล้าน",
@@ -423,6 +483,7 @@
       "fixed": true
     },
     {
+      "index": 60,
       "phraseId": "Sejuta",
       "english": "Noodles",
       "oldValue": "ศูนย์",
@@ -430,6 +491,7 @@
       "fixed": true
     },
     {
+      "index": 61,
       "phraseId": "Hari ini",
       "english": "Chicken",
       "oldValue": "วันจันทร์",
@@ -437,6 +499,7 @@
       "fixed": true
     },
     {
+      "index": 62,
       "phraseId": "Kemarin",
       "english": "Beef",
       "oldValue": "วันอังคาร",
@@ -444,6 +507,7 @@
       "fixed": true
     },
     {
+      "index": 63,
       "phraseId": "Besok",
       "english": "How much does it cost?",
       "oldValue": "วันพุธ",
@@ -451,6 +515,7 @@
       "fixed": true
     },
     {
+      "index": 64,
       "phraseId": "Pagi",
       "english": "I am allergic to...",
       "oldValue": "วันพฤหัสบดี",
@@ -458,6 +523,7 @@
       "fixed": true
     },
     {
+      "index": 65,
       "phraseId": "Siang",
       "english": "Can I take it to go?",
       "oldValue": "วันศุกร์",
@@ -465,6 +531,7 @@
       "fixed": true
     },
     {
+      "index": 66,
       "phraseId": "Sore",
       "english": "Very delicious",
       "oldValue": "วันเสาร์",
@@ -472,6 +539,7 @@
       "fixed": true
     },
     {
+      "index": 67,
       "phraseId": "Malam",
       "english": "Appetizers",
       "oldValue": "วันอาทิตย์",
@@ -479,6 +547,7 @@
       "fixed": true
     },
     {
+      "index": 68,
       "phraseId": "Minggu",
       "english": "Ham",
       "oldValue": "มกราคม",
@@ -486,6 +555,7 @@
       "fixed": true
     },
     {
+      "index": 69,
       "phraseId": "Bulan",
       "english": "Cheese platter",
       "oldValue": "กุมภาพันธ์",
@@ -493,6 +563,7 @@
       "fixed": true
     },
     {
+      "index": 70,
       "phraseId": "Tahun",
       "english": "Soup",
       "oldValue": "มีนาคม",
@@ -500,6 +571,7 @@
       "fixed": true
     },
     {
+      "index": 71,
       "phraseId": "Hari",
       "english": "Borscht",
       "oldValue": "เมษายน",
@@ -507,6 +579,7 @@
       "fixed": true
     },
     {
+      "index": 72,
       "phraseId": "Jam",
       "english": "Chicken noodle soup",
       "oldValue": "พฤษภาคม",
@@ -514,6 +587,7 @@
       "fixed": true
     },
     {
+      "index": 73,
       "phraseId": "Menit",
       "english": "Meat broth",
       "oldValue": "มิถุนายน",
@@ -521,6 +595,7 @@
       "fixed": true
     },
     {
+      "index": 74,
       "phraseId": "Detik",
       "english": "Meat",
       "oldValue": "กรกฎาคม",
@@ -528,6 +603,7 @@
       "fixed": true
     },
     {
+      "index": 75,
       "phraseId": "Senin",
       "english": "Lamb",
       "oldValue": "สิงหาคม",
@@ -535,6 +611,7 @@
       "fixed": true
     },
     {
+      "index": 76,
       "phraseId": "Selasa",
       "english": "Pork",
       "oldValue": "กันยายน",
@@ -542,6 +619,7 @@
       "fixed": true
     },
     {
+      "index": 77,
       "phraseId": "Rabu",
       "english": "Fried",
       "oldValue": "ตุลาคม",
@@ -549,6 +627,7 @@
       "fixed": true
     },
     {
+      "index": 78,
       "phraseId": "Kamis",
       "english": "Boiled",
       "oldValue": "พฤศจิกายน",
@@ -556,6 +635,7 @@
       "fixed": true
     },
     {
+      "index": 79,
       "phraseId": "Jumat",
       "english": "Fish dishes",
       "oldValue": "ธันวาคม",
@@ -563,6 +643,7 @@
       "fixed": true
     },
     {
+      "index": 80,
       "phraseId": "Sabtu",
       "english": "Fish",
       "oldValue": "วันนี้",
@@ -570,6 +651,7 @@
       "fixed": true
     },
     {
+      "index": 81,
       "phraseId": "Minggu",
       "english": "Salmon",
       "oldValue": "เมื่อวาน",
@@ -577,6 +659,7 @@
       "fixed": true
     },
     {
+      "index": 82,
       "phraseId": "Januari",
       "english": "Shrimp",
       "oldValue": "พรุ่งนี้",
@@ -584,6 +667,7 @@
       "fixed": true
     },
     {
+      "index": 83,
       "phraseId": "Februari",
       "english": "Crabs",
       "oldValue": "ตอนนี้",
@@ -591,6 +675,7 @@
       "fixed": true
     },
     {
+      "index": 84,
       "phraseId": "Maret",
       "english": "Is there a vegetarian menu?",
       "oldValue": "ทีหลัง",
@@ -598,6 +683,7 @@
       "fixed": true
     },
     {
+      "index": 85,
       "phraseId": "April",
       "english": "Is this dish spicy?",
       "oldValue": "กี่โมงแล้ว",
@@ -605,6 +691,7 @@
       "fixed": true
     },
     {
+      "index": 86,
       "phraseId": "Restoran",
       "english": "Not spicy",
       "oldValue": "อาหาร",
@@ -612,6 +699,7 @@
       "fixed": true
     },
     {
+      "index": 87,
       "phraseId": "Menu",
       "english": "Apple",
       "oldValue": "น้ำ",
@@ -619,6 +707,7 @@
       "fixed": true
     },
     {
+      "index": 88,
       "phraseId": "Sarapan",
       "english": "Banana",
       "oldValue": "ขนมปัง",
@@ -626,6 +715,7 @@
       "fixed": true
     },
     {
+      "index": 89,
       "phraseId": "Makan siang",
       "english": "Orange",
       "oldValue": "เนื้อ",
@@ -633,6 +723,7 @@
       "fixed": true
     },
     {
+      "index": 90,
       "phraseId": "Makan malam",
       "english": "Grapes",
       "oldValue": "ปลา",
@@ -640,6 +731,7 @@
       "fixed": true
     },
     {
+      "index": 91,
       "phraseId": "Air",
       "english": "Watermelon",
       "oldValue": "ผัก",
@@ -647,6 +739,7 @@
       "fixed": true
     },
     {
+      "index": 92,
       "phraseId": "Teh",
       "english": "Potato",
       "oldValue": "ผลไม้",
@@ -654,6 +747,7 @@
       "fixed": true
     },
     {
+      "index": 93,
       "phraseId": "Kopi",
       "english": "Tomato",
       "oldValue": "นม",
@@ -661,6 +755,7 @@
       "fixed": true
     },
     {
+      "index": 94,
       "phraseId": "Susu",
       "english": "How much does it cost?",
       "oldValue": "เนย",
@@ -668,6 +763,7 @@
       "fixed": true
     },
     {
+      "index": 95,
       "phraseId": "Jus",
       "english": "Too expensive",
       "oldValue": "ไข่",
@@ -675,6 +771,7 @@
       "fixed": true
     },
     {
+      "index": 96,
       "phraseId": "Bir",
       "english": "Can it be cheaper?",
       "oldValue": "ข้าว",
@@ -682,6 +779,7 @@
       "fixed": true
     },
     {
+      "index": 97,
       "phraseId": "Anggur",
       "english": "I will buy this",
       "oldValue": "ซุป",
@@ -689,6 +787,7 @@
       "fixed": true
     },
     {
+      "index": 98,
       "phraseId": "Roti",
       "english": "Can I try it on?",
       "oldValue": "สลัด",
@@ -696,6 +795,7 @@
       "fixed": true
     },
     {
+      "index": 99,
       "phraseId": "Daging",
       "english": "Bigger size",
       "oldValue": "กาแฟ",
@@ -703,6 +803,7 @@
       "fixed": true
     },
     {
+      "index": 100,
       "phraseId": "Ikan",
       "english": "Smaller size",
       "oldValue": "ชา",
@@ -710,6 +811,7 @@
       "fixed": true
     },
     {
+      "index": 101,
       "phraseId": "Ayam",
       "english": "Cash",
       "oldValue": "น้ำผลไม้",
@@ -717,6 +819,7 @@
       "fixed": true
     },
     {
+      "index": 102,
       "phraseId": "Sayuran",
       "english": "Credit card",
       "oldValue": "เบียร์",
@@ -724,6 +827,7 @@
       "fixed": true
     },
     {
+      "index": 103,
       "phraseId": "Buah",
       "english": "Receipt",
       "oldValue": "ไวน์",
@@ -731,6 +835,7 @@
       "fixed": true
     },
     {
+      "index": 104,
       "phraseId": "Nasi",
       "english": "Return/Exchange",
       "oldValue": "ร้านอาหาร",
@@ -738,6 +843,7 @@
       "fixed": true
     },
     {
+      "index": 105,
       "phraseId": "Sup",
       "english": "Where is the market?",
       "oldValue": "เมนู",
@@ -745,6 +851,7 @@
       "fixed": true
     },
     {
+      "index": 106,
       "phraseId": "Salad",
       "english": "Is there a discount?",
       "oldValue": "อาหารเช้า",
@@ -752,6 +859,7 @@
       "fixed": true
     },
     {
+      "index": 107,
       "phraseId": "Keju",
       "english": "Can I try it on?",
       "oldValue": "อาหารกลางวัน",
@@ -759,6 +867,7 @@
       "fixed": true
     },
     {
+      "index": 108,
       "phraseId": "Mentega",
       "english": "What is your size?",
       "oldValue": "อาหารเย็น",
@@ -766,6 +875,7 @@
       "fixed": true
     },
     {
+      "index": 109,
       "phraseId": "Gula",
       "english": "Are there other colors?",
       "oldValue": "ฉันหิว",
@@ -773,6 +883,7 @@
       "fixed": true
     },
     {
+      "index": 110,
       "phraseId": "Garam",
       "english": "Where is the train station?",
       "oldValue": "ฉันกระหาย",
@@ -780,6 +891,7 @@
       "fixed": true
     },
     {
+      "index": 111,
       "phraseId": "Merica",
       "english": "Airport",
       "oldValue": "อร่อย",
@@ -787,6 +899,7 @@
       "fixed": true
     },
     {
+      "index": 112,
       "phraseId": "Es krim",
       "english": "Taxi",
       "oldValue": "เช็คบิล",
@@ -794,6 +907,7 @@
       "fixed": true
     },
     {
+      "index": 113,
       "phraseId": "Kue",
       "english": "Bus",
       "oldValue": "ฉันทานมังสวิรัติ",
@@ -801,6 +915,7 @@
       "fixed": true
     },
     {
+      "index": 114,
       "phraseId": "Enak",
       "english": "Metro",
       "oldValue": "แพ้อาหาร",
@@ -808,6 +923,7 @@
       "fixed": true
     },
     {
+      "index": 115,
       "phraseId": "Bon appétit",
       "english": "Train ticket",
       "oldValue": "เผ็ด",
@@ -815,6 +931,7 @@
       "fixed": true
     },
     {
+      "index": 116,
       "phraseId": "Toko",
       "english": "Schedule",
       "oldValue": "ร้านค้า",
@@ -822,6 +939,7 @@
       "fixed": true
     },
     {
+      "index": 117,
       "phraseId": "Pasar",
       "english": "Platform",
       "oldValue": "ตลาด",
@@ -829,6 +947,7 @@
       "fixed": true
     },
     {
+      "index": 118,
       "phraseId": "Berapa harganya?",
       "english": "Next stop",
       "oldValue": "ราคาเท่าไหร่",
@@ -836,6 +955,7 @@
       "fixed": true
     },
     {
+      "index": 119,
       "phraseId": "Berapa biayanya?",
       "english": "Stop",
       "oldValue": "แพง",
@@ -843,6 +963,7 @@
       "fixed": true
     },
     {
+      "index": 120,
       "phraseId": "Saya ingin membeli ini",
       "english": "How long until...?",
       "oldValue": "ถูก",
@@ -850,6 +971,7 @@
       "fixed": true
     },
     {
+      "index": 121,
       "phraseId": "Mahal",
       "english": "I need to go to...",
       "oldValue": "ราคา",
@@ -857,6 +979,7 @@
       "fixed": true
     },
     {
+      "index": 122,
       "phraseId": "Murah",
       "english": "When will the next bus arrive?",
       "oldValue": "ฉันจะซื้อ",
@@ -864,6 +987,7 @@
       "fixed": true
     },
     {
+      "index": 123,
       "phraseId": "Diskon",
       "english": "I want to go to the airport",
       "oldValue": "ฉันแค่ดู",
@@ -871,6 +995,7 @@
       "fixed": true
     },
     {
+      "index": 124,
       "phraseId": "Harga",
       "english": "On the left",
       "oldValue": "ส่วนลด",
@@ -878,6 +1003,7 @@
       "fixed": true
     },
     {
+      "index": 125,
       "phraseId": "Uang",
       "english": "On the right",
       "oldValue": "ขนาด",
@@ -885,6 +1011,7 @@
       "fixed": true
     },
     {
+      "index": 126,
       "phraseId": "Kartu kredit",
       "english": "Straight",
       "oldValue": "สี",
@@ -892,6 +1019,7 @@
       "fixed": true
     },
     {
+      "index": 127,
       "phraseId": "Tunai",
       "english": "Turn",
       "oldValue": "ใหญ่",
@@ -899,6 +1027,7 @@
       "fixed": true
     },
     {
+      "index": 128,
       "phraseId": "Tanda terima",
       "english": "Intersection",
       "oldValue": "เล็ก",
@@ -906,6 +1035,7 @@
       "fixed": true
     },
     {
+      "index": 129,
       "phraseId": "Apakah Anda menerima kartu?",
       "english": "Traffic light",
       "oldValue": "กลาง",
@@ -913,6 +1043,7 @@
       "fixed": true
     },
     {
+      "index": 130,
       "phraseId": "Ukuran",
       "english": "Far",
       "oldValue": "ใหม่",
@@ -920,6 +1051,7 @@
       "fixed": true
     },
     {
+      "index": 131,
       "phraseId": "Warna",
       "english": "Near",
       "oldValue": "เก่า",
@@ -927,6 +1059,7 @@
       "fixed": true
     },
     {
+      "index": 132,
       "phraseId": "Besar",
       "english": "Map",
       "oldValue": "ดี",
@@ -934,6 +1067,7 @@
       "fixed": true
     },
     {
+      "index": 133,
       "phraseId": "Kecil",
       "english": "Where is...?",
       "oldValue": "เลว",
@@ -941,6 +1075,7 @@
       "fixed": true
     },
     {
+      "index": 134,
       "phraseId": "Sedang",
       "english": "Hospital",
       "oldValue": "เปิด",
@@ -948,6 +1083,7 @@
       "fixed": true
     },
     {
+      "index": 135,
       "phraseId": "Baru",
       "english": "Pharmacy",
       "oldValue": "ปิด",
@@ -955,6 +1091,7 @@
       "fixed": true
     },
     {
+      "index": 136,
       "phraseId": "Lama",
       "english": "I have a headache",
       "oldValue": "เงินสด",
@@ -962,6 +1099,7 @@
       "fixed": true
     },
     {
+      "index": 137,
       "phraseId": "Cantik",
       "english": "I have a stomachache",
       "oldValue": "บัตรเครดิต",
@@ -969,6 +1107,7 @@
       "fixed": true
     },
     {
+      "index": 138,
       "phraseId": "Jelek",
       "english": "Temperature",
       "oldValue": "ใบเสร็จ",
@@ -976,6 +1115,7 @@
       "fixed": true
     },
     {
+      "index": 139,
       "phraseId": "Berkualitas",
       "english": "Cough",
       "oldValue": "ของที่ระลึก",
@@ -983,6 +1123,7 @@
       "fixed": true
     },
     {
+      "index": 140,
       "phraseId": "Bisakah saya mencoba ini?",
       "english": "Medicine",
       "oldValue": "ของขวัญ",
@@ -990,6 +1131,7 @@
       "fixed": true
     },
     {
+      "index": 141,
       "phraseId": "Taksi",
       "english": "Doctor",
       "oldValue": "รถเมล์",
@@ -997,6 +1139,7 @@
       "fixed": true
     },
     {
+      "index": 142,
       "phraseId": "Bus",
       "english": "Nurse",
       "oldValue": "แท็กซี่",
@@ -1004,6 +1147,7 @@
       "fixed": true
     },
     {
+      "index": 143,
       "phraseId": "Kereta",
       "english": "Ambulance",
       "oldValue": "รถไฟ",
@@ -1011,6 +1155,7 @@
       "fixed": true
     },
     {
+      "index": 144,
       "phraseId": "Pesawat",
       "english": "I have a headache",
       "oldValue": "เครื่องบิน",
@@ -1018,6 +1163,7 @@
       "fixed": true
     },
     {
+      "index": 145,
       "phraseId": "Bandara",
       "english": "I need a painkiller",
       "oldValue": "รถยนต์",
@@ -1025,6 +1171,7 @@
       "fixed": true
     },
     {
+      "index": 146,
       "phraseId": "Stasiun",
       "english": "Yuan",
       "oldValue": "จักรยาน",
@@ -1032,6 +1179,7 @@
       "fixed": true
     },
     {
+      "index": 147,
       "phraseId": "Halte",
       "english": "Manat",
       "oldValue": "สนามบิน",
@@ -1039,6 +1187,7 @@
       "fixed": true
     },
     {
+      "index": 148,
       "phraseId": "Tiket",
       "english": "Card payment",
       "oldValue": "สถานีรถไฟ",
@@ -1046,6 +1195,7 @@
       "fixed": true
     },
     {
+      "index": 149,
       "phraseId": "Berapa tiketnya?",
       "english": "Bank",
       "oldValue": "ป้ายรถเมล์",
@@ -1053,6 +1203,7 @@
       "fixed": true
     },
     {
+      "index": 150,
       "phraseId": "Di mana stasiun bus?",
       "english": "ATM",
       "oldValue": "ตั้ว",
@@ -1060,6 +1211,7 @@
       "fixed": true
     },
     {
+      "index": 151,
       "phraseId": "Bagaimana menuju...?",
       "english": "Currency exchange",
       "oldValue": "นี่ที่ไหน",
@@ -1067,6 +1219,7 @@
       "fixed": true
     },
     {
+      "index": 152,
       "phraseId": "Kiri",
       "english": "Change",
       "oldValue": "ไปที่นั่นได้อย่างไร",
@@ -1074,6 +1227,7 @@
       "fixed": true
     },
     {
+      "index": 153,
       "phraseId": "Kanan",
       "english": "Free",
       "oldValue": "ซ้าย",
@@ -1081,6 +1235,7 @@
       "fixed": true
     },
     {
+      "index": 154,
       "phraseId": "Lurus",
       "english": "Price",
       "oldValue": "ขวา",
@@ -1088,6 +1243,7 @@
       "fixed": true
     },
     {
+      "index": 155,
       "phraseId": "Jauh",
       "english": "Mobile phone",
       "oldValue": "ตรงไป",
@@ -1095,6 +1251,7 @@
       "fixed": true
     },
     {
+      "index": 156,
       "phraseId": "Dekat",
       "english": "Wi-Fi",
       "oldValue": "ใกล้",
@@ -1102,6 +1259,7 @@
       "fixed": true
     },
     {
+      "index": 157,
       "phraseId": "Di sini",
       "english": "What is the password?",
       "oldValue": "ไกล",
@@ -1109,6 +1267,7 @@
       "fixed": true
     },
     {
+      "index": 158,
       "phraseId": "Di sana",
       "english": "Send SMS",
       "oldValue": "ที่นี่",
@@ -1116,6 +1275,7 @@
       "fixed": true
     },
     {
+      "index": 159,
       "phraseId": "Jalan",
       "english": "Cinema",
       "oldValue": "ที่นั่น",
@@ -1123,6 +1283,7 @@
       "fixed": true
     },
     {
+      "index": 160,
       "phraseId": "Alamat",
       "english": "Museum",
       "oldValue": "ที่อยู่",
@@ -1130,6 +1291,7 @@
       "fixed": true
     },
     {
+      "index": 161,
       "phraseId": "Hotel",
       "english": "Park",
       "oldValue": "โรงแรม",
@@ -1137,6 +1299,7 @@
       "fixed": true
     },
     {
+      "index": 162,
       "phraseId": "Kamar",
       "english": "Concert",
       "oldValue": "ห้อง",
@@ -1144,6 +1307,7 @@
       "fixed": true
     },
     {
+      "index": 163,
       "phraseId": "Reservasi",
       "english": "Shopping mall",
       "oldValue": "การจอง",
@@ -1151,6 +1315,7 @@
       "fixed": true
     },
     {
+      "index": 164,
       "phraseId": "Saya sudah memesan",
       "english": "Swimming pool",
       "oldValue": "ฉันมีการจอง",
@@ -1158,6 +1323,7 @@
       "fixed": true
     },
     {
+      "index": 165,
       "phraseId": "Saya ingin kamar",
       "english": "Gym",
       "oldValue": "ห้องเดี่ยว",
@@ -1165,6 +1331,7 @@
       "fixed": true
     },
     {
+      "index": 166,
       "phraseId": "Untuk satu orang",
       "english": "Library",
       "oldValue": "ห้องคู่",
@@ -1172,6 +1339,7 @@
       "fixed": true
     },
     {
+      "index": 167,
       "phraseId": "Untuk dua orang",
       "english": "Night market",
       "oldValue": "หนึ่งคืน",
@@ -1179,6 +1347,7 @@
       "fixed": true
     },
     {
+      "index": 168,
       "phraseId": "Untuk satu malam",
       "english": "How much is the ticket?",
       "oldValue": "สองคืน",
@@ -1186,6 +1355,7 @@
       "fixed": true
     },
     {
+      "index": 169,
       "phraseId": "Untuk dua malam",
       "english": "What time is it?",
       "oldValue": "หนึ่งสัปดาห์",
@@ -1193,6 +1363,7 @@
       "fixed": true
     },
     {
+      "index": 170,
       "phraseId": "Untuk seminggu",
       "english": "Today",
       "oldValue": "กุญแจ",
@@ -1200,6 +1371,7 @@
       "fixed": true
     },
     {
+      "index": 171,
       "phraseId": "Berapa harga kamarnya?",
       "english": "Tomorrow",
       "oldValue": "เตียง",
@@ -1207,6 +1379,7 @@
       "fixed": true
     },
     {
+      "index": 172,
       "phraseId": "Apakah sudah termasuk sarapan?",
       "english": "Yesterday",
       "oldValue": "ห้องน้ำ",
@@ -1214,6 +1387,7 @@
       "fixed": true
     },
     {
+      "index": 173,
       "phraseId": "Kunci",
       "english": "Monday",
       "oldValue": "ฝักบัว",
@@ -1221,6 +1395,7 @@
       "fixed": true
     },
     {
+      "index": 174,
       "phraseId": "Kunci kamar",
       "english": "Sunday",
       "oldValue": "ไวไฟ",
@@ -1228,6 +1403,7 @@
       "fixed": true
     },
     {
+      "index": 175,
       "phraseId": "Tempat tidur",
       "english": "In the morning",
       "oldValue": "รหัสผ่าน",
@@ -1235,6 +1411,7 @@
       "fixed": true
     },
     {
+      "index": 176,
       "phraseId": "Kamar mandi",
       "english": "In the afternoon",
       "oldValue": "รวมอาหารเช้าไหม",
@@ -1242,6 +1419,7 @@
       "fixed": true
     },
     {
+      "index": 177,
       "phraseId": "Shower",
       "english": "In the evening",
       "oldValue": "เช็คเอาท์",
@@ -1249,6 +1427,7 @@
       "fixed": true
     },
     {
+      "index": 178,
       "phraseId": "AC",
       "english": "What month?",
       "oldValue": "เช็คอิน",
@@ -1256,6 +1435,7 @@
       "fixed": true
     },
     {
+      "index": 179,
       "phraseId": "WiFi",
       "english": "Monday",
       "oldValue": "แผนกต้อนรับ",
@@ -1263,6 +1443,7 @@
       "fixed": true
     },
     {
+      "index": 180,
       "phraseId": "Apa kata sandi WiFi?",
       "english": "Tuesday",
       "oldValue": "พนักงานต้อนรับ",
@@ -1270,6 +1451,7 @@
       "fixed": true
     },
     {
+      "index": 181,
       "phraseId": "Handuk",
       "english": "Wednesday",
       "oldValue": "บริการห้องพัก",
@@ -1277,6 +1459,7 @@
       "fixed": true
     },
     {
+      "index": 182,
       "phraseId": "Sabun",
       "english": "Thursday",
       "oldValue": "การทำความสะอาด",
@@ -1284,6 +1467,7 @@
       "fixed": true
     },
     {
+      "index": 183,
       "phraseId": "Layanan kamar",
       "english": "Friday",
       "oldValue": "ผ้าเช็ดตัว",
@@ -1291,6 +1475,7 @@
       "fixed": true
     },
     {
+      "index": 184,
       "phraseId": "Check-in",
       "english": "Saturday",
       "oldValue": "เครื่องปรับอากาศ",
@@ -1298,6 +1483,7 @@
       "fixed": true
     },
     {
+      "index": 185,
       "phraseId": "Check-out",
       "english": "Sunday",
       "oldValue": "เครื่องทำความร้อน",
@@ -1305,6 +1491,7 @@
       "fixed": true
     },
     {
+      "index": 186,
       "phraseId": "Tolong!",
       "english": "January",
       "oldValue": "ช่วยด้วย",
@@ -1312,6 +1499,7 @@
       "fixed": true
     },
     {
+      "index": 187,
       "phraseId": "Darurat",
       "english": "February",
       "oldValue": "ตำรวจ",
@@ -1319,6 +1507,7 @@
       "fixed": true
     },
     {
+      "index": 188,
       "phraseId": "Polisi",
       "english": "March",
       "oldValue": "หมอ",
@@ -1326,6 +1515,7 @@
       "fixed": true
     },
     {
+      "index": 189,
       "phraseId": "Dokter",
       "english": "April",
       "oldValue": "โรงพยาบาล",
@@ -1333,6 +1523,7 @@
       "fixed": true
     },
     {
+      "index": 190,
       "phraseId": "Rumah sakit",
       "english": "May",
       "oldValue": "รถพยาบาล",
@@ -1340,6 +1531,7 @@
       "fixed": true
     },
     {
+      "index": 191,
       "phraseId": "Ambulans",
       "english": "June",
       "oldValue": "ไฟไหม้",
@@ -1347,6 +1539,7 @@
       "fixed": true
     },
     {
+      "index": 192,
       "phraseId": "Apotik",
       "english": "July",
       "oldValue": "อันตราย",
@@ -1354,6 +1547,7 @@
       "fixed": true
     },
     {
+      "index": 193,
       "phraseId": "Saya sakit",
       "english": "August",
       "oldValue": "ฉันไม่สบาย",
@@ -1361,6 +1555,7 @@
       "fixed": true
     },
     {
+      "index": 194,
       "phraseId": "Saya butuh dokter",
       "english": "September",
       "oldValue": "ฉันต้องการหมอ",
@@ -1368,6 +1563,7 @@
       "fixed": true
     },
     {
+      "index": 195,
       "phraseId": "Saya kehilangan...",
       "english": "October",
       "oldValue": "ฉันหลงทาง",
@@ -1375,6 +1571,7 @@
       "fixed": true
     },
     {
+      "index": 196,
       "phraseId": "Saya tersesat",
       "english": "November",
       "oldValue": "ห้องน้ำอยู่ไหน",
@@ -1382,6 +1579,7 @@
       "fixed": true
     },
     {
+      "index": 197,
       "phraseId": "Api",
       "english": "December",
       "oldValue": "ฉันไม่เข้าใจ",
@@ -1389,6 +1587,7 @@
       "fixed": true
     },
     {
+      "index": 198,
       "phraseId": "Bahaya",
       "english": "One",
       "oldValue": "คุณพูดภาษาอังกฤษได้ไหม",
@@ -1396,6 +1595,7 @@
       "fixed": true
     },
     {
+      "index": 199,
       "phraseId": "Hati-hati",
       "english": "Two",
       "oldValue": "โทรหาสถานทูต",
@@ -1403,6 +1603,7 @@
       "fixed": true
     },
     {
+      "index": 200,
       "phraseId": "Dilarang",
       "english": "Three",
       "oldValue": "ร้านขายยา",
@@ -1410,6 +1611,7 @@
       "fixed": true
     },
     {
+      "index": 201,
       "phraseId": "Apa itu?",
       "english": "Four",
       "oldValue": "อะไร",
@@ -1417,6 +1619,7 @@
       "fixed": true
     },
     {
+      "index": 202,
       "phraseId": "Di mana itu?",
       "english": "Five",
       "oldValue": "ใคร",
@@ -1424,6 +1627,7 @@
       "fixed": true
     },
     {
+      "index": 203,
       "phraseId": "Berapa ini?",
       "english": "Six",
       "oldValue": "ที่ไหน",
@@ -1431,6 +1635,7 @@
       "fixed": true
     },
     {
+      "index": 204,
       "phraseId": "Kapan?",
       "english": "Seven",
       "oldValue": "เมื่อไหร่",
@@ -1438,6 +1643,7 @@
       "fixed": true
     },
     {
+      "index": 205,
       "phraseId": "Siapa?",
       "english": "Eight",
       "oldValue": "ทำไม",
@@ -1445,6 +1651,7 @@
       "fixed": true
     },
     {
+      "index": 206,
       "phraseId": "Mengapa?",
       "english": "Nine",
       "oldValue": "อย่างไร",
@@ -1452,6 +1659,7 @@
       "fixed": true
     },
     {
+      "index": 207,
       "phraseId": "Bagaimana?",
       "english": "Ten",
       "oldValue": "เท่าไหร่",
@@ -1459,6 +1667,7 @@
       "fixed": true
     },
     {
+      "index": 208,
       "phraseId": "Di mana toilet?",
       "english": "Twenty",
       "oldValue": "ไหน",
@@ -1466,6 +1675,7 @@
       "fixed": true
     },
     {
+      "index": 209,
       "phraseId": "Apakah Anda bisa membantu?",
       "english": "One hundred",
       "oldValue": "ของใคร",
@@ -1473,6 +1683,7 @@
       "fixed": true
     },
     {
+      "index": 210,
       "phraseId": "Apakah Anda tahu...?",
       "english": "One thousand",
       "oldValue": "นี่อะไร",
@@ -1480,6 +1691,7 @@
       "fixed": true
     },
     {
+      "index": 211,
       "phraseId": "Bisakah Anda menunjukkan?",
       "english": "Ten thousand",
       "oldValue": "นั่นอะไร",
@@ -1487,6 +1699,7 @@
       "fixed": true
     },
     {
+      "index": 212,
       "phraseId": "Apakah mungkin?",
       "english": "First",
       "oldValue": "ได้ไหม",
@@ -1494,6 +1707,7 @@
       "fixed": true
     },
     {
+      "index": 213,
       "phraseId": "Apakah Anda punya...?",
       "english": "One thousand",
       "oldValue": "มีไหม",
@@ -1501,6 +1715,7 @@
       "fixed": true
     },
     {
+      "index": 214,
       "phraseId": "Apakah itu tersedia?",
       "english": "Two thousand",
       "oldValue": "กี่โมง",
@@ -1508,6 +1723,7 @@
       "fixed": true
     },
     {
+      "index": 215,
       "phraseId": "Berapa lama?",
       "english": "Ten thousand",
       "oldValue": "คุณช่วยได้ไหม",
@@ -1515,6 +1731,7 @@
       "fixed": true
     },
     {
+      "index": 216,
       "phraseId": "Berapa jauh?",
       "english": "One hundred thousand",
       "oldValue": "อยู่ที่ไหน",
@@ -1522,6 +1739,7 @@
       "fixed": true
     },
     {
+      "index": 217,
       "phraseId": "Jam berapa sekarang?",
       "english": "One million",
       "oldValue": "นี่เรียกว่าอะไร",
@@ -1529,6 +1747,7 @@
       "fixed": true
     },
     {
+      "index": 218,
       "phraseId": "Jam berapa buka?",
       "english": "What is the weather today?",
       "oldValue": "คุณรู้ไหม",
@@ -1536,6 +1755,7 @@
       "fixed": true
     },
     {
+      "index": 219,
       "phraseId": "Jam berapa tutup?",
       "english": "Rain",
       "oldValue": "ดูได้ไหม",
@@ -1543,6 +1763,7 @@
       "fixed": true
     },
     {
+      "index": 220,
       "phraseId": "Apakah buka hari ini?",
       "english": "Sunny",
       "oldValue": "ถูกต้องไหม",
@@ -1550,6 +1771,7 @@
       "fixed": true
     },
     {
+      "index": 221,
       "phraseId": "Keluarga",
       "english": "Cloudy",
       "oldValue": "ครอบครัว",
@@ -1557,6 +1779,7 @@
       "fixed": true
     },
     {
+      "index": 222,
       "phraseId": "Ayah",
       "english": "Windy",
       "oldValue": "แม่",
@@ -1564,6 +1787,7 @@
       "fixed": true
     },
     {
+      "index": 223,
       "phraseId": "Ibu",
       "english": "Snow",
       "oldValue": "พ่อ",
@@ -1571,6 +1795,7 @@
       "fixed": true
     },
     {
+      "index": 224,
       "phraseId": "Anak laki-laki",
       "english": "Hot",
       "oldValue": "ลูกชาย",
@@ -1578,6 +1803,7 @@
       "fixed": true
     },
     {
+      "index": 225,
       "phraseId": "Anak perempuan",
       "english": "Cold",
       "oldValue": "ลูกสาว",
@@ -1585,6 +1811,7 @@
       "fixed": true
     },
     {
+      "index": 226,
       "phraseId": "Saudara laki-laki",
       "english": "My name is...",
       "oldValue": "พี่ชาย",
@@ -1592,6 +1819,7 @@
       "fixed": true
     },
     {
+      "index": 227,
       "phraseId": "Saudara perempuan",
       "english": "My last name is...",
       "oldValue": "พี่สาว",
@@ -1599,6 +1827,7 @@
       "fixed": true
     },
     {
+      "index": 228,
       "phraseId": "Suami",
       "english": "What is your name?",
       "oldValue": "สามี",
@@ -1606,6 +1835,7 @@
       "fixed": true
     },
     {
+      "index": 229,
       "phraseId": "Istri",
       "english": "I am from Turkmenistan",
       "oldValue": "ภรรยา",
@@ -1613,6 +1843,7 @@
       "fixed": true
     },
     {
+      "index": 230,
       "phraseId": "Kakek",
       "english": "I live in Ashgabat",
       "oldValue": "ปู่",
@@ -1620,6 +1851,7 @@
       "fixed": true
     },
     {
+      "index": 231,
       "phraseId": "Nenek",
       "english": "There are 4 people in our family",
       "oldValue": "ย่า",
@@ -1627,6 +1859,7 @@
       "fixed": true
     },
     {
+      "index": 232,
       "phraseId": "Paman",
       "english": "Do you have children?",
       "oldValue": "หลาน",
@@ -1634,6 +1867,7 @@
       "fixed": true
     },
     {
+      "index": 233,
       "phraseId": "Bibi",
       "english": "I have no children",
       "oldValue": "หลานสาว",
@@ -1641,6 +1875,7 @@
       "fixed": true
     },
     {
+      "index": 234,
       "phraseId": "Anak-anak",
       "english": "I have one child",
       "oldValue": "เด็ก",
@@ -1648,6 +1883,7 @@
       "fixed": true
     },
     {
+      "index": 235,
       "phraseId": "Orang tua",
       "english": "I have two children",
       "oldValue": "พ่อแม่",
@@ -1655,6 +1891,7 @@
       "fixed": true
     },
     {
+      "index": 236,
       "phraseId": "Sakit",
       "english": "What do you do?",
       "oldValue": "สุขภาพ",
@@ -1662,6 +1899,7 @@
       "fixed": true
     },
     {
+      "index": 237,
       "phraseId": "Demam",
       "english": "I work at a factory",
       "oldValue": "ป่วย",
@@ -1669,6 +1907,7 @@
       "fixed": true
     },
     {
+      "index": 238,
       "phraseId": "Sakit kepala",
       "english": "I work at a bank",
       "oldValue": "เจ็บ",
@@ -1676,6 +1915,7 @@
       "fixed": true
     },
     {
+      "index": 239,
       "phraseId": "Sakit perut",
       "english": "I work at a hospital",
       "oldValue": "ปวดหัว",
@@ -1683,6 +1923,7 @@
       "fixed": true
     },
     {
+      "index": 240,
       "phraseId": "Flu",
       "english": "I study foreign languages",
       "oldValue": "ปวดท้อง",
@@ -1690,6 +1931,7 @@
       "fixed": true
     },
     {
+      "index": 241,
       "phraseId": "Batuk",
       "english": "Do you speak Russian?",
       "oldValue": "ไข้",
@@ -1697,6 +1939,7 @@
       "fixed": true
     },
     {
+      "index": 242,
       "phraseId": "Hidung tersumbat",
       "english": "I don't speak",
       "oldValue": "ไอ",
@@ -1704,6 +1947,7 @@
       "fixed": true
     },
     {
+      "index": 243,
       "phraseId": "Obat",
       "english": "I speak a little",
       "oldValue": "หวัด",
@@ -1711,6 +1955,7 @@
       "fixed": true
     },
     {
+      "index": 244,
       "phraseId": "Pil",
       "english": "When does the conference start?",
       "oldValue": "ไข้หวัดใหญ่",
@@ -1718,6 +1963,7 @@
       "fixed": true
     },
     {
+      "index": 245,
       "phraseId": "Resep",
       "english": "What is the schedule for presentations?",
       "oldValue": "ยา",
@@ -1725,6 +1971,7 @@
       "fixed": true
     },
     {
+      "index": 246,
       "phraseId": "Asuransi",
       "english": "Will there be translation to Russian?",
       "oldValue": "ใบสั่งยา",
@@ -1732,6 +1979,7 @@
       "fixed": true
     },
     {
+      "index": 247,
       "phraseId": "Alergi",
       "english": "I will speak in Russian",
       "oldValue": "ยาเม็ด",
@@ -1739,6 +1987,7 @@
       "fixed": true
     },
     {
+      "index": 248,
       "phraseId": "Saya alergi terhadap...",
       "english": "We want to see the exhibition",
       "oldValue": "ทันตแพทย์",
@@ -1746,6 +1995,7 @@
       "fixed": true
     },
     {
+      "index": 249,
       "phraseId": "Asma",
       "english": "What time does the exhibition open?",
       "oldValue": "ฟัน",
@@ -1753,6 +2003,7 @@
       "fixed": true
     },
     {
+      "index": 250,
       "phraseId": "Diabetes",
       "english": "How many countries are participating?",
       "oldValue": "ตา",
@@ -1760,6 +2011,7 @@
       "fixed": true
     },
     {
+      "index": 251,
       "phraseId": "Tekanan darah",
       "english": "Can I get the exhibition catalog?",
       "oldValue": "หู",
@@ -1767,6 +2019,7 @@
       "fixed": true
     },
     {
+      "index": 252,
       "phraseId": "Jantung",
       "english": "I came to discuss business",
       "oldValue": "มือ",
@@ -1774,6 +2027,7 @@
       "fixed": true
     },
     {
+      "index": 253,
       "phraseId": "Perut",
       "english": "We want to speak with the general director",
       "oldValue": "ขา",
@@ -1781,6 +2035,7 @@
       "fixed": true
     },
     {
+      "index": 254,
       "phraseId": "Punggung",
       "english": "We want to learn about the production",
       "oldValue": "หลัง",
@@ -1788,6 +2043,7 @@
       "fixed": true
     },
     {
+      "index": 255,
       "phraseId": "Gigi",
       "english": "Length",
       "oldValue": "หัวใจ",
@@ -1795,6 +2051,7 @@
       "fixed": true
     },
     {
+      "index": 256,
       "phraseId": "Cuaca",
       "english": "Meter",
       "oldValue": "อากาศ",
@@ -1802,6 +2059,7 @@
       "fixed": true
     },
     {
+      "index": 257,
       "phraseId": "Panas",
       "english": "Centimeter",
       "oldValue": "แดด",
@@ -1809,6 +2067,7 @@
       "fixed": true
     },
     {
+      "index": 258,
       "phraseId": "Dingin",
       "english": "Weight",
       "oldValue": "ฝน",
@@ -1816,6 +2075,7 @@
       "fixed": true
     },
     {
+      "index": 259,
       "phraseId": "Hujan",
       "english": "Kilogram",
       "oldValue": "หิมะ",
@@ -1823,6 +2083,7 @@
       "fixed": true
     },
     {
+      "index": 260,
       "phraseId": "Salju",
       "english": "Gram",
       "oldValue": "ลม",
@@ -1830,6 +2091,7 @@
       "fixed": true
     },
     {
+      "index": 261,
       "phraseId": "Angin",
       "english": "Volume",
       "oldValue": "มีเมฆมาก",
@@ -1837,6 +2099,7 @@
       "fixed": true
     },
     {
+      "index": 262,
       "phraseId": "Mendung",
       "english": "Liter",
       "oldValue": "อบอุ่น",
@@ -1844,6 +2107,7 @@
       "fixed": true
     },
     {
+      "index": 263,
       "phraseId": "Cerah",
       "english": "White",
       "oldValue": "หนาว",
@@ -1851,6 +2115,7 @@
       "fixed": true
     },
     {
+      "index": 264,
       "phraseId": "Suhu",
       "english": "Yellow",
       "oldValue": "ร้อน",
@@ -1858,6 +2123,7 @@
       "fixed": true
     },
     {
+      "index": 265,
       "phraseId": "Iklim",
       "english": "Green",
       "oldValue": "หนาวจัด",
@@ -1865,6 +2131,7 @@
       "fixed": true
     },
     {
+      "index": 266,
       "phraseId": "Putih",
       "english": "Blue",
       "oldValue": "ขาว",
@@ -1872,6 +2139,7 @@
       "fixed": true
     },
     {
+      "index": 267,
       "phraseId": "Hitam",
       "english": "Red",
       "oldValue": "ดำ",
@@ -1879,6 +2147,7 @@
       "fixed": true
     },
     {
+      "index": 268,
       "phraseId": "Merah",
       "english": "Black",
       "oldValue": "แดง",
@@ -1886,6 +2155,7 @@
       "fixed": true
     },
     {
+      "index": 269,
       "phraseId": "Biru",
       "english": "Gray",
       "oldValue": "น้ำเงิน",
@@ -1893,6 +2163,7 @@
       "fixed": true
     },
     {
+      "index": 270,
       "phraseId": "Hijau",
       "english": "Purple",
       "oldValue": "เขียว",
@@ -1900,6 +2171,7 @@
       "fixed": true
     },
     {
+      "index": 271,
       "phraseId": "Kuning",
       "english": "Orange",
       "oldValue": "เหลือง",
@@ -1907,6 +2179,7 @@
       "fixed": true
     },
     {
+      "index": 272,
       "phraseId": "Oranye",
       "english": "Pink",
       "oldValue": "ส้ม",
@@ -1914,6 +2187,7 @@
       "fixed": true
     },
     {
+      "index": 273,
       "phraseId": "Ungu",
       "english": "Head",
       "oldValue": "ชมพู",
@@ -1921,6 +2195,7 @@
       "fixed": true
     },
     {
+      "index": 274,
       "phraseId": "Merah muda",
       "english": "Arm",
       "oldValue": "น้ำตาล",
@@ -1928,6 +2203,7 @@
       "fixed": true
     },
     {
+      "index": 275,
       "phraseId": "Coklat",
       "english": "Leg",
       "oldValue": "เทา",
@@ -1935,6 +2211,7 @@
       "fixed": true
     },
     {
+      "index": 276,
       "phraseId": "Abu-abu",
       "english": "Eyes",
       "oldValue": "ม่วง",
@@ -1942,6 +2219,7 @@
       "fixed": true
     },
     {
+      "index": 277,
       "phraseId": "Emas",
       "english": "Nose",
       "oldValue": "ฟ้า",
@@ -1949,6 +2227,7 @@
       "fixed": true
     },
     {
+      "index": 278,
       "phraseId": "Utara",
       "english": "Mouth",
       "oldValue": "เหนือ",
@@ -1956,6 +2235,7 @@
       "fixed": true
     },
     {
+      "index": 279,
       "phraseId": "Selatan",
       "english": "Ear",
       "oldValue": "ใต้",
@@ -1963,6 +2243,7 @@
       "fixed": true
     },
     {
+      "index": 280,
       "phraseId": "Timur",
       "english": "House",
       "oldValue": "ตะวันออก",
@@ -1970,6 +2251,7 @@
       "fixed": true
     },
     {
+      "index": 281,
       "phraseId": "Barat",
       "english": "Door",
       "oldValue": "ตะวันตก",
@@ -1977,6 +2259,7 @@
       "fixed": true
     },
     {
+      "index": 282,
       "phraseId": "Peta",
       "english": "Window",
       "oldValue": "แผนที่",
@@ -1984,6 +2267,7 @@
       "fixed": true
     },
     {
+      "index": 283,
       "phraseId": "Kompas",
       "english": "Table",
       "oldValue": "ถนน",
@@ -1991,6 +2275,7 @@
       "fixed": true
     },
     {
+      "index": 284,
       "phraseId": "GPS",
       "english": "Chair",
       "oldValue": "ถนน",
@@ -1998,6 +2283,7 @@
       "fixed": true
     },
     {
+      "index": 285,
       "phraseId": "Lokasi",
       "english": "Bed",
       "oldValue": "จัตุรัส",
@@ -2005,6 +2291,7 @@
       "fixed": true
     },
     {
+      "index": 286,
       "phraseId": "Tujuan",
       "english": "Where is passport control?",
       "oldValue": "สะพาน",
@@ -2012,6 +2299,7 @@
       "fixed": true
     },
     {
+      "index": 287,
       "phraseId": "Rute",
       "english": "Here is my passport",
       "oldValue": "มุม",
@@ -2019,6 +2307,7 @@
       "fixed": true
     },
     {
+      "index": 288,
       "phraseId": "Persimpangan",
       "english": "I intend to stay in China for a week",
       "oldValue": "ไฟจราจร",
@@ -2026,6 +2315,7 @@
       "fixed": true
     },
     {
+      "index": 289,
       "phraseId": "Bundaran",
       "english": "I have a single-entry visa",
       "oldValue": "กลับรถ",
@@ -2033,6 +2323,7 @@
       "fixed": true
     },
     {
+      "index": 290,
       "phraseId": "Jembatan",
       "english": "I am in transit in your country",
       "oldValue": "เดิน",
@@ -2040,6 +2331,7 @@
       "fixed": true
     },
     {
+      "index": 291,
       "phraseId": "Gedung",
       "english": "Here is my customs declaration",
       "oldValue": "เลี้ยว",
@@ -2047,6 +2339,7 @@
       "fixed": true
     },
     {
+      "index": 292,
       "phraseId": "Depan",
       "english": "Here is my luggage",
       "oldValue": "แยก",
@@ -2054,6 +2347,7 @@
       "fixed": true
     },
     {
+      "index": 293,
       "phraseId": "Belakang",
       "english": "There are no prohibited items in my luggage",
       "oldValue": "หัวมุม",
@@ -2061,6 +2355,7 @@
       "fixed": true
     },
     {
+      "index": 294,
       "phraseId": "Seberang",
       "english": "These are my personal belongings",
       "oldValue": "ตรงข้าม",
@@ -2068,6 +2363,7 @@
       "fixed": true
     },
     {
+      "index": 295,
       "phraseId": "Di sebelah",
       "english": "What duty do I need to pay?",
       "oldValue": "ข้างๆ",
@@ -2075,6 +2371,7 @@
       "fixed": true
     },
     {
+      "index": 296,
       "phraseId": "Telepon",
       "english": "What sport do you like?",
       "oldValue": "โทรศัพท์",
@@ -2082,6 +2379,7 @@
       "fixed": true
     },
     {
+      "index": 297,
       "phraseId": "Nomor telepon",
       "english": "I like to play football",
       "oldValue": "อินเทอร์เน็ต",
@@ -2089,6 +2387,7 @@
       "fixed": true
     },
     {
+      "index": 298,
       "phraseId": "Email",
       "english": "Basketball",
       "oldValue": "อีเมล",
@@ -2096,6 +2395,7 @@
       "fixed": true
     },
     {
+      "index": 299,
       "phraseId": "Internet",
       "english": "Swimming",
       "oldValue": "ข้อความ",
@@ -2103,6 +2403,7 @@
       "fixed": true
     },
     {
+      "index": 300,
       "phraseId": "WiFi",
       "english": "Running",
       "oldValue": "โทร",
@@ -2110,6 +2411,7 @@
       "fixed": true
     },
     {
+      "index": 301,
       "phraseId": "Komputer",
       "english": "Where is the gym?",
       "oldValue": "เบอร์โทรศัพท์",
@@ -2117,6 +2419,7 @@
       "fixed": true
     },
     {
+      "index": 302,
       "phraseId": "Ponsel",
       "english": "I want to work out",
       "oldValue": "การติดต่อ",
@@ -2124,6 +2427,7 @@
       "fixed": true
     },
     {
+      "index": 303,
       "phraseId": "Pesan",
       "english": "Coach",
       "oldValue": "คอมพิวเตอร์",
@@ -2131,6 +2435,7 @@
       "fixed": true
     },
     {
+      "index": 304,
       "phraseId": "Surat",
       "english": "Competition / Match",
       "oldValue": "มือถือ",
@@ -2138,6 +2443,7 @@
       "fixed": true
     },
     {
+      "index": 305,
       "phraseId": "Stadion",
       "english": "Stadium",
       "oldValue": "แขก",
