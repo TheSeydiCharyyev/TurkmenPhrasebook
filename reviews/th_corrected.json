@@ -1,0 +1,2148 @@
+{
+  "language": "Thai",
+  "languageCode": "th",
+  "timestamp": "2025-11-30T03:44:00.594Z",
+  "status": "completed",
+  "summary": {
+    "total": 305,
+    "fixed": 70,
+    "notFound": 235
+  },
+  "corrections": [
+    {
+      "phraseId": "Halo",
+      "english": "Hello",
+      "oldValue": "สวัสดี",
+      "newValue": "ฮัลโหล",
+      "fixed": true
+    },
+    {
+      "phraseId": "Selamat pagi",
+      "english": "Thank you",
+      "oldValue": "สวัสดีตอนเช้า",
+      "newValue": "ขอบคุณ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Selamat siang",
+      "english": "Goodbye",
+      "oldValue": "สวัสดีตอนบ่าย",
+      "newValue": "ลาก่อน  Lā k̀xn",
+      "fixed": true
+    },
+    {
+      "phraseId": "Selamat sore",
+      "english": "Excuse me",
+      "oldValue": "สวัสดีตอนเย็น",
+      "newValue": "ขอโทษ  K̄hxthos̄ʹ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Selamat malam",
+      "english": "Good morning",
+      "oldValue": "ราตรีสวัสดิ์",
+      "newValue": "อรุณสวัสดิ์",
+      "fixed": true
+    },
+    {
+      "phraseId": "Selamat tinggal",
+      "english": "Good night",
+      "oldValue": "ลาก่อน",
+      "newValue": "นอนหลับฝันดี",
+      "fixed": true
+    },
+    {
+      "phraseId": "Sampai jumpa",
+      "english": "My name is...",
+      "oldValue": "ไปก่อนนะ",
+      "newValue": "ฉันชื่อ... C̄hạn chụ̄̀x...",
+      "fixed": true
+    },
+    {
+      "phraseId": "Apa kabar?",
+      "english": "What is your name?",
+      "oldValue": "สบายดีไหม",
+      "newValue": "คุณชื่ออะไร",
+      "fixed": true
+    },
+    {
+      "phraseId": "Baik-baik saja, terima kasih",
+      "english": "Nice to meet you",
+      "oldValue": "สบายดี ขอบคุณ",
+      "newValue": "ยินดีที่ได้รู้จัก Yindī thī̀ dị̂ rū̂cạk",
+      "fixed": true
+    },
+    {
+      "phraseId": "Senang bertemu dengan Anda",
+      "english": "Please",
+      "oldValue": "แล้วคุณล่ะ",
+      "newValue": "กรุณา",
+      "fixed": true
+    },
+    {
+      "phraseId": "Nama saya...",
+      "english": "You're welcome",
+      "oldValue": "ด้วยความยินดี",
+      "newValue": "ยินดีครับ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Siapa nama Anda?",
+      "english": "How are you?",
+      "oldValue": "ขอบคุณ",
+      "newValue": "สบายดีใช่ไหม",
+      "fixed": true
+    },
+    {
+      "phraseId": "Dari mana Anda?",
+      "english": "Good luck!",
+      "oldValue": "ขอบคุณมาก",
+      "newValue": "ขอให้โชคดี!",
+      "fixed": true
+    },
+    {
+      "phraseId": "Saya dari...",
+      "english": "Welcome!",
+      "oldValue": "ขอโทษ",
+      "newValue": "ยินดีต้อนรับ ! ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Ya",
+      "english": "Very glad to see you",
+      "oldValue": "ขอโทษด้วย",
+      "newValue": "ดีใจมากที่ได้พบคุณ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Tidak",
+      "english": "Welcome! (arrival greeting)",
+      "oldValue": "ใช่",
+      "newValue": "ยินดีต้อนรับ! (การทักทายเมื่อมาถึง)",
+      "fixed": true
+    },
+    {
+      "phraseId": "Terima kasih",
+      "english": "How are you doing?",
+      "oldValue": "ไม่",
+      "newValue": "คุณเป็นอย่างไรบ้าง? ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Sama-sama",
+      "english": "Let me introduce my friend",
+      "oldValue": "อาจจะ",
+      "newValue": "ขอแนะนำเพื่อนของฉัน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Tolong",
+      "english": "Pleased to meet you!",
+      "oldValue": "ตกลง",
+      "newValue": "ยินดีที่ได้พบคุณ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Maaf",
+      "english": "Please come in",
+      "oldValue": "แน่นอน",
+      "newValue": "เข้ามาสิ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Permisi",
+      "english": "Please sit down",
+      "oldValue": "คุณชื่ออะไร",
+      "newValue": "โปรดนั่งลง",
+      "fixed": true
+    },
+    {
+      "phraseId": "Tidak apa-apa",
+      "english": "Yes",
+      "oldValue": "ฉันชื่อ...",
+      "newValue": "ใช่",
+      "fixed": true
+    },
+    {
+      "phraseId": "Baik",
+      "english": "No",
+      "oldValue": "ยินดีที่ได้รู้จัก",
+      "newValue": "ไม่มี",
+      "fixed": true
+    },
+    {
+      "phraseId": "Buruk",
+      "english": "I agree",
+      "oldValue": "ดีใจที่ได้พบคุณ",
+      "newValue": "ฉันยอมรับ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Sedikit",
+      "english": "Thank you very much for your help",
+      "oldValue": "คุณเป็นอย่างไรบ้าง",
+      "newValue": "ขอบคุณมากสำหรับความช่วยเหลือของคุณ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Banyak",
+      "english": "Thank you very much for your support",
+      "oldValue": "คุณมาจากไหน",
+      "newValue": "ขอบคุณมากสำหรับการสนับสนุนของคุณ!",
+      "fixed": true
+    },
+    {
+      "phraseId": "Semua",
+      "english": "Thank you very much for your understanding",
+      "oldValue": "ฉันมาจาก...",
+      "newValue": "ขอบคุณมากและขอบคุณสำหรับความเข้าใจของคุณ!",
+      "fixed": true
+    },
+    {
+      "phraseId": "Tidak ada",
+      "english": "Help!",
+      "oldValue": "ยินดีต้อนรับ",
+      "newValue": "ช่วยด้วย!",
+      "fixed": true
+    },
+    {
+      "phraseId": "Saya tidak mengerti",
+      "english": "I need a doctor",
+      "oldValue": "ไม่เป็นไร",
+      "newValue": "ฉันต้องการแพทย์ C̄hạn t̂xngkār phæthy̒",
+      "fixed": true
+    },
+    {
+      "phraseId": "Apakah Anda mengerti?",
+      "english": "Call the police",
+      "oldValue": "ขอแสดงความยินดี",
+      "newValue": "แจ้งตำรวจ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Saya mengerti",
+      "english": "Fire!",
+      "oldValue": "โชคดี",
+      "newValue": "ไฟไหม้",
+      "fixed": true
+    },
+    {
+      "phraseId": "Bisakah Anda berbicara lebih lambat?",
+      "english": "I am lost",
+      "oldValue": "ดูแลตัวเองนะ",
+      "newValue": "ฉันหลงทาง",
+      "fixed": true
+    },
+    {
+      "phraseId": "Ulangi lagi, tolong",
+      "english": "I am sick",
+      "oldValue": "แล้วพบกันใหม่",
+      "newValue": "ฉันป่วย",
+      "fixed": true
+    },
+    {
+      "phraseId": "Bagaimana?",
+      "english": "Call an ambulance",
+      "oldValue": "เจอกันใหม่",
+      "newValue": "เรียกรถพยาบาล! Reīyk rt̄h phyābāl!",
+      "fixed": true
+    },
+    {
+      "phraseId": "Apa?",
+      "english": "My wallet was stolen",
+      "oldValue": "มีความสุข",
+      "newValue": "กระเป๋าเงินของฉันถูกขโมย",
+      "fixed": true
+    },
+    {
+      "phraseId": "Di mana?",
+      "english": "Help me",
+      "oldValue": "ทานให้อร่อยนะ",
+      "newValue": "ช่วยฉันด้วย",
+      "fixed": true
+    },
+    {
+      "phraseId": "Kapan?",
+      "english": "Danger!",
+      "oldValue": "ไชโย",
+      "newValue": "Danger! ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Siapa?",
+      "english": "Call a doctor!",
+      "oldValue": "สวัสดีปีใหม่",
+      "newValue": "เรียกหมอ! Reīyk h̄mx!",
+      "fixed": true
+    },
+    {
+      "phraseId": "Mengapa?",
+      "english": "I want a room",
+      "oldValue": "ขอโทษที่รบกวน",
+      "newValue": "ฉันต้องการห้อง",
+      "fixed": true
+    },
+    {
+      "phraseId": "Berapa?",
+      "english": "How much per night?",
+      "oldValue": "ไม่มีปัญหา",
+      "newValue": "คืนละเท่าไหร่?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Satu",
+      "english": "Is there WiFi here?",
+      "oldValue": "หนึ่ง",
+      "newValue": "ที่นี่มี Wi-Fi ไหม?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Dua",
+      "english": "I have a reservation",
+      "oldValue": "สอง",
+      "newValue": "ฉันมีการจอง",
+      "fixed": true
+    },
+    {
+      "phraseId": "Tiga",
+      "english": "Single room",
+      "oldValue": "สาม",
+      "newValue": "ห้องเดี่ยว H̄̂xng deī̀yw ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Empat",
+      "english": "Double room",
+      "oldValue": "สี่",
+      "newValue": "ห้องคู่ h̄̂xng khū̀ kıl̂ ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Lima",
+      "english": "What time is check-out?",
+      "oldValue": "ห้า",
+      "newValue": "เช็กเอาท์เวลาเท่าไร?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Enam",
+      "english": "Key",
+      "oldValue": "หก",
+      "newValue": "รหัสคีย์",
+      "fixed": true
+    },
+    {
+      "phraseId": "Tujuh",
+      "english": "Room number",
+      "oldValue": "เจ็ด",
+      "newValue": "ผู้เช่าตกลงเช่าห้อง.......",
+      "fixed": true
+    },
+    {
+      "phraseId": "Delapan",
+      "english": "Is breakfast included?",
+      "oldValue": "แปด",
+      "newValue": "รวมอาหารเช้า",
+      "fixed": true
+    },
+    {
+      "phraseId": "Sembilan",
+      "english": "Please clean the room",
+      "oldValue": "เก้า",
+      "newValue": "โปรดทำความสะอาดห้อง",
+      "fixed": true
+    },
+    {
+      "phraseId": "Sepuluh",
+      "english": "I want to extend my stay",
+      "oldValue": "สิบ",
+      "newValue": "ฉันต้องการขยายเวลาเข้าพัก",
+      "fixed": true
+    },
+    {
+      "phraseId": "Sebelas",
+      "english": "I am hungry",
+      "oldValue": "สิบเอ็ด",
+      "newValue": "ผมหิวแล้ว”",
+      "fixed": true
+    },
+    {
+      "phraseId": "Dua belas",
+      "english": "Menu, please",
+      "oldValue": "สิบสอง",
+      "newValue": "เมนูได้โปรด",
+      "fixed": true
+    },
+    {
+      "phraseId": "Tiga belas",
+      "english": "Delicious",
+      "oldValue": "ยี่สิบ",
+      "newValue": "อร่อย xr̀xy",
+      "fixed": true
+    },
+    {
+      "phraseId": "Lima belas",
+      "english": "Bill, please",
+      "oldValue": "สามสิบ",
+      "newValue": "เก็บเงินด้วย Kĕb ngein d̂wy",
+      "fixed": true
+    },
+    {
+      "phraseId": "Dua puluh",
+      "english": "I am vegetarian",
+      "oldValue": "สี่สิบ",
+      "newValue": "ฉันเป็นมังสวิรัติ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Tiga puluh",
+      "english": "Not spicy",
+      "oldValue": "ห้าสิบ",
+      "newValue": "ไม่ได้รับการรสเผ็ด",
+      "fixed": true
+    },
+    {
+      "phraseId": "Lima puluh",
+      "english": "Water",
+      "oldValue": "หนึ่งร้อย",
+      "newValue": "น้ำ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Seratus",
+      "english": "Tea",
+      "oldValue": "หนึ่งพัน",
+      "newValue": "ชา",
+      "fixed": true
+    },
+    {
+      "phraseId": "Seribu",
+      "english": "Rice",
+      "oldValue": "หนึ่งล้าน",
+      "newValue": "ข้าว",
+      "fixed": true
+    },
+    {
+      "phraseId": "Sejuta",
+      "english": "Noodles",
+      "oldValue": "ศูนย์",
+      "newValue": "ก๋วยเตี๋ยว ǩwyteī̌yw ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Hari ini",
+      "english": "Chicken",
+      "oldValue": "วันจันทร์",
+      "newValue": "ไก่",
+      "fixed": true
+    },
+    {
+      "phraseId": "Kemarin",
+      "english": "Beef",
+      "oldValue": "วันอังคาร",
+      "newValue": "เนื้อวัว",
+      "fixed": true
+    },
+    {
+      "phraseId": "Besok",
+      "english": "How much does it cost?",
+      "oldValue": "วันพุธ",
+      "newValue": "ต้องเสียเงินเท่าไหร่?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Pagi",
+      "english": "I am allergic to...",
+      "oldValue": "วันพฤหัสบดี",
+      "newValue": "ฉันแพ้...",
+      "fixed": true
+    },
+    {
+      "phraseId": "Siang",
+      "english": "Can I take it to go?",
+      "oldValue": "วันศุกร์",
+      "newValue": "ฉันสามารถนำมันไปได้หรือไม่?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Sore",
+      "english": "Very delicious",
+      "oldValue": "วันเสาร์",
+      "newValue": "arroy mak mak",
+      "fixed": true
+    },
+    {
+      "phraseId": "Malam",
+      "english": "Appetizers",
+      "oldValue": "วันอาทิตย์",
+      "newValue": "สิ่งกระตุ้นความอยากอาหาร",
+      "fixed": true
+    },
+    {
+      "phraseId": "Minggu",
+      "english": "Ham",
+      "oldValue": "มกราคม",
+      "newValue": "แฮม",
+      "fixed": true
+    },
+    {
+      "phraseId": "Bulan",
+      "english": "Cheese platter",
+      "oldValue": "กุมภาพันธ์",
+      "newValue": "จานชีส",
+      "fixed": true
+    },
+    {
+      "phraseId": "Tahun",
+      "english": "Soup",
+      "oldValue": "มีนาคม",
+      "newValue": "ซุป Sup ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Hari",
+      "english": "Borscht",
+      "oldValue": "เมษายน",
+      "newValue": "บอร์ชท์",
+      "fixed": true
+    },
+    {
+      "phraseId": "Jam",
+      "english": "Chicken noodle soup",
+      "oldValue": "พฤษภาคม",
+      "newValue": "ซุปก๋วยเตี๋ยวไก่",
+      "fixed": true
+    },
+    {
+      "phraseId": "Menit",
+      "english": "Meat broth",
+      "oldValue": "มิถุนายน",
+      "newValue": "น้ำซุปเนื้อ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Detik",
+      "english": "Meat",
+      "oldValue": "กรกฎาคม",
+      "newValue": "เนื้อสัตว์",
+      "fixed": true
+    },
+    {
+      "phraseId": "Senin",
+      "english": "Lamb",
+      "oldValue": "สิงหาคม",
+      "newValue": "เนื้อแกะ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Selasa",
+      "english": "Pork",
+      "oldValue": "กันยายน",
+      "newValue": "เนื้อหมู",
+      "fixed": true
+    },
+    {
+      "phraseId": "Rabu",
+      "english": "Fried",
+      "oldValue": "ตุลาคม",
+      "newValue": "ทอด",
+      "fixed": true
+    },
+    {
+      "phraseId": "Kamis",
+      "english": "Boiled",
+      "oldValue": "พฤศจิกายน",
+      "newValue": "การเดือด",
+      "fixed": true
+    },
+    {
+      "phraseId": "Jumat",
+      "english": "Fish dishes",
+      "oldValue": "ธันวาคม",
+      "newValue": "เมนูปลา",
+      "fixed": true
+    },
+    {
+      "phraseId": "Sabtu",
+      "english": "Fish",
+      "oldValue": "วันนี้",
+      "newValue": "ปลา",
+      "fixed": true
+    },
+    {
+      "phraseId": "Minggu",
+      "english": "Salmon",
+      "oldValue": "เมื่อวาน",
+      "newValue": "ปลาแซลมอน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Januari",
+      "english": "Shrimp",
+      "oldValue": "พรุ่งนี้",
+      "newValue": "กุ้ง",
+      "fixed": true
+    },
+    {
+      "phraseId": "Februari",
+      "english": "Crabs",
+      "oldValue": "ตอนนี้",
+      "newValue": "ปู",
+      "fixed": true
+    },
+    {
+      "phraseId": "Maret",
+      "english": "Is there a vegetarian menu?",
+      "oldValue": "ทีหลัง",
+      "newValue": "มีเมนูมังสวิรัติไหม?",
+      "fixed": true
+    },
+    {
+      "phraseId": "April",
+      "english": "Is this dish spicy?",
+      "oldValue": "กี่โมงแล้ว",
+      "newValue": "เมนูนี้รสชาติจัดจ้านไหม?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Restoran",
+      "english": "Not spicy",
+      "oldValue": "อาหาร",
+      "newValue": "ไม่ได้รับการรสเผ็ด",
+      "fixed": true
+    },
+    {
+      "phraseId": "Menu",
+      "english": "Apple",
+      "oldValue": "น้ำ",
+      "newValue": "Apple",
+      "fixed": true
+    },
+    {
+      "phraseId": "Sarapan",
+      "english": "Banana",
+      "oldValue": "ขนมปัง",
+      "newValue": "กล้วย",
+      "fixed": true
+    },
+    {
+      "phraseId": "Makan siang",
+      "english": "Orange",
+      "oldValue": "เนื้อ",
+      "newValue": "สีส้ม",
+      "fixed": true
+    },
+    {
+      "phraseId": "Makan malam",
+      "english": "Grapes",
+      "oldValue": "ปลา",
+      "newValue": "องุ่น",
+      "fixed": true
+    },
+    {
+      "phraseId": "Air",
+      "english": "Watermelon",
+      "oldValue": "ผัก",
+      "newValue": "แตงโม",
+      "fixed": true
+    },
+    {
+      "phraseId": "Teh",
+      "english": "Potato",
+      "oldValue": "ผลไม้",
+      "newValue": "มันฝรั่ง",
+      "fixed": true
+    },
+    {
+      "phraseId": "Kopi",
+      "english": "Tomato",
+      "oldValue": "นม",
+      "newValue": "มะเขือเทศ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Susu",
+      "english": "How much does it cost?",
+      "oldValue": "เนย",
+      "newValue": "ต้องเสียเงินเท่าไหร่?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Jus",
+      "english": "Too expensive",
+      "oldValue": "ไข่",
+      "newValue": "แพงเกินไป",
+      "fixed": true
+    },
+    {
+      "phraseId": "Bir",
+      "english": "Can it be cheaper?",
+      "oldValue": "ข้าว",
+      "newValue": "ราคาถูกกว่านี้ได้ไหม?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Anggur",
+      "english": "I will buy this",
+      "oldValue": "ซุป",
+      "newValue": "ฉันจะซื้อสิ่งนี้",
+      "fixed": true
+    },
+    {
+      "phraseId": "Roti",
+      "english": "Can I try it on?",
+      "oldValue": "สลัด",
+      "newValue": "ฉันสามารถลองสวมใส่ได้หรือไม่?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Daging",
+      "english": "Bigger size",
+      "oldValue": "กาแฟ",
+      "newValue": "ขนาดใหญ่ขึ้น",
+      "fixed": true
+    },
+    {
+      "phraseId": "Ikan",
+      "english": "Smaller size",
+      "oldValue": "ชา",
+      "newValue": "ขนาดเล็กลง",
+      "fixed": true
+    },
+    {
+      "phraseId": "Ayam",
+      "english": "Cash",
+      "oldValue": "น้ำผลไม้",
+      "newValue": "เงินสด",
+      "fixed": true
+    },
+    {
+      "phraseId": "Sayuran",
+      "english": "Credit card",
+      "oldValue": "เบียร์",
+      "newValue": "บัตรเครดิต",
+      "fixed": true
+    },
+    {
+      "phraseId": "Buah",
+      "english": "Receipt",
+      "oldValue": "ไวน์",
+      "newValue": "Receipt",
+      "fixed": true
+    },
+    {
+      "phraseId": "Nasi",
+      "english": "Return/Exchange",
+      "oldValue": "ร้านอาหาร",
+      "newValue": "การคืน/เปลี่ยนสินค้า",
+      "fixed": true
+    },
+    {
+      "phraseId": "Sup",
+      "english": "Where is the market?",
+      "oldValue": "เมนู",
+      "newValue": "ตลาดอยู่ที่ไหน?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Salad",
+      "english": "Is there a discount?",
+      "oldValue": "อาหารเช้า",
+      "newValue": "มีส่วนลดไหม?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Keju",
+      "english": "Can I try it on?",
+      "oldValue": "อาหารกลางวัน",
+      "newValue": "ฉันสามารถลองสวมใส่ได้หรือไม่?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Mentega",
+      "english": "What is your size?",
+      "oldValue": "อาหารเย็น",
+      "newValue": "คุณมีขนาดเท่าไหร่?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Gula",
+      "english": "Are there other colors?",
+      "oldValue": "ฉันหิว",
+      "newValue": "มีสีอื่นอีกไหม?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Garam",
+      "english": "Where is the train station?",
+      "oldValue": "ฉันกระหาย",
+      "newValue": "สถานีรถไฟที่ใกล้ที่สุดอยู่ที่ไหน S̄t̄hānī rt̄hfị thī̀ kıl̂ thī̀s̄ud xyū̀ thī̀h̄ịn",
+      "fixed": true
+    },
+    {
+      "phraseId": "Merica",
+      "english": "Airport",
+      "oldValue": "อร่อย",
+      "newValue": "สนามบิน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Es krim",
+      "english": "Taxi",
+      "oldValue": "เช็คบิล",
+      "newValue": "แท็กซี่",
+      "fixed": true
+    },
+    {
+      "phraseId": "Kue",
+      "english": "Bus",
+      "oldValue": "ฉันทานมังสวิรัติ",
+      "newValue": "รถโดยสารประจำทาง Rt̄hdoys̄ārpracảthāng",
+      "fixed": true
+    },
+    {
+      "phraseId": "Enak",
+      "english": "Metro",
+      "oldValue": "แพ้อาหาร",
+      "newValue": "เมโทร",
+      "fixed": true
+    },
+    {
+      "phraseId": "Bon appétit",
+      "english": "Train ticket",
+      "oldValue": "เผ็ด",
+      "newValue": "ตั๋วรถไฟ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Toko",
+      "english": "Schedule",
+      "oldValue": "ร้านค้า",
+      "newValue": "ตาราง",
+      "fixed": true
+    },
+    {
+      "phraseId": "Pasar",
+      "english": "Platform",
+      "oldValue": "ตลาด",
+      "newValue": "สถาปัตยกรรมของ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Berapa harganya?",
+      "english": "Next stop",
+      "oldValue": "ราคาเท่าไหร่",
+      "newValue": "จุดแวะถัดไป",
+      "fixed": true
+    },
+    {
+      "phraseId": "Berapa biayanya?",
+      "english": "Stop",
+      "oldValue": "แพง",
+      "newValue": "หยุด",
+      "fixed": true
+    },
+    {
+      "phraseId": "Saya ingin membeli ini",
+      "english": "How long until...?",
+      "oldValue": "ถูก",
+      "newValue": "อีกนานแค่ไหนกว่าจะถึง...?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Mahal",
+      "english": "I need to go to...",
+      "oldValue": "ราคา",
+      "newValue": "ฉันต้องไปที่...",
+      "fixed": true
+    },
+    {
+      "phraseId": "Murah",
+      "english": "When will the next bus arrive?",
+      "oldValue": "ฉันจะซื้อ",
+      "newValue": "รถบัสคันต่อไปจะมาถึงเมื่อไร?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Diskon",
+      "english": "I want to go to the airport",
+      "oldValue": "ฉันแค่ดู",
+      "newValue": "ผมจำเป็นต้องไปที่สนามบิน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Harga",
+      "english": "On the left",
+      "oldValue": "ส่วนลด",
+      "newValue": "ทางด้านซ้ายมือ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Uang",
+      "english": "On the right",
+      "oldValue": "ขนาด",
+      "newValue": "ทางด้านขวาด้วย",
+      "fixed": true
+    },
+    {
+      "phraseId": "Kartu kredit",
+      "english": "Straight",
+      "oldValue": "สี",
+      "newValue": "ตรง",
+      "fixed": true
+    },
+    {
+      "phraseId": "Tunai",
+      "english": "Turn",
+      "oldValue": "ใหญ่",
+      "newValue": "ลองหมุนการ์ด",
+      "fixed": true
+    },
+    {
+      "phraseId": "Tanda terima",
+      "english": "Intersection",
+      "oldValue": "เล็ก",
+      "newValue": "สามแยก S̄ām yæk",
+      "fixed": true
+    },
+    {
+      "phraseId": "Apakah Anda menerima kartu?",
+      "english": "Traffic light",
+      "oldValue": "กลาง",
+      "newValue": "ไฟจราจร",
+      "fixed": true
+    },
+    {
+      "phraseId": "Ukuran",
+      "english": "Far",
+      "oldValue": "ใหม่",
+      "newValue": "ไกล",
+      "fixed": true
+    },
+    {
+      "phraseId": "Warna",
+      "english": "Near",
+      "oldValue": "เก่า",
+      "newValue": "ใกล้",
+      "fixed": true
+    },
+    {
+      "phraseId": "Besar",
+      "english": "Map",
+      "oldValue": "ดี",
+      "newValue": "แผนที่",
+      "fixed": true
+    },
+    {
+      "phraseId": "Kecil",
+      "english": "Where is...?",
+      "oldValue": "เลว",
+      "newValue": ".....อยู่ไหน .....Xyū̀ h̄ịn",
+      "fixed": true
+    },
+    {
+      "phraseId": "Sedang",
+      "english": "Hospital",
+      "oldValue": "เปิด",
+      "newValue": "โรงพยาบาล",
+      "fixed": true
+    },
+    {
+      "phraseId": "Baru",
+      "english": "Pharmacy",
+      "oldValue": "ปิด",
+      "newValue": "เภสัชกรรม P̣hes̄ạchkrrm",
+      "fixed": true
+    },
+    {
+      "phraseId": "Lama",
+      "english": "I have a headache",
+      "oldValue": "เงินสด",
+      "newValue": "ฉันปวดหัว",
+      "fixed": true
+    },
+    {
+      "phraseId": "Cantik",
+      "english": "I have a stomachache",
+      "oldValue": "บัตรเครดิต",
+      "newValue": "ฉันมีอาการปวดท้อง C̄hạn mī xākār pwd tĥxng\n",
+      "fixed": true
+    },
+    {
+      "phraseId": "Jelek",
+      "english": "Temperature",
+      "oldValue": "ใบเสร็จ",
+      "newValue": "อุณหภูมิ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Berkualitas",
+      "english": "Cough",
+      "oldValue": "ของที่ระลึก",
+      "newValue": "ไอ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Bisakah saya mencoba ini?",
+      "english": "Medicine",
+      "oldValue": "ของขวัญ",
+      "newValue": "ยา",
+      "fixed": true
+    },
+    {
+      "phraseId": "Taksi",
+      "english": "Doctor",
+      "oldValue": "รถเมล์",
+      "newValue": "แพทย์ phæthy̒",
+      "fixed": true
+    },
+    {
+      "phraseId": "Bus",
+      "english": "Nurse",
+      "oldValue": "แท็กซี่",
+      "newValue": "พยาบาล",
+      "fixed": true
+    },
+    {
+      "phraseId": "Kereta",
+      "english": "Ambulance",
+      "oldValue": "รถไฟ",
+      "newValue": "รถพยาบาล",
+      "fixed": true
+    },
+    {
+      "phraseId": "Pesawat",
+      "english": "I have a headache",
+      "oldValue": "เครื่องบิน",
+      "newValue": "ฉันปวดหัว",
+      "fixed": true
+    },
+    {
+      "phraseId": "Bandara",
+      "english": "I need a painkiller",
+      "oldValue": "รถยนต์",
+      "newValue": "ฉันต้องการยาแก้ปวด",
+      "fixed": true
+    },
+    {
+      "phraseId": "Stasiun",
+      "english": "Yuan",
+      "oldValue": "จักรยาน",
+      "newValue": "หยวน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Halte",
+      "english": "Manat",
+      "oldValue": "สนามบิน",
+      "newValue": "มานัต",
+      "fixed": true
+    },
+    {
+      "phraseId": "Tiket",
+      "english": "Card payment",
+      "oldValue": "สถานีรถไฟ",
+      "newValue": "ชำระเงินผ่านบัตร",
+      "fixed": true
+    },
+    {
+      "phraseId": "Berapa tiketnya?",
+      "english": "Bank",
+      "oldValue": "ป้ายรถเมล์",
+      "newValue": "ธนาคาร",
+      "fixed": true
+    },
+    {
+      "phraseId": "Di mana stasiun bus?",
+      "english": "ATM",
+      "oldValue": "ตั้ว",
+      "newValue": "ATM",
+      "fixed": true
+    },
+    {
+      "phraseId": "Bagaimana menuju...?",
+      "english": "Currency exchange",
+      "oldValue": "นี่ที่ไหน",
+      "newValue": "แลกเปลี่ยนเงินตรา",
+      "fixed": true
+    },
+    {
+      "phraseId": "Kiri",
+      "english": "Change",
+      "oldValue": "ไปที่นั่นได้อย่างไร",
+      "newValue": "เปลี่ยน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Kanan",
+      "english": "Free",
+      "oldValue": "ซ้าย",
+      "newValue": "ฟรี",
+      "fixed": true
+    },
+    {
+      "phraseId": "Lurus",
+      "english": "Price",
+      "oldValue": "ขวา",
+      "newValue": "ราคา",
+      "fixed": true
+    },
+    {
+      "phraseId": "Jauh",
+      "english": "Mobile phone",
+      "oldValue": "ตรงไป",
+      "newValue": "โทรศัพท์มือถือ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Dekat",
+      "english": "Wi-Fi",
+      "oldValue": "ใกล้",
+      "newValue": "Wi-Fi",
+      "fixed": true
+    },
+    {
+      "phraseId": "Di sini",
+      "english": "What is the password?",
+      "oldValue": "ไกล",
+      "newValue": "รหัสผ่านคืออะไร!",
+      "fixed": true
+    },
+    {
+      "phraseId": "Di sana",
+      "english": "Send SMS",
+      "oldValue": "ที่นี่",
+      "newValue": "ส่ง SMS",
+      "fixed": true
+    },
+    {
+      "phraseId": "Jalan",
+      "english": "Cinema",
+      "oldValue": "ที่นั่น",
+      "newValue": "โรงภาพยนตร์ Rong p̣hāphyntr̒",
+      "fixed": true
+    },
+    {
+      "phraseId": "Alamat",
+      "english": "Museum",
+      "oldValue": "ที่อยู่",
+      "newValue": "พิพิธภัณฑ์",
+      "fixed": true
+    },
+    {
+      "phraseId": "Hotel",
+      "english": "Park",
+      "oldValue": "โรงแรม",
+      "newValue": "สวนสาธารณะ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Kamar",
+      "english": "Concert",
+      "oldValue": "ห้อง",
+      "newValue": "คอนเสิร์ต",
+      "fixed": true
+    },
+    {
+      "phraseId": "Reservasi",
+      "english": "Shopping mall",
+      "oldValue": "การจอง",
+      "newValue": "ศูนย์การค้า",
+      "fixed": true
+    },
+    {
+      "phraseId": "Saya sudah memesan",
+      "english": "Swimming pool",
+      "oldValue": "ฉันมีการจอง",
+      "newValue": "สระว่ายน้ำ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Saya ingin kamar",
+      "english": "Gym",
+      "oldValue": "ห้องเดี่ยว",
+      "newValue": "ยิมออกกำลังกาย",
+      "fixed": true
+    },
+    {
+      "phraseId": "Untuk satu orang",
+      "english": "Library",
+      "oldValue": "ห้องคู่",
+      "newValue": "ห้องสมุด",
+      "fixed": true
+    },
+    {
+      "phraseId": "Untuk dua orang",
+      "english": "Night market",
+      "oldValue": "หนึ่งคืน",
+      "newValue": "ตลาดกลางคืน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Untuk satu malam",
+      "english": "How much is the ticket?",
+      "oldValue": "สองคืน",
+      "newValue": "ตั๋วราคาเท่าไหร่?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Untuk dua malam",
+      "english": "What time is it?",
+      "oldValue": "หนึ่งสัปดาห์",
+      "newValue": "ตอนนี้เวลาเท่าไหร่แล้ว",
+      "fixed": true
+    },
+    {
+      "phraseId": "Untuk seminggu",
+      "english": "Today",
+      "oldValue": "กุญแจ",
+      "newValue": "วันนี้",
+      "fixed": true
+    },
+    {
+      "phraseId": "Berapa harga kamarnya?",
+      "english": "Tomorrow",
+      "oldValue": "เตียง",
+      "newValue": "พรุ่งนี้",
+      "fixed": true
+    },
+    {
+      "phraseId": "Apakah sudah termasuk sarapan?",
+      "english": "Yesterday",
+      "oldValue": "ห้องน้ำ",
+      "newValue": "เมื่อวาน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Kunci",
+      "english": "Monday",
+      "oldValue": "ฝักบัว",
+      "newValue": "วันจันทร์",
+      "fixed": true
+    },
+    {
+      "phraseId": "Kunci kamar",
+      "english": "Sunday",
+      "oldValue": "ไวไฟ",
+      "newValue": "วันอาทิตย์",
+      "fixed": true
+    },
+    {
+      "phraseId": "Tempat tidur",
+      "english": "In the morning",
+      "oldValue": "รหัสผ่าน",
+      "newValue": "ในตอนเช้า",
+      "fixed": true
+    },
+    {
+      "phraseId": "Kamar mandi",
+      "english": "In the afternoon",
+      "oldValue": "รวมอาหารเช้าไหม",
+      "newValue": "ในช่วงบ่าย",
+      "fixed": true
+    },
+    {
+      "phraseId": "Shower",
+      "english": "In the evening",
+      "oldValue": "เช็คเอาท์",
+      "newValue": "ในตอนเย็น",
+      "fixed": true
+    },
+    {
+      "phraseId": "AC",
+      "english": "What month?",
+      "oldValue": "เช็คอิน",
+      "newValue": "เดือนไหน?",
+      "fixed": true
+    },
+    {
+      "phraseId": "WiFi",
+      "english": "Monday",
+      "oldValue": "แผนกต้อนรับ",
+      "newValue": "วันจันทร์",
+      "fixed": true
+    },
+    {
+      "phraseId": "Apa kata sandi WiFi?",
+      "english": "Tuesday",
+      "oldValue": "พนักงานต้อนรับ",
+      "newValue": "วันอังคาร",
+      "fixed": true
+    },
+    {
+      "phraseId": "Handuk",
+      "english": "Wednesday",
+      "oldValue": "บริการห้องพัก",
+      "newValue": "วันพุธ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Sabun",
+      "english": "Thursday",
+      "oldValue": "การทำความสะอาด",
+      "newValue": "วันพฤหัสบดี",
+      "fixed": true
+    },
+    {
+      "phraseId": "Layanan kamar",
+      "english": "Friday",
+      "oldValue": "ผ้าเช็ดตัว",
+      "newValue": "วันศุกร์",
+      "fixed": true
+    },
+    {
+      "phraseId": "Check-in",
+      "english": "Saturday",
+      "oldValue": "เครื่องปรับอากาศ",
+      "newValue": "วันเสาร์",
+      "fixed": true
+    },
+    {
+      "phraseId": "Check-out",
+      "english": "Sunday",
+      "oldValue": "เครื่องทำความร้อน",
+      "newValue": "วันอาทิตย์",
+      "fixed": true
+    },
+    {
+      "phraseId": "Tolong!",
+      "english": "January",
+      "oldValue": "ช่วยด้วย",
+      "newValue": "มกราคม",
+      "fixed": true
+    },
+    {
+      "phraseId": "Darurat",
+      "english": "February",
+      "oldValue": "ตำรวจ",
+      "newValue": "กุมภาพันธ์",
+      "fixed": true
+    },
+    {
+      "phraseId": "Polisi",
+      "english": "March",
+      "oldValue": "หมอ",
+      "newValue": "มีนาคม",
+      "fixed": true
+    },
+    {
+      "phraseId": "Dokter",
+      "english": "April",
+      "oldValue": "โรงพยาบาล",
+      "newValue": "เมษายน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Rumah sakit",
+      "english": "May",
+      "oldValue": "รถพยาบาล",
+      "newValue": "พฤษภาคม",
+      "fixed": true
+    },
+    {
+      "phraseId": "Ambulans",
+      "english": "June",
+      "oldValue": "ไฟไหม้",
+      "newValue": "มิถุนายน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Apotik",
+      "english": "July",
+      "oldValue": "อันตราย",
+      "newValue": "กรกฎาคม",
+      "fixed": true
+    },
+    {
+      "phraseId": "Saya sakit",
+      "english": "August",
+      "oldValue": "ฉันไม่สบาย",
+      "newValue": "สิงหาคม",
+      "fixed": true
+    },
+    {
+      "phraseId": "Saya butuh dokter",
+      "english": "September",
+      "oldValue": "ฉันต้องการหมอ",
+      "newValue": "กันยายน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Saya kehilangan...",
+      "english": "October",
+      "oldValue": "ฉันหลงทาง",
+      "newValue": "ตุลาคม",
+      "fixed": true
+    },
+    {
+      "phraseId": "Saya tersesat",
+      "english": "November",
+      "oldValue": "ห้องน้ำอยู่ไหน",
+      "newValue": "พฤศจิกายน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Api",
+      "english": "December",
+      "oldValue": "ฉันไม่เข้าใจ",
+      "newValue": "ธันวาคม",
+      "fixed": true
+    },
+    {
+      "phraseId": "Bahaya",
+      "english": "One",
+      "oldValue": "คุณพูดภาษาอังกฤษได้ไหม",
+      "newValue": "หนึ่ง",
+      "fixed": true
+    },
+    {
+      "phraseId": "Hati-hati",
+      "english": "Two",
+      "oldValue": "โทรหาสถานทูต",
+      "newValue": "ตัวอย่างเช่นวัยรุ่นสองคน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Dilarang",
+      "english": "Three",
+      "oldValue": "ร้านขายยา",
+      "newValue": "3 คน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Apa itu?",
+      "english": "Four",
+      "oldValue": "อะไร",
+      "newValue": "สี่ s̄ī̀",
+      "fixed": true
+    },
+    {
+      "phraseId": "Di mana itu?",
+      "english": "Five",
+      "oldValue": "ใคร",
+      "newValue": "ห้า  h̄̂ā",
+      "fixed": true
+    },
+    {
+      "phraseId": "Berapa ini?",
+      "english": "Six",
+      "oldValue": "ที่ไหน",
+      "newValue": "หก h̄k ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Kapan?",
+      "english": "Seven",
+      "oldValue": "เมื่อไหร่",
+      "newValue": "เจ็ด  cĕd",
+      "fixed": true
+    },
+    {
+      "phraseId": "Siapa?",
+      "english": "Eight",
+      "oldValue": "ทำไม",
+      "newValue": "แปด pæd ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Mengapa?",
+      "english": "Nine",
+      "oldValue": "อย่างไร",
+      "newValue": "เก้า kêā ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Bagaimana?",
+      "english": "Ten",
+      "oldValue": "เท่าไหร่",
+      "newValue": "สิบ  s̄ib",
+      "fixed": true
+    },
+    {
+      "phraseId": "Di mana toilet?",
+      "english": "Twenty",
+      "oldValue": "ไหน",
+      "newValue": "ยี่สิบ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Apakah Anda bisa membantu?",
+      "english": "One hundred",
+      "oldValue": "ของใคร",
+      "newValue": "หนึ่งร้อย H̄nụ̀ng r̂xy",
+      "fixed": true
+    },
+    {
+      "phraseId": "Apakah Anda tahu...?",
+      "english": "One thousand",
+      "oldValue": "นี่อะไร",
+      "newValue": "หนึ่งพัน H̄nụ̀ng phạn",
+      "fixed": true
+    },
+    {
+      "phraseId": "Bisakah Anda menunjukkan?",
+      "english": "Ten thousand",
+      "oldValue": "นั่นอะไร",
+      "newValue": "หนึ่งหมื่น H̄nụ̀ng h̄mụ̄̀n ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Apakah mungkin?",
+      "english": "First",
+      "oldValue": "ได้ไหม",
+      "newValue": "หน้าแรก",
+      "fixed": true
+    },
+    {
+      "phraseId": "Apakah Anda punya...?",
+      "english": "One thousand",
+      "oldValue": "มีไหม",
+      "newValue": "หนึ่งพัน H̄nụ̀ng phạn",
+      "fixed": true
+    },
+    {
+      "phraseId": "Apakah itu tersedia?",
+      "english": "Two thousand",
+      "oldValue": "กี่โมง",
+      "newValue": "สองพัน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Berapa lama?",
+      "english": "Ten thousand",
+      "oldValue": "คุณช่วยได้ไหม",
+      "newValue": "หนึ่งหมื่น H̄nụ̀ng h̄mụ̄̀n ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Berapa jauh?",
+      "english": "One hundred thousand",
+      "oldValue": "อยู่ที่ไหน",
+      "newValue": "\"หนึ่งแสน?\"",
+      "fixed": true
+    },
+    {
+      "phraseId": "Jam berapa sekarang?",
+      "english": "One million",
+      "oldValue": "นี่เรียกว่าอะไร",
+      "newValue": "หนึ่งล้าน h̄nụ̀ng l̂ān",
+      "fixed": true
+    },
+    {
+      "phraseId": "Jam berapa buka?",
+      "english": "What is the weather today?",
+      "oldValue": "คุณรู้ไหม",
+      "newValue": "สภาพอากาศวันนี้เป็นอย่างไรบ้าง?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Jam berapa tutup?",
+      "english": "Rain",
+      "oldValue": "ดูได้ไหม",
+      "newValue": "ฝน F̄n",
+      "fixed": true
+    },
+    {
+      "phraseId": "Apakah buka hari ini?",
+      "english": "Sunny",
+      "oldValue": "ถูกต้องไหม",
+      "newValue": "ซันนี",
+      "fixed": true
+    },
+    {
+      "phraseId": "Keluarga",
+      "english": "Cloudy",
+      "oldValue": "ครอบครัว",
+      "newValue": "มีเมฆ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Ayah",
+      "english": "Windy",
+      "oldValue": "แม่",
+      "newValue": "ลมแรง",
+      "fixed": true
+    },
+    {
+      "phraseId": "Ibu",
+      "english": "Snow",
+      "oldValue": "พ่อ",
+      "newValue": "หิมะ  h̄ima",
+      "fixed": true
+    },
+    {
+      "phraseId": "Anak laki-laki",
+      "english": "Hot",
+      "oldValue": "ลูกชาย",
+      "newValue": "ร้อน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Anak perempuan",
+      "english": "Cold",
+      "oldValue": "ลูกสาว",
+      "newValue": "เย็น Yĕn ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Saudara laki-laki",
+      "english": "My name is...",
+      "oldValue": "พี่ชาย",
+      "newValue": "ฉันชื่อ... C̄hạn chụ̄̀x...",
+      "fixed": true
+    },
+    {
+      "phraseId": "Saudara perempuan",
+      "english": "My last name is...",
+      "oldValue": "พี่สาว",
+      "newValue": "นามสกุลของฉันคือ...",
+      "fixed": true
+    },
+    {
+      "phraseId": "Suami",
+      "english": "What is your name?",
+      "oldValue": "สามี",
+      "newValue": "คุณชื่ออะไร",
+      "fixed": true
+    },
+    {
+      "phraseId": "Istri",
+      "english": "I am from Turkmenistan",
+      "oldValue": "ภรรยา",
+      "newValue": "ฉันมาจากเติร์กเมนิสถาน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Kakek",
+      "english": "I live in Ashgabat",
+      "oldValue": "ปู่",
+      "newValue": "ฉันอาศัยอยู่ในอาชกาบัต",
+      "fixed": true
+    },
+    {
+      "phraseId": "Nenek",
+      "english": "There are 4 people in our family",
+      "oldValue": "ย่า",
+      "newValue": "มี 4 คนในครอบครัวของเรา",
+      "fixed": true
+    },
+    {
+      "phraseId": "Paman",
+      "english": "Do you have children?",
+      "oldValue": "หลาน",
+      "newValue": "คุณมีบุตรหรือไม่ ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Bibi",
+      "english": "I have no children",
+      "oldValue": "หลานสาว",
+      "newValue": "ฉันไม่มีลูก",
+      "fixed": true
+    },
+    {
+      "phraseId": "Anak-anak",
+      "english": "I have one child",
+      "oldValue": "เด็ก",
+      "newValue": "ฉันมีลูก 1 คน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Orang tua",
+      "english": "I have two children",
+      "oldValue": "พ่อแม่",
+      "newValue": "ฉันมีลูกสองคน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Sakit",
+      "english": "What do you do?",
+      "oldValue": "สุขภาพ",
+      "newValue": "คุณจะทำอย่างไร?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Demam",
+      "english": "I work at a factory",
+      "oldValue": "ป่วย",
+      "newValue": "ฉันทำงานที่โรงงานแห่งหนึ่ง",
+      "fixed": true
+    },
+    {
+      "phraseId": "Sakit kepala",
+      "english": "I work at a bank",
+      "oldValue": "เจ็บ",
+      "newValue": "ฉันทำงานที่ธนาคารแห่งหนึ่ง",
+      "fixed": true
+    },
+    {
+      "phraseId": "Sakit perut",
+      "english": "I work at a hospital",
+      "oldValue": "ปวดหัว",
+      "newValue": "ฉันทำงานที่โรงพยาบาล",
+      "fixed": true
+    },
+    {
+      "phraseId": "Flu",
+      "english": "I study foreign languages",
+      "oldValue": "ปวดท้อง",
+      "newValue": "ฉันเรียนภาษาต่างประเทศ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Batuk",
+      "english": "Do you speak Russian?",
+      "oldValue": "ไข้",
+      "newValue": "คุณพูดภาษารัสเซียได้หรือไม่?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Hidung tersumbat",
+      "english": "I don't speak",
+      "oldValue": "ไอ",
+      "newValue": "อย่าพูดค่ะ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Obat",
+      "english": "I speak a little",
+      "oldValue": "หวัด",
+      "newValue": "ฉันสามารถพูดภาษา... ได้เล็กน้อย C̄hạn s̄āmārt̄h phūd p̣hās̄ʹā... Dị̂ lĕkn̂xy ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Pil",
+      "english": "When does the conference start?",
+      "oldValue": "ไข้หวัดใหญ่",
+      "newValue": "การประชุมเริ่มต้นเมื่อใด?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Resep",
+      "english": "What is the schedule for presentations?",
+      "oldValue": "ยา",
+      "newValue": "กำหนดการสำหรับการนำเสนอคืออะไร?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Asuransi",
+      "english": "Will there be translation to Russian?",
+      "oldValue": "ใบสั่งยา",
+      "newValue": "จะมีการแปลเป็นภาษารัสเซียหรือไม่?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Alergi",
+      "english": "I will speak in Russian",
+      "oldValue": "ยาเม็ด",
+      "newValue": "ฉันจะพูดเป็นภาษารัสเซีย",
+      "fixed": true
+    },
+    {
+      "phraseId": "Saya alergi terhadap...",
+      "english": "We want to see the exhibition",
+      "oldValue": "ทันตแพทย์",
+      "newValue": "เราต้องการดูนิทรรศการ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Asma",
+      "english": "What time does the exhibition open?",
+      "oldValue": "ฟัน",
+      "newValue": "นิทรรศการเปิดกี่โมง?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Diabetes",
+      "english": "How many countries are participating?",
+      "oldValue": "ตา",
+      "newValue": "มีกี่ประเทศที่เข้าร่วม?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Tekanan darah",
+      "english": "Can I get the exhibition catalog?",
+      "oldValue": "หู",
+      "newValue": "ฉันสามารถรับแคตตาล็อกนิทรรศการได้หรือไม่?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Jantung",
+      "english": "I came to discuss business",
+      "oldValue": "มือ",
+      "newValue": "ฉันมาคุยเรื่องธุรกิจ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Perut",
+      "english": "We want to speak with the general director",
+      "oldValue": "ขา",
+      "newValue": "เราต้องการพูดคุยกับผู้อำนวยการทั่วไป",
+      "fixed": true
+    },
+    {
+      "phraseId": "Punggung",
+      "english": "We want to learn about the production",
+      "oldValue": "หลัง",
+      "newValue": "เราต้องการเรียนรู้เกี่ยวกับการผลิต",
+      "fixed": true
+    },
+    {
+      "phraseId": "Gigi",
+      "english": "Length",
+      "oldValue": "หัวใจ",
+      "newValue": "ความยาว",
+      "fixed": true
+    },
+    {
+      "phraseId": "Cuaca",
+      "english": "Meter",
+      "oldValue": "อากาศ",
+      "newValue": "เมตร",
+      "fixed": true
+    },
+    {
+      "phraseId": "Panas",
+      "english": "Centimeter",
+      "oldValue": "แดด",
+      "newValue": "เซนติเมตร",
+      "fixed": true
+    },
+    {
+      "phraseId": "Dingin",
+      "english": "Weight",
+      "oldValue": "ฝน",
+      "newValue": "น้ำหนัก",
+      "fixed": true
+    },
+    {
+      "phraseId": "Hujan",
+      "english": "Kilogram",
+      "oldValue": "หิมะ",
+      "newValue": "กิโลกรัม",
+      "fixed": true
+    },
+    {
+      "phraseId": "Salju",
+      "english": "Gram",
+      "oldValue": "ลม",
+      "newValue": "กรัม",
+      "fixed": true
+    },
+    {
+      "phraseId": "Angin",
+      "english": "Volume",
+      "oldValue": "มีเมฆมาก",
+      "newValue": "ปริมาตร",
+      "fixed": true
+    },
+    {
+      "phraseId": "Mendung",
+      "english": "Liter",
+      "oldValue": "อบอุ่น",
+      "newValue": "ลิตร",
+      "fixed": true
+    },
+    {
+      "phraseId": "Cerah",
+      "english": "White",
+      "oldValue": "หนาว",
+      "newValue": "คนผิวขาว",
+      "fixed": true
+    },
+    {
+      "phraseId": "Suhu",
+      "english": "Yellow",
+      "oldValue": "ร้อน",
+      "newValue": "สีเหลือง",
+      "fixed": true
+    },
+    {
+      "phraseId": "Iklim",
+      "english": "Green",
+      "oldValue": "หนาวจัด",
+      "newValue": "สีเขียว",
+      "fixed": true
+    },
+    {
+      "phraseId": "Putih",
+      "english": "Blue",
+      "oldValue": "ขาว",
+      "newValue": "สีน้ำเงิน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Hitam",
+      "english": "Red",
+      "oldValue": "ดำ",
+      "newValue": "สีแดง",
+      "fixed": true
+    },
+    {
+      "phraseId": "Merah",
+      "english": "Black",
+      "oldValue": "แดง",
+      "newValue": "คนผิวดำ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Biru",
+      "english": "Gray",
+      "oldValue": "น้ำเงิน",
+      "newValue": "เกรย์",
+      "fixed": true
+    },
+    {
+      "phraseId": "Hijau",
+      "english": "Purple",
+      "oldValue": "เขียว",
+      "newValue": "สีม่วง",
+      "fixed": true
+    },
+    {
+      "phraseId": "Kuning",
+      "english": "Orange",
+      "oldValue": "เหลือง",
+      "newValue": "สีส้ม",
+      "fixed": true
+    },
+    {
+      "phraseId": "Oranye",
+      "english": "Pink",
+      "oldValue": "ส้ม",
+      "newValue": "สีชมพู S̄īchmphū",
+      "fixed": true
+    },
+    {
+      "phraseId": "Ungu",
+      "english": "Head",
+      "oldValue": "ชมพู",
+      "newValue": "ศีรษะ ṣ̄īrs̄ʹa ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Merah muda",
+      "english": "Arm",
+      "oldValue": "น้ำตาล",
+      "newValue": "แขน k̄hæn ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Coklat",
+      "english": "Leg",
+      "oldValue": "เทา",
+      "newValue": "ขา k̄hā",
+      "fixed": true
+    },
+    {
+      "phraseId": "Abu-abu",
+      "english": "Eyes",
+      "oldValue": "ม่วง",
+      "newValue": "ดวงตา",
+      "fixed": true
+    },
+    {
+      "phraseId": "Emas",
+      "english": "Nose",
+      "oldValue": "ฟ้า",
+      "newValue": "จมูก",
+      "fixed": true
+    },
+    {
+      "phraseId": "Utara",
+      "english": "Mouth",
+      "oldValue": "เหนือ",
+      "newValue": "ปาก pāk ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Selatan",
+      "english": "Ear",
+      "oldValue": "ใต้",
+      "newValue": "หู h̄ū ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Timur",
+      "english": "House",
+      "oldValue": "ตะวันออก",
+      "newValue": "บ้าน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Barat",
+      "english": "Door",
+      "oldValue": "ตะวันตก",
+      "newValue": "ประตู",
+      "fixed": true
+    },
+    {
+      "phraseId": "Peta",
+      "english": "Window",
+      "oldValue": "แผนที่",
+      "newValue": "หน้าต่าง",
+      "fixed": true
+    },
+    {
+      "phraseId": "Kompas",
+      "english": "Table",
+      "oldValue": "ถนน",
+      "newValue": "ทริกเกอร์ควบคุม",
+      "fixed": true
+    },
+    {
+      "phraseId": "GPS",
+      "english": "Chair",
+      "oldValue": "ถนน",
+      "newValue": "ประธานคณะกรรมการฯ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Lokasi",
+      "english": "Bed",
+      "oldValue": "จัตุรัส",
+      "newValue": "เตียงนอน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Tujuan",
+      "english": "Where is passport control?",
+      "oldValue": "สะพาน",
+      "newValue": "การควบคุมหนังสือเดินทางอยู่ที่ไหน?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Rute",
+      "english": "Here is my passport",
+      "oldValue": "มุม",
+      "newValue": "นี่คือหนังสือเดินทางของฉัน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Persimpangan",
+      "english": "I intend to stay in China for a week",
+      "oldValue": "ไฟจราจร",
+      "newValue": "ฉันตั้งใจจะอยู่ในประเทศจีนเป็นเวลาหนึ่งสัปดาห์",
+      "fixed": true
+    },
+    {
+      "phraseId": "Bundaran",
+      "english": "I have a single-entry visa",
+      "oldValue": "กลับรถ",
+      "newValue": "ฉันมีวีซ่าประเภทเข้าออกครั้งเดียว",
+      "fixed": true
+    },
+    {
+      "phraseId": "Jembatan",
+      "english": "I am in transit in your country",
+      "oldValue": "เดิน",
+      "newValue": "ฉันอยู่ระหว่างการขนส่งในประเทศของคุณ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Gedung",
+      "english": "Here is my customs declaration",
+      "oldValue": "เลี้ยว",
+      "newValue": "นี่คือใบขนสินค้าศุลกากรของฉัน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Depan",
+      "english": "Here is my luggage",
+      "oldValue": "แยก",
+      "newValue": "นี่คือสัมภาระของฉัน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Belakang",
+      "english": "There are no prohibited items in my luggage",
+      "oldValue": "หัวมุม",
+      "newValue": "ไม่มีสิ่งของต้องห้ามในสัมภาระของฉัน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Seberang",
+      "english": "These are my personal belongings",
+      "oldValue": "ตรงข้าม",
+      "newValue": "นี่เป็นของใช้ส่วนตัวของฉัน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Di sebelah",
+      "english": "What duty do I need to pay?",
+      "oldValue": "ข้างๆ",
+      "newValue": "ฉันต้องจ่ายภาษีอะไรบ้าง?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Telepon",
+      "english": "What sport do you like?",
+      "oldValue": "โทรศัพท์",
+      "newValue": "คุณชอบกีฬาอะไร?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Nomor telepon",
+      "english": "I like to play football",
+      "oldValue": "อินเทอร์เน็ต",
+      "newValue": "ฉันชอบเล่นฟุตบอล",
+      "fixed": true
+    },
+    {
+      "phraseId": "Email",
+      "english": "Basketball",
+      "oldValue": "อีเมล",
+      "newValue": "บาสเกตบอล",
+      "fixed": true
+    },
+    {
+      "phraseId": "Internet",
+      "english": "Swimming",
+      "oldValue": "ข้อความ",
+      "newValue": "ใต้น้ำ",
+      "fixed": true
+    },
+    {
+      "phraseId": "WiFi",
+      "english": "Running",
+      "oldValue": "โทร",
+      "newValue": "กำลังดำเนินการ",
+      "fixed": true
+    },
+    {
+      "phraseId": "Komputer",
+      "english": "Where is the gym?",
+      "oldValue": "เบอร์โทรศัพท์",
+      "newValue": "ยิมอยู่ที่ไหน?",
+      "fixed": true
+    },
+    {
+      "phraseId": "Ponsel",
+      "english": "I want to work out",
+      "oldValue": "การติดต่อ",
+      "newValue": "ฉันอยากออกกำลังกาย",
+      "fixed": true
+    },
+    {
+      "phraseId": "Pesan",
+      "english": "Coach",
+      "oldValue": "คอมพิวเตอร์",
+      "newValue": "ผู้ฝึกสอน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Surat",
+      "english": "Competition / Match",
+      "oldValue": "มือถือ",
+      "newValue": "การแข่งขัน/การแข่งขัน",
+      "fixed": true
+    },
+    {
+      "phraseId": "Stadion",
+      "english": "Stadium",
+      "oldValue": "แขก",
+      "newValue": "สนามกีฬา",
+      "fixed": true
+    }
+  ]
+}
