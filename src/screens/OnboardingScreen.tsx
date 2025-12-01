@@ -15,6 +15,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useConfig } from '../contexts/ConfigContext';
+import { useAppLanguage } from '../contexts/LanguageContext';
 import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
@@ -35,6 +36,8 @@ interface OnboardingScreenProps {
 
 export default function OnboardingScreen({ navigation, onComplete }: OnboardingScreenProps) {
   const { setOnboardingCompleted } = useConfig();
+  const { getTexts } = useAppLanguage();
+  const texts = getTexts();
   const [currentIndex, setCurrentIndex] = useState(0);
   const flatListRef = useRef<FlatList>(null);
   const scrollX = useRef(new Animated.Value(0)).current;
@@ -42,42 +45,42 @@ export default function OnboardingScreen({ navigation, onComplete }: OnboardingS
   const slides: OnboardingSlide[] = [
     {
       id: '1',
-      title: 'Welcome to Şapak',
-      subtitle: 'Your AI-powered guide to Turkmen language',
+      title: texts.onboardingWelcomeTitle,
+      subtitle: texts.onboardingWelcomeSubtitle,
       icon: 'airplane',
-      gradient: ['#4F46E5', '#7C3AED'],
+      gradient: ['#FFFFFF', '#FFFFFF'],
       component: <WelcomeSlide />,
     },
     {
       id: '2',
-      title: '30 Language Pairs',
-      subtitle: 'Offline phrasebook with audio pronunciations',
+      title: texts.onboardingPhrasebookTitle,
+      subtitle: texts.onboardingPhrasebookSubtitle,
       icon: 'book',
-      gradient: ['#059669', '#10B981'],
+      gradient: ['#FFFFFF', '#FFFFFF'],
       component: <PhrasebookSlide />,
     },
     {
       id: '3',
-      title: 'Smart Translation',
-      subtitle: 'AI-powered text & visual translation',
+      title: texts.onboardingTranslationTitle,
+      subtitle: texts.onboardingTranslationSubtitle,
       icon: 'language',
-      gradient: ['#DC2626', '#F59E0B'],
+      gradient: ['#FFFFFF', '#FFFFFF'],
       component: <TranslatorSlide />,
     },
     {
       id: '4',
-      title: 'Dictionary & AI',
-      subtitle: 'Smart dictionary and AI assistants',
+      title: texts.onboardingDictionaryTitle,
+      subtitle: texts.onboardingDictionarySubtitle,
       icon: 'library',
-      gradient: ['#0891B2', '#06B6D4'],
+      gradient: ['#FFFFFF', '#FFFFFF'],
       component: <DictionaryAISlide />,
     },
     {
       id: '5',
-      title: "You're All Set!",
-      subtitle: 'Start your Turkmen learning journey',
+      title: texts.onboardingReadyTitle,
+      subtitle: texts.onboardingReadySubtitle,
       icon: 'checkmark-circle',
-      gradient: ['#7C3AED', '#EC4899'],
+      gradient: ['#FFFFFF', '#FFFFFF'],
       component: <ReadySlide onGetStarted={handleComplete} />,
     },
   ];
@@ -137,7 +140,7 @@ export default function OnboardingScreen({ navigation, onComplete }: OnboardingS
             {/* Skip button */}
             {currentIndex < slides.length - 1 && (
               <TouchableOpacity style={styles.skipButton} onPress={handleSkip}>
-                <Text style={styles.skipText}>Skip</Text>
+                <Text style={styles.skipText}>{texts.onboardingSkip}</Text>
               </TouchableOpacity>
             )}
 
@@ -184,7 +187,7 @@ export default function OnboardingScreen({ navigation, onComplete }: OnboardingS
               {/* Next Button */}
               {currentIndex < slides.length - 1 && (
                 <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
-                  <Text style={styles.nextButtonText}>Next</Text>
+                  <Text style={styles.nextButtonText}>{texts.onboardingNext}</Text>
                   <Ionicons name="arrow-forward" size={20} color="#FFF" />
                 </TouchableOpacity>
               )}
@@ -217,18 +220,23 @@ export default function OnboardingScreen({ navigation, onComplete }: OnboardingS
 // ========== Slide Components ==========
 
 function WelcomeSlide() {
+  const { getTexts } = useAppLanguage();
+  const texts = getTexts();
+
   return (
     <View style={styles.slideContent}>
-      <Ionicons name="airplane" size={120} color="#FFF" style={styles.slideIcon} />
-      <Text style={styles.slideTitle}>Welcome to{'\n'}Şapak</Text>
+      <Ionicons name="airplane" size={100} color="#00A651" style={styles.slideIcon} />
+      <Text style={styles.slideTitle}>{texts.onboardingWelcomeTitle}</Text>
       <Text style={styles.slideSubtitle}>
-        Your AI-powered guide to Turkmen language
+        {texts.onboardingWelcomeSubtitle}
       </Text>
     </View>
   );
 }
 
 function PhrasebookSlide() {
+  const { getTexts } = useAppLanguage();
+  const texts = getTexts();
   const [audioPlaying, setAudioPlaying] = useState(false);
 
   const handlePlayAudio = () => {
@@ -238,16 +246,16 @@ function PhrasebookSlide() {
 
   return (
     <View style={styles.slideContent}>
-      <Ionicons name="book" size={100} color="#FFF" style={styles.slideIcon} />
-      <Text style={styles.slideTitle}>30 Language Pairs</Text>
+      <Ionicons name="book" size={100} color="#00A651" style={styles.slideIcon} />
+      <Text style={styles.slideTitle}>{texts.onboardingPhrasebookTitle}</Text>
       <Text style={styles.slideSubtitle}>
-        Offline phrasebook with audio pronunciations
+        {texts.onboardingPhrasebookSubtitle}
       </Text>
 
       {/* Interactive Demo */}
       <View style={styles.demoBox}>
         <View style={styles.demoRow}>
-          <Text style={styles.demoLabel}>Hello</Text>
+          <Text style={styles.demoLabel}>{texts.onboardingPhrasebookDemo}</Text>
           <Text style={styles.demoArrow}>→</Text>
           <Text style={styles.demoValue}>Salam</Text>
         </View>
@@ -257,11 +265,11 @@ function PhrasebookSlide() {
         >
           <Ionicons
             name={audioPlaying ? "volume-high" : "play"}
-            size={24}
-            color="#FFF"
+            size={20}
+            color="#FFFFFF"
           />
           <Text style={styles.playButtonText}>
-            {audioPlaying ? "Playing..." : "Play Audio"}
+            {audioPlaying ? texts.onboardingPlaying : texts.onboardingPlayAudio}
           </Text>
         </TouchableOpacity>
       </View>
@@ -270,24 +278,26 @@ function PhrasebookSlide() {
 }
 
 function TranslatorSlide() {
+  const { getTexts } = useAppLanguage();
+  const texts = getTexts();
   const [translated, setTranslated] = useState(false);
 
   return (
     <View style={styles.slideContent}>
-      <Ionicons name="language" size={100} color="#FFF" style={styles.slideIcon} />
-      <Text style={styles.slideTitle}>Smart Translation</Text>
+      <Ionicons name="language" size={100} color="#00A651" style={styles.slideIcon} />
+      <Text style={styles.slideTitle}>{texts.onboardingTranslationTitle}</Text>
       <Text style={styles.slideSubtitle}>
-        AI-powered text & visual translation
+        {texts.onboardingTranslationSubtitle}
       </Text>
 
       {/* Interactive Demo */}
       <View style={styles.demoBox}>
-        <Text style={styles.demoSectionTitle}>Text Translator</Text>
+        <Text style={styles.demoSectionTitle}>{texts.onboardingTextTranslator}</Text>
         <View style={styles.translatorBox}>
           <Text style={styles.translatorInput}>How are you?</Text>
           {translated && (
             <>
-              <Ionicons name="arrow-down" size={24} color="rgba(255,255,255,0.5)" />
+              <Ionicons name="arrow-down" size={24} color="#6E6E73" />
               <Text style={styles.translatorOutput}>Nähili?</Text>
             </>
           )}
@@ -297,17 +307,17 @@ function TranslatorSlide() {
           onPress={() => setTranslated(!translated)}
         >
           <Text style={styles.translateButtonText}>
-            {translated ? "Try Again" : "Translate"}
+            {translated ? texts.onboardingTryAgain : texts.onboardingTranslate}
           </Text>
         </TouchableOpacity>
 
         <View style={styles.featureRow}>
-          <Ionicons name="camera" size={24} color="#FFF" />
-          <Text style={styles.featureText}>Visual Translator</Text>
+          <Ionicons name="camera" size={22} color="#00A651" />
+          <Text style={styles.featureText}>{texts.onboardingVisualTranslator}</Text>
         </View>
         <View style={styles.featureRow}>
-          <Ionicons name="sparkles" size={24} color="#FFF" />
-          <Text style={styles.featureText}>AI-powered</Text>
+          <Ionicons name="sparkles" size={22} color="#00A651" />
+          <Text style={styles.featureText}>{texts.onboardingAIPowered}</Text>
         </View>
       </View>
     </View>
@@ -315,29 +325,32 @@ function TranslatorSlide() {
 }
 
 function DictionaryAISlide() {
+  const { getTexts } = useAppLanguage();
+  const texts = getTexts();
+
   return (
     <View style={styles.slideContent}>
-      <Ionicons name="library" size={100} color="#FFF" style={styles.slideIcon} />
-      <Text style={styles.slideTitle}>Dictionary & AI</Text>
+      <Ionicons name="library" size={100} color="#00A651" style={styles.slideIcon} />
+      <Text style={styles.slideTitle}>{texts.onboardingDictionaryTitle}</Text>
       <Text style={styles.slideSubtitle}>
-        Smart dictionary and AI assistants
+        {texts.onboardingDictionarySubtitle}
       </Text>
 
       {/* Features List */}
       <View style={styles.featuresContainer}>
         <View style={styles.featureItem}>
-          <Ionicons name="book-outline" size={32} color="#FFF" />
-          <Text style={styles.featureTitle}>Smart Dictionary</Text>
+          <Ionicons name="book-outline" size={32} color="#00A651" />
+          <Text style={styles.featureTitle}>{texts.onboardingSmartDictionary}</Text>
           <Text style={styles.featureDescription}>
-            Thousands of words at your fingertips
+            {texts.onboardingSmartDictionaryDesc}
           </Text>
         </View>
 
         <View style={styles.featureItem}>
-          <Ionicons name="chatbubbles" size={32} color="#FFF" />
-          <Text style={styles.featureTitle}>AI Assistants</Text>
+          <Ionicons name="chatbubbles" size={32} color="#00A651" />
+          <Text style={styles.featureTitle}>{texts.onboardingAIAssistants}</Text>
           <Text style={styles.featureDescription}>
-            5 specialized AI helpers for learning
+            {texts.onboardingAIAssistantsDesc}
           </Text>
         </View>
       </View>
@@ -346,26 +359,29 @@ function DictionaryAISlide() {
 }
 
 function ReadySlide({ onGetStarted }: { onGetStarted: () => void }) {
+  const { getTexts } = useAppLanguage();
+  const texts = getTexts();
+
   return (
     <View style={styles.slideContent}>
-      <Ionicons name="checkmark-circle" size={120} color="#FFF" style={styles.slideIcon} />
-      <Text style={styles.slideTitle}>You're All Set!</Text>
+      <Ionicons name="checkmark-circle" size={100} color="#00A651" style={styles.slideIcon} />
+      <Text style={styles.slideTitle}>{texts.onboardingReadyTitle}</Text>
       <Text style={styles.slideSubtitle}>
-        Start your Turkmen learning journey now
+        {texts.onboardingReadySubtitle}
       </Text>
 
       <TouchableOpacity style={styles.getStartedButton} onPress={onGetStarted}>
-        <Text style={styles.getStartedButtonText}>Get Started</Text>
-        <Ionicons name="rocket" size={26} color="#7C3AED" />
+        <Text style={styles.getStartedButtonText}>{texts.onboardingGetStarted}</Text>
+        <Ionicons name="arrow-forward" size={20} color="#FFFFFF" />
       </TouchableOpacity>
 
       <View style={styles.featuresGrid}>
-        <Text style={styles.readyFeature}>📖 Phrasebook</Text>
-        <Text style={styles.readyFeature}>🤖 AI Translation</Text>
-        <Text style={styles.readyFeature}>📷 Visual Translator</Text>
-        <Text style={styles.readyFeature}>📚 Dictionary</Text>
-        <Text style={styles.readyFeature}>💬 AI Assistants</Text>
-        <Text style={styles.readyFeature}>✈️ Works Offline</Text>
+        <Text style={styles.readyFeature}>{texts.onboardingFeaturePhrasebook}</Text>
+        <Text style={styles.readyFeature}>{texts.onboardingFeatureAITranslation}</Text>
+        <Text style={styles.readyFeature}>{texts.onboardingFeatureVisualTranslator}</Text>
+        <Text style={styles.readyFeature}>{texts.onboardingFeatureDictionary}</Text>
+        <Text style={styles.readyFeature}>{texts.onboardingFeatureAIAssistants}</Text>
+        <Text style={styles.readyFeature}>{texts.onboardingFeatureOffline}</Text>
       </View>
     </View>
   );
@@ -373,10 +389,15 @@ function ReadySlide({ onGetStarted }: { onGetStarted: () => void }) {
 
 // ========== Styles ==========
 
+const ACCENT_COLOR = '#00A651'; // Turkmenistan green
+const TEXT_PRIMARY = '#1C1C1E'; // Apple dark text
+const TEXT_SECONDARY = '#6E6E73'; // Apple gray text
+const BACKGROUND = '#FFFFFF'; // White background
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: BACKGROUND,
   },
   slide: {
     width: SCREEN_WIDTH,
@@ -384,6 +405,7 @@ const styles = StyleSheet.create({
   },
   gradientBackground: {
     flex: 1,
+    backgroundColor: BACKGROUND,
   },
   safeArea: {
     flex: 1,
@@ -393,20 +415,13 @@ const styles = StyleSheet.create({
     top: verticalScale(60),
     right: scale(20),
     zIndex: 10,
-    paddingHorizontal: scale(20),
-    paddingVertical: verticalScale(10),
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
-    borderRadius: moderateScale(24),
-    borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.4)',
+    paddingHorizontal: scale(16),
+    paddingVertical: verticalScale(8),
   },
   skipText: {
-    color: '#FFF',
-    fontSize: moderateScale(16),
-    fontWeight: 'bold',
-    textShadowColor: 'rgba(0, 0, 0, 0.2)',
-    textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 2,
+    color: ACCENT_COLOR,
+    fontSize: moderateScale(17),
+    fontWeight: '400',
   },
   content: {
     flex: 1,
@@ -418,22 +433,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
+    paddingHorizontal: scale(32),
   },
   slideIcon: {
-    marginBottom: verticalScale(32),
+    marginBottom: verticalScale(40),
   },
   slideTitle: {
-    fontSize: moderateScale(32),
-    fontWeight: 'bold',
-    color: '#FFF',
+    fontSize: moderateScale(34),
+    fontWeight: '700',
+    color: TEXT_PRIMARY,
     textAlign: 'center',
-    marginBottom: verticalScale(16),
+    marginBottom: verticalScale(12),
+    letterSpacing: -0.5,
   },
   slideSubtitle: {
-    fontSize: moderateScale(18),
-    color: 'rgba(255, 255, 255, 0.9)',
+    fontSize: moderateScale(17),
+    color: TEXT_SECONDARY,
     textAlign: 'center',
-    marginBottom: verticalScale(32),
+    marginBottom: verticalScale(40),
+    lineHeight: moderateScale(24),
+    fontWeight: '400',
   },
   footer: {
     paddingBottom: verticalScale(40),
@@ -443,50 +462,34 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: verticalScale(20),
+    marginBottom: verticalScale(24),
     height: verticalScale(30),
   },
   dot: {
     height: verticalScale(8),
     borderRadius: moderateScale(4),
-    backgroundColor: '#FFF',
+    backgroundColor: ACCENT_COLOR,
     marginHorizontal: scale(4),
   },
   nextButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
-    paddingVertical: verticalScale(18),
-    paddingHorizontal: scale(40),
-    borderRadius: moderateScale(32),
-    gap: scale(10),
-    borderWidth: 2,
-    borderColor: 'rgba(255, 255, 255, 0.5)',
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.3,
-        shadowRadius: 8,
-      },
-      android: {
-        elevation: 6,
-      },
-    }),
+    backgroundColor: ACCENT_COLOR,
+    paddingVertical: verticalScale(16),
+    paddingHorizontal: scale(32),
+    borderRadius: moderateScale(14),
+    gap: scale(8),
   },
   nextButtonText: {
-    color: '#FFF',
-    fontSize: moderateScale(19),
-    fontWeight: 'bold',
-    textShadowColor: 'rgba(0, 0, 0, 0.2)',
-    textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 2,
+    color: '#FFFFFF',
+    fontSize: moderateScale(17),
+    fontWeight: '600',
   },
   // Demo Components
   demoBox: {
-    backgroundColor: 'rgba(255, 255, 255, 0.15)',
-    borderRadius: moderateScale(20),
+    backgroundColor: '#F5F5F7',
+    borderRadius: moderateScale(16),
     padding: scale(24),
     width: '100%',
     marginTop: verticalScale(20),
@@ -498,73 +501,75 @@ const styles = StyleSheet.create({
     marginBottom: verticalScale(20),
   },
   demoLabel: {
-    fontSize: moderateScale(24),
-    color: '#FFF',
+    fontSize: moderateScale(22),
+    color: TEXT_PRIMARY,
     fontWeight: '600',
   },
   demoArrow: {
-    fontSize: moderateScale(24),
-    color: 'rgba(255, 255, 255, 0.7)',
+    fontSize: moderateScale(22),
+    color: TEXT_SECONDARY,
     marginHorizontal: scale(16),
   },
   demoValue: {
-    fontSize: moderateScale(24),
-    color: '#FFF',
-    fontWeight: '600',
+    fontSize: moderateScale(22),
+    color: ACCENT_COLOR,
+    fontWeight: '700',
   },
   playButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: ACCENT_COLOR,
     paddingVertical: verticalScale(12),
-    paddingHorizontal: scale(24),
-    borderRadius: moderateScale(25),
+    paddingHorizontal: scale(20),
+    borderRadius: moderateScale(12),
     gap: scale(8),
   },
   playButtonActive: {
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    backgroundColor: '#008A43',
   },
   playButtonText: {
-    color: '#FFF',
-    fontSize: moderateScale(16),
+    color: '#FFFFFF',
+    fontSize: moderateScale(15),
     fontWeight: '600',
   },
   demoSectionTitle: {
-    fontSize: moderateScale(18),
-    color: '#FFF',
+    fontSize: moderateScale(17),
+    color: TEXT_PRIMARY,
     fontWeight: '600',
     marginBottom: verticalScale(12),
     textAlign: 'center',
   },
   translatorBox: {
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: '#FFFFFF',
     borderRadius: moderateScale(12),
     padding: scale(16),
     marginBottom: verticalScale(16),
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#E5E5EA',
   },
   translatorInput: {
-    fontSize: moderateScale(20),
-    color: '#FFF',
+    fontSize: moderateScale(19),
+    color: TEXT_PRIMARY,
     marginBottom: verticalScale(8),
   },
   translatorOutput: {
-    fontSize: moderateScale(20),
-    color: '#FFF',
+    fontSize: moderateScale(19),
+    color: ACCENT_COLOR,
     fontWeight: '600',
     marginTop: verticalScale(8),
   },
   translateButton: {
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: ACCENT_COLOR,
     paddingVertical: verticalScale(12),
     paddingHorizontal: scale(24),
-    borderRadius: moderateScale(20),
-    marginBottom: verticalScale(20),
+    borderRadius: moderateScale(12),
+    marginBottom: verticalScale(16),
   },
   translateButtonText: {
-    color: '#FFF',
-    fontSize: moderateScale(16),
+    color: '#FFFFFF',
+    fontSize: moderateScale(15),
     fontWeight: '600',
     textAlign: 'center',
   },
@@ -572,76 +577,67 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: scale(12),
-    marginVertical: verticalScale(8),
+    marginVertical: verticalScale(6),
   },
   featureText: {
-    color: '#FFF',
-    fontSize: moderateScale(16),
+    color: TEXT_PRIMARY,
+    fontSize: moderateScale(15),
+    fontWeight: '500',
   },
   featuresContainer: {
     width: '100%',
-    gap: verticalScale(24),
+    gap: verticalScale(16),
     marginTop: verticalScale(20),
   },
   featureItem: {
-    backgroundColor: 'rgba(255, 255, 255, 0.15)',
+    backgroundColor: '#F5F5F7',
     borderRadius: moderateScale(16),
     padding: scale(20),
     alignItems: 'center',
   },
   featureTitle: {
-    fontSize: moderateScale(20),
+    fontSize: moderateScale(19),
     fontWeight: '600',
-    color: '#FFF',
+    color: TEXT_PRIMARY,
     marginTop: verticalScale(12),
-    marginBottom: verticalScale(8),
+    marginBottom: verticalScale(6),
   },
   featureDescription: {
-    fontSize: moderateScale(14),
-    color: 'rgba(255, 255, 255, 0.8)',
+    fontSize: moderateScale(15),
+    color: TEXT_SECONDARY,
     textAlign: 'center',
+    lineHeight: moderateScale(21),
   },
   getStartedButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FFF',
-    paddingVertical: verticalScale(20),
-    paddingHorizontal: scale(48),
-    borderRadius: moderateScale(32),
-    gap: scale(12),
+    backgroundColor: ACCENT_COLOR,
+    paddingVertical: verticalScale(16),
+    paddingHorizontal: scale(40),
+    borderRadius: moderateScale(14),
+    gap: scale(8),
     marginTop: verticalScale(32),
-    marginBottom: verticalScale(32),
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 8 },
-        shadowOpacity: 0.4,
-        shadowRadius: 16,
-      },
-      android: {
-        elevation: 10,
-      },
-    }),
+    marginBottom: verticalScale(24),
   },
   getStartedButtonText: {
-    color: '#7C3AED',
-    fontSize: moderateScale(22),
-    fontWeight: 'bold',
+    color: '#FFFFFF',
+    fontSize: moderateScale(17),
+    fontWeight: '600',
   },
   featuresGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    gap: scale(12),
+    gap: scale(8),
     paddingHorizontal: scale(20),
   },
   readyFeature: {
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: '#F5F5F7',
     paddingVertical: verticalScale(8),
-    paddingHorizontal: scale(16),
-    borderRadius: moderateScale(20),
-    color: '#FFF',
+    paddingHorizontal: scale(14),
+    borderRadius: moderateScale(12),
+    color: TEXT_PRIMARY,
     fontSize: moderateScale(14),
     fontWeight: '500',
   },

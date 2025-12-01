@@ -49,8 +49,8 @@ export default function LanguageSelectionScreen({ navigation, onLanguageSelect }
       return;
     }
 
-    // Если уже выбран этот язык
-    if (code === selectedLanguage) {
+    // Если уже выбран этот язык интерфейса
+    if (code === config.mode) {
       if (navigation) {
         navigation.goBack();
       }
