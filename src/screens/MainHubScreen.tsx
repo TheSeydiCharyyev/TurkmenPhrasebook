@@ -52,16 +52,6 @@ const getModules = (texts: InterfaceTexts): ModuleCard[] => [
     route: 'Phrasebook',
   },
   {
-    id: 'voice-translator',
-    title: texts.voiceTranslatorTitle,
-    subtitle: texts.voiceTranslatorSubtitle,
-    icon: '🎤',
-    iconName: 'mic-outline',
-    gradientColors: ['#FFFFFF', '#FFFFFF'], // Белая карточка
-    iconColor: '#FF6B35', // Коралловая иконка
-    route: 'VoiceTranslator',
-  },
-  {
     id: 'text-translator',
     title: texts.textTranslatorTitle,
     subtitle: texts.textTranslatorSubtitle,
@@ -92,15 +82,14 @@ const getModules = (texts: InterfaceTexts): ModuleCard[] => [
     route: 'UniversalAIChat',
   },
   {
-    id: 'dictionary',
-    title: texts.dictionaryTitle,
-    subtitle: texts.dictionarySubtitle,
-    icon: '📚',
-    iconName: 'library-outline',
+    id: 'voice-translator',
+    title: texts.voiceTranslatorTitle,
+    subtitle: texts.voiceTranslatorSubtitle,
+    icon: '🎤',
+    iconName: 'mic-outline',
     gradientColors: ['#FFFFFF', '#FFFFFF'], // Белая карточка
-    iconColor: '#FF9500', // Темно-янтарная иконка
-    route: 'Dictionary',
-    isLocked: true,  // 🔒 Заблокировано для v2.0
+    iconColor: '#FF6B35', // Коралловая иконка
+    route: 'VoiceTranslator',
   },
 ];
 
