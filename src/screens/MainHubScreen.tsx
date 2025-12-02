@@ -11,7 +11,6 @@ import {
   StatusBar,
   Alert,
   Platform,
-  Dimensions,
   Animated,
   NativeSyntheticEvent,
   NativeScrollEvent,
@@ -25,7 +24,9 @@ import { useAppLanguage, InterfaceTexts } from '../contexts/LanguageContext';
 import { getLanguageByCode } from '../config/languages.config';
 import type { RootStackParamList } from '../types';
 import { DesignColors, Spacing, Typography, BorderRadius, Shadows } from '../constants/Design';
-import { scale, verticalScale, moderateScale, DeviceInfo, wp } from '../utils/ResponsiveUtils';
+import { scale, verticalScale, moderateScale, DeviceInfo, wp, useResponsive } from '../utils/ResponsiveUtils';
+import { useSafeArea } from '../hooks/useSafeArea';
+import { platformShadow } from '../utils/PlatformStyles';
 
 interface ModuleCard {
   id: string;
@@ -33,10 +34,11 @@ interface ModuleCard {
   subtitle: string;
   icon: string; // Emoji (legacy)
   iconName: ComponentProps<typeof Ionicons>['name']; // ✅ FIXED: Properly typed Ionicons name
-  gradientColors: string[];
+  gradientColors: [string, string, ...string[]];
   iconColor?: string; // Цвет иконки (для белых карточек)
   route: string;
   isLocked?: boolean;
+  isComingSoon?: boolean; // Coming soon feature
 }
 
 // Helper function to get modules with translations - All Hero Cards (1 column)
@@ -89,7 +91,8 @@ const getModules = (texts: InterfaceTexts): ModuleCard[] => [
     iconName: 'mic-outline',
     gradientColors: ['#FFFFFF', '#FFFFFF'], // Белая карточка
     iconColor: '#FF6B35', // Коралловая иконка
-    route: 'VoiceTranslator',
+    route: 'VoiceTranslatorComingSoon',
+    isComingSoon: true, // Coming soon
   },
 ];
 
@@ -103,9 +106,11 @@ export default function MainHubScreen() {
   const texts = getTexts();
   const modules = getModules(texts);
 
+  // Safe Area для корректной работы с notch/Dynamic Island
+  const { top: safeAreaTop, bottom: safeAreaBottom, hasNotch } = useSafeArea();
+
   // Анимация header при скролле - RESPONSIVE
-  const statusBarHeight = Platform.OS === 'android' ? (StatusBar.currentHeight || 0) : 0;
-  const headerTopPosition = statusBarHeight + verticalScale(16);
+  const headerTopPosition = safeAreaTop + verticalScale(8);
   const HEADER_HEIGHT = verticalScale(64) + headerTopPosition;
   const scrollY = useRef(new Animated.Value(0)).current;
   const [headerVisible, setHeaderVisible] = useState(true);
@@ -159,6 +164,12 @@ export default function MainHubScreen() {
       return;
     }
 
+    // Coming soon модули → переход на Coming Soon экран
+    if (module.isComingSoon) {
+      navigation.navigate('VoiceTranslatorComingSoon');
+      return;
+    }
+
     // Навигация в модуль
     if (module.id === 'phrasebook') {
       navigation.navigate('Home');
@@ -166,8 +177,6 @@ export default function MainHubScreen() {
       navigation.navigate('VisualTranslator');
     } else if (module.id === 'text-translator') {
       navigation.navigate('TextTranslator');
-    } else if (module.id === 'voice-translator') {
-      navigation.navigate('VoiceTranslator');
     } else if (module.id === 'ai-assistants') {
       navigation.navigate('UniversalAIChat');
     } else if (module.id === 'dictionary') {
@@ -233,6 +242,7 @@ export default function MainHubScreen() {
           styles.scrollContent,
           {
             paddingTop: HEADER_HEIGHT + verticalScale(16), // header полная высота + spacing
+            paddingBottom: Math.max(safeAreaBottom, verticalScale(32)), // Safe area для home indicator
           },
         ]}
         showsVerticalScrollIndicator={false}
@@ -283,6 +293,9 @@ interface ModuleCardProps {
 }
 
 const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => {
+  const { getTexts } = useAppLanguage();
+  const texts = getTexts();
+
   // Для белых карточек используем темный текст и цветные иконки
   const isWhiteCard = module.gradientColors[0] === '#FFFFFF';
   const textColor = isWhiteCard ? '#1e293b' : (isLightGradient(module.gradientColors) ? '#1e293b' : '#FFFFFF');
@@ -293,7 +306,8 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
     <TouchableOpacity
       style={[
         styles.heroCard,
-        module.isLocked && styles.moduleCardLocked
+        module.isLocked && styles.moduleCardLocked,
+        module.isComingSoon && styles.moduleCardComingSoon
       ]}
       onPress={onPress}
       activeOpacity={0.85}
@@ -309,7 +323,7 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
         <View style={[
           styles.heroIconContainer,
           {
-            backgroundColor: iconBgColor
+            backgroundColor: module.isComingSoon ? '#9CA3AF' : iconBgColor
           }
         ]}>
           <Ionicons
@@ -322,19 +336,31 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
         {/* Module info */}
         <View style={styles.moduleTextContainer}>
           {/* Title at top */}
-          <Text
-            style={[styles.heroTitle, { color: textColor }]}
-            numberOfLines={2}
-            adjustsFontSizeToFit
-            minimumFontScale={0.8}
-          >
-            {module.title}
-          </Text>
+          <View style={styles.titleRow}>
+            <Text
+              style={[
+                styles.heroTitle,
+                { color: module.isComingSoon ? '#6B7280' : textColor }
+              ]}
+              numberOfLines={2}
+              adjustsFontSizeToFit
+              minimumFontScale={0.8}
+            >
+              {module.title}
+            </Text>
+            {module.isComingSoon && (
+              <View style={styles.comingSoonBadge}>
+                <Text style={styles.comingSoonBadgeText}>
+                  {texts.vtComingSoon || 'Coming soon'}
+                </Text>
+              </View>
+            )}
+          </View>
           {/* Subtitle/Stats at bottom */}
           <Text
             style={[
               styles.heroStats,
-              { color: textColor }
+              { color: module.isComingSoon ? '#9CA3AF' : textColor }
             ]}
             numberOfLines={2}
           >
@@ -526,6 +552,26 @@ const styles = StyleSheet.create({
 
   moduleCardLocked: {
     opacity: 0.6,
+  },
+  moduleCardComingSoon: {
+    opacity: 0.75,
+  },
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: scale(8),
+  },
+  comingSoonBadge: {
+    backgroundColor: '#9CA3AF',
+    paddingHorizontal: scale(8),
+    paddingVertical: verticalScale(3),
+    borderRadius: moderateScale(6),
+  },
+  comingSoonBadgeText: {
+    color: '#FFFFFF',
+    fontSize: moderateScale(11),
+    fontWeight: '600',
   },
 
   moduleTextContainer: {

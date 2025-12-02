@@ -14,6 +14,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
+import { useSafeArea } from '../hooks/useSafeArea';
 
 // Import types and data
 import { RootStackParamList } from '../types';
@@ -40,6 +41,9 @@ export default function PhraseDetailScreen() {
   const { getTexts, config: appConfig, getPhraseTexts } = useAppLanguage();
   const { selectedLanguage } = useConfig();
   const { stopAudio } = useAudio();
+
+  // Safe Area для bottom padding (home indicator)
+  const { bottom: safeAreaBottom } = useSafeArea();
 
   const texts = getTexts();
 
@@ -147,7 +151,11 @@ export default function PhraseDetailScreen() {
         <View style={styles.placeholder} />
       </View>
 
-      <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        style={styles.content}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: Math.max(safeAreaBottom, verticalScale(20)) }}
+      >
 
         {/* Phrase card */}
         <View style={styles.phraseCard}>

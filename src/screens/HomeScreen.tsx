@@ -14,6 +14,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
+import { useSafeArea } from '../hooks/useSafeArea';
 
 import { Category, HomeStackParamList } from '../types';
 import { Colors } from '../constants/Colors';
@@ -82,9 +83,10 @@ const CategoryItem = React.memo<{
 interface CategoryGridProps {
   languageMode: string;  // ✅ ОБНОВЛЕНО: поддержка всех 30 языков
   onScroll?: (event: any) => void;  // ✅ НОВОЕ: колбэк для скролла
+  safeAreaBottom?: number; // ✅ НОВОЕ: Safe Area для bottom padding
 }
 
-const CategoryGrid = React.memo<CategoryGridProps>(({ languageMode, onScroll }) => {
+const CategoryGrid = React.memo<CategoryGridProps>(({ languageMode, onScroll, safeAreaBottom = 0 }) => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
 
   const handleCategoryPress = useCallback((category: Category) => {
@@ -107,7 +109,10 @@ const CategoryGrid = React.memo<CategoryGridProps>(({ languageMode, onScroll }) 
       data={categories}
       renderItem={renderCategory}
       keyExtractor={(item) => item.id}
-      contentContainerStyle={styles.gridContainer}
+      contentContainerStyle={[
+        styles.gridContainer,
+        { paddingBottom: Math.max(safeAreaBottom, verticalScale(40)) }
+      ]}
       showsVerticalScrollIndicator={false}
       removeClippedSubviews={true}
       maxToRenderPerBatch={6}
@@ -142,6 +147,9 @@ export default function HomeScreen() {
   const { config } = useAppLanguage();
   const { selectedLanguage } = useConfig();
   const navigation = useNavigation<any>();
+
+  // Safe Area для bottom padding (home indicator)
+  const { bottom: safeAreaBottom } = useSafeArea();
 
   // ✅ ОБНОВЛЕНО: Используем selectedLanguage напрямую (поддержка всех 30 языков)
   const languageMode: string = selectedLanguage;
@@ -230,6 +238,7 @@ export default function HomeScreen() {
           <CategoryGrid
             languageMode={languageMode}
             onScroll={handleScroll}
+            safeAreaBottom={safeAreaBottom}
           />
         </View>
       </TabScreen>
@@ -307,7 +316,7 @@ const styles = StyleSheet.create({
   gridContainer: {
     paddingHorizontal: scale(20),
     paddingTop: verticalScale(HEADER_HEIGHT + 24),  // ✅ Отступ сверху для header
-    paddingBottom: verticalScale(40),
+    // paddingBottom теперь динамический через safeAreaBottom
   },
 
   // 1 колонка - вертикальный список (минимализм)

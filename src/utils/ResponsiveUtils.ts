@@ -1,11 +1,90 @@
-import { Dimensions, Platform, PixelRatio } from 'react-native';
+import { Dimensions, Platform, PixelRatio, useWindowDimensions } from 'react-native';
+import { useMemo } from 'react';
 
-// Базовые размеры для расчета (iPhone 11/12/13 стандарт)
-const BASE_WIDTH = 375;
-const BASE_HEIGHT = 812;
+// Базовые размеры для расчета (iPhone 14/15 стандарт - 2024)
+const BASE_WIDTH = 390;
+const BASE_HEIGHT = 844;
 
-// Получаем размеры экрана
+// Получаем размеры экрана (статичные - для обратной совместимости)
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
+
+// ============================================================================
+// REACT HOOK - useResponsive (Best Practice 2024-2025)
+// ============================================================================
+
+/**
+ * 🎯 Реактивный хук для адаптивных размеров
+ * Автоматически обновляется при изменении размеров окна
+ *
+ * @example
+ * const { scale, verticalScale, isSmallPhone } = useResponsive();
+ * <View style={{ padding: scale(16) }} />
+ */
+export const useResponsive = () => {
+  const { width, height } = useWindowDimensions();
+
+  return useMemo(() => {
+    const widthRatio = width / BASE_WIDTH;
+    const heightRatio = height / BASE_HEIGHT;
+
+    // Функции масштабирования
+    const scale = (size: number): number =>
+      Math.round(PixelRatio.roundToNearestPixel(size * widthRatio));
+
+    const verticalScale = (size: number): number =>
+      Math.round(PixelRatio.roundToNearestPixel(size * heightRatio));
+
+    const moderateScale = (size: number, factor: number = 0.5): number =>
+      Math.round(PixelRatio.roundToNearestPixel(size + (scale(size) - size) * factor));
+
+    // Улучшенные breakpoints для телефонов (2024)
+    const deviceType = {
+      // Размеры телефонов
+      isSmallPhone: width < 375,           // iPhone SE, бюджетные Android < 375
+      isMediumPhone: width >= 375 && width < 414,  // iPhone 14/15, средние 375-413
+      isLargePhone: width >= 414,          // iPhone Pro Max, флагманы >= 414
+
+      // Дополнительная детализация
+      isVerySmallPhone: width < 360,       // Очень маленькие (старые Android)
+      isExtraLargePhone: width >= 430,     // iPhone 15 Pro Max, Samsung Ultra
+    };
+
+    // Процентные размеры
+    const wp = (percentage: number): number => (width * percentage) / 100;
+    const hp = (percentage: number): number => (height * percentage) / 100;
+
+    return {
+      // Размеры экрана
+      width,
+      height,
+
+      // Функции масштабирования
+      scale,
+      verticalScale,
+      moderateScale,
+
+      // Процентные размеры
+      wp,
+      hp,
+
+      // Device type
+      ...deviceType,
+
+      // Платформа
+      isIOS: Platform.OS === 'ios',
+      isAndroid: Platform.OS === 'android',
+
+      // Полезные соотношения
+      aspectRatio: height / width,
+      pixelRatio: PixelRatio.get(),
+      fontScale: PixelRatio.getFontScale(),
+    };
+  }, [width, height]);
+};
+
+// ============================================================================
+// СТАТИЧНЫЕ ФУНКЦИИ (для обратной совместимости)
+// ============================================================================
 
 // Вычисляем соотношения
 const widthRatio = SCREEN_WIDTH / BASE_WIDTH;
@@ -44,19 +123,27 @@ export const moderateScale = (size: number, factor: number = 0.5): number => {
 };
 
 /**
- * 📱 Информация об устройстве
+ * 📱 Информация об устройстве (статичная - для обратной совместимости)
+ * ⚠️ Рекомендуется использовать useResponsive() хук для реактивных значений
  */
 export const DeviceInfo = {
   screenWidth: SCREEN_WIDTH,
   screenHeight: SCREEN_HEIGHT,
 
-  // Breakpoints для разных устройств
-  isSmallDevice: SCREEN_WIDTH < 360, // Маленькие телефоны (iPhone SE)
-  isMediumDevice: SCREEN_WIDTH >= 360 && SCREEN_WIDTH < 414, // Средние телефоны
-  isLargeDevice: SCREEN_WIDTH >= 414 && SCREEN_WIDTH < 768, // Большие телефоны (iPhone Pro Max)
-  isTablet: SCREEN_WIDTH >= 768, // Планшеты
+  // Улучшенные breakpoints для телефонов (2024)
+  isVerySmallPhone: SCREEN_WIDTH < 360,    // Очень маленькие Android
+  isSmallPhone: SCREEN_WIDTH < 375,        // iPhone SE, бюджетные Android
+  isMediumPhone: SCREEN_WIDTH >= 375 && SCREEN_WIDTH < 414,  // iPhone 14/15
+  isLargePhone: SCREEN_WIDTH >= 414,       // iPhone Pro Max, флагманы
+  isExtraLargePhone: SCREEN_WIDTH >= 430,  // iPhone 15 Pro Max, Samsung Ultra
 
-  // Старые breakpoints (для обратной совместимости)
+  // Breakpoints для разных устройств (обратная совместимость)
+  isSmallDevice: SCREEN_WIDTH < 360,
+  isMediumDevice: SCREEN_WIDTH >= 360 && SCREEN_WIDTH < 414,
+  isLargeDevice: SCREEN_WIDTH >= 414 && SCREEN_WIDTH < 768,
+  isTablet: SCREEN_WIDTH >= 768,
+
+  // Старые breakpoints (обратная совместимость)
   isSmallScreen: SCREEN_WIDTH < 375,
   isMediumScreen: SCREEN_WIDTH >= 375 && SCREEN_WIDTH < 414,
   isLargeScreen: SCREEN_WIDTH >= 414,
@@ -67,6 +154,10 @@ export const DeviceInfo = {
   // Платформа
   isIOS: Platform.OS === 'ios',
   isAndroid: Platform.OS === 'android',
+
+  // Плотность пикселей
+  pixelRatio: PixelRatio.get(),
+  fontScale: PixelRatio.getFontScale(),
 };
 
 /**
@@ -173,7 +264,104 @@ export const maxWidth = (width: number, max: number = 600): number => {
   return Math.min(width, max);
 };
 
+// ============================================================================
+// ACCESSIBILITY - Dynamic Type Support (Best Practice 2024-2025)
+// ============================================================================
+
+/**
+ * Получить системный коэффициент масштабирования шрифта
+ * iOS: Dynamic Type
+ * Android: Font Scale в настройках доступности
+ */
+export const getFontScale = (): number => {
+  return PixelRatio.getFontScale();
+};
+
+/**
+ * 🎯 Масштабирование шрифта с учётом accessibility
+ * Ограничивает слишком большое/маленькое масштабирование
+ *
+ * @param size - базовый размер шрифта
+ * @param maxScale - максимальное увеличение (default: 1.35 = 135%)
+ * @param minScale - минимальное уменьшение (default: 0.85 = 85%)
+ *
+ * @example
+ * // Базовое использование
+ * <Text style={{ fontSize: accessibleFontSize(16) }}>Hello</Text>
+ *
+ * // С кастомными лимитами
+ * <Text style={{ fontSize: accessibleFontSize(14, 1.2, 0.9) }}>Small text</Text>
+ */
+export const accessibleFontSize = (
+  size: number,
+  maxScale: number = 1.35,
+  minScale: number = 0.85
+): number => {
+  const fontScale = PixelRatio.getFontScale();
+  const clampedScale = Math.min(Math.max(fontScale, minScale), maxScale);
+  return Math.round(size * clampedScale);
+};
+
+/**
+ * Проверка: использует ли пользователь увеличенный шрифт
+ */
+export const isLargeTextEnabled = (): boolean => {
+  return PixelRatio.getFontScale() > 1.0;
+};
+
+/**
+ * Проверка: использует ли пользователь уменьшенный шрифт
+ */
+export const isSmallTextEnabled = (): boolean => {
+  return PixelRatio.getFontScale() < 1.0;
+};
+
+/**
+ * 🎯 Hook для accessibility-aware шрифтов
+ *
+ * @example
+ * const { fontSize, isLargeText } = useAccessibleFonts();
+ * <Text style={{ fontSize: fontSize(16) }}>Dynamic text</Text>
+ */
+export const useAccessibleFonts = () => {
+  const fontScale = PixelRatio.getFontScale();
+
+  return useMemo(() => ({
+    fontScale,
+    isLargeText: fontScale > 1.0,
+    isSmallText: fontScale < 1.0,
+
+    /**
+     * Масштабировать размер шрифта с учётом системных настроек
+     */
+    fontSize: (size: number, maxScale: number = 1.35): number => {
+      const clampedScale = Math.min(Math.max(fontScale, 0.85), maxScale);
+      return Math.round(size * clampedScale);
+    },
+
+    /**
+     * Предустановленные размеры шрифтов
+     */
+    sizes: {
+      xs: accessibleFontSize(10),
+      sm: accessibleFontSize(12),
+      base: accessibleFontSize(14),
+      md: accessibleFontSize(16),
+      lg: accessibleFontSize(18),
+      xl: accessibleFontSize(20),
+      '2xl': accessibleFontSize(24),
+      '3xl': accessibleFontSize(28),
+      '4xl': accessibleFontSize(32),
+    },
+  }), [fontScale]);
+};
+
 export default {
+  // Хуки (рекомендуется)
+  useResponsive,
+  useAccessibleFonts,
+
+  // Статичные функции (обратная совместимость)
   scale,
   verticalScale,
   moderateScale,
@@ -182,4 +370,10 @@ export default {
   wp,
   hp,
   maxWidth,
+
+  // Accessibility
+  getFontScale,
+  accessibleFontSize,
+  isLargeTextEnabled,
+  isSmallTextEnabled,
 };

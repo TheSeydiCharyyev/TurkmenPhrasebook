@@ -30,8 +30,9 @@ export type RootStackParamList = {
   // Text Translator Module (Phase 3 - Ready)
   TextTranslator: undefined;
 
-  // Voice Translator Module (Phase 6 - Ready)
+  // Voice Translator Module (Phase 6 - Coming Soon)
   VoiceTranslator: undefined;
+  VoiceTranslatorComingSoon: undefined;
 
   // AI Assistants Module (Phase 4 - Ready)
   UniversalAIChat: undefined; // Universal AI assistant (replaces old separate assistants)

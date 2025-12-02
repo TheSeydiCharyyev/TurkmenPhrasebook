@@ -19,6 +19,8 @@ import { LANGUAGES, getLanguageProgress } from '../config/languages.config';
 import { useConfig } from '../contexts/ConfigContext';
 import { useAppLanguage, AppLanguageMode } from '../contexts/LanguageContext';
 import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
+import { useSafeArea } from '../hooks/useSafeArea';
+import { platformShadow } from '../utils/PlatformStyles';
 
 interface LanguageSelectionScreenProps {
   navigation?: any;
@@ -30,6 +32,9 @@ export default function LanguageSelectionScreen({ navigation, onLanguageSelect }
   const { setLanguageMode, config } = useAppLanguage();
   const [isChanging, setIsChanging] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+
+  // Safe Area для bottom padding (home indicator)
+  const { bottom: safeAreaBottom } = useSafeArea();
 
   // Filter languages based on search query
   const filteredLanguages = LANGUAGES.filter(lang =>
@@ -51,8 +56,21 @@ export default function LanguageSelectionScreen({ navigation, onLanguageSelect }
 
     // Если уже выбран этот язык интерфейса
     if (code === config.mode) {
-      if (navigation) {
+      if (navigation && navigation.canGoBack()) {
         navigation.goBack();
+      } else if (navigation) {
+        // Первый запуск - сохраняем выбор и переходим на следующий экран
+        try {
+          // Сохраняем выбор языка (важно для первого запуска)
+          await setLanguageMode(code as any, true);
+          if (code !== 'tk') {
+            await setSelectedLanguage(code);
+          }
+        } catch (error) {
+          console.warn('Failed to save language on first launch:', error);
+        }
+        const nextScreen = onboardingCompleted ? 'MainHub' : 'Onboarding';
+        navigation.replace(nextScreen);
       }
       return;
     }
@@ -162,7 +180,7 @@ export default function LanguageSelectionScreen({ navigation, onLanguageSelect }
         style={styles.headerGradient}
       >
         <SafeAreaView edges={['top']} style={styles.safeArea}>
-          {navigation && (
+          {navigation && navigation.canGoBack() && (
             <TouchableOpacity
               style={styles.backButton}
               onPress={() => navigation.goBack()}
@@ -202,7 +220,10 @@ export default function LanguageSelectionScreen({ navigation, onLanguageSelect }
         data={filteredLanguages}
         renderItem={renderLanguageItem}
         keyExtractor={item => item.code}
-        contentContainerStyle={styles.listContent}
+        contentContainerStyle={[
+          styles.listContent,
+          { paddingBottom: Math.max(safeAreaBottom, verticalScale(24)) }
+        ]}
         showsVerticalScrollIndicator={false}
         style={styles.list}
       />

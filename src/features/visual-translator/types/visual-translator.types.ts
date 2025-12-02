@@ -22,6 +22,7 @@ export interface OCREngineInfo {
   isPremium: boolean;
   isAvailable: boolean;                 // Доступен ли в текущем окружении
   requiresApiKey?: boolean;
+  isComingSoon?: boolean;               // Скоро будет доступен
 }
 
 /**

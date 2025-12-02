@@ -109,6 +109,8 @@ export interface InterfaceTexts {
   vtProcessing: string;
   vtProcessingSubtext: string;
   vtOcrEngine: string;
+  vtOcrEngineDesc: string;
+  vtOcrSpaceNote: string;
   vtFeatures: string;
   vtFeatureOcrTitle: string;
   vtFeatureOcrDesc: string;
@@ -215,6 +217,15 @@ export interface InterfaceTexts {
   vtPermissionTitle: string;
   vtPermissionMessage: string;
   vtGrantPermission: string;
+  vtComingSoon: string;
+
+  // Voice Translator Coming Soon
+  voiceComingSoonTitle: string;
+  voiceComingSoonDesc: string;
+  voiceComingSoonFeature1: string;
+  voiceComingSoonFeature2: string;
+  voiceComingSoonFeature3: string;
+  voiceComingSoonButton: string;
 
   // AI Chat Screen - Additional UI elements
   aiBalancedMode?: string;
@@ -277,6 +288,24 @@ export interface InterfaceTexts {
   onboardingFeatureDictionary: string;
   onboardingFeatureAIAssistants: string;
   onboardingFeatureOffline: string;
+
+  // Settings Screen - Additional translations (Task 1)
+  settingsInstalledVoices?: string;
+  settingsInstalledVoicesDesc?: string;
+  settingsLoading?: string;
+  settingsDarkMode?: string;
+  settingsDarkModeDesc?: string;
+  settingsSpeechRate?: string;
+  settingsSpeechRateDesc?: string;
+  settingsResetAll?: string;
+  settingsResetAllDesc?: string;
+  settingsResetConfirm?: string;
+  settingsClearSearchHistory?: string;
+  settingsClearSearchHistoryDesc?: string;
+  settingsRateApp?: string;
+  settingsSendFeedback?: string;
+  settingsAppearance?: string;
+  settingsDataStorage?: string;
 }
 
 // ✅ ИСПРАВЛЕНО: Правильные заголовки согласно требованиям
@@ -370,6 +399,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Surat işlenýär...',
     vtProcessingSubtext: 'Tekst tanalyp we terjime edilýär',
     vtOcrEngine: 'OCR hereketlendirijisi',
+    vtOcrEngineDesc: 'Suratlardan teksti nädip tanamaly saýlaň.',
+    vtOcrSpaceNote: 'Mugt, aýda 25K haýyş',
     vtFeatures: 'Mümkinçilikler',
     vtFeatureOcrTitle: 'OCR Tekst tanama',
     vtFeatureOcrDesc: '30+ dilde teksti ýokary takyklyk bilen tanaýar',
@@ -476,6 +507,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Mikrofon rugsady',
     vtPermissionMessage: 'Bu aýratynlygy ulanmak üçin mikrofon rugsady gerek',
     vtGrantPermission: 'Rugsat ber',
+    vtComingSoon: 'Ýakynda',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Ses terjimeçi',
+    voiceComingSoonDesc: 'Bu aýratynlyk ýakynda elýeterli bolar',
+    voiceComingSoonFeature1: '🎤 Gürläp terjime ediň',
+    voiceComingSoonFeature2: '🌍 30+ dili goldaýar',
+    voiceComingSoonFeature3: '⚡ Gyssagly terjime',
+    voiceComingSoonButton: 'Düşündim',
 
     // Onboarding
     onboardingSkip: 'Geç',
@@ -509,8 +549,26 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Sözlük',
     onboardingFeatureAIAssistants: '💬 AI kömekçiler',
     onboardingFeatureOffline: '✈️ Oflaýn işleýär',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'Gurlan sesler',
+    settingsInstalledVoicesDesc: 'Ähli TTS seslerini görüň',
+    settingsLoading: 'Sazlamalar ýüklenýär...',
+    settingsDarkMode: 'Garaňky režim',
+    settingsDarkModeDesc: 'Garaňky temany açyň',
+    settingsSpeechRate: 'Gürleýiş tizligi',
+    settingsSpeechRateDesc: 'Aýdylyş tizligini sazlaň',
+    settingsResetAll: 'Ähli sazlamalary täzeden',
+    settingsResetAllDesc: 'Başlangyç sazlamalary dikelt',
+    settingsResetConfirm: 'Hakykatdanam täzeden başlatmak isleýärsiňizmi?',
+    settingsClearSearchHistory: 'Gözleg taryhyny arassala',
+    settingsClearSearchHistoryDesc: 'Ähli gözleg ýazgylaryny poz',
+    settingsRateApp: 'Programma baha ber',
+    settingsSendFeedback: 'Pikir iber',
+    settingsAppearance: 'Görnüş',
+    settingsDataStorage: 'Maglumatlar',
   },
-  
+
   zh: {
     // Китайский режим: китаец изучает туркменский
     home: '主页',
@@ -600,6 +658,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: '处理图像中...',
     vtProcessingSubtext: '识别文本并翻译',
     vtOcrEngine: 'OCR引擎',
+    vtOcrEngineDesc: '选择如何从图像中识别文本。',
+    vtOcrSpaceNote: '免费，每月25K请求',
     vtFeatures: '功能',
     vtFeatureOcrTitle: 'OCR文字识别',
     vtFeatureOcrDesc: '高精度识别30+种语言的文本',
@@ -706,6 +766,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: '麦克风权限',
     vtPermissionMessage: '需要麦克风权限才能使用此功能',
     vtGrantPermission: '授予权限',
+    vtComingSoon: '即将推出',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: '语音翻译',
+    voiceComingSoonDesc: '此功能即将推出',
+    voiceComingSoonFeature1: '🎤 语音翻译',
+    voiceComingSoonFeature2: '🌍 支持30+语言',
+    voiceComingSoonFeature3: '⚡ 即时翻译',
+    voiceComingSoonButton: '知道了',
 
     // Onboarding
     onboardingSkip: '跳过',
@@ -739,6 +808,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 词典',
     onboardingFeatureAIAssistants: '💬 AI助手',
     onboardingFeatureOffline: '✈️ 离线工作',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: '已安装语音',
+    settingsInstalledVoicesDesc: '查看所有TTS语音',
+    settingsLoading: '加载设置...',
+    settingsDarkMode: '深色模式',
+    settingsDarkModeDesc: '切换到深色主题',
+    settingsSpeechRate: '语速',
+    settingsSpeechRateDesc: '调整发音速度',
+    settingsResetAll: '重置所有设置',
+    settingsResetAllDesc: '恢复默认设置',
+    settingsResetConfirm: '确定要重置吗？',
+    settingsClearSearchHistory: '清除搜索历史',
+    settingsClearSearchHistoryDesc: '删除所有搜索记录',
+    settingsRateApp: '评价应用',
+    settingsSendFeedback: '发送反馈',
+    settingsAppearance: '外观',
+    settingsDataStorage: '数据与存储',
   },
 
   ru: {
@@ -829,6 +916,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Обработка изображения...',
     vtProcessingSubtext: 'Распознавание текста и перевод',
     vtOcrEngine: 'Движок OCR',
+    vtOcrEngineDesc: 'Выберите способ распознавания текста с изображений.',
+    vtOcrSpaceNote: 'Бесплатно, 25K запросов/месяц',
     vtFeatures: 'Возможности',
     vtFeatureOcrTitle: 'OCR Распознавание текста',
     vtFeatureOcrDesc: 'Распознаёт текст на 30+ языках с высокой точностью',
@@ -935,6 +1024,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Разрешение микрофона',
     vtPermissionMessage: 'Для использования этой функции требуется доступ к микрофону',
     vtGrantPermission: 'Предоставить разрешение',
+    vtComingSoon: 'Скоро',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Голосовой переводчик',
+    voiceComingSoonDesc: 'Эта функция скоро будет доступна',
+    voiceComingSoonFeature1: '🎤 Переводите голосом',
+    voiceComingSoonFeature2: '🌍 Поддержка 30+ языков',
+    voiceComingSoonFeature3: '⚡ Мгновенный перевод',
+    voiceComingSoonButton: 'Понятно',
 
     // Onboarding
     onboardingSkip: 'Пропустить',
@@ -968,6 +1066,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Словарь',
     onboardingFeatureAIAssistants: '💬 AI-помощники',
     onboardingFeatureOffline: '✈️ Работает офлайн',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'Установленные голоса',
+    settingsInstalledVoicesDesc: 'Просмотр всех TTS голосов',
+    settingsLoading: 'Загрузка настроек...',
+    settingsDarkMode: 'Тёмная тема',
+    settingsDarkModeDesc: 'Переключить на тёмную тему',
+    settingsSpeechRate: 'Скорость речи',
+    settingsSpeechRateDesc: 'Настройка скорости произношения',
+    settingsResetAll: 'Сбросить все настройки',
+    settingsResetAllDesc: 'Восстановить настройки по умолчанию',
+    settingsResetConfirm: 'Вы уверены, что хотите сбросить?',
+    settingsClearSearchHistory: 'Очистить историю поиска',
+    settingsClearSearchHistoryDesc: 'Удалить все записи поиска',
+    settingsRateApp: 'Оценить приложение',
+    settingsSendFeedback: 'Отправить отзыв',
+    settingsAppearance: 'Оформление',
+    settingsDataStorage: 'Данные и хранение',
   },
 
   en: {
@@ -1058,6 +1174,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Processing image...',
     vtProcessingSubtext: 'Recognizing text and translating',
     vtOcrEngine: 'OCR Engine',
+    vtOcrEngineDesc: 'Choose how to recognize text from images.',
+    vtOcrSpaceNote: 'Free, 25K requests/month',
     vtFeatures: 'Features',
     vtFeatureOcrTitle: 'OCR Text Recognition',
     vtFeatureOcrDesc: 'Recognizes text in 30+ languages with high accuracy',
@@ -1164,6 +1282,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Microphone Permission',
     vtPermissionMessage: 'Microphone access is required to use this feature',
     vtGrantPermission: 'Grant Permission',
+    vtComingSoon: 'Coming soon',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Voice Translator',
+    voiceComingSoonDesc: 'This feature will be available soon',
+    voiceComingSoonFeature1: '🎤 Translate by speaking',
+    voiceComingSoonFeature2: '🌍 Supports 30+ languages',
+    voiceComingSoonFeature3: '⚡ Instant translation',
+    voiceComingSoonButton: 'Got it',
 
     // Onboarding
     onboardingSkip: 'Skip',
@@ -1197,6 +1324,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Dictionary',
     onboardingFeatureAIAssistants: '💬 AI Assistants',
     onboardingFeatureOffline: '✈️ Works Offline',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'Installed Voices',
+    settingsInstalledVoicesDesc: 'View all available TTS voices',
+    settingsLoading: 'Loading settings...',
+    settingsDarkMode: 'Dark Mode',
+    settingsDarkModeDesc: 'Switch to dark theme',
+    settingsSpeechRate: 'Speech Rate',
+    settingsSpeechRateDesc: 'Adjust pronunciation speed',
+    settingsResetAll: 'Reset All Settings',
+    settingsResetAllDesc: 'Restore default settings',
+    settingsResetConfirm: 'Are you sure you want to reset?',
+    settingsClearSearchHistory: 'Clear Search History',
+    settingsClearSearchHistoryDesc: 'Delete all search records',
+    settingsRateApp: 'Rate App',
+    settingsSendFeedback: 'Send Feedback',
+    settingsAppearance: 'Appearance',
+    settingsDataStorage: 'Data & Storage',
   },
 
   tr: {
@@ -1287,6 +1432,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Görüntü işleniyor...',
     vtProcessingSubtext: 'Metin tanınıyor ve çevriliyor',
     vtOcrEngine: 'OCR Motoru',
+    vtOcrEngineDesc: 'Görüntülerden metni nasıl tanıyacağınızı seçin.',
+    vtOcrSpaceNote: 'Ücretsiz, ayda 25K istek',
     vtFeatures: 'Özellikler',
     vtFeatureOcrTitle: 'OCR Metin Tanıma',
     vtFeatureOcrDesc: '30+ dilde yüksek doğrulukla metin tanır',
@@ -1393,6 +1540,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Mikrofon İzni',
     vtPermissionMessage: 'Bu özelliği kullanmak için mikrofon erişimi gereklidir',
     vtGrantPermission: 'İzin Ver',
+    vtComingSoon: 'Yakında',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Sesli Çevirmen',
+    voiceComingSoonDesc: 'Bu özellik yakında kullanıma sunulacak',
+    voiceComingSoonFeature1: '🎤 Konuşarak çevirin',
+    voiceComingSoonFeature2: '🌍 30+ dil desteği',
+    voiceComingSoonFeature3: '⚡ Anında çeviri',
+    voiceComingSoonButton: 'Anladım',
 
     // Onboarding
     onboardingSkip: 'Geç',
@@ -1426,6 +1582,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Sözlük',
     onboardingFeatureAIAssistants: '💬 AI Asistanları',
     onboardingFeatureOffline: '✈️ Çevrimdışı Çalışır',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'Yüklü Sesler',
+    settingsInstalledVoicesDesc: 'Tüm TTS seslerini görüntüle',
+    settingsLoading: 'Ayarlar yükleniyor...',
+    settingsDarkMode: 'Karanlık Mod',
+    settingsDarkModeDesc: 'Karanlık temaya geç',
+    settingsSpeechRate: 'Konuşma Hızı',
+    settingsSpeechRateDesc: 'Telaffuz hızını ayarla',
+    settingsResetAll: 'Tüm Ayarları Sıfırla',
+    settingsResetAllDesc: 'Varsayılan ayarları geri yükle',
+    settingsResetConfirm: 'Sıfırlamak istediğinizden emin misiniz?',
+    settingsClearSearchHistory: 'Arama Geçmişini Temizle',
+    settingsClearSearchHistoryDesc: 'Tüm arama kayıtlarını sil',
+    settingsRateApp: 'Uygulamayı Değerlendir',
+    settingsSendFeedback: 'Geri Bildirim Gönder',
+    settingsAppearance: 'Görünüm',
+    settingsDataStorage: 'Veri ve Depolama',
   },
 
   de: {
@@ -1495,6 +1669,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Bild wird verarbeitet...',
     vtProcessingSubtext: 'Text wird erkannt und übersetzt',
     vtOcrEngine: 'OCR-Engine',
+    vtOcrEngineDesc: 'Wählen Sie, wie Text aus Bildern erkannt werden soll.',
+    vtOcrSpaceNote: 'Kostenlos, 25K Anfragen/Monat',
     vtFeatures: 'Funktionen',
     vtFeatureOcrTitle: 'OCR-Texterkennung',
     vtFeatureOcrDesc: 'Erkennt Text in 30+ Sprachen mit hoher Genauigkeit',
@@ -1601,6 +1777,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Mikrofonberechtigung',
     vtPermissionMessage: 'Mikrofonzugriff ist erforderlich, um diese Funktion zu verwenden',
     vtGrantPermission: 'Berechtigung erteilen',
+    vtComingSoon: 'Demnächst',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Sprachübersetzer',
+    voiceComingSoonDesc: 'Diese Funktion wird bald verfügbar sein',
+    voiceComingSoonFeature1: '🎤 Übersetzen durch Sprechen',
+    voiceComingSoonFeature2: '🌍 Unterstützt 30+ Sprachen',
+    voiceComingSoonFeature3: '⚡ Sofortige Übersetzung',
+    voiceComingSoonButton: 'Verstanden',
 
     // Onboarding
     onboardingSkip: 'Überspringen',
@@ -1634,6 +1819,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Wörterbuch',
     onboardingFeatureAIAssistants: '💬 KI-Assistenten',
     onboardingFeatureOffline: '✈️ Funktioniert offline',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'Installierte Stimmen',
+    settingsInstalledVoicesDesc: 'Alle verfügbaren TTS-Stimmen anzeigen',
+    settingsLoading: 'Einstellungen werden geladen...',
+    settingsDarkMode: 'Dunkelmodus',
+    settingsDarkModeDesc: 'Zum dunklen Design wechseln',
+    settingsSpeechRate: 'Sprechgeschwindigkeit',
+    settingsSpeechRateDesc: 'Aussprachegeschwindigkeit anpassen',
+    settingsResetAll: 'Alle Einstellungen zurücksetzen',
+    settingsResetAllDesc: 'Standardeinstellungen wiederherstellen',
+    settingsResetConfirm: 'Möchten Sie wirklich zurücksetzen?',
+    settingsClearSearchHistory: 'Suchverlauf löschen',
+    settingsClearSearchHistoryDesc: 'Alle Sucheinträge löschen',
+    settingsRateApp: 'App bewerten',
+    settingsSendFeedback: 'Feedback senden',
+    settingsAppearance: 'Darstellung',
+    settingsDataStorage: 'Daten & Speicher',
   },
 
   fr: {
@@ -1703,6 +1906,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Traitement de l\'image...',
     vtProcessingSubtext: 'Reconnaissance et traduction du texte',
     vtOcrEngine: 'Moteur OCR',
+    vtOcrEngineDesc: 'Choisissez comment reconnaître le texte des images.',
+    vtOcrSpaceNote: 'Gratuit, 25K requêtes/mois',
     vtFeatures: 'Fonctionnalités',
     vtFeatureOcrTitle: 'Reconnaissance de texte OCR',
     vtFeatureOcrDesc: 'Reconnaît le texte en 30+ langues avec haute précision',
@@ -1809,6 +2014,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Autorisation du microphone',
     vtPermissionMessage: 'L\'accès au microphone est requis pour utiliser cette fonctionnalité',
     vtGrantPermission: 'Accorder l\'autorisation',
+    vtComingSoon: 'Bientôt',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Traducteur vocal',
+    voiceComingSoonDesc: 'Cette fonctionnalité sera bientôt disponible',
+    voiceComingSoonFeature1: '🎤 Traduisez en parlant',
+    voiceComingSoonFeature2: '🌍 Prend en charge 30+ langues',
+    voiceComingSoonFeature3: '⚡ Traduction instantanée',
+    voiceComingSoonButton: 'Compris',
 
     // Onboarding
     onboardingSkip: 'Passer',
@@ -1842,6 +2056,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Dictionnaire',
     onboardingFeatureAIAssistants: '💬 Assistants IA',
     onboardingFeatureOffline: '✈️ Fonctionne hors ligne',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'Voix installées',
+    settingsInstalledVoicesDesc: 'Voir toutes les voix TTS disponibles',
+    settingsLoading: 'Chargement des paramètres...',
+    settingsDarkMode: 'Mode sombre',
+    settingsDarkModeDesc: 'Passer au thème sombre',
+    settingsSpeechRate: 'Vitesse de parole',
+    settingsSpeechRateDesc: 'Ajuster la vitesse de prononciation',
+    settingsResetAll: 'Réinitialiser tous les paramètres',
+    settingsResetAllDesc: 'Restaurer les paramètres par défaut',
+    settingsResetConfirm: 'Êtes-vous sûr de vouloir réinitialiser?',
+    settingsClearSearchHistory: "Effacer l'historique de recherche",
+    settingsClearSearchHistoryDesc: 'Supprimer tous les enregistrements de recherche',
+    settingsRateApp: "Évaluer l'application",
+    settingsSendFeedback: 'Envoyer un commentaire',
+    settingsAppearance: 'Apparence',
+    settingsDataStorage: 'Données et stockage',
   },
 
   es: {
@@ -1910,6 +2142,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Procesando imagen...',
     vtProcessingSubtext: 'Reconociendo y traduciendo texto',
     vtOcrEngine: 'Motor OCR',
+    vtOcrEngineDesc: 'Elija cómo reconocer texto de imágenes.',
+    vtOcrSpaceNote: 'Gratis, 25K solicitudes/mes',
     vtFeatures: 'Características',
     vtFeatureOcrTitle: 'Reconocimiento de texto OCR',
     vtFeatureOcrDesc: 'Reconoce texto en 30+ idiomas con alta precisión',
@@ -2014,6 +2248,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Permiso de micrófono',
     vtPermissionMessage: 'Se requiere acceso al micrófono para usar esta función',
     vtGrantPermission: 'Conceder permiso',
+    vtComingSoon: 'Próximamente',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Traductor de voz',
+    voiceComingSoonDesc: 'Esta función estará disponible pronto',
+    voiceComingSoonFeature1: '🎤 Traduce hablando',
+    voiceComingSoonFeature2: '🌍 Soporta 30+ idiomas',
+    voiceComingSoonFeature3: '⚡ Traducción instantánea',
+    voiceComingSoonButton: 'Entendido',
 
     // Onboarding
     onboardingSkip: 'Omitir',
@@ -2047,6 +2290,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Diccionario',
     onboardingFeatureAIAssistants: '💬 Asistentes de IA',
     onboardingFeatureOffline: '✈️ Funciona sin conexión',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'Voces instaladas',
+    settingsInstalledVoicesDesc: 'Ver todas las voces TTS disponibles',
+    settingsLoading: 'Cargando configuración...',
+    settingsDarkMode: 'Modo oscuro',
+    settingsDarkModeDesc: 'Cambiar al tema oscuro',
+    settingsSpeechRate: 'Velocidad del habla',
+    settingsSpeechRateDesc: 'Ajustar velocidad de pronunciación',
+    settingsResetAll: 'Restablecer toda la configuración',
+    settingsResetAllDesc: 'Restaurar configuración predeterminada',
+    settingsResetConfirm: '¿Está seguro de que desea restablecer?',
+    settingsClearSearchHistory: 'Borrar historial de búsqueda',
+    settingsClearSearchHistoryDesc: 'Eliminar todos los registros de búsqueda',
+    settingsRateApp: 'Calificar aplicación',
+    settingsSendFeedback: 'Enviar comentarios',
+    settingsAppearance: 'Apariencia',
+    settingsDataStorage: 'Datos y almacenamiento',
   },
 
   it: {
@@ -2115,6 +2376,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Elaborazione immagine...',
     vtProcessingSubtext: 'Riconoscimento e traduzione del testo',
     vtOcrEngine: 'Motore OCR',
+    vtOcrEngineDesc: 'Scegli come riconoscere il testo dalle immagini.',
+    vtOcrSpaceNote: 'Gratuito, 25K richieste/mese',
     vtFeatures: 'Funzionalità',
     vtFeatureOcrTitle: 'Riconoscimento testo OCR',
     vtFeatureOcrDesc: 'Riconosce testo in 30+ lingue con alta precisione',
@@ -2218,6 +2481,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Permesso Microfono',
     vtPermissionMessage: 'L\'accesso al microfono è necessario per utilizzare questa funzione',
     vtGrantPermission: 'Concedi Permesso',
+    vtComingSoon: 'Prossimamente',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Traduttore vocale',
+    voiceComingSoonDesc: 'Questa funzione sarà disponibile a breve',
+    voiceComingSoonFeature1: '🎤 Traduci parlando',
+    voiceComingSoonFeature2: '🌍 Supporta 30+ lingue',
+    voiceComingSoonFeature3: '⚡ Traduzione istantanea',
+    voiceComingSoonButton: 'Capito',
 
     // Onboarding
     onboardingSkip: 'Salta',
@@ -2251,6 +2523,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Dizionario',
     onboardingFeatureAIAssistants: '💬 Assistenti IA',
     onboardingFeatureOffline: '✈️ Funziona offline',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'Voci installate',
+    settingsInstalledVoicesDesc: 'Visualizza tutte le voci TTS disponibili',
+    settingsLoading: 'Caricamento impostazioni...',
+    settingsDarkMode: 'Modalità scura',
+    settingsDarkModeDesc: 'Passa al tema scuro',
+    settingsSpeechRate: 'Velocità del parlato',
+    settingsSpeechRateDesc: 'Regola la velocità di pronuncia',
+    settingsResetAll: 'Ripristina tutte le impostazioni',
+    settingsResetAllDesc: 'Ripristina impostazioni predefinite',
+    settingsResetConfirm: 'Sei sicuro di voler ripristinare?',
+    settingsClearSearchHistory: 'Cancella cronologia ricerche',
+    settingsClearSearchHistoryDesc: 'Elimina tutti i record di ricerca',
+    settingsRateApp: 'Valuta app',
+    settingsSendFeedback: 'Invia feedback',
+    settingsAppearance: 'Aspetto',
+    settingsDataStorage: 'Dati e archiviazione',
   },
 
   pt: {
@@ -2319,6 +2609,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Processando imagem...',
     vtProcessingSubtext: 'Reconhecendo e traduzindo texto',
     vtOcrEngine: 'Motor OCR',
+    vtOcrEngineDesc: 'Escolha como reconhecer texto de imagens.',
+    vtOcrSpaceNote: 'Grátis, 25K pedidos/mês',
     vtFeatures: 'Recursos',
     vtFeatureOcrTitle: 'Reconhecimento de texto OCR',
     vtFeatureOcrDesc: 'Reconhece texto em 30+ idiomas com alta precisão',
@@ -2422,6 +2714,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Permissão do Microfone',
     vtPermissionMessage: 'O acesso ao microfone é necessário para usar este recurso',
     vtGrantPermission: 'Conceder Permissão',
+    vtComingSoon: 'Em breve',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Tradutor de voz',
+    voiceComingSoonDesc: 'Este recurso estará disponível em breve',
+    voiceComingSoonFeature1: '🎤 Traduza falando',
+    voiceComingSoonFeature2: '🌍 Suporta 30+ idiomas',
+    voiceComingSoonFeature3: '⚡ Tradução instantânea',
+    voiceComingSoonButton: 'Entendi',
 
     // Onboarding
     onboardingSkip: 'Pular',
@@ -2455,6 +2756,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Dicionário',
     onboardingFeatureAIAssistants: '💬 Assistentes de IA',
     onboardingFeatureOffline: '✈️ Funciona offline',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'Vozes instaladas',
+    settingsInstalledVoicesDesc: 'Ver todas as vozes TTS disponíveis',
+    settingsLoading: 'Carregando configurações...',
+    settingsDarkMode: 'Modo escuro',
+    settingsDarkModeDesc: 'Mudar para tema escuro',
+    settingsSpeechRate: 'Velocidade da fala',
+    settingsSpeechRateDesc: 'Ajustar velocidade de pronúncia',
+    settingsResetAll: 'Redefinir todas as configurações',
+    settingsResetAllDesc: 'Restaurar configurações padrão',
+    settingsResetConfirm: 'Tem certeza que deseja redefinir?',
+    settingsClearSearchHistory: 'Limpar histórico de pesquisa',
+    settingsClearSearchHistoryDesc: 'Excluir todos os registros de pesquisa',
+    settingsRateApp: 'Avaliar aplicativo',
+    settingsSendFeedback: 'Enviar feedback',
+    settingsAppearance: 'Aparência',
+    settingsDataStorage: 'Dados e armazenamento',
   },
 
   nl: {
@@ -2523,6 +2842,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Afbeelding verwerken...',
     vtProcessingSubtext: 'Tekst herkennen en vertalen',
     vtOcrEngine: 'OCR-engine',
+    vtOcrEngineDesc: 'Kies hoe tekst van afbeeldingen te herkennen.',
+    vtOcrSpaceNote: 'Gratis, 25K verzoeken/maand',
     vtFeatures: 'Functies',
     vtFeatureOcrTitle: 'OCR-tekstherkenning',
     vtFeatureOcrDesc: 'Herkent tekst in 30+ talen met hoge nauwkeurigheid',
@@ -2626,6 +2947,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Microfoontoestemming',
     vtPermissionMessage: 'Microfoontoegang is vereist om deze functie te gebruiken',
     vtGrantPermission: 'Toestemming verlenen',
+    vtComingSoon: 'Binnenkort',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Spraakvertaler',
+    voiceComingSoonDesc: 'Deze functie is binnenkort beschikbaar',
+    voiceComingSoonFeature1: '🎤 Vertaal door te spreken',
+    voiceComingSoonFeature2: '🌍 Ondersteunt 30+ talen',
+    voiceComingSoonFeature3: '⚡ Directe vertaling',
+    voiceComingSoonButton: 'Begrepen',
 
     // Onboarding
     onboardingSkip: 'Overslaan',
@@ -2659,6 +2989,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Woordenboek',
     onboardingFeatureAIAssistants: '💬 AI-assistenten',
     onboardingFeatureOffline: '✈️ Werkt offline',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'Geïnstalleerde stemmen',
+    settingsInstalledVoicesDesc: 'Bekijk alle beschikbare TTS-stemmen',
+    settingsLoading: 'Instellingen laden...',
+    settingsDarkMode: 'Donkere modus',
+    settingsDarkModeDesc: 'Schakel naar donker thema',
+    settingsSpeechRate: 'Spreeksnelheid',
+    settingsSpeechRateDesc: 'Pas uitspraaksnelheid aan',
+    settingsResetAll: 'Alle instellingen resetten',
+    settingsResetAllDesc: 'Standaardinstellingen herstellen',
+    settingsResetConfirm: 'Weet u zeker dat u wilt resetten?',
+    settingsClearSearchHistory: 'Zoekgeschiedenis wissen',
+    settingsClearSearchHistoryDesc: 'Alle zoekrecords verwijderen',
+    settingsRateApp: 'App beoordelen',
+    settingsSendFeedback: 'Feedback verzenden',
+    settingsAppearance: 'Uiterlijk',
+    settingsDataStorage: 'Gegevens en opslag',
   },
 
   pl: {
@@ -2727,6 +3075,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Przetwarzanie obrazu...',
     vtProcessingSubtext: 'Rozpoznawanie i tłumaczenie tekstu',
     vtOcrEngine: 'Silnik OCR',
+    vtOcrEngineDesc: 'Wybierz sposób rozpoznawania tekstu z obrazów.',
+    vtOcrSpaceNote: 'Bezpłatnie, 25K żądań/miesiąc',
     vtFeatures: 'Funkcje',
     vtFeatureOcrTitle: 'Rozpoznawanie tekstu OCR',
     vtFeatureOcrDesc: 'Rozpoznaje tekst w 30+ językach z wysoką dokładnością',
@@ -2830,6 +3180,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Uprawnienia Mikrofonu',
     vtPermissionMessage: 'Dostęp do mikrofonu jest wymagany do korzystania z tej funkcji',
     vtGrantPermission: 'Przyznaj Uprawnienia',
+    vtComingSoon: 'Wkrótce',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Tłumacz głosowy',
+    voiceComingSoonDesc: 'Ta funkcja będzie wkrótce dostępna',
+    voiceComingSoonFeature1: '🎤 Tłumacz mówiąc',
+    voiceComingSoonFeature2: '🌍 Obsługuje 30+ języków',
+    voiceComingSoonFeature3: '⚡ Natychmiastowe tłumaczenie',
+    voiceComingSoonButton: 'Rozumiem',
 
     // Onboarding
     onboardingSkip: 'Pomiń',
@@ -2863,6 +3222,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Słownik',
     onboardingFeatureAIAssistants: '💬 Asystenci AI',
     onboardingFeatureOffline: '✈️ Działa offline',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'Zainstalowane głosy',
+    settingsInstalledVoicesDesc: 'Zobacz wszystkie dostępne głosy TTS',
+    settingsLoading: 'Ładowanie ustawień...',
+    settingsDarkMode: 'Tryb ciemny',
+    settingsDarkModeDesc: 'Przełącz na ciemny motyw',
+    settingsSpeechRate: 'Szybkość mowy',
+    settingsSpeechRateDesc: 'Dostosuj szybkość wymowy',
+    settingsResetAll: 'Zresetuj wszystkie ustawienia',
+    settingsResetAllDesc: 'Przywróć ustawienia domyślne',
+    settingsResetConfirm: 'Czy na pewno chcesz zresetować?',
+    settingsClearSearchHistory: 'Wyczyść historię wyszukiwania',
+    settingsClearSearchHistoryDesc: 'Usuń wszystkie rekordy wyszukiwania',
+    settingsRateApp: 'Oceń aplikację',
+    settingsSendFeedback: 'Wyślij opinię',
+    settingsAppearance: 'Wygląd',
+    settingsDataStorage: 'Dane i pamięć',
   },
 
   uk: {
@@ -2932,6 +3309,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Обробка зображення...',
     vtProcessingSubtext: 'Розпізнавання тексту та переклад',
     vtOcrEngine: 'OCR движок',
+    vtOcrEngineDesc: 'Виберіть спосіб розпізнавання тексту з зображень.',
+    vtOcrSpaceNote: 'Безкоштовно, 25K запитів/місяць',
     vtFeatures: 'Функції',
     vtFeatureOcrTitle: 'Розпізнавання тексту OCR',
     vtFeatureOcrDesc: 'Розпізнає текст більш ніж 30 мовами з високою точністю',
@@ -3037,6 +3416,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Дозвіл на Мікрофон',
     vtPermissionMessage: 'Доступ до мікрофона необхідний для використання цієї функції',
     vtGrantPermission: 'Надати Дозвіл',
+    vtComingSoon: 'Незабаром',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Голосовий перекладач',
+    voiceComingSoonDesc: 'Ця функція незабаром буде доступна',
+    voiceComingSoonFeature1: '🎤 Перекладайте голосом',
+    voiceComingSoonFeature2: '🌍 Підтримка 30+ мов',
+    voiceComingSoonFeature3: '⚡ Миттєвий переклад',
+    voiceComingSoonButton: 'Зрозуміло',
 
     // Onboarding
     onboardingSkip: 'Пропустити',
@@ -3070,6 +3458,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Словник',
     onboardingFeatureAIAssistants: '💬 AI-помічники',
     onboardingFeatureOffline: '✈️ Працює офлайн',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'Встановлені голоси',
+    settingsInstalledVoicesDesc: 'Переглянути всі доступні TTS голоси',
+    settingsLoading: 'Завантаження налаштувань...',
+    settingsDarkMode: 'Темна тема',
+    settingsDarkModeDesc: 'Перемкнути на темну тему',
+    settingsSpeechRate: 'Швидкість мовлення',
+    settingsSpeechRateDesc: 'Налаштувати швидкість вимови',
+    settingsResetAll: 'Скинути всі налаштування',
+    settingsResetAllDesc: 'Відновити налаштування за замовчуванням',
+    settingsResetConfirm: 'Ви впевнені, що хочете скинути?',
+    settingsClearSearchHistory: 'Очистити історію пошуку',
+    settingsClearSearchHistoryDesc: 'Видалити всі записи пошуку',
+    settingsRateApp: 'Оцінити додаток',
+    settingsSendFeedback: 'Надіслати відгук',
+    settingsAppearance: 'Зовнішній вигляд',
+    settingsDataStorage: 'Дані та сховище',
   },
 
   ja: {
@@ -3138,6 +3544,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: '画像を処理中...',
     vtProcessingSubtext: 'テキストを認識して翻訳中',
     vtOcrEngine: 'OCRエンジン',
+    vtOcrEngineDesc: '画像からテキストを認識する方法を選択してください。',
+    vtOcrSpaceNote: '無料、月25Kリクエスト',
     vtFeatures: '機能',
     vtFeatureOcrTitle: 'OCRテキスト認識',
     vtFeatureOcrDesc: '30以上の言語で高精度にテキストを認識',
@@ -3243,6 +3651,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'マイクの許可',
     vtPermissionMessage: 'この機能を使用するにはマイクへのアクセスが必要です',
     vtGrantPermission: '許可する',
+    vtComingSoon: '近日公開',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: '音声翻訳',
+    voiceComingSoonDesc: 'この機能は近日公開予定です',
+    voiceComingSoonFeature1: '🎤 話して翻訳',
+    voiceComingSoonFeature2: '🌍 30以上の言語に対応',
+    voiceComingSoonFeature3: '⚡ 即時翻訳',
+    voiceComingSoonButton: '了解',
 
     // Onboarding
     onboardingSkip: 'スキップ',
@@ -3276,6 +3693,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 辞書',
     onboardingFeatureAIAssistants: '💬 AIアシスタント',
     onboardingFeatureOffline: '✈️ オフライン対応',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'インストール済み音声',
+    settingsInstalledVoicesDesc: '利用可能なすべてのTTS音声を表示',
+    settingsLoading: '設定を読み込み中...',
+    settingsDarkMode: 'ダークモード',
+    settingsDarkModeDesc: 'ダークテーマに切り替え',
+    settingsSpeechRate: '読み上げ速度',
+    settingsSpeechRateDesc: '発音速度を調整',
+    settingsResetAll: 'すべての設定をリセット',
+    settingsResetAllDesc: 'デフォルト設定を復元',
+    settingsResetConfirm: '本当にリセットしますか？',
+    settingsClearSearchHistory: '検索履歴を消去',
+    settingsClearSearchHistoryDesc: 'すべての検索記録を削除',
+    settingsRateApp: 'アプリを評価',
+    settingsSendFeedback: 'フィードバックを送信',
+    settingsAppearance: '外観',
+    settingsDataStorage: 'データとストレージ',
   },
 
   ko: {
@@ -3344,6 +3779,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: '이미지 처리 중...',
     vtProcessingSubtext: '텍스트 인식 및 번역 중',
     vtOcrEngine: 'OCR 엔진',
+    vtOcrEngineDesc: '이미지에서 텍스트를 인식하는 방법을 선택하세요.',
+    vtOcrSpaceNote: '무료, 월 25K 요청',
     vtFeatures: '기능',
     vtFeatureOcrTitle: 'OCR 텍스트 인식',
     vtFeatureOcrDesc: '30개 이상의 언어로 높은 정확도로 텍스트 인식',
@@ -3449,6 +3886,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: '마이크 권한',
     vtPermissionMessage: '이 기능을 사용하려면 마이크 액세스가 필요합니다',
     vtGrantPermission: '권한 부여',
+    vtComingSoon: '곧 출시',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: '음성 번역기',
+    voiceComingSoonDesc: '이 기능은 곧 출시됩니다',
+    voiceComingSoonFeature1: '🎤 말해서 번역',
+    voiceComingSoonFeature2: '🌍 30개 이상 언어 지원',
+    voiceComingSoonFeature3: '⚡ 즉시 번역',
+    voiceComingSoonButton: '알겠습니다',
 
     // Onboarding
     onboardingSkip: '건너뛰기',
@@ -3482,6 +3928,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 사전',
     onboardingFeatureAIAssistants: '💬 AI 어시스턴트',
     onboardingFeatureOffline: '✈️ 오프라인 작동',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: '설치된 음성',
+    settingsInstalledVoicesDesc: '사용 가능한 모든 TTS 음성 보기',
+    settingsLoading: '설정 로드 중...',
+    settingsDarkMode: '다크 모드',
+    settingsDarkModeDesc: '다크 테마로 전환',
+    settingsSpeechRate: '음성 속도',
+    settingsSpeechRateDesc: '발음 속도 조정',
+    settingsResetAll: '모든 설정 초기화',
+    settingsResetAllDesc: '기본 설정 복원',
+    settingsResetConfirm: '정말 초기화하시겠습니까?',
+    settingsClearSearchHistory: '검색 기록 지우기',
+    settingsClearSearchHistoryDesc: '모든 검색 기록 삭제',
+    settingsRateApp: '앱 평가',
+    settingsSendFeedback: '피드백 보내기',
+    settingsAppearance: '모양',
+    settingsDataStorage: '데이터 및 저장소',
   },
 
   th: {
@@ -3550,6 +4014,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'กำลังประมวลผลภาพ...',
     vtProcessingSubtext: 'กำลังรู้จำและแปลข้อความ',
     vtOcrEngine: 'เครื่องมือ OCR',
+    vtOcrEngineDesc: 'เลือกวิธีการรู้จำข้อความจากรูปภาพ',
+    vtOcrSpaceNote: 'ฟรี, 25K คำขอ/เดือน',
     vtFeatures: 'คุณสมบัติ',
     vtFeatureOcrTitle: 'การรู้จำข้อความ OCR',
     vtFeatureOcrDesc: 'รู้จำข้อความใน 30+ ภาษาด้วยความแม่นยำสูง',
@@ -3655,6 +4121,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'สิทธิ์การใช้ไมโครโฟน',
     vtPermissionMessage: 'จำเป็นต้องเข้าถึงไมโครโฟนเพื่อใช้ฟีเจอร์นี้',
     vtGrantPermission: 'อนุญาตสิทธิ์',
+    vtComingSoon: 'เร็วๆ นี้',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'นักแปลเสียง',
+    voiceComingSoonDesc: 'ฟีเจอร์นี้จะพร้อมใช้งานเร็วๆ นี้',
+    voiceComingSoonFeature1: '🎤 แปลด้วยการพูด',
+    voiceComingSoonFeature2: '🌍 รองรับ 30+ ภาษา',
+    voiceComingSoonFeature3: '⚡ แปลทันที',
+    voiceComingSoonButton: 'เข้าใจแล้ว',
 
     // Onboarding
     onboardingSkip: 'ข้าม',
@@ -3688,6 +4163,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 พจนานุกรม',
     onboardingFeatureAIAssistants: '💬 ผู้ช่วย AI',
     onboardingFeatureOffline: '✈️ ใช้งานออฟไลน์ได้',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'เสียงที่ติดตั้ง',
+    settingsInstalledVoicesDesc: 'ดูเสียง TTS ทั้งหมดที่มี',
+    settingsLoading: 'กำลังโหลดการตั้งค่า...',
+    settingsDarkMode: 'โหมดมืด',
+    settingsDarkModeDesc: 'เปลี่ยนเป็นธีมมืด',
+    settingsSpeechRate: 'ความเร็วการพูด',
+    settingsSpeechRateDesc: 'ปรับความเร็วการออกเสียง',
+    settingsResetAll: 'รีเซ็ตการตั้งค่าทั้งหมด',
+    settingsResetAllDesc: 'คืนค่าการตั้งค่าเริ่มต้น',
+    settingsResetConfirm: 'คุณแน่ใจหรือไม่ว่าต้องการรีเซ็ต?',
+    settingsClearSearchHistory: 'ล้างประวัติการค้นหา',
+    settingsClearSearchHistoryDesc: 'ลบบันทึกการค้นหาทั้งหมด',
+    settingsRateApp: 'ให้คะแนนแอป',
+    settingsSendFeedback: 'ส่งความคิดเห็น',
+    settingsAppearance: 'รูปลักษณ์',
+    settingsDataStorage: 'ข้อมูลและที่เก็บ',
   },
 
   vi: {
@@ -3756,6 +4249,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Đang xử lý hình ảnh...',
     vtProcessingSubtext: 'Nhận dạng và dịch văn bản',
     vtOcrEngine: 'Công cụ OCR',
+    vtOcrEngineDesc: 'Chọn cách nhận dạng văn bản từ hình ảnh.',
+    vtOcrSpaceNote: 'Miễn phí, 25K yêu cầu/tháng',
     vtFeatures: 'Tính năng',
     vtFeatureOcrTitle: 'Nhận dạng văn bản OCR',
     vtFeatureOcrDesc: 'Nhận dạng văn bản trong hơn 30 ngôn ngữ với độ chính xác cao',
@@ -3861,6 +4356,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Quyền Truy Cập Micro',
     vtPermissionMessage: 'Cần quyền truy cập micro để sử dụng tính năng này',
     vtGrantPermission: 'Cấp Quyền',
+    vtComingSoon: 'Sắp ra mắt',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Phiên dịch giọng nói',
+    voiceComingSoonDesc: 'Tính năng này sẽ sớm ra mắt',
+    voiceComingSoonFeature1: '🎤 Dịch bằng giọng nói',
+    voiceComingSoonFeature2: '🌍 Hỗ trợ 30+ ngôn ngữ',
+    voiceComingSoonFeature3: '⚡ Dịch tức thì',
+    voiceComingSoonButton: 'Đã hiểu',
 
     // Onboarding
     onboardingSkip: 'Bỏ qua',
@@ -3894,6 +4398,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Từ điển',
     onboardingFeatureAIAssistants: '💬 Trợ lý AI',
     onboardingFeatureOffline: '✈️ Hoạt động ngoại tuyến',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'Giọng nói đã cài',
+    settingsInstalledVoicesDesc: 'Xem tất cả giọng TTS có sẵn',
+    settingsLoading: 'Đang tải cài đặt...',
+    settingsDarkMode: 'Chế độ tối',
+    settingsDarkModeDesc: 'Chuyển sang giao diện tối',
+    settingsSpeechRate: 'Tốc độ nói',
+    settingsSpeechRateDesc: 'Điều chỉnh tốc độ phát âm',
+    settingsResetAll: 'Đặt lại tất cả cài đặt',
+    settingsResetAllDesc: 'Khôi phục cài đặt mặc định',
+    settingsResetConfirm: 'Bạn có chắc muốn đặt lại không?',
+    settingsClearSearchHistory: 'Xóa lịch sử tìm kiếm',
+    settingsClearSearchHistoryDesc: 'Xóa tất cả bản ghi tìm kiếm',
+    settingsRateApp: 'Đánh giá ứng dụng',
+    settingsSendFeedback: 'Gửi phản hồi',
+    settingsAppearance: 'Giao diện',
+    settingsDataStorage: 'Dữ liệu và lưu trữ',
   },
 
   id: {
@@ -3962,6 +4484,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Memproses gambar...',
     vtProcessingSubtext: 'Mengenali dan menerjemahkan teks',
     vtOcrEngine: 'Mesin OCR',
+    vtOcrEngineDesc: 'Pilih cara mengenali teks dari gambar.',
+    vtOcrSpaceNote: 'Gratis, 25K permintaan/bulan',
     vtFeatures: 'Fitur',
     vtFeatureOcrTitle: 'Pengenalan Teks OCR',
     vtFeatureOcrDesc: 'Mengenali teks dalam 30+ bahasa dengan akurasi tinggi',
@@ -4067,6 +4591,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Izin Mikrofon',
     vtPermissionMessage: 'Akses mikrofon diperlukan untuk menggunakan fitur ini',
     vtGrantPermission: 'Berikan Izin',
+    vtComingSoon: 'Segera hadir',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Penerjemah Suara',
+    voiceComingSoonDesc: 'Fitur ini akan segera tersedia',
+    voiceComingSoonFeature1: '🎤 Terjemahkan dengan berbicara',
+    voiceComingSoonFeature2: '🌍 Mendukung 30+ bahasa',
+    voiceComingSoonFeature3: '⚡ Terjemahan instan',
+    voiceComingSoonButton: 'Mengerti',
 
     // Onboarding
     onboardingSkip: 'Lewati',
@@ -4100,6 +4633,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Kamus',
     onboardingFeatureAIAssistants: '💬 Asisten AI',
     onboardingFeatureOffline: '✈️ Bekerja Offline',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'Suara Terpasang',
+    settingsInstalledVoicesDesc: 'Lihat semua suara TTS yang tersedia',
+    settingsLoading: 'Memuat pengaturan...',
+    settingsDarkMode: 'Mode Gelap',
+    settingsDarkModeDesc: 'Beralih ke tema gelap',
+    settingsSpeechRate: 'Kecepatan Bicara',
+    settingsSpeechRateDesc: 'Sesuaikan kecepatan pengucapan',
+    settingsResetAll: 'Atur Ulang Semua Pengaturan',
+    settingsResetAllDesc: 'Pulihkan pengaturan default',
+    settingsResetConfirm: 'Yakin ingin mengatur ulang?',
+    settingsClearSearchHistory: 'Hapus Riwayat Pencarian',
+    settingsClearSearchHistoryDesc: 'Hapus semua catatan pencarian',
+    settingsRateApp: 'Beri Rating Aplikasi',
+    settingsSendFeedback: 'Kirim Masukan',
+    settingsAppearance: 'Tampilan',
+    settingsDataStorage: 'Data & Penyimpanan',
   },
 
   ms: {
@@ -4168,6 +4719,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Memproses imej...',
     vtProcessingSubtext: 'Mengenali dan menterjemah teks',
     vtOcrEngine: 'Enjin OCR',
+    vtOcrEngineDesc: 'Pilih cara mengenal pasti teks daripada imej.',
+    vtOcrSpaceNote: 'Percuma, 25K permintaan/bulan',
     vtFeatures: 'Ciri-ciri',
     vtFeatureOcrTitle: 'Pengecaman Teks OCR',
     vtFeatureOcrDesc: 'Mengenali teks dalam 30+ bahasa dengan ketepatan tinggi',
@@ -4273,6 +4826,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Kebenaran Mikrofon',
     vtPermissionMessage: 'Akses mikrofon diperlukan untuk menggunakan ciri ini',
     vtGrantPermission: 'Berikan Kebenaran',
+    vtComingSoon: 'Akan datang',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Penterjemah Suara',
+    voiceComingSoonDesc: 'Ciri ini akan tersedia tidak lama lagi',
+    voiceComingSoonFeature1: '🎤 Terjemah dengan bercakap',
+    voiceComingSoonFeature2: '🌍 Menyokong 30+ bahasa',
+    voiceComingSoonFeature3: '⚡ Terjemahan segera',
+    voiceComingSoonButton: 'Faham',
 
     // Onboarding
     onboardingSkip: 'Langkau',
@@ -4306,6 +4868,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Kamus',
     onboardingFeatureAIAssistants: '💬 Pembantu AI',
     onboardingFeatureOffline: '✈️ Berfungsi Luar Talian',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'Suara Dipasang',
+    settingsInstalledVoicesDesc: 'Lihat semua suara TTS yang tersedia',
+    settingsLoading: 'Memuatkan tetapan...',
+    settingsDarkMode: 'Mod Gelap',
+    settingsDarkModeDesc: 'Tukar ke tema gelap',
+    settingsSpeechRate: 'Kelajuan Pertuturan',
+    settingsSpeechRateDesc: 'Laraskan kelajuan sebutan',
+    settingsResetAll: 'Tetapkan Semula Semua Tetapan',
+    settingsResetAllDesc: 'Pulihkan tetapan lalai',
+    settingsResetConfirm: 'Pasti mahu tetapkan semula?',
+    settingsClearSearchHistory: 'Padam Sejarah Carian',
+    settingsClearSearchHistoryDesc: 'Padam semua rekod carian',
+    settingsRateApp: 'Nilai Aplikasi',
+    settingsSendFeedback: 'Hantar Maklum Balas',
+    settingsAppearance: 'Penampilan',
+    settingsDataStorage: 'Data & Storan',
   },
 
   hi: {
@@ -4374,6 +4954,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'छवि संसाधित हो रही है...',
     vtProcessingSubtext: 'टेक्स्ट पहचान और अनुवाद',
     vtOcrEngine: 'OCR इंजन',
+    vtOcrEngineDesc: 'छवियों से टेक्स्ट को कैसे पहचानें चुनें।',
+    vtOcrSpaceNote: 'मुफ्त, 25K अनुरोध/माह',
     vtFeatures: 'विशेषताएं',
     vtFeatureOcrTitle: 'OCR टेक्स्ट पहचान',
     vtFeatureOcrDesc: '30+ भाषाओं में उच्च सटीकता के साथ टेक्स्ट पहचानें',
@@ -4479,6 +5061,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'माइक्रोफ़ोन अनुमति',
     vtPermissionMessage: 'इस सुविधा का उपयोग करने के लिए माइक्रोफ़ोन एक्सेस आवश्यक है',
     vtGrantPermission: 'अनुमति दें',
+    vtComingSoon: 'जल्द आ रहा है',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'वॉइस ट्रांसलेटर',
+    voiceComingSoonDesc: 'यह सुविधा जल्द उपलब्ध होगी',
+    voiceComingSoonFeature1: '🎤 बोलकर अनुवाद करें',
+    voiceComingSoonFeature2: '🌍 30+ भाषाओं का समर्थन',
+    voiceComingSoonFeature3: '⚡ तुरंत अनुवाद',
+    voiceComingSoonButton: 'समझ गया',
 
     // Onboarding
     onboardingSkip: 'छोड़ें',
@@ -4512,6 +5103,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 शब्दकोश',
     onboardingFeatureAIAssistants: '💬 AI सहायक',
     onboardingFeatureOffline: '✈️ ऑफ़लाइन काम करता है',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'स्थापित आवाजें',
+    settingsInstalledVoicesDesc: 'सभी उपलब्ध TTS आवाजें देखें',
+    settingsLoading: 'सेटिंग्स लोड हो रही हैं...',
+    settingsDarkMode: 'डार्क मोड',
+    settingsDarkModeDesc: 'डार्क थीम पर स्विच करें',
+    settingsSpeechRate: 'बोलने की गति',
+    settingsSpeechRateDesc: 'उच्चारण की गति समायोजित करें',
+    settingsResetAll: 'सभी सेटिंग्स रीसेट करें',
+    settingsResetAllDesc: 'डिफ़ॉल्ट सेटिंग्स पुनर्स्थापित करें',
+    settingsResetConfirm: 'क्या आप वाकई रीसेट करना चाहते हैं?',
+    settingsClearSearchHistory: 'खोज इतिहास साफ़ करें',
+    settingsClearSearchHistoryDesc: 'सभी खोज रिकॉर्ड हटाएं',
+    settingsRateApp: 'ऐप रेट करें',
+    settingsSendFeedback: 'प्रतिक्रिया भेजें',
+    settingsAppearance: 'दिखावट',
+    settingsDataStorage: 'डेटा और स्टोरेज',
   },
 
   ur: {
@@ -4580,6 +5189,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'تصویر پروسیس ہو رہی ہے...',
     vtProcessingSubtext: 'متن کی شناخت اور ترجمہ',
     vtOcrEngine: 'OCR انجن',
+    vtOcrEngineDesc: 'منتخب کریں کہ تصاویر سے متن کو کیسے پہچانا جائے۔',
+    vtOcrSpaceNote: 'مفت، 25K درخواستیں/ماہ',
     vtFeatures: 'خصوصیات',
     vtFeatureOcrTitle: 'OCR متن کی شناخت',
     vtFeatureOcrDesc: '30+ زبانوں میں اعلیٰ درستگی کے ساتھ متن کی شناخت',
@@ -4685,6 +5296,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'مائیکروفون کی اجازت',
     vtPermissionMessage: 'اس خصوصیت کو استعمال کرنے کے لیے مائیکروفون تک رسائی ضروری ہے',
     vtGrantPermission: 'اجازت دیں',
+    vtComingSoon: 'جلد آرہا ہے',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'وائس ٹرانسلیٹر',
+    voiceComingSoonDesc: 'یہ فیچر جلد دستیاب ہوگا',
+    voiceComingSoonFeature1: '🎤 بول کر ترجمہ کریں',
+    voiceComingSoonFeature2: '🌍 30+ زبانوں کی حمایت',
+    voiceComingSoonFeature3: '⚡ فوری ترجمہ',
+    voiceComingSoonButton: 'سمجھ گیا',
 
     // Onboarding
     onboardingSkip: 'چھوڑیں',
@@ -4718,6 +5338,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 لغت',
     onboardingFeatureAIAssistants: '💬 AI معاونین',
     onboardingFeatureOffline: '✈️ آف لائن کام کرتا ہے',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'نصب شدہ آوازیں',
+    settingsInstalledVoicesDesc: 'تمام دستیاب TTS آوازیں دیکھیں',
+    settingsLoading: 'ترتیبات لوڈ ہو رہی ہیں...',
+    settingsDarkMode: 'ڈارک موڈ',
+    settingsDarkModeDesc: 'ڈارک تھیم پر سوئچ کریں',
+    settingsSpeechRate: 'تقریر کی رفتار',
+    settingsSpeechRateDesc: 'تلفظ کی رفتار کو ایڈجسٹ کریں',
+    settingsResetAll: 'تمام ترتیبات ری سیٹ کریں',
+    settingsResetAllDesc: 'ڈیفالٹ ترتیبات بحال کریں',
+    settingsResetConfirm: 'کیا آپ واقعی ری سیٹ کرنا چاہتے ہیں؟',
+    settingsClearSearchHistory: 'تلاش کی تاریخ صاف کریں',
+    settingsClearSearchHistoryDesc: 'تمام تلاش کے ریکارڈ حذف کریں',
+    settingsRateApp: 'ایپ کی درجہ بندی کریں',
+    settingsSendFeedback: 'رائے بھیجیں',
+    settingsAppearance: 'ظاہری شکل',
+    settingsDataStorage: 'ڈیٹا اور اسٹوریج',
   },
 
   fa: {
@@ -4786,6 +5424,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'در حال پردازش تصویر...',
     vtProcessingSubtext: 'شناسایی و ترجمه متن',
     vtOcrEngine: 'موتور OCR',
+    vtOcrEngineDesc: 'نحوه تشخیص متن از تصاویر را انتخاب کنید.',
+    vtOcrSpaceNote: 'رایگان، ۲۵ هزار درخواست/ماه',
     vtFeatures: 'ویژگی‌ها',
     vtFeatureOcrTitle: 'شناسایی متن OCR',
     vtFeatureOcrDesc: 'شناسایی متن در بیش از 30 زبان با دقت بالا',
@@ -4891,6 +5531,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'مجوز میکروفون',
     vtPermissionMessage: 'دسترسی به میکروفون برای استفاده از این ویژگی لازم است',
     vtGrantPermission: 'اعطای مجوز',
+    vtComingSoon: 'به زودی',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'مترجم صوتی',
+    voiceComingSoonDesc: 'این ویژگی به زودی در دسترس خواهد بود',
+    voiceComingSoonFeature1: '🎤 با صحبت کردن ترجمه کنید',
+    voiceComingSoonFeature2: '🌍 پشتیبانی از 30+ زبان',
+    voiceComingSoonFeature3: '⚡ ترجمه فوری',
+    voiceComingSoonButton: 'متوجه شدم',
 
     // Onboarding
     onboardingSkip: 'رد کردن',
@@ -4924,6 +5573,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 فرهنگ لغت',
     onboardingFeatureAIAssistants: '💬 دستیاران هوش مصنوعی',
     onboardingFeatureOffline: '✈️ آفلاین کار می‌کند',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'صداهای نصب شده',
+    settingsInstalledVoicesDesc: 'مشاهده همه صداهای TTS موجود',
+    settingsLoading: 'در حال بارگذاری تنظیمات...',
+    settingsDarkMode: 'حالت تاریک',
+    settingsDarkModeDesc: 'تغییر به تم تاریک',
+    settingsSpeechRate: 'سرعت گفتار',
+    settingsSpeechRateDesc: 'تنظیم سرعت تلفظ',
+    settingsResetAll: 'بازنشانی همه تنظیمات',
+    settingsResetAllDesc: 'بازیابی تنظیمات پیش‌فرض',
+    settingsResetConfirm: 'آیا مطمئن هستید که می‌خواهید بازنشانی کنید؟',
+    settingsClearSearchHistory: 'پاک کردن تاریخچه جستجو',
+    settingsClearSearchHistoryDesc: 'حذف همه سوابق جستجو',
+    settingsRateApp: 'امتیاز دادن به برنامه',
+    settingsSendFeedback: 'ارسال بازخورد',
+    settingsAppearance: 'ظاهر',
+    settingsDataStorage: 'داده و ذخیره‌سازی',
   },
 
   ps: {
@@ -4992,6 +5659,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'انځور پروسس کیږي...',
     vtProcessingSubtext: 'د متن پیژندنه او ژباړه',
     vtOcrEngine: 'OCR انجن',
+    vtOcrEngineDesc: 'غوره کړئ چې د انځورونو څخه متن څنګه وپیژندل شي.',
+    vtOcrSpaceNote: 'وړیا، 25K غوښتنې/میاشت',
     vtFeatures: 'ځانګړتیاوې',
     vtFeatureOcrTitle: 'OCR د متن پیژندنه',
     vtFeatureOcrDesc: 'په 30+ ژبو کې د لوړ دقت سره متن وپیژنئ',
@@ -5097,6 +5766,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'د مایکروفون اجازه',
     vtPermissionMessage: 'د دې ځانګړتیا کارولو لپاره مایکروفون ته لاسرسی اړین دی',
     vtGrantPermission: 'اجازه ورکړئ',
+    vtComingSoon: 'ډیر ژر',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'غږیز ژباړونکی',
+    voiceComingSoonDesc: 'دا ځانګړتیا ډیر ژر شتون لري',
+    voiceComingSoonFeature1: '🎤 په خبرو سره ژباړئ',
+    voiceComingSoonFeature2: '🌍 له 30+ ژبو ملاتړ',
+    voiceComingSoonFeature3: '⚡ سمدستي ژباړه',
+    voiceComingSoonButton: 'پوه شوم',
 
     // Onboarding
     onboardingSkip: 'پرېښودل',
@@ -5130,6 +5808,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 قاموس',
     onboardingFeatureAIAssistants: '💬 AI مرستندویان',
     onboardingFeatureOffline: '✈️ آفلاین کار کوي',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'نصب شوي غږونه',
+    settingsInstalledVoicesDesc: 'ټول موجود TTS غږونه وګورئ',
+    settingsLoading: 'تنظیمات بار کیږي...',
+    settingsDarkMode: 'تیاره حالت',
+    settingsDarkModeDesc: 'تیارې موضوع ته لاړ شئ',
+    settingsSpeechRate: 'د خبرو سرعت',
+    settingsSpeechRateDesc: 'د تلفظ سرعت تنظیم کړئ',
+    settingsResetAll: 'ټول تنظیمات بیا تنظیم کړئ',
+    settingsResetAllDesc: 'ډیفالټ تنظیمات بحال کړئ',
+    settingsResetConfirm: 'ایا تاسو ډاډه یاست چې غواړئ بیا تنظیم کړئ؟',
+    settingsClearSearchHistory: 'د لټون تاریخ پاک کړئ',
+    settingsClearSearchHistoryDesc: 'د لټون ټول ریکارډونه حذف کړئ',
+    settingsRateApp: 'اپلیکیشن ته درجه ورکړئ',
+    settingsSendFeedback: 'نظر واستوئ',
+    settingsAppearance: 'بڼه',
+    settingsDataStorage: 'ډاټا او ذخیره',
   },
 
   uz: {
@@ -5198,6 +5894,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Rasm qayta ishlanmoqda...',
     vtProcessingSubtext: 'Matn tanib olinmoqda va tarjima qilinmoqda',
     vtOcrEngine: 'OCR mexanizmi',
+    vtOcrEngineDesc: 'Rasmlardan matnni qanday tanishni tanlang.',
+    vtOcrSpaceNote: 'Bepul, oyiga 25K so\'rov',
     vtFeatures: 'Xususiyatlar',
     vtFeatureOcrTitle: 'OCR matn tanish',
     vtFeatureOcrDesc: '30+ tilda yuqori aniqlik bilan matnni tanish',
@@ -5303,6 +6001,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Mikrofon Ruxsati',
     vtPermissionMessage: 'Ushbu xususiyatdan foydalanish uchun mikrofon kirishi talab qilinadi',
     vtGrantPermission: 'Ruxsat Berish',
+    vtComingSoon: 'Tez kunda',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Ovozli tarjimon',
+    voiceComingSoonDesc: 'Bu funksiya tez orada mavjud bo\'ladi',
+    voiceComingSoonFeature1: '🎤 Gapirish orqali tarjima qiling',
+    voiceComingSoonFeature2: '🌍 30+ tilni qo\'llab-quvvatlaydi',
+    voiceComingSoonFeature3: '⚡ Tezkor tarjima',
+    voiceComingSoonButton: 'Tushundim',
 
     // Onboarding
     onboardingSkip: 'O\'tkazib yuborish',
@@ -5336,6 +6043,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Lug\'at',
     onboardingFeatureAIAssistants: '💬 AI yordamchilari',
     onboardingFeatureOffline: '✈️ Oflayn ishlaydi',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: "O'rnatilgan ovozlar",
+    settingsInstalledVoicesDesc: "Barcha mavjud TTS ovozlarini ko'ring",
+    settingsLoading: 'Sozlamalar yuklanmoqda...',
+    settingsDarkMode: "Qorong'i rejim",
+    settingsDarkModeDesc: "Qorong'i mavzuga o'tish",
+    settingsSpeechRate: 'Nutq tezligi',
+    settingsSpeechRateDesc: 'Talaffuz tezligini sozlash',
+    settingsResetAll: 'Barcha sozlamalarni tiklash',
+    settingsResetAllDesc: 'Standart sozlamalarni tiklash',
+    settingsResetConfirm: 'Rostdan ham tiklamoqchimisiz?',
+    settingsClearSearchHistory: 'Qidiruv tarixini tozalash',
+    settingsClearSearchHistoryDesc: "Barcha qidiruv yozuvlarini o'chirish",
+    settingsRateApp: 'Ilovani baholash',
+    settingsSendFeedback: 'Fikr yuborish',
+    settingsAppearance: "Ko'rinish",
+    settingsDataStorage: "Ma'lumotlar va saqlash",
   },
 
   kk: {
@@ -5404,6 +6129,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Сурет өңделуде...',
     vtProcessingSubtext: 'Мәтінді тану және аудару',
     vtOcrEngine: 'OCR қозғалтқышы',
+    vtOcrEngineDesc: 'Суреттерден мәтінді қалай тануды таңдаңыз.',
+    vtOcrSpaceNote: 'Тегін, айына 25K сұрау',
     vtFeatures: 'Мүмкіндіктер',
     vtFeatureOcrTitle: 'OCR мәтінді тану',
     vtFeatureOcrDesc: '30+ тілде жоғары дәлдікпен мәтінді тану',
@@ -5509,6 +6236,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Микрофон Рұқсаты',
     vtPermissionMessage: 'Бұл мүмкіндікті пайдалану үшін микрофон қол жетімділігі қажет',
     vtGrantPermission: 'Рұқсат Беру',
+    vtComingSoon: 'Жақында',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Дауыстық аудармашы',
+    voiceComingSoonDesc: 'Бұл мүмкіндік жақында қолжетімді болады',
+    voiceComingSoonFeature1: '🎤 Сөйлеу арқылы аударыңыз',
+    voiceComingSoonFeature2: '🌍 30+ тілді қолдайды',
+    voiceComingSoonFeature3: '⚡ Лезде аудару',
+    voiceComingSoonButton: 'Түсіндім',
 
     // Onboarding
     onboardingSkip: 'Өткізіп жіберу',
@@ -5542,6 +6278,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Сөздік',
     onboardingFeatureAIAssistants: '💬 AI көмекшілері',
     onboardingFeatureOffline: '✈️ Офлайн жұмыс істейді',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'Орнатылған дауыстар',
+    settingsInstalledVoicesDesc: 'Барлық қолжетімді TTS дауыстарын көру',
+    settingsLoading: 'Параметрлер жүктелуде...',
+    settingsDarkMode: 'Қараңғы режим',
+    settingsDarkModeDesc: 'Қараңғы тақырыпқа ауысу',
+    settingsSpeechRate: 'Сөйлеу жылдамдығы',
+    settingsSpeechRateDesc: 'Айту жылдамдығын реттеу',
+    settingsResetAll: 'Барлық параметрлерді қалпына келтіру',
+    settingsResetAllDesc: 'Әдепкі параметрлерді қалпына келтіру',
+    settingsResetConfirm: 'Шынымен қалпына келтіргіңіз келе ме?',
+    settingsClearSearchHistory: 'Іздеу тарихын тазалау',
+    settingsClearSearchHistoryDesc: 'Барлық іздеу жазбаларын жою',
+    settingsRateApp: 'Қолданбаны бағалау',
+    settingsSendFeedback: 'Пікір жіберу',
+    settingsAppearance: 'Көрініс',
+    settingsDataStorage: 'Деректер мен сақтау',
   },
 
   az: {
@@ -5610,6 +6364,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Şəkil işlənir...',
     vtProcessingSubtext: 'Mətn tanınır və tərcümə edilir',
     vtOcrEngine: 'OCR mühərriki',
+    vtOcrEngineDesc: 'Şəkillərdən mətni necə tanıyacağınızı seçin.',
+    vtOcrSpaceNote: 'Pulsuz, ayda 25K sorğu',
     vtFeatures: 'Xüsusiyyətlər',
     vtFeatureOcrTitle: 'OCR mətn tanıma',
     vtFeatureOcrDesc: '30+ dildə yüksək dəqiqliklə mətni tanıyır',
@@ -5715,6 +6471,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Mikrofon İcazəsi',
     vtPermissionMessage: 'Bu xüsusiyyətdən istifadə etmək üçün mikrofon girişi tələb olunur',
     vtGrantPermission: 'İcazə Ver',
+    vtComingSoon: 'Tezliklə',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Səsli tərcüməçi',
+    voiceComingSoonDesc: 'Bu funksiya tezliklə əlçatan olacaq',
+    voiceComingSoonFeature1: '🎤 Danışaraq tərcümə edin',
+    voiceComingSoonFeature2: '🌍 30+ dili dəstəkləyir',
+    voiceComingSoonFeature3: '⚡ Ani tərcümə',
+    voiceComingSoonButton: 'Anladım',
 
     // Onboarding
     onboardingSkip: 'Keç',
@@ -5748,6 +6513,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Lüğət',
     onboardingFeatureAIAssistants: '💬 AI köməkçiləri',
     onboardingFeatureOffline: '✈️ Oflayn işləyir',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'Quraşdırılmış səslər',
+    settingsInstalledVoicesDesc: 'Bütün mövcud TTS səslərini göstər',
+    settingsLoading: 'Parametrlər yüklənir...',
+    settingsDarkMode: 'Qaranlıq rejim',
+    settingsDarkModeDesc: 'Qaranlıq mövzuya keç',
+    settingsSpeechRate: 'Danışıq sürəti',
+    settingsSpeechRateDesc: 'Tələffüz sürətini tənzimləyin',
+    settingsResetAll: 'Bütün parametrləri sıfırla',
+    settingsResetAllDesc: 'Defolt parametrləri bərpa et',
+    settingsResetConfirm: 'Sıfırlamaq istədiyinizə əminsiniz?',
+    settingsClearSearchHistory: 'Axtarış tarixçəsini təmizlə',
+    settingsClearSearchHistoryDesc: 'Bütün axtarış qeydlərini sil',
+    settingsRateApp: 'Tətbiqi qiymətləndir',
+    settingsSendFeedback: 'Rəy göndər',
+    settingsAppearance: 'Görünüş',
+    settingsDataStorage: 'Məlumat və yaddaş',
   },
 
   ky: {
@@ -5816,6 +6599,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Сүрөт иштетилүүдө...',
     vtProcessingSubtext: 'Текстти таануу жана которуу',
     vtOcrEngine: 'OCR кыймылдаткычы',
+    vtOcrEngineDesc: 'Сүрөттөрдөн текстти кантип тааныйды тандаңыз.',
+    vtOcrSpaceNote: 'Акысыз, айына 25K суроо',
     vtFeatures: 'Мүмкүнчүлүктөр',
     vtFeatureOcrTitle: 'OCR текстти таануу',
     vtFeatureOcrDesc: '30+ тилде жогорку тактык менен текстти таануу',
@@ -5921,6 +6706,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Микрофон Уруксаты',
     vtPermissionMessage: 'Бул мүмкүнчүлүктү колдонуу үчүн микрофонго кирүү керек',
     vtGrantPermission: 'Уруксат Берүү',
+    vtComingSoon: 'Жакында',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Үн котормочусу',
+    voiceComingSoonDesc: 'Бул функция жакында жеткиликтүү болот',
+    voiceComingSoonFeature1: '🎤 Сүйлөп которуңуз',
+    voiceComingSoonFeature2: '🌍 30+ тилди колдойт',
+    voiceComingSoonFeature3: '⚡ Ыкчам которуу',
+    voiceComingSoonButton: 'Түшүндүм',
 
     // Onboarding
     onboardingSkip: 'Өткөрүп жиберүү',
@@ -5954,6 +6748,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Сөздүк',
     onboardingFeatureAIAssistants: '💬 AI жардамчылар',
     onboardingFeatureOffline: '✈️ Офлайн иштейт',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'Орнотулган үндөр',
+    settingsInstalledVoicesDesc: 'Бардык жеткиликтүү TTS үндөрүн көрүү',
+    settingsLoading: 'Орнотуулар жүктөлүүдө...',
+    settingsDarkMode: 'Караңгы режим',
+    settingsDarkModeDesc: 'Караңгы темага өтүү',
+    settingsSpeechRate: 'Сүйлөө ылдамдыгы',
+    settingsSpeechRateDesc: 'Айтуу ылдамдыгын тууралоо',
+    settingsResetAll: 'Бардык орнотууларды баштапкы абалга келтирүү',
+    settingsResetAllDesc: 'Демейки орнотууларды калыбына келтирүү',
+    settingsResetConfirm: 'Чындап эле баштапкы абалга келтиргиңиз келеби?',
+    settingsClearSearchHistory: 'Издөө тарыхын тазалоо',
+    settingsClearSearchHistoryDesc: 'Бардык издөө жазууларын өчүрүү',
+    settingsRateApp: 'Колдонмону баалоо',
+    settingsSendFeedback: 'Пикир жөнөтүү',
+    settingsAppearance: 'Көрүнүш',
+    settingsDataStorage: 'Маалыматтар жана сактоо',
   },
 
   tg: {
@@ -6022,6 +6834,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Коркарди акс...',
     vtProcessingSubtext: 'Шинохтан ва тарҷума кардани матн',
     vtOcrEngine: 'Муҳаррики OCR',
+    vtOcrEngineDesc: 'Интихоб кунед, ки матнро аз тасвирҳо чӣ гуна шинохт.',
+    vtOcrSpaceNote: 'Ройгон, 25K дархост/моҳ',
     vtFeatures: 'Хусусиятҳо',
     vtFeatureOcrTitle: 'Шинохтани матни OCR',
     vtFeatureOcrDesc: 'Шинохтани матн бо дақиқияти баланд дар 30+ забон',
@@ -6127,6 +6941,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Иҷозати Микрофон',
     vtPermissionMessage: 'Барои истифодаи ин хусусият дастрасӣ ба микрофон лозим аст',
     vtGrantPermission: 'Иҷозат додан',
+    vtComingSoon: 'Ба наздикӣ',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Тарҷумони овозӣ',
+    voiceComingSoonDesc: 'Ин хусусият ба наздикӣ дастрас мешавад',
+    voiceComingSoonFeature1: '🎤 Бо гап задан тарҷума кунед',
+    voiceComingSoonFeature2: '🌍 Зиёда аз 30 забонро дастгирӣ мекунад',
+    voiceComingSoonFeature3: '⚡ Тарҷумаи фаврӣ',
+    voiceComingSoonButton: 'Фаҳмидам',
 
     // Onboarding
     onboardingSkip: 'Гузаронидан',
@@ -6160,6 +6983,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Луғат',
     onboardingFeatureAIAssistants: '💬 Ёрирасонҳои AI',
     onboardingFeatureOffline: '✈️ Офлайн кор мекунад',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'Овозҳои насбшуда',
+    settingsInstalledVoicesDesc: 'Дидани ҳамаи овозҳои TTS дастрас',
+    settingsLoading: 'Танзимот бор карда мешавад...',
+    settingsDarkMode: 'Режими торик',
+    settingsDarkModeDesc: 'Гузариш ба мавзӯи торик',
+    settingsSpeechRate: 'Суръати нутқ',
+    settingsSpeechRateDesc: 'Танзими суръати талаффуз',
+    settingsResetAll: 'Бозгардонии ҳамаи танзимот',
+    settingsResetAllDesc: 'Барқарор кардани танзимоти пешфарз',
+    settingsResetConfirm: 'Шумо боварӣ доред, ки мехоҳед бозгардонед?',
+    settingsClearSearchHistory: 'Тоза кардани таърихи ҷустуҷӯ',
+    settingsClearSearchHistoryDesc: 'Нест кардани ҳамаи сабтҳои ҷустуҷӯ',
+    settingsRateApp: 'Баҳо додан ба барнома',
+    settingsSendFeedback: 'Фиристодани фикру мулоҳиза',
+    settingsAppearance: 'Намуд',
+    settingsDataStorage: 'Маълумот ва захира',
   },
 
   hy: {
@@ -6228,6 +7069,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'Պատկերի մշակում...',
     vtProcessingSubtext: 'Տեքստի ճանաչում և թարգմանություն',
     vtOcrEngine: 'OCR շարժիչ',
+    vtOcrEngineDesc: 'Ընdelays delays delays delays.',
+    vtOcrSpaceNote: 'Անdelays, 25K delays/delays',
     vtFeatures: 'Հնարավորություններ',
     vtFeatureOcrTitle: 'OCR տեքստի ճանաչում',
     vtFeatureOcrDesc: 'Տեքստի ճանաչում բարձր ճշգրտությամբ 30+ լեզուներով',
@@ -6333,6 +7176,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'Խոսափողի Թույլտվություն',
     vtPermissionMessage: 'Խոսափողին մուտքը անհրաժեշտ է այս գործառույթն օգտագործելու համար',
     vtGrantPermission: 'Տրամադրել Թույլտվություն',
+    vtComingSoon: 'Շուտով',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'Ձայնային թարգմանիչ',
+    voiceComingSoonDesc: 'Այս հնարավորությունը շուտով կլինի հասանելի',
+    voiceComingSoonFeature1: '🎤 Խոսեք և թարգմանեք',
+    voiceComingSoonFeature2: '🌍 30+ լեզուների աջակցություն',
+    voiceComingSoonFeature3: '⚡ Ակնթարթային թարգմանություն',
+    voiceComingSoonButton: 'Հասկանալի է',
 
     // Onboarding
     onboardingSkip: 'Բաց թողնել',
@@ -6366,6 +7218,23 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 Բառարան',
     onboardingFeatureAIAssistants: '💬 AI օգնականներ',
     onboardingFeatureOffline: '✈️ Աշխատում է օֆլայն',
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'Տdelays delays',
+    settingsInstalledVoicesDesc: 'Delays delays TTS delays',
+    settingsLoading: 'Կdays delays...',
+    settingsDarkMode: 'Մdays delays',
+    settingsDarkModeDesc: 'Adays delays delays',
+    settingsSpeechRate: 'Хdays delays',
+    settingsSpeechRateDesc: 'Kdays delays delays',
+    settingsResetAll: 'Vdays delays delays',
+    settingsResetAllDesc: 'Vdays delays delays',
+    settingsResetConfirm: 'Vdays delays delays?',
+    settingsClearSearchHistory: 'Mdays delays delays',
+    settingsClearSearchHistoryDesc: 'delays delays delays',
+    settingsRateApp: 'Gdays delays',
+    settingsSendFeedback: 'Udays delays',
+    settingsAppearance: 'Tdays',
+    settingsDataStorage: 'Tdays delays',
   },
 
   ka: {
@@ -6434,6 +7303,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'სურათის დამუშავება...',
     vtProcessingSubtext: 'ტექსტის ამოცნობა და თარგმნა',
     vtOcrEngine: 'OCR ძრავა',
+    vtOcrEngineDesc: 'აირჩიეთ, როგორ ამოიცნოთ ტექსტი სურათებიდან.',
+    vtOcrSpaceNote: 'უფასო, 25K მოთხოვნა/თვე',
     vtFeatures: 'ფუნქციები',
     vtFeatureOcrTitle: 'OCR ტექსტის ამოცნობა',
     vtFeatureOcrDesc: 'ტექსტის ამოცნობა მაღალი სიზუსტით 30+ ენაზე',
@@ -6539,6 +7410,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'მიკროფონის ნებართვა',
     vtPermissionMessage: 'მიკროფონზე წვდომა აუცილებელია ამ ფუნქციის გამოსაყენებლად',
     vtGrantPermission: 'ნებართვის მიცემა',
+    vtComingSoon: 'მალე',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'ხმოვანი მთარგმნელი',
+    voiceComingSoonDesc: 'ეს ფუნქცია მალე ხელმისაწვდომი იქნება',
+    voiceComingSoonFeature1: '🎤 თარგმნე ლაპარაკით',
+    voiceComingSoonFeature2: '🌍 30+ ენის მხარდაჭერა',
+    voiceComingSoonFeature3: '⚡ მყისიერი თარგმანი',
+    voiceComingSoonButton: 'გასაგებია',
 
     // Onboarding
     onboardingSkip: 'გამოტოვება',
@@ -6572,6 +7452,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 ლექსიკონი',
     onboardingFeatureAIAssistants: '💬 AI ასისტენტები',
     onboardingFeatureOffline: '✈️ მუშაობს ოფლაინ',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'დაყენებული ხმები',
+    settingsInstalledVoicesDesc: 'ყველა ხელმისაწვდომი TTS ხმის ნახვა',
+    settingsLoading: 'პარამეტრების ჩატვირთვა...',
+    settingsDarkMode: 'მუქი რეჟიმი',
+    settingsDarkModeDesc: 'მუქ თემაზე გადართვა',
+    settingsSpeechRate: 'მეტყველების სიჩქარე',
+    settingsSpeechRateDesc: 'წარმოთქმის სიჩქარის რეგულირება',
+    settingsResetAll: 'ყველა პარამეტრის გადატვირთვა',
+    settingsResetAllDesc: 'ნაგულისხმევი პარამეტრების აღდგენა',
+    settingsResetConfirm: 'დარწმუნებული ხართ, რომ გსურთ გადატვირთვა?',
+    settingsClearSearchHistory: 'ძიების ისტორიის გასუფთავება',
+    settingsClearSearchHistoryDesc: 'ყველა ძიების ჩანაწერის წაშლა',
+    settingsRateApp: 'აპის შეფასება',
+    settingsSendFeedback: 'უკუკავშირის გაგზავნა',
+    settingsAppearance: 'გარეგნობა',
+    settingsDataStorage: 'მონაცემები და საცავი',
   },
 
   ar: {
@@ -6640,6 +7538,8 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtProcessing: 'معالجة الصورة...',
     vtProcessingSubtext: 'التعرف على النص والترجمة',
     vtOcrEngine: 'محرك OCR',
+    vtOcrEngineDesc: 'اختر كيفية التعرف على النص من الصور.',
+    vtOcrSpaceNote: 'مجاني، 25 ألف طلب/شهر',
     vtFeatures: 'الميزات',
     vtFeatureOcrTitle: 'التعرف على النص OCR',
     vtFeatureOcrDesc: 'التعرف على النص بدقة عالية في أكثر من 30 لغة',
@@ -6745,6 +7645,15 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     vtPermissionTitle: 'إذن الميكروفون',
     vtPermissionMessage: 'يلزم الوصول إلى الميكروفون لاستخدام هذه الميزة',
     vtGrantPermission: 'منح الإذن',
+    vtComingSoon: 'قريباً',
+
+    // Voice Translator Coming Soon
+    voiceComingSoonTitle: 'المترجم الصوتي',
+    voiceComingSoonDesc: 'ستتوفر هذه الميزة قريباً',
+    voiceComingSoonFeature1: '🎤 ترجم بالتحدث',
+    voiceComingSoonFeature2: '🌍 يدعم 30+ لغة',
+    voiceComingSoonFeature3: '⚡ ترجمة فورية',
+    voiceComingSoonButton: 'فهمت',
 
     // Onboarding
     onboardingSkip: 'تخطي',
@@ -6778,6 +7687,24 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingFeatureDictionary: '📚 القاموس',
     onboardingFeatureAIAssistants: '💬 مساعدو الذكاء الاصطناعي',
     onboardingFeatureOffline: '✈️ يعمل دون اتصال',
+
+    // Settings Screen - Additional translations (Task 2)
+    settingsInstalledVoices: 'الأصوات المثبتة',
+    settingsInstalledVoicesDesc: 'عرض جميع أصوات TTS المتاحة',
+    settingsLoading: 'جاري تحميل الإعدادات...',
+    settingsDarkMode: 'الوضع الداكن',
+    settingsDarkModeDesc: 'التبديل إلى السمة الداكنة',
+    settingsSpeechRate: 'سرعة الكلام',
+    settingsSpeechRateDesc: 'ضبط سرعة النطق',
+    settingsResetAll: 'إعادة تعيين جميع الإعدادات',
+    settingsResetAllDesc: 'استعادة الإعدادات الافتراضية',
+    settingsResetConfirm: 'هل أنت متأكد من إعادة التعيين؟',
+    settingsClearSearchHistory: 'مسح سجل البحث',
+    settingsClearSearchHistoryDesc: 'حذف جميع سجلات البحث',
+    settingsRateApp: 'تقييم التطبيق',
+    settingsSendFeedback: 'إرسال ملاحظات',
+    settingsAppearance: 'المظهر',
+    settingsDataStorage: 'البيانات والتخزين',
   },
 };
 

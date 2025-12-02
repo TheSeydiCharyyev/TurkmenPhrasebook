@@ -17,6 +17,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useConfig } from '../contexts/ConfigContext';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
+import { useSafeArea } from '../hooks/useSafeArea';
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 
@@ -25,7 +26,7 @@ interface OnboardingSlide {
   title: string;
   subtitle: string;
   icon: keyof typeof Ionicons.glyphMap;
-  gradient: string[];
+  gradient: [string, string, ...string[]];
   component: React.ReactNode;
 }
 
@@ -41,6 +42,9 @@ export default function OnboardingScreen({ navigation, onComplete }: OnboardingS
   const [currentIndex, setCurrentIndex] = useState(0);
   const flatListRef = useRef<FlatList>(null);
   const scrollX = useRef(new Animated.Value(0)).current;
+
+  // Safe Area для bottom padding (home indicator)
+  const { bottom: safeAreaBottom } = useSafeArea();
 
   const slides: OnboardingSlide[] = [
     {
@@ -148,7 +152,7 @@ export default function OnboardingScreen({ navigation, onComplete }: OnboardingS
             <View style={styles.content}>{item.component}</View>
 
             {/* Dots Indicator */}
-            <View style={styles.footer}>
+            <View style={[styles.footer, { paddingBottom: Math.max(safeAreaBottom, verticalScale(40)) }]}>
               <View style={styles.dotsContainer}>
                 {slides.map((_, index) => {
                   const inputRange = [
@@ -455,7 +459,7 @@ const styles = StyleSheet.create({
     fontWeight: '400',
   },
   footer: {
-    paddingBottom: verticalScale(40),
+    // paddingBottom теперь динамический через safeAreaBottom
     paddingHorizontal: scale(20),
   },
   dotsContainer: {

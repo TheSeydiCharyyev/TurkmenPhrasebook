@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 import { OCREngine, OCREngineInfo } from '../types/visual-translator.types';
 import OCRService from '../services/OCRService';
+import { useAppLanguage } from '../../../contexts/LanguageContext';
 
 interface Props {
   visible: boolean;
@@ -21,8 +22,10 @@ interface Props {
 }
 
 const OCREngineSelector: React.FC<Props> = ({ visible, onClose, onEngineSelect }) => {
+  const { getTexts } = useAppLanguage();
+  const texts = getTexts();
   const [engines, setEngines] = useState<OCREngineInfo[]>([]);
-  const [selectedEngine, setSelectedEngine] = useState<OCREngine>(OCREngine.ML_KIT);
+  const [selectedEngine, setSelectedEngine] = useState<OCREngine>(OCREngine.OCR_SPACE);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -45,14 +48,21 @@ const OCREngineSelector: React.FC<Props> = ({ visible, onClose, onEngineSelect }
     }
   };
 
-  const handleSelect = async (engine: OCREngine) => {
-    setSelectedEngine(engine);
-    await OCRService.setSelectedEngine(engine);
-    onEngineSelect(engine);
+  const handleSelect = async (engine: OCREngineInfo) => {
+    // Нельзя выбрать движки с coming soon
+    if (engine.isComingSoon || !engine.isAvailable) {
+      return;
+    }
+    setSelectedEngine(engine.id);
+    await OCRService.setSelectedEngine(engine.id);
+    onEngineSelect(engine.id);
     onClose();
   };
 
   const getStatusBadge = (engine: OCREngineInfo) => {
+    if (engine.isComingSoon) {
+      return { text: texts.vtComingSoon || 'Coming soon', color: '#9CA3AF' };
+    }
     if (!engine.isAvailable) {
       return { text: 'Unavailable', color: '#EF4444' };
     }
@@ -76,7 +86,7 @@ const OCREngineSelector: React.FC<Props> = ({ visible, onClose, onEngineSelect }
         <View style={styles.container}>
           {/* Header */}
           <View style={styles.header}>
-            <Text style={styles.headerTitle}>Select OCR Engine</Text>
+            <Text style={styles.headerTitle}>{texts.vtOcrEngine || 'Select OCR Engine'}</Text>
             <TouchableOpacity onPress={onClose} style={styles.closeButton}>
               <Text style={styles.closeButtonText}>✕</Text>
             </TouchableOpacity>
@@ -84,18 +94,19 @@ const OCREngineSelector: React.FC<Props> = ({ visible, onClose, onEngineSelect }
 
           {/* Description */}
           <Text style={styles.description}>
-            Choose how to recognize text from images. Auto-fallback enabled if selected engine fails.
+            {texts.vtOcrEngineDesc || 'Choose how to recognize text from images.'}
           </Text>
 
           {loading ? (
             <View style={styles.loadingContainer}>
-              <ActivityIndicator size="large" color="#10B981" />
-              <Text style={styles.loadingText}>Checking availability...</Text>
+              <ActivityIndicator size="large" color="#00A651" />
+              <Text style={styles.loadingText}>{texts.loading || 'Loading...'}</Text>
             </View>
           ) : (
             <ScrollView style={styles.engineList}>
               {engines.map((engine) => {
                 const isSelected = engine.id === selectedEngine;
+                const isDisabled = engine.isComingSoon || !engine.isAvailable;
                 const status = getStatusBadge(engine);
 
                 return (
@@ -103,49 +114,52 @@ const OCREngineSelector: React.FC<Props> = ({ visible, onClose, onEngineSelect }
                     key={engine.id}
                     style={[
                       styles.engineCard,
-                      isSelected && styles.engineCardSelected,
-                      !engine.isAvailable && styles.engineCardDisabled,
+                      isSelected && !isDisabled && styles.engineCardSelected,
+                      isDisabled && styles.engineCardDisabled,
                     ]}
-                    onPress={() => engine.isAvailable && handleSelect(engine.id)}
-                    disabled={!engine.isAvailable}
+                    onPress={() => handleSelect(engine)}
+                    disabled={isDisabled}
                   >
                     <View style={styles.engineCardHeader}>
                       <View style={styles.engineCardTitle}>
                         <Text style={styles.engineIcon}>{engine.icon}</Text>
                         <View style={styles.engineInfo}>
-                          <Text style={styles.engineName}>{engine.name}</Text>
+                          <View style={styles.engineNameRow}>
+                            <Text style={[
+                              styles.engineName,
+                              isDisabled && styles.engineNameDisabled
+                            ]}>
+                              {engine.name}
+                            </Text>
+                            {engine.isComingSoon && (
+                              <Text style={styles.comingSoonText}>
+                                ({texts.vtComingSoon || 'Coming soon'})
+                              </Text>
+                            )}
+                          </View>
                           <View style={styles.engineBadges}>
                             <View style={[styles.statusBadge, { backgroundColor: status.color }]}>
                               <Text style={styles.statusBadgeText}>{status.text}</Text>
                             </View>
-                            {engine.requiresApiKey && (
-                              <View style={[styles.statusBadge, { backgroundColor: '#6B7280' }]}>
-                                <Text style={styles.statusBadgeText}>API Key</Text>
-                              </View>
-                            )}
                           </View>
                         </View>
                       </View>
-                      {isSelected && (
+                      {isSelected && !isDisabled && (
                         <View style={styles.checkmark}>
                           <Text style={styles.checkmarkText}>✓</Text>
                         </View>
                       )}
+                      {isDisabled && (
+                        <Text style={styles.lockIcon}>🔒</Text>
+                      )}
                     </View>
 
-                    <Text style={styles.engineDescription}>{engine.description}</Text>
-
-                    {!engine.isAvailable && (
-                      <View style={styles.unavailableNotice}>
-                        <Text style={styles.unavailableText}>
-                          {engine.id === OCREngine.ML_KIT
-                            ? '⚠️ ML Kit requires production build (eas build)'
-                            : engine.id === OCREngine.GOOGLE_VISION
-                            ? '⚠️ Requires API key in .env file'
-                            : '⚠️ Service unavailable'}
-                        </Text>
-                      </View>
-                    )}
+                    <Text style={[
+                      styles.engineDescription,
+                      isDisabled && styles.engineDescriptionDisabled
+                    ]}>
+                      {engine.description}
+                    </Text>
                   </TouchableOpacity>
                 );
               })}
@@ -155,7 +169,7 @@ const OCREngineSelector: React.FC<Props> = ({ visible, onClose, onEngineSelect }
           {/* Footer Note */}
           <View style={styles.footer}>
             <Text style={styles.footerText}>
-              💡 If selected engine fails, app will automatically try others
+              💡 OCR.space - {texts.vtOcrSpaceNote || 'Free, 25K requests/month'}
             </Text>
           </View>
         </View>
@@ -233,10 +247,11 @@ const styles = StyleSheet.create({
   },
   engineCardSelected: {
     backgroundColor: '#ECFDF5',
-    borderColor: '#10B981',
+    borderColor: '#00A651',
   },
   engineCardDisabled: {
     opacity: 0.6,
+    backgroundColor: '#F3F4F6',
   },
   engineCardHeader: {
     flexDirection: 'row',
@@ -256,11 +271,25 @@ const styles = StyleSheet.create({
   engineInfo: {
     flex: 1,
   },
+  engineNameRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    marginBottom: 6,
+  },
   engineName: {
     fontSize: 16,
     fontWeight: '600',
     color: '#1F2937',
-    marginBottom: 6,
+  },
+  engineNameDisabled: {
+    color: '#9CA3AF',
+  },
+  comingSoonText: {
+    fontSize: 14,
+    color: '#9CA3AF',
+    marginLeft: 6,
+    fontStyle: 'italic',
   },
   engineBadges: {
     flexDirection: 'row',
@@ -280,7 +309,7 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     borderRadius: 12,
-    backgroundColor: '#10B981',
+    backgroundColor: '#00A651',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -289,20 +318,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '700',
   },
+  lockIcon: {
+    fontSize: 20,
+  },
   engineDescription: {
     fontSize: 13,
     color: '#6B7280',
     lineHeight: 18,
   },
-  unavailableNotice: {
-    marginTop: 8,
-    padding: 8,
-    backgroundColor: '#FEF3C7',
-    borderRadius: 6,
-  },
-  unavailableText: {
-    fontSize: 12,
-    color: '#92400E',
+  engineDescriptionDisabled: {
+    color: '#9CA3AF',
   },
   footer: {
     paddingHorizontal: 20,
