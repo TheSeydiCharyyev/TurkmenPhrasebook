@@ -9,6 +9,7 @@ import {
   Switch,
   Alert,
   ScrollView,
+  ActivityIndicator,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -26,11 +27,22 @@ import { useSearchHistory } from '../hooks/useSearchHistory';
 import { RootStackParamList } from '../types';
 import TTSChecker from '../utils/TTSChecker';
 import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
+import { useSafeArea } from '../hooks/useSafeArea';
+
+// Semantic icon colors for different sections
+const SETTINGS_ICON_COLORS = {
+  language: '#00A651',     // Green - Turkmenistan
+  audio: '#3B82F6',        // Blue
+  appearance: '#8B5CF6',   // Purple
+  data: '#EF4444',         // Red
+  info: '#6B7280',         // Gray
+};
 
 type SettingsScreenNavigationProp = StackNavigationProp<RootStackParamList, 'LanguageSelection'>;
 
-// Импортируем оптимизированный модальный компонент
-import FontSizeModal from '../components/FontSizeModal'; // Создадим отдельным файлом
+// Импортируем оптимизированные модальные компоненты
+import FontSizeModal from '../components/FontSizeModal';
+import SpeechRateModal from '../components/SpeechRateModal';
 
 const SETTINGS_KEYS = {
   SOUND_ENABLED: 'settings_sound_enabled',
@@ -120,6 +132,9 @@ export default function SettingsScreen() {
 
   const stats = getStats();
   const texts = getTexts();
+
+  // Safe Area для bottom padding (home indicator)
+  const { bottom: safeAreaBottom } = useSafeArea();
 
   // Мемоизация тяжелых вычислений - используем texts из контекста
   const settingsTexts = useMemo(() => ({
@@ -318,7 +333,10 @@ export default function SettingsScreen() {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.loadingContainer}>
-          <Text>Загрузка настроек...</Text>
+          <ActivityIndicator size="large" color="#00A651" />
+          <Text style={styles.loadingText}>
+            {texts.settingsLoading ?? 'Loading settings...'}
+          </Text>
         </View>
       </SafeAreaView>
     );
@@ -339,8 +357,10 @@ export default function SettingsScreen() {
         <View style={styles.placeholder} />
       </View>
 
-      <ScrollView showsVerticalScrollIndicator={false}>
-
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: Math.max(safeAreaBottom, verticalScale(20)) }}
+      >
         <View style={styles.settingsContainer}>
           {/* Секция языка */}
           <View style={styles.section}>
@@ -349,7 +369,7 @@ export default function SettingsScreen() {
             {/* Interface Language */}
             <SettingsItem
               icon="language"
-              iconColor="#FF8008"
+              iconColor={SETTINGS_ICON_COLORS.language}
               title={texts.switchLanguage}
               subtitle={`${texts.currentLanguage}${getLanguageByCode(config.mode)?.name || config.mode}`}
               onPress={handleLanguageToggle}
@@ -359,7 +379,7 @@ export default function SettingsScreen() {
             {/* Phrasebook Language */}
             <SettingsItem
               icon="book"
-              iconColor="#FF8008"
+              iconColor={SETTINGS_ICON_COLORS.language}
               title={texts.phrasebookLanguage ?? 'Phrasebook Language'}
               subtitle={`${texts.currentLanguage ?? 'Current: '}${getLanguageByCode(selectedLanguage)?.nameEn || selectedLanguage}-Turkmen`}
               onPress={handlePhrasebookLanguageChange}
@@ -373,14 +393,14 @@ export default function SettingsScreen() {
 
             <SettingsItem
               icon="volume-high"
-              iconColor="#FF8008"
+              iconColor={SETTINGS_ICON_COLORS.audio}
               title={texts.soundEffects}
               subtitle={texts.pronunciationPlayback}
               rightComponent={
                 <Switch
                   value={preferences.soundEnabled}
                   onValueChange={() => handleTogglePreference('soundEnabled')}
-                  trackColor={{ false: '#D1D5DB', true: '#FF8008' }}
+                  trackColor={{ false: '#D1D5DB', true: '#00A651' }}
                   thumbColor="#FFFFFF"
                 />
               }
@@ -388,7 +408,7 @@ export default function SettingsScreen() {
 
             <SettingsItem
               icon="play-circle"
-              iconColor="#10B981"
+              iconColor={SETTINGS_ICON_COLORS.audio}
               title={texts.testVoice ?? 'Test Voice'}
               subtitle={`${availableVoices.length} ${texts.voicesAvailable ?? 'voices available'}`}
               onPress={testTTS}
@@ -397,7 +417,7 @@ export default function SettingsScreen() {
 
             <SettingsItem
               icon="checkmark-circle"
-              iconColor="#3B82F6"
+              iconColor={SETTINGS_ICON_COLORS.audio}
               title={texts.checkVoices ?? 'Check Voices'}
               subtitle={texts.checkVoicesDesc ?? 'Check voice availability'}
               onPress={checkVoiceAvailability}
@@ -406,21 +426,45 @@ export default function SettingsScreen() {
 
             <SettingsItem
               icon="list"
-              iconColor="#8B5CF6"
-              title="Установленные голоса"
-              subtitle="Просмотр всех доступных TTS голосов"
+              iconColor={SETTINGS_ICON_COLORS.audio}
+              title={texts.settingsInstalledVoices ?? 'Installed Voices'}
+              subtitle={texts.settingsInstalledVoicesDesc ?? 'View all available TTS voices'}
               onPress={checkInstalledVoices}
               rightComponent={<Ionicons name="arrow-forward" size={20} color="#9CA3AF" />}
+            />
+
+            <SettingsItem
+              icon="speedometer"
+              iconColor={SETTINGS_ICON_COLORS.audio}
+              title={texts.settingsSpeechRate ?? 'Speech Rate'}
+              subtitle={`${preferences.speechRate}x`}
+              onPress={() => setShowSpeechRateModal(true)}
+              rightComponent={<Ionicons name="chevron-forward" size={20} color="#9CA3AF" />}
             />
           </View>
 
           {/* Секция интерфейса */}
           <View style={styles.section}>
-            <SectionHeader title={settingsTexts.interfaceSettings ?? 'Interface Settings'} />
+            <SectionHeader title={texts.settingsAppearance ?? 'Appearance'} />
+
+            <SettingsItem
+              icon="moon"
+              iconColor={SETTINGS_ICON_COLORS.appearance}
+              title={texts.settingsDarkMode ?? 'Dark Mode'}
+              subtitle={texts.settingsDarkModeDesc ?? 'Switch to dark theme'}
+              rightComponent={
+                <Switch
+                  value={preferences.darkMode}
+                  onValueChange={() => handleTogglePreference('darkMode')}
+                  trackColor={{ false: '#D1D5DB', true: '#00A651' }}
+                  thumbColor="#FFFFFF"
+                />
+              }
+            />
 
             <SettingsItem
               icon="text"
-              iconColor="#FF8008"
+              iconColor={SETTINGS_ICON_COLORS.appearance}
               title={texts.fontSize ?? 'Font Size'}
               subtitle={`${texts.currentFontSize ?? 'Current: '}${preferences.fontSize}px`}
               onPress={() => setShowFontSizeModal(true)}
@@ -429,14 +473,14 @@ export default function SettingsScreen() {
 
             <SettingsItem
               icon="phone-portrait"
-              iconColor="#FF8008"
+              iconColor={SETTINGS_ICON_COLORS.appearance}
               title={texts.hapticFeedback ?? 'Haptic Feedback'}
               subtitle={texts.hapticFeedbackDesc ?? 'Vibration on interactions'}
               rightComponent={
                 <Switch
                   value={preferences.hapticFeedback}
                   onValueChange={() => handleTogglePreference('hapticFeedback')}
-                  trackColor={{ false: '#D1D5DB', true: '#FF8008' }}
+                  trackColor={{ false: '#D1D5DB', true: '#00A651' }}
                   thumbColor="#FFFFFF"
                 />
               }
@@ -445,11 +489,11 @@ export default function SettingsScreen() {
 
           {/* Секция данных */}
           <View style={styles.section}>
-            <SectionHeader title={settingsTexts.dataSettings ?? 'Data Settings'} />
+            <SectionHeader title={texts.settingsDataStorage ?? 'Data & Storage'} />
 
             <SettingsItem
               icon="time"
-              iconColor="#EF4444"
+              iconColor={SETTINGS_ICON_COLORS.data}
               title={texts.clearHistory}
               subtitle={`${stats.uniquePhrases} ${texts.phrases} • ${stats.totalViews} ${texts.views}`}
               onPress={() => {
@@ -471,6 +515,65 @@ export default function SettingsScreen() {
               }}
               rightComponent={<Ionicons name="chevron-forward" size={20} color="#9CA3AF" />}
             />
+
+            <SettingsItem
+              icon="search"
+              iconColor={SETTINGS_ICON_COLORS.data}
+              title={texts.settingsClearSearchHistory ?? 'Clear Search History'}
+              subtitle={texts.settingsClearSearchHistoryDesc ?? 'Delete all search records'}
+              onPress={() => {
+                Alert.alert(
+                  texts.settingsClearSearchHistory ?? 'Clear Search History',
+                  texts.clearHistoryConfirm ?? 'This cannot be undone.',
+                  [
+                    { text: texts.cancel, style: 'cancel' },
+                    {
+                      text: texts.delete ?? 'Clear',
+                      style: 'destructive',
+                      onPress: () => {
+                        clearSearchHistory();
+                        Alert.alert('✅', texts.historyCleared ?? 'Search history cleared');
+                      }
+                    }
+                  ]
+                );
+              }}
+              rightComponent={<Ionicons name="chevron-forward" size={20} color="#9CA3AF" />}
+            />
+
+            <SettingsItem
+              icon="refresh"
+              iconColor={SETTINGS_ICON_COLORS.data}
+              title={texts.settingsResetAll ?? 'Reset All Settings'}
+              subtitle={texts.settingsResetAllDesc ?? 'Restore default settings'}
+              onPress={() => {
+                Alert.alert(
+                  texts.settingsResetAll ?? 'Reset All Settings',
+                  texts.settingsResetConfirm ?? 'Are you sure you want to reset?',
+                  [
+                    { text: texts.cancel, style: 'cancel' },
+                    {
+                      text: texts.delete ?? 'Reset',
+                      style: 'destructive',
+                      onPress: async () => {
+                        // Reset preferences to defaults
+                        setPreferences(DEFAULT_PREFERENCES);
+
+                        // Clear all AsyncStorage settings
+                        await Promise.all(
+                          Object.values(SETTINGS_KEYS).map(key =>
+                            AsyncStorage.removeItem(key)
+                          )
+                        );
+
+                        Alert.alert('✅', texts.success ?? 'Settings reset successfully');
+                      }
+                    }
+                  ]
+                );
+              }}
+              rightComponent={<Ionicons name="chevron-forward" size={20} color="#9CA3AF" />}
+            />
           </View>
 
           {/* Секция приложения */}
@@ -479,7 +582,7 @@ export default function SettingsScreen() {
 
             <SettingsItem
               icon="information-circle"
-              iconColor="#6B7280"
+              iconColor={SETTINGS_ICON_COLORS.info}
               title={texts.about}
               subtitle={texts.versionAndInfo}
               onPress={handleAbout}
@@ -489,13 +592,26 @@ export default function SettingsScreen() {
         </View>
       </ScrollView>
 
-      {/* Оптимизированное модальное окно */}
+      {/* Оптимизированные модальные окна */}
       <FontSizeModal
         visible={showFontSizeModal}
         onClose={() => setShowFontSizeModal(false)}
         currentFontSize={preferences.fontSize}
         onSave={(fontSize) => savePreference('fontSize', fontSize)}
         config={config}
+      />
+
+      <SpeechRateModal
+        visible={showSpeechRateModal}
+        onClose={() => setShowSpeechRateModal(false)}
+        currentRate={preferences.speechRate}
+        onSave={(rate) => savePreference('speechRate', rate)}
+        texts={{
+          title: texts.settingsSpeechRate,
+          test: texts.testVoice,
+          cancel: texts.cancel,
+          save: texts.success,
+        }}
       />
     </SafeAreaView>
   );
@@ -511,6 +627,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
+  },
+  loadingText: {
+    fontSize: moderateScale(16),
+    color: '#6B7280',
+    marginTop: verticalScale(12),
   },
   headerBar: {
     flexDirection: 'row',
@@ -541,7 +662,6 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: scale(16),
     paddingTop: verticalScale(16),
-    paddingBottom: verticalScale(20),
   },
   section: {
     marginBottom: verticalScale(24),

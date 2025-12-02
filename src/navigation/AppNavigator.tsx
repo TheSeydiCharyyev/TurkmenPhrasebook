@@ -30,8 +30,8 @@ import TranslationResultScreen from '../features/visual-translator/screens/Trans
 // Text Translator screens (Phase 3)
 import TextTranslatorScreen from '../features/text-translator/screens/TextTranslatorScreen';
 
-// Voice Translator screens (Phase 6)
-import VoiceTranslatorScreen from '../features/voice-translator/screens/VoiceTranslatorScreen';
+// Voice Translator screens (Phase 6) - Coming Soon
+import VoiceTranslatorComingSoonScreen from '../features/voice-translator/screens/VoiceTranslatorComingSoonScreen';
 
 // AI Assistants screens (Phase 4)
 import UniversalAIChatScreen from '../features/ai-assistants/screens/UniversalAIChatScreen';
@@ -219,10 +219,15 @@ export default function AppNavigator() {
           options={{ headerShown: false }}
         />
 
-        {/* Voice Translator (Phase 6) */}
+        {/* Voice Translator (Phase 6) - Coming Soon */}
         <RootStack.Screen
           name="VoiceTranslator"
-          component={VoiceTranslatorScreen}
+          component={VoiceTranslatorComingSoonScreen}
+          options={{ headerShown: false }}
+        />
+        <RootStack.Screen
+          name="VoiceTranslatorComingSoon"
+          component={VoiceTranslatorComingSoonScreen}
           options={{ headerShown: false }}
         />
 

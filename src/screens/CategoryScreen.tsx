@@ -19,6 +19,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Clipboard from 'expo-clipboard';
 import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
+import { useSafeArea } from '../hooks/useSafeArea';
 
 import { Colors } from '../constants/Colors';
 import { usePhrases } from '../hooks/usePhrases';
@@ -292,6 +293,9 @@ export default function CategoryScreen() {
   // ✅ FIXED: Move useFavorites to parent component (was called 100+ times in child)
   const { isFavorite, toggleFavorite } = useFavorites();
 
+  // Safe Area для bottom padding (home indicator)
+  const { bottom: safeAreaBottom } = useSafeArea();
+
   // Анимация скролла для заголовка
   const scrollY = useRef(new Animated.Value(0)).current;
   const { category } = route.params;
@@ -545,7 +549,7 @@ export default function CategoryScreen() {
             </Text>
           </View>
         }
-        ListFooterComponent={<View style={styles.bottomSpacing} />}
+        ListFooterComponent={<View style={{ height: Math.max(safeAreaBottom, verticalScale(20)) }} />}
       />
     </SafeAreaView>
   );

@@ -1,16 +1,14 @@
 // src/features/visual-translator/services/OCRService.ts
-// Роутер для OCR движков: ML Kit, OCR.space, Google Cloud Vision
+// OCR Service - только OCR.space (ML Kit и Google Vision - coming soon)
 
-import TextRecognition from '@react-native-ml-kit/text-recognition';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { OCR_SPACE_API_KEY, GOOGLE_VISION_API_KEY } from '@env';
+import { OCR_SPACE_API_KEY } from '@env';
 import {
   OCRResult,
   OCREngine,
   OCREngineInfo,
 } from '../types/visual-translator.types';
 import OCRSpaceService from './OCRSpaceService';
-import GoogleVisionService from './GoogleVisionService';
 
 const STORAGE_KEY_SELECTED_ENGINE = '@visual_translator_ocr_engine';
 
@@ -18,140 +16,21 @@ class OCRService {
   private selectedEngine: OCREngine = OCREngine.OCR_SPACE;
 
   constructor() {
-    // Загружаем сохранённый выбор движка
     this.loadSelectedEngine();
   }
 
   /**
-   * Распознаёт текст на изображении используя выбранный движок
+   * Распознаёт текст на изображении
+   * Сейчас работает только OCR.space
    */
   async recognizeText(imagePath: string): Promise<OCRResult> {
-
     try {
-      switch (this.selectedEngine) {
-        case OCREngine.ML_KIT:
-          return await this.recognizeWithMLKit(imagePath);
-
-        case OCREngine.OCR_SPACE:
-          return await OCRSpaceService.recognizeText(imagePath, OCR_SPACE_API_KEY);
-
-        case OCREngine.GOOGLE_VISION:
-          return await GoogleVisionService.recognizeText(imagePath, GOOGLE_VISION_API_KEY);
-
-        default:
-          throw new Error(`Unknown OCR engine: ${this.selectedEngine}`);
-      }
+      // Только OCR.space доступен
+      return await OCRSpaceService.recognizeText(imagePath, OCR_SPACE_API_KEY);
     } catch (error) {
-      console.error(`[OCRService] ${this.selectedEngine} failed:`, error);
-
-      // Автоматический fallback
-      return await this.fallbackRecognition(imagePath, error);
-    }
-  }
-
-  /**
-   * Fallback: пробуем другие движки если выбранный не сработал
-   */
-  private async fallbackRecognition(imagePath: string, originalError: any): Promise<OCRResult> {
-
-    // Порядок fallback: ML Kit → OCR.space → Google Vision
-    const fallbackEngines = this.getFallbackOrder();
-
-    for (const engine of fallbackEngines) {
-      if (engine === this.selectedEngine) continue; // Пропускаем уже упавший движок
-
-      try {
-
-        switch (engine) {
-          case OCREngine.ML_KIT:
-            return await this.recognizeWithMLKit(imagePath);
-
-          case OCREngine.OCR_SPACE:
-            return await OCRSpaceService.recognizeText(imagePath, OCR_SPACE_API_KEY);
-
-          case OCREngine.GOOGLE_VISION:
-            return await GoogleVisionService.recognizeText(imagePath, GOOGLE_VISION_API_KEY);
-        }
-      } catch (fallbackError) {
-        console.warn(`[OCRService] Fallback ${engine} also failed:`, fallbackError);
-        continue;
-      }
-    }
-
-    // Все движки упали
-    throw new Error(
-      `All OCR engines failed. Original error: ${
-        originalError instanceof Error ? originalError.message : 'Unknown error'
-      }`
-    );
-  }
-
-  /**
-   * Порядок fallback движков
-   */
-  private getFallbackOrder(): OCREngine[] {
-    // Приоритет: бесплатный онлайн → офлайн → премиум
-    return [OCREngine.OCR_SPACE, OCREngine.ML_KIT, OCREngine.GOOGLE_VISION];
-  }
-
-  /**
-   * Распознавание с Google ML Kit (офлайн)
-   */
-  private async recognizeWithMLKit(imagePath: string): Promise<OCRResult> {
-    try {
-      // Проверяем доступность ML Kit
-      if (!TextRecognition || typeof TextRecognition.recognize !== 'function') {
-        throw new Error('ML Kit library not available');
-      }
-
-      const result = await TextRecognition.recognize(imagePath);
-
-      const fullText = result.blocks.map(block => block.text).join('\n');
-
-      if (!fullText.trim()) {
-        throw new Error('No text found in image');
-      }
-
-      const detectedLanguage = this.detectLanguage(fullText);
-      const confidence = this.calculateConfidence(result.blocks);
-
-      return {
-        text: fullText,
-        language: detectedLanguage,
-        confidence,
-        engine: OCREngine.ML_KIT,
-        blocks: result.blocks.map((block: any) => ({
-          text: block.text,
-          boundingBox: {
-            x: block.frame?.x ?? 0,
-            y: block.frame?.y ?? 0,
-            width: block.frame?.width ?? 0,
-            height: block.frame?.height ?? 0,
-          },
-          lines: block.lines.map((line: any) => ({
-            text: line.text,
-            boundingBox: {
-              x: line.frame?.x ?? 0,
-              y: line.frame?.y ?? 0,
-              width: line.frame?.width ?? 0,
-              height: line.frame?.height ?? 0,
-            },
-            elements: line.elements.map((elem: any) => ({
-              text: elem.text,
-              boundingBox: {
-                x: elem.frame?.x ?? 0,
-                y: elem.frame?.y ?? 0,
-                width: elem.frame?.width ?? 0,
-                height: elem.frame?.height ?? 0,
-              },
-            })),
-          })),
-        })),
-      };
-    } catch (error) {
-      console.error('[OCRService/MLKit] Error:', error);
+      console.error(`[OCRService] OCR.space failed:`, error);
       throw new Error(
-        'ML Kit unavailable. Try OCR.space or Google Vision in settings.'
+        `OCR failed: ${error instanceof Error ? error.message : 'Unknown error'}`
       );
     }
   }
@@ -170,14 +49,6 @@ class OCRService {
   }
 
   /**
-   * Вычисляет confidence
-   */
-  private calculateConfidence(blocks: any[]): number {
-    if (!blocks || blocks.length === 0) return 0;
-    return Math.min(0.5 + blocks.length * 0.1, 0.95);
-  }
-
-  /**
    * Проверяет наличие текста на изображении
    */
   async hasText(imagePath: string): Promise<boolean> {
@@ -193,6 +64,11 @@ class OCRService {
    * Установить выбранный движок
    */
   async setSelectedEngine(engine: OCREngine): Promise<void> {
+    // Только OCR.space доступен сейчас
+    if (engine !== OCREngine.OCR_SPACE) {
+      console.warn(`[OCRService] Engine ${engine} is coming soon. Using OCR.space.`);
+      engine = OCREngine.OCR_SPACE;
+    }
     this.selectedEngine = engine;
     await AsyncStorage.setItem(STORAGE_KEY_SELECTED_ENGINE, engine);
   }
@@ -210,9 +86,8 @@ class OCRService {
   private async loadSelectedEngine(): Promise<void> {
     try {
       const saved = await AsyncStorage.getItem(STORAGE_KEY_SELECTED_ENGINE);
-      if (saved && Object.values(OCREngine).includes(saved as OCREngine)) {
-        this.selectedEngine = saved as OCREngine;
-      }
+      // Только OCR.space доступен
+      this.selectedEngine = OCREngine.OCR_SPACE;
     } catch (error) {
       console.warn('[OCRService] Failed to load saved engine:', error);
     }
@@ -224,49 +99,41 @@ class OCRService {
   async getAvailableEngines(): Promise<OCREngineInfo[]> {
     const engines: OCREngineInfo[] = [
       {
-        id: OCREngine.ML_KIT,
-        name: 'ML Kit (Recommended)',
-        description: 'Fast, offline, works without internet',
-        icon: '🔒',
-        isOnline: false,
-        isPremium: false,
-        isAvailable: await this.checkMLKitAvailability(),
-        requiresApiKey: false,
-      },
-      {
         id: OCREngine.OCR_SPACE,
         name: 'OCR.space',
         description: 'Free online OCR, 25K requests/month',
         icon: '🌐',
         isOnline: true,
         isPremium: false,
-        isAvailable: await OCRSpaceService.isAvailable(),
-        requiresApiKey: false, // Используем публичный ключ
+        isAvailable: true,
+        requiresApiKey: false,
+        isComingSoon: false,
+      },
+      {
+        id: OCREngine.ML_KIT,
+        name: 'ML Kit',
+        description: 'Fast offline recognition',
+        icon: '🔒',
+        isOnline: false,
+        isPremium: false,
+        isAvailable: false,
+        requiresApiKey: false,
+        isComingSoon: true,
       },
       {
         id: OCREngine.GOOGLE_VISION,
         name: 'Google Cloud Vision',
-        description: 'Premium, most accurate, requires API key',
+        description: 'Premium, most accurate',
         icon: '⭐',
         isOnline: true,
         isPremium: true,
-        isAvailable: await GoogleVisionService.isAvailable(GOOGLE_VISION_API_KEY),
+        isAvailable: false,
         requiresApiKey: true,
+        isComingSoon: true,
       },
     ];
 
     return engines;
-  }
-
-  /**
-   * Проверяет доступность ML Kit
-   */
-  private async checkMLKitAvailability(): Promise<boolean> {
-    try {
-      return TextRecognition !== undefined && TextRecognition !== null;
-    } catch {
-      return false;
-    }
   }
 
   /**

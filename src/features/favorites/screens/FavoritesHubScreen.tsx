@@ -17,6 +17,8 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { Colors } from '../../../constants/Colors';
 import { DesignColors } from '../../../constants/Design';
+import { useSafeArea } from '../../../hooks/useSafeArea';
+import { verticalScale } from '../../../utils/ResponsiveUtils';
 import { FavoritesService } from '../services/FavoritesService';
 import { FavoriteTab, FavoriteTranslation } from '../types/favorites.types';
 import { usePhrases } from '../../../hooks/usePhrases';
@@ -29,6 +31,9 @@ export default function FavoritesHubScreen() {
   const navigation = useNavigation<any>();
   const { phrases } = usePhrases();
   const { config } = useAppLanguage();
+
+  // Safe Area для bottom padding (home indicator)
+  const { bottom: safeAreaBottom } = useSafeArea();
 
   const [activeTab, setActiveTab] = useState<FavoriteTab>('phrases');
   const [isLoading, setIsLoading] = useState(true);
@@ -356,7 +361,10 @@ export default function FavoritesHubScreen() {
       />
       <ScrollView
         style={styles.scrollView}
-        contentContainerStyle={styles.scrollContent}
+        contentContainerStyle={[
+          styles.scrollContent,
+          { paddingBottom: Math.max(safeAreaBottom, verticalScale(20)) }
+        ]}
         showsVerticalScrollIndicator={false}
       >
         {renderHeader()}
