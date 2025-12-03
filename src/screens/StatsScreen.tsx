@@ -6,7 +6,6 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Dimensions,
   Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -20,10 +19,7 @@ import { useAppLanguage } from '../contexts/LanguageContext';
 import { LoadingSpinner, EmptyState } from '../components/LoadingStates';
 import { SimpleBarChart, SimpleLineChart } from '../components/SimpleCharts';
 import ErrorBoundary from '../components/ErrorBoundary';
-import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
-
-const { width: screenWidth } = Dimensions.get('window');
-const chartWidth = screenWidth - scale(40);
+import { scale, verticalScale, moderateScale, useResponsive } from '../utils/ResponsiveUtils';
 
 // Мемоизированные компоненты для производительности
 const StatCard = React.memo<{
@@ -130,6 +126,9 @@ const CategoryProgressItem = React.memo<CategoryProgressProps>(({ category, tota
 
 export default function StatsScreen() {
   const [selectedPeriod, setSelectedPeriod] = useState<'week' | 'month'>('week');
+  const { width, scale: scaleResp } = useResponsive();
+  const chartWidth = width - scaleResp(40);
+
   const {
     stats,
     loading,

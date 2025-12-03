@@ -19,7 +19,7 @@ import { useAppLanguage } from '../contexts/LanguageContext';
 import { useConfig } from '../contexts/ConfigContext';
 import { getLanguageByCode } from '../config/languages.config';
 import type { HomeStackParamList } from '../types';
-import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
+import { useResponsive } from '../utils/ResponsiveUtils';
 
 interface LanguagePair {
   id: string;
@@ -39,6 +39,7 @@ const LanguagePairSelectionScreen: React.FC = () => {
   const texts = getTexts();
   const [selectedPair, setSelectedPair] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const { scale, verticalScale, moderateScale } = useResponsive();
 
   // Available language pairs (30 languages paired with Turkmen)
   const availablePairs: LanguagePair[] = [
@@ -358,6 +359,106 @@ const LanguagePairSelectionScreen: React.FC = () => {
     return descriptions[pairCode] || `${pairCode.toUpperCase()} - Turkmen`;
   };
 
+  const styles = React.useMemo(() => StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#F8F9FA',
+    },
+    content: {
+      padding: scale(24),
+      paddingTop: verticalScale(60),
+    },
+    header: {
+      alignItems: 'center',
+      marginBottom: verticalScale(40),
+    },
+    icon: {
+      fontSize: moderateScale(64),
+      marginBottom: verticalScale(16),
+    },
+    title: {
+      fontSize: moderateScale(28),
+      fontWeight: '700',
+      color: '#000',
+      textAlign: 'center',
+      marginBottom: verticalScale(8),
+    },
+    subtitle: {
+      fontSize: moderateScale(16),
+      color: '#666',
+      textAlign: 'center',
+    },
+    pairsContainer: {
+      marginBottom: verticalScale(32),
+    },
+    pairButton: {
+      marginBottom: verticalScale(16),
+      borderRadius: scale(16),
+      overflow: 'hidden',
+      elevation: 4,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.1,
+      shadowRadius: 8,
+    },
+    pairGradient: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      padding: scale(20),
+      minHeight: verticalScale(100),
+      backgroundColor: '#FFFFFF',
+    },
+    pairSelected: {
+      borderWidth: 3,
+      borderColor: '#FF8008',
+    },
+    pairFlag: {
+      fontSize: moderateScale(40),
+      marginRight: scale(16),
+    },
+    pairInfo: {
+      flex: 1,
+    },
+    pairName: {
+      fontSize: moderateScale(22),
+      fontWeight: '700',
+      color: '#1e293b',
+      marginBottom: verticalScale(4),
+    },
+    pairDescription: {
+      fontSize: moderateScale(14),
+      color: '#64748b',
+    },
+    pairArrow: {
+      fontSize: moderateScale(24),
+      color: '#FF8008',
+      fontWeight: '700',
+    },
+    infoCard: {
+      flexDirection: 'row',
+      backgroundColor: '#FFFFFF',
+      borderRadius: scale(12),
+      padding: scale(16),
+      borderWidth: 1,
+      borderColor: '#FF8008',
+      elevation: 2,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 1 },
+      shadowOpacity: 0.1,
+      shadowRadius: 4,
+    },
+    infoIcon: {
+      fontSize: moderateScale(20),
+      marginRight: scale(12),
+    },
+    infoText: {
+      flex: 1,
+      fontSize: moderateScale(14),
+      color: '#64748b',
+      lineHeight: moderateScale(20),
+    },
+  }), [scale, verticalScale, moderateScale]);
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -418,105 +519,5 @@ const LanguagePairSelectionScreen: React.FC = () => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F8F9FA',
-  },
-  content: {
-    padding: scale(24),
-    paddingTop: verticalScale(60),
-  },
-  header: {
-    alignItems: 'center',
-    marginBottom: verticalScale(40),
-  },
-  icon: {
-    fontSize: moderateScale(64),
-    marginBottom: verticalScale(16),
-  },
-  title: {
-    fontSize: moderateScale(28),
-    fontWeight: '700',
-    color: '#000',
-    textAlign: 'center',
-    marginBottom: verticalScale(8),
-  },
-  subtitle: {
-    fontSize: moderateScale(16),
-    color: '#666',
-    textAlign: 'center',
-  },
-  pairsContainer: {
-    marginBottom: verticalScale(32),
-  },
-  pairButton: {
-    marginBottom: verticalScale(16),
-    borderRadius: scale(16),
-    overflow: 'hidden',
-    elevation: 4,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-  },
-  pairGradient: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: scale(20),
-    minHeight: verticalScale(100),
-    backgroundColor: '#FFFFFF', // Белая карточка
-  },
-  pairSelected: {
-    borderWidth: 3,
-    borderColor: '#FF8008', // Оранжевая рамка для выбранного
-  },
-  pairFlag: {
-    fontSize: moderateScale(40),
-    marginRight: scale(16),
-  },
-  pairInfo: {
-    flex: 1,
-  },
-  pairName: {
-    fontSize: moderateScale(22),
-    fontWeight: '700',
-    color: '#1e293b', // Темный текст
-    marginBottom: verticalScale(4),
-  },
-  pairDescription: {
-    fontSize: moderateScale(14),
-    color: '#64748b', // Серый текст для описания
-  },
-  pairArrow: {
-    fontSize: moderateScale(24),
-    color: '#FF8008', // Оранжевая стрелка
-    fontWeight: '700',
-  },
-  infoCard: {
-    flexDirection: 'row',
-    backgroundColor: '#FFFFFF', // Белый фон
-    borderRadius: scale(12),
-    padding: scale(16),
-    borderWidth: 1,
-    borderColor: '#FF8008', // Оранжевая рамка
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  infoIcon: {
-    fontSize: moderateScale(20),
-    marginRight: scale(12),
-  },
-  infoText: {
-    flex: 1,
-    fontSize: moderateScale(14),
-    color: '#64748b', // Серый текст
-    lineHeight: moderateScale(20),
-  },
-});
 
 export default LanguagePairSelectionScreen;

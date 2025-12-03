@@ -1,0 +1,1030 @@
+{
+  "language": "Italian",
+  "languageCode": "it",
+  "timestamp": "2025-12-02T09:45:47.144Z",
+  "summary": {
+    "total": 305,
+    "corrected": 127,
+    "verified": 177,
+    "fixed": 304,
+    "fixRate": "99.7%"
+  },
+  "corrections": [
+    {
+      "phraseId": "Selamat siang",
+      "category": "greetings",
+      "english": "Goodbye",
+      "old": "Arrivederci",
+      "new": "Addio",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Apa kabar?",
+      "category": "greetings",
+      "english": "What is your name?",
+      "old": "Come si chiama?",
+      "new": "Come ti chiami?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Baik-baik saja, terima kasih",
+      "category": "greetings",
+      "english": "Nice to meet you",
+      "old": "Piacere di conoscerLa",
+      "new": "una bottiglia d'acqua per favore",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Senang bertemu dengan Anda",
+      "category": "greetings",
+      "english": "Please",
+      "old": "Per favore",
+      "new": "Per cortesia",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Nama saya...",
+      "category": "greetings",
+      "english": "You're welcome",
+      "old": "Prego",
+      "new": "Benvenuto!",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Siapa nama Anda?",
+      "category": "greetings",
+      "english": "How are you?",
+      "old": "Come sta?",
+      "new": "come stai?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Ya",
+      "category": "greetings",
+      "english": "Very glad to see you",
+      "old": "Sono molto felice di vederLa",
+      "new": "Molto felice di vederti",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sama-sama",
+      "category": "greetings",
+      "english": "Let me introduce my friend",
+      "old": "Le presento il mio amico",
+      "new": "Lascia che ti presenti il mio amico",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Tolong",
+      "category": "greetings",
+      "english": "Pleased to meet you!",
+      "old": "Lieto di conoscerLa!",
+      "new": "Molto lieto!",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Maaf",
+      "category": "greetings",
+      "english": "Please come in",
+      "old": "Prego, entri",
+      "new": "Si prega di entrare",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Permisi",
+      "category": "greetings",
+      "english": "Please sit down",
+      "old": "Si accomodi",
+      "new": " Siediti, per favore.",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Buruk",
+      "category": "greetings",
+      "english": "I agree",
+      "old": "Sono d'accordo",
+      "new": "Acconsento",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sedikit",
+      "category": "greetings",
+      "english": "Thank you very much for your help",
+      "old": "La ringrazio molto per il Suo aiuto",
+      "new": "Grazie mille per il vostro aiuto.",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Banyak",
+      "category": "greetings",
+      "english": "Thank you very much for your support",
+      "old": "La ringrazio molto per il Suo sostegno",
+      "new": "Vi ringraziamo per il vostro supporto.",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Semua",
+      "category": "greetings",
+      "english": "Thank you very much for your understanding",
+      "old": "La ringrazio molto per la Sua comprensione",
+      "new": "Grazie per la tua comprensione.",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Saya tidak mengerti",
+      "category": "emergency",
+      "english": "I need a doctor",
+      "old": "Ho bisogno di un medico",
+      "new": "Ho bisogno di un dottore!\"",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Apakah Anda mengerti?",
+      "category": "emergency",
+      "english": "Call the police",
+      "old": "Chiami la polizia",
+      "new": "Chiamare la polizia.",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Bagaimana?",
+      "category": "emergency",
+      "english": "Call an ambulance",
+      "old": "Chiami un'ambulanza",
+      "new": "Chiama un'ambulanza.",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Apa?",
+      "category": "emergency",
+      "english": "My wallet was stolen",
+      "old": "Mi hanno rubato il portafoglio",
+      "new": "Mi hanno rubato il portafoglio.",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Di mana?",
+      "category": "emergency",
+      "english": "Help me",
+      "old": "Mi aiuti",
+      "new": "Aiutami",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Siapa?",
+      "category": "emergency",
+      "english": "Call a doctor!",
+      "old": "Chiami un medico!",
+      "new": "Chiama un medico!",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Mengapa?",
+      "category": "hotel",
+      "english": "I want a room",
+      "old": "Vorrei una camera",
+      "new": "Voglio una stanza",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Berapa?",
+      "category": "hotel",
+      "english": "How much per night?",
+      "old": "Quanto costa per notte?",
+      "new": "Quanto a notte?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Empat",
+      "category": "hotel",
+      "english": "Double room",
+      "old": "Camera doppia",
+      "new": "Doppia",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Lima",
+      "category": "hotel",
+      "english": "What time is check-out?",
+      "old": "A che ora è il check-out?",
+      "new": "A che ora bisogna effettuare il check-out?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Tujuh",
+      "category": "hotel",
+      "english": "Room number",
+      "old": "Numero di camera",
+      "new": "Numero stanza",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sembilan",
+      "category": "hotel",
+      "english": "Please clean the room",
+      "old": "Per favore, pulisca la camera",
+      "new": "Per favore pulisci la stanza",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sepuluh",
+      "category": "hotel",
+      "english": "I want to extend my stay",
+      "old": "Vorrei prolungare il mio soggiorno",
+      "new": "Voglio prolungare il mio soggiorno",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Dua belas",
+      "category": "food",
+      "english": "Menu, please",
+      "old": "Il menu, per favore",
+      "new": "Il menù, per favore.",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Lima belas",
+      "category": "food",
+      "english": "Bill, please",
+      "old": "Il conto, per favore",
+      "new": "Bill, si prego",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Dua puluh",
+      "category": "food",
+      "english": "I am vegetarian",
+      "old": "Sono vegetariano",
+      "new": "Io sono vegetariana.",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Seratus",
+      "category": "food",
+      "english": "Tea",
+      "old": "Tè",
+      "new": "Thé",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sejuta",
+      "category": "food",
+      "english": "Noodles",
+      "old": "Pasta",
+      "new": "Noodle",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Kemarin",
+      "category": "food",
+      "english": "Beef",
+      "old": "Manzo",
+      "new": "Carne bovina",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Pagi",
+      "category": "food",
+      "english": "I am allergic to...",
+      "old": "Sono allergico a...",
+      "new": "Io sono allergica ai gatti.",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Siang",
+      "category": "food",
+      "english": "Can I take it to go?",
+      "old": "Posso portare via?",
+      "new": "Posso portarlo via?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Bulan",
+      "category": "food",
+      "english": "Cheese platter",
+      "old": "Piatto di formaggi",
+      "new": "Tagliere di Formaggi",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Hari",
+      "category": "food",
+      "english": "Borscht",
+      "old": "Borscht",
+      "new": "Boršč",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Jam",
+      "category": "food",
+      "english": "Chicken noodle soup",
+      "old": "Zuppa di pollo con pasta",
+      "new": "Spaghetti in zuppa di pollo",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Detik",
+      "category": "food",
+      "english": "Meat",
+      "old": "Carne",
+      "new": "Carni",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Jumat",
+      "category": "food",
+      "english": "Fish dishes",
+      "old": "Piatti di pesce",
+      "new": "Proposte di pesce",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Februari",
+      "category": "food",
+      "english": "Crabs",
+      "old": "Granchi",
+      "new": "Piattole",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Maret",
+      "category": "food",
+      "english": "Is there a vegetarian menu?",
+      "old": "C'è un menu vegetariano?",
+      "new": "C'è un menù vegetariano?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Menu",
+      "category": "food",
+      "english": "Apple",
+      "old": "Mela",
+      "new": "Apple",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sarapan",
+      "category": "food",
+      "english": "Banana",
+      "old": "Banana",
+      "new": "Ricette a base",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Makan siang",
+      "category": "food",
+      "english": "Orange",
+      "old": "Arancia",
+      "new": "Orange",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Teh",
+      "category": "food",
+      "english": "Potato",
+      "old": "Patata",
+      "new": "Magazzino",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Jus",
+      "category": "shopping",
+      "english": "Too expensive",
+      "old": "Troppo caro",
+      "new": "Troppo costoso",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Bir",
+      "category": "shopping",
+      "english": "Can it be cheaper?",
+      "old": "Può fare un prezzo migliore?",
+      "new": "Può essere più economico?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Anggur",
+      "category": "shopping",
+      "english": "I will buy this",
+      "old": "Compro questo",
+      "new": "Lo comprerò",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Roti",
+      "category": "shopping",
+      "english": "Can I try it on?",
+      "old": "Posso provarlo?",
+      "new": "Posso provarle?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Daging",
+      "category": "shopping",
+      "english": "Bigger size",
+      "old": "Taglia più grande",
+      "new": "Più grande",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Ikan",
+      "category": "shopping",
+      "english": "Smaller size",
+      "old": "Taglia più piccola",
+      "new": "Pezzatura più fine",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Nasi",
+      "category": "shopping",
+      "english": "Return/Exchange",
+      "old": "Reso/Cambio",
+      "new": "Reso & Cambio",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sup",
+      "category": "shopping",
+      "english": "Where is the market?",
+      "old": "Dov'è il mercato?",
+      "new": "Dove si trova il mercato? ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Keju",
+      "category": "shopping",
+      "english": "Can I try it on?",
+      "old": "Posso provarlo?",
+      "new": "Posso provarle?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Mentega",
+      "category": "shopping",
+      "english": "What is your size?",
+      "old": "Qual è la Sua taglia?",
+      "new": "QUAL'E' LA TUA MISURA?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Garam",
+      "category": "transport",
+      "english": "Where is the train station?",
+      "old": "Dov'è la stazione ferroviaria?",
+      "new": "Dov'è la stazione dei treni?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Toko",
+      "category": "transport",
+      "english": "Schedule",
+      "old": "Orario",
+      "new": "Allegato",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Pasar",
+      "category": "transport",
+      "english": "Platform",
+      "old": "Binario",
+      "new": "Piattaforma",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Berapa harganya?",
+      "category": "transport",
+      "english": "Next stop",
+      "old": "Prossima fermata",
+      "new": "La tappa successiva",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Berapa biayanya?",
+      "category": "transport",
+      "english": "Stop",
+      "old": "Fermata",
+      "new": "Interrompi",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Saya ingin membeli ini",
+      "category": "transport",
+      "english": "How long until...?",
+      "old": "Quanto tempo manca a...?",
+      "new": "Quanto ci vorrà prima che...?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Harga",
+      "category": "directions",
+      "english": "On the left",
+      "old": "A sinistra",
+      "new": "Sinistra",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Uang",
+      "category": "directions",
+      "english": "On the right",
+      "old": "A destra",
+      "new": "Sulla destra",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Tunai",
+      "category": "directions",
+      "english": "Turn",
+      "old": "Svoltare",
+      "new": "Turno",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Tanda terima",
+      "category": "directions",
+      "english": "Intersection",
+      "old": "Incrocio",
+      "new": "Intersezione",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Kecil",
+      "category": "directions",
+      "english": "Where is...?",
+      "old": "Dov'è...?",
+      "new": "Dov'è... ?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Cantik",
+      "category": "health",
+      "english": "I have a stomachache",
+      "old": "Ho mal di stomaco",
+      "new": "io sto male ho mal di testa",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Taksi",
+      "category": "health",
+      "english": "Doctor",
+      "old": "Dottore",
+      "new": "Medico",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Bus",
+      "category": "health",
+      "english": "Nurse",
+      "old": "Infermiera",
+      "new": "Infermiere",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Bandara",
+      "category": "health",
+      "english": "I need a painkiller",
+      "old": "Ho bisogno di un antidolorifico",
+      "new": "Ho bisogno solo di un antidolorifico.\"",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Tiket",
+      "category": "money",
+      "english": "Card payment",
+      "old": "Pagamento con carta",
+      "new": "Pagamentocon carta",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Di mana stasiun bus?",
+      "category": "money",
+      "english": "ATM",
+      "old": "Bancomat",
+      "new": "Sportello Bancomat",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Bagaimana menuju...?",
+      "category": "money",
+      "english": "Currency exchange",
+      "old": "Cambio valuta",
+      "new": "Cambio di valuta",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Kiri",
+      "category": "money",
+      "english": "Change",
+      "old": "Resto",
+      "new": "Modifica",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Kanan",
+      "category": "money",
+      "english": "Free",
+      "old": "Gratis",
+      "new": "Gratuito",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Di sini",
+      "category": "communication",
+      "english": "What is the password?",
+      "old": "Qual è la password?",
+      "new": "Cos’è la password?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Di sana",
+      "category": "communication",
+      "english": "Send SMS",
+      "old": "Inviare SMS",
+      "new": "Invia SMS",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Hotel",
+      "category": "entertainment",
+      "english": "Park",
+      "old": "Parco",
+      "new": "Il Parco",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Untuk satu orang",
+      "category": "entertainment",
+      "english": "Library",
+      "old": "Biblioteca",
+      "new": "Libreria",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Untuk satu malam",
+      "category": "entertainment",
+      "english": "How much is the ticket?",
+      "old": "Quanto costa il biglietto?",
+      "new": "Quant'è il biglietto?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Untuk dua malam",
+      "category": "time",
+      "english": "What time is it?",
+      "old": "Che ore sono?",
+      "new": "Che ora è?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Tempat tidur",
+      "category": "time",
+      "english": "In the morning",
+      "old": "Di mattina",
+      "new": "Al mattino",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Kamar mandi",
+      "category": "time",
+      "english": "In the afternoon",
+      "old": "Di pomeriggio",
+      "new": "Nel pomeriggio",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Shower",
+      "category": "time",
+      "english": "In the evening",
+      "old": "Di sera",
+      "new": "In serata",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "AC",
+      "category": "time",
+      "english": "What month?",
+      "old": "Che mese?",
+      "new": "    Quale mese?  ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Polisi",
+      "category": "time",
+      "english": "March",
+      "old": "Marzo",
+      "new": "Spedizione",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Apakah Anda bisa membantu?",
+      "category": "numbers",
+      "english": "One hundred",
+      "old": "Cento",
+      "new": "100",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Apakah Anda tahu...?",
+      "category": "numbers",
+      "english": "One thousand",
+      "old": "Mille",
+      "new": "Si tratta 1.000 km",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Bisakah Anda menunjukkan?",
+      "category": "numbers",
+      "english": "Ten thousand",
+      "old": "Diecimila",
+      "new": "Si tratta 10.000 kilos",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Apakah Anda punya...?",
+      "category": "numbers",
+      "english": "One thousand",
+      "old": "Mille",
+      "new": "Si tratta 1.000 km",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Berapa lama?",
+      "category": "numbers",
+      "english": "Ten thousand",
+      "old": "Diecimila",
+      "new": "Si tratta 10.000 kilos",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Jam berapa sekarang?",
+      "category": "numbers",
+      "english": "One million",
+      "old": "Un milione",
+      "new": "1.000.000",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Jam berapa buka?",
+      "category": "weather",
+      "english": "What is the weather today?",
+      "old": "Che tempo fa oggi?",
+      "new": "Com'è il tempo oggi?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Anak perempuan",
+      "category": "weather",
+      "english": "Cold",
+      "old": "Freddo",
+      "new": "Il freddo",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Suami",
+      "category": "personal_info",
+      "english": "What is your name?",
+      "old": "Come si chiama?",
+      "new": "Come ti chiami?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Istri",
+      "category": "personal_info",
+      "english": "I am from Turkmenistan",
+      "old": "Sono del Turkmenistan",
+      "new": "Vengo dal Turkmenistan",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Nenek",
+      "category": "personal_info",
+      "english": "There are 4 people in our family",
+      "old": "Nella nostra famiglia siamo in 4",
+      "new": "Ci sono 4 persone nella nostra famiglia",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Paman",
+      "category": "personal_info",
+      "english": "Do you have children?",
+      "old": "Ha figli?",
+      "new": "Ha dei figli? ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Orang tua",
+      "category": "personal_info",
+      "english": "I have two children",
+      "old": "Ho due figli",
+      "new": "Ho due bambini.",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sakit",
+      "category": "personal_info",
+      "english": "What do you do?",
+      "old": "Che lavoro fa?",
+      "new": "Cosa fare?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sakit perut",
+      "category": "personal_info",
+      "english": "I work at a hospital",
+      "old": "Lavoro in un ospedale",
+      "new": "Lavoro in ospedale.",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Flu",
+      "category": "personal_info",
+      "english": "I study foreign languages",
+      "old": "Studio lingue straniere",
+      "new": "A me piace studiare le lingue straniere.",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Batuk",
+      "category": "personal_info",
+      "english": "Do you speak Russian?",
+      "old": "Parla russo?",
+      "new": "Lei parla russo?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Hidung tersumbat",
+      "category": "personal_info",
+      "english": "I don't speak",
+      "old": "Non parlo",
+      "new": "Io non parlo. ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Obat",
+      "category": "personal_info",
+      "english": "I speak a little",
+      "old": "Parlo un po'",
+      "new": "Parlo un po '",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Asuransi",
+      "category": "business",
+      "english": "Will there be translation to Russian?",
+      "old": "Ci sarà la traduzione in russo?",
+      "new": "Ci sarà una traduzione in russo?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Saya alergi terhadap...",
+      "category": "business",
+      "english": "We want to see the exhibition",
+      "old": "Vogliamo vedere l'esposizione",
+      "new": "Vogliamo vedere la mostra",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Asma",
+      "category": "business",
+      "english": "What time does the exhibition open?",
+      "old": "A che ora apre l'esposizione?",
+      "new": "A che ora apre la mostra?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Tekanan darah",
+      "category": "business",
+      "english": "Can I get the exhibition catalog?",
+      "old": "Posso avere il catalogo dell'esposizione?",
+      "new": "Posso avere il catalogo della mostra?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Jantung",
+      "category": "business",
+      "english": "I came to discuss business",
+      "old": "Sono venuto per discutere affari",
+      "new": "Sono venuto per discutere di affari",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Cuaca",
+      "category": "measurements",
+      "english": "Meter",
+      "old": "Metro",
+      "new": "Metri",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Hujan",
+      "category": "measurements",
+      "english": "Kilogram",
+      "old": "Chilogrammo",
+      "new": "Chilogrammi",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Mendung",
+      "category": "measurements",
+      "english": "Liter",
+      "old": "Litro",
+      "new": "Litri",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Kuning",
+      "category": "colors",
+      "english": "Orange",
+      "old": "Arancione",
+      "new": "Orange",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Merah muda",
+      "category": "body",
+      "english": "Arm",
+      "old": "Braccio",
+      "new": "Braccio di scavo",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Kompas",
+      "category": "home",
+      "english": "Table",
+      "old": "Tavolo",
+      "new": "Tabella",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Bundaran",
+      "category": "customs",
+      "english": "I have a single-entry visa",
+      "old": "Ho un visto di ingresso singolo",
+      "new": "Ho un visto per ingresso singolo",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Jembatan",
+      "category": "customs",
+      "english": "I am in transit in your country",
+      "old": "Sono in transito nel vostro paese",
+      "new": "Sono in transito nel tuo paese",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Di sebelah",
+      "category": "customs",
+      "english": "What duty do I need to pay?",
+      "old": "Quale tassa devo pagare?",
+      "new": "Quale dovere devo pagare?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Telepon",
+      "category": "sports",
+      "english": "What sport do you like?",
+      "old": "Quale sport Le piace?",
+      "new": "Che tipo di sport le piace?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Nomor telepon",
+      "category": "sports",
+      "english": "I like to play football",
+      "old": "Mi piace giocare a calcio",
+      "new": "mi piaceva  giocare a calcio",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Email",
+      "category": "sports",
+      "english": "Basketball",
+      "old": "Pallacanestro",
+      "new": "Basketball",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "WiFi",
+      "category": "sports",
+      "english": "Running",
+      "old": "Corsa",
+      "new": "In esecuzione",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Komputer",
+      "category": "sports",
+      "english": "Where is the gym?",
+      "old": "Dov'è la palestra?",
+      "new": "Dove finisce",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Ponsel",
+      "category": "sports",
+      "english": "I want to work out",
+      "old": "Voglio allenarmi",
+      "new": "Voglio lavorare",
+      "reason": "AI suggestion (MyMemory)"
+    }
+  ]
+}

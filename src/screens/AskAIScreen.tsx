@@ -6,31 +6,30 @@ import {
   TouchableOpacity,
   ScrollView,
   ActivityIndicator,
-  Dimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRoute, useNavigation, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
-import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
+import { useResponsive } from '../utils/ResponsiveUtils';
 import { Colors } from '../constants/Colors';
 import { askAI } from '../api/gemini';
 import { PhraseWithTranslation, HomeStackParamList } from '../types';
-import { getCategoryName } from '../data/categories';
+import { getCategoryName, categories } from '../data/categories';
 import { useConfig } from '../contexts/ConfigContext';
+import { AppLanguageMode } from '../contexts/LanguageContext';
 
 type AskAIScreenRouteProp = RouteProp<HomeStackParamList, 'AskAIScreen'>;
 type AskAIScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'AskAIScreen'>;
-
-const { height } = Dimensions.get('window');
 
 export default function AskAIScreen() {
   const route = useRoute<AskAIScreenRouteProp>();
   const navigation = useNavigation<AskAIScreenNavigationProp>();
   const { selectedLanguage } = useConfig();
-  
+  const { scale, verticalScale, moderateScale } = useResponsive();
+
   const { phrase, categoryId } = route.params;
-  
+
   const [aiResponse, setAiResponse] = useState<string>('');
   const [aiLoading, setAiLoading] = useState(false);
 
@@ -38,7 +37,8 @@ export default function AskAIScreen() {
     setAiLoading(true);
     setAiResponse('');
 
-    const categoryName = getCategoryName(categoryId, selectedLanguage);
+    const category = categories.find(c => c.id === categoryId);
+    const categoryName = category ? getCategoryName(category, selectedLanguage as AppLanguageMode) : 'Unknown';
     
     let prompt = '';
     switch (questionType) {
@@ -77,6 +77,151 @@ export default function AskAIScreen() {
       setAiLoading(false);
     }
   }, [phrase, selectedLanguage, categoryId]);
+
+  const styles = React.useMemo(() => StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#F9FAFB',
+    },
+    header: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      paddingHorizontal: scale(16),
+      paddingVertical: verticalScale(12),
+      backgroundColor: '#fff',
+      borderBottomWidth: 1,
+      borderBottomColor: '#E5E7EB',
+    },
+    backButton: {
+      padding: scale(8),
+    },
+    headerTitle: {
+      fontSize: moderateScale(18),
+      fontWeight: '700',
+      color: '#1F2937',
+    },
+    placeholder: {
+      width: scale(40),
+    },
+    content: {
+      flex: 1,
+      paddingHorizontal: scale(16),
+      paddingTop: verticalScale(16),
+    },
+    phraseInfo: {
+      backgroundColor: '#fff',
+      padding: scale(16),
+      borderRadius: scale(16),
+      marginBottom: verticalScale(20),
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.05,
+      shadowRadius: 8,
+      elevation: 2,
+    },
+    phraseInfoText: {
+      fontSize: moderateScale(20),
+      fontWeight: '700',
+      color: '#1F2937',
+      marginBottom: verticalScale(6),
+    },
+    phraseInfoTextSecondary: {
+      fontSize: moderateScale(17),
+      color: '#6B7280',
+      fontWeight: '500',
+    },
+    questionButtons: {
+      gap: verticalScale(12),
+    },
+    questionPrompt: {
+      fontSize: moderateScale(16),
+      fontWeight: '600',
+      color: '#374151',
+      marginBottom: verticalScale(8),
+    },
+    questionButton: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: '#fff',
+      padding: scale(16),
+      borderRadius: scale(16),
+      gap: scale(12),
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.05,
+      shadowRadius: 8,
+      elevation: 2,
+    },
+    questionTextContainer: {
+      flex: 1,
+    },
+    questionButtonTitle: {
+      fontSize: moderateScale(16),
+      color: '#1F2937',
+      fontWeight: '600',
+      marginBottom: verticalScale(2),
+    },
+    questionButtonDesc: {
+      fontSize: moderateScale(13),
+      color: '#6B7280',
+    },
+    loadingContainer: {
+      alignItems: 'center',
+      paddingVertical: verticalScale(60),
+      gap: verticalScale(16),
+    },
+    loadingText: {
+      fontSize: moderateScale(16),
+      color: '#6B7280',
+      fontWeight: '500',
+    },
+    responseContainer: {
+      backgroundColor: '#fff',
+      padding: scale(20),
+      borderRadius: scale(16),
+      marginBottom: verticalScale(20),
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.05,
+      shadowRadius: 8,
+      elevation: 2,
+    },
+    responseHeader: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: scale(8),
+      marginBottom: verticalScale(16),
+      paddingBottom: verticalScale(12),
+      borderBottomWidth: 1,
+      borderBottomColor: '#E5E7EB',
+    },
+    responseHeaderText: {
+      fontSize: moderateScale(16),
+      fontWeight: '700',
+      color: '#1F2937',
+    },
+    responseText: {
+      fontSize: moderateScale(15),
+      color: '#374151',
+      lineHeight: moderateScale(24),
+      marginBottom: verticalScale(20),
+    },
+    askAgainButton: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: '#3B82F6',
+      padding: scale(14),
+      borderRadius: scale(12),
+      gap: scale(8),
+    },
+    askAgainButtonText: {
+      fontSize: moderateScale(16),
+      color: '#fff',
+      fontWeight: '600',
+    },
+  }), [scale, verticalScale, moderateScale]);
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -180,170 +325,3 @@ export default function AskAIScreen() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F9FAFB',
-  },
-
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: scale(16),
-    paddingVertical: verticalScale(12),
-    backgroundColor: '#fff',
-    borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
-  },
-
-  backButton: {
-    padding: scale(8),
-  },
-
-  headerTitle: {
-    fontSize: moderateScale(18),
-    fontWeight: '700',
-    color: '#1F2937',
-  },
-
-  placeholder: {
-    width: scale(40),
-  },
-
-  content: {
-    flex: 1,
-    paddingHorizontal: scale(16),
-    paddingTop: verticalScale(16),
-  },
-
-  phraseInfo: {
-    backgroundColor: '#fff',
-    padding: scale(16),
-    borderRadius: scale(16),
-    marginBottom: verticalScale(20),
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
-    elevation: 2,
-  },
-
-  phraseInfoText: {
-    fontSize: moderateScale(20),
-    fontWeight: '700',
-    color: '#1F2937',
-    marginBottom: verticalScale(6),
-  },
-
-  phraseInfoTextSecondary: {
-    fontSize: moderateScale(17),
-    color: '#6B7280',
-    fontWeight: '500',
-  },
-
-  questionButtons: {
-    gap: verticalScale(12),
-  },
-
-  questionPrompt: {
-    fontSize: moderateScale(16),
-    fontWeight: '600',
-    color: '#374151',
-    marginBottom: verticalScale(8),
-  },
-
-  questionButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-    padding: scale(16),
-    borderRadius: scale(16),
-    gap: scale(12),
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
-    elevation: 2,
-  },
-
-  questionTextContainer: {
-    flex: 1,
-  },
-
-  questionButtonTitle: {
-    fontSize: moderateScale(16),
-    color: '#1F2937',
-    fontWeight: '600',
-    marginBottom: verticalScale(2),
-  },
-
-  questionButtonDesc: {
-    fontSize: moderateScale(13),
-    color: '#6B7280',
-  },
-
-  loadingContainer: {
-    alignItems: 'center',
-    paddingVertical: verticalScale(60),
-    gap: verticalScale(16),
-  },
-
-  loadingText: {
-    fontSize: moderateScale(16),
-    color: '#6B7280',
-    fontWeight: '500',
-  },
-
-  responseContainer: {
-    backgroundColor: '#fff',
-    padding: scale(20),
-    borderRadius: scale(16),
-    marginBottom: verticalScale(20),
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
-    elevation: 2,
-  },
-
-  responseHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: scale(8),
-    marginBottom: verticalScale(16),
-    paddingBottom: verticalScale(12),
-    borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
-  },
-
-  responseHeaderText: {
-    fontSize: moderateScale(16),
-    fontWeight: '700',
-    color: '#1F2937',
-  },
-
-  responseText: {
-    fontSize: moderateScale(15),
-    color: '#374151',
-    lineHeight: moderateScale(24),
-    marginBottom: verticalScale(20),
-  },
-
-  askAgainButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#3B82F6',
-    padding: scale(14),
-    borderRadius: scale(12),
-    gap: scale(8),
-  },
-
-  askAgainButtonText: {
-    fontSize: moderateScale(16),
-    color: '#fff',
-    fontWeight: '600',
-  },
-});
