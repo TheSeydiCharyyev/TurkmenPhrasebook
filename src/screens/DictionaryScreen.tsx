@@ -19,7 +19,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
+import { useResponsive } from '../utils/ResponsiveUtils';
 
 const STORAGE_KEY = '@dictionary:notification_email';
 
@@ -27,6 +27,7 @@ const DictionaryScreen: React.FC = () => {
   const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const { scale, verticalScale, moderateScale } = useResponsive();
 
   const handleNotifyMe = async () => {
     if (!email.trim()) {
@@ -56,6 +57,227 @@ const DictionaryScreen: React.FC = () => {
       Alert.alert('Error', 'Failed to save your email. Please try again.');
     }
   };
+
+  const styles = React.useMemo(() => StyleSheet.create({
+    safeArea: {
+      flex: 1,
+      backgroundColor: '#F8F9FA',
+    },
+    container: {
+      flex: 1,
+    },
+    content: {
+      paddingBottom: verticalScale(32),
+    },
+    header: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      paddingHorizontal: scale(16),
+      paddingVertical: verticalScale(16),
+    },
+    backButton: {
+      width: scale(40),
+      height: scale(40),
+      borderRadius: scale(20),
+      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+      justifyContent: 'center',
+      alignItems: 'center',
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.1,
+      shadowRadius: 4,
+      elevation: 3,
+    },
+    headerTitle: {
+      fontSize: moderateScale(24),
+      fontWeight: '700',
+      color: '#000',
+    },
+    placeholder: {
+      width: scale(40),
+    },
+    mainContent: {
+      alignItems: 'center',
+      paddingHorizontal: scale(24),
+      paddingTop: verticalScale(20),
+    },
+    iconContainer: {
+      width: scale(120),
+      height: scale(120),
+      borderRadius: scale(60),
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom: verticalScale(24),
+      elevation: 8,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 4 },
+      shadowOpacity: 0.3,
+      shadowRadius: 8,
+    },
+    icon: {
+      fontSize: moderateScale(64),
+    },
+    badge: {
+      backgroundColor: '#FEF3C7',
+      borderRadius: moderateScale(20),
+      paddingHorizontal: scale(16),
+      paddingVertical: verticalScale(8),
+      marginBottom: verticalScale(16),
+      borderWidth: 1,
+      borderColor: '#FCD34D',
+    },
+    badgeText: {
+      fontSize: moderateScale(12),
+      fontWeight: '700',
+      color: '#92400E',
+      letterSpacing: 1,
+    },
+    title: {
+      fontSize: moderateScale(26),
+      fontWeight: '700',
+      color: '#000',
+      textAlign: 'center',
+      marginBottom: verticalScale(12),
+    },
+    description: {
+      fontSize: moderateScale(16),
+      color: '#666',
+      textAlign: 'center',
+      marginBottom: verticalScale(24),
+      lineHeight: moderateScale(24),
+    },
+    featuresList: {
+      width: '100%',
+      backgroundColor: '#FFFFFF',
+      borderRadius: moderateScale(16),
+      padding: scale(20),
+      marginBottom: verticalScale(24),
+      elevation: 2,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.1,
+      shadowRadius: 4,
+    },
+    featureItem: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      marginBottom: verticalScale(16),
+    },
+    featureIcon: {
+      fontSize: moderateScale(24),
+      marginRight: scale(12),
+    },
+    featureText: {
+      fontSize: moderateScale(16),
+      color: '#333',
+      flex: 1,
+    },
+    versionBadge: {
+      backgroundColor: '#E0E7FF',
+      borderRadius: moderateScale(12),
+      paddingHorizontal: scale(20),
+      paddingVertical: verticalScale(10),
+      marginBottom: verticalScale(32),
+    },
+    versionText: {
+      fontSize: moderateScale(14),
+      fontWeight: '600',
+      color: '#4F46E5',
+    },
+    notificationSection: {
+      width: '100%',
+      backgroundColor: '#FFFFFF',
+      borderRadius: moderateScale(16),
+      padding: scale(24),
+      marginBottom: verticalScale(24),
+      elevation: 2,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.1,
+      shadowRadius: 4,
+    },
+    notificationTitle: {
+      fontSize: moderateScale(18),
+      fontWeight: '700',
+      color: '#000',
+      textAlign: 'center',
+      marginBottom: verticalScale(8),
+    },
+    notificationSubtitle: {
+      fontSize: moderateScale(14),
+      color: '#666',
+      textAlign: 'center',
+      marginBottom: verticalScale(20),
+      lineHeight: moderateScale(20),
+    },
+    emailInput: {
+      backgroundColor: '#F5F5F5',
+      borderRadius: moderateScale(12),
+      paddingHorizontal: scale(16),
+      paddingVertical: verticalScale(14),
+      fontSize: moderateScale(16),
+      marginBottom: verticalScale(16),
+      borderWidth: 1,
+      borderColor: '#E0E0E0',
+    },
+    notifyButton: {
+      borderRadius: moderateScale(12),
+      overflow: 'hidden',
+    },
+    notifyButtonGradient: {
+      paddingVertical: verticalScale(16),
+      alignItems: 'center',
+    },
+    notifyButtonText: {
+      fontSize: moderateScale(16),
+      fontWeight: '700',
+      color: '#FFFFFF',
+    },
+    successSection: {
+      width: '100%',
+      backgroundColor: '#FFFFFF',
+      borderRadius: moderateScale(16),
+      padding: scale(32),
+      marginBottom: verticalScale(24),
+      alignItems: 'center',
+      elevation: 2,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.1,
+      shadowRadius: 4,
+    },
+    successIcon: {
+      fontSize: moderateScale(48),
+      marginBottom: verticalScale(12),
+    },
+    successText: {
+      fontSize: moderateScale(20),
+      fontWeight: '700',
+      color: '#10B981',
+      marginBottom: verticalScale(8),
+    },
+    successSubtext: {
+      fontSize: moderateScale(14),
+      color: '#666',
+      textAlign: 'center',
+    },
+    backToHomeButton: {
+      paddingVertical: verticalScale(12),
+    },
+    backToHomeText: {
+      fontSize: moderateScale(16),
+      color: '#6366F1',
+      fontWeight: '600',
+    },
+  }), [scale, verticalScale, moderateScale]);
+
+  const FeatureItem: React.FC<FeatureItemProps> = ({ icon, text }) => (
+    <View style={styles.featureItem}>
+      <Text style={styles.featureIcon}>{icon}</Text>
+      <Text style={styles.featureText}>{text}</Text>
+    </View>
+  );
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -172,231 +394,10 @@ const DictionaryScreen: React.FC = () => {
   );
 };
 
-// Feature Item Component
+// Feature Item Component Props
 interface FeatureItemProps {
   icon: string;
   text: string;
 }
-
-const FeatureItem: React.FC<FeatureItemProps> = ({ icon, text }) => (
-  <View style={styles.featureItem}>
-    <Text style={styles.featureIcon}>{icon}</Text>
-    <Text style={styles.featureText}>{text}</Text>
-  </View>
-);
-
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: '#F8F9FA',
-  },
-  container: {
-    flex: 1,
-  },
-  content: {
-    paddingBottom: verticalScale(32),
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: scale(16),
-    paddingVertical: verticalScale(16),
-  },
-  backButton: {
-    width: scale(40),
-    height: scale(40),
-    borderRadius: scale(20),
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
-  },
-  headerTitle: {
-    fontSize: moderateScale(24),
-    fontWeight: '700',
-    color: '#000',
-  },
-  placeholder: {
-    width: scale(40),
-  },
-  mainContent: {
-    alignItems: 'center',
-    paddingHorizontal: scale(24),
-    paddingTop: verticalScale(20),
-  },
-  iconContainer: {
-    width: scale(120),
-    height: scale(120),
-    borderRadius: scale(60),
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: verticalScale(24),
-    elevation: 8,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-  },
-  icon: {
-    fontSize: moderateScale(64),
-  },
-  badge: {
-    backgroundColor: '#FEF3C7',
-    borderRadius: moderateScale(20),
-    paddingHorizontal: scale(16),
-    paddingVertical: verticalScale(8),
-    marginBottom: verticalScale(16),
-    borderWidth: 1,
-    borderColor: '#FCD34D',
-  },
-  badgeText: {
-    fontSize: moderateScale(12),
-    fontWeight: '700',
-    color: '#92400E',
-    letterSpacing: 1,
-  },
-  title: {
-    fontSize: moderateScale(26),
-    fontWeight: '700',
-    color: '#000',
-    textAlign: 'center',
-    marginBottom: verticalScale(12),
-  },
-  description: {
-    fontSize: moderateScale(16),
-    color: '#666',
-    textAlign: 'center',
-    marginBottom: verticalScale(24),
-    lineHeight: moderateScale(24),
-  },
-  featuresList: {
-    width: '100%',
-    backgroundColor: '#FFFFFF',
-    borderRadius: moderateScale(16),
-    padding: scale(20),
-    marginBottom: verticalScale(24),
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  featureItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: verticalScale(16),
-  },
-  featureIcon: {
-    fontSize: moderateScale(24),
-    marginRight: scale(12),
-  },
-  featureText: {
-    fontSize: moderateScale(16),
-    color: '#333',
-    flex: 1,
-  },
-  versionBadge: {
-    backgroundColor: '#E0E7FF',
-    borderRadius: moderateScale(12),
-    paddingHorizontal: scale(20),
-    paddingVertical: verticalScale(10),
-    marginBottom: verticalScale(32),
-  },
-  versionText: {
-    fontSize: moderateScale(14),
-    fontWeight: '600',
-    color: '#4F46E5',
-  },
-  notificationSection: {
-    width: '100%',
-    backgroundColor: '#FFFFFF',
-    borderRadius: moderateScale(16),
-    padding: scale(24),
-    marginBottom: verticalScale(24),
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  notificationTitle: {
-    fontSize: moderateScale(18),
-    fontWeight: '700',
-    color: '#000',
-    textAlign: 'center',
-    marginBottom: verticalScale(8),
-  },
-  notificationSubtitle: {
-    fontSize: moderateScale(14),
-    color: '#666',
-    textAlign: 'center',
-    marginBottom: verticalScale(20),
-    lineHeight: moderateScale(20),
-  },
-  emailInput: {
-    backgroundColor: '#F5F5F5',
-    borderRadius: moderateScale(12),
-    paddingHorizontal: scale(16),
-    paddingVertical: verticalScale(14),
-    fontSize: moderateScale(16),
-    marginBottom: verticalScale(16),
-    borderWidth: 1,
-    borderColor: '#E0E0E0',
-  },
-  notifyButton: {
-    borderRadius: moderateScale(12),
-    overflow: 'hidden',
-  },
-  notifyButtonGradient: {
-    paddingVertical: verticalScale(16),
-    alignItems: 'center',
-  },
-  notifyButtonText: {
-    fontSize: moderateScale(16),
-    fontWeight: '700',
-    color: '#FFFFFF',
-  },
-  successSection: {
-    width: '100%',
-    backgroundColor: '#FFFFFF',
-    borderRadius: moderateScale(16),
-    padding: scale(32),
-    marginBottom: verticalScale(24),
-    alignItems: 'center',
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  successIcon: {
-    fontSize: moderateScale(48),
-    marginBottom: verticalScale(12),
-  },
-  successText: {
-    fontSize: moderateScale(20),
-    fontWeight: '700',
-    color: '#10B981',
-    marginBottom: verticalScale(8),
-  },
-  successSubtext: {
-    fontSize: moderateScale(14),
-    color: '#666',
-    textAlign: 'center',
-  },
-  backToHomeButton: {
-    paddingVertical: verticalScale(12),
-  },
-  backToHomeText: {
-    fontSize: moderateScale(16),
-    color: '#6366F1',
-    fontWeight: '600',
-  },
-});
 
 export default DictionaryScreen;

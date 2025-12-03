@@ -28,7 +28,53 @@ import { useAppLanguage, AppLanguageMode } from '../contexts/LanguageContext';
 import { useAdvancedSearch } from '../hooks/useAdvancedSearch';
 import { useAnimations } from '../hooks/useAnimations';
 import { categories } from '../data/categories';
-import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
+import { scale, verticalScale, moderateScale, useResponsive } from '../utils/ResponsiveUtils';
+
+// Статичные стили для компонентов вне главного компонента
+const componentStyles = StyleSheet.create({
+  filtersContainer: {
+    backgroundColor: Colors.textWhite,
+    paddingHorizontal: scale(16),
+    paddingVertical: verticalScale(8),
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.cardBorder,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  filtersTitle: {
+    fontSize: moderateScale(14),
+    color: Colors.textLight,
+  },
+  clearFiltersButton: {
+    padding: scale(4),
+  },
+  clearFiltersText: {
+    fontSize: moderateScale(14),
+    color: Colors.primary,
+  },
+  suggestionsContainer: {
+    backgroundColor: Colors.textWhite,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.cardBorder,
+  },
+  suggestionItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: scale(16),
+    paddingVertical: verticalScale(12),
+    gap: scale(8),
+  },
+  suggestionText: {
+    fontSize: moderateScale(16),
+    color: Colors.text,
+  },
+  voiceButton: {
+    padding: scale(8),
+    borderRadius: moderateScale(8),
+    backgroundColor: Colors.background,
+  },
+});
 
 // Простые компоненты для замены отсутствующих
 const HighlightedText: React.FC<{ text: string; highlight: string; style?: any }> = ({ 
@@ -66,10 +112,10 @@ const SearchFilters: React.FC<{
   resultCount?: number;
 }> = ({ filters, onFiltersChange, onClearFilters, resultCount }) => {
   return (
-    <View style={styles.filtersContainer}>
-      <Text style={styles.filtersTitle}>Фильтры активны</Text>
-      <TouchableOpacity onPress={onClearFilters} style={styles.clearFiltersButton}>
-        <Text style={styles.clearFiltersText}>Очистить</Text>
+    <View style={componentStyles.filtersContainer}>
+      <Text style={componentStyles.filtersTitle}>Фильтры активны</Text>
+      <TouchableOpacity onPress={onClearFilters} style={componentStyles.clearFiltersButton}>
+        <Text style={componentStyles.clearFiltersText}>Очистить</Text>
       </TouchableOpacity>
     </View>
   );
@@ -85,18 +131,18 @@ const SearchSuggestions: React.FC<{
   if (!isVisible || suggestions.length === 0) return null;
 
   return (
-    <View style={styles.suggestionsContainer}>
+    <View style={componentStyles.suggestionsContainer}>
       {suggestions.map((suggestion, index) => (
         <TouchableOpacity
           key={index}
-          style={styles.suggestionItem}
+          style={componentStyles.suggestionItem}
           onPress={() => onSuggestionPress(suggestion)}
         >
           <Ionicons name="search" size={16} color={Colors.textLight} />
           <HighlightedText
             text={suggestion}
             highlight={currentQuery}
-            style={styles.suggestionText}
+            style={componentStyles.suggestionText}
           />
         </TouchableOpacity>
       ))}
@@ -105,16 +151,16 @@ const SearchSuggestions: React.FC<{
 };
 
 // Кнопка голосового поиска
-const VoiceSearchButton: React.FC<{ onPress: () => void; isListening: boolean }> = ({ 
-  onPress, 
-  isListening 
+const VoiceSearchButton: React.FC<{ onPress: () => void; isListening: boolean }> = ({
+  onPress,
+  isListening
 }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={styles.voiceButton}>
-      <Ionicons 
-        name={isListening ? "mic" : "mic-outline"} 
-        size={24} 
-        color={isListening ? Colors.accent : Colors.textLight} 
+    <TouchableOpacity onPress={onPress} style={componentStyles.voiceButton}>
+      <Ionicons
+        name={isListening ? "mic" : "mic-outline"}
+        size={24}
+        color={isListening ? Colors.accent : Colors.textLight}
       />
     </TouchableOpacity>
   );
@@ -125,7 +171,8 @@ type SearchScreenNavigationProp = StackNavigationProp<RootStackParamList, 'Phras
 export default function AdvancedSearchScreen() {
   const navigation = useNavigation<SearchScreenNavigationProp>();
   const { config, getPhraseTexts } = useAppLanguage();
-  
+  const { scale, verticalScale, moderateScale } = useResponsive();
+
   const {
     searchQuery,
     setSearchQuery,
@@ -135,7 +182,7 @@ export default function AdvancedSearchScreen() {
     performSearch,
     clearSearch,
   } = useAdvancedSearch();
-  
+
   // UI state
   const [showVoiceSearch, setShowVoiceSearch] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
@@ -143,7 +190,7 @@ export default function AdvancedSearchScreen() {
   const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
   const [personalizedRecommendations, setPersonalizedRecommendations] = useState<PhraseWithTranslation[]>([]);
   const [activeFilters, setActiveFilters] = useState<any>({});
-  
+
   const searchInputRef = useRef<TextInput>(null);
   const debounceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const { fadeAnim } = useAnimations();
@@ -464,9 +511,193 @@ export default function AdvancedSearchScreen() {
     const timer = setTimeout(() => {
       searchInputRef.current?.focus();
     }, 100);
-    
+
     return () => clearTimeout(timer);
   }, []);
+
+  const styles = React.useMemo(() => StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: Colors.background,
+    },
+    header: {
+      backgroundColor: Colors.textWhite,
+      paddingHorizontal: scale(16),
+      paddingVertical: verticalScale(12),
+      borderBottomWidth: 1,
+      borderBottomColor: Colors.cardBorder,
+    },
+    headerContent: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    headerTitle: {
+      fontSize: moderateScale(24),
+      fontWeight: 'bold',
+      color: Colors.text,
+    },
+    headerActions: {
+      flexDirection: 'row',
+      gap: scale(8),
+    },
+    voiceButton: {
+      padding: scale(8),
+      borderRadius: moderateScale(8),
+      backgroundColor: Colors.background,
+    },
+    filterButton: {
+      padding: scale(8),
+      borderRadius: moderateScale(8),
+      backgroundColor: Colors.background,
+    },
+    filterButtonActive: {
+      backgroundColor: Colors.primary,
+    },
+    searchInputSection: {
+      backgroundColor: Colors.textWhite,
+      paddingHorizontal: scale(16),
+      paddingBottom: verticalScale(12),
+    },
+    searchInputContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      backgroundColor: Colors.background,
+      borderRadius: moderateScale(12),
+      paddingHorizontal: scale(12),
+      paddingVertical: verticalScale(8),
+    },
+    searchIcon: {
+      marginRight: scale(8),
+    },
+    searchInput: {
+      flex: 1,
+      fontSize: moderateScale(16),
+      color: Colors.text,
+      paddingVertical: verticalScale(4),
+    },
+    clearButton: {
+      padding: scale(4),
+    },
+    loadingContainer: {
+      height: verticalScale(2),
+      backgroundColor: Colors.cardBorder,
+      marginTop: verticalScale(8),
+      borderRadius: 1,
+      overflow: 'hidden',
+    },
+    loadingBar: {
+      height: '100%',
+      backgroundColor: Colors.primary,
+      borderRadius: 1,
+    },
+    filtersContainer: {
+      backgroundColor: Colors.textWhite,
+      paddingHorizontal: scale(16),
+      paddingVertical: verticalScale(8),
+      borderBottomWidth: 1,
+      borderBottomColor: Colors.cardBorder,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    filtersTitle: {
+      fontSize: moderateScale(14),
+      color: Colors.textLight,
+    },
+    clearFiltersButton: {
+      padding: scale(4),
+    },
+    clearFiltersText: {
+      fontSize: moderateScale(14),
+      color: Colors.primary,
+    },
+    suggestionsContainer: {
+      backgroundColor: Colors.textWhite,
+      borderBottomWidth: 1,
+      borderBottomColor: Colors.cardBorder,
+    },
+    suggestionItem: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingHorizontal: scale(16),
+      paddingVertical: verticalScale(12),
+      gap: scale(8),
+    },
+    suggestionText: {
+      fontSize: moderateScale(16),
+      color: Colors.text,
+    },
+    mainContent: {
+      flex: 1,
+    },
+    resultsList: {
+      padding: scale(16),
+    },
+    resultItem: {
+      backgroundColor: Colors.textWhite,
+      borderRadius: moderateScale(12),
+      padding: scale(16),
+      marginBottom: verticalScale(12),
+      elevation: 2,
+      shadowColor: Colors.cardShadow,
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.1,
+      shadowRadius: 4,
+    },
+    resultContent: {
+      gap: verticalScale(4),
+    },
+    resultChinese: {
+      fontSize: moderateScale(20),
+      fontWeight: 'bold',
+      color: Colors.text,
+    },
+    resultPinyin: {
+      fontSize: moderateScale(14),
+      color: Colors.textSecondary,
+    },
+    resultTranslation: {
+      fontSize: moderateScale(16),
+      color: Colors.text,
+    },
+    categoryBadge: {
+      alignSelf: 'flex-start',
+      backgroundColor: Colors.primary + '20',
+      paddingHorizontal: scale(8),
+      paddingVertical: verticalScale(4),
+      borderRadius: moderateScale(6),
+      marginTop: verticalScale(4),
+    },
+    categoryBadgeText: {
+      fontSize: moderateScale(12),
+      color: Colors.primary,
+      fontWeight: '600',
+    },
+    emptyState: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: scale(32),
+    },
+    emptyStateText: {
+      fontSize: moderateScale(18),
+      fontWeight: '600',
+      color: Colors.text,
+      marginTop: verticalScale(16),
+      textAlign: 'center',
+    },
+    emptyStateSubtext: {
+      fontSize: moderateScale(14),
+      color: Colors.textLight,
+      marginTop: verticalScale(8),
+      textAlign: 'center',
+      lineHeight: moderateScale(20),
+    },
+  }), [scale, verticalScale, moderateScale]);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -575,187 +806,3 @@ export default function AdvancedSearchScreen() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.background,
-  },
-  header: {
-    backgroundColor: Colors.textWhite,
-    paddingHorizontal: scale(16),
-    paddingVertical: verticalScale(12),
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.cardBorder,
-  },
-  headerContent: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  headerTitle: {
-    fontSize: moderateScale(24),
-    fontWeight: 'bold',
-    color: Colors.text,
-  },
-  headerActions: {
-    flexDirection: 'row',
-    gap: scale(8),
-  },
-  voiceButton: {
-    padding: scale(8),
-    borderRadius: moderateScale(8),
-    backgroundColor: Colors.background,
-  },
-  filterButton: {
-    padding: scale(8),
-    borderRadius: moderateScale(8),
-    backgroundColor: Colors.background,
-  },
-  filterButtonActive: {
-    backgroundColor: Colors.primary,
-  },
-  searchInputSection: {
-    backgroundColor: Colors.textWhite,
-    paddingHorizontal: scale(16),
-    paddingBottom: verticalScale(12),
-  },
-  searchInputContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: Colors.background,
-    borderRadius: moderateScale(12),
-    paddingHorizontal: scale(12),
-    paddingVertical: verticalScale(8),
-  },
-  searchIcon: {
-    marginRight: scale(8),
-  },
-  searchInput: {
-    flex: 1,
-    fontSize: moderateScale(16),
-    color: Colors.text,
-    paddingVertical: verticalScale(4),
-  },
-  clearButton: {
-    padding: scale(4),
-  },
-  loadingContainer: {
-    height: verticalScale(2),
-    backgroundColor: Colors.cardBorder,
-    marginTop: verticalScale(8),
-    borderRadius: 1,
-    overflow: 'hidden',
-  },
-  loadingBar: {
-    height: '100%',
-    backgroundColor: Colors.primary,
-    borderRadius: 1,
-  },
-  filtersContainer: {
-    backgroundColor: Colors.textWhite,
-    paddingHorizontal: scale(16),
-    paddingVertical: verticalScale(8),
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.cardBorder,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  filtersTitle: {
-    fontSize: moderateScale(14),
-    color: Colors.textLight,
-  },
-  clearFiltersButton: {
-    padding: scale(4),
-  },
-  clearFiltersText: {
-    fontSize: moderateScale(14),
-    color: Colors.primary,
-  },
-  suggestionsContainer: {
-    backgroundColor: Colors.textWhite,
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.cardBorder,
-  },
-  suggestionItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: scale(16),
-    paddingVertical: verticalScale(12),
-    gap: scale(8),
-  },
-  suggestionText: {
-    fontSize: moderateScale(16),
-    color: Colors.text,
-  },
-  mainContent: {
-    flex: 1,
-  },
-  resultsList: {
-    padding: scale(16),
-  },
-  resultItem: {
-    backgroundColor: Colors.textWhite,
-    borderRadius: moderateScale(12),
-    padding: scale(16),
-    marginBottom: verticalScale(12),
-    elevation: 2,
-    shadowColor: Colors.cardShadow,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  resultContent: {
-    gap: verticalScale(4),
-  },
-  resultChinese: {
-    fontSize: moderateScale(20),
-    fontWeight: 'bold',
-    color: Colors.text,
-  },
-  resultPinyin: {
-    fontSize: moderateScale(14),
-    color: Colors.textSecondary,
-  },
-  resultTranslation: {
-    fontSize: moderateScale(16),
-    color: Colors.text,
-  },
-  categoryBadge: {
-    alignSelf: 'flex-start',
-    backgroundColor: Colors.primary + '20',
-    paddingHorizontal: scale(8),
-    paddingVertical: verticalScale(4),
-    borderRadius: moderateScale(6),
-    marginTop: verticalScale(4),
-  },
-  categoryBadgeText: {
-    fontSize: moderateScale(12),
-    color: Colors.primary,
-    fontWeight: '600',
-  },
-  emptyState: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: scale(32),
-  },
-  emptyStateText: {
-    fontSize: moderateScale(18),
-    fontWeight: '600',
-    color: Colors.text,
-    marginTop: verticalScale(16),
-    textAlign: 'center',
-  },
-  emptyStateSubtext: {
-    fontSize: moderateScale(14),
-    color: Colors.textLight,
-    marginTop: verticalScale(8),
-    textAlign: 'center',
-    lineHeight: moderateScale(20),
-  },
-});

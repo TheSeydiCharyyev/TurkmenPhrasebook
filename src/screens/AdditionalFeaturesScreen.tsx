@@ -6,7 +6,6 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  Dimensions,
   ScrollView,
   Alert,
 } from 'react-native';
@@ -20,10 +19,45 @@ import { useAppLanguage } from '../contexts/LanguageContext';
 import { useAnimations } from '../hooks/useAnimations';
 import { useHistory } from '../hooks/useHistory';
 import { usePhrases } from '../hooks/usePhrases';
-import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
+import { scale, verticalScale, moderateScale, useResponsive } from '../utils/ResponsiveUtils';
 
-const { width } = Dimensions.get('window');
-const cardWidth = (width - scale(60)) / 2; // 2 columns with margins
+// Статичные стили для FeatureCard (вне компонента)
+const featureCardStyles = StyleSheet.create({
+  featureCard: {
+    height: verticalScale(160),
+    padding: scale(16),
+    borderRadius: moderateScale(12),
+    marginBottom: verticalScale(16),
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.cardBackground,
+  },
+  iconContainer: {
+    width: scale(60),
+    height: scale(60),
+    borderRadius: scale(30),
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: verticalScale(16),
+  },
+  cardTitle: {
+    fontSize: moderateScale(14),
+    fontWeight: '700',
+    color: Colors.text,
+    textAlign: 'center',
+    marginBottom: verticalScale(6),
+    lineHeight: moderateScale(18),
+    minHeight: moderateScale(18),
+  },
+  cardSubtitle: {
+    fontSize: moderateScale(12),
+    fontWeight: '500',
+    color: Colors.textSecondary,
+    textAlign: 'center',
+    lineHeight: moderateScale(16),
+    minHeight: moderateScale(16),
+  },
+});
 
 interface FeatureCardProps {
   id: string;
@@ -44,17 +78,17 @@ const FeatureCard = React.memo<FeatureCardProps>(({ title, subtitle, icon, color
 
   return (
     <TouchableOpacity
-      style={[styles.featureCard, { backgroundColor: color + '15' }]}
+      style={[featureCardStyles.featureCard, { backgroundColor: color + '15' }]}
       onPress={handlePress}
       activeOpacity={0.7}
     >
-      <View style={[styles.iconContainer, { backgroundColor: color + '25' }]}>
+      <View style={[featureCardStyles.iconContainer, { backgroundColor: color + '25' }]}>
         <Ionicons name={icon} size={32} color={color} />
       </View>
-      <Text style={styles.cardTitle} numberOfLines={2}>
+      <Text style={featureCardStyles.cardTitle} numberOfLines={2}>
         {title}
       </Text>
-      <Text style={styles.cardSubtitle} numberOfLines={2}>
+      <Text style={featureCardStyles.cardSubtitle} numberOfLines={2}>
         {subtitle}
       </Text>
     </TouchableOpacity>
@@ -67,6 +101,9 @@ export default function AdditionalFeaturesScreen() {
   const { getRecentPhrases, stats } = useHistory();
   const texts = getTexts();
   const { phrases } = usePhrases();
+  const { scale: scaleFunc, verticalScale, moderateScale, width } = useResponsive();
+
+  const cardWidth = (width - scaleFunc(60)) / 2; // 2 columns with margins
 
   // Get recent phrases for the recent feature
   const recentPhrases = getRecentPhrases(phrases, 10);
@@ -136,6 +173,70 @@ export default function AdditionalFeaturesScreen() {
       screen: 'RandomPhrases',
     },
   ], [config.mode, recentPhrases.length]);
+
+  const styles = React.useMemo(() => StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: Colors.background,
+    },
+    scrollContent: {
+      paddingHorizontal: scale(20),
+      paddingVertical: verticalScale(20),
+    },
+    header: {
+      marginBottom: verticalScale(30),
+    },
+    title: {
+      fontSize: moderateScale(24),
+      fontWeight: '700',
+      color: Colors.text,
+      textAlign: 'center',
+      marginBottom: verticalScale(8),
+    },
+    subtitle: {
+      fontSize: moderateScale(16),
+      color: Colors.textLight,
+      textAlign: 'center',
+    },
+    featuresGrid: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      justifyContent: 'space-between',
+      marginBottom: verticalScale(30),
+    },
+    featureCard: {
+      width: cardWidth,
+    },
+    statsContainer: {
+      backgroundColor: Colors.backgroundLight,
+      padding: scale(20),
+      borderRadius: moderateScale(16),
+    },
+    statsTitle: {
+      fontSize: moderateScale(18),
+      fontWeight: '600',
+      color: Colors.text,
+      textAlign: 'center',
+      marginBottom: verticalScale(16),
+    },
+    statsGrid: {
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+    },
+    statItem: {
+      alignItems: 'center',
+    },
+    statNumber: {
+      fontSize: moderateScale(28),
+      fontWeight: 'bold',
+      color: Colors.primary,
+    },
+    statLabel: {
+      fontSize: moderateScale(12),
+      color: Colors.textLight,
+      marginTop: verticalScale(4),
+    },
+  }), [scaleFunc, verticalScale, moderateScale, cardWidth]);
 
   const handleFeaturePress = useCallback((featureId: string) => {
     switch (featureId) {
@@ -253,99 +354,3 @@ export default function AdditionalFeaturesScreen() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.background,
-  },
-  scrollContent: {
-    paddingHorizontal: scale(20),
-    paddingVertical: verticalScale(20),
-  },
-  header: {
-    marginBottom: verticalScale(30),
-  },
-  title: {
-    fontSize: moderateScale(24),
-    fontWeight: '700',
-    color: Colors.text,
-    textAlign: 'center',
-    marginBottom: verticalScale(8),
-  },
-  subtitle: {
-    fontSize: moderateScale(16),
-    color: Colors.textLight,
-    textAlign: 'center',
-  },
-  featuresGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    marginBottom: verticalScale(30),
-  },
-  featureCard: {
-    width: cardWidth,
-    height: verticalScale(160),
-    padding: scale(16),
-    borderRadius: moderateScale(12),
-    marginBottom: verticalScale(16),
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: Colors.cardBackground,
-  },
-  iconContainer: {
-    width: scale(60),
-    height: scale(60),
-    borderRadius: scale(30),
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: verticalScale(16),
-  },
-  cardTitle: {
-    fontSize: moderateScale(14),
-    fontWeight: '700',
-    color: Colors.text,
-    textAlign: 'center',
-    marginBottom: verticalScale(6),
-    lineHeight: moderateScale(18),
-    minHeight: moderateScale(18),
-  },
-  cardSubtitle: {
-    fontSize: moderateScale(12),
-    fontWeight: '500',
-    color: Colors.textSecondary,
-    textAlign: 'center',
-    lineHeight: moderateScale(16),
-    minHeight: moderateScale(16),
-  },
-  statsContainer: {
-    backgroundColor: Colors.backgroundLight,
-    padding: scale(20),
-    borderRadius: moderateScale(16),
-  },
-  statsTitle: {
-    fontSize: moderateScale(18),
-    fontWeight: '600',
-    color: Colors.text,
-    textAlign: 'center',
-    marginBottom: verticalScale(16),
-  },
-  statsGrid: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-  },
-  statItem: {
-    alignItems: 'center',
-  },
-  statNumber: {
-    fontSize: moderateScale(28),
-    fontWeight: 'bold',
-    color: Colors.primary,
-  },
-  statLabel: {
-    fontSize: moderateScale(12),
-    color: Colors.textLight,
-    marginTop: verticalScale(4),
-  },
-});

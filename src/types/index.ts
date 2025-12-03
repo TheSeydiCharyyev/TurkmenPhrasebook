@@ -77,6 +77,15 @@ export interface Phrase {
   armenian?: string;     // hy
   georgian?: string;     // ka
   pashto?: string;       // ps
+  korean?: string;       // ko
+  turkish?: string;      // tr
+  german?: string;       // de
+  french?: string;       // fr
+  spanish?: string;      // es
+  italian?: string;      // it
+  portuguese?: string;   // pt
+  polish?: string;       // pl
+  dutch?: string;        // nl
 
   // ✅ НОВЫЕ ПОЛЯ: отдельные пути к аудио для каждого языка
   audioFileChinese?: string;  // Путь к китайскому MP3 или undefined

@@ -1,0 +1,1606 @@
+{
+  "language": "Japanese",
+  "languageCode": "ja",
+  "timestamp": "2025-12-02T09:45:46.228Z",
+  "summary": {
+    "total": 305,
+    "corrected": 199,
+    "verified": 104,
+    "fixed": 303,
+    "fixRate": "99.3%"
+  },
+  "corrections": [
+    {
+      "phraseId": "Selamat sore",
+      "category": "greetings",
+      "english": "Excuse me",
+      "old": "すみません",
+      "new": "失礼",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Selamat tinggal",
+      "category": "greetings",
+      "english": "Good night",
+      "old": "おやすみなさい",
+      "new": "おやすみ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sampai jumpa",
+      "category": "greetings",
+      "english": "My name is...",
+      "old": "私の名前は...です",
+      "new": "私の名前は...",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Apa kabar?",
+      "category": "greetings",
+      "english": "What is your name?",
+      "old": "お名前は何ですか？",
+      "new": "あなたの名前は何ですか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Baik-baik saja, terima kasih",
+      "category": "greetings",
+      "english": "Nice to meet you",
+      "old": "お会いできて嬉しいです",
+      "new": "始めまして",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Senang bertemu dengan Anda",
+      "category": "greetings",
+      "english": "Please",
+      "old": "お願いします",
+      "new": "  ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Dari mana Anda?",
+      "category": "greetings",
+      "english": "Good luck!",
+      "old": "頑張ってください！",
+      "new": "頑張りましょう！",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Ya",
+      "category": "greetings",
+      "english": "Very glad to see you",
+      "old": "お会いできてとても嬉しいです",
+      "new": "キミに会えてうれしいよ。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Tidak",
+      "category": "greetings",
+      "english": "Welcome! (arrival greeting)",
+      "old": "いらっしゃいませ",
+      "new": "ようこそ！ （到着挨拶）",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Terima kasih",
+      "category": "greetings",
+      "english": "How are you doing?",
+      "old": "調子はどうですか？",
+      "new": "調子はどう？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sama-sama",
+      "category": "greetings",
+      "english": "Let me introduce my friend",
+      "old": "友人を紹介させてください",
+      "new": "私の友人を紹介しましょう",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Tolong",
+      "category": "greetings",
+      "english": "Pleased to meet you!",
+      "old": "お会いできて光栄です！",
+      "new": "会えてうれしい",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Maaf",
+      "category": "greetings",
+      "english": "Please come in",
+      "old": "どうぞお入りください",
+      "new": "お入りください。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Permisi",
+      "category": "greetings",
+      "english": "Please sit down",
+      "old": "どうぞお座りください",
+      "new": "お座りください。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Buruk",
+      "category": "greetings",
+      "english": "I agree",
+      "old": "賛成です",
+      "new": "同意する",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sedikit",
+      "category": "greetings",
+      "english": "Thank you very much for your help",
+      "old": "ご協力ありがとうございます",
+      "new": "おかげさまで助かりました。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Banyak",
+      "category": "greetings",
+      "english": "Thank you very much for your support",
+      "old": "ご支援ありがとうございます",
+      "new": "いつも大変お世話に なっております 。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Semua",
+      "category": "greetings",
+      "english": "Thank you very much for your understanding",
+      "old": "ご理解ありがとうございます",
+      "new": "以上になります。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Tidak ada",
+      "category": "emergency",
+      "english": "Help!",
+      "old": "助けて！",
+      "new": "助けてっ！",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Saya tidak mengerti",
+      "category": "emergency",
+      "english": "I need a doctor",
+      "old": "医者が必要です",
+      "new": "医者が必要だ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Apakah Anda mengerti?",
+      "category": "emergency",
+      "english": "Call the police",
+      "old": "警察を呼んでください",
+      "new": "警察を呼べ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Saya mengerti",
+      "category": "emergency",
+      "english": "Fire!",
+      "old": "火事だ！",
+      "new": "撃て！",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Ulangi lagi, tolong",
+      "category": "emergency",
+      "english": "I am sick",
+      "old": "病気です",
+      "new": "私は気分が悪いです。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Bagaimana?",
+      "category": "emergency",
+      "english": "Call an ambulance",
+      "old": "救急車を呼んでください",
+      "new": "救急車を呼んでください。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Apa?",
+      "category": "emergency",
+      "english": "My wallet was stolen",
+      "old": "財布を盗まれました",
+      "new": "財布が盗まれた。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Di mana?",
+      "category": "emergency",
+      "english": "Help me",
+      "old": "助けてください",
+      "new": "助けて",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Siapa?",
+      "category": "emergency",
+      "english": "Call a doctor!",
+      "old": "医者を呼んでください！",
+      "new": "医者を",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Mengapa?",
+      "category": "hotel",
+      "english": "I want a room",
+      "old": "部屋が欲しいです",
+      "new": "僕は欲しいんだ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Berapa?",
+      "category": "hotel",
+      "english": "How much per night?",
+      "old": "一泊いくらですか？",
+      "new": "1泊あたりいくらですか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Satu",
+      "category": "hotel",
+      "english": "Is there WiFi here?",
+      "old": "Wi-Fiはありますか？",
+      "new": "Wi - Fiはありますか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Dua",
+      "category": "hotel",
+      "english": "I have a reservation",
+      "old": "予約があります",
+      "new": "私は予約してあります。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Tiga",
+      "category": "hotel",
+      "english": "Single room",
+      "old": "シングルルーム",
+      "new": "1室",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Empat",
+      "category": "hotel",
+      "english": "Double room",
+      "old": "ダブルルーム",
+      "new": "2人部屋",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Enam",
+      "category": "hotel",
+      "english": "Key",
+      "old": "鍵",
+      "new": "キー",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Tujuh",
+      "category": "hotel",
+      "english": "Room number",
+      "old": "部屋番号",
+      "new": "ルームｂ番号",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sembilan",
+      "category": "hotel",
+      "english": "Please clean the room",
+      "old": "部屋を掃除してください",
+      "new": "お部屋を掃除してください",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sepuluh",
+      "category": "hotel",
+      "english": "I want to extend my stay",
+      "old": "滞在を延長したいです",
+      "new": "滞在期間を延長したい",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sebelas",
+      "category": "food",
+      "english": "I am hungry",
+      "old": "お腹が空きました",
+      "new": "私はお腹が空いています。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Tiga belas",
+      "category": "food",
+      "english": "Delicious",
+      "old": "美味しい",
+      "new": "おいしい",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Lima belas",
+      "category": "food",
+      "english": "Bill, please",
+      "old": "お会計をお願いします",
+      "new": "ビル、お願いします",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Dua puluh",
+      "category": "food",
+      "english": "I am vegetarian",
+      "old": "ベジタリアンです",
+      "new": "私はベジタリアンだ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Tiga puluh",
+      "category": "food",
+      "english": "Not spicy",
+      "old": "辛くないでください",
+      "new": "辛くありません",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Seratus",
+      "category": "food",
+      "english": "Tea",
+      "old": "お茶",
+      "new": "紅茶",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Besok",
+      "category": "food",
+      "english": "How much does it cost?",
+      "old": "いくらですか？",
+      "new": "それはどれくらいの費用ですか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Pagi",
+      "category": "food",
+      "english": "I am allergic to...",
+      "old": "...にアレルギーがあります",
+      "new": "私はアレルギーがあります...",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Siang",
+      "category": "food",
+      "english": "Can I take it to go?",
+      "old": "持ち帰りできますか？",
+      "new": "持って行ってもいいですか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sore",
+      "category": "food",
+      "english": "Very delicious",
+      "old": "とても美味しい",
+      "new": "★5 文句なく美味しい！",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Malam",
+      "category": "food",
+      "english": "Appetizers",
+      "old": "前菜",
+      "new": "先附",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Bulan",
+      "category": "food",
+      "english": "Cheese platter",
+      "old": "チーズの盛り合わせ",
+      "new": "チーズ盛り合わせ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Menit",
+      "category": "food",
+      "english": "Meat broth",
+      "old": "肉のブイヨン",
+      "new": "肉スープ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Rabu",
+      "category": "food",
+      "english": "Fried",
+      "old": "揚げた",
+      "new": "焼く",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Kamis",
+      "category": "food",
+      "english": "Boiled",
+      "old": "茹でた",
+      "new": "茹でる",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Minggu",
+      "category": "food",
+      "english": "Salmon",
+      "old": "サーモン",
+      "new": "サケ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Januari",
+      "category": "food",
+      "english": "Shrimp",
+      "old": "エビ",
+      "new": "小エビ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Februari",
+      "category": "food",
+      "english": "Crabs",
+      "old": "カニ",
+      "new": "エラオ亜目",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Restoran",
+      "category": "food",
+      "english": "Not spicy",
+      "old": "辛くない",
+      "new": "辛くありません",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Menu",
+      "category": "food",
+      "english": "Apple",
+      "old": "りんご",
+      "new": "Apple",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Makan malam",
+      "category": "food",
+      "english": "Grapes",
+      "old": "ぶどう",
+      "new": "葡萄",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Susu",
+      "category": "shopping",
+      "english": "How much does it cost?",
+      "old": "いくらですか？",
+      "new": "それはどれくらいの費用ですか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Jus",
+      "category": "shopping",
+      "english": "Too expensive",
+      "old": "高すぎます",
+      "new": "あまりにも高価",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Anggur",
+      "category": "shopping",
+      "english": "I will buy this",
+      "old": "これを買います",
+      "new": "これを購入します",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Roti",
+      "category": "shopping",
+      "english": "Can I try it on?",
+      "old": "試着できますか？",
+      "new": "履いてみてもいいですか。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Daging",
+      "category": "shopping",
+      "english": "Bigger size",
+      "old": "もっと大きいサイズ",
+      "new": "より大きなサイズ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Ikan",
+      "category": "shopping",
+      "english": "Smaller size",
+      "old": "もっと小さいサイズ",
+      "new": "サイズが小さい",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Buah",
+      "category": "shopping",
+      "english": "Receipt",
+      "old": "レシート",
+      "new": "領収書",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sup",
+      "category": "shopping",
+      "english": "Where is the market?",
+      "old": "市場はどこですか？",
+      "new": "市場はどこにありますか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Keju",
+      "category": "shopping",
+      "english": "Can I try it on?",
+      "old": "試着できますか？",
+      "new": "履いてみてもいいですか。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Mentega",
+      "category": "shopping",
+      "english": "What is your size?",
+      "old": "サイズは何ですか？",
+      "new": "あなたのサイズは何ですか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Gula",
+      "category": "shopping",
+      "english": "Are there other colors?",
+      "old": "他の色はありますか？",
+      "new": "他に色はありますか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Garam",
+      "category": "transport",
+      "english": "Where is the train station?",
+      "old": "駅はどこですか？",
+      "new": "駅はどこですか。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Enak",
+      "category": "transport",
+      "english": "Metro",
+      "old": "地下鉄",
+      "new": "メトロ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Bon appétit",
+      "category": "transport",
+      "english": "Train ticket",
+      "old": "電車の切符",
+      "new": "硬券",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Toko",
+      "category": "transport",
+      "english": "Schedule",
+      "old": "時刻表",
+      "new": "パッケージのスケジュール設定",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Pasar",
+      "category": "transport",
+      "english": "Platform",
+      "old": "ホーム",
+      "new": "プラットフォーム",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Berapa harganya?",
+      "category": "transport",
+      "english": "Next stop",
+      "old": "次の停留所",
+      "new": "次の停車駅は...",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Berapa biayanya?",
+      "category": "transport",
+      "english": "Stop",
+      "old": "止まれ",
+      "new": "停止",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Saya ingin membeli ini",
+      "category": "transport",
+      "english": "How long until...?",
+      "old": "...までどのくらいですか？",
+      "new": "どのくらいで... ？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Mahal",
+      "category": "transport",
+      "english": "I need to go to...",
+      "old": "...に行きたいです",
+      "new": "ソナに行きたいけど、．．．",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Murah",
+      "category": "transport",
+      "english": "When will the next bus arrive?",
+      "old": "次のバスはいつ来ますか？",
+      "new": "次のバスはいつ到着しますか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Diskon",
+      "category": "transport",
+      "english": "I want to go to the airport",
+      "old": "空港に行きたいです",
+      "new": "僕は空港に行かなきゃ・・・",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Tunai",
+      "category": "directions",
+      "english": "Turn",
+      "old": "曲がる",
+      "new": "ターン",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Apakah Anda menerima kartu?",
+      "category": "directions",
+      "english": "Traffic light",
+      "old": "信号",
+      "new": "信号機",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Ukuran",
+      "category": "directions",
+      "english": "Far",
+      "old": "遠い",
+      "new": "遠",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Warna",
+      "category": "directions",
+      "english": "Near",
+      "old": "近い",
+      "new": "近",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Besar",
+      "category": "directions",
+      "english": "Map",
+      "old": "地図",
+      "new": "ツリーマップ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Kecil",
+      "category": "directions",
+      "english": "Where is...?",
+      "old": "...はどこですか？",
+      "new": "どこに行けばいいんだ?",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Lama",
+      "category": "health",
+      "english": "I have a headache",
+      "old": "頭が痛いです",
+      "new": "頭が痛い。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Cantik",
+      "category": "health",
+      "english": "I have a stomachache",
+      "old": "お腹が痛いです",
+      "new": "おなかが痛い。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Jelek",
+      "category": "health",
+      "english": "Temperature",
+      "old": "熱",
+      "new": "温度",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Taksi",
+      "category": "health",
+      "english": "Doctor",
+      "old": "医者",
+      "new": "医師",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Pesawat",
+      "category": "health",
+      "english": "I have a headache",
+      "old": "頭が痛いです",
+      "new": "頭が痛い。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Bandara",
+      "category": "health",
+      "english": "I need a painkiller",
+      "old": "鎮痛剤が必要です",
+      "new": "鎮痛剤が必要ですね",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Stasiun",
+      "category": "money",
+      "english": "Yuan",
+      "old": "元",
+      "new": "Yuan",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Tiket",
+      "category": "money",
+      "english": "Card payment",
+      "old": "カード払い",
+      "new": "カード支払い",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Kiri",
+      "category": "money",
+      "english": "Change",
+      "old": "お釣り",
+      "new": "変更",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Kanan",
+      "category": "money",
+      "english": "Free",
+      "old": "無料",
+      "new": "フリー",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Lurus",
+      "category": "money",
+      "english": "Price",
+      "old": "値段",
+      "new": "価格",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Jalan",
+      "category": "entertainment",
+      "english": "Cinema",
+      "old": "映画館",
+      "new": "映画",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Alamat",
+      "category": "entertainment",
+      "english": "Museum",
+      "old": "博物館",
+      "new": "ミュージアム",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Reservasi",
+      "category": "entertainment",
+      "english": "Shopping mall",
+      "old": "ショッピングモール",
+      "new": "ショッピングセンター",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Untuk satu orang",
+      "category": "entertainment",
+      "english": "Library",
+      "old": "図書館",
+      "new": "ライブラリ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Untuk dua orang",
+      "category": "entertainment",
+      "english": "Night market",
+      "old": "夜市",
+      "new": "ナイトマーケット",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Untuk dua malam",
+      "category": "time",
+      "english": "What time is it?",
+      "old": "今何時ですか？",
+      "new": "いま何時ですか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Kunci",
+      "category": "time",
+      "english": "Monday",
+      "old": "月曜日",
+      "new": "月曜",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Kamar mandi",
+      "category": "time",
+      "english": "In the afternoon",
+      "old": "午後",
+      "new": "午後も",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Shower",
+      "category": "time",
+      "english": "In the evening",
+      "old": "夕方",
+      "new": "夜",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "AC",
+      "category": "time",
+      "english": "What month?",
+      "old": "何月ですか？",
+      "new": "Nangatsu.",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "WiFi",
+      "category": "time",
+      "english": "Monday",
+      "old": "月曜日",
+      "new": "月曜",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Handuk",
+      "category": "time",
+      "english": "Wednesday",
+      "old": "水曜日",
+      "new": "水曜",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sabun",
+      "category": "time",
+      "english": "Thursday",
+      "old": "木曜日",
+      "new": "木曜",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Layanan kamar",
+      "category": "time",
+      "english": "Friday",
+      "old": "金曜日",
+      "new": "金曜",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Check-in",
+      "category": "time",
+      "english": "Saturday",
+      "old": "土曜日",
+      "new": "土",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Tolong!",
+      "category": "time",
+      "english": "January",
+      "old": "一月",
+      "new": "1月",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Darurat",
+      "category": "time",
+      "english": "February",
+      "old": "二月",
+      "new": "2月",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Polisi",
+      "category": "time",
+      "english": "March",
+      "old": "三月",
+      "new": "3月",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Dokter",
+      "category": "time",
+      "english": "April",
+      "old": "四月",
+      "new": "4月",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Rumah sakit",
+      "category": "time",
+      "english": "May",
+      "old": "五月",
+      "new": "5月",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Ambulans",
+      "category": "time",
+      "english": "June",
+      "old": "六月",
+      "new": "6月",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Apotik",
+      "category": "time",
+      "english": "July",
+      "old": "七月",
+      "new": "7月",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Saya sakit",
+      "category": "time",
+      "english": "August",
+      "old": "八月",
+      "new": "8月",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Saya butuh dokter",
+      "category": "time",
+      "english": "September",
+      "old": "九月",
+      "new": "9 月",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Saya kehilangan...",
+      "category": "time",
+      "english": "October",
+      "old": "十月",
+      "new": "10月",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Saya tersesat",
+      "category": "time",
+      "english": "November",
+      "old": "十一月",
+      "new": "１１月",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Api",
+      "category": "time",
+      "english": "December",
+      "old": "十二月",
+      "new": "12月",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Bahaya",
+      "category": "numbers",
+      "english": "One",
+      "old": "一",
+      "new": "1",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Hati-hati",
+      "category": "numbers",
+      "english": "Two",
+      "old": "二",
+      "new": "2",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Dilarang",
+      "category": "numbers",
+      "english": "Three",
+      "old": "三",
+      "new": "3",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Apa itu?",
+      "category": "numbers",
+      "english": "Four",
+      "old": "四",
+      "new": "4",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Di mana itu?",
+      "category": "numbers",
+      "english": "Five",
+      "old": "五",
+      "new": "5",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Berapa ini?",
+      "category": "numbers",
+      "english": "Six",
+      "old": "六",
+      "new": "6",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Kapan?",
+      "category": "numbers",
+      "english": "Seven",
+      "old": "七",
+      "new": "７",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Siapa?",
+      "category": "numbers",
+      "english": "Eight",
+      "old": "八",
+      "new": "8",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Mengapa?",
+      "category": "numbers",
+      "english": "Nine",
+      "old": "九",
+      "new": "9",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Bagaimana?",
+      "category": "numbers",
+      "english": "Ten",
+      "old": "十",
+      "new": "10",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Di mana toilet?",
+      "category": "numbers",
+      "english": "Twenty",
+      "old": "二十",
+      "new": "20",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Apakah Anda bisa membantu?",
+      "category": "numbers",
+      "english": "One hundred",
+      "old": "百",
+      "new": "100",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Apakah Anda tahu...?",
+      "category": "numbers",
+      "english": "One thousand",
+      "old": "千",
+      "new": "一千？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Bisakah Anda menunjukkan?",
+      "category": "numbers",
+      "english": "Ten thousand",
+      "old": "一万",
+      "new": "10,000",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Apakah mungkin?",
+      "category": "numbers",
+      "english": "First",
+      "old": "第一",
+      "new": "最初の",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Apakah Anda punya...?",
+      "category": "numbers",
+      "english": "One thousand",
+      "old": "千",
+      "new": "一千？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Apakah itu tersedia?",
+      "category": "numbers",
+      "english": "Two thousand",
+      "old": "二千",
+      "new": ". 2000本？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Berapa lama?",
+      "category": "numbers",
+      "english": "Ten thousand",
+      "old": "一万",
+      "new": "10,000",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Berapa jauh?",
+      "category": "numbers",
+      "english": "One hundred thousand",
+      "old": "十万",
+      "new": "うん",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Jam berapa sekarang?",
+      "category": "numbers",
+      "english": "One million",
+      "old": "百万",
+      "new": "1000000",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Jam berapa buka?",
+      "category": "weather",
+      "english": "What is the weather today?",
+      "old": "今日の天気はどうですか？",
+      "new": "今日はどんな天気ですか。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Apakah buka hari ini?",
+      "category": "weather",
+      "english": "Sunny",
+      "old": "晴れ",
+      "new": "サニーブルー",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Ayah",
+      "category": "weather",
+      "english": "Windy",
+      "old": "風が強い",
+      "new": "ウィンディ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Anak perempuan",
+      "category": "weather",
+      "english": "Cold",
+      "old": "寒い",
+      "new": "風邪",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Saudara laki-laki",
+      "category": "personal_info",
+      "english": "My name is...",
+      "old": "私の名前は...です",
+      "new": "私の名前は...",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Saudara perempuan",
+      "category": "personal_info",
+      "english": "My last name is...",
+      "old": "私の苗字は...です",
+      "new": "私の苗字はワンです。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Suami",
+      "category": "personal_info",
+      "english": "What is your name?",
+      "old": "お名前は何ですか？",
+      "new": "あなたの名前は何ですか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Paman",
+      "category": "personal_info",
+      "english": "Do you have children?",
+      "old": "お子さんはいますか？",
+      "new": "お子さんはいらっしゃいますか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Bibi",
+      "category": "personal_info",
+      "english": "I have no children",
+      "old": "子供はいません",
+      "new": "私は子供がいません。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Anak-anak",
+      "category": "personal_info",
+      "english": "I have one child",
+      "old": "子供が一人います",
+      "new": "子供が1人います",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Orang tua",
+      "category": "personal_info",
+      "english": "I have two children",
+      "old": "子供が二人います",
+      "new": "私には子どもがいます。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sakit",
+      "category": "personal_info",
+      "english": "What do you do?",
+      "old": "お仕事は何ですか？",
+      "new": "何の仕事をしていますか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Demam",
+      "category": "personal_info",
+      "english": "I work at a factory",
+      "old": "工場で働いています",
+      "new": "私は工場で働いています",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sakit kepala",
+      "category": "personal_info",
+      "english": "I work at a bank",
+      "old": "銀行で働いています",
+      "new": "私は銀行で働いています",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Sakit perut",
+      "category": "personal_info",
+      "english": "I work at a hospital",
+      "old": "病院で働いています",
+      "new": "私は病院で働いています",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Batuk",
+      "category": "personal_info",
+      "english": "Do you speak Russian?",
+      "old": "ロシア語を話せますか？",
+      "new": "あなたはロシア語を話せますか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Hidung tersumbat",
+      "category": "personal_info",
+      "english": "I don't speak",
+      "old": "話せません",
+      "new": "私は早口をしません。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Obat",
+      "category": "personal_info",
+      "english": "I speak a little",
+      "old": "少し話せます",
+      "new": "少しなら話せます。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Pil",
+      "category": "business",
+      "english": "When does the conference start?",
+      "old": "会議はいつ始まりますか？",
+      "new": "カンファレンスはいつ始まりますか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Resep",
+      "category": "business",
+      "english": "What is the schedule for presentations?",
+      "old": "プレゼンテーションの予定は？",
+      "new": "プレゼンテーションのスケジュールは？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Asuransi",
+      "category": "business",
+      "english": "Will there be translation to Russian?",
+      "old": "ロシア語への通訳はありますか？",
+      "new": "ロシア語への翻訳はありますか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Saya alergi terhadap...",
+      "category": "business",
+      "english": "We want to see the exhibition",
+      "old": "展示会を見たいです",
+      "new": "私たちは展覧会を見たいです",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Asma",
+      "category": "business",
+      "english": "What time does the exhibition open?",
+      "old": "展示会は何時に開きますか？",
+      "new": "展覧会は何時に開きますか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Diabetes",
+      "category": "business",
+      "english": "How many countries are participating?",
+      "old": "何カ国が参加していますか？",
+      "new": "参加している国はいくつですか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Tekanan darah",
+      "category": "business",
+      "english": "Can I get the exhibition catalog?",
+      "old": "展示会のカタログをもらえますか？",
+      "new": "展覧会カタログを入手できますか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Jantung",
+      "category": "business",
+      "english": "I came to discuss business",
+      "old": "ビジネスの話をしに来ました",
+      "new": "私はビジネスについて話し合いに来ました",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Perut",
+      "category": "business",
+      "english": "We want to speak with the general director",
+      "old": "社長と話したいです",
+      "new": "ゼネラルディレクターとお話がしたいのですが",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Punggung",
+      "category": "business",
+      "english": "We want to learn about the production",
+      "old": "生産について知りたいです",
+      "new": "私たちは生産について学びたいと思っています",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Dingin",
+      "category": "measurements",
+      "english": "Weight",
+      "old": "重さ",
+      "new": "体重",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Angin",
+      "category": "measurements",
+      "english": "Volume",
+      "old": "容積",
+      "new": "ボリューム",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Cerah",
+      "category": "colors",
+      "english": "White",
+      "old": "白",
+      "new": "ホワイト",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Putih",
+      "category": "colors",
+      "english": "Blue",
+      "old": "青",
+      "new": "ブルー",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Hitam",
+      "category": "colors",
+      "english": "Red",
+      "old": "赤",
+      "new": "レッド",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Merah",
+      "category": "colors",
+      "english": "Black",
+      "old": "黒",
+      "new": "ブラック",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Biru",
+      "category": "colors",
+      "english": "Gray",
+      "old": "灰色",
+      "new": "グレー",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Kuning",
+      "category": "colors",
+      "english": "Orange",
+      "old": "オレンジ色",
+      "new": "オレンジ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Ungu",
+      "category": "body",
+      "english": "Head",
+      "old": "頭",
+      "new": "頭部",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Abu-abu",
+      "category": "body",
+      "english": "Eyes",
+      "old": "目",
+      "new": "目（Eyes）",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Peta",
+      "category": "home",
+      "english": "Window",
+      "old": "窓",
+      "new": "ウインドウ",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Kompas",
+      "category": "home",
+      "english": "Table",
+      "old": "テーブル",
+      "new": "表",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "GPS",
+      "category": "home",
+      "english": "Chair",
+      "old": "椅子",
+      "new": "チェアー",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Tujuan",
+      "category": "customs",
+      "english": "Where is passport control?",
+      "old": "パスポートコントロールはどこですか？",
+      "new": "パスポートコントロールはどこにありますか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Persimpangan",
+      "category": "customs",
+      "english": "I intend to stay in China for a week",
+      "old": "中国に一週間滞在する予定です",
+      "new": "中国に1週間滞在する予定です",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Bundaran",
+      "category": "customs",
+      "english": "I have a single-entry visa",
+      "old": "シングルビザを持っています",
+      "new": "シングルエントリービザを持っています",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Jembatan",
+      "category": "customs",
+      "english": "I am in transit in your country",
+      "old": "貴国を通過中です",
+      "new": "私はあなたの国で輸送中です",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Gedung",
+      "category": "customs",
+      "english": "Here is my customs declaration",
+      "old": "これが税関申告書です",
+      "new": "これが私の税関申告書です",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Belakang",
+      "category": "customs",
+      "english": "There are no prohibited items in my luggage",
+      "old": "荷物に禁止品はありません",
+      "new": "荷物の中に禁止されているものはありません",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Seberang",
+      "category": "customs",
+      "english": "These are my personal belongings",
+      "old": "これらは私の私物です",
+      "new": "これは私物です",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Di sebelah",
+      "category": "customs",
+      "english": "What duty do I need to pay?",
+      "old": "どのような関税を払う必要がありますか？",
+      "new": "どのような義務を支払う必要がありますか？",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Telepon",
+      "category": "sports",
+      "english": "What sport do you like?",
+      "old": "どんなスポーツが好きですか？",
+      "new": "あなたはどのスポーツが一番好きですか。",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Nomor telepon",
+      "category": "sports",
+      "english": "I like to play football",
+      "old": "サッカーをするのが好きです",
+      "new": "私はサッカーをするのが好きです",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "WiFi",
+      "category": "sports",
+      "english": "Running",
+      "old": "ランニング",
+      "new": "実行中",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Komputer",
+      "category": "sports",
+      "english": "Where is the gym?",
+      "old": "ジムはどこですか？",
+      "new": "どこに...",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Ponsel",
+      "category": "sports",
+      "english": "I want to work out",
+      "old": "運動したいです",
+      "new": "エクササイズしたい",
+      "reason": "AI suggestion (MyMemory)"
+    },
+    {
+      "phraseId": "Surat",
+      "category": "sports",
+      "english": "Competition / Match",
+      "old": "試合",
+      "new": "コンペティション/マッチ",
+      "reason": "AI suggestion (MyMemory)"
+    }
+  ]
+}

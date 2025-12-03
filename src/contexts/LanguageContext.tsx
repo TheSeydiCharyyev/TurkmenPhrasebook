@@ -230,21 +230,21 @@ export interface InterfaceTexts {
   // AI Chat Screen - Additional UI elements
   aiBalancedMode?: string;
   aiClear?: string;
-  aiClearHistoryMessage?: string;
-  aiClearHistoryTitle?: string;
+  aiClearHistoryMessage: string;
+  aiClearHistoryTitle: string;
   aiCopied?: string;
-  aiCopyAll?: string;
-  aiCreativeMode?: string;
+  aiCopyAll: string;
+  aiCreativeMode: string;
   aiError?: string;
-  aiExportChat?: string;
+  aiExportChat: string;
   aiNoMessages?: string;
-  aiPreciseMode?: string;
-  aiResponseLanguage?: string;
-  aiResponseLanguageMessage?: string;
-  aiResponseSettings?: string;
-  aiResponseSettingsMessage?: string;
-  aiSelectModel?: string;
-  aiSelectModelMessage?: string;
+  aiPreciseMode: string;
+  aiResponseLanguage: string;
+  aiResponseLanguageMessage: string;
+  aiResponseSettings: string;
+  aiResponseSettingsMessage: string;
+  aiSelectModel: string;
+  aiSelectModelMessage: string;
 
   // Onboarding Screen
   onboardingSkip: string;
@@ -485,6 +485,19 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiThinking: 'Pikir edýärin...',
     aiErrorMessage: 'Bagyşlaň, ýalňyşlyk ýüze çykdy. Gaýtadan synanyşyň.',
     aiClearHistory: 'Taryhy arassala',
+    aiClearHistoryTitle: 'Taryhy arassalamak',
+    aiClearHistoryMessage: 'Ähli habarlary arassalamak isleýärsiňizmi?',
+    aiSelectModel: 'AI modelini saýla',
+    aiSelectModelMessage: 'Ulanmak üçin AI modelini saýlaň',
+    aiExportChat: 'Söhbetdeşligi eksport et',
+    aiCopyAll: 'Ählisini göçür',
+    aiResponseSettings: 'Jogap sazlamalary',
+    aiResponseSettingsMessage: 'AI-nyň nähili jogap bermegini sazlaň',
+    aiResponseLanguage: 'Jogap dili',
+    aiResponseLanguageMessage: 'AI haýsy dilde jogap bermeli',
+    aiCreativeMode: 'Döredijilik re re mode',
+    aiBalancedMode: 'Deňagramly re mode',
+    aiPreciseMode: 'Takyk režim',
 
     // Voice Translator
     vtHeaderTitle: 'Ses terjimeçi',
@@ -744,6 +757,19 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiThinking: '思考中...',
     aiErrorMessage: '抱歉，出现错误。请重试。',
     aiClearHistory: '清除历史记录',
+    aiClearHistoryTitle: '清除历史记录',
+    aiClearHistoryMessage: '确定要清除所有消息吗？',
+    aiSelectModel: '选择AI模型',
+    aiSelectModelMessage: '选择要使用的AI模型',
+    aiExportChat: '导出聊天记录',
+    aiCopyAll: '全部复制',
+    aiResponseSettings: '回复设置',
+    aiResponseSettingsMessage: '调整AI回复方式',
+    aiResponseLanguage: '回复语言',
+    aiResponseLanguageMessage: 'AI应该用哪种语言回复',
+    aiCreativeMode: '创意模式',
+    aiBalancedMode: '平衡模式',
+    aiPreciseMode: '精确模式',
 
     // Voice Translator
     vtHeaderTitle: '语音翻译',
@@ -1002,6 +1028,19 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiThinking: 'Думаю...',
     aiErrorMessage: 'Извините, произошла ошибка. Попробуйте снова.',
     aiClearHistory: 'Очистить историю',
+    aiClearHistoryTitle: 'Очистить историю',
+    aiClearHistoryMessage: 'Вы уверены, что хотите удалить все сообщения?',
+    aiSelectModel: 'Выбрать модель ИИ',
+    aiSelectModelMessage: 'Выберите модель ИИ для использования',
+    aiExportChat: 'Экспортировать чат',
+    aiCopyAll: 'Скопировать всё',
+    aiResponseSettings: 'Настройки ответов',
+    aiResponseSettingsMessage: 'Настройте, как ИИ отвечает',
+    aiResponseLanguage: 'Язык ответов',
+    aiResponseLanguageMessage: 'На каком языке должен отвечать ИИ',
+    aiCreativeMode: 'Творческий режим',
+    aiBalancedMode: 'Сбалансированный режим',
+    aiPreciseMode: 'Точный режим',
 
     // Voice Translator
     vtHeaderTitle: 'Голосовой переводчик',
@@ -1260,6 +1299,19 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiThinking: 'Thinking...',
     aiErrorMessage: 'Sorry, I encountered an error. Please try again.',
     aiClearHistory: 'Clear History',
+    aiClearHistoryTitle: 'Clear History',
+    aiClearHistoryMessage: 'Are you sure you want to clear all messages?',
+    aiSelectModel: 'Select AI Model',
+    aiSelectModelMessage: 'Choose which AI model to use',
+    aiExportChat: 'Export Chat',
+    aiCopyAll: 'Copy All',
+    aiResponseSettings: 'Response Settings',
+    aiResponseSettingsMessage: 'Adjust how the AI responds',
+    aiResponseLanguage: 'Response Language',
+    aiResponseLanguageMessage: 'Choose which language the AI should respond in',
+    aiCreativeMode: 'Creative Mode',
+    aiBalancedMode: 'Balanced Mode',
+    aiPreciseMode: 'Precise Mode',
 
     // Voice Translator
     vtHeaderTitle: 'Voice Translator',
@@ -1518,6 +1570,19 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiThinking: 'Düşünüyor...',
     aiErrorMessage: 'Üzgünüm, bir hatayla karşılaştım. Lütfen tekrar deneyin.',
     aiClearHistory: 'Geçmişi Temizle',
+    aiClearHistoryTitle: 'Geçmişi Temizle',
+    aiClearHistoryMessage: 'Tüm mesajları silmek istediğinizden emin misiniz?',
+    aiSelectModel: 'AI Modelini Seç',
+    aiSelectModelMessage: 'Kullanılacak AI modelini seçin',
+    aiExportChat: 'Sohbeti Dışa Aktar',
+    aiCopyAll: 'Tümünü Kopyala',
+    aiResponseSettings: 'Yanıt Ayarları',
+    aiResponseSettingsMessage: 'AI\'nın nasıl yanıt vereceğini ayarlayın',
+    aiResponseLanguage: 'Yanıt Dili',
+    aiResponseLanguageMessage: 'AI hangi dilde yanıt vermeli',
+    aiCreativeMode: 'Yaratıcı Mod',
+    aiBalancedMode: 'Dengeli Mod',
+    aiPreciseMode: 'Kesin Mod',
 
     // Voice Translator
     vtHeaderTitle: 'Sesli Çevirmen',
@@ -1755,6 +1820,19 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiThinking: 'Denke nach...',
     aiErrorMessage: 'Entschuldigung, ich bin auf einen Fehler gestoßen. Bitte versuchen Sie es erneut.',
     aiClearHistory: 'Verlauf löschen',
+    aiClearHistoryTitle: 'Verlauf löschen',
+    aiClearHistoryMessage: 'Sind Sie sicher, dass Sie alle Nachrichten löschen möchten?',
+    aiSelectModel: 'KI-Modell auswählen',
+    aiSelectModelMessage: 'Wählen Sie das zu verwendende KI-Modell',
+    aiExportChat: 'Chat exportieren',
+    aiCopyAll: 'Alles kopieren',
+    aiResponseSettings: 'Antworteinstellungen',
+    aiResponseSettingsMessage: 'Passen Sie an, wie die KI antwortet',
+    aiResponseLanguage: 'Antwortsprache',
+    aiResponseLanguageMessage: 'In welcher Sprache soll die KI antworten',
+    aiCreativeMode: 'Kreativer Modus',
+    aiBalancedMode: 'Ausgewogener Modus',
+    aiPreciseMode: 'Präziser Modus',
 
     // Voice Translator
     vtHeaderTitle: 'Sprachübersetzer',
@@ -1992,6 +2070,19 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiThinking: 'Réflexion...',
     aiErrorMessage: 'Désolé, j\'ai rencontré une erreur. Veuillez réessayer.',
     aiClearHistory: 'Effacer l\'historique',
+    aiClearHistoryTitle: 'Effacer l\'historique',
+    aiClearHistoryMessage: 'Êtes-vous sûr de vouloir effacer tous les messages ?',
+    aiSelectModel: 'Sélectionner un modèle IA',
+    aiSelectModelMessage: 'Choisissez le modèle IA à utiliser',
+    aiExportChat: 'Exporter la conversation',
+    aiCopyAll: 'Tout copier',
+    aiResponseSettings: 'Paramètres de réponse',
+    aiResponseSettingsMessage: 'Ajustez comment l\'IA répond',
+    aiResponseLanguage: 'Langue de réponse',
+    aiResponseLanguageMessage: 'Choisissez dans quelle langue l\'IA doit répondre',
+    aiCreativeMode: 'Mode créatif',
+    aiBalancedMode: 'Mode équilibré',
+    aiPreciseMode: 'Mode précis',
 
     // Voice Translator
     vtHeaderTitle: 'Traducteur vocal',
@@ -2226,6 +2317,19 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiThinking: 'Pensando...',
     aiErrorMessage: 'Lo siento, encontré un error. Por favor, inténtalo de nuevo.',
     aiClearHistory: 'Borrar historial',
+    aiClearHistoryTitle: 'Borrar historial',
+    aiClearHistoryMessage: '¿Estás seguro de que quieres borrar todos los mensajes?',
+    aiSelectModel: 'Seleccionar modelo de IA',
+    aiSelectModelMessage: 'Elige qué modelo de IA usar',
+    aiExportChat: 'Exportar chat',
+    aiCopyAll: 'Copiar todo',
+    aiResponseSettings: 'Configuración de respuestas',
+    aiResponseSettingsMessage: 'Ajusta cómo responde la IA',
+    aiResponseLanguage: 'Idioma de respuesta',
+    aiResponseLanguageMessage: 'Elige en qué idioma debe responder la IA',
+    aiCreativeMode: 'Modo creativo',
+    aiBalancedMode: 'Modo equilibrado',
+    aiPreciseMode: 'Modo preciso',
 
     // Voice Translator
     vtHeaderTitle: 'Traductor de voz',
@@ -2460,6 +2564,20 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     aiThinking: 'Sto pensando...',
     aiErrorMessage: 'Scusa, ho riscontrato un errore. Riprova.',
     aiClearHistory: 'Cancella cronologia',
+    aiClearHistoryTitle: 'Cancella cronologia',
+    aiClearHistoryMessage: 'Sei sicuro di voler cancellare tutti i messaggi?',
+    aiSelectModel: 'Seleziona modello IA',
+    aiSelectModelMessage: 'Scegli quale modello IA utilizzare',
+    aiExportChat: 'Esporta chat',
+    aiCopyAll: 'Copia tutto',
+    aiResponseSettings: 'Impostazioni risposte',
+    aiResponseSettingsMessage: 'Regola come risponde l\'IA',
+    aiResponseLanguage: 'Lingua di risposta',
+    aiResponseLanguageMessage: 'Scegli in quale lingua deve rispondere l\'IA',
+    aiCreativeMode: 'Modalità creativa',
+    aiBalancedMode: 'Modalità bilanciata',
+    aiPreciseMode: 'Modalità precisa',
+
     // Voice Translator
     vtHeaderTitle: 'Traduttore Vocale',
     vtHeroTitle: 'Parla e Traduci',

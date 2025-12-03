@@ -3,7 +3,7 @@
 // Лимиты: 25,000 запросов/месяц бесплатно
 // Документация: https://ocr.space/ocrapi
 
-import * as FileSystem from 'expo-file-system';
+import * as FileSystem from 'expo-file-system/legacy';
 import { OCRResult, OCREngine } from '../types/visual-translator.types';
 
 const OCR_SPACE_API_URL = 'https://api.ocr.space/parse/image';
@@ -11,15 +11,6 @@ const OCR_SPACE_API_URL = 'https://api.ocr.space/parse/image';
 // Бесплатный API ключ (можно получить свой на https://ocr.space/ocrapi)
 // Или использовать из .env файла
 const DEFAULT_API_KEY = 'helloworld'; // Публичный тестовый ключ
-
-// Безопасно импортируем API ключ из .env (с fallback для production builds)
-let OCR_SPACE_API_KEY_FROM_ENV: string | undefined;
-try {
-  const env = require('@env');
-  OCR_SPACE_API_KEY_FROM_ENV = env.OCR_SPACE_API_KEY;
-} catch (error) {
-  console.warn('[OCRSpaceService] .env not available, using default API key');
-}
 
 interface OCRSpaceResponse {
   ParsedResults?: Array<{
@@ -52,23 +43,14 @@ class OCRSpaceService {
    */
   async recognizeText(imageUri: string, apiKey?: string): Promise<OCRResult> {
     try {
-      console.log('[OCRSpaceService] Starting OCR recognition...');
-
       // Конвертируем изображение в base64
       const base64Image = await this.imageToBase64(imageUri);
-
-      console.log('[OCRSpaceService] Image converted to base64, length:', base64Image.length);
-
-      // Используем переданный ключ, затем из .env, затем дефолтный
-      const apiKeyToUse = apiKey || OCR_SPACE_API_KEY_FROM_ENV || DEFAULT_API_KEY;
-
-      console.log('[OCRSpaceService] Using API key:', apiKeyToUse === DEFAULT_API_KEY ? 'default' : 'custom');
 
       // Отправляем запрос к OCR.space API
       const response = await fetch(OCR_SPACE_API_URL, {
         method: 'POST',
         headers: {
-          'apikey': apiKeyToUse,
+          'apikey': apiKey || DEFAULT_API_KEY,
           'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: new URLSearchParams({
@@ -81,15 +63,11 @@ class OCRSpaceService {
         }).toString(),
       });
 
-      console.log('[OCRSpaceService] API response status:', response.status);
-
       if (!response.ok) {
         throw new Error(`OCR.space API error: ${response.statusText}`);
       }
 
       const data: OCRSpaceResponse = await response.json();
-
-      console.log('[OCRSpaceService] API response received, exit code:', data.OCRExitCode);
 
       // Проверяем на ошибки
       if (data.IsErroredOnProcessing) {
@@ -122,12 +100,6 @@ class OCRSpaceService {
       // Вычисляем confidence (OCR.space не возвращает confidence, используем эвристику)
       const confidence = this.calculateConfidence(recognizedText);
 
-      console.log('[OCRSpaceService] ✅ Recognition successful:', {
-        textLength: recognizedText.length,
-        language,
-        confidence,
-      });
-
       return {
         text: recognizedText,
         language,
@@ -146,14 +118,9 @@ class OCRSpaceService {
    */
   private async imageToBase64(imageUri: string): Promise<string> {
     try {
-      console.log('[OCRSpaceService] Converting image to base64:', imageUri);
-
       const base64 = await FileSystem.readAsStringAsync(imageUri, {
-        encoding: FileSystem.EncodingType.Base64,
+        encoding: 'base64',
       });
-
-      console.log('[OCRSpaceService] Successfully converted to base64');
-
       return base64;
     } catch (error) {
       console.error('[OCRSpaceService] Failed to convert image to base64:', error);
