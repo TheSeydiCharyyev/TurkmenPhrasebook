@@ -328,7 +328,7 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
         ]}>
           <Ionicons
             name={module.iconName}
-            size={moderateScale(44)}
+            size={moderateScale(32)}
             color={iconFgColor}
           />
         </View>
@@ -495,9 +495,9 @@ const styles = StyleSheet.create({
   // Hero Card - RESPONSIVE (all modules use this style)
   heroCard: {
     width: '100%',
-    height: DeviceInfo.isTablet ? verticalScale(250) : verticalScale(200),
-    marginBottom: scale(24),
-    borderRadius: scale(24),
+    height: DeviceInfo.isTablet ? verticalScale(220) : verticalScale(160),
+    marginBottom: scale(16),
+    borderRadius: scale(20),
     overflow: 'hidden',
     ...Platform.select({
       ios: {
@@ -514,40 +514,40 @@ const styles = StyleSheet.create({
 
   heroGradient: {
     flex: 1,
-    padding: scale(32),
+    padding: scale(20),
     justifyContent: 'flex-start',
   },
 
   heroIconContainer: {
     position: 'absolute',
-    top: scale(32),
-    right: scale(32),
-    width: scale(80),
-    height: scale(80),
-    borderRadius: scale(40),
+    top: scale(20),
+    right: scale(20),
+    width: scale(60),
+    height: scale(60),
+    borderRadius: scale(30),
     alignItems: 'center',
     justifyContent: 'center',
   },
 
 
   heroTitle: {
-    fontSize: moderateScale(24), // Уменьшили с 28 до 24
+    fontSize: moderateScale(20),
     fontWeight: Typography.bold,
     fontFamily: Typography.fontFamily,
-    lineHeight: moderateScale(28), // Пропорционально уменьшили
-    marginBottom: verticalScale(8),
-    paddingRight: scale(90), // Уменьшили с 100 до 90
+    lineHeight: moderateScale(24),
+    marginBottom: verticalScale(4),
+    paddingRight: scale(70),
   },
 
   heroStats: {
     position: 'absolute',
-    bottom: scale(-8),
-    left: scale(-4),
-    right: scale(100), // Ограничиваем ширину, чтобы не задевать иконку
-    fontSize: moderateScale(14),
+    bottom: scale(-4),
+    left: scale(0),
+    right: scale(70),
+    fontSize: moderateScale(13),
     fontFamily: Typography.fontFamily,
-    fontWeight: '600',
-    lineHeight: moderateScale(20),
+    fontWeight: '500',
+    lineHeight: moderateScale(18),
   },
 
   moduleCardLocked: {
