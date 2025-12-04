@@ -73,14 +73,6 @@ export default function OnboardingScreen({ navigation, onComplete }: OnboardingS
     },
     {
       id: '4',
-      title: texts.onboardingDictionaryTitle,
-      subtitle: texts.onboardingDictionarySubtitle,
-      icon: 'library',
-      gradient: ['#FFFFFF', '#FFFFFF'],
-      component: <DictionaryAISlide />,
-    },
-    {
-      id: '5',
       title: texts.onboardingReadyTitle,
       subtitle: texts.onboardingReadySubtitle,
       icon: 'checkmark-circle',
@@ -276,6 +268,18 @@ function PhrasebookSlide() {
             {audioPlaying ? texts.onboardingPlaying : texts.onboardingPlayAudio}
           </Text>
         </TouchableOpacity>
+
+        {/* Features */}
+        <View style={styles.featuresListContainer}>
+          <View style={styles.featureRow}>
+            <Ionicons name="checkmark-circle" size={22} color="#00A651" />
+            <Text style={styles.featureText}>{texts.onboardingFeatureAudio}</Text>
+          </View>
+          <View style={styles.featureRow}>
+            <Ionicons name="checkmark-circle" size={22} color="#00A651" />
+            <Text style={styles.featureText}>{texts.onboardingFeatureOffline}</Text>
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -296,7 +300,6 @@ function TranslatorSlide() {
 
       {/* Interactive Demo */}
       <View style={styles.demoBox}>
-        <Text style={styles.demoSectionTitle}>{texts.onboardingTextTranslator}</Text>
         <View style={styles.translatorBox}>
           <Text style={styles.translatorInput}>How are you?</Text>
           {translated && (
@@ -315,52 +318,36 @@ function TranslatorSlide() {
           </Text>
         </TouchableOpacity>
 
-        <View style={styles.featureRow}>
-          <Ionicons name="camera" size={22} color="#00A651" />
-          <Text style={styles.featureText}>{texts.onboardingVisualTranslator}</Text>
-        </View>
-        <View style={styles.featureRow}>
-          <Ionicons name="sparkles" size={22} color="#00A651" />
-          <Text style={styles.featureText}>{texts.onboardingAIPowered}</Text>
-        </View>
-      </View>
-    </View>
-  );
-}
-
-function DictionaryAISlide() {
-  const { getTexts } = useAppLanguage();
-  const texts = getTexts();
-
-  return (
-    <View style={styles.slideContent}>
-      <Ionicons name="library" size={100} color="#00A651" style={styles.slideIcon} />
-      <Text style={styles.slideTitle}>{texts.onboardingDictionaryTitle}</Text>
-      <Text style={styles.slideSubtitle}>
-        {texts.onboardingDictionarySubtitle}
-      </Text>
-
-      {/* Features List */}
-      <View style={styles.featuresContainer}>
-        <View style={styles.featureItem}>
-          <Ionicons name="book-outline" size={32} color="#00A651" />
-          <Text style={styles.featureTitle}>{texts.onboardingSmartDictionary}</Text>
-          <Text style={styles.featureDescription}>
-            {texts.onboardingSmartDictionaryDesc}
-          </Text>
-        </View>
-
-        <View style={styles.featureItem}>
-          <Ionicons name="chatbubbles" size={32} color="#00A651" />
-          <Text style={styles.featureTitle}>{texts.onboardingAIAssistants}</Text>
-          <Text style={styles.featureDescription}>
-            {texts.onboardingAIAssistantsDesc}
-          </Text>
+        {/* Features list */}
+        <View style={styles.featuresListContainer}>
+          <View style={styles.featureRow}>
+            <Ionicons name="checkmark-circle" size={22} color="#00A651" />
+            <Text style={styles.featureText}>{texts.onboardingTextTranslator}</Text>
+          </View>
+          <View style={styles.featureRow}>
+            <Ionicons name="checkmark-circle" size={22} color="#00A651" />
+            <Text style={styles.featureText}>{texts.onboardingAIAssistant}</Text>
+          </View>
+          <View style={styles.featureRow}>
+            <Ionicons name="camera" size={22} color="#8E8E93" />
+            <Text style={[styles.featureText, styles.featureTextMuted]}>{texts.onboardingVisualTranslator}</Text>
+            <View style={styles.comingSoonBadge}>
+              <Text style={styles.comingSoonText}>{texts.onboardingComingSoon}</Text>
+            </View>
+          </View>
+          <View style={styles.featureRow}>
+            <Ionicons name="mic" size={22} color="#8E8E93" />
+            <Text style={[styles.featureText, styles.featureTextMuted]}>{texts.onboardingVoiceTranslator}</Text>
+            <View style={styles.comingSoonBadge}>
+              <Text style={styles.comingSoonText}>{texts.onboardingComingSoon}</Text>
+            </View>
+          </View>
         </View>
       </View>
     </View>
   );
 }
+
 
 function ReadySlide({ onGetStarted }: { onGetStarted: () => void }) {
   const { getTexts } = useAppLanguage();
@@ -380,12 +367,13 @@ function ReadySlide({ onGetStarted }: { onGetStarted: () => void }) {
       </TouchableOpacity>
 
       <View style={styles.featuresGrid}>
-        <Text style={styles.readyFeature}>{texts.onboardingFeaturePhrasebook}</Text>
-        <Text style={styles.readyFeature}>{texts.onboardingFeatureAITranslation}</Text>
-        <Text style={styles.readyFeature}>{texts.onboardingFeatureVisualTranslator}</Text>
-        <Text style={styles.readyFeature}>{texts.onboardingFeatureDictionary}</Text>
-        <Text style={styles.readyFeature}>{texts.onboardingFeatureAIAssistants}</Text>
-        <Text style={styles.readyFeature}>{texts.onboardingFeatureOffline}</Text>
+        <Text style={styles.readyFeature}>{texts.onboardingTagPhrasebook}</Text>
+        <Text style={styles.readyFeature}>{texts.onboardingTagAudio}</Text>
+        <Text style={styles.readyFeature}>{texts.onboardingTagOffline}</Text>
+        <Text style={styles.readyFeature}>{texts.onboardingTagTranslator}</Text>
+        <Text style={styles.readyFeature}>{texts.onboardingTagAI}</Text>
+        <Text style={styles.readyFeatureComingSoon}>{texts.onboardingTagVisual} ({texts.onboardingComingSoon})</Text>
+        <Text style={styles.readyFeatureComingSoon}>{texts.onboardingTagVoice} ({texts.onboardingComingSoon})</Text>
       </View>
     </View>
   );
@@ -577,11 +565,15 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     textAlign: 'center',
   },
+  featuresListContainer: {
+    marginTop: verticalScale(16),
+    gap: verticalScale(8),
+  },
   featureRow: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: scale(12),
-    marginVertical: verticalScale(6),
+    marginVertical: verticalScale(4),
   },
   featureText: {
     color: TEXT_PRIMARY,
@@ -644,5 +636,30 @@ const styles = StyleSheet.create({
     color: TEXT_PRIMARY,
     fontSize: moderateScale(14),
     fontWeight: '500',
+  },
+  readyFeatureComingSoon: {
+    backgroundColor: '#E5E5EA',
+    paddingVertical: verticalScale(8),
+    paddingHorizontal: scale(14),
+    borderRadius: moderateScale(12),
+    color: TEXT_SECONDARY,
+    fontSize: moderateScale(14),
+    fontWeight: '500',
+    fontStyle: 'italic',
+  },
+  featureTextMuted: {
+    color: TEXT_SECONDARY,
+  },
+  comingSoonBadge: {
+    backgroundColor: '#FF9500',
+    paddingVertical: verticalScale(2),
+    paddingHorizontal: scale(8),
+    borderRadius: moderateScale(8),
+    marginLeft: scale(8),
+  },
+  comingSoonText: {
+    color: '#FFFFFF',
+    fontSize: moderateScale(11),
+    fontWeight: '600',
   },
 });

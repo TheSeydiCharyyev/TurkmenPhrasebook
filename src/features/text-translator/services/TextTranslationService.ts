@@ -2,7 +2,7 @@
 // Сервис для текстового перевода с историей
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import TranslationService from '../../visual-translator/services/TranslationService';
+import TranslationService from '../../../services/TranslationService';
 import {
   TextTranslationResult,
   TranslationHistory,
@@ -56,7 +56,7 @@ class TextTranslationService {
         throw new Error('Text is too long (max 5000 characters)');
       }
 
-      // Используем TranslationService из visual-translator
+      // Используем общий TranslationService
       const translatedText = await TranslationService.translate(
         text,
         sourceLanguage,

@@ -2,7 +2,6 @@
 // ✅ Phase 1 & Phase 2 - Полностью обновлено
 
 import type { Category, SubCategory, Phrase, PhraseWithTranslation } from './index';
-import type { TranslationResult } from '../features/visual-translator/types/visual-translator.types';
 
 /**
  * ГЛАВНЫЙ СТЕК НАВИГАЦИИ (Hub Architecture)
@@ -23,16 +22,14 @@ export type RootStackParamList = {
   Home: undefined;  // Phrasebook Home Stack
   PhraseDetail: { phrase: PhraseWithTranslation };
 
-  // Visual Translator Module (Phase 2 - Ready)
+  // Visual Translator Module (Phase 2 - Coming in v1.5)
   VisualTranslator: undefined;
-  TranslationResult: { result: TranslationResult };
 
   // Text Translator Module (Phase 3 - Ready)
   TextTranslator: undefined;
 
-  // Voice Translator Module (Phase 6 - Coming Soon)
-  VoiceTranslator: undefined;
-  VoiceTranslatorComingSoon: undefined;
+  // Coming Soon Screen (for unreleased features)
+  ComingSoon: { feature: 'voice' | 'visual' };
 
   // AI Assistants Module (Phase 4 - Ready)
   UniversalAIChat: undefined; // Universal AI assistant (replaces old separate assistants)
@@ -75,14 +72,7 @@ export type AdditionalFeaturesStackParamList = {
   Recent?: undefined;
 };
 
-/**
- * VISUAL TRANSLATOR STACK (Phase 2)
- */
-export type VisualTranslatorStackParamList = {
-  VisualTranslatorHome: undefined;
-  Camera?: { targetLanguage: string };
-  TranslationResult: { result: TranslationResult };
-};
+// Visual Translator removed - Coming in v1.5
 
 // ===== DEPRECATED (Старые типы - оставлены для обратной совместимости) =====
 
@@ -130,5 +120,4 @@ export type {
   SubCategory,
   Phrase,
   PhraseWithTranslation,
-  TranslationResult,
 };

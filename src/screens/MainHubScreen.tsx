@@ -64,16 +64,6 @@ const getModules = (texts: InterfaceTexts): ModuleCard[] => [
     route: 'TextTranslator',
   },
   {
-    id: 'visual-translator',
-    title: texts.visualTranslatorTitle,
-    subtitle: texts.visualTranslatorSubtitle,
-    icon: '📷',
-    iconName: 'camera-outline',
-    gradientColors: ['#FFFFFF', '#FFFFFF'], // Белая карточка
-    iconColor: '#FF7A00', // Янтарная иконка
-    route: 'VisualTranslator',
-  },
-  {
     id: 'ai-assistants',
     title: texts.aiAssistantsTitle,
     subtitle: texts.aiAssistantsSubtitle,
@@ -84,6 +74,17 @@ const getModules = (texts: InterfaceTexts): ModuleCard[] => [
     route: 'UniversalAIChat',
   },
   {
+    id: 'visual-translator',
+    title: texts.visualTranslatorTitle,
+    subtitle: texts.visualTranslatorSubtitle,
+    icon: '📷',
+    iconName: 'camera-outline',
+    gradientColors: ['#FFFFFF', '#FFFFFF'], // Белая карточка
+    iconColor: '#FF7A00', // Янтарная иконка
+    route: 'VisualTranslator',
+    isComingSoon: true, // Coming in v1.5
+  },
+  {
     id: 'voice-translator',
     title: texts.voiceTranslatorTitle,
     subtitle: texts.voiceTranslatorSubtitle,
@@ -91,7 +92,7 @@ const getModules = (texts: InterfaceTexts): ModuleCard[] => [
     iconName: 'mic-outline',
     gradientColors: ['#FFFFFF', '#FFFFFF'], // Белая карточка
     iconColor: '#FF6B35', // Коралловая иконка
-    route: 'VoiceTranslatorComingSoon',
+    route: 'ComingSoon',
     isComingSoon: true, // Coming soon
   },
 ];
@@ -166,15 +167,14 @@ export default function MainHubScreen() {
 
     // Coming soon модули → переход на Coming Soon экран
     if (module.isComingSoon) {
-      navigation.navigate('VoiceTranslatorComingSoon');
+      const feature = module.id === 'visual-translator' ? 'visual' : 'voice';
+      navigation.navigate('ComingSoon', { feature });
       return;
     }
 
     // Навигация в модуль
     if (module.id === 'phrasebook') {
       navigation.navigate('Home');
-    } else if (module.id === 'visual-translator') {
-      navigation.navigate('VisualTranslator');
     } else if (module.id === 'text-translator') {
       navigation.navigate('TextTranslator');
     } else if (module.id === 'ai-assistants') {
