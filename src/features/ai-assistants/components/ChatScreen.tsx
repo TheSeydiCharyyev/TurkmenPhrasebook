@@ -24,6 +24,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useAppLanguage, InterfaceTexts } from '../../../contexts/LanguageContext';
 import AIAssistantService from '../services/AIAssistantService';
 import ChatBubble from './ChatBubble';
+import { useSafeArea } from '../../../hooks/useSafeArea';
 import {
   AssistantType,
   ChatMessage,
@@ -60,6 +61,9 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
   const [showMenu, setShowMenu] = useState(false);
   const scrollViewRef = useRef<ScrollView>(null);
   const inputRef = useRef<TextInput>(null);
+
+  // Safe Area для корректной работы с home indicator/navigation bar
+  const { bottom: safeAreaBottom, top: safeAreaTop } = useSafeArea();
 
   const assistantConfig = AIAssistantService.getAssistantConfig(assistantType);
   const translatedName = getTranslatedAssistantName(assistantType, texts);
@@ -289,7 +293,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
   };
 
   return (
-    <View style={styles.safeArea}>
+    <View style={[styles.safeArea, { paddingTop: safeAreaTop }]}>
       <StatusBar
         barStyle="dark-content"
         backgroundColor="#FFFFFF"
@@ -298,7 +302,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
       <KeyboardAvoidingView
         style={styles.container}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 90 : 0}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? safeAreaTop : 0}
       >
         {/* Header - Clean minimal design like Claude/ChatGPT */}
         <View style={styles.header}>
@@ -343,8 +347,8 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
           )}
         </ScrollView>
 
-        {/* Input */}
-        <View style={styles.inputContainer}>
+        {/* Input - с учётом SafeArea снизу */}
+        <View style={[styles.inputContainer, { paddingBottom: Math.max(safeAreaBottom, verticalScale(16)) }]}>
           <TextInput
             ref={inputRef}
             style={styles.input}
@@ -479,7 +483,7 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: '#FFFFFF',
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+    // paddingTop теперь динамический через safeAreaTop
   },
   container: {
     flex: 1,

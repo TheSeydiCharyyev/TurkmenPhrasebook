@@ -168,7 +168,7 @@ export default function ComingSoonScreen() {
   const features = getFeatures();
 
   return (
-    <SafeAreaView style={styles.container} edges={['top']}>
+    <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
       <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
 
       {/* Header */}
@@ -193,57 +193,60 @@ export default function ComingSoonScreen() {
           },
         ]}
       >
-        {/* Animated Icon */}
-        <View style={styles.iconContainer}>
-          {/* Sound waves background */}
-          <View style={styles.wavesContainer}>
-            <Animated.View style={[styles.wave, styles.wave1, { opacity: waveAnim1, borderColor: config.accentColor }]} />
-            <Animated.View style={[styles.wave, styles.wave2, { opacity: waveAnim2, borderColor: config.accentColor }]} />
-            <Animated.View style={[styles.wave, styles.wave3, { opacity: waveAnim3, borderColor: config.accentColor }]} />
+        {/* Top Content */}
+        <View style={styles.topContent}>
+          {/* Animated Icon */}
+          <View style={styles.iconContainer}>
+            {/* Sound waves background */}
+            <View style={styles.wavesContainer}>
+              <Animated.View style={[styles.wave, styles.wave1, { opacity: waveAnim1, borderColor: config.accentColor }]} />
+              <Animated.View style={[styles.wave, styles.wave2, { opacity: waveAnim2, borderColor: config.accentColor }]} />
+              <Animated.View style={[styles.wave, styles.wave3, { opacity: waveAnim3, borderColor: config.accentColor }]} />
+            </View>
+
+            <Animated.View style={{ transform: [{ scale: pulseAnim }] }}>
+              <LinearGradient
+                colors={config.gradientColors}
+                style={styles.iconCircle}
+              >
+                <Ionicons name={config.icon} size={moderateScale(48)} color="#FFFFFF" />
+              </LinearGradient>
+            </Animated.View>
           </View>
 
-          <Animated.View style={{ transform: [{ scale: pulseAnim }] }}>
+          {/* Coming Soon Badge with Version */}
+          <View style={styles.badgeContainer}>
             <LinearGradient
               colors={config.gradientColors}
-              style={styles.iconCircle}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+              style={styles.badge}
             >
-              <Ionicons name={config.icon} size={moderateScale(56)} color="#FFFFFF" />
+              <MaterialCommunityIcons name="clock-outline" size={moderateScale(16)} color="#FFFFFF" />
+              <Text style={styles.badgeText}>
+                {texts.comingSoonInVersion?.replace('{version}', config.version) || `Coming in v${config.version}`}
+              </Text>
             </LinearGradient>
-          </Animated.View>
-        </View>
+          </View>
 
-        {/* Coming Soon Badge with Version */}
-        <View style={styles.badgeContainer}>
-          <LinearGradient
-            colors={config.gradientColors}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            style={styles.badge}
-          >
-            <MaterialCommunityIcons name="clock-outline" size={moderateScale(16)} color="#FFFFFF" />
-            <Text style={styles.badgeText}>
-              {texts.comingSoonInVersion?.replace('{version}', config.version) || `Coming in v${config.version}`}
-            </Text>
-          </LinearGradient>
-        </View>
+          {/* Title & Description */}
+          <Text style={styles.title}>{getComingSoonTitle()}</Text>
+          <Text style={styles.description}>{getDescription()}</Text>
 
-        {/* Title & Description */}
-        <Text style={styles.title}>{getComingSoonTitle()}</Text>
-        <Text style={styles.description}>{getDescription()}</Text>
-
-        {/* Features List */}
-        <View style={styles.featuresContainer}>
-          {features.map((item, index) => (
-            <View key={index} style={styles.featureItem}>
-              <View style={[styles.featureIconCircle, { backgroundColor: config.lightAccent }]}>
-                <Ionicons name={item.icon} size={moderateScale(20)} color={config.accentColor} />
+          {/* Features List */}
+          <View style={styles.featuresContainer}>
+            {features.map((item, index) => (
+              <View key={index} style={styles.featureItem}>
+                <View style={[styles.featureIconCircle, { backgroundColor: config.lightAccent }]}>
+                  <Ionicons name={item.icon} size={moderateScale(20)} color={config.accentColor} />
+                </View>
+                <Text style={styles.featureText}>{item.text}</Text>
               </View>
-              <Text style={styles.featureText}>{item.text}</Text>
-            </View>
-          ))}
+            ))}
+          </View>
         </View>
 
-        {/* Back Button */}
+        {/* Back Button - всегда внизу */}
         <TouchableOpacity
           style={[styles.mainButton, { backgroundColor: config.accentColor, shadowColor: config.accentColor }]}
           onPress={() => navigation.goBack()}
@@ -290,15 +293,22 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     paddingHorizontal: scale(24),
-    paddingTop: verticalScale(40),
+    paddingTop: verticalScale(16),
+    paddingBottom: verticalScale(16),
     alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  topContent: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   iconContainer: {
-    width: scale(160),
-    height: scale(160),
+    width: scale(140),
+    height: scale(140),
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: verticalScale(24),
+    marginBottom: verticalScale(16),
   },
   wavesContainer: {
     position: 'absolute',
@@ -313,21 +323,21 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   wave1: {
+    width: scale(100),
+    height: scale(100),
+  },
+  wave2: {
     width: scale(120),
     height: scale(120),
   },
-  wave2: {
+  wave3: {
     width: scale(140),
     height: scale(140),
   },
-  wave3: {
-    width: scale(160),
-    height: scale(160),
-  },
   iconCircle: {
-    width: scale(100),
-    height: scale(100),
-    borderRadius: scale(50),
+    width: scale(80),
+    height: scale(80),
+    borderRadius: scale(40),
     justifyContent: 'center',
     alignItems: 'center',
     shadowOffset: { width: 0, height: verticalScale(8) },
@@ -336,7 +346,7 @@ const styles = StyleSheet.create({
     elevation: 10,
   },
   badgeContainer: {
-    marginBottom: verticalScale(20),
+    marginBottom: verticalScale(12),
   },
   badge: {
     flexDirection: 'row',
@@ -352,24 +362,24 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   title: {
-    fontSize: moderateScale(26),
+    fontSize: moderateScale(24),
     fontWeight: '700',
     color: '#1F2937',
     textAlign: 'center',
-    marginBottom: verticalScale(12),
-    lineHeight: moderateScale(34),
+    marginBottom: verticalScale(8),
+    lineHeight: moderateScale(30),
   },
   description: {
-    fontSize: moderateScale(16),
+    fontSize: moderateScale(15),
     color: '#6B7280',
     textAlign: 'center',
-    lineHeight: moderateScale(24),
-    marginBottom: verticalScale(32),
+    lineHeight: moderateScale(22),
+    marginBottom: verticalScale(20),
     paddingHorizontal: scale(8),
   },
   featuresContainer: {
     width: '100%',
-    marginBottom: verticalScale(40),
+    marginBottom: verticalScale(16),
   },
   featureItem: {
     flexDirection: 'row',
@@ -399,6 +409,7 @@ const styles = StyleSheet.create({
     paddingVertical: verticalScale(16),
     borderRadius: scale(12),
     alignItems: 'center',
+    marginBottom: verticalScale(16), // Добавлен отступ снизу
     shadowOffset: { width: 0, height: verticalScale(4) },
     shadowOpacity: 0.2,
     shadowRadius: scale(8),

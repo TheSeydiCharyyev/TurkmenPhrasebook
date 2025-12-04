@@ -7,9 +7,9 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  Dimensions,
   Animated,
   Platform,
+  useWindowDimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -18,8 +18,6 @@ import { useConfig } from '../contexts/ConfigContext';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
 import { useSafeArea } from '../hooks/useSafeArea';
-
-const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 
 interface OnboardingSlide {
   id: string;
@@ -43,8 +41,14 @@ export default function OnboardingScreen({ navigation, onComplete }: OnboardingS
   const flatListRef = useRef<FlatList>(null);
   const scrollX = useRef(new Animated.Value(0)).current;
 
-  // Safe Area для bottom padding (home indicator)
-  const { bottom: safeAreaBottom } = useSafeArea();
+  // Динамические размеры экрана (реактивные)
+  const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = useWindowDimensions();
+
+  // Safe Area для корректной работы с notch/Dynamic Island
+  const { bottom: safeAreaBottom, top: safeAreaTop } = useSafeArea();
+
+  // Адаптивный размер иконки на основе высоты экрана
+  const iconSize = Math.min(moderateScale(80), SCREEN_HEIGHT * 0.1);
 
   const slides: OnboardingSlide[] = [
     {
@@ -127,15 +131,18 @@ export default function OnboardingScreen({ navigation, onComplete }: OnboardingS
 
   const renderSlide = ({ item }: { item: OnboardingSlide }) => {
     return (
-      <View style={styles.slide}>
+      <View style={[styles.slide, { width: SCREEN_WIDTH, height: SCREEN_HEIGHT }]}>
         <LinearGradient
           colors={item.gradient as readonly [string, string, ...string[]]}
           style={styles.gradientBackground}
         >
-          <SafeAreaView style={styles.safeArea}>
-            {/* Skip button */}
+          <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
+            {/* Skip button - с учётом SafeArea сверху */}
             {currentIndex < slides.length - 1 && (
-              <TouchableOpacity style={styles.skipButton} onPress={handleSkip}>
+              <TouchableOpacity
+                style={[styles.skipButton, { top: safeAreaTop + verticalScale(16) }]}
+                onPress={handleSkip}
+              >
                 <Text style={styles.skipText}>{texts.onboardingSkip}</Text>
               </TouchableOpacity>
             )}
@@ -144,7 +151,7 @@ export default function OnboardingScreen({ navigation, onComplete }: OnboardingS
             <View style={styles.content}>{item.component}</View>
 
             {/* Dots Indicator */}
-            <View style={[styles.footer, { paddingBottom: Math.max(safeAreaBottom, verticalScale(40)) }]}>
+            <View style={[styles.footer, { paddingBottom: Math.max(safeAreaBottom, verticalScale(24)) }]}>
               <View style={styles.dotsContainer}>
                 {slides.map((_, index) => {
                   const inputRange = [
@@ -184,7 +191,7 @@ export default function OnboardingScreen({ navigation, onComplete }: OnboardingS
               {currentIndex < slides.length - 1 && (
                 <TouchableOpacity style={styles.nextButton} onPress={handleNext}>
                   <Text style={styles.nextButtonText}>{texts.onboardingNext}</Text>
-                  <Ionicons name="arrow-forward" size={20} color="#FFF" />
+                  <Ionicons name="arrow-forward" size={moderateScale(20)} color="#FFF" />
                 </TouchableOpacity>
               )}
             </View>
@@ -218,10 +225,13 @@ export default function OnboardingScreen({ navigation, onComplete }: OnboardingS
 function WelcomeSlide() {
   const { getTexts } = useAppLanguage();
   const texts = getTexts();
+  const { height } = useWindowDimensions();
+  // Адаптивный размер иконки
+  const iconSize = Math.min(moderateScale(80), height * 0.1);
 
   return (
     <View style={styles.slideContent}>
-      <Ionicons name="airplane" size={100} color="#00A651" style={styles.slideIcon} />
+      <Ionicons name="airplane" size={iconSize} color="#00A651" style={styles.slideIcon} />
       <Text style={styles.slideTitle}>{texts.onboardingWelcomeTitle}</Text>
       <Text style={styles.slideSubtitle}>
         {texts.onboardingWelcomeSubtitle}
@@ -234,6 +244,8 @@ function PhrasebookSlide() {
   const { getTexts } = useAppLanguage();
   const texts = getTexts();
   const [audioPlaying, setAudioPlaying] = useState(false);
+  const { height } = useWindowDimensions();
+  const iconSize = Math.min(moderateScale(80), height * 0.1);
 
   const handlePlayAudio = () => {
     setAudioPlaying(true);
@@ -242,7 +254,7 @@ function PhrasebookSlide() {
 
   return (
     <View style={styles.slideContent}>
-      <Ionicons name="book" size={100} color="#00A651" style={styles.slideIcon} />
+      <Ionicons name="book" size={iconSize} color="#00A651" style={styles.slideIcon} />
       <Text style={styles.slideTitle}>{texts.onboardingPhrasebookTitle}</Text>
       <Text style={styles.slideSubtitle}>
         {texts.onboardingPhrasebookSubtitle}
@@ -289,10 +301,12 @@ function TranslatorSlide() {
   const { getTexts } = useAppLanguage();
   const texts = getTexts();
   const [translated, setTranslated] = useState(false);
+  const { height } = useWindowDimensions();
+  const iconSize = Math.min(moderateScale(80), height * 0.1);
 
   return (
     <View style={styles.slideContent}>
-      <Ionicons name="language" size={100} color="#00A651" style={styles.slideIcon} />
+      <Ionicons name="language" size={iconSize} color="#00A651" style={styles.slideIcon} />
       <Text style={styles.slideTitle}>{texts.onboardingTranslationTitle}</Text>
       <Text style={styles.slideSubtitle}>
         {texts.onboardingTranslationSubtitle}
@@ -352,10 +366,23 @@ function TranslatorSlide() {
 function ReadySlide({ onGetStarted }: { onGetStarted: () => void }) {
   const { getTexts } = useAppLanguage();
   const texts = getTexts();
+  const { height } = useWindowDimensions();
+  const iconSize = Math.min(moderateScale(80), height * 0.1);
+
+  // Профессиональные иконки для функций
+  const features = [
+    { icon: 'book-outline' as const, label: texts.onboardingTagPhrasebook, available: true },
+    { icon: 'volume-high-outline' as const, label: texts.onboardingTagAudio, available: true },
+    { icon: 'cloud-offline-outline' as const, label: texts.onboardingTagOffline, available: true },
+    { icon: 'language-outline' as const, label: texts.onboardingTagTranslator, available: true },
+    { icon: 'sparkles-outline' as const, label: texts.onboardingTagAI, available: true },
+    { icon: 'camera-outline' as const, label: texts.onboardingTagVisual, available: false },
+    { icon: 'mic-outline' as const, label: texts.onboardingTagVoice, available: false },
+  ];
 
   return (
     <View style={styles.slideContent}>
-      <Ionicons name="checkmark-circle" size={100} color="#00A651" style={styles.slideIcon} />
+      <Ionicons name="checkmark-circle" size={iconSize} color="#00A651" style={styles.slideIcon} />
       <Text style={styles.slideTitle}>{texts.onboardingReadyTitle}</Text>
       <Text style={styles.slideSubtitle}>
         {texts.onboardingReadySubtitle}
@@ -363,17 +390,36 @@ function ReadySlide({ onGetStarted }: { onGetStarted: () => void }) {
 
       <TouchableOpacity style={styles.getStartedButton} onPress={onGetStarted}>
         <Text style={styles.getStartedButtonText}>{texts.onboardingGetStarted}</Text>
-        <Ionicons name="arrow-forward" size={20} color="#FFFFFF" />
+        <Ionicons name="arrow-forward" size={moderateScale(20)} color="#FFFFFF" />
       </TouchableOpacity>
 
       <View style={styles.featuresGrid}>
-        <Text style={styles.readyFeature}>{texts.onboardingTagPhrasebook}</Text>
-        <Text style={styles.readyFeature}>{texts.onboardingTagAudio}</Text>
-        <Text style={styles.readyFeature}>{texts.onboardingTagOffline}</Text>
-        <Text style={styles.readyFeature}>{texts.onboardingTagTranslator}</Text>
-        <Text style={styles.readyFeature}>{texts.onboardingTagAI}</Text>
-        <Text style={styles.readyFeatureComingSoon}>{texts.onboardingTagVisual} ({texts.onboardingComingSoon})</Text>
-        <Text style={styles.readyFeatureComingSoon}>{texts.onboardingTagVoice} ({texts.onboardingComingSoon})</Text>
+        {features.map((feature, index) => (
+          <View
+            key={index}
+            style={[
+              styles.featureTag,
+              !feature.available && styles.featureTagDisabled
+            ]}
+          >
+            <Ionicons
+              name={feature.icon}
+              size={moderateScale(16)}
+              color={feature.available ? '#00A651' : '#9CA3AF'}
+            />
+            <Text style={[
+              styles.featureTagText,
+              !feature.available && styles.featureTagTextDisabled
+            ]}>
+              {feature.label}
+            </Text>
+            {!feature.available && (
+              <View style={styles.comingSoonMini}>
+                <Text style={styles.comingSoonMiniText}>{texts.onboardingComingSoon}</Text>
+              </View>
+            )}
+          </View>
+        ))}
       </View>
     </View>
   );
@@ -392,8 +438,7 @@ const styles = StyleSheet.create({
     backgroundColor: BACKGROUND,
   },
   slide: {
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
+    // width и height устанавливаются динамически
   },
   gradientBackground: {
     flex: 1,
@@ -404,7 +449,7 @@ const styles = StyleSheet.create({
   },
   skipButton: {
     position: 'absolute',
-    top: verticalScale(60),
+    // top устанавливается динамически с учётом safeAreaTop
     right: scale(20),
     zIndex: 10,
     paddingHorizontal: scale(16),
@@ -412,8 +457,8 @@ const styles = StyleSheet.create({
   },
   skipText: {
     color: ACCENT_COLOR,
-    fontSize: moderateScale(17),
-    fontWeight: '400',
+    fontSize: moderateScale(16),
+    fontWeight: '500',
   },
   content: {
     flex: 1,
@@ -425,25 +470,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    paddingHorizontal: scale(32),
+    paddingHorizontal: scale(24),
   },
   slideIcon: {
-    marginBottom: verticalScale(40),
+    marginBottom: verticalScale(24),
   },
   slideTitle: {
-    fontSize: moderateScale(34),
+    fontSize: moderateScale(28),
     fontWeight: '700',
     color: TEXT_PRIMARY,
     textAlign: 'center',
-    marginBottom: verticalScale(12),
+    marginBottom: verticalScale(8),
     letterSpacing: -0.5,
   },
   slideSubtitle: {
-    fontSize: moderateScale(17),
+    fontSize: moderateScale(16),
     color: TEXT_SECONDARY,
     textAlign: 'center',
-    marginBottom: verticalScale(40),
-    lineHeight: moderateScale(24),
+    marginBottom: verticalScale(24),
+    lineHeight: moderateScale(22),
     fontWeight: '400',
   },
   footer: {
@@ -482,28 +527,28 @@ const styles = StyleSheet.create({
   demoBox: {
     backgroundColor: '#F5F5F7',
     borderRadius: moderateScale(16),
-    padding: scale(24),
+    padding: scale(16),
     width: '100%',
-    marginTop: verticalScale(20),
+    marginTop: verticalScale(12),
   },
   demoRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: verticalScale(20),
+    marginBottom: verticalScale(12),
   },
   demoLabel: {
-    fontSize: moderateScale(22),
+    fontSize: moderateScale(18),
     color: TEXT_PRIMARY,
     fontWeight: '600',
   },
   demoArrow: {
-    fontSize: moderateScale(22),
+    fontSize: moderateScale(18),
     color: TEXT_SECONDARY,
-    marginHorizontal: scale(16),
+    marginHorizontal: scale(12),
   },
   demoValue: {
-    fontSize: moderateScale(22),
+    fontSize: moderateScale(18),
     color: ACCENT_COLOR,
     fontWeight: '700',
   },
@@ -609,12 +654,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: ACCENT_COLOR,
-    paddingVertical: verticalScale(16),
-    paddingHorizontal: scale(40),
+    paddingVertical: verticalScale(14),
+    paddingHorizontal: scale(32),
     borderRadius: moderateScale(14),
     gap: scale(8),
-    marginTop: verticalScale(32),
-    marginBottom: verticalScale(24),
+    marginTop: verticalScale(20),
+    marginBottom: verticalScale(16),
   },
   getStartedButtonText: {
     color: '#FFFFFF',
@@ -626,26 +671,42 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'center',
     gap: scale(8),
-    paddingHorizontal: scale(20),
+    paddingHorizontal: scale(16),
   },
-  readyFeature: {
-    backgroundColor: '#F5F5F7',
+  featureTag: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#F0FDF4',
     paddingVertical: verticalScale(8),
-    paddingHorizontal: scale(14),
-    borderRadius: moderateScale(12),
-    color: TEXT_PRIMARY,
-    fontSize: moderateScale(14),
+    paddingHorizontal: scale(12),
+    borderRadius: moderateScale(20),
+    gap: scale(6),
+    borderWidth: 1,
+    borderColor: '#BBF7D0',
+  },
+  featureTagDisabled: {
+    backgroundColor: '#F3F4F6',
+    borderColor: '#E5E7EB',
+  },
+  featureTagText: {
+    color: '#166534',
+    fontSize: moderateScale(13),
     fontWeight: '500',
   },
-  readyFeatureComingSoon: {
-    backgroundColor: '#E5E5EA',
-    paddingVertical: verticalScale(8),
-    paddingHorizontal: scale(14),
-    borderRadius: moderateScale(12),
-    color: TEXT_SECONDARY,
-    fontSize: moderateScale(14),
-    fontWeight: '500',
-    fontStyle: 'italic',
+  featureTagTextDisabled: {
+    color: '#6B7280',
+  },
+  comingSoonMini: {
+    backgroundColor: '#F59E0B',
+    paddingVertical: verticalScale(2),
+    paddingHorizontal: scale(6),
+    borderRadius: moderateScale(6),
+    marginLeft: scale(2),
+  },
+  comingSoonMiniText: {
+    color: '#FFFFFF',
+    fontSize: moderateScale(9),
+    fontWeight: '600',
   },
   featureTextMuted: {
     color: TEXT_SECONDARY,
