@@ -192,7 +192,6 @@ export type {
   RootStackParamList,
   HomeStackParamList,
   AdditionalFeaturesStackParamList,
-  VisualTranslatorStackParamList,
   MainTabParamList,
   NavigationProp,
   RouteProp,

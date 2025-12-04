@@ -23,15 +23,11 @@ import StatsScreen from '../screens/StatsScreen';
 import AdditionalFeaturesScreen from '../screens/AdditionalFeaturesScreen';
 import PhraseDetailScreen from '../screens/PhraseDetailScreen';
 
-// Visual Translator screens (Phase 2)
-import VisualTranslatorHomeScreen from '../features/visual-translator/screens/VisualTranslatorHomeScreen';
-import TranslationResultScreen from '../features/visual-translator/screens/TranslationResultScreen';
-
 // Text Translator screens (Phase 3)
 import TextTranslatorScreen from '../features/text-translator/screens/TextTranslatorScreen';
 
-// Voice Translator screens (Phase 6) - Coming Soon
-import VoiceTranslatorComingSoonScreen from '../features/voice-translator/screens/VoiceTranslatorComingSoonScreen';
+// Coming Soon screen (for Visual Translator v1.5 & Voice Translator v2.0)
+import ComingSoonScreen from '../screens/ComingSoonScreen';
 
 // AI Assistants screens (Phase 4)
 import UniversalAIChatScreen from '../features/ai-assistants/screens/UniversalAIChatScreen';
@@ -200,18 +196,6 @@ export default function AppNavigator() {
           options={{ headerShown: false }}
         />
 
-        {/* Visual Translator (Phase 2) */}
-        <RootStack.Screen
-          name="VisualTranslator"
-          component={VisualTranslatorHomeScreen}
-          options={{ headerShown: false }}
-        />
-        <RootStack.Screen
-          name="TranslationResult"
-          component={TranslationResultScreen}
-          options={{ headerShown: false }}
-        />
-
         {/* Text Translator (Phase 3) */}
         <RootStack.Screen
           name="TextTranslator"
@@ -219,15 +203,10 @@ export default function AppNavigator() {
           options={{ headerShown: false }}
         />
 
-        {/* Voice Translator (Phase 6) - Coming Soon */}
+        {/* Coming Soon Screen (Visual Translator v1.5 & Voice Translator v2.0) */}
         <RootStack.Screen
-          name="VoiceTranslator"
-          component={VoiceTranslatorComingSoonScreen}
-          options={{ headerShown: false }}
-        />
-        <RootStack.Screen
-          name="VoiceTranslatorComingSoon"
-          component={VoiceTranslatorComingSoonScreen}
+          name="ComingSoon"
+          component={ComingSoonScreen}
           options={{ headerShown: false }}
         />
 

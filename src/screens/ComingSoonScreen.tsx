@@ -1,5 +1,5 @@
-// src/features/voice-translator/screens/VoiceTranslatorComingSoonScreen.tsx
-// Beautiful Coming Soon screen for Voice Translator feature
+// src/screens/ComingSoonScreen.tsx
+// Universal Coming Soon screen for unreleased features (Visual Translator v1.5, Voice Translator v2.0)
 
 import React, { useEffect, useRef } from 'react';
 import {
@@ -9,21 +9,43 @@ import {
   TouchableOpacity,
   Animated,
   StatusBar,
-  Dimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute, RouteProp } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useAppLanguage } from '../../../contexts/LanguageContext';
-import { scale, verticalScale, moderateScale } from '../../../utils/ResponsiveUtils';
+import { useAppLanguage } from '../contexts/LanguageContext';
+import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
+import type { RootStackParamList } from '../types';
 
-const { width } = Dimensions.get('window');
+type ComingSoonRouteProp = RouteProp<RootStackParamList, 'ComingSoon'>;
 
-export default function VoiceTranslatorComingSoonScreen() {
+// Feature configurations
+const FEATURE_CONFIG = {
+  voice: {
+    version: '2.0',
+    icon: 'mic' as const,
+    gradientColors: ['#8B5CF6', '#A78BFA'] as [string, string],
+    accentColor: '#8B5CF6',
+    lightAccent: '#EDE9FE',
+  },
+  visual: {
+    version: '1.5',
+    icon: 'camera' as const,
+    gradientColors: ['#10B981', '#34D399'] as [string, string],
+    accentColor: '#10B981',
+    lightAccent: '#D1FAE5',
+  },
+};
+
+export default function ComingSoonScreen() {
   const navigation = useNavigation();
+  const route = useRoute<ComingSoonRouteProp>();
   const { getTexts } = useAppLanguage();
   const texts = getTexts();
+
+  const feature = route.params?.feature || 'voice';
+  const config = FEATURE_CONFIG[feature];
 
   // Animations
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -48,7 +70,7 @@ export default function VoiceTranslatorComingSoonScreen() {
       }),
     ]).start();
 
-    // Pulse animation for mic icon
+    // Pulse animation for icon
     Animated.loop(
       Animated.sequence([
         Animated.timing(pulseAnim, {
@@ -88,20 +110,62 @@ export default function VoiceTranslatorComingSoonScreen() {
     animateWave(waveAnim3, 400);
   }, []);
 
-  const features = [
-    {
-      icon: 'mic-outline' as const,
-      text: texts.voiceComingSoonFeature1 || 'Real-time voice recognition',
-    },
-    {
-      icon: 'language-outline' as const,
-      text: texts.voiceComingSoonFeature2 || 'Instant translation',
-    },
-    {
-      icon: 'volume-high-outline' as const,
-      text: texts.voiceComingSoonFeature3 || 'Text-to-speech playback',
-    },
-  ];
+  // Get localized content based on feature
+  const getTitle = () => {
+    if (feature === 'voice') {
+      return texts.voiceTranslatorTitle || 'Voice Translator';
+    }
+    return texts.visualTranslatorTitle || 'Visual Translator';
+  };
+
+  const getComingSoonTitle = () => {
+    if (feature === 'voice') {
+      return texts.voiceComingSoonTitle || 'Voice Translator is Coming!';
+    }
+    return texts.visualComingSoonTitle || 'Visual Translator is Coming!';
+  };
+
+  const getDescription = () => {
+    if (feature === 'voice') {
+      return texts.voiceComingSoonDesc || 'We are working hard to bring you an amazing voice translation experience. Stay tuned!';
+    }
+    return texts.visualComingSoonDesc || 'Translate text from images instantly with AI-powered recognition. Coming soon!';
+  };
+
+  const getFeatures = () => {
+    if (feature === 'voice') {
+      return [
+        {
+          icon: 'mic-outline' as const,
+          text: texts.voiceComingSoonFeature1 || 'Real-time voice recognition',
+        },
+        {
+          icon: 'language-outline' as const,
+          text: texts.voiceComingSoonFeature2 || 'Instant translation',
+        },
+        {
+          icon: 'volume-high-outline' as const,
+          text: texts.voiceComingSoonFeature3 || 'Text-to-speech playback',
+        },
+      ];
+    }
+    return [
+      {
+        icon: 'camera-outline' as const,
+        text: texts.visualComingSoonFeature1 || 'OCR text recognition',
+      },
+      {
+        icon: 'sparkles' as const,
+        text: texts.visualComingSoonFeature2 || 'AI-powered translation',
+      },
+      {
+        icon: 'images-outline' as const,
+        text: texts.visualComingSoonFeature3 || 'Gallery & camera support',
+      },
+    ];
+  };
+
+  const features = getFeatures();
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -116,7 +180,7 @@ export default function VoiceTranslatorComingSoonScreen() {
         >
           <Ionicons name="arrow-back" size={moderateScale(24)} color="#1F2937" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>{texts.voiceTranslatorTitle || 'Voice Translator'}</Text>
+        <Text style={styles.headerTitle}>{getTitle()}</Text>
         <View style={styles.placeholder} />
       </View>
 
@@ -129,61 +193,59 @@ export default function VoiceTranslatorComingSoonScreen() {
           },
         ]}
       >
-        {/* Animated Microphone Icon */}
+        {/* Animated Icon */}
         <View style={styles.iconContainer}>
           {/* Sound waves background */}
           <View style={styles.wavesContainer}>
-            <Animated.View style={[styles.wave, styles.wave1, { opacity: waveAnim1 }]} />
-            <Animated.View style={[styles.wave, styles.wave2, { opacity: waveAnim2 }]} />
-            <Animated.View style={[styles.wave, styles.wave3, { opacity: waveAnim3 }]} />
+            <Animated.View style={[styles.wave, styles.wave1, { opacity: waveAnim1, borderColor: config.accentColor }]} />
+            <Animated.View style={[styles.wave, styles.wave2, { opacity: waveAnim2, borderColor: config.accentColor }]} />
+            <Animated.View style={[styles.wave, styles.wave3, { opacity: waveAnim3, borderColor: config.accentColor }]} />
           </View>
 
           <Animated.View style={{ transform: [{ scale: pulseAnim }] }}>
             <LinearGradient
-              colors={['#8B5CF6', '#A78BFA']}
+              colors={config.gradientColors}
               style={styles.iconCircle}
             >
-              <Ionicons name="mic" size={moderateScale(56)} color="#FFFFFF" />
+              <Ionicons name={config.icon} size={moderateScale(56)} color="#FFFFFF" />
             </LinearGradient>
           </Animated.View>
         </View>
 
-        {/* Coming Soon Badge */}
+        {/* Coming Soon Badge with Version */}
         <View style={styles.badgeContainer}>
           <LinearGradient
-            colors={['#8B5CF6', '#7C3AED']}
+            colors={config.gradientColors}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
             style={styles.badge}
           >
             <MaterialCommunityIcons name="clock-outline" size={moderateScale(16)} color="#FFFFFF" />
-            <Text style={styles.badgeText}>{texts.vtComingSoon || 'Coming Soon'}</Text>
+            <Text style={styles.badgeText}>
+              {texts.comingSoonInVersion?.replace('{version}', config.version) || `Coming in v${config.version}`}
+            </Text>
           </LinearGradient>
         </View>
 
         {/* Title & Description */}
-        <Text style={styles.title}>
-          {texts.voiceComingSoonTitle || 'Voice Translator is Coming!'}
-        </Text>
-        <Text style={styles.description}>
-          {texts.voiceComingSoonDesc || 'We are working hard to bring you an amazing voice translation experience. Stay tuned!'}
-        </Text>
+        <Text style={styles.title}>{getComingSoonTitle()}</Text>
+        <Text style={styles.description}>{getDescription()}</Text>
 
         {/* Features List */}
         <View style={styles.featuresContainer}>
-          {features.map((feature, index) => (
+          {features.map((item, index) => (
             <View key={index} style={styles.featureItem}>
-              <View style={styles.featureIconCircle}>
-                <Ionicons name={feature.icon} size={moderateScale(20)} color="#8B5CF6" />
+              <View style={[styles.featureIconCircle, { backgroundColor: config.lightAccent }]}>
+                <Ionicons name={item.icon} size={moderateScale(20)} color={config.accentColor} />
               </View>
-              <Text style={styles.featureText}>{feature.text}</Text>
+              <Text style={styles.featureText}>{item.text}</Text>
             </View>
           ))}
         </View>
 
         {/* Back Button */}
         <TouchableOpacity
-          style={styles.mainButton}
+          style={[styles.mainButton, { backgroundColor: config.accentColor, shadowColor: config.accentColor }]}
           onPress={() => navigation.goBack()}
           activeOpacity={0.8}
         >
@@ -249,7 +311,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     borderRadius: 1000,
     borderWidth: 2,
-    borderColor: '#8B5CF6',
   },
   wave1: {
     width: scale(120),
@@ -269,7 +330,6 @@ const styles = StyleSheet.create({
     borderRadius: scale(50),
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#8B5CF6',
     shadowOffset: { width: 0, height: verticalScale(8) },
     shadowOpacity: 0.3,
     shadowRadius: scale(16),
@@ -324,7 +384,6 @@ const styles = StyleSheet.create({
     width: scale(40),
     height: scale(40),
     borderRadius: scale(20),
-    backgroundColor: '#EDE9FE',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: scale(16),
@@ -337,11 +396,9 @@ const styles = StyleSheet.create({
   },
   mainButton: {
     width: '100%',
-    backgroundColor: '#8B5CF6',
     paddingVertical: verticalScale(16),
     borderRadius: scale(12),
     alignItems: 'center',
-    shadowColor: '#8B5CF6',
     shadowOffset: { width: 0, height: verticalScale(4) },
     shadowOpacity: 0.2,
     shadowRadius: scale(8),

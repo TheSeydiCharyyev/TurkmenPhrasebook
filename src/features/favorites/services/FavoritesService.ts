@@ -13,7 +13,7 @@ import {
 } from '../types/favorites.types';
 import { Phrase } from '../../../types';
 import { TextTranslationResult } from '../../text-translator/types/text-translator.types';
-import { VisualTranslatorHistory } from '../../visual-translator/types/visual-translator.types';
+// Visual Translator will be available in v1.5
 
 /**
  * FavoritesService - Управление всеми типами избранного
@@ -222,23 +222,7 @@ class FavoritesServiceClass {
     return await this.saveTranslations(newTranslations);
   }
 
-  /**
-   * Добавить перевод в избранное (Visual Translator)
-   */
-  async addVisualTranslation(translation: VisualTranslatorHistory): Promise<boolean> {
-    if (this.isTranslationInFavorites(translation.id)) return true;
-
-    const favoriteItem: FavoriteTranslation = {
-      id: `visual_${translation.id}`,
-      type: 'translation',
-      translationType: 'visual',
-      data: translation,
-      addedAt: Date.now(),
-    };
-
-    const newTranslations = [...this.cachedTranslations, favoriteItem];
-    return await this.saveTranslations(newTranslations);
-  }
+  // addVisualTranslation will be available in v1.5
 
   /**
    * Удалить перевод из избранного

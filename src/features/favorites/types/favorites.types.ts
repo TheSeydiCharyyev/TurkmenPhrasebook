@@ -3,7 +3,9 @@
 
 import { Phrase } from '../../../types';
 import { TextTranslationResult } from '../../text-translator/types/text-translator.types';
-import { VisualTranslatorHistory } from '../../visual-translator/types/visual-translator.types';
+
+// Visual Translator will be available in v1.5
+// For now, only TextTranslationResult is used
 
 /**
  * Типы элементов избранного
@@ -28,12 +30,13 @@ export interface FavoritePhrase extends BaseFavoriteItem {
 }
 
 /**
- * Избранный перевод из Text/Visual Translator
+ * Избранный перевод из Text Translator
+ * (Visual Translator будет добавлен в v1.5)
  */
 export interface FavoriteTranslation extends BaseFavoriteItem {
   type: 'translation';
-  translationType: 'text' | 'visual';
-  data: TextTranslationResult | VisualTranslatorHistory;
+  translationType: 'text';
+  data: TextTranslationResult;
 }
 
 /**
