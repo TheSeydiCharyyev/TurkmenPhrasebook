@@ -1,107 +1,67 @@
 // src/hooks/useAudio.ts
-// ✅ ГИБРИДНАЯ СИСТЕМА: MP3 (туркменский) + TTS (китайский, русский)
+// ✅ ГИБРИДНАЯ СИСТЕМА: MP3 (туркменский) + TTS (поддерживаемые языки)
 
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { Audio } from 'expo-av';
 import * as Speech from 'expo-speech';
-import { Alert, Linking, Platform } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Alert } from 'react-native';
 import { getAudioSource } from '../data/audioMapping';
+
+/**
+ * Языки без поддержки TTS (будут добавлены в v2.1)
+ * Для этих языков показываем Alert вместо воспроизведения
+ */
+const UNSUPPORTED_TTS_LANGUAGES = [
+  'uzbek',
+  'kazakh',
+  'kyrgyz',
+  'tajik',
+  'azerbaijani',
+  'pashto',
+  'armenian',
+  'georgian',
+  'persian',
+  'urdu',
+];
 
 export function useAudio() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [currentLanguage, setCurrentLanguage] = useState<string | null>(null); // Текущий используемый язык (для badge)
+  const [currentLanguage, setCurrentLanguage] = useState<string | null>(null);
   const soundRef = useRef<Audio.Sound | null>(null);
 
   /**
-   * Проверка доступности голоса для языка
+   * Проверить поддерживается ли язык TTS
    */
-  const checkVoiceAvailability = useCallback(async (languageCode: string): Promise<boolean> => {
-    try {
-      const voices = await Speech.getAvailableVoicesAsync();
-      const languagePrefix = languageCode.split('-')[0]; // 'tr-TR' -> 'tr'
-
-      // Проверяем есть ли голос для этого языка
-      const hasVoice = voices.some(voice =>
-        voice.language.toLowerCase().startsWith(languagePrefix.toLowerCase())
-      );
-
-      return hasVoice;
-    } catch (error) {
-      console.warn('[useAudio] Voice check error:', error);
-      return false; // В случае ошибки считаем что голоса нет
-    }
+  const isLanguageSupported = useCallback((language: string): boolean => {
+    return !UNSUPPORTED_TTS_LANGUAGES.includes(language);
   }, []);
 
   /**
-   * Получить fallback язык если основной недоступен
+   * Показать Alert что TTS недоступен для языка
    */
-  const getFallbackLanguage = useCallback((languageCode: string): string => {
-    // Все языки используют английский как fallback
-    // В будущем можно добавить "умные" fallback'и для тюркских языков
-    return 'en-US';
+  const showUnsupportedAlert = useCallback((language: string) => {
+    const languageNames: { [key: string]: string } = {
+      'uzbek': 'Uzbek',
+      'kazakh': 'Kazakh',
+      'kyrgyz': 'Kyrgyz',
+      'tajik': 'Tajik',
+      'azerbaijani': 'Azerbaijani',
+      'pashto': 'Pashto',
+      'armenian': 'Armenian',
+      'georgian': 'Georgian',
+      'persian': 'Persian',
+      'urdu': 'Urdu',
+    };
+
+    const langName = languageNames[language] || language;
+
+    Alert.alert(
+      '🔊 TTS Not Available',
+      `Text-to-speech for ${langName} is not yet available. Coming in version 2.1!`,
+      [{ text: 'OK', style: 'default' }]
+    );
   }, []);
-
-  /**
-   * Открыть настройки TTS для установки языка
-   */
-  const openTTSSettings = useCallback(() => {
-    if (Platform.OS === 'android') {
-      // Android: Открываем настройки TTS
-      Linking.openSettings();
-    } else if (Platform.OS === 'ios') {
-      // iOS: Открываем настройки Accessibility > Spoken Content
-      Linking.openURL('app-settings:');
-    }
-  }, []);
-
-  /**
-   * Открыть Google Play для установки Google TTS
-   */
-  const openGoogleTTS = useCallback(() => {
-    if (Platform.OS === 'android') {
-      // Открываем Google TTS в Play Store
-      Linking.openURL('market://details?id=com.google.android.tts')
-        .catch(() => {
-          // Fallback на веб версию Play Store
-          Linking.openURL('https://play.google.com/store/apps/details?id=com.google.android.tts');
-        });
-    }
-  }, []);
-
-  /**
-   * Показать Alert об отсутствии TTS для языка
-   */
-  const showTTSMissingAlert = useCallback((languageName: string, fallbackLanguage: string) => {
-    const title = `⚠️ ${languageName} голос не найден`;
-
-    const message = Platform.OS === 'android'
-      ? `Для качественного произношения установите Google Text-to-Speech с поддержкой языка "${languageName}".\n\nСейчас используется: ${fallbackLanguage} (fallback)`
-      : `Голос для языка "${languageName}" не найден на вашем устройстве.\n\nСейчас используется: ${fallbackLanguage} (fallback)\n\nУстановите голос в настройках iOS.`;
-
-    const buttons = Platform.OS === 'android'
-      ? [
-          { text: 'ОК', style: 'cancel' as const },
-          {
-            text: '⚙️ Настройки',
-            onPress: openTTSSettings
-          },
-          {
-            text: '📥 Установить TTS',
-            onPress: openGoogleTTS
-          }
-        ]
-      : [
-          { text: 'ОК', style: 'cancel' as const },
-          {
-            text: '⚙️ Открыть настройки',
-            onPress: openTTSSettings
-          }
-        ];
-
-    Alert.alert(title, message, buttons);
-  }, [openTTSSettings, openGoogleTTS]);
 
   // Инициализация аудио режима
   useEffect(() => {
@@ -184,47 +144,6 @@ export function useAudio() {
   };
 
   /**
-   * Получить человекочитаемое название языка для TTS ошибок
-   */
-  const getLanguageName = (language: string): string => {
-    const languageNames: { [key: string]: string } = {
-      'turkmen': 'Туркменский',
-      'chinese': 'Китайский',
-      'russian': 'Русский',
-      'english': 'Английский',
-      'japanese': 'Японский',
-      'korean': 'Корейский',
-      'thai': 'Тайский',
-      'vietnamese': 'Вьетнамский',
-      'indonesian': 'Индонезийский',
-      'malay': 'Малайский',
-      'hindi': 'Хинди',
-      'urdu': 'Урду',
-      'persian': 'Персидский',
-      'pashto': 'Пушту',
-      'german': 'Немецкий',
-      'french': 'Французский',
-      'spanish': 'Испанский',
-      'italian': 'Итальянский',
-      'turkish': 'Турецкий',
-      'polish': 'Польский',
-      'ukrainian': 'Украинский',
-      'portuguese': 'Португальский',
-      'dutch': 'Голландский',
-      'uzbek': 'Узбекский',
-      'kazakh': 'Казахский',
-      'azerbaijani': 'Азербайджанский',
-      'kyrgyz': 'Киргизский',
-      'tajik': 'Таджикский',
-      'armenian': 'Армянский',
-      'georgian': 'Грузинский',
-      'arabic': 'Арабский',
-    };
-
-    return languageNames[language] || language;
-  };
-
-  /**
    * Воспроизведение аудио (гибрид MP3 + TTS)
    * @param text - текст для произношения
    * @param language - любой язык (строка)
@@ -271,39 +190,24 @@ export function useAudio() {
         }
       }
 
-      // ✅ ВСЕ ОСТАЛЬНЫЕ ЯЗЫКИ - используем TTS
-      const requestedLanguageCode = getLanguageCode(language);
-      let actualLanguageCode = requestedLanguageCode;
-
-      // 🔍 ПРОВЕРКА ДОСТУПНОСТИ ГОЛОСА
-      const isVoiceAvailable = await checkVoiceAvailability(requestedLanguageCode);
-
-      if (!isVoiceAvailable) {
-        // Голос недоступен → используем fallback
-        actualLanguageCode = getFallbackLanguage(requestedLanguageCode);
-
-        // Показать Alert только первый раз для этого языка
-        const alertKey = `tts_alert_shown_${language}`;
-        const alertShown = await AsyncStorage.getItem(alertKey);
-
-        if (!alertShown) {
-          const languageName = getLanguageName(language);
-          const fallbackName = 'Английский'; // getFallbackLanguage всегда возвращает en-US
-          showTTSMissingAlert(languageName, fallbackName);
-
-          // Кэшируем что Alert был показан
-          await AsyncStorage.setItem(alertKey, 'true');
-        }
+      // ❌ ПРОВЕРКА: язык не поддерживается TTS
+      if (!isLanguageSupported(language)) {
+        setIsLoading(false);
+        showUnsupportedAlert(language);
+        return language;
       }
+
+      // ✅ ПОДДЕРЖИВАЕМЫЕ ЯЗЫКИ - используем TTS
+      const languageCode = getLanguageCode(language);
 
       setIsPlaying(true);
       setIsLoading(false);
-      setCurrentLanguage(actualLanguageCode);
+      setCurrentLanguage(languageCode);
 
       await Speech.speak(text, {
-        language: actualLanguageCode,
-        rate: 0.85,        // Скорость речи
-        pitch: 1.0,        // Высота голоса
+        language: languageCode,
+        rate: 0.85,
+        pitch: 1.0,
         onDone: () => {
           setIsPlaying(false);
         },
@@ -316,7 +220,7 @@ export function useAudio() {
         },
       });
 
-      return actualLanguageCode;
+      return languageCode;
 
     } catch (error) {
       console.error('[useAudio] Playback error:', error);
@@ -324,7 +228,7 @@ export function useAudio() {
       setIsLoading(false);
       return language;
     }
-  }, [isPlaying, isLoading, checkVoiceAvailability, getFallbackLanguage, showTTSMissingAlert]);
+  }, [isPlaying, isLoading, isLanguageSupported, showUnsupportedAlert]);
 
   /**
    * Остановка воспроизведения

@@ -53,7 +53,7 @@ const PhraseItem = React.memo<{
   toggleFavorite: (id: string) => void;
   onAskAI: (phrase: PhraseWithTranslation) => void;
 }>(({ phrase, onPress, config, isFavorite, toggleFavorite, onAskAI }) => {
-  const { playAudio, isPlaying, isLoading } = useAudio(); // ✅ Добавил isLoading
+  const { playAudio, isPlaying, isLoading } = useAudio();
   const { selectedLanguage } = useConfig();
 
   // ✅ Локальное состояние для отслеживания какая кнопка нажата

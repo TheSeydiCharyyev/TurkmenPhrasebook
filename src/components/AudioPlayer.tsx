@@ -33,28 +33,20 @@ export default function AudioPlayer({
   size = 'large',
   disabled = false
 }: AudioPlayerProps) {
-  const { isPlaying, isLoading, playAudio, stopAudio, currentLanguage } = useAudio();
+  const { isPlaying, isLoading, playAudio, stopAudio } = useAudio();
   const { config } = useAppLanguage();
-  const [usedLanguageCode, setUsedLanguageCode] = useState<string | null>(null);
 
   const handlePress = async () => {
     if (isPlaying) {
       await stopAudio();
-      setUsedLanguageCode(null);
     } else {
-      const actualLang = await playAudio(text, language, audioPath);
-      setUsedLanguageCode(actualLang);
+      await playAudio(text, language, audioPath);
     }
   };
 
-  // Проверяем используется ли fallback (TTS языки)
-  const isFallback = usedLanguageCode &&
-                     language !== 'turkmen' &&
-                     usedLanguageCode.startsWith('en');
-
   const getButtonStyle = () => {
     const baseStyle = size === 'small' ? styles.buttonSmall : styles.buttonLarge;
-    
+
     if (style === 'primary') {
       return [baseStyle, styles.primaryButton];
     } else {
@@ -67,7 +59,7 @@ export default function AudioPlayer({
   };
 
   const getIconSize = () => {
-    return size === 'small' ? 20 : 24; // ✅ МИНИМАЛИЗМ - меньше иконка
+    return size === 'small' ? 20 : 24;
   };
 
   const getPlayingText = () => {
@@ -104,31 +96,24 @@ export default function AudioPlayer({
           )}
         </View>
       </TouchableOpacity>
-
-      {/* Badge для fallback языка */}
-      {isFallback && size === 'large' && (
-        <View style={styles.fallbackBadge}>
-          <Text style={styles.fallbackText}>🔊 Fallback: EN</Text>
-        </View>
-      )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   buttonLarge: {
-    paddingVertical: 14,       // ✅ МИНИМАЛИЗМ - меньше padding
-    paddingHorizontal: 20,     // ✅ Компактнее
-    borderRadius: 12,          // ✅ Меньше скругление
-    minWidth: 160,             // ✅ Компактнее кнопка
-    elevation: 1,              // ✅ Минимальная тень
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    borderRadius: 12,
+    minWidth: 160,
+    elevation: 1,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.05,       // ✅ Очень subtle тень
+    shadowOpacity: 0.05,
     shadowRadius: 2,
-    backgroundColor: '#FFFFFF', // ✅ Белый фон
-    borderWidth: 1.5,          // ✅ Border для outline
-    borderColor: '#D1D5DB',    // ✅ Серый border
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1.5,
+    borderColor: '#D1D5DB',
   },
   buttonSmall: {
     paddingVertical: 10,
@@ -139,45 +124,27 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
     borderColor: '#D1D5DB',
   },
-  // ✅ МИНИМАЛИЗМ - убраны яркие цвета
   primaryButton: {
-    // Стиль наследуется от buttonLarge/Small (белый фон + серый border)
   },
-  // ✅ МИНИМАЛИЗМ - убраны яркие цвета
   secondaryButton: {
-    // Стиль наследуется от buttonLarge/Small (белый фон + серый border)
   },
   content: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 6,                    // ✅ МИНИМАЛИЗМ - меньше gap
+    gap: 6,
   },
   buttonText: {
-    color: '#374151',          // ✅ МИНИМАЛИЗМ - темно-серый
-    fontWeight: '600',         // ✅ Меньше жирность
+    color: '#374151',
+    fontWeight: '600',
   },
   labelLarge: {
-    fontSize: 15,              // ✅ МИНИМАЛИЗМ - меньше текст
+    fontSize: 15,
   },
   labelSmall: {
-    fontSize: 13,              // ✅ Меньше
+    fontSize: 13,
   },
   disabled: {
     opacity: 0.5,
-  },
-  fallbackBadge: {
-    marginTop: 4,
-    paddingHorizontal: 8,
-    paddingVertical: 2,
-    backgroundColor: '#F3F4F6',  // Светло-серый фон
-    borderRadius: 6,
-    alignSelf: 'flex-start',
-    marginLeft: 4,
-  },
-  fallbackText: {
-    fontSize: 11,
-    color: '#6B7280',            // Серый текст
-    fontWeight: '500',
   },
 });
