@@ -3,6 +3,16 @@
 export { StorageService } from './StorageService';
 export { AudioService } from './AudioService';
 
+// TTS Router - новая система маршрутизации аудио
+export { TTSRouter } from './tts';
+export type {
+  ITTSProvider,
+  TTSProviderType,
+  TTSPlayOptions,
+  TTSPlayResult,
+  LanguageGroup,
+} from './tts';
+
 // Service interface for dependency injection
 export interface IStorageService {
   get<T>(key: string): Promise<T | null>;
