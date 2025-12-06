@@ -72,6 +72,7 @@ export interface InterfaceTexts {
   appInfo?: string;
   currentLanguage?: string;
   phrasebookLanguage?: string;
+  languageChangeHint?: string;
   fontSize?: string;
   fontSizePreview?: string;
   currentFontSize?: string;
@@ -380,6 +381,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     appInfo: 'Programma maglumatlar',
     currentLanguage: 'Häzirki: ',
     phrasebookLanguage: 'Gepleşik kitaby dili',
+    languageChangeHint: 'Siz dili islendik wagt sazlamalarda üýtgedip bilersiňiz',
     fontSize: 'Harpyň ululygy',
     fontSizePreview: 'Mysal tekst - Şapak Gepleşik Kitaby',
     currentFontSize: 'Häzirki: ',
@@ -671,6 +673,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     appInfo: '应用信息',
     currentLanguage: '当前: ',
     phrasebookLanguage: '会话手册语言',
+    languageChangeHint: '您可以随时在设置中更改语言',
     fontSize: '字体大小',
     fontSizePreview: '示例文本 - Shapak会话手册',
     currentFontSize: '当前: ',
@@ -961,6 +964,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     appInfo: 'Информация о приложении',
     currentLanguage: 'Текущий: ',
     phrasebookLanguage: 'Язык разговорника',
+    languageChangeHint: 'Вы можете изменить язык в любое время в настройках',
     fontSize: 'Размер шрифта',
     fontSizePreview: 'Пример текста - Shapak Разговорник',
     currentFontSize: 'Текущий: ',
@@ -1251,6 +1255,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     appInfo: 'App information',
     currentLanguage: 'Current: ',
     phrasebookLanguage: 'Phrasebook language',
+    languageChangeHint: 'You can change the language anytime in settings',
     fontSize: 'Font size',
     fontSizePreview: 'Sample text - Shapak Phrasebook',
     currentFontSize: 'Current: ',
@@ -1541,6 +1546,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     appInfo: 'Uygulama bilgileri',
     currentLanguage: 'Mevcut: ',
     phrasebookLanguage: 'Konuşma kılavuzu dili',
+    languageChangeHint: 'Dili istediğiniz zaman ayarlardan değiştirebilirsiniz',
     fontSize: 'Yazı boyutu',
     fontSizePreview: 'Örnek metin - Shapak Konuşma Kılavuzu',
     currentFontSize: 'Mevcut: ',

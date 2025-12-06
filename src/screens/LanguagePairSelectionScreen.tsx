@@ -11,13 +11,12 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
-  SafeAreaView,
 } from 'react-native';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import type { StackNavigationProp } from '@react-navigation/stack';
 import { useAppLanguage } from '../contexts/LanguageContext';
 import { useConfig } from '../contexts/ConfigContext';
-import { getLanguageByCode } from '../config/languages.config';
 import type { HomeStackParamList } from '../types';
 import { useResponsive } from '../utils/ResponsiveUtils';
 
@@ -40,6 +39,7 @@ const LanguagePairSelectionScreen: React.FC = () => {
   const [selectedPair, setSelectedPair] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const { scale, verticalScale, moderateScale } = useResponsive();
+  const insets = useSafeAreaInsets();
 
   // Available language pairs (30 languages paired with Turkmen)
   const availablePairs: LanguagePair[] = [
@@ -460,9 +460,9 @@ const LanguagePairSelectionScreen: React.FC = () => {
   }), [scale, verticalScale, moderateScale]);
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['top']}>
       <ScrollView
-        contentContainerStyle={styles.content}
+        contentContainerStyle={[styles.content, { paddingBottom: Math.max(insets.bottom + 20, 40) }]}
         showsVerticalScrollIndicator={false}
       >
         {/* Header */}
@@ -509,10 +509,7 @@ const LanguagePairSelectionScreen: React.FC = () => {
         {/* Info */}
         <View style={styles.infoCard}>
           <Text style={styles.infoText}>
-            {config.mode === 'tk' && 'Siz dili islendik wagt sazlamalarda üýtgedip bilersiňiz'}
-            {config.mode === 'zh' && '您可以随时在设置中更改语言'}
-            {config.mode === 'ru' && 'Вы можете изменить язык в любое время в настройках'}
-            {config.mode === 'en' && 'You can change the language anytime in settings'}
+            {texts.languageChangeHint ?? 'You can change the language anytime in settings'}
           </Text>
         </View>
       </ScrollView>
