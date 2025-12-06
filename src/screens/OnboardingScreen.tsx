@@ -10,6 +10,7 @@ import {
   Animated,
   Platform,
   useWindowDimensions,
+  Image,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -226,12 +227,16 @@ function WelcomeSlide() {
   const { getTexts } = useAppLanguage();
   const texts = getTexts();
   const { height } = useWindowDimensions();
-  // Адаптивный размер иконки
-  const iconSize = Math.min(moderateScale(80), height * 0.1);
+  // Адаптивный размер логотипа
+  const logoSize = Math.min(moderateScale(120), height * 0.15);
 
   return (
     <View style={styles.slideContent}>
-      <Ionicons name="airplane" size={iconSize} color="#00A651" style={styles.slideIcon} />
+      <Image
+        source={require('../../assets/logo.png')}
+        style={[styles.logoImage, { width: logoSize, height: logoSize }]}
+        resizeMode="contain"
+      />
       <Text style={styles.slideTitle}>{texts.onboardingWelcomeTitle}</Text>
       <Text style={styles.slideSubtitle}>
         {texts.onboardingWelcomeSubtitle}
@@ -254,7 +259,7 @@ function PhrasebookSlide() {
 
   return (
     <View style={styles.slideContent}>
-      <Ionicons name="book" size={iconSize} color="#00A651" style={styles.slideIcon} />
+      <Ionicons name="book" size={iconSize} color="#F5A623" style={styles.slideIcon} />
       <Text style={styles.slideTitle}>{texts.onboardingPhrasebookTitle}</Text>
       <Text style={styles.slideSubtitle}>
         {texts.onboardingPhrasebookSubtitle}
@@ -284,11 +289,11 @@ function PhrasebookSlide() {
         {/* Features */}
         <View style={styles.featuresListContainer}>
           <View style={styles.featureRow}>
-            <Ionicons name="checkmark-circle" size={22} color="#00A651" />
+            <Ionicons name="checkmark-circle" size={22} color="#F5A623" />
             <Text style={styles.featureText}>{texts.onboardingFeatureAudio}</Text>
           </View>
           <View style={styles.featureRow}>
-            <Ionicons name="checkmark-circle" size={22} color="#00A651" />
+            <Ionicons name="checkmark-circle" size={22} color="#F5A623" />
             <Text style={styles.featureText}>{texts.onboardingFeatureOffline}</Text>
           </View>
         </View>
@@ -306,7 +311,7 @@ function TranslatorSlide() {
 
   return (
     <View style={styles.slideContent}>
-      <Ionicons name="language" size={iconSize} color="#00A651" style={styles.slideIcon} />
+      <Ionicons name="language" size={iconSize} color="#F5A623" style={styles.slideIcon} />
       <Text style={styles.slideTitle}>{texts.onboardingTranslationTitle}</Text>
       <Text style={styles.slideSubtitle}>
         {texts.onboardingTranslationSubtitle}
@@ -335,11 +340,11 @@ function TranslatorSlide() {
         {/* Features list */}
         <View style={styles.featuresListContainer}>
           <View style={styles.featureRow}>
-            <Ionicons name="checkmark-circle" size={22} color="#00A651" />
+            <Ionicons name="checkmark-circle" size={22} color="#F5A623" />
             <Text style={styles.featureText}>{texts.onboardingTextTranslator}</Text>
           </View>
           <View style={styles.featureRow}>
-            <Ionicons name="checkmark-circle" size={22} color="#00A651" />
+            <Ionicons name="checkmark-circle" size={22} color="#F5A623" />
             <Text style={styles.featureText}>{texts.onboardingAIAssistant}</Text>
           </View>
           <View style={styles.featureRow}>
@@ -369,20 +374,29 @@ function ReadySlide({ onGetStarted }: { onGetStarted: () => void }) {
   const { height } = useWindowDimensions();
   const iconSize = Math.min(moderateScale(80), height * 0.1);
 
-  // Профессиональные иконки для функций
-  const features = [
-    { icon: 'book-outline' as const, label: texts.onboardingTagPhrasebook, available: true },
-    { icon: 'volume-high-outline' as const, label: texts.onboardingTagAudio, available: true },
-    { icon: 'cloud-offline-outline' as const, label: texts.onboardingTagOffline, available: true },
-    { icon: 'language-outline' as const, label: texts.onboardingTagTranslator, available: true },
-    { icon: 'sparkles-outline' as const, label: texts.onboardingTagAI, available: true },
-    { icon: 'camera-outline' as const, label: texts.onboardingTagVisual, available: false },
-    { icon: 'mic-outline' as const, label: texts.onboardingTagVoice, available: false },
+  // Ряды тегов для аккуратного расположения
+  const featureRows = [
+    // Ряд 1: 2 тега
+    [
+      { icon: 'book-outline' as const, label: texts.onboardingTagPhrasebook, available: true },
+      { icon: 'volume-high-outline' as const, label: texts.onboardingTagAudio, available: true },
+    ],
+    // Ряд 2: 3 тега
+    [
+      { icon: 'cloud-offline-outline' as const, label: texts.onboardingTagOffline, available: true },
+      { icon: 'language-outline' as const, label: texts.onboardingTagTranslator, available: true },
+      { icon: 'sparkles-outline' as const, label: texts.onboardingTagAI, available: true },
+    ],
+    // Ряд 3: 2 тега (coming soon)
+    [
+      { icon: 'camera-outline' as const, label: texts.onboardingTagVisual, available: false },
+      { icon: 'mic-outline' as const, label: texts.onboardingTagVoice, available: false },
+    ],
   ];
 
   return (
     <View style={styles.slideContent}>
-      <Ionicons name="checkmark-circle" size={iconSize} color="#00A651" style={styles.slideIcon} />
+      <Ionicons name="checkmark-circle" size={iconSize} color="#F5A623" style={styles.slideIcon} />
       <Text style={styles.slideTitle}>{texts.onboardingReadyTitle}</Text>
       <Text style={styles.slideSubtitle}>
         {texts.onboardingReadySubtitle}
@@ -394,30 +408,34 @@ function ReadySlide({ onGetStarted }: { onGetStarted: () => void }) {
       </TouchableOpacity>
 
       <View style={styles.featuresGrid}>
-        {features.map((feature, index) => (
-          <View
-            key={index}
-            style={[
-              styles.featureTag,
-              !feature.available && styles.featureTagDisabled
-            ]}
-          >
-            <Ionicons
-              name={feature.icon}
-              size={moderateScale(16)}
-              color={feature.available ? '#00A651' : '#9CA3AF'}
-            />
-            <Text style={[
-              styles.featureTagText,
-              !feature.available && styles.featureTagTextDisabled
-            ]}>
-              {feature.label}
-            </Text>
-            {!feature.available && (
-              <View style={styles.comingSoonMini}>
-                <Text style={styles.comingSoonMiniText}>{texts.onboardingComingSoon}</Text>
+        {featureRows.map((row, rowIndex) => (
+          <View key={rowIndex} style={styles.featureTagRow}>
+            {row.map((feature, index) => (
+              <View
+                key={index}
+                style={[
+                  styles.featureTag,
+                  !feature.available && styles.featureTagDisabled
+                ]}
+              >
+                <Ionicons
+                  name={feature.icon}
+                  size={moderateScale(16)}
+                  color={feature.available ? '#F5A623' : '#9CA3AF'}
+                />
+                <Text style={[
+                  styles.featureTagText,
+                  !feature.available && styles.featureTagTextDisabled
+                ]}>
+                  {feature.label}
+                </Text>
+                {!feature.available && (
+                  <View style={styles.comingSoonMini}>
+                    <Text style={styles.comingSoonMiniText}>{texts.onboardingComingSoon}</Text>
+                  </View>
+                )}
               </View>
-            )}
+            ))}
           </View>
         ))}
       </View>
@@ -427,7 +445,7 @@ function ReadySlide({ onGetStarted }: { onGetStarted: () => void }) {
 
 // ========== Styles ==========
 
-const ACCENT_COLOR = '#00A651'; // Turkmenistan green
+const ACCENT_COLOR = '#F5A623'; // Şapak orange (matching logo)
 const TEXT_PRIMARY = '#1C1C1E'; // Apple dark text
 const TEXT_SECONDARY = '#6E6E73'; // Apple gray text
 const BACKGROUND = '#FFFFFF'; // White background
@@ -473,6 +491,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: scale(24),
   },
   slideIcon: {
+    marginBottom: verticalScale(24),
+  },
+  logoImage: {
     marginBottom: verticalScale(24),
   },
   slideTitle: {
@@ -563,7 +584,7 @@ const styles = StyleSheet.create({
     gap: scale(8),
   },
   playButtonActive: {
-    backgroundColor: '#008A43',
+    backgroundColor: '#D4891A',
   },
   playButtonText: {
     color: '#FFFFFF',
@@ -667,29 +688,33 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   featuresGrid: {
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: verticalScale(8),
+    paddingHorizontal: scale(16),
+  },
+  featureTagRow: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
     justifyContent: 'center',
     gap: scale(8),
-    paddingHorizontal: scale(16),
   },
   featureTag: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F0FDF4',
+    backgroundColor: '#FFF7ED',
     paddingVertical: verticalScale(8),
     paddingHorizontal: scale(12),
     borderRadius: moderateScale(20),
     gap: scale(6),
     borderWidth: 1,
-    borderColor: '#BBF7D0',
+    borderColor: '#FED7AA',
   },
   featureTagDisabled: {
     backgroundColor: '#F3F4F6',
     borderColor: '#E5E7EB',
   },
   featureTagText: {
-    color: '#166534',
+    color: '#9A3412',
     fontSize: moderateScale(13),
     fontWeight: '500',
   },

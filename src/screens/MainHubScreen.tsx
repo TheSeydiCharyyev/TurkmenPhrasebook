@@ -50,7 +50,7 @@ const getModules = (texts: InterfaceTexts): ModuleCard[] => [
     icon: '📖',
     iconName: 'book-outline',
     gradientColors: ['#FFFFFF', '#FFFFFF'], // Белая карточка
-    iconColor: '#FF8008', // Оранжевая иконка
+    iconColor: '#F5A623', // Şapak orange
     route: 'Phrasebook',
   },
   {
@@ -60,7 +60,7 @@ const getModules = (texts: InterfaceTexts): ModuleCard[] => [
     icon: '📝',
     iconName: 'text-outline',
     gradientColors: ['#FFFFFF', '#FFFFFF'], // Белая карточка
-    iconColor: '#F7931E', // Золотистая иконка
+    iconColor: '#F5A623', // Şapak orange
     route: 'TextTranslator',
   },
   {
@@ -70,7 +70,7 @@ const getModules = (texts: InterfaceTexts): ModuleCard[] => [
     icon: '🤖',
     iconName: 'sparkles',
     gradientColors: ['#FFFFFF', '#FFFFFF'], // Белая карточка
-    iconColor: '#FF5722', // Оранжево-красная иконка
+    iconColor: '#F5A623', // Şapak orange
     route: 'UniversalAIChat',
   },
   {
@@ -80,7 +80,7 @@ const getModules = (texts: InterfaceTexts): ModuleCard[] => [
     icon: '📷',
     iconName: 'camera-outline',
     gradientColors: ['#FFFFFF', '#FFFFFF'], // Белая карточка
-    iconColor: '#FF7A00', // Янтарная иконка
+    iconColor: '#F5A623', // Şapak orange
     route: 'VisualTranslator',
     isComingSoon: true, // Coming in v1.5
   },
@@ -91,7 +91,7 @@ const getModules = (texts: InterfaceTexts): ModuleCard[] => [
     icon: '🎤',
     iconName: 'mic-outline',
     gradientColors: ['#FFFFFF', '#FFFFFF'], // Белая карточка
-    iconColor: '#FF6B35', // Коралловая иконка
+    iconColor: '#F5A623', // Şapak orange
     route: 'ComingSoon',
     isComingSoon: true, // Coming soon
   },
@@ -469,7 +469,7 @@ const styles = StyleSheet.create({
   welcomeTitle: {
     fontSize: moderateScale(20),
     fontWeight: '900', // Extra bold для акцента
-    color: '#ff8008', // Оранжевый как у логотипа
+    color: '#F5A623', // Şapak orange
     marginBottom: verticalScale(4),
     fontFamily: Typography.fontFamily,
     letterSpacing: 0.3,

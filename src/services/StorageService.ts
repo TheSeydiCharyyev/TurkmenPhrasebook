@@ -1,9 +1,16 @@
 // src/services/StorageService.ts - Enhanced Storage Service with Error Handling
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { IStorageService } from './index';
 import { StorageResult } from '../utils/SafeStorage';
 import { ERROR_MESSAGES } from '../constants/AppConstants';
+
+// Storage service interface
+interface IStorageService {
+  get<T>(key: string): Promise<T | null>;
+  set<T>(key: string, value: T): Promise<boolean>;
+  remove(key: string): Promise<boolean>;
+  clear(): Promise<boolean>;
+}
 
 /**
  * ✅ ENHANCED STORAGE SERVICE
