@@ -171,7 +171,7 @@ export default function SettingsScreen() {
   // Оптимизированное сохранение настроек
   const savePreference = useCallback(async (key: keyof AppPreferences, value: any) => {
     try {
-      const storageKey = SETTINGS_KEYS[key.toUpperCase().replace(/([A-Z])/g, '_$1') as keyof typeof SETTINGS_KEYS];
+      const storageKey = SETTINGS_KEYS[key.replace(/([A-Z])/g, '_$1').toUpperCase() as keyof typeof SETTINGS_KEYS];
       await AsyncStorage.setItem(storageKey, JSON.stringify(value));
       setPreferences(prev => ({ ...prev, [key]: value }));
     } catch (error) {
