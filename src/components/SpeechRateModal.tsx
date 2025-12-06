@@ -5,7 +5,9 @@ import {
   Modal,
   TouchableOpacity,
   StyleSheet,
+  Platform,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Slider from '@react-native-community/slider';
 import { Ionicons } from '@expo/vector-icons';
 import * as Speech from 'expo-speech';
@@ -26,6 +28,7 @@ interface Props {
 
 export default function SpeechRateModal({ visible, onClose, currentRate, onSave, texts }: Props) {
   const [rate, setRate] = useState(currentRate);
+  const insets = useSafeAreaInsets();
 
   // Reset rate when modal opens
   useEffect(() => {
@@ -46,7 +49,7 @@ export default function SpeechRateModal({ visible, onClose, currentRate, onSave,
   return (
     <Modal visible={visible} transparent animationType="slide">
       <View style={styles.overlay}>
-        <View style={styles.container}>
+        <View style={[styles.container, { paddingBottom: Math.max(insets.bottom, scale(20)) }]}>
           <View style={styles.header}>
             <Text style={styles.title}>{texts?.title ?? 'Speech Rate'}</Text>
             <TouchableOpacity onPress={onClose}>

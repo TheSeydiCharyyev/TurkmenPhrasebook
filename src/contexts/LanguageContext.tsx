@@ -73,13 +73,17 @@ export interface InterfaceTexts {
   currentLanguage?: string;
   phrasebookLanguage?: string;
   fontSize?: string;
+  fontSizePreview?: string;
   currentFontSize?: string;
   hapticFeedback?: string;
   hapticFeedbackDesc?: string;
   testVoice?: string;
+  testVoiceDesc?: string;
+  testVoiceError?: string;
+  voiceGender?: string;
+  voiceFemale?: string;
+  voiceMale?: string;
   voicesAvailable?: string;
-  checkVoices?: string;
-  checkVoicesDesc?: string;
   clearHistoryConfirm?: string;
   historyCleared?: string;
   versionAndInfo?: string;
@@ -377,13 +381,17 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     currentLanguage: 'Häzirki: ',
     phrasebookLanguage: 'Gepleşik kitaby dili',
     fontSize: 'Harpyň ululygy',
+    fontSizePreview: 'Mysal tekst - Şapak Gepleşik Kitaby',
     currentFontSize: 'Häzirki: ',
     hapticFeedback: 'Yrgyldy',
     hapticFeedbackDesc: 'Düwme basylanda yrgyldy',
     testVoice: 'Ses synag',
+    testVoiceDesc: 'Mysal sözlemi aýt',
+    testVoiceError: 'Ses aýdyp bolmady. Internet baglanyşygyny barlap görüň.',
+    voiceGender: 'Ses görnüşi',
+    voiceFemale: 'Zenan',
+    voiceMale: 'Erkek',
     voicesAvailable: 'ses elýeterli',
-    checkVoices: 'Sesleri barlap gör',
-    checkVoicesDesc: 'Hytaýça sesleriň elýeterliligini barlap gör',
     clearHistoryConfirm: 'Taryhy arassalaňyzmy?',
     historyCleared: 'Taryh arassalandy',
     versionAndInfo: 'Wersiýa we maglumat',
@@ -664,13 +672,17 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     currentLanguage: '当前: ',
     phrasebookLanguage: '会话手册语言',
     fontSize: '字体大小',
+    fontSizePreview: '示例文本 - Shapak会话手册',
     currentFontSize: '当前: ',
     hapticFeedback: '触觉反馈',
     hapticFeedbackDesc: '按钮按下时振动',
     testVoice: '语音测试',
+    testVoiceDesc: '播放示例短语',
+    testVoiceError: '无法播放音频。请检查网络连接。',
+    voiceGender: '语音类型',
+    voiceFemale: '女声',
+    voiceMale: '男声',
     voicesAvailable: '种声音可用',
-    checkVoices: '检查语音可用性',
-    checkVoicesDesc: '检查中文语音是否可用',
     clearHistoryConfirm: '清除历史记录？',
     historyCleared: '历史已清除',
     versionAndInfo: '版本和信息',
@@ -950,13 +962,17 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     currentLanguage: 'Текущий: ',
     phrasebookLanguage: 'Язык разговорника',
     fontSize: 'Размер шрифта',
+    fontSizePreview: 'Пример текста - Shapak Разговорник',
     currentFontSize: 'Текущий: ',
     hapticFeedback: 'Тактильная отдача',
     hapticFeedbackDesc: 'Вибрация при нажатии кнопок',
     testVoice: 'Тест голоса',
+    testVoiceDesc: 'Воспроизвести пример',
+    testVoiceError: 'Не удалось воспроизвести. Проверьте подключение к интернету.',
+    voiceGender: 'Тип голоса',
+    voiceFemale: 'Женский',
+    voiceMale: 'Мужской',
     voicesAvailable: 'голосов доступно',
-    checkVoices: 'Проверить голоса',
-    checkVoicesDesc: 'Проверить доступность русских голосов',
     clearHistoryConfirm: 'Очистить историю?',
     historyCleared: 'История очищена',
     versionAndInfo: 'Версия и информация',
@@ -1236,13 +1252,17 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     currentLanguage: 'Current: ',
     phrasebookLanguage: 'Phrasebook language',
     fontSize: 'Font size',
+    fontSizePreview: 'Sample text - Shapak Phrasebook',
     currentFontSize: 'Current: ',
     hapticFeedback: 'Haptic feedback',
     hapticFeedbackDesc: 'Vibration on button press',
     testVoice: 'Test voice',
+    testVoiceDesc: 'Play a sample phrase',
+    testVoiceError: 'Could not play audio. Check your internet connection.',
+    voiceGender: 'Voice type',
+    voiceFemale: 'Female',
+    voiceMale: 'Male',
     voicesAvailable: 'voices available',
-    checkVoices: 'Check voices',
-    checkVoicesDesc: 'Check availability of English voices',
     clearHistoryConfirm: 'Clear history?',
     historyCleared: 'History cleared',
     versionAndInfo: 'Version and info',
@@ -1522,13 +1542,17 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     currentLanguage: 'Mevcut: ',
     phrasebookLanguage: 'Konuşma kılavuzu dili',
     fontSize: 'Yazı boyutu',
+    fontSizePreview: 'Örnek metin - Shapak Konuşma Kılavuzu',
     currentFontSize: 'Mevcut: ',
     hapticFeedback: 'Dokunsal geri bildirim',
     hapticFeedbackDesc: 'Düğmeye basıldığında titreşim',
     testVoice: 'Ses testi',
+    testVoiceDesc: 'Örnek cümle çal',
+    testVoiceError: 'Ses çalınamadı. İnternet bağlantınızı kontrol edin.',
+    voiceGender: 'Ses türü',
+    voiceFemale: 'Kadın',
+    voiceMale: 'Erkek',
     voicesAvailable: 'ses mevcut',
-    checkVoices: 'Sesleri kontrol et',
-    checkVoicesDesc: 'Türkçe seslerin kullanılabilirliğini kontrol et',
     clearHistoryConfirm: 'Geçmişi temizle?',
     historyCleared: 'Geçmiş temizlendi',
     versionAndInfo: 'Sürüm ve bilgi',

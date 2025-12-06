@@ -13,7 +13,6 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
-import * as Speech from 'expo-speech';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -25,7 +24,7 @@ import { useConfig } from '../contexts/ConfigContext';
 import { getLanguageByCode } from '../config/languages.config';
 import { useSearchHistory } from '../hooks/useSearchHistory';
 import { RootStackParamList } from '../types';
-import TTSChecker from '../utils/TTSChecker';
+import { TTSRouter } from '../services/tts/TTSRouter';
 import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
 import { useSafeArea } from '../hooks/useSafeArea';
 
@@ -33,42 +32,34 @@ import { useSafeArea } from '../hooks/useSafeArea';
 const SETTINGS_ICON_COLORS = {
   language: '#00A651',     // Green - Turkmenistan
   audio: '#3B82F6',        // Blue
-  appearance: '#8B5CF6',   // Purple
   data: '#EF4444',         // Red
   info: '#6B7280',         // Gray
 };
 
 type SettingsScreenNavigationProp = StackNavigationProp<RootStackParamList, 'LanguageSelection'>;
 
-// Импортируем оптимизированные модальные компоненты
-import FontSizeModal from '../components/FontSizeModal';
+// Импортируем модальные компоненты
 import SpeechRateModal from '../components/SpeechRateModal';
 
 const SETTINGS_KEYS = {
   SOUND_ENABLED: 'settings_sound_enabled',
   SPEECH_RATE: 'settings_speech_rate',
-  FONT_SIZE: 'settings_font_size',
-  DARK_MODE: 'settings_dark_mode',
-  HAPTIC_FEEDBACK: 'settings_haptic_feedback',
   AUTO_PLAY: 'settings_auto_play',
+  VOICE_GENDER: 'settings_voice_gender',
 } as const;
 
 interface AppPreferences {
   soundEnabled: boolean;
   speechRate: number;
-  fontSize: number;
-  darkMode: boolean;
-  hapticFeedback: boolean;
   autoPlay: boolean;
+  voiceGender: 'female' | 'male';
 }
 
 const DEFAULT_PREFERENCES: AppPreferences = {
   soundEnabled: true,
   speechRate: 0.75,
-  fontSize: 16,
-  darkMode: false,
-  hapticFeedback: true,
   autoPlay: false,
+  voiceGender: 'female',
 };
 
 // Мемоизированные компоненты для производительности
@@ -112,8 +103,6 @@ const SectionHeader = React.memo(({ title }: { title: string }) => (
 export default function SettingsScreen() {
   const navigation = useNavigation<SettingsScreenNavigationProp>();
   const [preferences, setPreferences] = useState<AppPreferences>(DEFAULT_PREFERENCES);
-  const [availableVoices, setAvailableVoices] = useState<any[]>([]);
-  const [showFontSizeModal, setShowFontSizeModal] = useState(false);
   const [showSpeechRateModal, setShowSpeechRateModal] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -168,18 +157,16 @@ export default function SettingsScreen() {
     }
   }, []);
 
-  const loadAvailableVoices = useCallback(async () => {
-    try {
-      const voices = await Speech.getAvailableVoicesAsync();
-      setAvailableVoices(voices);
-    } catch (error) {
-      console.warn('Ошибка загрузки голосов:', error);
-    }
-  }, []);
-
   useEffect(() => {
-    Promise.all([loadPreferences(), loadAvailableVoices()]);
-  }, [loadPreferences, loadAvailableVoices]);
+    loadPreferences();
+  }, [loadPreferences]);
+
+  // Синхронизируем настройку голоса при изменении
+  useEffect(() => {
+    if (!isLoading) {
+      TTSRouter.setVoiceGender(preferences.voiceGender === 'male');
+    }
+  }, [preferences.voiceGender, isLoading]);
 
   // Оптимизированное сохранение настроек
   const savePreference = useCallback(async (key: keyof AppPreferences, value: any) => {
@@ -206,109 +193,52 @@ export default function SettingsScreen() {
   const handleTogglePreference = useCallback(async (key: keyof AppPreferences) => {
     const newValue = !preferences[key];
     await savePreference(key, newValue);
+  }, [preferences, savePreference]);
 
-    // Показываем уведомление только для важных изменений
-    if (key === 'soundEnabled' || key === 'hapticFeedback') {
-      const message = newValue ? texts.success : texts.success;
-      Alert.alert('⚙️', message);
-    }
-  }, [preferences, savePreference, texts]);
+  // Тестовые фразы для разных языков
+  const getTestPhrase = useCallback((lang: string): { text: string; language: string } => {
+    const phrases: Record<string, { text: string; language: string }> = {
+      'tk': { text: 'Salam, men Şapak programmasy!', language: 'turkmen' },
+      'zh': { text: '你好，我是Shapak应用程序！', language: 'chinese' },
+      'ru': { text: 'Привет, я приложение Шапак!', language: 'russian' },
+      'en': { text: 'Hello, I am the Shapak app!', language: 'english' },
+      'tr': { text: 'Merhaba, ben Shapak uygulamasıyım!', language: 'turkish' },
+      'de': { text: 'Hallo, ich bin die Shapak-App!', language: 'german' },
+      'fr': { text: 'Bonjour, je suis l\'application Shapak!', language: 'french' },
+      'es': { text: '¡Hola, soy la aplicación Shapak!', language: 'spanish' },
+      'ja': { text: 'こんにちは、Shapakアプリです！', language: 'japanese' },
+      'ko': { text: '안녕하세요, 저는 Shapak 앱입니다!', language: 'korean' },
+      'ar': { text: 'مرحباً، أنا تطبيق شاباك!', language: 'arabic' },
+    };
+    return phrases[lang] || phrases['en'];
+  }, []);
 
   const testTTS = useCallback(async () => {
-    const testText = config.mode === 'tk' ? 'Salam, nähili?' : '你好，怎么样？';
-    const language = config.mode === 'tk' ? 'tr-TR' : 'zh-CN';
+    const { text, language } = getTestPhrase(config.mode);
 
     try {
-      await Speech.speak(testText, {
+      const result = await TTSRouter.play({
+        text,
         language,
         rate: preferences.speechRate,
-        pitch: 1.0
-      });
-    } catch (error) {
-      Alert.alert('TTS Ошибка', 'Не удалось воспроизвести тестовый звук');
-    }
-  }, [config.mode, preferences.speechRate]);
-
-  const checkVoiceAvailability = useCallback(async () => {
-    try {
-      const result = await TTSChecker.checkChineseVoiceAvailability();
-      const recommendation = await TTSChecker.getRecommendations(config.mode);
-
-      const statusEmoji = recommendation.showWarning ? '⚠️' : '✅';
-      const voiceInfo = `${texts.checkVoices}: ${result.chineseVoices.length}\n${texts.voicesAvailable}: ${result.allVoices.length}`;
-
-      Alert.alert(
-        `${statusEmoji} ${recommendation.title}`,
-        `${recommendation.message}\n\n${voiceInfo}`,
-        [
-          { text: texts.cancel, style: 'cancel' },
-          ...(recommendation.showWarning && recommendation.instructions ? [{
-            text: texts.checkVoices,
-            onPress: () => {
-              Alert.alert(
-                texts.checkVoices ?? 'Check Voices',
-                recommendation.instructions?.join('\n\n') || ''
-              );
-            }
-          }] : [])
-        ]
-      );
-    } catch (error) {
-      console.warn('Ошибка проверки голосов:', error);
-      Alert.alert(
-        texts.error,
-        texts.checkVoicesDesc
-      );
-    }
-  }, [config.mode, texts]);
-
-  /**
-   * Новая улучшенная проверка всех установленных голосов
-   * Показывает группировку по языкам и доступность для всех 31 языков приложения
-   */
-  const checkInstalledVoices = useCallback(async () => {
-    try {
-      const voices = await Speech.getAvailableVoicesAsync();
-
-      // Группировка голосов по языкам
-      const languageGroups: { [key: string]: number } = {};
-      voices.forEach(voice => {
-        const lang = voice.language.split('-')[0].toUpperCase(); // 'zh-CN' -> 'ZH'
-        languageGroups[lang] = (languageGroups[lang] || 0) + 1;
       });
 
-      // Формируем список доступных языков
-      const sortedLanguages = Object.entries(languageGroups)
-        .sort(([a], [b]) => a.localeCompare(b))
-        .map(([lang, count]) => `  • ${lang}: ${count} голос(ов)`)
-        .join('\n');
-
-      const totalLanguages = Object.keys(languageGroups).length;
-      const totalVoices = voices.length;
-
-      // Проверка наличия ключевых языков приложения
-      const appLanguages = ['ZH', 'RU', 'EN', 'TR', 'JA', 'KO', 'AR', 'FA', 'HI', 'DE', 'FR', 'ES'];
-      const missingLanguages = appLanguages.filter(lang => !languageGroups[lang]);
-
-      const warningText = missingLanguages.length > 0
-        ? `\n\n⚠️ Отсутствуют голоса для:\n${missingLanguages.map(l => `  • ${l}`).join('\n')}`
-        : '\n\n✅ Все основные языки установлены!';
-
-      Alert.alert(
-        '🔊 Установленные голоса',
-        `Найдено языков: ${totalLanguages}\nВсего голосов: ${totalVoices}\n\n📋 Доступные языки:\n${sortedLanguages}${warningText}`,
-        [
-          { text: 'OK', style: 'cancel' }
-        ]
-      );
+      if (!result.success) {
+        Alert.alert(
+          texts.error ?? 'Error',
+          texts.testVoiceError ?? 'Could not play audio. Check your internet connection.'
+        );
+      }
     } catch (error) {
-      console.warn('Ошибка проверки установленных голосов:', error);
-      Alert.alert(
-        'Ошибка',
-        'Не удалось получить список установленных голосов'
-      );
+      Alert.alert(texts.error ?? 'Error', texts.testVoiceError ?? 'Audio playback failed');
     }
-  }, []);
+  }, [config.mode, preferences.speechRate, getTestPhrase, texts]);
+
+  const handleVoiceGenderChange = useCallback(async () => {
+    const newGender = preferences.voiceGender === 'female' ? 'male' : 'female';
+    await savePreference('voiceGender', newGender);
+    TTSRouter.setVoiceGender(newGender === 'male');
+  }, [preferences.voiceGender, savePreference]);
 
   const handleAbout = useCallback(async () => {
     const cacheInfo = await getCacheInfo();
@@ -407,30 +337,32 @@ export default function SettingsScreen() {
             />
 
             <SettingsItem
+              icon="person"
+              iconColor={SETTINGS_ICON_COLORS.audio}
+              title={texts.voiceGender ?? 'Voice Type'}
+              subtitle={preferences.voiceGender === 'female'
+                ? (texts.voiceFemale ?? 'Female')
+                : (texts.voiceMale ?? 'Male')}
+              onPress={handleVoiceGenderChange}
+              rightComponent={
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                  <Ionicons
+                    name={preferences.voiceGender === 'female' ? 'female' : 'male'}
+                    size={20}
+                    color={preferences.voiceGender === 'female' ? '#EC4899' : '#3B82F6'}
+                  />
+                  <Ionicons name="chevron-forward" size={20} color="#9CA3AF" />
+                </View>
+              }
+            />
+
+            <SettingsItem
               icon="play-circle"
               iconColor={SETTINGS_ICON_COLORS.audio}
               title={texts.testVoice ?? 'Test Voice'}
-              subtitle={`${availableVoices.length} ${texts.voicesAvailable ?? 'voices available'}`}
+              subtitle={texts.testVoiceDesc ?? 'Play a sample phrase'}
               onPress={testTTS}
               rightComponent={<Ionicons name="play" size={20} color="#9CA3AF" />}
-            />
-
-            <SettingsItem
-              icon="checkmark-circle"
-              iconColor={SETTINGS_ICON_COLORS.audio}
-              title={texts.checkVoices ?? 'Check Voices'}
-              subtitle={texts.checkVoicesDesc ?? 'Check voice availability'}
-              onPress={checkVoiceAvailability}
-              rightComponent={<Ionicons name="search" size={20} color="#9CA3AF" />}
-            />
-
-            <SettingsItem
-              icon="list"
-              iconColor={SETTINGS_ICON_COLORS.audio}
-              title={texts.settingsInstalledVoices ?? 'Installed Voices'}
-              subtitle={texts.settingsInstalledVoicesDesc ?? 'View all available TTS voices'}
-              onPress={checkInstalledVoices}
-              rightComponent={<Ionicons name="arrow-forward" size={20} color="#9CA3AF" />}
             />
 
             <SettingsItem
@@ -440,50 +372,6 @@ export default function SettingsScreen() {
               subtitle={`${preferences.speechRate}x`}
               onPress={() => setShowSpeechRateModal(true)}
               rightComponent={<Ionicons name="chevron-forward" size={20} color="#9CA3AF" />}
-            />
-          </View>
-
-          {/* Секция интерфейса */}
-          <View style={styles.section}>
-            <SectionHeader title={texts.settingsAppearance ?? 'Appearance'} />
-
-            <SettingsItem
-              icon="moon"
-              iconColor={SETTINGS_ICON_COLORS.appearance}
-              title={texts.settingsDarkMode ?? 'Dark Mode'}
-              subtitle={texts.settingsDarkModeDesc ?? 'Switch to dark theme'}
-              rightComponent={
-                <Switch
-                  value={preferences.darkMode}
-                  onValueChange={() => handleTogglePreference('darkMode')}
-                  trackColor={{ false: '#D1D5DB', true: '#00A651' }}
-                  thumbColor="#FFFFFF"
-                />
-              }
-            />
-
-            <SettingsItem
-              icon="text"
-              iconColor={SETTINGS_ICON_COLORS.appearance}
-              title={texts.fontSize ?? 'Font Size'}
-              subtitle={`${texts.currentFontSize ?? 'Current: '}${preferences.fontSize}px`}
-              onPress={() => setShowFontSizeModal(true)}
-              rightComponent={<Ionicons name="chevron-forward" size={20} color="#9CA3AF" />}
-            />
-
-            <SettingsItem
-              icon="phone-portrait"
-              iconColor={SETTINGS_ICON_COLORS.appearance}
-              title={texts.hapticFeedback ?? 'Haptic Feedback'}
-              subtitle={texts.hapticFeedbackDesc ?? 'Vibration on interactions'}
-              rightComponent={
-                <Switch
-                  value={preferences.hapticFeedback}
-                  onValueChange={() => handleTogglePreference('hapticFeedback')}
-                  trackColor={{ false: '#D1D5DB', true: '#00A651' }}
-                  thumbColor="#FFFFFF"
-                />
-              }
             />
           </View>
 
@@ -592,15 +480,7 @@ export default function SettingsScreen() {
         </View>
       </ScrollView>
 
-      {/* Оптимизированные модальные окна */}
-      <FontSizeModal
-        visible={showFontSizeModal}
-        onClose={() => setShowFontSizeModal(false)}
-        currentFontSize={preferences.fontSize}
-        onSave={(fontSize) => savePreference('fontSize', fontSize)}
-        config={config}
-      />
-
+      {/* Модальное окно скорости речи */}
       <SpeechRateModal
         visible={showSpeechRateModal}
         onClose={() => setShowSpeechRateModal(false)}
