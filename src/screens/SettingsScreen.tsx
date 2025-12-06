@@ -344,16 +344,7 @@ export default function SettingsScreen() {
                 ? (texts.voiceFemale ?? 'Female')
                 : (texts.voiceMale ?? 'Male')}
               onPress={handleVoiceGenderChange}
-              rightComponent={
-                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                  <Ionicons
-                    name={preferences.voiceGender === 'female' ? 'female' : 'male'}
-                    size={20}
-                    color={preferences.voiceGender === 'female' ? '#EC4899' : '#3B82F6'}
-                  />
-                  <Ionicons name="chevron-forward" size={20} color="#9CA3AF" />
-                </View>
-              }
+              rightComponent={<Ionicons name="chevron-forward" size={20} color="#9CA3AF" />}
             />
 
             <SettingsItem

@@ -121,20 +121,10 @@ android {
             crunchPngs enablePngCrunchInRelease.toBoolean()
         }
     }
-    packaging {
+    packagingOptions {
         jniLibs {
             def enableLegacyPackaging = findProperty('expo.useLegacyPackaging') ?: 'false'
             useLegacyPackaging enableLegacyPackaging.toBoolean()
-        }
-        // ✅ FIX: Handle duplicate META-INF files from AndroidX conflicts
-        resources {
-            pickFirsts += 'META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version'
-            pickFirsts += 'META-INF/androidx.core_core.version'
-            pickFirsts += 'META-INF/androidx.versionedparcelable_versionedparcelable.version'
-            pickFirsts += 'META-INF/androidx.customview_customview.version'
-            pickFirsts += 'META-INF/androidx.legacy_legacy-support-core-ui.version'
-            pickFirsts += 'META-INF/androidx.legacy_legacy-support-core-utils.version'
-            pickFirsts += 'META-INF/androidx.appcompat_appcompat.version'
         }
     }
     androidResources {
@@ -142,36 +132,24 @@ android {
     }
 }
 
-// Apply static values from `gradle.properties` to the `android.packaging`
+// Apply static values from `gradle.properties` to the `android.packagingOptions`
 // Accepts values in comma delimited lists, example:
-// android.packaging.pickFirsts=/LICENSE,**/picasa.ini
+// android.packagingOptions.pickFirsts=/LICENSE,**/picasa.ini
 ["pickFirsts", "excludes", "merges", "doNotStrip"].each { prop ->
     // Split option: 'foo,bar' -> ['foo', 'bar']
-    def options = (findProperty("android.packaging.$prop") ?: "").split(",");
+    def options = (findProperty("android.packagingOptions.$prop") ?: "").split(",");
     // Trim all elements in place.
     for (i in 0..<options.size()) options[i] = options[i].trim();
     // `[] - ""` is essentially `[""].filter(Boolean)` removing all empty strings.
     options -= ""
 
     if (options.length > 0) {
-        println "android.packaging.$prop += $options ($options.length)"
-        // Ex: android.packaging.pickFirsts += '**/SCCS/**'
+        println "android.packagingOptions.$prop += $options ($options.length)"
+        // Ex: android.packagingOptions.pickFirsts += '**/SCCS/**'
         options.each {
-            android.packaging[prop] += it
+            android.packagingOptions[prop] += it
         }
     }
-}
-
-// ✅ FIX: Exclude old Android Support Library to prevent conflicts with AndroidX
-configurations.all {
-    exclude group: 'com.android.support', module: 'support-compat'
-    exclude group: 'com.android.support', module: 'support-v4'
-    exclude group: 'com.android.support', module: 'support-core-ui'
-    exclude group: 'com.android.support', module: 'versionedparcelable'
-    exclude group: 'com.android.support', module: 'localbroadcastmanager'
-    exclude group: 'com.android.support', module: 'customview'
-    exclude group: 'com.android.support', module: 'support-core-utils'
-    exclude group: 'com.android.support', module: 'appcompat-v7'
 }
 
 dependencies {

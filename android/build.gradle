@@ -18,14 +18,6 @@ allprojects {
     mavenCentral()
     maven { url 'https://www.jitpack.io' }
   }
-
-  // ✅ FIX: Force AndroidX versions to prevent conflicts
-  configurations.all {
-    resolutionStrategy {
-      force 'androidx.core:core:1.16.0'
-      force 'androidx.versionedparcelable:versionedparcelable:1.1.1'
-    }
-  }
 }
 
 apply plugin: "expo-root-project"
