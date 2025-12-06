@@ -240,24 +240,9 @@ export default function SettingsScreen() {
     TTSRouter.setVoiceGender(newGender === 'male');
   }, [preferences.voiceGender, savePreference]);
 
-  const handleAbout = useCallback(async () => {
-    const cacheInfo = await getCacheInfo();
-    const cacheText = cacheInfo
-      ? `\nCache: ${cacheInfo.phrasesCount} ${texts.phrases}, ${cacheInfo.categoriesCount} categories`
-      : '';
-
-    const aboutTexts: Record<string, string> = {
-      'tk': `Şapak Ykjam Terjime v1.0\n\nTürkmenistanyň we beýleki ýurtlaryň syýahatçylary üçin döredildi\n\n© 2025${cacheText}`,
-      'zh': `Shapak Quick Translate v1.0\n\n为土库曼斯坦和其他国家的游客开发\n\n© 2025${cacheText}`,
-      'ru': `Shapak Quick Translate v1.0\n\nРазработано для туристов из Туркменистана и других стран\n\n© 2025${cacheText}`,
-      'en': `Shapak Quick Translate v1.0\n\nDeveloped for tourists from Turkmenistan and other countries\n\n© 2025${cacheText}`,
-    };
-
-    Alert.alert(
-      texts.about,
-      aboutTexts[config.mode] || aboutTexts['en']
-    );
-  }, [texts, config.mode, getCacheInfo]);
+  const handleAbout = useCallback(() => {
+    navigation.navigate('About' as any);
+  }, [navigation]);
 
   if (isLoading) {
     return (
