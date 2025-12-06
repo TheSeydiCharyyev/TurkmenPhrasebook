@@ -42,6 +42,8 @@ export type RootStackParamList = {
 
   // Settings
   Settings: undefined;
+  // About
+  About: undefined;
 };
 
 /**
@@ -84,6 +86,8 @@ export type MainTabParamList = {
   Home: undefined;
   AdditionalFeatures: undefined;
   Settings: undefined;
+  // About
+  About: undefined;
 };
 
 // ===== ВСПОМОГАТЕЛЬНЫЕ ТИПЫ =====

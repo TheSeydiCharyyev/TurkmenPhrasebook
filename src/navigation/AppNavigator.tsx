@@ -37,6 +37,8 @@ import DictionaryScreen from '../screens/DictionaryScreen';
 
 // Language Pair Selection screen
 import LanguagePairSelectionScreen from '../screens/LanguagePairSelectionScreen';
+// About screen
+import AboutScreen from '../screens/AboutScreen';
 
 // Импортируем типы
 import { RootStackParamList, HomeStackParamList } from '../types';
@@ -239,6 +241,13 @@ export default function AppNavigator() {
               fontWeight: 'bold',
             },
           }}
+        />
+
+        {/* About */}
+        <RootStack.Screen
+          name="About"
+          component={AboutScreen}
+          options={{ headerShown: false }}
         />
 
         {/* Additional Features (Search, Favorites, Stats) */}
