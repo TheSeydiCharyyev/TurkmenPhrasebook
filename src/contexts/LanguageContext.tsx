@@ -467,7 +467,7 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     ttInfoCannotSwap: 'Awto Anykla saýlanda çalyş mümkin däl',
 
     // AI Assistants
-    aiHomeTitle: 'Emeli Aň kömekçi çat botlar',
+    aiHomeTitle: 'Emeli Aň kömekçiler',
     aiHomeSubtitle: 'Türkmen dilini öwrenmek üçin Emeli Aň kömekçi çat bot saýlaň',
     aiInfoText: 'Emeli Aň kömekçi çat botlar ösen dil modellerini ulanýar. Jogaplar birnäçe sekunt alyp biler.',
 
@@ -582,13 +582,13 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingReadySubtitle: 'Türkmen dilini häzir öwrenmäge başla',
     onboardingGetStarted: 'Başla',
     // Slide 4: Ready - Feature Tags
-    onboardingTagPhrasebook: '📖 Gepleşik kitaby',
-    onboardingTagAudio: '🔊 Sesli aýdylyş',
-    onboardingTagOffline: '✈️ Oflaýn',
-    onboardingTagTranslator: '📝 Terjimeçi',
-    onboardingTagAI: '🤖 AI kömekçi',
-    onboardingTagVisual: '📷 Wizual',
-    onboardingTagVoice: '🎤 Sesli',
+    onboardingTagPhrasebook: 'Gepleşik kitaby',
+    onboardingTagAudio: 'Sesli aýdylyş',
+    onboardingTagOffline: 'Oflaýn',
+    onboardingTagTranslator: 'Terjimeçi',
+    onboardingTagAI: 'AI kömekçi',
+    onboardingTagVisual: 'Wizual terjime',
+    onboardingTagVoice: 'Ses terjime',
 
     // Settings Screen - Additional translations (Task 2)
     settingsInstalledVoices: 'Gurlan sesler',
@@ -869,13 +869,13 @@ const INTERFACE_TEXTS: Record<AppLanguageMode, InterfaceTexts> = {
     onboardingReadySubtitle: '立即开始学习土库曼语',
     onboardingGetStarted: '开始使用',
     // Slide 4: Ready - Feature Tags
-    onboardingTagPhrasebook: '📖 短语手册',
-    onboardingTagAudio: '🔊 语音发音',
-    onboardingTagOffline: '✈️ 离线',
-    onboardingTagTranslator: '📝 翻译器',
-    onboardingTagAI: '🤖 AI助手',
-    onboardingTagVisual: '📷 视觉',
-    onboardingTagVoice: '🎤 语音',
+    onboardingTagPhrasebook: '短语手册',
+    onboardingTagAudio: '语音发音',
+    onboardingTagOffline: '离线',
+    onboardingTagTranslator: '翻译器',
+    onboardingTagAI: 'AI助手',
+    onboardingTagVisual: '视觉翻译',
+    onboardingTagVoice: '语音翻译',
 
     // Settings Screen - Additional translations (Task 2)
     settingsInstalledVoices: '已安装语音',
