@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "Ykjam Terjime",
+    "name": "Şapak - Ykjam Terjime",
     "slug": "shapak-translator",
     "description": "Şapak - Turkmen translation and AI language companion. Learn Turkmen with 31 languages support, AI assistants, visual translator, and more.",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logo.png",
+    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "plugins": [
@@ -29,8 +29,8 @@
       "bundleIdentifier": "com.shapak.translator",
       "buildNumber": "1.0.0",
       "infoPlist": {
-        "CFBundleDisplayName": "Ykjam Terjime",
-        "CFBundleName": "Ykjam Terjime",
+        "CFBundleDisplayName": "Şapak - Ykjam Terjime",
+        "CFBundleName": "Şapak - Ykjam Terjime",
         "NSMicrophoneUsageDescription": "This app uses the microphone for voice phrase search.",
         "NSMicrophoneUsageDescription[ru]": "Это приложение использует микрофон для голосового поиска фраз.",
         "NSMicrophoneUsageDescription[tk]": "Bu programma ses gözleg üçin mikrofon ulanýar.",
@@ -42,7 +42,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/logo.png",
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
