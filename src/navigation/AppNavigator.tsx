@@ -7,7 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 
 // Импортируем компоненты
-import OfflineIndicator from '../components/OfflineIndicator';
+// import OfflineIndicator from '../components/OfflineIndicator'; // Отключен по запросу пользователя
 import LanguageSelectionScreen from '../screens/LanguageSelectionScreen';
 import OnboardingScreen from '../screens/OnboardingScreen';
 import MainHubScreen from '../screens/MainHubScreen';
@@ -168,7 +168,7 @@ export default function AppNavigator() {
   // Единая навигация для всех сценариев
   return (
     <NavigationContainer>
-      <OfflineIndicator />
+      {/* <OfflineIndicator /> */}
       <RootStack.Navigator initialRouteName={getInitialRouteName()}>
         {/* Language Selection (первый запуск) */}
         <RootStack.Screen
