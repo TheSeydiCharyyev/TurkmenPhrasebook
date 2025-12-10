@@ -277,7 +277,7 @@ export const germanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_055",
-    text: "Ich bin Vegetarier",
+    text: "Ich ernähre mich vegetarisch",
     transcription: undefined
   },
   {
@@ -482,7 +482,7 @@ export const germanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_096",
-    text: "Kann es billiger sein?",
+    text: "Könnte es günstiger sein?",
     transcription: undefined
   },
   {
@@ -597,7 +597,7 @@ export const germanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_119",
-    text: "Halt",
+    text: "Haltestelle",
     transcription: undefined
   },
   {
@@ -607,7 +607,7 @@ export const germanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_121",
-    text: "Ich muss nach ... gehen",
+    text: "Ich muss nach ... fahren",
     transcription: undefined
   },
   {
@@ -622,12 +622,12 @@ export const germanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_124",
-    text: "Links",
+    text: "Nach links",
     transcription: undefined
   },
   {
     phraseId: "phrase_125",
-    text: "Rechts",
+    text: "Nach rechts",
     transcription: undefined
   },
   {
@@ -692,7 +692,7 @@ export const germanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_138",
-    text: "Fieber",
+    text: "Temperatur",
     transcription: undefined
   },
   {
@@ -712,7 +712,7 @@ export const germanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_142",
-    text: "Krankenschwester",
+    text: "Pflegekraft",
     transcription: undefined
   },
   {
@@ -877,17 +877,17 @@ export const germanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_175",
-    text: "Morgens",
+    text: "Am Morgen",
     transcription: undefined
   },
   {
     phraseId: "phrase_176",
-    text: "Nachmittags",
+    text: "Am Nachmittag",
     transcription: undefined
   },
   {
     phraseId: "phrase_177",
-    text: "Abends",
+    text: "Am Abend",
     transcription: undefined
   },
   {
@@ -1047,12 +1047,12 @@ export const germanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_209",
-    text: "Hundert",
+    text: "Einhundert",
     transcription: undefined
   },
   {
     phraseId: "phrase_210",
-    text: "Tausend",
+    text: "Eintausend",
     transcription: undefined
   },
   {
@@ -1062,7 +1062,7 @@ export const germanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_212",
-    text: "Erste",
+    text: "Erster",
     transcription: undefined
   },
   {
@@ -1192,7 +1192,7 @@ export const germanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_238",
-    text: "Ich arbeite bei einer Bank",
+    text: "Ich arbeite in einer Bank",
     transcription: undefined
   },
   {
@@ -1212,7 +1212,7 @@ export const germanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_242",
-    text: "Ich spreche nicht",
+    text: "Ich spreche es nicht",
     transcription: undefined
   },
   {
@@ -1262,7 +1262,7 @@ export const germanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_252",
-    text: "Ich bin gekommen, um geschäftlich zu sprechen",
+    text: "Ich bin gekommen, um geschäftliche Angelegenheiten zu besprechen",
     transcription: undefined
   },
   {
@@ -1442,12 +1442,12 @@ export const germanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_288",
-    text: "Ich beabsichtige, eine Woche in China zu bleiben",
+    text: "Ich plane, eine Woche in China zu bleiben",
     transcription: undefined
   },
   {
     phraseId: "phrase_289",
-    text: "Ich habe ein Visum für eine einmalige Einreise",
+    text: "Ich habe ein einfaches Visum",
     transcription: undefined
   },
   {
@@ -1477,7 +1477,7 @@ export const germanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_295",
-    text: "Welche Zollgebühren muss ich bezahlen?",
+    text: "Welche Zollgebühr muss ich bezahlen?",
     transcription: undefined
   },
   {

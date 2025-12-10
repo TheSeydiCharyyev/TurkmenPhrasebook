@@ -227,7 +227,7 @@ export const frenchTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_045",
-    text: "À quelle heure est le départ?",
+    text: "À quelle heure doit-on libérer la chambre?",
     transcription: undefined
   },
   {
@@ -482,7 +482,7 @@ export const frenchTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_096",
-    text: "Pouvez-vous baisser le prix?",
+    text: "C'est possible de négocier le prix?",
     transcription: undefined
   },
   {
@@ -612,12 +612,12 @@ export const frenchTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_122",
-    text: "Quand arrive le prochain bus?",
+    text: "Quand est-ce que le prochain bus arrive?",
     transcription: undefined
   },
   {
     phraseId: "phrase_123",
-    text: "Je veux aller à l'aéroport",
+    text: "Je voudrais aller à l'aéroport",
     transcription: undefined
   },
   {
@@ -752,7 +752,7 @@ export const frenchTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_150",
-    text: "Distributeur automatique",
+    text: "Distributeur automatique de billets (DAB)",
     transcription: undefined
   },
   {
@@ -1152,7 +1152,7 @@ export const frenchTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_230",
-    text: "J'habite à Achgabat",
+    text: "J'habite à Achkhabad",
     transcription: undefined
   },
   {
@@ -1442,17 +1442,17 @@ export const frenchTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_288",
-    text: "J'ai l'intention de rester en Chine pendant une semaine",
+    text: "J'ai l'intention de rester dans ce pays pendant une semaine",
     transcription: undefined
   },
   {
     phraseId: "phrase_289",
-    text: "J'ai un visa à entrée unique",
+    text: "J'ai un visa à entrée simple",
     transcription: undefined
   },
   {
     phraseId: "phrase_290",
-    text: "Je suis en transit dans votre pays",
+    text: "Je suis en transit par votre pays",
     transcription: undefined
   },
   {
@@ -1477,7 +1477,7 @@ export const frenchTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_295",
-    text: "Quelle taxe dois-je payer?",
+    text: "Quels droits de douane dois-je payer?",
     transcription: undefined
   },
   {
@@ -1512,7 +1512,7 @@ export const frenchTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_302",
-    text: "Je veux m'entraîner",
+    text: "Je voudrais m'entraîner",
     transcription: undefined
   },
   {
