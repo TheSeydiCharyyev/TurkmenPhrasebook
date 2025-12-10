@@ -302,7 +302,7 @@ export const portugueseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_060",
-    text: "Massa",
+    text: "Macarrão",
     transcription: undefined
   },
   {
@@ -327,7 +327,7 @@ export const portugueseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_065",
-    text: "Posso levar para fora?",
+    text: "Posso levar para viagem?",
     transcription: undefined
   },
   {
@@ -342,7 +342,7 @@ export const portugueseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_068",
-    text: "Fiambre",
+    text: "Presunto",
     transcription: undefined
   },
   {
@@ -542,7 +542,7 @@ export const portugueseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_108",
-    text: "Que tamanhos têm?",
+    text: "Qual é o seu tamanho?",
     transcription: undefined
   },
   {
