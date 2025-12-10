@@ -82,7 +82,7 @@ export const italianTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_016",
-    text: "Benvenuto! (saluto di arrivo)",
+    text: "Benvenuto!",
     transcription: undefined
   },
   {
@@ -302,7 +302,7 @@ export const italianTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_060",
-    text: "Pasta",
+    text: "Noodles",
     transcription: undefined
   },
   {
@@ -327,7 +327,7 @@ export const italianTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_065",
-    text: "Posso portare via?",
+    text: "Posso portarlo via?",
     transcription: undefined
   },
   {
@@ -482,7 +482,7 @@ export const italianTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_096",
-    text: "Può fare un prezzo migliore?",
+    text: "Può farmi uno sconto?",
     transcription: undefined
   },
   {
@@ -1272,7 +1272,7 @@ export const italianTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_254",
-    text: "Vogliamo conoscere la produzione",
+    text: "Vorremmo informarci sulla produzione",
     transcription: undefined
   },
   {
@@ -1442,7 +1442,7 @@ export const italianTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_288",
-    text: "Ho intenzione di rimanere in Cina per una settimana",
+    text: "Ho intenzione di rimanere in questo paese per una settimana",
     transcription: undefined
   },
   {
@@ -1477,7 +1477,7 @@ export const italianTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_295",
-    text: "Quale tassa devo pagare?",
+    text: "Quale dazio doganale devo pagare?",
     transcription: undefined
   },
   {
