@@ -82,7 +82,7 @@ export const portugueseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_016",
-    text: "Seja bem-vindo! (saudação à chegada)",
+    text: "Seja bem-vindo!",
     transcription: undefined
   },
   {
@@ -242,7 +242,7 @@ export const portugueseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_048",
-    text: "O pequeno-almoço está incluído?",
+    text: "O café da manhã está incluído?",
     transcription: undefined
   },
   {
@@ -262,7 +262,7 @@ export const portugueseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_052",
-    text: "Ementa, por favor",
+    text: "Cardápio, por favor",
     transcription: undefined
   },
   {
