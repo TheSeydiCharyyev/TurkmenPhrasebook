@@ -552,7 +552,7 @@ export const portugueseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_110",
-    text: "Onde fica a estação de comboios?",
+    text: "Onde fica a estação de trem?",
     transcription: undefined
   },
   {
@@ -567,7 +567,7 @@ export const portugueseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_113",
-    text: "Autocarro",
+    text: "Ônibus",
     transcription: undefined
   },
   {
@@ -577,7 +577,7 @@ export const portugueseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_115",
-    text: "Bilhete de comboio",
+    text: "Passagem de trem",
     transcription: undefined
   },
   {
@@ -622,12 +622,12 @@ export const portugueseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_124",
-    text: "Esquerda",
+    text: "À esquerda",
     transcription: undefined
   },
   {
     phraseId: "phrase_125",
-    text: "Direita",
+    text: "À direita",
     transcription: undefined
   },
   {
@@ -692,7 +692,7 @@ export const portugueseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_138",
-    text: "Febre",
+    text: "Temperatura",
     transcription: undefined
   },
   {
@@ -752,7 +752,7 @@ export const portugueseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_150",
-    text: "Caixa automática",
+    text: "Caixa eletrônico",
     transcription: undefined
   },
   {
@@ -777,7 +777,7 @@ export const portugueseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_155",
-    text: "Telemóvel",
+    text: "Celular",
     transcription: undefined
   },
   {
@@ -1102,7 +1102,7 @@ export const portugueseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_220",
-    text: "Sol",
+    text: "Ensolarado",
     transcription: undefined
   },
   {
@@ -1112,7 +1112,7 @@ export const portugueseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_222",
-    text: "Vento",
+    text: "Ventoso",
     transcription: undefined
   },
   {
@@ -1202,7 +1202,7 @@ export const portugueseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_240",
-    text: "Estou a aprender línguas estrangeiras",
+    text: "Estudo línguas estrangeiras",
     transcription: undefined
   },
   {

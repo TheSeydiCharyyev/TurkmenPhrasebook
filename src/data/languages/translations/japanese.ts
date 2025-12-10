@@ -282,8 +282,8 @@ export const japaneseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_056",
-    text: "辛くないでください",
-    transcription: "Karakunai de kudasai"
+    text: "辛さ控えめでお願いします",
+    transcription: "Karasa hikaeme de onegaishimasu"
   },
   {
     phraseId: "phrase_057",
@@ -597,8 +597,8 @@ export const japaneseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_119",
-    text: "止まれ",
-    transcription: "Tomare"
+    text: "止まってください",
+    transcription: "Tomatte kudasai"
   },
   {
     phraseId: "phrase_120",
@@ -692,8 +692,8 @@ export const japaneseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_138",
-    text: "熱",
-    transcription: "Netsu"
+    text: "体温",
+    transcription: "Taion"
   },
   {
     phraseId: "phrase_139",
@@ -733,7 +733,7 @@ export const japaneseTranslations: LanguageTranslation[] = [
   {
     phraseId: "phrase_146",
     text: "元",
-    transcription: "Gen"
+    transcription: "Yuan"
   },
   {
     phraseId: "phrase_147",
@@ -1242,8 +1242,8 @@ export const japaneseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_248",
-    text: "展示会を見たいです",
-    transcription: "Tenjikai wo mitai desu"
+    text: "展示会を見学したいと思います",
+    transcription: "Tenjikai wo kengaku shitai to omoimasu"
   },
   {
     phraseId: "phrase_249",
@@ -1267,13 +1267,13 @@ export const japaneseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_253",
-    text: "社長と話したいです",
-    transcription: "Shachou to hanashitai desu"
+    text: "社長とお話しさせていただきたいです",
+    transcription: "Shachou to ohanashi sasete itadakitai desu"
   },
   {
     phraseId: "phrase_254",
-    text: "生産について知りたいです",
-    transcription: "Seisan ni tsuite shiritai desu"
+    text: "生産についてお伺いしたいです",
+    transcription: "Seisan ni tsuite oukagai shitai desu"
   },
   {
     phraseId: "phrase_255",
@@ -1442,8 +1442,8 @@ export const japaneseTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_288",
-    text: "中国に一週間滞在する予定です",
-    transcription: "Chuugoku ni isshuukan taizai suru yotei desu"
+    text: "ここに一週間滞在する予定です",
+    transcription: "Koko ni isshuukan taizai suru yotei desu"
   },
   {
     phraseId: "phrase_289",

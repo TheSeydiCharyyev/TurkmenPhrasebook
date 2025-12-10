@@ -297,13 +297,13 @@ export const tajikTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_059",
-    text: "Намак",
-    transcription: "Namak"
+    text: "Биринҷ",
+    transcription: "Birinj"
   },
   {
     phraseId: "phrase_060",
-    text: "Биринҷ",
-    transcription: "Birinj"
+    text: "Угро",
+    transcription: "Ugro"
   },
   {
     phraseId: "phrase_061",
@@ -577,8 +577,8 @@ export const tajikTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_115",
-    text: "Вокзали роҳи оҳан",
-    transcription: "Vokzali rohi ohan"
+    text: "Чиптаи қатора",
+    transcription: "Chiptai qatora"
   },
   {
     phraseId: "phrase_116",
@@ -1042,8 +1042,8 @@ export const tajikTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_208",
-    text: "Ёздаҳ",
-    transcription: "Yozdah"
+    text: "Бист",
+    transcription: "Bist"
   },
   {
     phraseId: "phrase_209",
@@ -1352,8 +1352,8 @@ export const tajikTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_270",
-    text: "Осмонӣ",
-    transcription: "Osmoni"
+    text: "Бунафш",
+    transcription: "Bunafsh"
   },
   {
     phraseId: "phrase_271",
@@ -1442,8 +1442,8 @@ export const tajikTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_288",
-    text: "Ман дар Чин як ҳафта будан мехоҳам",
-    transcription: "Man dar Chin yak hafta budan mekhoham"
+    text: "Ман дар ин ҷо як ҳафта будан мехоҳам",
+    transcription: "Man dar in jo yak hafta budan mekhoham"
   },
   {
     phraseId: "phrase_289",
@@ -1462,13 +1462,13 @@ export const tajikTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_292",
-    text: "Ин боғи ман аст",
-    transcription: "In baghi man ast"
+    text: "Ин бори ман аст",
+    transcription: "In bori man ast"
   },
   {
     phraseId: "phrase_293",
-    text: "Дар боғи ман ашёи мамнуъ нест",
-    transcription: "Dar baghi man ashyoi mamnu' nest"
+    text: "Дар бори ман ашёи мамнуъ нест",
+    transcription: "Dar bori man ashyoi mamnu' nest"
   },
   {
     phraseId: "phrase_294",

@@ -187,8 +187,8 @@ export const koreanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_037",
-    text: "위험해요!",
-    transcription: "Wiheomhaeyo!"
+    text: "위험합니다!",
+    transcription: "Wiheomnida!"
   },
   {
     phraseId: "phrase_038",
@@ -267,8 +267,8 @@ export const koreanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_053",
-    text: "맛있어요",
-    transcription: "Massisseoyo"
+    text: "맛있습니다",
+    transcription: "Masitseumnida"
   },
   {
     phraseId: "phrase_054",
@@ -477,8 +477,8 @@ export const koreanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_095",
-    text: "너무 비싸요",
-    transcription: "Neomu bissayo"
+    text: "가격이 좀 비쌉니다",
+    transcription: "Gagyeogi jom bissamnida"
   },
   {
     phraseId: "phrase_096",
@@ -692,8 +692,8 @@ export const koreanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_138",
-    text: "체온",
-    transcription: "Cheon"
+    text: "열",
+    transcription: "Yeol"
   },
   {
     phraseId: "phrase_139",
@@ -733,7 +733,7 @@ export const koreanTranslations: LanguageTranslation[] = [
   {
     phraseId: "phrase_146",
     text: "위안",
-    transcription: "Wian"
+    transcription: "Yuan"
   },
   {
     phraseId: "phrase_147",
@@ -1148,12 +1148,12 @@ export const koreanTranslations: LanguageTranslation[] = [
   {
     phraseId: "phrase_229",
     text: "저는 투르크메니스탄에서 왔습니다",
-    transcription: "Jeoneun Tureukeuменistаneseo wasseumnida"
+    transcription: "Jeoneun Tureukeumeniseutaneseo wasseumnida"
   },
   {
     phraseId: "phrase_230",
-    text: "저는 아슈하바트에 살아요",
-    transcription: "Jeoneun Asyuhabateue sarayo"
+    text: "저는 아슈하바트에 삽니다",
+    transcription: "Jeoneun Asyuhabateue samnida"
   },
   {
     phraseId: "phrase_231",
@@ -1222,8 +1222,8 @@ export const koreanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_244",
-    text: "회의는 언제 시작하나요?",
-    transcription: "Hoeineun eonje sijakhanayo?"
+    text: "회의는 언제 시작합니까?",
+    transcription: "Hoeineun eonje sijakamnikka?"
   },
   {
     phraseId: "phrase_245",
@@ -1233,7 +1233,7 @@ export const koreanTranslations: LanguageTranslation[] = [
   {
     phraseId: "phrase_246",
     text: "러시아어 통역이 있나요?",
-    transcription: "Reosiaeо tongyeogi innayo?"
+    transcription: "Reosiaeoreul tongyeogi innayo?"
   },
   {
     phraseId: "phrase_247",
@@ -1242,8 +1242,8 @@ export const koreanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_248",
-    text: "전시회를 보고 싶습니다",
-    transcription: "Jeonsihereul bogo sipseumnida"
+    text: "저희는 전시회를 보고 싶습니다",
+    transcription: "Jeohineun jeonsihereul bogo sipseumnida"
   },
   {
     phraseId: "phrase_249",
@@ -1267,13 +1267,13 @@ export const koreanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_253",
-    text: "총감독님과 이야기하고 싶습니다",
-    transcription: "Chonggamdongnim-gwa iyagihago sipseumnida"
+    text: "저희는 총감독님과 이야기하고 싶습니다",
+    transcription: "Jeohineun chonggamdongnim-gwa iyagihago sipseumnida"
   },
   {
     phraseId: "phrase_254",
-    text: "생산에 대해 알고 싶습니다",
-    transcription: "Saengsan-e daehae algo sipseumnida"
+    text: "저희는 생산에 대해 알고 싶습니다",
+    transcription: "Jeohineun saengsan-e daehae algo sipseumnida"
   },
   {
     phraseId: "phrase_255",
@@ -1442,8 +1442,8 @@ export const koreanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_288",
-    text: "중국에 일주일 체류할 예정입니다",
-    transcription: "Jungguge iljuil cheryuhal yejeongimnida"
+    text: "여기에 일주일 체류할 예정입니다",
+    transcription: "Yeogie iljuil cheryuhal yejeongimnida"
   },
   {
     phraseId: "phrase_289",
@@ -1452,8 +1452,8 @@ export const koreanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_290",
-    text: "귀국을 경유 중입니다",
-    transcription: "Gigugeul gyeongyu jung-imnida"
+    text: "이 나라를 경유 중입니다",
+    transcription: "I narareul gyeongyu jung-imnida"
   },
   {
     phraseId: "phrase_291",
@@ -1487,8 +1487,8 @@ export const koreanTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_297",
-    text: "저는 축구를 좋아합니다",
-    transcription: "Jeoneun chukgureul joahamnida"
+    text: "저는 축구를 하는 것을 좋아합니다",
+    transcription: "Jeoneun chukgureul haneun geoseul joahamnida"
   },
   {
     phraseId: "phrase_298",

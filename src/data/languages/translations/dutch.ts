@@ -367,7 +367,7 @@ export const dutchTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_073",
-    text: "Vleesboullion",
+    text: "Vleesbouillon",
     transcription: undefined
   },
   {
@@ -542,7 +542,7 @@ export const dutchTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_108",
-    text: "Welke maten heeft u?",
+    text: "Wat is uw maat?",
     transcription: undefined
   },
   {
@@ -622,12 +622,12 @@ export const dutchTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_124",
-    text: "Links",
+    text: "Naar links",
     transcription: undefined
   },
   {
     phraseId: "phrase_125",
-    text: "Rechts",
+    text: "Naar rechts",
     transcription: undefined
   },
   {
@@ -692,7 +692,7 @@ export const dutchTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_138",
-    text: "Koorts",
+    text: "Temperatuur",
     transcription: undefined
   },
   {
@@ -877,17 +877,17 @@ export const dutchTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_175",
-    text: "Ochtend",
+    text: "'s Ochtends",
     transcription: undefined
   },
   {
     phraseId: "phrase_176",
-    text: "Middag",
+    text: "'s Middags",
     transcription: undefined
   },
   {
     phraseId: "phrase_177",
-    text: "Avond",
+    text: "'s Avonds",
     transcription: undefined
   },
   {
@@ -1227,7 +1227,7 @@ export const dutchTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_245",
-    text: "Hoe is het schema voor de presentaties?",
+    text: "Wat is het schema voor de presentaties?",
     transcription: undefined
   },
   {
@@ -1272,7 +1272,7 @@ export const dutchTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_254",
-    text: "Wij willen meer weten over de productie",
+    text: "Wij willen weten over de productie",
     transcription: undefined
   },
   {
@@ -1442,7 +1442,7 @@ export const dutchTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_288",
-    text: "Ik ben van plan een week in China te blijven",
+    text: "Ik ben van plan een week hier te blijven",
     transcription: undefined
   },
   {
@@ -1477,7 +1477,7 @@ export const dutchTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_295",
-    text: "Welke douanerechten moet ik betalen?",
+    text: "Hoeveel douanerechten moet ik betalen?",
     transcription: undefined
   },
   {
