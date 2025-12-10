@@ -1,11 +1,11 @@
-// Украинский (Ukrainian) - Türkmençe Phrasebook
+// Українська (Ukrainian) - Türkmençe Phrasebook
 // 305 phrases with romanization
 // Created: 2025-10-31
+// Updated: 2025-12-10 - Fixed phrase ID alignment
 
 import { LanguageTranslation } from '../../../types';
 
 export const ukrainianTranslations: LanguageTranslation[] = [
-  // GREETINGS (40 phrases) - phrase_001 to phrase_040
   {
     phraseId: "phrase_001",
     text: "Привіт",
@@ -13,1550 +13,1522 @@ export const ukrainianTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_002",
-    text: "Добрий ранок",
-    transcription: "Dobryi ranok"
-  },
-  {
-    phraseId: "phrase_003",
-    text: "Добрий день",
-    transcription: "Dobryi den'"
-  },
-  {
-    phraseId: "phrase_004",
-    text: "Добрий вечір",
-    transcription: "Dobryi vechir"
-  },
-  {
-    phraseId: "phrase_005",
-    text: "Добраніч",
-    transcription: "Dobranich"
-  },
-  {
-    phraseId: "phrase_006",
-    text: "До побачення",
-    transcription: "Do pobachennia"
-  },
-  {
-    phraseId: "phrase_007",
-    text: "Бувайте",
-    transcription: "Buvaite"
-  },
-  {
-    phraseId: "phrase_008",
-    text: "Як справи?",
-    transcription: "Yak spravy?"
-  },
-  {
-    phraseId: "phrase_009",
-    text: "Добре, дякую",
-    transcription: "Dobre, diakuiu"
-  },
-  {
-    phraseId: "phrase_010",
-    text: "А у вас?",
-    transcription: "A u vas?"
-  },
-  {
-    phraseId: "phrase_011",
-    text: "Будь ласка",
-    transcription: "Bud' laska"
-  },
-  {
-    phraseId: "phrase_012",
     text: "Дякую",
     transcription: "Diakuiu"
   },
   {
-    phraseId: "phrase_013",
-    text: "Дуже дякую",
-    transcription: "Duzhe diakuiu"
+    phraseId: "phrase_003",
+    text: "До побачення",
+    transcription: "Do pobachennia"
   },
   {
-    phraseId: "phrase_014",
+    phraseId: "phrase_004",
     text: "Вибачте",
     transcription: "Vybachte"
   },
   {
-    phraseId: "phrase_015",
-    text: "Перепрошую",
-    transcription: "Pereproshuiu"
+    phraseId: "phrase_005",
+    text: "Добрий ранок",
+    transcription: "Dobryi ranok"
   },
   {
-    phraseId: "phrase_016",
-    text: "Так",
-    transcription: "Tak"
+    phraseId: "phrase_006",
+    text: "Добраніч",
+    transcription: "Dobranich"
   },
   {
-    phraseId: "phrase_017",
-    text: "Ні",
-    transcription: "Ni"
-  },
-  {
-    phraseId: "phrase_018",
-    text: "Можливо",
-    transcription: "Mozhlyvo"
-  },
-  {
-    phraseId: "phrase_019",
-    text: "Добре",
-    transcription: "Dobre"
-  },
-  {
-    phraseId: "phrase_020",
-    text: "Звичайно",
-    transcription: "Zvychaino"
-  },
-  {
-    phraseId: "phrase_021",
-    text: "Як вас звати?",
-    transcription: "Yak vas zvaty?"
-  },
-  {
-    phraseId: "phrase_022",
+    phraseId: "phrase_007",
     text: "Мене звати...",
     transcription: "Mene zvaty..."
   },
   {
-    phraseId: "phrase_023",
+    phraseId: "phrase_008",
+    text: "Як вас звати?",
+    transcription: "Yak vas zvaty?"
+  },
+  {
+    phraseId: "phrase_009",
     text: "Приємно познайомитися",
     transcription: "Pryiemno poznaiomytysia"
   },
   {
-    phraseId: "phrase_024",
-    text: "Радий вас бачити",
-    transcription: "Radyi vas bachyty"
+    phraseId: "phrase_010",
+    text: "Будь ласка",
+    transcription: "Bud' laska"
   },
   {
-    phraseId: "phrase_025",
-    text: "Як ви поживаєте?",
-    transcription: "Yak vy pozhyvaete?"
-  },
-  {
-    phraseId: "phrase_026",
-    text: "Звідки ви?",
-    transcription: "Zvidky vy?"
-  },
-  {
-    phraseId: "phrase_027",
-    text: "Я з...",
-    transcription: "Ya z..."
-  },
-  {
-    phraseId: "phrase_028",
-    text: "Ласкаво просимо",
-    transcription: "Laskavo prosymo"
-  },
-  {
-    phraseId: "phrase_029",
+    phraseId: "phrase_011",
     text: "Не має за що",
     transcription: "Ne maie za shcho"
   },
   {
-    phraseId: "phrase_030",
-    text: "Вітаю",
-    transcription: "Vitaiu"
+    phraseId: "phrase_012",
+    text: "Як справи?",
+    transcription: "Yak spravy?"
   },
   {
-    phraseId: "phrase_031",
+    phraseId: "phrase_013",
     text: "Хай щастить",
     transcription: "Khai shchastyt'"
   },
   {
-    phraseId: "phrase_032",
-    text: "Бережіть себе",
-    transcription: "Berezhit' sebe"
+    phraseId: "phrase_014",
+    text: "Ласкаво просимо",
+    transcription: "Laskavo prosymo"
   },
   {
-    phraseId: "phrase_033",
-    text: "До зустрічі",
-    transcription: "Do zustrichi"
+    phraseId: "phrase_015",
+    text: "Дуже радий вас бачити",
+    transcription: "Duzhe radyi vas bachyty"
   },
   {
-    phraseId: "phrase_034",
-    text: "Побачимось пізніше",
-    transcription: "Pobachymos' piznishe"
+    phraseId: "phrase_016",
+    text: "Ласкаво просимо!",
+    transcription: "Laskavo prosymo!"
   },
   {
-    phraseId: "phrase_035",
-    text: "Гарного дня",
-    transcription: "Harnoho dnia"
+    phraseId: "phrase_017",
+    text: "Як ви поживаєте?",
+    transcription: "Yak vy pozhyvaete?"
   },
   {
-    phraseId: "phrase_036",
-    text: "Смачного",
-    transcription: "Smachnoho"
+    phraseId: "phrase_018",
+    text: "Дозвольте познайомити мого друга",
+    transcription: "Dozvol'te poznaiomyty moho druha"
   },
   {
-    phraseId: "phrase_037",
-    text: "Будьмо",
-    transcription: "Bud'mo"
+    phraseId: "phrase_019",
+    text: "Радий познайомитися!",
+    transcription: "Radyi poznaiomytysia!"
   },
   {
-    phraseId: "phrase_038",
-    text: "Вітання",
-    transcription: "Vitannia"
+    phraseId: "phrase_020",
+    text: "Будь ласка, заходьте",
+    transcription: "Bud' laska, zakhod'te"
   },
   {
-    phraseId: "phrase_039",
-    text: "Вибачте за турботу",
-    transcription: "Vybachte za turbotu"
+    phraseId: "phrase_021",
+    text: "Будь ласка, сідайте",
+    transcription: "Bud' laska, sidaite"
   },
   {
-    phraseId: "phrase_040",
-    text: "Немає проблем",
-    transcription: "Nemaie problem"
+    phraseId: "phrase_022",
+    text: "Так",
+    transcription: "Tak"
   },
-
-  // NUMBERS (20 phrases) - phrase_041 to phrase_060
   {
-    phraseId: "phrase_041",
-    text: "Один",
-    transcription: "Odyn"
+    phraseId: "phrase_023",
+    text: "Ні",
+    transcription: "Ni"
   },
   {
-    phraseId: "phrase_042",
-    text: "Два",
-    transcription: "Dva"
+    phraseId: "phrase_024",
+    text: "Я згоден/згодна",
+    transcription: "Ya zhoden/zhodna"
   },
   {
-    phraseId: "phrase_043",
-    text: "Три",
-    transcription: "Try"
+    phraseId: "phrase_025",
+    text: "Дуже дякую за вашу допомогу",
+    transcription: "Duzhe diakuiu za vashu dopomohu"
   },
   {
-    phraseId: "phrase_044",
-    text: "Чотири",
-    transcription: "Chotyry"
+    phraseId: "phrase_026",
+    text: "Дуже дякую за вашу підтримку",
+    transcription: "Duzhe diakuiu za vashu pidtrymku"
   },
   {
-    phraseId: "phrase_045",
-    text: "П'ять",
-    transcription: "P'iat'"
+    phraseId: "phrase_027",
+    text: "Дуже дякую за ваше розуміння",
+    transcription: "Duzhe diakuiu za vashe rozuminnia"
   },
   {
-    phraseId: "phrase_046",
-    text: "Шість",
-    transcription: "Shist'"
-  },
-  {
-    phraseId: "phrase_047",
-    text: "Сім",
-    transcription: "Sim"
-  },
-  {
-    phraseId: "phrase_048",
-    text: "Вісім",
-    transcription: "Visim"
-  },
-  {
-    phraseId: "phrase_049",
-    text: "Дев'ять",
-    transcription: "Dev'iat'"
-  },
-  {
-    phraseId: "phrase_050",
-    text: "Десять",
-    transcription: "Desiat'"
-  },
-  {
-    phraseId: "phrase_051",
-    text: "Одинадцять",
-    transcription: "Odynadtsiat'"
-  },
-  {
-    phraseId: "phrase_052",
-    text: "Дванадцять",
-    transcription: "Dvanadtsiat'"
-  },
-  {
-    phraseId: "phrase_053",
-    text: "Двадцять",
-    transcription: "Dvadtsiat'"
-  },
-  {
-    phraseId: "phrase_054",
-    text: "Тридцять",
-    transcription: "Trydtsiat'"
-  },
-  {
-    phraseId: "phrase_055",
-    text: "Сорок",
-    transcription: "Sorok"
-  },
-  {
-    phraseId: "phrase_056",
-    text: "П'ятдесят",
-    transcription: "P'iatdesiat'"
-  },
-  {
-    phraseId: "phrase_057",
-    text: "Сто",
-    transcription: "Sto"
-  },
-  {
-    phraseId: "phrase_058",
-    text: "Тисяча",
-    transcription: "Tysiacha"
-  },
-  {
-    phraseId: "phrase_059",
-    text: "Мільйон",
-    transcription: "Mil'ion"
-  },
-  {
-    phraseId: "phrase_060",
-    text: "Нуль",
-    transcription: "Nul'"
-  },
-
-  // TIME (25 phrases) - phrase_061 to phrase_085
-  {
-    phraseId: "phrase_061",
-    text: "Понеділок",
-    transcription: "Ponedilok"
-  },
-  {
-    phraseId: "phrase_062",
-    text: "Вівторок",
-    transcription: "Vivtorok"
-  },
-  {
-    phraseId: "phrase_063",
-    text: "Середа",
-    transcription: "Sereda"
-  },
-  {
-    phraseId: "phrase_064",
-    text: "Четвер",
-    transcription: "Chetver"
-  },
-  {
-    phraseId: "phrase_065",
-    text: "П'ятниця",
-    transcription: "P'iatnytsia"
-  },
-  {
-    phraseId: "phrase_066",
-    text: "Субота",
-    transcription: "Subota"
-  },
-  {
-    phraseId: "phrase_067",
-    text: "Неділя",
-    transcription: "Nedilia"
-  },
-  {
-    phraseId: "phrase_068",
-    text: "Січень",
-    transcription: "Sichen'"
-  },
-  {
-    phraseId: "phrase_069",
-    text: "Лютий",
-    transcription: "Liutyi"
-  },
-  {
-    phraseId: "phrase_070",
-    text: "Березень",
-    transcription: "Berezen'"
-  },
-  {
-    phraseId: "phrase_071",
-    text: "Квітень",
-    transcription: "Kviten'"
-  },
-  {
-    phraseId: "phrase_072",
-    text: "Травень",
-    transcription: "Traven'"
-  },
-  {
-    phraseId: "phrase_073",
-    text: "Червень",
-    transcription: "Cherven'"
-  },
-  {
-    phraseId: "phrase_074",
-    text: "Липень",
-    transcription: "Lypen'"
-  },
-  {
-    phraseId: "phrase_075",
-    text: "Серпень",
-    transcription: "Serpen'"
-  },
-  {
-    phraseId: "phrase_076",
-    text: "Вересень",
-    transcription: "Veresen'"
-  },
-  {
-    phraseId: "phrase_077",
-    text: "Жовтень",
-    transcription: "Zhovten'"
-  },
-  {
-    phraseId: "phrase_078",
-    text: "Листопад",
-    transcription: "Lystopad"
-  },
-  {
-    phraseId: "phrase_079",
-    text: "Грудень",
-    transcription: "Hruden'"
-  },
-  {
-    phraseId: "phrase_080",
-    text: "Сьогодні",
-    transcription: "S'ohodni"
-  },
-  {
-    phraseId: "phrase_081",
-    text: "Вчора",
-    transcription: "Vchora"
-  },
-  {
-    phraseId: "phrase_082",
-    text: "Завтра",
-    transcription: "Zavtra"
-  },
-  {
-    phraseId: "phrase_083",
-    text: "Зараз",
-    transcription: "Zaraz"
-  },
-  {
-    phraseId: "phrase_084",
-    text: "Пізніше",
-    transcription: "Piznishe"
-  },
-  {
-    phraseId: "phrase_085",
-    text: "Котра година?",
-    transcription: "Kotra hodyna?"
-  },
-
-  // FOOD (30 phrases) - phrase_086 to phrase_115
-  {
-    phraseId: "phrase_086",
-    text: "Їжа",
-    transcription: "Yizha"
-  },
-  {
-    phraseId: "phrase_087",
-    text: "Вода",
-    transcription: "Voda"
-  },
-  {
-    phraseId: "phrase_088",
-    text: "Хліб",
-    transcription: "Khlib"
-  },
-  {
-    phraseId: "phrase_089",
-    text: "М'ясо",
-    transcription: "M'iaso"
-  },
-  {
-    phraseId: "phrase_090",
-    text: "Риба",
-    transcription: "Ryba"
-  },
-  {
-    phraseId: "phrase_091",
-    text: "Овочі",
-    transcription: "Ovochi"
-  },
-  {
-    phraseId: "phrase_092",
-    text: "Фрукти",
-    transcription: "Frukty"
-  },
-  {
-    phraseId: "phrase_093",
-    text: "Молоко",
-    transcription: "Moloko"
-  },
-  {
-    phraseId: "phrase_094",
-    text: "Сир",
-    transcription: "Syr"
-  },
-  {
-    phraseId: "phrase_095",
-    text: "Яйця",
-    transcription: "Yaitsia"
-  },
-  {
-    phraseId: "phrase_096",
-    text: "Рис",
-    transcription: "Rys"
-  },
-  {
-    phraseId: "phrase_097",
-    text: "Суп",
-    transcription: "Sup"
-  },
-  {
-    phraseId: "phrase_098",
-    text: "Салат",
-    transcription: "Salat"
-  },
-  {
-    phraseId: "phrase_099",
-    text: "Кава",
-    transcription: "Kava"
-  },
-  {
-    phraseId: "phrase_100",
-    text: "Чай",
-    transcription: "Chai"
-  },
-  {
-    phraseId: "phrase_101",
-    text: "Сік",
-    transcription: "Sik"
-  },
-  {
-    phraseId: "phrase_102",
-    text: "Пиво",
-    transcription: "Pyvo"
-  },
-  {
-    phraseId: "phrase_103",
-    text: "Вино",
-    transcription: "Vyno"
-  },
-  {
-    phraseId: "phrase_104",
-    text: "Ресторан",
-    transcription: "Restoran"
-  },
-  {
-    phraseId: "phrase_105",
-    text: "Меню",
-    transcription: "Meniu"
-  },
-  {
-    phraseId: "phrase_106",
-    text: "Сніданок",
-    transcription: "Snidanok"
-  },
-  {
-    phraseId: "phrase_107",
-    text: "Обід",
-    transcription: "Obid"
-  },
-  {
-    phraseId: "phrase_108",
-    text: "Вечеря",
-    transcription: "Vecheria"
-  },
-  {
-    phraseId: "phrase_109",
-    text: "Я голодний/голодна",
-    transcription: "Ya holodnyi/holodna"
-  },
-  {
-    phraseId: "phrase_110",
-    text: "Я хочу пити",
-    transcription: "Ya khochu pyty"
-  },
-  {
-    phraseId: "phrase_111",
-    text: "Смачно",
-    transcription: "Smachno"
-  },
-  {
-    phraseId: "phrase_112",
-    text: "Рахунок, будь ласка",
-    transcription: "Rakhunok, bud' laska"
-  },
-  {
-    phraseId: "phrase_113",
-    text: "Я вегетаріанець",
-    transcription: "Ya vehetarianets'"
-  },
-  {
-    phraseId: "phrase_114",
-    text: "Алергія",
-    transcription: "Alerhiia"
-  },
-  {
-    phraseId: "phrase_115",
-    text: "Гостро",
-    transcription: "Hostro"
-  },
-
-  // SHOPPING (25 phrases) - phrase_116 to phrase_140
-  {
-    phraseId: "phrase_116",
-    text: "Магазин",
-    transcription: "Mahazyn"
-  },
-  {
-    phraseId: "phrase_117",
-    text: "Ринок",
-    transcription: "Rynok"
-  },
-  {
-    phraseId: "phrase_118",
-    text: "Скільки це коштує?",
-    transcription: "Skil'ky tse koshtuie?"
-  },
-  {
-    phraseId: "phrase_119",
-    text: "Дорого",
-    transcription: "Doroho"
-  },
-  {
-    phraseId: "phrase_120",
-    text: "Дешево",
-    transcription: "Deshevo"
-  },
-  {
-    phraseId: "phrase_121",
-    text: "Ціна",
-    transcription: "Tsina"
-  },
-  {
-    phraseId: "phrase_122",
-    text: "Я куплю це",
-    transcription: "Ya kupliu tse"
-  },
-  {
-    phraseId: "phrase_123",
-    text: "Я просто дивлюся",
-    transcription: "Ya prosto dyvliusia"
-  },
-  {
-    phraseId: "phrase_124",
-    text: "Знижка",
-    transcription: "Znyzhka"
-  },
-  {
-    phraseId: "phrase_125",
-    text: "Розмір",
-    transcription: "Rozmir"
-  },
-  {
-    phraseId: "phrase_126",
-    text: "Колір",
-    transcription: "Kolir"
-  },
-  {
-    phraseId: "phrase_127",
-    text: "Велике",
-    transcription: "Velyke"
-  },
-  {
-    phraseId: "phrase_128",
-    text: "Маленьке",
-    transcription: "Malen'ke"
-  },
-  {
-    phraseId: "phrase_129",
-    text: "Середнє",
-    transcription: "Serednie"
-  },
-  {
-    phraseId: "phrase_130",
-    text: "Новий",
-    transcription: "Novyi"
-  },
-  {
-    phraseId: "phrase_131",
-    text: "Старий",
-    transcription: "Staryi"
-  },
-  {
-    phraseId: "phrase_132",
-    text: "Гарний",
-    transcription: "Harnyi"
-  },
-  {
-    phraseId: "phrase_133",
-    text: "Поганий",
-    transcription: "Pohanyi"
-  },
-  {
-    phraseId: "phrase_134",
-    text: "Відкрито",
-    transcription: "Vidkryto"
-  },
-  {
-    phraseId: "phrase_135",
-    text: "Закрито",
-    transcription: "Zakryto"
-  },
-  {
-    phraseId: "phrase_136",
-    text: "Готівка",
-    transcription: "Hotivka"
-  },
-  {
-    phraseId: "phrase_137",
-    text: "Кредитна картка",
-    transcription: "Kredytna kartka"
-  },
-  {
-    phraseId: "phrase_138",
-    text: "Квитанція",
-    transcription: "Kvytantsiia"
-  },
-  {
-    phraseId: "phrase_139",
-    text: "Сувенір",
-    transcription: "Suvenir"
-  },
-  {
-    phraseId: "phrase_140",
-    text: "Подарунок",
-    transcription: "Podarunok"
-  },
-
-  // TRANSPORTATION (20 phrases) - phrase_141 to phrase_160
-  {
-    phraseId: "phrase_141",
-    text: "Автобус",
-    transcription: "Avtobus"
-  },
-  {
-    phraseId: "phrase_142",
-    text: "Таксі",
-    transcription: "Taksi"
-  },
-  {
-    phraseId: "phrase_143",
-    text: "Поїзд",
-    transcription: "Poizd"
-  },
-  {
-    phraseId: "phrase_144",
-    text: "Літак",
-    transcription: "Litak"
-  },
-  {
-    phraseId: "phrase_145",
-    text: "Автомобіль",
-    transcription: "Avtomobil'"
-  },
-  {
-    phraseId: "phrase_146",
-    text: "Велосипед",
-    transcription: "Velosyped"
-  },
-  {
-    phraseId: "phrase_147",
-    text: "Аеропорт",
-    transcription: "Aeroport"
-  },
-  {
-    phraseId: "phrase_148",
-    text: "Вокзал",
-    transcription: "Vokzal"
-  },
-  {
-    phraseId: "phrase_149",
-    text: "Автобусна зупинка",
-    transcription: "Avtobusna zupynka"
-  },
-  {
-    phraseId: "phrase_150",
-    text: "Квиток",
-    transcription: "Kvytok"
-  },
-  {
-    phraseId: "phrase_151",
-    text: "Де це?",
-    transcription: "De tse?"
-  },
-  {
-    phraseId: "phrase_152",
-    text: "Як дістатися до...?",
-    transcription: "Yak distatysia do...?"
-  },
-  {
-    phraseId: "phrase_153",
-    text: "Ліворуч",
-    transcription: "Livoruch"
-  },
-  {
-    phraseId: "phrase_154",
-    text: "Праворуч",
-    transcription: "Pravoruch"
-  },
-  {
-    phraseId: "phrase_155",
-    text: "Прямо",
-    transcription: "Priamo"
-  },
-  {
-    phraseId: "phrase_156",
-    text: "Близько",
-    transcription: "Blyz'ko"
-  },
-  {
-    phraseId: "phrase_157",
-    text: "Далеко",
-    transcription: "Daleko"
-  },
-  {
-    phraseId: "phrase_158",
-    text: "Тут",
-    transcription: "Tut"
-  },
-  {
-    phraseId: "phrase_159",
-    text: "Там",
-    transcription: "Tam"
-  },
-  {
-    phraseId: "phrase_160",
-    text: "Адреса",
-    transcription: "Adresa"
-  },
-
-  // HOTEL (25 phrases) - phrase_161 to phrase_185
-  {
-    phraseId: "phrase_161",
-    text: "Готель",
-    transcription: "Hotel'"
-  },
-  {
-    phraseId: "phrase_162",
-    text: "Кімната",
-    transcription: "Kimnata"
-  },
-  {
-    phraseId: "phrase_163",
-    text: "Бронювання",
-    transcription: "Broniuvannia"
-  },
-  {
-    phraseId: "phrase_164",
-    text: "У мене бронювання",
-    transcription: "U mene broniuvannia"
-  },
-  {
-    phraseId: "phrase_165",
-    text: "Одномісна кімната",
-    transcription: "Odnomisna kimnata"
-  },
-  {
-    phraseId: "phrase_166",
-    text: "Двомісна кімната",
-    transcription: "Dvomisna kimnata"
-  },
-  {
-    phraseId: "phrase_167",
-    text: "Одна ніч",
-    transcription: "Odna nich"
-  },
-  {
-    phraseId: "phrase_168",
-    text: "Дві ночі",
-    transcription: "Dvi nochi"
-  },
-  {
-    phraseId: "phrase_169",
-    text: "Тиждень",
-    transcription: "Tyzhden'"
-  },
-  {
-    phraseId: "phrase_170",
-    text: "Ключ",
-    transcription: "Kliuch"
-  },
-  {
-    phraseId: "phrase_171",
-    text: "Ліжко",
-    transcription: "Lizhko"
-  },
-  {
-    phraseId: "phrase_172",
-    text: "Ванна кімната",
-    transcription: "Vanna kimnata"
-  },
-  {
-    phraseId: "phrase_173",
-    text: "Душ",
-    transcription: "Dush"
-  },
-  {
-    phraseId: "phrase_174",
-    text: "Wi-Fi",
-    transcription: "Wi-Fi"
-  },
-  {
-    phraseId: "phrase_175",
-    text: "Пароль",
-    transcription: "Parol'"
-  },
-  {
-    phraseId: "phrase_176",
-    text: "Сніданок включено?",
-    transcription: "Snidanok vkliucheno?"
-  },
-  {
-    phraseId: "phrase_177",
-    text: "Виїзд",
-    transcription: "Vyizd"
-  },
-  {
-    phraseId: "phrase_178",
-    text: "Заїзд",
-    transcription: "Zaizd"
-  },
-  {
-    phraseId: "phrase_179",
-    text: "Рецепція",
-    transcription: "Retseptsiia"
-  },
-  {
-    phraseId: "phrase_180",
-    text: "Консьєрж",
-    transcription: "Kons'iierzh"
-  },
-  {
-    phraseId: "phrase_181",
-    text: "Обслуговування номерів",
-    transcription: "Obsluhovuvannia nomeriv"
-  },
-  {
-    phraseId: "phrase_182",
-    text: "Прибирання",
-    transcription: "Prybyrannia"
-  },
-  {
-    phraseId: "phrase_183",
-    text: "Рушник",
-    transcription: "Rushnyk"
-  },
-  {
-    phraseId: "phrase_184",
-    text: "Кондиціонер",
-    transcription: "Kondytsioner"
-  },
-  {
-    phraseId: "phrase_185",
-    text: "Опалення",
-    transcription: "Opalennia"
-  },
-
-  // EMERGENCY (15 phrases) - phrase_186 to phrase_200
-  {
-    phraseId: "phrase_186",
+    phraseId: "phrase_028",
     text: "Допоможіть!",
     transcription: "Dopomozhit'!"
   },
   {
-    phraseId: "phrase_187",
-    text: "Поліція",
-    transcription: "Politsiia"
-  },
-  {
-    phraseId: "phrase_188",
-    text: "Лікар",
-    transcription: "Likar"
-  },
-  {
-    phraseId: "phrase_189",
-    text: "Лікарня",
-    transcription: "Likarnia"
-  },
-  {
-    phraseId: "phrase_190",
-    text: "Швидка допомога",
-    transcription: "Shvydka dopomoha"
-  },
-  {
-    phraseId: "phrase_191",
-    text: "Пожежа",
-    transcription: "Pozhezha"
-  },
-  {
-    phraseId: "phrase_192",
-    text: "Небезпека",
-    transcription: "Nebezpeka"
-  },
-  {
-    phraseId: "phrase_193",
-    text: "Мені погано",
-    transcription: "Meni pohano"
-  },
-  {
-    phraseId: "phrase_194",
+    phraseId: "phrase_029",
     text: "Мені потрібен лікар",
     transcription: "Meni potriben likar"
   },
   {
-    phraseId: "phrase_195",
+    phraseId: "phrase_030",
+    text: "Викличте поліцію",
+    transcription: "Vyklychte politsiiu"
+  },
+  {
+    phraseId: "phrase_031",
+    text: "Пожежа!",
+    transcription: "Pozhezha!"
+  },
+  {
+    phraseId: "phrase_032",
     text: "Я загубився/загубилася",
     transcription: "Ya zahubysia/zahubylasia"
   },
   {
-    phraseId: "phrase_196",
-    text: "Де туалет?",
-    transcription: "De tualet?"
+    phraseId: "phrase_033",
+    text: "Мені погано",
+    transcription: "Meni pohano"
   },
   {
-    phraseId: "phrase_197",
-    text: "Я не розумію",
-    transcription: "Ya ne rozumiiu"
+    phraseId: "phrase_034",
+    text: "Викличте швидку допомогу",
+    transcription: "Vyklychte shvydku dopomohu"
   },
   {
-    phraseId: "phrase_198",
-    text: "Ви говорите англійською?",
-    transcription: "Vy hovoryte anhliis'koiu?"
+    phraseId: "phrase_035",
+    text: "Мій гаманець вкрали",
+    transcription: "Mii hamanets' vkraly"
   },
   {
-    phraseId: "phrase_199",
-    text: "Зателефонуйте в посольство",
-    transcription: "Zatelefonuite v posol'stvo"
+    phraseId: "phrase_036",
+    text: "Допоможіть мені",
+    transcription: "Dopomozhit' meni"
   },
   {
-    phraseId: "phrase_200",
-    text: "Аптека",
-    transcription: "Apteka"
+    phraseId: "phrase_037",
+    text: "Небезпека!",
+    transcription: "Nebezpeka!"
   },
-
-  // QUESTIONS (20 phrases) - phrase_201 to phrase_220
   {
-    phraseId: "phrase_201",
-    text: "Що?",
-    transcription: "Shcho?"
+    phraseId: "phrase_038",
+    text: "Викличте лікаря!",
+    transcription: "Vyklychte likaria!"
   },
   {
-    phraseId: "phrase_202",
-    text: "Хто?",
-    transcription: "Khto?"
+    phraseId: "phrase_039",
+    text: "Я хочу кімнату",
+    transcription: "Ya khochu kimnatu"
   },
   {
-    phraseId: "phrase_203",
-    text: "Де?",
-    transcription: "De?"
+    phraseId: "phrase_040",
+    text: "Скільки коштує за ніч?",
+    transcription: "Skil'ky koshtuie za nich?"
   },
   {
-    phraseId: "phrase_204",
-    text: "Коли?",
-    transcription: "Koly?"
+    phraseId: "phrase_041",
+    text: "Тут є Wi-Fi?",
+    transcription: "Tut ye Wi-Fi?"
   },
   {
-    phraseId: "phrase_205",
-    text: "Чому?",
-    transcription: "Chomu?"
+    phraseId: "phrase_042",
+    text: "У мене є бронювання",
+    transcription: "U mene ye broniuvannia"
   },
   {
-    phraseId: "phrase_206",
-    text: "Як?",
-    transcription: "Yak?"
+    phraseId: "phrase_043",
+    text: "Одномісна кімната",
+    transcription: "Odnomisna kimnata"
   },
   {
-    phraseId: "phrase_207",
-    text: "Скільки?",
-    transcription: "Skil'ky?"
+    phraseId: "phrase_044",
+    text: "Двомісна кімната",
+    transcription: "Dvomisna kimnata"
   },
   {
-    phraseId: "phrase_208",
-    text: "Який?",
-    transcription: "Yakyi?"
+    phraseId: "phrase_045",
+    text: "О котрій годині виїзд?",
+    transcription: "O kotrii hodyni vyizd?"
   },
   {
-    phraseId: "phrase_209",
-    text: "Чий?",
-    transcription: "Chyi?"
+    phraseId: "phrase_046",
+    text: "Ключ",
+    transcription: "Kliuch"
   },
   {
-    phraseId: "phrase_210",
-    text: "Що це?",
-    transcription: "Shcho tse?"
+    phraseId: "phrase_047",
+    text: "Номер кімнати",
+    transcription: "Nomer kimnaty"
   },
   {
-    phraseId: "phrase_211",
-    text: "Це що?",
-    transcription: "Tse shcho?"
+    phraseId: "phrase_048",
+    text: "Сніданок включено?",
+    transcription: "Snidanok vkliucheno?"
   },
   {
-    phraseId: "phrase_212",
-    text: "Можна?",
-    transcription: "Mozhna?"
+    phraseId: "phrase_049",
+    text: "Будь ласка, прибeріть кімнату",
+    transcription: "Bud' laska, pryberit' kimnatu"
   },
   {
-    phraseId: "phrase_213",
-    text: "Є...?",
-    transcription: "Ye...?"
+    phraseId: "phrase_050",
+    text: "Я хочу продовжити проживання",
+    transcription: "Ya khochu prodovzhyty prozhyvannia"
   },
   {
-    phraseId: "phrase_214",
-    text: "Скільки часу?",
-    transcription: "Skil'ky chasu?"
+    phraseId: "phrase_051",
+    text: "Я голодний/голодна",
+    transcription: "Ya holodnyi/holodna"
   },
   {
-    phraseId: "phrase_215",
-    text: "Ви можете допомогти?",
-    transcription: "Vy mozhete dopomohty?"
+    phraseId: "phrase_052",
+    text: "Меню, будь ласка",
+    transcription: "Meniu, bud' laska"
   },
   {
-    phraseId: "phrase_216",
-    text: "Де знаходиться...?",
-    transcription: "De znakhodyt'sia...?"
+    phraseId: "phrase_053",
+    text: "Смачно",
+    transcription: "Smachno"
   },
   {
-    phraseId: "phrase_217",
-    text: "Як це називається?",
-    transcription: "Yak tse nazyvaiet'sia?"
+    phraseId: "phrase_054",
+    text: "Рахунок, будь ласка",
+    transcription: "Rakhunok, bud' laska"
   },
   {
-    phraseId: "phrase_218",
-    text: "Ви не знаєте...?",
-    transcription: "Vy ne znaiete...?"
+    phraseId: "phrase_055",
+    text: "Я вегетаріанець/вегетаріанка",
+    transcription: "Ya vehetarianets'/vehetarianka"
   },
   {
-    phraseId: "phrase_219",
-    text: "Можна подивитися?",
-    transcription: "Mozhna podyvytysia?"
+    phraseId: "phrase_056",
+    text: "Не гостро",
+    transcription: "Ne hostro"
   },
   {
-    phraseId: "phrase_220",
-    text: "Чи правильно?",
-    transcription: "Chy pravyl'no?"
+    phraseId: "phrase_057",
+    text: "Вода",
+    transcription: "Voda"
   },
-
-  // FAMILY (15 phrases) - phrase_221 to phrase_235
   {
-    phraseId: "phrase_221",
-    text: "Сім'я",
-    transcription: "Sim'ia"
+    phraseId: "phrase_058",
+    text: "Чай",
+    transcription: "Chai"
   },
   {
-    phraseId: "phrase_222",
-    text: "Мати",
-    transcription: "Maty"
+    phraseId: "phrase_059",
+    text: "Рис",
+    transcription: "Rys"
   },
   {
-    phraseId: "phrase_223",
-    text: "Батько",
-    transcription: "Bat'ko"
+    phraseId: "phrase_060",
+    text: "Локшина",
+    transcription: "Lokshyna"
   },
   {
-    phraseId: "phrase_224",
-    text: "Син",
-    transcription: "Syn"
+    phraseId: "phrase_061",
+    text: "Курка",
+    transcription: "Kurka"
   },
   {
-    phraseId: "phrase_225",
-    text: "Дочка",
-    transcription: "Dochka"
+    phraseId: "phrase_062",
+    text: "Яловичина",
+    transcription: "Yalovychyna"
   },
   {
-    phraseId: "phrase_226",
-    text: "Брат",
-    transcription: "Brat"
+    phraseId: "phrase_063",
+    text: "Скільки це коштує?",
+    transcription: "Skil'ky tse koshtuie?"
   },
   {
-    phraseId: "phrase_227",
-    text: "Сестра",
-    transcription: "Sestra"
+    phraseId: "phrase_064",
+    text: "У мене алергія на...",
+    transcription: "U mene alerhiia na..."
   },
   {
-    phraseId: "phrase_228",
-    text: "Чоловік",
-    transcription: "Cholovik"
+    phraseId: "phrase_065",
+    text: "Можна взяти з собою?",
+    transcription: "Mozhna vziaty z soboiu?"
   },
   {
-    phraseId: "phrase_229",
-    text: "Дружина",
-    transcription: "Druzhyna"
+    phraseId: "phrase_066",
+    text: "Дуже смачно",
+    transcription: "Duzhe smachno"
   },
   {
-    phraseId: "phrase_230",
-    text: "Дідусь",
-    transcription: "Didus'"
+    phraseId: "phrase_067",
+    text: "Закуски",
+    transcription: "Zakusky"
   },
   {
-    phraseId: "phrase_231",
-    text: "Бабуся",
-    transcription: "Babusia"
+    phraseId: "phrase_068",
+    text: "Шинка",
+    transcription: "Shynka"
   },
   {
-    phraseId: "phrase_232",
-    text: "Онук",
-    transcription: "Onuk"
+    phraseId: "phrase_069",
+    text: "Сирна тарілка",
+    transcription: "Syrna tarilka"
   },
   {
-    phraseId: "phrase_233",
-    text: "Онука",
-    transcription: "Onuka"
+    phraseId: "phrase_070",
+    text: "Суп",
+    transcription: "Sup"
   },
   {
-    phraseId: "phrase_234",
-    text: "Діти",
-    transcription: "Dity"
+    phraseId: "phrase_071",
+    text: "Борщ",
+    transcription: "Borshch"
   },
   {
-    phraseId: "phrase_235",
-    text: "Батьки",
-    transcription: "Bat'ky"
+    phraseId: "phrase_072",
+    text: "Курячий суп з локшиною",
+    transcription: "Kuriachyi sup z lokshynoiu"
   },
-
-  // HEALTH (20 phrases) - phrase_236 to phrase_255
   {
-    phraseId: "phrase_236",
-    text: "Здоров'я",
-    transcription: "Zdorov'ia"
+    phraseId: "phrase_073",
+    text: "М'ясний бульйон",
+    transcription: "M'iasnyi bul'ion"
   },
   {
-    phraseId: "phrase_237",
-    text: "Хворий/Хвора",
-    transcription: "Khvoryi/Khvora"
+    phraseId: "phrase_074",
+    text: "М'ясо",
+    transcription: "M'iaso"
   },
   {
-    phraseId: "phrase_238",
-    text: "Біль",
-    transcription: "Bil'"
+    phraseId: "phrase_075",
+    text: "Баранина",
+    transcription: "Baranyna"
   },
   {
-    phraseId: "phrase_239",
-    text: "У мене болить голова",
-    transcription: "U mene bolyt' holova"
+    phraseId: "phrase_076",
+    text: "Свинина",
+    transcription: "Svynyna"
   },
   {
-    phraseId: "phrase_240",
-    text: "У мене болить живіт",
-    transcription: "U mene bolyt' zhyvit"
+    phraseId: "phrase_077",
+    text: "Смажене",
+    transcription: "Smazhene"
   },
   {
-    phraseId: "phrase_241",
-    text: "Температура",
-    transcription: "Temperatura"
+    phraseId: "phrase_078",
+    text: "Варене",
+    transcription: "Varene"
   },
   {
-    phraseId: "phrase_242",
-    text: "Кашель",
-    transcription: "Kashel'"
+    phraseId: "phrase_079",
+    text: "Рибні страви",
+    transcription: "Rybni stravy"
   },
   {
-    phraseId: "phrase_243",
-    text: "Застуда",
-    transcription: "Zastuda"
+    phraseId: "phrase_080",
+    text: "Риба",
+    transcription: "Ryba"
   },
   {
-    phraseId: "phrase_244",
-    text: "Грип",
-    transcription: "Hryp"
+    phraseId: "phrase_081",
+    text: "Лосось",
+    transcription: "Losos'"
   },
   {
-    phraseId: "phrase_245",
-    text: "Ліки",
-    transcription: "Liky"
+    phraseId: "phrase_082",
+    text: "Креветки",
+    transcription: "Krevetky"
   },
   {
-    phraseId: "phrase_246",
-    text: "Рецепт",
-    transcription: "Retsept"
+    phraseId: "phrase_083",
+    text: "Краби",
+    transcription: "Kraby"
   },
   {
-    phraseId: "phrase_247",
-    text: "Таблетки",
-    transcription: "Tabletky"
+    phraseId: "phrase_084",
+    text: "Є вегетаріанське меню?",
+    transcription: "Ye vehetarians'ke meniu?"
   },
   {
-    phraseId: "phrase_248",
-    text: "Стоматолог",
-    transcription: "Stomatoloh"
+    phraseId: "phrase_085",
+    text: "Ця страва гостра?",
+    transcription: "Tsia strava hostra?"
   },
   {
-    phraseId: "phrase_249",
-    text: "Зуби",
-    transcription: "Zuby"
+    phraseId: "phrase_086",
+    text: "Не гостро",
+    transcription: "Ne hostro"
   },
   {
-    phraseId: "phrase_250",
-    text: "Очі",
-    transcription: "Ochi"
+    phraseId: "phrase_087",
+    text: "Яблуко",
+    transcription: "Yabluko"
   },
   {
-    phraseId: "phrase_251",
-    text: "Вухо",
-    transcription: "Vukho"
+    phraseId: "phrase_088",
+    text: "Банан",
+    transcription: "Banan"
   },
   {
-    phraseId: "phrase_252",
-    text: "Рука",
-    transcription: "Ruka"
+    phraseId: "phrase_089",
+    text: "Апельсин",
+    transcription: "Apel'syn"
   },
   {
-    phraseId: "phrase_253",
-    text: "Нога",
-    transcription: "Noha"
+    phraseId: "phrase_090",
+    text: "Виноград",
+    transcription: "Vynohrad"
   },
   {
-    phraseId: "phrase_254",
-    text: "Спина",
-    transcription: "Spyna"
+    phraseId: "phrase_091",
+    text: "Кавун",
+    transcription: "Kavun"
   },
   {
-    phraseId: "phrase_255",
-    text: "Серце",
-    transcription: "Sertse"
+    phraseId: "phrase_092",
+    text: "Картопля",
+    transcription: "Kartoplia"
   },
-
-  // WEATHER (10 phrases) - phrase_256 to phrase_265
   {
-    phraseId: "phrase_256",
-    text: "Погода",
-    transcription: "Pohoda"
+    phraseId: "phrase_093",
+    text: "Помідор",
+    transcription: "Pomidor"
   },
   {
-    phraseId: "phrase_257",
-    text: "Сонце",
-    transcription: "Sontse"
+    phraseId: "phrase_094",
+    text: "Скільки це коштує?",
+    transcription: "Skil'ky tse koshtuie?"
   },
   {
-    phraseId: "phrase_258",
-    text: "Дощ",
-    transcription: "Doshch"
+    phraseId: "phrase_095",
+    text: "Надто дорого",
+    transcription: "Nadto doroho"
   },
   {
-    phraseId: "phrase_259",
-    text: "Сніг",
-    transcription: "Snih"
+    phraseId: "phrase_096",
+    text: "Можна дешевше?",
+    transcription: "Mozhna deshevshe?"
   },
   {
-    phraseId: "phrase_260",
-    text: "Вітер",
-    transcription: "Viter"
+    phraseId: "phrase_097",
+    text: "Я куплю це",
+    transcription: "Ya kupliu tse"
   },
   {
-    phraseId: "phrase_261",
-    text: "Хмарно",
-    transcription: "Khmarno"
+    phraseId: "phrase_098",
+    text: "Можна приміряти?",
+    transcription: "Mozhna prymiriaty?"
   },
   {
-    phraseId: "phrase_262",
-    text: "Тепло",
-    transcription: "Teplo"
+    phraseId: "phrase_099",
+    text: "Більший розмір",
+    transcription: "Bil'shyi rozmir"
   },
   {
-    phraseId: "phrase_263",
-    text: "Холодно",
-    transcription: "Kholodno"
+    phraseId: "phrase_100",
+    text: "Менший розмір",
+    transcription: "Menshyi rozmir"
   },
   {
-    phraseId: "phrase_264",
-    text: "Гаряче",
-    transcription: "Hariache"
+    phraseId: "phrase_101",
+    text: "Готівка",
+    transcription: "Hotivka"
   },
   {
-    phraseId: "phrase_265",
-    text: "Морозно",
-    transcription: "Morozno"
+    phraseId: "phrase_102",
+    text: "Кредитна картка",
+    transcription: "Kredytna kartka"
   },
-
-  // COLORS (12 phrases) - phrase_266 to phrase_277
   {
-    phraseId: "phrase_266",
-    text: "Білий",
-    transcription: "Bilyi"
+    phraseId: "phrase_103",
+    text: "Квитанція",
+    transcription: "Kvytantsiia"
   },
   {
-    phraseId: "phrase_267",
-    text: "Чорний",
-    transcription: "Chornyi"
+    phraseId: "phrase_104",
+    text: "Повернення/Обмін",
+    transcription: "Povernennia/Obmin"
   },
   {
-    phraseId: "phrase_268",
-    text: "Червоний",
-    transcription: "Chervonyi"
+    phraseId: "phrase_105",
+    text: "Де ринок?",
+    transcription: "De rynok?"
   },
   {
-    phraseId: "phrase_269",
-    text: "Синій",
-    transcription: "Synii"
+    phraseId: "phrase_106",
+    text: "Є знижка?",
+    transcription: "Ye znyzhka?"
   },
   {
-    phraseId: "phrase_270",
-    text: "Зелений",
-    transcription: "Zelenyi"
+    phraseId: "phrase_107",
+    text: "Можна приміряти?",
+    transcription: "Mozhna prymiriaty?"
   },
   {
-    phraseId: "phrase_271",
-    text: "Жовтий",
-    transcription: "Zhovtyi"
+    phraseId: "phrase_108",
+    text: "Який ваш розмір?",
+    transcription: "Yakyi vash rozmir?"
   },
   {
-    phraseId: "phrase_272",
-    text: "Помаранчевий",
-    transcription: "Pomaranchevyi"
+    phraseId: "phrase_109",
+    text: "Є інші кольори?",
+    transcription: "Ye inshi kol'ory?"
   },
   {
-    phraseId: "phrase_273",
-    text: "Рожевий",
-    transcription: "Rozhevyi"
+    phraseId: "phrase_110",
+    text: "Де вокзал?",
+    transcription: "De vokzal?"
   },
   {
-    phraseId: "phrase_274",
-    text: "Коричневий",
-    transcription: "Korychnevyi"
+    phraseId: "phrase_111",
+    text: "Аеропорт",
+    transcription: "Aeroport"
   },
   {
-    phraseId: "phrase_275",
-    text: "Сірий",
-    transcription: "Siryi"
+    phraseId: "phrase_112",
+    text: "Таксі",
+    transcription: "Taksi"
   },
   {
-    phraseId: "phrase_276",
-    text: "Фіолетовий",
-    transcription: "Fioletovyi"
+    phraseId: "phrase_113",
+    text: "Автобус",
+    transcription: "Avtobus"
   },
   {
-    phraseId: "phrase_277",
-    text: "Блакитний",
-    transcription: "Blakytnyi"
+    phraseId: "phrase_114",
+    text: "Метро",
+    transcription: "Metro"
   },
-
-  // DIRECTIONS (18 phrases) - phrase_278 to phrase_295
   {
-    phraseId: "phrase_278",
-    text: "Північ",
-    transcription: "Pivnich"
+    phraseId: "phrase_115",
+    text: "Квиток на поїзд",
+    transcription: "Kvytok na poizd"
   },
   {
-    phraseId: "phrase_279",
-    text: "Південь",
-    transcription: "Pivden'"
+    phraseId: "phrase_116",
+    text: "Розклад",
+    transcription: "Rozklad"
   },
   {
-    phraseId: "phrase_280",
-    text: "Схід",
-    transcription: "Skhid"
+    phraseId: "phrase_117",
+    text: "Платформа",
+    transcription: "Platforma"
   },
   {
-    phraseId: "phrase_281",
-    text: "Захід",
-    transcription: "Zakhid"
+    phraseId: "phrase_118",
+    text: "Наступна зупинка",
+    transcription: "Nastupna zupynka"
   },
   {
-    phraseId: "phrase_282",
-    text: "Карта",
-    transcription: "Karta"
+    phraseId: "phrase_119",
+    text: "Зупинка",
+    transcription: "Zupynka"
   },
   {
-    phraseId: "phrase_283",
-    text: "Дорога",
-    transcription: "Doroha"
+    phraseId: "phrase_120",
+    text: "Скільки до...?",
+    transcription: "Skil'ky do...?"
   },
   {
-    phraseId: "phrase_284",
-    text: "Вулиця",
-    transcription: "Vulytsia"
+    phraseId: "phrase_121",
+    text: "Мені потрібно до...",
+    transcription: "Meni potribno do..."
   },
   {
-    phraseId: "phrase_285",
-    text: "Площа",
-    transcription: "Ploshcha"
+    phraseId: "phrase_122",
+    text: "Коли прибуде наступний автобус?",
+    transcription: "Koly prybude nastupnyi avtobus?"
   },
   {
-    phraseId: "phrase_286",
-    text: "Міст",
-    transcription: "Mist"
+    phraseId: "phrase_123",
+    text: "Я хочу поїхати в аеропорт",
+    transcription: "Ya khochu poikhaty v aeroport"
   },
   {
-    phraseId: "phrase_287",
-    text: "Кут",
-    transcription: "Kut"
+    phraseId: "phrase_124",
+    text: "Ліворуч",
+    transcription: "Livoruch"
   },
   {
-    phraseId: "phrase_288",
-    text: "Світлофор",
-    transcription: "Svitlofor"
+    phraseId: "phrase_125",
+    text: "Праворуч",
+    transcription: "Pravoruch"
   },
   {
-    phraseId: "phrase_289",
-    text: "Розворот",
-    transcription: "Rozvorot"
+    phraseId: "phrase_126",
+    text: "Прямо",
+    transcription: "Priamo"
   },
   {
-    phraseId: "phrase_290",
-    text: "Пройти",
-    transcription: "Proity"
-  },
-  {
-    phraseId: "phrase_291",
+    phraseId: "phrase_127",
     text: "Повернути",
     transcription: "Povernuty"
   },
   {
-    phraseId: "phrase_292",
+    phraseId: "phrase_128",
     text: "Перехрестя",
     transcription: "Perekhrestia"
   },
   {
-    phraseId: "phrase_293",
-    text: "За рогом",
-    transcription: "Za rohom"
+    phraseId: "phrase_129",
+    text: "Світлофор",
+    transcription: "Svitlofor"
   },
   {
-    phraseId: "phrase_294",
-    text: "Напроти",
-    transcription: "Naproty"
+    phraseId: "phrase_130",
+    text: "Далеко",
+    transcription: "Daleko"
   },
   {
-    phraseId: "phrase_295",
-    text: "Поруч",
-    transcription: "Poruch"
-  },
-
-  // COMMUNICATION (15 phrases) - phrase_296 to phrase_310
-  {
-    phraseId: "phrase_296",
-    text: "Телефон",
-    transcription: "Telefon"
+    phraseId: "phrase_131",
+    text: "Близько",
+    transcription: "Blyz'ko"
   },
   {
-    phraseId: "phrase_297",
-    text: "Інтернет",
-    transcription: "Internet"
+    phraseId: "phrase_132",
+    text: "Карта",
+    transcription: "Karta"
   },
   {
-    phraseId: "phrase_298",
-    text: "Електронна пошта",
-    transcription: "Elektronna poshta"
+    phraseId: "phrase_133",
+    text: "Де...?",
+    transcription: "De...?"
   },
   {
-    phraseId: "phrase_299",
-    text: "Повідомлення",
-    transcription: "Povidomlennia"
+    phraseId: "phrase_134",
+    text: "Лікарня",
+    transcription: "Likarnia"
   },
   {
-    phraseId: "phrase_300",
-    text: "Дзвінок",
-    transcription: "Dzvinok"
+    phraseId: "phrase_135",
+    text: "Аптека",
+    transcription: "Apteka"
   },
   {
-    phraseId: "phrase_301",
-    text: "Номер телефону",
-    transcription: "Nomer telefonu"
+    phraseId: "phrase_136",
+    text: "У мене болить голова",
+    transcription: "U mene bolyt' holova"
   },
   {
-    phraseId: "phrase_302",
-    text: "Зв'язок",
-    transcription: "Zv'iazok"
+    phraseId: "phrase_137",
+    text: "У мене болить живіт",
+    transcription: "U mene bolyt' zhyvit"
   },
   {
-    phraseId: "phrase_303",
-    text: "Комп'ютер",
-    transcription: "Komp'iuter"
+    phraseId: "phrase_138",
+    text: "Температура",
+    transcription: "Temperatura"
   },
   {
-    phraseId: "phrase_304",
+    phraseId: "phrase_139",
+    text: "Кашель",
+    transcription: "Kashel'"
+  },
+  {
+    phraseId: "phrase_140",
+    text: "Ліки",
+    transcription: "Liky"
+  },
+  {
+    phraseId: "phrase_141",
+    text: "Лікар",
+    transcription: "Likar"
+  },
+  {
+    phraseId: "phrase_142",
+    text: "Медсестра",
+    transcription: "Medsestra"
+  },
+  {
+    phraseId: "phrase_143",
+    text: "Швидка допомога",
+    transcription: "Shvydka dopomoha"
+  },
+  {
+    phraseId: "phrase_144",
+    text: "У мене болить голова",
+    transcription: "U mene bolyt' holova"
+  },
+  {
+    phraseId: "phrase_145",
+    text: "Мені потрібне знеболююче",
+    transcription: "Meni potribne zneboliuiuche"
+  },
+  {
+    phraseId: "phrase_146",
+    text: "Юань",
+    transcription: "Iuan'"
+  },
+  {
+    phraseId: "phrase_147",
+    text: "Манат",
+    transcription: "Manat"
+  },
+  {
+    phraseId: "phrase_148",
+    text: "Оплата карткою",
+    transcription: "Oplata kartkoiu"
+  },
+  {
+    phraseId: "phrase_149",
+    text: "Банк",
+    transcription: "Bank"
+  },
+  {
+    phraseId: "phrase_150",
+    text: "Банкомат",
+    transcription: "Bankomat"
+  },
+  {
+    phraseId: "phrase_151",
+    text: "Обмін валюти",
+    transcription: "Obmin valiuty"
+  },
+  {
+    phraseId: "phrase_152",
+    text: "Решта",
+    transcription: "Reshta"
+  },
+  {
+    phraseId: "phrase_153",
+    text: "Безкоштовно",
+    transcription: "Bezkoshtovno"
+  },
+  {
+    phraseId: "phrase_154",
+    text: "Ціна",
+    transcription: "Tsina"
+  },
+  {
+    phraseId: "phrase_155",
     text: "Мобільний телефон",
     transcription: "Mobil'nyi telefon"
   },
   {
+    phraseId: "phrase_156",
+    text: "Wi-Fi",
+    transcription: "Wi-Fi"
+  },
+  {
+    phraseId: "phrase_157",
+    text: "Який пароль?",
+    transcription: "Yakyi parol'?"
+  },
+  {
+    phraseId: "phrase_158",
+    text: "Відправити SMS",
+    transcription: "Vidpravyty SMS"
+  },
+  {
+    phraseId: "phrase_159",
+    text: "Кінотеатр",
+    transcription: "Kinoteatr"
+  },
+  {
+    phraseId: "phrase_160",
+    text: "Музей",
+    transcription: "Muzei"
+  },
+  {
+    phraseId: "phrase_161",
+    text: "Парк",
+    transcription: "Park"
+  },
+  {
+    phraseId: "phrase_162",
+    text: "Концерт",
+    transcription: "Kontsert"
+  },
+  {
+    phraseId: "phrase_163",
+    text: "Торговий центр",
+    transcription: "Torhovyi tsentr"
+  },
+  {
+    phraseId: "phrase_164",
+    text: "Басейн",
+    transcription: "Basein"
+  },
+  {
+    phraseId: "phrase_165",
+    text: "Спортзал",
+    transcription: "Sportzal"
+  },
+  {
+    phraseId: "phrase_166",
+    text: "Бібліотека",
+    transcription: "Biblioteka"
+  },
+  {
+    phraseId: "phrase_167",
+    text: "Нічний ринок",
+    transcription: "Nichnyi rynok"
+  },
+  {
+    phraseId: "phrase_168",
+    text: "Скільки коштує квиток?",
+    transcription: "Skil'ky koshtuie kvytok?"
+  },
+  {
+    phraseId: "phrase_169",
+    text: "Котра година?",
+    transcription: "Kotra hodyna?"
+  },
+  {
+    phraseId: "phrase_170",
+    text: "Сьогодні",
+    transcription: "S'ohodni"
+  },
+  {
+    phraseId: "phrase_171",
+    text: "Завтра",
+    transcription: "Zavtra"
+  },
+  {
+    phraseId: "phrase_172",
+    text: "Вчора",
+    transcription: "Vchora"
+  },
+  {
+    phraseId: "phrase_173",
+    text: "Понеділок",
+    transcription: "Ponedilok"
+  },
+  {
+    phraseId: "phrase_174",
+    text: "Неділя",
+    transcription: "Nedilia"
+  },
+  {
+    phraseId: "phrase_175",
+    text: "Вранці",
+    transcription: "Vrantsi"
+  },
+  {
+    phraseId: "phrase_176",
+    text: "Вдень",
+    transcription: "Vden'"
+  },
+  {
+    phraseId: "phrase_177",
+    text: "Ввечері",
+    transcription: "Vvecheri"
+  },
+  {
+    phraseId: "phrase_178",
+    text: "Який місяць?",
+    transcription: "Yakyi misiats'?"
+  },
+  {
+    phraseId: "phrase_179",
+    text: "Понеділок",
+    transcription: "Ponedilok"
+  },
+  {
+    phraseId: "phrase_180",
+    text: "Вівторок",
+    transcription: "Vivtorok"
+  },
+  {
+    phraseId: "phrase_181",
+    text: "Середа",
+    transcription: "Sereda"
+  },
+  {
+    phraseId: "phrase_182",
+    text: "Четвер",
+    transcription: "Chetver"
+  },
+  {
+    phraseId: "phrase_183",
+    text: "П'ятниця",
+    transcription: "P'iatnytsia"
+  },
+  {
+    phraseId: "phrase_184",
+    text: "Субота",
+    transcription: "Subota"
+  },
+  {
+    phraseId: "phrase_185",
+    text: "Неділя",
+    transcription: "Nedilia"
+  },
+  {
+    phraseId: "phrase_186",
+    text: "Січень",
+    transcription: "Sichen'"
+  },
+  {
+    phraseId: "phrase_187",
+    text: "Лютий",
+    transcription: "Liutyi"
+  },
+  {
+    phraseId: "phrase_188",
+    text: "Березень",
+    transcription: "Berezen'"
+  },
+  {
+    phraseId: "phrase_189",
+    text: "Квітень",
+    transcription: "Kviten'"
+  },
+  {
+    phraseId: "phrase_190",
+    text: "Травень",
+    transcription: "Traven'"
+  },
+  {
+    phraseId: "phrase_191",
+    text: "Червень",
+    transcription: "Cherven'"
+  },
+  {
+    phraseId: "phrase_192",
+    text: "Липень",
+    transcription: "Lypen'"
+  },
+  {
+    phraseId: "phrase_193",
+    text: "Серпень",
+    transcription: "Serpen'"
+  },
+  {
+    phraseId: "phrase_194",
+    text: "Вересень",
+    transcription: "Veresen'"
+  },
+  {
+    phraseId: "phrase_195",
+    text: "Жовтень",
+    transcription: "Zhovten'"
+  },
+  {
+    phraseId: "phrase_196",
+    text: "Листопад",
+    transcription: "Lystopad"
+  },
+  {
+    phraseId: "phrase_197",
+    text: "Грудень",
+    transcription: "Hruden'"
+  },
+  {
+    phraseId: "phrase_198",
+    text: "Один",
+    transcription: "Odyn"
+  },
+  {
+    phraseId: "phrase_199",
+    text: "Два",
+    transcription: "Dva"
+  },
+  {
+    phraseId: "phrase_200",
+    text: "Три",
+    transcription: "Try"
+  },
+  {
+    phraseId: "phrase_201",
+    text: "Чотири",
+    transcription: "Chotyry"
+  },
+  {
+    phraseId: "phrase_202",
+    text: "П'ять",
+    transcription: "P'iat'"
+  },
+  {
+    phraseId: "phrase_203",
+    text: "Шість",
+    transcription: "Shist'"
+  },
+  {
+    phraseId: "phrase_204",
+    text: "Сім",
+    transcription: "Sim"
+  },
+  {
+    phraseId: "phrase_205",
+    text: "Вісім",
+    transcription: "Visim"
+  },
+  {
+    phraseId: "phrase_206",
+    text: "Дев'ять",
+    transcription: "Dev'iat'"
+  },
+  {
+    phraseId: "phrase_207",
+    text: "Десять",
+    transcription: "Desiat'"
+  },
+  {
+    phraseId: "phrase_208",
+    text: "Двадцять",
+    transcription: "Dvadtsiat'"
+  },
+  {
+    phraseId: "phrase_209",
+    text: "Сто",
+    transcription: "Sto"
+  },
+  {
+    phraseId: "phrase_210",
+    text: "Тисяча",
+    transcription: "Tysiacha"
+  },
+  {
+    phraseId: "phrase_211",
+    text: "Десять тисяч",
+    transcription: "Desiat' tysiach"
+  },
+  {
+    phraseId: "phrase_212",
+    text: "Перший",
+    transcription: "Pershyi"
+  },
+  {
+    phraseId: "phrase_213",
+    text: "Тисяча",
+    transcription: "Tysiacha"
+  },
+  {
+    phraseId: "phrase_214",
+    text: "Дві тисячі",
+    transcription: "Dvi tysiachi"
+  },
+  {
+    phraseId: "phrase_215",
+    text: "Десять тисяч",
+    transcription: "Desiat' tysiach"
+  },
+  {
+    phraseId: "phrase_216",
+    text: "Сто тисяч",
+    transcription: "Sto tysiach"
+  },
+  {
+    phraseId: "phrase_217",
+    text: "Мільйон",
+    transcription: "Mil'ion"
+  },
+  {
+    phraseId: "phrase_218",
+    text: "Яка сьогодні погода?",
+    transcription: "Yaka s'ohodni pohoda?"
+  },
+  {
+    phraseId: "phrase_219",
+    text: "Дощ",
+    transcription: "Doshch"
+  },
+  {
+    phraseId: "phrase_220",
+    text: "Сонячно",
+    transcription: "Soniachno"
+  },
+  {
+    phraseId: "phrase_221",
+    text: "Хмарно",
+    transcription: "Khmarno"
+  },
+  {
+    phraseId: "phrase_222",
+    text: "Вітряно",
+    transcription: "Vitriano"
+  },
+  {
+    phraseId: "phrase_223",
+    text: "Сніг",
+    transcription: "Snih"
+  },
+  {
+    phraseId: "phrase_224",
+    text: "Спекотно",
+    transcription: "Spekotno"
+  },
+  {
+    phraseId: "phrase_225",
+    text: "Холодно",
+    transcription: "Kholodno"
+  },
+  {
+    phraseId: "phrase_226",
+    text: "Мене звати...",
+    transcription: "Mene zvaty..."
+  },
+  {
+    phraseId: "phrase_227",
+    text: "Моє прізвище...",
+    transcription: "Moie prizvyshche..."
+  },
+  {
+    phraseId: "phrase_228",
+    text: "Як вас звати?",
+    transcription: "Yak vas zvaty?"
+  },
+  {
+    phraseId: "phrase_229",
+    text: "Я з Туркменістану",
+    transcription: "Ya z Turkmenistanu"
+  },
+  {
+    phraseId: "phrase_230",
+    text: "Я живу в Ашгабаті",
+    transcription: "Ya zhyvu v Ashhabati"
+  },
+  {
+    phraseId: "phrase_231",
+    text: "У нашій родині 4 людини",
+    transcription: "U nashii rodyni 4 liudyny"
+  },
+  {
+    phraseId: "phrase_232",
+    text: "У вас є діти?",
+    transcription: "U vas ye dity?"
+  },
+  {
+    phraseId: "phrase_233",
+    text: "У мене немає дітей",
+    transcription: "U mene nemaie ditei"
+  },
+  {
+    phraseId: "phrase_234",
+    text: "У мене одна дитина",
+    transcription: "U mene odna dytyna"
+  },
+  {
+    phraseId: "phrase_235",
+    text: "У мене двоє дітей",
+    transcription: "U mene dvoie ditei"
+  },
+  {
+    phraseId: "phrase_236",
+    text: "Чим ви займаєтеся?",
+    transcription: "Chym vy zaimaietesia?"
+  },
+  {
+    phraseId: "phrase_237",
+    text: "Я працюю на заводі",
+    transcription: "Ya pratsiuiu na zavodi"
+  },
+  {
+    phraseId: "phrase_238",
+    text: "Я працюю в банку",
+    transcription: "Ya pratsiuiu v banku"
+  },
+  {
+    phraseId: "phrase_239",
+    text: "Я працюю в лікарні",
+    transcription: "Ya pratsiuiu v likarni"
+  },
+  {
+    phraseId: "phrase_240",
+    text: "Я вивчаю іноземні мови",
+    transcription: "Ya vyvchaiu inozemni movy"
+  },
+  {
+    phraseId: "phrase_241",
+    text: "Ви говорите російською?",
+    transcription: "Vy hovoryte rosiis'koiu?"
+  },
+  {
+    phraseId: "phrase_242",
+    text: "Я не говорю",
+    transcription: "Ya ne hovoriu"
+  },
+  {
+    phraseId: "phrase_243",
+    text: "Я трохи говорю",
+    transcription: "Ya trokhy hovoriu"
+  },
+  {
+    phraseId: "phrase_244",
+    text: "Коли починається конференція?",
+    transcription: "Koly pochynaiet'sia konferentsiia?"
+  },
+  {
+    phraseId: "phrase_245",
+    text: "Який розклад презентацій?",
+    transcription: "Yakyi rozklad prezentatsii?"
+  },
+  {
+    phraseId: "phrase_246",
+    text: "Буде переклад на російську?",
+    transcription: "Bude pereklad na rosiis'ku?"
+  },
+  {
+    phraseId: "phrase_247",
+    text: "Я буду говорити російською",
+    transcription: "Ya budu hovoryty rosiis'koiu"
+  },
+  {
+    phraseId: "phrase_248",
+    text: "Ми хочемо побачити виставку",
+    transcription: "My khochemo pobachyty vystavku"
+  },
+  {
+    phraseId: "phrase_249",
+    text: "О котрій годині відкривається виставка?",
+    transcription: "O kotrii hodyni vidkryvaiet'sia vystavka?"
+  },
+  {
+    phraseId: "phrase_250",
+    text: "Скільки країн бере участь?",
+    transcription: "Skil'ky krain bere uchast'?"
+  },
+  {
+    phraseId: "phrase_251",
+    text: "Можна отримати каталог виставки?",
+    transcription: "Mozhna otrymaty kataloh vystavky?"
+  },
+  {
+    phraseId: "phrase_252",
+    text: "Я прийшов обговорити бізнес",
+    transcription: "Ya pryishov obhovoryty biznes"
+  },
+  {
+    phraseId: "phrase_253",
+    text: "Ми хочемо поговорити з генеральним директором",
+    transcription: "My khochemo pohovoryty z heneral'nym dyrektorom"
+  },
+  {
+    phraseId: "phrase_254",
+    text: "Ми хочемо дізнатися про виробництво",
+    transcription: "My khochemo diznatysia pro vyrobnytstvo"
+  },
+  {
+    phraseId: "phrase_255",
+    text: "Довжина",
+    transcription: "Dovzhyna"
+  },
+  {
+    phraseId: "phrase_256",
+    text: "Метр",
+    transcription: "Metr"
+  },
+  {
+    phraseId: "phrase_257",
+    text: "Сантиметр",
+    transcription: "Santymetr"
+  },
+  {
+    phraseId: "phrase_258",
+    text: "Вага",
+    transcription: "Vaha"
+  },
+  {
+    phraseId: "phrase_259",
+    text: "Кілограм",
+    transcription: "Kilohram"
+  },
+  {
+    phraseId: "phrase_260",
+    text: "Грам",
+    transcription: "Hram"
+  },
+  {
+    phraseId: "phrase_261",
+    text: "Об'єм",
+    transcription: "Ob'iem"
+  },
+  {
+    phraseId: "phrase_262",
+    text: "Літр",
+    transcription: "Litr"
+  },
+  {
+    phraseId: "phrase_263",
+    text: "Білий",
+    transcription: "Bilyi"
+  },
+  {
+    phraseId: "phrase_264",
+    text: "Жовтий",
+    transcription: "Zhovtyi"
+  },
+  {
+    phraseId: "phrase_265",
+    text: "Зелений",
+    transcription: "Zelenyi"
+  },
+  {
+    phraseId: "phrase_266",
+    text: "Синій",
+    transcription: "Synii"
+  },
+  {
+    phraseId: "phrase_267",
+    text: "Червоний",
+    transcription: "Chervonyi"
+  },
+  {
+    phraseId: "phrase_268",
+    text: "Чорний",
+    transcription: "Chornyi"
+  },
+  {
+    phraseId: "phrase_269",
+    text: "Сірий",
+    transcription: "Siryi"
+  },
+  {
+    phraseId: "phrase_270",
+    text: "Фіолетовий",
+    transcription: "Fioletovyi"
+  },
+  {
+    phraseId: "phrase_271",
+    text: "Помаранчевий",
+    transcription: "Pomaranchevyi"
+  },
+  {
+    phraseId: "phrase_272",
+    text: "Рожевий",
+    transcription: "Rozhevyi"
+  },
+  {
+    phraseId: "phrase_273",
+    text: "Голова",
+    transcription: "Holova"
+  },
+  {
+    phraseId: "phrase_274",
+    text: "Рука",
+    transcription: "Ruka"
+  },
+  {
+    phraseId: "phrase_275",
+    text: "Нога",
+    transcription: "Noha"
+  },
+  {
+    phraseId: "phrase_276",
+    text: "Очі",
+    transcription: "Ochi"
+  },
+  {
+    phraseId: "phrase_277",
+    text: "Ніс",
+    transcription: "Nis"
+  },
+  {
+    phraseId: "phrase_278",
+    text: "Рот",
+    transcription: "Rot"
+  },
+  {
+    phraseId: "phrase_279",
+    text: "Вухо",
+    transcription: "Vukho"
+  },
+  {
+    phraseId: "phrase_280",
+    text: "Будинок",
+    transcription: "Budynok"
+  },
+  {
+    phraseId: "phrase_281",
+    text: "Двері",
+    transcription: "Dveri"
+  },
+  {
+    phraseId: "phrase_282",
+    text: "Вікно",
+    transcription: "Vikno"
+  },
+  {
+    phraseId: "phrase_283",
+    text: "Стіл",
+    transcription: "Stil"
+  },
+  {
+    phraseId: "phrase_284",
+    text: "Стілець",
+    transcription: "Stilets'"
+  },
+  {
+    phraseId: "phrase_285",
+    text: "Ліжко",
+    transcription: "Lizhko"
+  },
+  {
+    phraseId: "phrase_286",
+    text: "Де паспортний контроль?",
+    transcription: "De pasportnyi kontrol'?"
+  },
+  {
+    phraseId: "phrase_287",
+    text: "Ось мій паспорт",
+    transcription: "Os' mii pasport"
+  },
+  {
+    phraseId: "phrase_288",
+    text: "Я маю намір залишитися в Китаї на тиждень",
+    transcription: "Ya maiu namir zalyshytysia v Kytai na tyzhden'"
+  },
+  {
+    phraseId: "phrase_289",
+    text: "У мене одноразова віза",
+    transcription: "U mene odnorazova viza"
+  },
+  {
+    phraseId: "phrase_290",
+    text: "Я транзитом через вашу країну",
+    transcription: "Ya tranzytom cherez vashu krainu"
+  },
+  {
+    phraseId: "phrase_291",
+    text: "Ось моя митна декларація",
+    transcription: "Os' moia mytna deklaratsiia"
+  },
+  {
+    phraseId: "phrase_292",
+    text: "Ось мій багаж",
+    transcription: "Os' mii bahazh"
+  },
+  {
+    phraseId: "phrase_293",
+    text: "У моєму багажі немає заборонених речей",
+    transcription: "U moiemu bahazhi nemaie zaboronenykh rechei"
+  },
+  {
+    phraseId: "phrase_294",
+    text: "Це мої особисті речі",
+    transcription: "Tse moi osobysti rechi"
+  },
+  {
+    phraseId: "phrase_295",
+    text: "Яке мито я маю сплатити?",
+    transcription: "Yake myto ya maiu splatyty?"
+  },
+  {
+    phraseId: "phrase_296",
+    text: "Який вид спорту вам подобається?",
+    transcription: "Yakyi vyd sportu vam podobaiet'sia?"
+  },
+  {
+    phraseId: "phrase_297",
+    text: "Я люблю грати у футбол",
+    transcription: "Ya liubliu hraty u futbol"
+  },
+  {
+    phraseId: "phrase_298",
+    text: "Баскетбол",
+    transcription: "Basketbol"
+  },
+  {
+    phraseId: "phrase_299",
+    text: "Плавання",
+    transcription: "Plavannia"
+  },
+  {
+    phraseId: "phrase_300",
+    text: "Біг",
+    transcription: "Bih"
+  },
+  {
+    phraseId: "phrase_301",
+    text: "Де спортзал?",
+    transcription: "De sportzal?"
+  },
+  {
+    phraseId: "phrase_302",
+    text: "Я хочу потренуватися",
+    transcription: "Ya khochu potrenuvatysia"
+  },
+  {
+    phraseId: "phrase_303",
+    text: "Тренер",
+    transcription: "Trener"
+  },
+  {
+    phraseId: "phrase_304",
+    text: "Змагання / Матч",
+    transcription: "Zmahannia / Match"
+  },
+  {
     phraseId: "phrase_305",
-    text: "Гість",
-    transcription: "Hist'"
+    text: "Стадіон",
+    transcription: "Stadion"
   }
 ];
