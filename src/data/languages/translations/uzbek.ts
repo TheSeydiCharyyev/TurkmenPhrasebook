@@ -82,7 +82,7 @@ export const uzbekTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_016",
-    text: "Xush kelibsiz! (kutib olish salomlashuvi)",
+    text: "Xush kelibsiz!",
     transcription: undefined
   },
   {
@@ -197,7 +197,7 @@ export const uzbekTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_039",
-    text: "Xona istaysan",
+    text: "Xona olsam bo'ladimi?",
     transcription: undefined
   },
   {
@@ -242,7 +242,7 @@ export const uzbekTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_048",
-    text: "Nonushta kiradimi?",
+    text: "Nonushta kiradi mi?",
     transcription: undefined
   },
   {
@@ -302,7 +302,7 @@ export const uzbekTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_060",
-    text: "Kesma",
+    text: "Lag'mon",
     transcription: undefined
   },
   {
@@ -692,7 +692,7 @@ export const uzbekTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_138",
-    text: "Harorat",
+    text: "Isitma",
     transcription: undefined
   },
   {
@@ -1212,7 +1212,7 @@ export const uzbekTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_242",
-    text: "Bilmayman",
+    text: "Gapira olmayman",
     transcription: undefined
   },
   {
@@ -1442,7 +1442,7 @@ export const uzbekTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_288",
-    text: "Men Xitoyda bir hafta qolmoqchiman",
+    text: "Men bu yerda bir hafta qolmoqchiman",
     transcription: undefined
   },
   {

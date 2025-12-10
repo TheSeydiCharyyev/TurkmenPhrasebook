@@ -82,7 +82,7 @@ export const azerbaijaniTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_016",
-    text: "Gəlməyinizlə!",
+    text: "Xoş gəlmisiniz!",
     transcription: undefined
   },
   {
@@ -272,7 +272,7 @@ export const azerbaijaniTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_054",
-    text: "Ödəniş",
+    text: "Hesab, xahiş edirəm",
     transcription: undefined
   },
   {
@@ -297,12 +297,12 @@ export const azerbaijaniTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_059",
-    text: "Duz",
+    text: "Düyü",
     transcription: undefined
   },
   {
     phraseId: "phrase_060",
-    text: "Düyü",
+    text: "Əriştə",
     transcription: undefined
   },
   {
@@ -577,7 +577,7 @@ export const azerbaijaniTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_115",
-    text: "Qatar vağzalı",
+    text: "Qatar bileti",
     transcription: undefined
   },
   {
@@ -642,7 +642,7 @@ export const azerbaijaniTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_128",
-    text: "Çatrı, Kəsişmə",
+    text: "Kəsişmə",
     transcription: undefined
   },
   {
@@ -692,7 +692,7 @@ export const azerbaijaniTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_138",
-    text: "Temperatura, Qızdırma",
+    text: "Qızdırma",
     transcription: undefined
   },
   {
@@ -732,7 +732,7 @@ export const azerbaijaniTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_146",
-    text: "Yuan",
+    text: "Manat",
     transcription: undefined
   },
   {
@@ -1042,7 +1042,7 @@ export const azerbaijaniTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_208",
-    text: "On bir",
+    text: "İyirmi",
     transcription: undefined
   },
   {
@@ -1262,7 +1262,7 @@ export const azerbaijaniTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_252",
-    text: "Mən məsələni müzakirə etməyə gəldim",
+    text: "Mən iş məsələlərini müzakirə etməyə gəldim",
     transcription: undefined
   },
   {
@@ -1352,7 +1352,7 @@ export const azerbaijaniTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_270",
-    text: "Göy",
+    text: "Bənövşəyi",
     transcription: undefined
   },
   {
@@ -1382,7 +1382,7 @@ export const azerbaijaniTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_276",
-    text: "Göz",
+    text: "Gözlər",
     transcription: undefined
   },
   {
@@ -1442,7 +1442,7 @@ export const azerbaijaniTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_288",
-    text: "Mən Çində bir həftə qalmağı niyyətindəyəm",
+    text: "Mən burada bir həftə qalmağı niyyətindəyəm",
     transcription: undefined
   },
   {

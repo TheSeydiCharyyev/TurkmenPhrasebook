@@ -217,13 +217,13 @@ export const kazakhTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_043",
-    text: "Бір жылдық бөлме",
-    transcription: "Bir jıldıq bólme"
+    text: "Бір орынды бөлме",
+    transcription: "Bir orındı bólme"
   },
   {
     phraseId: "phrase_044",
-    text: "Екі жылдық бөлме",
-    transcription: "Eki jıldıq bólme"
+    text: "Екі орынды бөлме",
+    transcription: "Eki orındı bólme"
   },
   {
     phraseId: "phrase_045",
@@ -272,8 +272,8 @@ export const kazakhTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_054",
-    text: "Төлем",
-    transcription: "Tólem"
+    text: "Шот, өтінемін",
+    transcription: "Shot, ótinemin"
   },
   {
     phraseId: "phrase_055",
@@ -297,13 +297,13 @@ export const kazakhTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_059",
-    text: "Тұз",
-    transcription: "Tuz"
+    text: "Күріш",
+    transcription: "Kúrish"
   },
   {
     phraseId: "phrase_060",
-    text: "Күріш",
-    transcription: "Kúrish"
+    text: "Кеспе",
+    transcription: "Kespe"
   },
   {
     phraseId: "phrase_061",
@@ -577,8 +577,8 @@ export const kazakhTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_115",
-    text: "Темір жол вокзалы",
-    transcription: "Temir jol vokzalı"
+    text: "Пойыз билеті",
+    transcription: "Poyız bileti"
   },
   {
     phraseId: "phrase_116",
@@ -692,8 +692,8 @@ export const kazakhTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_138",
-    text: "Температура, Қызба",
-    transcription: "Temperatura, Qızba"
+    text: "Қызба",
+    transcription: "Qızba"
   },
   {
     phraseId: "phrase_139",
@@ -732,8 +732,8 @@ export const kazakhTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_146",
-    text: "Юань",
-    transcription: "Yuan'"
+    text: "Теңге",
+    transcription: "Teñge"
   },
   {
     phraseId: "phrase_147",
@@ -1042,8 +1042,8 @@ export const kazakhTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_208",
-    text: "Он бір",
-    transcription: "On bir"
+    text: "Жиырма",
+    transcription: "Jıyırma"
   },
   {
     phraseId: "phrase_209",
@@ -1352,8 +1352,8 @@ export const kazakhTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_270",
-    text: "Көгілдір",
-    transcription: "Kógildir"
+    text: "Күлгін",
+    transcription: "Kúlgin"
   },
   {
     phraseId: "phrase_271",
@@ -1442,8 +1442,8 @@ export const kazakhTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_288",
-    text: "Мен Қытайда бір апта болуды ойлап тұрмын",
-    transcription: "Men Qıtayda bir apta boluwdı oylap turmın"
+    text: "Мен мұнда бір апта болуды ойлап тұрмын",
+    transcription: "Men munda bir apta boluwdı oylap turmın"
   },
   {
     phraseId: "phrase_289",

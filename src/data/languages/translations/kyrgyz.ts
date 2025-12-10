@@ -297,13 +297,13 @@ export const kyrgyzTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_059",
-    text: "Туз",
-    transcription: "Tuz"
+    text: "Күрүч",
+    transcription: "Kürüch"
   },
   {
     phraseId: "phrase_060",
-    text: "Күрүч",
-    transcription: "Kürüch"
+    text: "Кеспе",
+    transcription: "Kespe"
   },
   {
     phraseId: "phrase_061",
@@ -577,8 +577,8 @@ export const kyrgyzTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_115",
-    text: "Темир жол вокзалы",
-    transcription: "Temir jol vokzalı"
+    text: "Поезд билети",
+    transcription: "Poyezd bileti"
   },
   {
     phraseId: "phrase_116",
@@ -1042,8 +1042,8 @@ export const kyrgyzTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_208",
-    text: "Он бир",
-    transcription: "On bir"
+    text: "Жыйырма",
+    transcription: "Jıyırma"
   },
   {
     phraseId: "phrase_209",
@@ -1352,8 +1352,8 @@ export const kyrgyzTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_270",
-    text: "Көгүлтүр",
-    transcription: "Kögültür"
+    text: "Күлгүн",
+    transcription: "Külgün"
   },
   {
     phraseId: "phrase_271",
@@ -1442,8 +1442,8 @@ export const kyrgyzTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_288",
-    text: "Мен Кытайда бир жума болууну ойлонуп жатам",
-    transcription: "Men Kıtayda bir juma boluunu oylonup jatam"
+    text: "Мен бул жерде бир жума болууну ойлонуп жатам",
+    transcription: "Men bul jerde bir juma boluunu oylonup jatam"
   },
   {
     phraseId: "phrase_289",

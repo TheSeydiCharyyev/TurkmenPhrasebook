@@ -7,7 +7,7 @@ import { LanguageTranslation } from '../../../types';
 export const polishTranslations: LanguageTranslation[] = [
   {
     phraseId: "phrase_001",
-    text: "Cześć",
+    text: "Dzień dobry",
     transcription: undefined
   },
   {
@@ -92,7 +92,7 @@ export const polishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_018",
-    text: "Czy mogę przedstawić mojego przyjaciela",
+    text: "Pozwolę sobie przedstawić mojego przyjaciela",
     transcription: undefined
   },
   {
@@ -127,17 +127,17 @@ export const polishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_025",
-    text: "Dziękuję za pomoc",
+    text: "Dziękuję bardzo za pomoc",
     transcription: undefined
   },
   {
     phraseId: "phrase_026",
-    text: "Dziękuję za wsparcie",
+    text: "Dziękuję bardzo za wsparcie",
     transcription: undefined
   },
   {
     phraseId: "phrase_027",
-    text: "Dziękuję za zrozumienie",
+    text: "Dziękuję bardzo za zrozumienie",
     transcription: undefined
   },
   {
@@ -282,7 +282,7 @@ export const polishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_056",
-    text: "Nieostre",
+    text: "Nieostrę",
     transcription: undefined
   },
   {
@@ -432,7 +432,7 @@ export const polishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_086",
-    text: "Nieostre",
+    text: "Nieostrę",
     transcription: undefined
   },
   {
@@ -542,7 +542,7 @@ export const polishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_108",
-    text: "Jakie rozmiary macie?",
+    text: "Jaki jest pana/pani rozmiar?",
     transcription: undefined
   },
   {
@@ -692,7 +692,7 @@ export const polishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_138",
-    text: "Gorączka",
+    text: "Temperatura",
     transcription: undefined
   },
   {
@@ -1442,7 +1442,7 @@ export const polishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_288",
-    text: "Zamierzam zostać w Chinach przez tydzień",
+    text: "Zamierzam zostać tutaj przez tydzień",
     transcription: undefined
   },
   {

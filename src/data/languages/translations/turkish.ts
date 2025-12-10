@@ -82,7 +82,7 @@ export const turkishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_016",
-    text: "Hoş geldiniz! (karşılama selamı)",
+    text: "Hoş geldiniz!",
     transcription: undefined
   },
   {
@@ -302,7 +302,7 @@ export const turkishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_060",
-    text: "Erişte",
+    text: "Makarna",
     transcription: undefined
   },
   {
@@ -322,12 +322,12 @@ export const turkishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_064",
-    text: "Benim ... alerjim var",
+    text: "...ye alerjim var",
     transcription: undefined
   },
   {
     phraseId: "phrase_065",
-    text: "Paket yapabilir miyim?",
+    text: "Paket yapabilir misiniz?",
     transcription: undefined
   },
   {
@@ -482,7 +482,7 @@ export const turkishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_096",
-    text: "Daha ucuz olabilir mi?",
+    text: "İndirim yapabilir misiniz?",
     transcription: undefined
   },
   {
@@ -602,12 +602,12 @@ export const turkishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_120",
-    text: "...ya kadar ne kadar sürer?",
+    text: "...a/e kadar ne kadar sürer?",
     transcription: undefined
   },
   {
     phraseId: "phrase_121",
-    text: "...ya gitmem gerek",
+    text: "...a/e gitmem gerek",
     transcription: undefined
   },
   {
@@ -692,7 +692,7 @@ export const turkishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_138",
-    text: "Ateş",
+    text: "Ateşim var",
     transcription: undefined
   },
   {
@@ -1202,7 +1202,7 @@ export const turkishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_240",
-    text: "Yabancı dil öğreniyorum",
+    text: "Yabancı diller öğreniyorum",
     transcription: undefined
   },
   {
@@ -1212,7 +1212,7 @@ export const turkishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_242",
-    text: "Bilmiyorum",
+    text: "Konuşamıyorum",
     transcription: undefined
   },
   {
@@ -1262,7 +1262,7 @@ export const turkishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_252",
-    text: "İş görüşmesi için geldim",
+    text: "İş görüşmeleri için geldim",
     transcription: undefined
   },
   {
@@ -1272,7 +1272,7 @@ export const turkishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_254",
-    text: "Üretim hakkında bilgi almak istiyoruz",
+    text: "Üretiminiz hakkında öğrenmek istiyoruz",
     transcription: undefined
   },
   {
@@ -1442,7 +1442,7 @@ export const turkishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_288",
-    text: "Çin'de bir hafta kalmayı düşünüyorum",
+    text: "Burada bir hafta kalmayı düşünüyorum",
     transcription: undefined
   },
   {
@@ -1452,7 +1452,7 @@ export const turkishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_290",
-    text: "Ülkenizde transit geçişteyim",
+    text: "Ülkenizden transit geçiyorum",
     transcription: undefined
   },
   {
