@@ -82,7 +82,7 @@ export const spanishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_016",
-    text: "¡Bienvenido! (saludo de llegada)",
+    text: "¡Bienvenido!",
     transcription: undefined
   },
   {
@@ -172,7 +172,7 @@ export const spanishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_034",
-    text: "Llame una ambulancia",
+    text: "Llame a una ambulancia",
     transcription: undefined
   },
   {
@@ -327,7 +327,7 @@ export const spanishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_065",
-    text: "¿Puedo llevarlo para llevar?",
+    text: "¿Puedo llevarlo?",
     transcription: undefined
   },
   {
@@ -692,7 +692,7 @@ export const spanishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_138",
-    text: "Fiebre",
+    text: "Temperatura",
     transcription: undefined
   },
   {
@@ -1272,7 +1272,7 @@ export const spanishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_254",
-    text: "Queremos conocer sobre la producción",
+    text: "Queremos informarnos sobre la producción",
     transcription: undefined
   },
   {
@@ -1442,7 +1442,7 @@ export const spanishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_288",
-    text: "Tengo la intención de quedarme en China por una semana",
+    text: "Tengo la intención de quedarme en este país por una semana",
     transcription: undefined
   },
   {
@@ -1477,7 +1477,7 @@ export const spanishTranslations: LanguageTranslation[] = [
   },
   {
     phraseId: "phrase_295",
-    text: "¿Qué impuesto debo pagar?",
+    text: "¿Qué aranceles debo pagar?",
     transcription: undefined
   },
   {
