@@ -573,7 +573,7 @@ export default function AboutScreen() {
         {/* Logo / App Icon */}
         <View style={styles.logoContainer}>
           <Image
-            source={require('../../assets/splash_new.png')}
+            source={require('../../assets/icon.png')}
             style={styles.logoImage}
             resizeMode="contain"
           />
@@ -879,3 +879,4 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
 });
+

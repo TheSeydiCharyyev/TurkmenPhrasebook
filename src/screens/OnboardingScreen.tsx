@@ -259,7 +259,7 @@ function PhrasebookSlide() {
 
   return (
     <View style={styles.slideContent}>
-      <Ionicons name="book" size={iconSize} color="#F5A623" style={styles.slideIcon} />
+      <Ionicons name="book" size={iconSize} color="#1A7BC4" style={styles.slideIcon} />
       <Text style={styles.slideTitle}>{texts.onboardingPhrasebookTitle}</Text>
       <Text style={styles.slideSubtitle}>
         {texts.onboardingPhrasebookSubtitle}
@@ -289,11 +289,11 @@ function PhrasebookSlide() {
         {/* Features */}
         <View style={styles.featuresListContainer}>
           <View style={styles.featureRow}>
-            <Ionicons name="checkmark-circle" size={22} color="#F5A623" />
+            <Ionicons name="checkmark-circle" size={22} color="#1A7BC4" />
             <Text style={styles.featureText}>{texts.onboardingFeatureAudio}</Text>
           </View>
           <View style={styles.featureRow}>
-            <Ionicons name="checkmark-circle" size={22} color="#F5A623" />
+            <Ionicons name="checkmark-circle" size={22} color="#1A7BC4" />
             <Text style={styles.featureText}>{texts.onboardingFeatureOffline}</Text>
           </View>
         </View>
@@ -311,7 +311,7 @@ function TranslatorSlide() {
 
   return (
     <View style={styles.slideContent}>
-      <Ionicons name="language" size={iconSize} color="#F5A623" style={styles.slideIcon} />
+      <Ionicons name="language" size={iconSize} color="#1A7BC4" style={styles.slideIcon} />
       <Text style={styles.slideTitle}>{texts.onboardingTranslationTitle}</Text>
       <Text style={styles.slideSubtitle}>
         {texts.onboardingTranslationSubtitle}
@@ -340,11 +340,11 @@ function TranslatorSlide() {
         {/* Features list */}
         <View style={styles.featuresListContainer}>
           <View style={styles.featureRow}>
-            <Ionicons name="checkmark-circle" size={22} color="#F5A623" />
+            <Ionicons name="checkmark-circle" size={22} color="#1A7BC4" />
             <Text style={styles.featureText}>{texts.onboardingTextTranslator}</Text>
           </View>
           <View style={styles.featureRow}>
-            <Ionicons name="checkmark-circle" size={22} color="#F5A623" />
+            <Ionicons name="checkmark-circle" size={22} color="#1A7BC4" />
             <Text style={styles.featureText}>{texts.onboardingAIAssistant}</Text>
           </View>
           <View style={styles.featureRow}>
@@ -396,7 +396,7 @@ function ReadySlide({ onGetStarted }: { onGetStarted: () => void }) {
 
   return (
     <View style={styles.slideContent}>
-      <Ionicons name="checkmark-circle" size={iconSize} color="#F5A623" style={styles.slideIcon} />
+      <Ionicons name="checkmark-circle" size={iconSize} color="#1A7BC4" style={styles.slideIcon} />
       <Text style={styles.slideTitle}>{texts.onboardingReadyTitle}</Text>
       <Text style={styles.slideSubtitle}>
         {texts.onboardingReadySubtitle}
@@ -421,7 +421,7 @@ function ReadySlide({ onGetStarted }: { onGetStarted: () => void }) {
                 <Ionicons
                   name={feature.icon}
                   size={moderateScale(16)}
-                  color={feature.available ? '#F5A623' : '#9CA3AF'}
+                  color={feature.available ? '#1A7BC4' : '#9CA3AF'}
                 />
                 <Text style={[
                   styles.featureTagText,
@@ -445,7 +445,7 @@ function ReadySlide({ onGetStarted }: { onGetStarted: () => void }) {
 
 // ========== Styles ==========
 
-const ACCENT_COLOR = '#F5A623'; // Şapak orange (matching logo)
+const ACCENT_COLOR = '#1A7BC4'; // Şapak blue (matching logo)
 const TEXT_PRIMARY = '#1C1C1E'; // Apple dark text
 const TEXT_SECONDARY = '#6E6E73'; // Apple gray text
 const BACKGROUND = '#FFFFFF'; // White background
