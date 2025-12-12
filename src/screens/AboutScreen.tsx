@@ -605,7 +605,7 @@ export default function AboutScreen() {
           <View style={styles.sectionCard}>
             <View style={styles.sectionHeader}>
               <Ionicons name="flag" size={20} color="#10B981" />
-              <Text style={styles.sectionTitle}>Mission</Text>
+              <Text style={styles.sectionTitle}>{t.mission}</Text>
             </View>
             <Text style={styles.sectionText}>{lines[1]}</Text>
           </View>
@@ -616,14 +616,14 @@ export default function AboutScreen() {
           <View style={styles.sectionCard}>
             <View style={styles.sectionHeader}>
               <Ionicons name="apps" size={20} color="#F59E0B" />
-              <Text style={styles.sectionTitle}>Features</Text>
+              <Text style={styles.sectionTitle}>{t.features}</Text>
             </View>
             <View style={styles.featuresList}>
               <FeatureItem icon="book" text={lines[2].includes('•') ? lines[2].split('•')[1]?.trim() || '' : ''} />
               <FeatureItem icon="language" text={lines[2].includes('•') ? lines[2].split('•')[2]?.trim() || '' : ''} />
               <FeatureItem icon="sparkles" text={lines[2].includes('•') ? lines[2].split('•')[3]?.trim() || '' : ''} />
-              <FeatureItem icon="mic" text={lines[2].includes('•') ? lines[2].split('•')[4]?.trim() || '' : ''} badge="Soon" />
-              <FeatureItem icon="camera" text={lines[2].includes('•') ? lines[2].split('•')[5]?.trim() || '' : ''} badge="Soon" />
+              <FeatureItem icon="mic" text={lines[2].includes('•') ? lines[2].split('•')[4]?.trim() || '' : ''} badge={t.soon} />
+              <FeatureItem icon="camera" text={lines[2].includes('•') ? lines[2].split('•')[5]?.trim() || '' : ''} badge={t.soon} />
             </View>
           </View>
         )}
@@ -632,7 +632,7 @@ export default function AboutScreen() {
         <View style={styles.sectionCard}>
           <View style={styles.sectionHeader}>
             <Ionicons name="mail" size={20} color="#8B5CF6" />
-            <Text style={styles.sectionTitle}>Contact</Text>
+            <Text style={styles.sectionTitle}>{t.contact}</Text>
           </View>
           <TouchableOpacity
             style={styles.emailButton}
@@ -650,7 +650,7 @@ export default function AboutScreen() {
           <View style={styles.sectionCard}>
             <View style={styles.sectionHeader}>
               <Ionicons name="heart" size={20} color="#EF4444" />
-              <Text style={styles.sectionTitle}>Special Thanks</Text>
+              <Text style={styles.sectionTitle}>{t.specialThanks}</Text>
             </View>
             <Text style={styles.sectionText}>{lines[lines.length - 1]}</Text>
           </View>
@@ -678,7 +678,7 @@ export default function AboutScreen() {
         <View style={styles.sectionCard}>
           <View style={styles.sectionHeader}>
             <Ionicons name="information-circle" size={20} color="#3B82F6" />
-            <Text style={styles.sectionTitle}>About Series</Text>
+            <Text style={styles.sectionTitle}>{t.aboutSeries}</Text>
           </View>
           <Text style={styles.sectionText}>{lines[0]}</Text>
         </View>
@@ -688,7 +688,7 @@ export default function AboutScreen() {
           <View style={styles.sectionCard}>
             <View style={styles.sectionHeader}>
               <Ionicons name="globe" size={20} color="#10B981" />
-              <Text style={styles.sectionTitle}>For Everyone</Text>
+              <Text style={styles.sectionTitle}>{t.forEveryone}</Text>
             </View>
             <Text style={styles.sectionText}>{lines[1]}</Text>
           </View>
@@ -710,7 +710,7 @@ export default function AboutScreen() {
           <View style={styles.sectionCard}>
             <View style={styles.sectionHeader}>
               <Ionicons name="time" size={20} color="#8B5CF6" />
-              <Text style={styles.sectionTitle}>What's Next</Text>
+              <Text style={styles.sectionTitle}>{t.whatsNext}</Text>
             </View>
             <Text style={styles.sectionText}>{lines[3]}</Text>
           </View>
