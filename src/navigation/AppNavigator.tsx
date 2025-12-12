@@ -147,9 +147,9 @@ export default function AppNavigator() {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: Colors.primary
+        backgroundColor: '#ffffff'
       }}>
-        <ActivityIndicator size="large" color={Colors.textWhite} />
+        <ActivityIndicator size="large" color={Colors.primary} />
       </View>
     );
   }
