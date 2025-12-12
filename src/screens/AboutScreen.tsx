@@ -795,8 +795,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   seriesLogo: {
-    width: scale(100),
-    height: scale(100),
+    width: scale(180),
+    height: scale(180),
   },
   sectionCard: {
     backgroundColor: '#FFFFFF',
