@@ -361,9 +361,14 @@ export default function AboutScreen() {
       <View>
         {/* Team Image */}
         <View style={styles.modalImageContainer}>
-          
-            <Image source={require('../../assets/shapak_logo.png')} style={{ width: 80, height: 80, borderRadius: 16 }} resizeMode="contain" />
-          </View> {/* Team Info Section */}
+          <Image
+            source={require('../../assets/shapak_logo.png')}
+            style={{ width: 80, height: 80, borderRadius: 16 }}
+            resizeMode="contain"
+          />
+        </View>
+
+        {/* Team Info Section */}
         <View style={styles.sectionCard}>
           <View style={styles.sectionHeader}>
             <Ionicons name="business" size={20} color="#3B82F6" />
