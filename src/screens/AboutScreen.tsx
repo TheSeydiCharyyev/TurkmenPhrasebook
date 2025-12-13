@@ -587,7 +587,7 @@ export default function AboutScreen() {
         <View style={styles.modalImageContainer}>
           <Image
             source={require('../../assets/shapak_logo.png')}
-            style={{ width: 80, height: 80, borderRadius: 16 }}
+            style={{ width: 120, height: 120, borderRadius: 20 }}
             resizeMode="contain"
           />
         </View>
