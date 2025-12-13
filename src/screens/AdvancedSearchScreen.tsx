@@ -32,47 +32,47 @@ import { scale, verticalScale, moderateScale, useResponsive } from '../utils/Res
 
 // Статичные стили для компонентов вне главного компонента
 const componentStyles = StyleSheet.create({
-  filtersContainer: {
-    backgroundColor: Colors.textWhite,
-    paddingHorizontal: scale(16),
-    paddingVertical: verticalScale(8),
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.cardBorder,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  filtersTitle: {
-    fontSize: moderateScale(14),
-    color: Colors.textLight,
-  },
   clearFiltersButton: {
     padding: scale(4),
   },
   clearFiltersText: {
-    fontSize: moderateScale(14),
     color: Colors.primary,
+    fontSize: moderateScale(14),
+  },
+  filtersContainer: {
+    alignItems: 'center',
+    backgroundColor: Colors.textWhite,
+    borderBottomColor: Colors.cardBorder,
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: scale(16),
+    paddingVertical: verticalScale(8),
+  },
+  filtersTitle: {
+    color: Colors.textLight,
+    fontSize: moderateScale(14),
+  },
+  suggestionItem: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: scale(8),
+    paddingHorizontal: scale(16),
+    paddingVertical: verticalScale(12),
+  },
+  suggestionText: {
+    color: Colors.text,
+    fontSize: moderateScale(16),
   },
   suggestionsContainer: {
     backgroundColor: Colors.textWhite,
-    borderBottomWidth: 1,
     borderBottomColor: Colors.cardBorder,
-  },
-  suggestionItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: scale(16),
-    paddingVertical: verticalScale(12),
-    gap: scale(8),
-  },
-  suggestionText: {
-    fontSize: moderateScale(16),
-    color: Colors.text,
+    borderBottomWidth: 1,
   },
   voiceButton: {
-    padding: scale(8),
-    borderRadius: moderateScale(8),
     backgroundColor: Colors.background,
+    borderRadius: moderateScale(8),
+    padding: scale(8),
   },
 });
 
@@ -516,130 +516,125 @@ export default function AdvancedSearchScreen() {
   }, []);
 
   const styles = React.useMemo(() => StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: Colors.background,
-    },
-    header: {
-      backgroundColor: Colors.textWhite,
-      paddingHorizontal: scale(16),
-      paddingVertical: verticalScale(12),
-      borderBottomWidth: 1,
-      borderBottomColor: Colors.cardBorder,
-    },
-    headerContent: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-    headerTitle: {
-      fontSize: moderateScale(24),
-      fontWeight: 'bold',
-      color: Colors.text,
-    },
-    headerActions: {
-      flexDirection: 'row',
-      gap: scale(8),
-    },
-    voiceButton: {
-      padding: scale(8),
-      borderRadius: moderateScale(8),
-      backgroundColor: Colors.background,
-    },
-    filterButton: {
-      padding: scale(8),
-      borderRadius: moderateScale(8),
-      backgroundColor: Colors.background,
-    },
-    filterButtonActive: {
-      backgroundColor: Colors.primary,
-    },
-    searchInputSection: {
-      backgroundColor: Colors.textWhite,
-      paddingHorizontal: scale(16),
-      paddingBottom: verticalScale(12),
-    },
-    searchInputContainer: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      backgroundColor: Colors.background,
-      borderRadius: moderateScale(12),
-      paddingHorizontal: scale(12),
-      paddingVertical: verticalScale(8),
-    },
-    searchIcon: {
-      marginRight: scale(8),
-    },
-    searchInput: {
-      flex: 1,
-      fontSize: moderateScale(16),
-      color: Colors.text,
+    categoryBadge: {
+      alignSelf: 'flex-start',
+      backgroundColor: Colors.primary + '20',
+      borderRadius: moderateScale(6),
+      marginTop: verticalScale(4),
+      paddingHorizontal: scale(8),
       paddingVertical: verticalScale(4),
+    },
+    categoryBadgeText: {
+      color: Colors.primary,
+      fontSize: moderateScale(12),
+      fontWeight: '600',
     },
     clearButton: {
       padding: scale(4),
-    },
-    loadingContainer: {
-      height: verticalScale(2),
-      backgroundColor: Colors.cardBorder,
-      marginTop: verticalScale(8),
-      borderRadius: 1,
-      overflow: 'hidden',
-    },
-    loadingBar: {
-      height: '100%',
-      backgroundColor: Colors.primary,
-      borderRadius: 1,
-    },
-    filtersContainer: {
-      backgroundColor: Colors.textWhite,
-      paddingHorizontal: scale(16),
-      paddingVertical: verticalScale(8),
-      borderBottomWidth: 1,
-      borderBottomColor: Colors.cardBorder,
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-    },
-    filtersTitle: {
-      fontSize: moderateScale(14),
-      color: Colors.textLight,
     },
     clearFiltersButton: {
       padding: scale(4),
     },
     clearFiltersText: {
-      fontSize: moderateScale(14),
       color: Colors.primary,
+      fontSize: moderateScale(14),
     },
-    suggestionsContainer: {
-      backgroundColor: Colors.textWhite,
-      borderBottomWidth: 1,
-      borderBottomColor: Colors.cardBorder,
+    container: {
+      backgroundColor: Colors.background,
+      flex: 1,
     },
-    suggestionItem: {
-      flexDirection: 'row',
+    emptyState: {
       alignItems: 'center',
+      flex: 1,
+      justifyContent: 'center',
+      padding: scale(32),
+    },
+    emptyStateSubtext: {
+      color: Colors.textLight,
+      fontSize: moderateScale(14),
+      lineHeight: moderateScale(20),
+      marginTop: verticalScale(8),
+      textAlign: 'center',
+    },
+    emptyStateText: {
+      color: Colors.text,
+      fontSize: moderateScale(18),
+      fontWeight: '600',
+      marginTop: verticalScale(16),
+      textAlign: 'center',
+    },
+    filterButton: {
+      backgroundColor: Colors.background,
+      borderRadius: moderateScale(8),
+      padding: scale(8),
+    },
+    filterButtonActive: {
+      backgroundColor: Colors.primary,
+    },
+    filtersContainer: {
+      alignItems: 'center',
+      backgroundColor: Colors.textWhite,
+      borderBottomColor: Colors.cardBorder,
+      borderBottomWidth: 1,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      paddingHorizontal: scale(16),
+      paddingVertical: verticalScale(8),
+    },
+    filtersTitle: {
+      color: Colors.textLight,
+      fontSize: moderateScale(14),
+    },
+    header: {
+      backgroundColor: Colors.textWhite,
+      borderBottomColor: Colors.cardBorder,
+      borderBottomWidth: 1,
       paddingHorizontal: scale(16),
       paddingVertical: verticalScale(12),
+    },
+    headerActions: {
+      flexDirection: 'row',
       gap: scale(8),
     },
-    suggestionText: {
-      fontSize: moderateScale(16),
+    headerContent: {
+      alignItems: 'center',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    headerTitle: {
       color: Colors.text,
+      fontSize: moderateScale(24),
+      fontWeight: 'bold',
+    },
+    loadingBar: {
+      backgroundColor: Colors.primary,
+      borderRadius: 1,
+      height: '100%',
+    },
+    loadingContainer: {
+      backgroundColor: Colors.cardBorder,
+      borderRadius: 1,
+      height: verticalScale(2),
+      marginTop: verticalScale(8),
+      overflow: 'hidden',
     },
     mainContent: {
       flex: 1,
     },
-    resultsList: {
-      padding: scale(16),
+    resultChinese: {
+      color: Colors.text,
+      fontSize: moderateScale(20),
+      fontWeight: 'bold',
+    },
+    resultContent: {
+      gap: verticalScale(4),
     },
     resultItem: {
       backgroundColor: Colors.textWhite,
       borderRadius: moderateScale(12),
-      padding: scale(16),
-      marginBottom: verticalScale(12),
       elevation: 2,
+      marginBottom: verticalScale(12),
+      padding: scale(16),
       shadowColor: Colors.cardShadow,
       shadowOffset: {
         width: 0,
@@ -648,54 +643,59 @@ export default function AdvancedSearchScreen() {
       shadowOpacity: 0.1,
       shadowRadius: 4,
     },
-    resultContent: {
-      gap: verticalScale(4),
-    },
-    resultChinese: {
-      fontSize: moderateScale(20),
-      fontWeight: 'bold',
-      color: Colors.text,
-    },
     resultPinyin: {
-      fontSize: moderateScale(14),
       color: Colors.textSecondary,
+      fontSize: moderateScale(14),
     },
     resultTranslation: {
+      color: Colors.text,
       fontSize: moderateScale(16),
+    },
+    resultsList: {
+      padding: scale(16),
+    },
+    searchIcon: {
+      marginRight: scale(8),
+    },
+    searchInput: {
       color: Colors.text,
-    },
-    categoryBadge: {
-      alignSelf: 'flex-start',
-      backgroundColor: Colors.primary + '20',
-      paddingHorizontal: scale(8),
-      paddingVertical: verticalScale(4),
-      borderRadius: moderateScale(6),
-      marginTop: verticalScale(4),
-    },
-    categoryBadgeText: {
-      fontSize: moderateScale(12),
-      color: Colors.primary,
-      fontWeight: '600',
-    },
-    emptyState: {
       flex: 1,
-      justifyContent: 'center',
+      fontSize: moderateScale(16),
+      paddingVertical: verticalScale(4),
+    },
+    searchInputContainer: {
       alignItems: 'center',
-      padding: scale(32),
+      backgroundColor: Colors.background,
+      borderRadius: moderateScale(12),
+      flexDirection: 'row',
+      paddingHorizontal: scale(12),
+      paddingVertical: verticalScale(8),
     },
-    emptyStateText: {
-      fontSize: moderateScale(18),
-      fontWeight: '600',
+    searchInputSection: {
+      backgroundColor: Colors.textWhite,
+      paddingBottom: verticalScale(12),
+      paddingHorizontal: scale(16),
+    },
+    suggestionItem: {
+      alignItems: 'center',
+      flexDirection: 'row',
+      gap: scale(8),
+      paddingHorizontal: scale(16),
+      paddingVertical: verticalScale(12),
+    },
+    suggestionText: {
       color: Colors.text,
-      marginTop: verticalScale(16),
-      textAlign: 'center',
+      fontSize: moderateScale(16),
     },
-    emptyStateSubtext: {
-      fontSize: moderateScale(14),
-      color: Colors.textLight,
-      marginTop: verticalScale(8),
-      textAlign: 'center',
-      lineHeight: moderateScale(20),
+    suggestionsContainer: {
+      backgroundColor: Colors.textWhite,
+      borderBottomColor: Colors.cardBorder,
+      borderBottomWidth: 1,
+    },
+    voiceButton: {
+      backgroundColor: Colors.background,
+      borderRadius: moderateScale(8),
+      padding: scale(8),
     },
   }), [scale, verticalScale, moderateScale]);
 

@@ -163,103 +163,6 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
 );
 
 const styles = StyleSheet.create({
-  spinnerContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  loadingMessage: {
-    marginTop: 16,
-    fontSize: 16,
-    color: Colors.textLight,
-    textAlign: 'center',
-  },
-  
-  skeleton: {
-    backgroundColor: Colors.backgroundLight,
-    opacity: 0.7,
-  },
-  
-  phraseCardSkeleton: {
-    backgroundColor: Colors.cardBackground,
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 12,
-    flexDirection: 'row',
-    height: 140,
-  },
-  skeletonContent: {
-    flex: 1,
-  },
-  skeletonActions: {
-    alignItems: 'center',
-    marginLeft: 12,
-  },
-  
-  categoryGridSkeleton: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    padding: 20,
-  },
-  categoryItemSkeleton: {
-    width: '30%',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  
-  progressContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 40,
-  },
-  progressMessage: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: Colors.text,
-    marginTop: 20,
-    marginBottom: 8,
-    textAlign: 'center',
-  },
-  progressSubMessage: {
-    fontSize: 14,
-    color: Colors.textLight,
-    textAlign: 'center',
-    marginBottom: 30,
-  },
-  progressBarContainer: {
-    width: '100%',
-    alignItems: 'center',
-  },
-  progressBarBackground: {
-    width: '100%',
-    height: 6,
-    backgroundColor: Colors.backgroundLight,
-    borderRadius: 3,
-    overflow: 'hidden',
-    marginBottom: 8,
-  },
-  progressBarFill: {
-    height: '100%',
-    backgroundColor: Colors.primary,
-    borderRadius: 3,
-  },
-  progressPercent: {
-    fontSize: 12,
-    color: Colors.textLight,
-    fontWeight: '500',
-  },
-  
-  buttonLoadingContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  buttonSpinner: {
-    marginRight: 8,
-  },
   buttonContent: {
     opacity: 1,
   },
@@ -267,39 +170,136 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   
+  buttonLoadingContainer: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  
+  buttonSpinner: {
+    marginRight: 8,
+  },
+  categoryGridSkeleton: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    padding: 20,
+  },
+  categoryItemSkeleton: {
+    alignItems: 'center',
+    marginBottom: 20,
+    width: '30%',
+  },
+  
+  emptyStateAction: {
+    justifyContent: 'center',
+    minHeight: 20,
+  },
+  emptyStateActionText: {
+    color: Colors.primary,
+    fontSize: 16,
+    fontWeight: '600',
+    textDecorationLine: 'underline',
+  },
+  
   emptyStateContainer: {
+    alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
     padding: 40,
   },
   emptyStateIcon: {
     fontSize: 64,
     marginBottom: 20,
   },
+  emptyStateMessage: {
+    color: Colors.textLight,
+    fontSize: 16,
+    lineHeight: 24,
+    marginBottom: 30,
+    textAlign: 'center',
+  },
   emptyStateTitle: {
+    color: Colors.text,
     fontSize: 20,
     fontWeight: '600',
-    color: Colors.text,
     marginBottom: 12,
     textAlign: 'center',
   },
-  emptyStateMessage: {
-    fontSize: 16,
+  loadingMessage: {
     color: Colors.textLight,
-    textAlign: 'center',
-    lineHeight: 24,
-    marginBottom: 30,
-  },
-  emptyStateAction: {
-    minHeight: 20,
-    justifyContent: 'center',
-  },
-  emptyStateActionText: {
     fontSize: 16,
-    color: Colors.primary,
+    marginTop: 16,
+    textAlign: 'center',
+  },
+  phraseCardSkeleton: {
+    backgroundColor: Colors.cardBackground,
+    borderRadius: 12,
+    flexDirection: 'row',
+    height: 140,
+    marginBottom: 12,
+    padding: 16,
+  },
+  progressBarBackground: {
+    backgroundColor: Colors.backgroundLight,
+    borderRadius: 3,
+    height: 6,
+    marginBottom: 8,
+    overflow: 'hidden',
+    width: '100%',
+  },
+  
+  progressBarContainer: {
+    alignItems: 'center',
+    width: '100%',
+  },
+  progressBarFill: {
+    backgroundColor: Colors.primary,
+    borderRadius: 3,
+    height: '100%',
+  },
+  progressContainer: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
+    padding: 40,
+  },
+  progressMessage: {
+    color: Colors.text,
+    fontSize: 18,
     fontWeight: '600',
-    textDecorationLine: 'underline',
+    marginBottom: 8,
+    marginTop: 20,
+    textAlign: 'center',
+  },
+  
+  progressPercent: {
+    color: Colors.textLight,
+    fontSize: 12,
+    fontWeight: '500',
+  },
+  progressSubMessage: {
+    color: Colors.textLight,
+    fontSize: 14,
+    marginBottom: 30,
+    textAlign: 'center',
+  },
+  skeleton: {
+    backgroundColor: Colors.backgroundLight,
+    opacity: 0.7,
+  },
+  skeletonActions: {
+    alignItems: 'center',
+    marginLeft: 12,
+  },
+  skeletonContent: {
+    flex: 1,
+  },
+  spinnerContainer: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
+    padding: 20,
   },
 });
 

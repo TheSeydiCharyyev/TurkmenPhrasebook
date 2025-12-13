@@ -180,41 +180,41 @@ export function AudioErrorBadge({
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: 12,
     alignSelf: 'flex-start',
-  },
-  containerSmall: {
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    gap: 4,
+    borderRadius: 12,
+    flexDirection: 'row',
   },
   containerMedium: {
+    gap: 6,
     paddingHorizontal: 12,
     paddingVertical: 6,
-    gap: 6,
   },
-  label: {
-    fontWeight: '500',
-  },
-  labelSmall: {
-    fontSize: 11,
-  },
-  labelMedium: {
-    fontSize: 13,
-  },
-  loadingContainer: {
-    backgroundColor: '#F3F4F6',
-  },
-  loadingLabel: {
-    color: '#6B7280',
+  containerSmall: {
+    gap: 4,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
   },
   errorContainer: {
     backgroundColor: '#FEE2E2',
   },
   errorLabel: {
     color: '#DC2626',
+  },
+  label: {
+    fontWeight: '500',
+  },
+  labelMedium: {
+    fontSize: 13,
+  },
+  labelSmall: {
+    fontSize: 11,
+  },
+  loadingContainer: {
+    backgroundColor: '#F3F4F6',
+  },
+  loadingLabel: {
+    color: '#6B7280',
   },
 });
 

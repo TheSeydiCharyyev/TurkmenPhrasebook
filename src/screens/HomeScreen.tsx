@@ -249,38 +249,38 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   // НОВАЯ минималистичная шапка - АБСОЛЮТНОЕ ПОЗИЦИОНИРОВАНИЕ для анимации
   headerContainer: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    paddingTop: verticalScale(44),
-    height: verticalScale(104),
-    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: scale(16),
     backgroundColor: Colors.background,
-    borderBottomWidth: 1,
     borderBottomColor: Colors.border || '#E5E7EB',
-    zIndex: 1000,
+    borderBottomWidth: 1,
     elevation: 4,
+    flexDirection: 'row',
+    height: verticalScale(104),
+    justifyContent: 'space-between',
+    left: 0,
+    paddingHorizontal: scale(16),
+    paddingTop: verticalScale(44),
+    position: 'absolute',
+    right: 0,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: verticalScale(2) },
     shadowOpacity: 0.1,
     shadowRadius: scale(4),
+    top: 0,
+    zIndex: 1000,
   },
 
   backButton: {
-    width: scale(40),
-    height: verticalScale(40),
-    borderRadius: scale(20),
-    justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: scale(20),
+    height: verticalScale(40),
+    justifyContent: 'center',
+    width: scale(40),
   },
 
   languageInfo: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
     flex: 1,
     justifyContent: 'center',
     paddingHorizontal: scale(12),
@@ -292,25 +292,25 @@ const styles = StyleSheet.create({
   },
 
   languageName: {
+    color: Colors.text,
     fontSize: moderateScale(16),
     fontWeight: '700',
-    color: Colors.text,
   },
 
   settingsButton: {
-    width: scale(40),
-    height: verticalScale(40),
-    borderRadius: scale(20),
-    justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: scale(20),
+    height: verticalScale(40),
+    justifyContent: 'center',
+    width: scale(40),
   },
 
   // Поле поиска
 
   // Контейнер категорий
   contentContainer: {
-    flex: 1,
     backgroundColor: Colors.background,
+    flex: 1,
   },
 
   gridContainer: {

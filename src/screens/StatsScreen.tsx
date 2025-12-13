@@ -489,189 +489,189 @@ export default function StatsScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.background,
-  },
-  header: {
-    padding: scale(20),
-    paddingBottom: verticalScale(10),
-  },
-  headerTitle: {
-    fontSize: moderateScale(28),
-    fontWeight: 'bold',
-    color: Colors.text,
-    marginBottom: verticalScale(5),
-  },
-  headerSubtitle: {
-    fontSize: moderateScale(16),
-    color: Colors.textLight,
-  },
-  content: {
-    paddingHorizontal: scale(20),
-    paddingBottom: verticalScale(20),
-  },
-  section: {
-    marginBottom: verticalScale(30),
-  },
-  sectionHeader: {
-    flexDirection: 'row',
+  achievementCard: {
     alignItems: 'center',
-    marginBottom: verticalScale(16),
+    backgroundColor: Colors.cardBackground,
+    borderColor: Colors.cardBorder,
+    borderRadius: moderateScale(12),
+    borderWidth: 1,
+    flexDirection: 'row',
+    padding: scale(16),
   },
-  sectionTitle: {
-    fontSize: moderateScale(20),
-    fontWeight: '600',
+  achievementCardActive: {
+    backgroundColor: Colors.success + '10',
+    borderColor: Colors.success,
+  },
+  achievementStatus: {
+    color: Colors.primary,
+    fontSize: moderateScale(16),
+    fontWeight: 'bold',
+  },
+  achievementTitle: {
     color: Colors.text,
+    flex: 1,
+    fontSize: moderateScale(14),
+    fontWeight: '500',
     marginLeft: scale(12),
   },
-  statsGrid: {
+  achievementsContainer: {
     gap: verticalScale(12),
-  },
-  statCard: {
-    backgroundColor: Colors.cardBackground,
-    borderRadius: moderateScale(16),
-    padding: scale(20),
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    elevation: 2,
-    shadowColor: Colors.cardShadow,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  statCardLeft: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-  },
-  statIcon: {
-    width: scale(48),
-    height: scale(48),
-    borderRadius: scale(24),
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: scale(16),
-  },
-  statText: {
-    flex: 1,
-  },
-  statTitle: {
-    fontSize: moderateScale(14),
-    color: Colors.textLight,
-    marginBottom: verticalScale(4),
-  },
-  statValue: {
-    fontSize: moderateScale(24),
-    fontWeight: 'bold',
-    color: Colors.text,
-    marginBottom: verticalScale(2),
-  },
-  statSubtitle: {
-    fontSize: moderateScale(12),
-    color: Colors.textLight,
-  },
-  progressBarBackground: {
-    backgroundColor: Colors.backgroundLight,
-    borderRadius: moderateScale(4),
-    overflow: 'hidden',
-    marginTop: verticalScale(12),
-  },
-  progressBarFill: {
-    borderRadius: moderateScale(4),
-  },
-  chartContainer: {
-    backgroundColor: Colors.cardBackground,
-    borderRadius: moderateScale(16),
-    padding: scale(20),
-    alignItems: 'center',
-    elevation: 2,
-    shadowColor: Colors.cardShadow,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  categoryProgressItem: {
-    backgroundColor: Colors.cardBackground,
-    borderRadius: moderateScale(12),
-    padding: scale(16),
-    marginBottom: verticalScale(12),
-    elevation: 1,
-    shadowColor: Colors.cardShadow,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.05,
-    shadowRadius: 2,
-  },
-  categoryProgressHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: verticalScale(8),
-  },
-  categoryProgressLeft: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
   },
   categoryIcon: {
     fontSize: moderateScale(20),
     marginRight: scale(12),
   },
   categoryName: {
+    color: Colors.text,
+    flex: 1,
     fontSize: moderateScale(16),
     fontWeight: '500',
-    color: Colors.text,
+  },
+  categoryProgressHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: verticalScale(8),
+  },
+  categoryProgressItem: {
+    backgroundColor: Colors.cardBackground,
+    borderRadius: moderateScale(12),
+    elevation: 1,
+    marginBottom: verticalScale(12),
+    padding: scale(16),
+    shadowColor: Colors.cardShadow,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05,
+    shadowRadius: 2,
+  },
+  categoryProgressLeft: {
+    alignItems: 'center',
+    flexDirection: 'row',
     flex: 1,
   },
   categoryProgressText: {
+    color: Colors.primary,
     fontSize: moderateScale(14),
     fontWeight: '600',
-    color: Colors.primary,
   },
   categoryStats: {
-    fontSize: moderateScale(12),
     color: Colors.textLight,
+    fontSize: moderateScale(12),
     marginTop: verticalScale(4),
   },
   categoryTime: {
     color: Colors.textLight,
   },
-  emptyCategories: {
-    padding: scale(40),
+  chartContainer: {
     alignItems: 'center',
+    backgroundColor: Colors.cardBackground,
+    borderRadius: moderateScale(16),
+    elevation: 2,
+    padding: scale(20),
+    shadowColor: Colors.cardShadow,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  container: {
+    backgroundColor: Colors.background,
+    flex: 1,
+  },
+  content: {
+    paddingBottom: verticalScale(20),
+    paddingHorizontal: scale(20),
+  },
+  emptyCategories: {
+    alignItems: 'center',
+    padding: scale(40),
   },
   emptyCategoriesText: {
-    fontSize: moderateScale(16),
     color: Colors.textLight,
+    fontSize: moderateScale(16),
     textAlign: 'center',
   },
-  achievementsContainer: {
-    gap: verticalScale(12),
+  header: {
+    padding: scale(20),
+    paddingBottom: verticalScale(10),
   },
-  achievementCard: {
-    backgroundColor: Colors.cardBackground,
-    borderRadius: moderateScale(12),
-    padding: scale(16),
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: Colors.cardBorder,
+  headerSubtitle: {
+    color: Colors.textLight,
+    fontSize: moderateScale(16),
   },
-  achievementCardActive: {
-    borderColor: Colors.success,
-    backgroundColor: Colors.success + '10',
-  },
-  achievementTitle: {
-    flex: 1,
-    fontSize: moderateScale(14),
-    fontWeight: '500',
+  headerTitle: {
     color: Colors.text,
+    fontSize: moderateScale(28),
+    fontWeight: 'bold',
+    marginBottom: verticalScale(5),
+  },
+  progressBarBackground: {
+    backgroundColor: Colors.backgroundLight,
+    borderRadius: moderateScale(4),
+    marginTop: verticalScale(12),
+    overflow: 'hidden',
+  },
+  progressBarFill: {
+    borderRadius: moderateScale(4),
+  },
+  section: {
+    marginBottom: verticalScale(30),
+  },
+  sectionHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    marginBottom: verticalScale(16),
+  },
+  sectionTitle: {
+    color: Colors.text,
+    fontSize: moderateScale(20),
+    fontWeight: '600',
     marginLeft: scale(12),
   },
-  achievementStatus: {
-    fontSize: moderateScale(16),
+  statCard: {
+    alignItems: 'center',
+    backgroundColor: Colors.cardBackground,
+    borderRadius: moderateScale(16),
+    elevation: 2,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: scale(20),
+    shadowColor: Colors.cardShadow,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  statCardLeft: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    flex: 1,
+  },
+  statIcon: {
+    alignItems: 'center',
+    borderRadius: scale(24),
+    height: scale(48),
+    justifyContent: 'center',
+    marginRight: scale(16),
+    width: scale(48),
+  },
+  statSubtitle: {
+    color: Colors.textLight,
+    fontSize: moderateScale(12),
+  },
+  statText: {
+    flex: 1,
+  },
+  statTitle: {
+    color: Colors.textLight,
+    fontSize: moderateScale(14),
+    marginBottom: verticalScale(4),
+  },
+  statValue: {
+    color: Colors.text,
+    fontSize: moderateScale(24),
     fontWeight: 'bold',
-    color: Colors.primary,
+    marginBottom: verticalScale(2),
+  },
+  statsGrid: {
+    gap: verticalScale(12),
   },
 });

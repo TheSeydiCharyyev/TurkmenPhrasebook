@@ -72,32 +72,32 @@ export const SimplePieChart: React.FC<PieChartProps> = ({ data, size }) => (
 
 const styles = StyleSheet.create({
   chartContainer: {
-    backgroundColor: Colors.backgroundLight,
-    borderRadius: 12,
-    padding: 20,
     alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 2,
+    backgroundColor: Colors.backgroundLight,
     borderColor: Colors.cardBorder,
+    borderRadius: 12,
     borderStyle: 'dashed',
+    borderWidth: 2,
+    justifyContent: 'center',
+    padding: 20,
   },
-  chartTitle: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: Colors.text,
-    marginBottom: 8,
+  chartData: {
+    color: Colors.primary,
+    fontSize: 12,
+    fontWeight: '500',
     textAlign: 'center',
   },
   chartSubtitle: {
-    fontSize: 14,
     color: Colors.textLight,
-    textAlign: 'center',
+    fontSize: 14,
     marginBottom: 8,
+    textAlign: 'center',
   },
-  chartData: {
-    fontSize: 12,
-    color: Colors.primary,
-    fontWeight: '500',
+  chartTitle: {
+    color: Colors.text,
+    fontSize: 18,
+    fontWeight: '600',
+    marginBottom: 8,
     textAlign: 'center',
   },
 });

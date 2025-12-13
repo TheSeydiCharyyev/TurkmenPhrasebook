@@ -361,8 +361,8 @@ const LanguagePairSelectionScreen: React.FC = () => {
 
   const styles = React.useMemo(() => StyleSheet.create({
     container: {
-      flex: 1,
       backgroundColor: '#F8F9FA',
+      flex: 1,
     },
     content: {
       padding: scale(24),
@@ -376,72 +376,14 @@ const LanguagePairSelectionScreen: React.FC = () => {
       fontSize: moderateScale(64),
       marginBottom: verticalScale(16),
     },
-    title: {
-      fontSize: moderateScale(28),
-      fontWeight: '700',
-      color: '#000',
-      textAlign: 'center',
-      marginBottom: verticalScale(8),
-    },
-    subtitle: {
-      fontSize: moderateScale(16),
-      color: '#666',
-      textAlign: 'center',
-    },
-    pairsContainer: {
-      marginBottom: verticalScale(32),
-    },
-    pairButton: {
-      marginBottom: verticalScale(16),
-      borderRadius: scale(16),
-      overflow: 'hidden',
-      elevation: 4,
-      shadowColor: '#000',
-      shadowOffset: { width: 0, height: 2 },
-      shadowOpacity: 0.1,
-      shadowRadius: 8,
-    },
-    pairGradient: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      padding: scale(20),
-      minHeight: verticalScale(100),
-      backgroundColor: '#FFFFFF',
-    },
-    pairSelected: {
-      borderWidth: 3,
-      borderColor: '#FF8008',
-    },
-    pairFlag: {
-      fontSize: moderateScale(40),
-      marginRight: scale(16),
-    },
-    pairInfo: {
-      flex: 1,
-    },
-    pairName: {
-      fontSize: moderateScale(22),
-      fontWeight: '700',
-      color: '#1e293b',
-      marginBottom: verticalScale(4),
-    },
-    pairDescription: {
-      fontSize: moderateScale(14),
-      color: '#64748b',
-    },
-    pairArrow: {
-      fontSize: moderateScale(24),
-      color: '#FF8008',
-      fontWeight: '700',
-    },
     infoCard: {
-      flexDirection: 'row',
       backgroundColor: '#FFFFFF',
-      borderRadius: scale(12),
-      padding: scale(16),
-      borderWidth: 1,
       borderColor: '#FF8008',
+      borderRadius: scale(12),
+      borderWidth: 1,
       elevation: 2,
+      flexDirection: 'row',
+      padding: scale(16),
       shadowColor: '#000',
       shadowOffset: { width: 0, height: 1 },
       shadowOpacity: 0.1,
@@ -452,10 +394,68 @@ const LanguagePairSelectionScreen: React.FC = () => {
       marginRight: scale(12),
     },
     infoText: {
+      color: '#64748b',
       flex: 1,
       fontSize: moderateScale(14),
-      color: '#64748b',
       lineHeight: moderateScale(20),
+    },
+    pairArrow: {
+      color: '#FF8008',
+      fontSize: moderateScale(24),
+      fontWeight: '700',
+    },
+    pairButton: {
+      borderRadius: scale(16),
+      elevation: 4,
+      marginBottom: verticalScale(16),
+      overflow: 'hidden',
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.1,
+      shadowRadius: 8,
+    },
+    pairDescription: {
+      color: '#64748b',
+      fontSize: moderateScale(14),
+    },
+    pairFlag: {
+      fontSize: moderateScale(40),
+      marginRight: scale(16),
+    },
+    pairGradient: {
+      alignItems: 'center',
+      backgroundColor: '#FFFFFF',
+      flexDirection: 'row',
+      minHeight: verticalScale(100),
+      padding: scale(20),
+    },
+    pairInfo: {
+      flex: 1,
+    },
+    pairName: {
+      color: '#1e293b',
+      fontSize: moderateScale(22),
+      fontWeight: '700',
+      marginBottom: verticalScale(4),
+    },
+    pairSelected: {
+      borderColor: '#FF8008',
+      borderWidth: 3,
+    },
+    pairsContainer: {
+      marginBottom: verticalScale(32),
+    },
+    subtitle: {
+      color: '#666',
+      fontSize: moderateScale(16),
+      textAlign: 'center',
+    },
+    title: {
+      color: '#000',
+      fontSize: moderateScale(28),
+      fontWeight: '700',
+      marginBottom: verticalScale(8),
+      textAlign: 'center',
     },
   }), [scale, verticalScale, moderateScale]);
 

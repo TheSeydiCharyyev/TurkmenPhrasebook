@@ -557,52 +557,52 @@ export default function CategoryScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: Colors.background,
+    flex: 1,
   },
 
   loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: Colors.background,
+    flex: 1,
+    justifyContent: 'center',
   },
 
   loadingText: {
-    marginTop: verticalScale(16),
-    fontSize: moderateScale(16),
     color: Colors.textLight,
+    fontSize: moderateScale(16),
+    marginTop: verticalScale(16),
   },
 
   headerContainer: {
+    alignItems: 'center',
     backgroundColor: '#FFFFFF',
-    paddingTop: verticalScale(44),
+    elevation: 4,
+    flexDirection: 'row',
     paddingBottom: verticalScale(16),
     paddingHorizontal: scale(16),
-    flexDirection: 'row',
-    alignItems: 'center',
+    paddingTop: verticalScale(44),
     shadowColor: '#000',
     shadowOffset: { width: 0, height: verticalScale(2) },
     shadowOpacity: 0.1,
     shadowRadius: scale(4),
-    elevation: 4,
     zIndex: 1000,
   },
 
   backButton: {
-    width: scale(40),
-    height: verticalScale(40),
-    borderRadius: scale(20),
-    justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: scale(20),
+    height: verticalScale(40),
+    justifyContent: 'center',
+    width: scale(40),
   },
 
   accentLine: {
-    position: 'absolute',
     bottom: 0,
-    left: 0,
-    right: 0,
     height: verticalScale(4),
+    left: 0,
+    position: 'absolute',
+    right: 0,
   },
 
   gridEmoji: {
@@ -610,15 +610,15 @@ const styles = StyleSheet.create({
   },
 
   headerContent: {
-    flex: 1,
     alignItems: 'center',
+    flex: 1,
     justifyContent: 'center',
   },
 
   // ✅ МИНИМАЛИЗМ (Phase 12) - Языковая пара
   languagePairRow: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
     gap: scale(6),
     marginBottom: verticalScale(4),
   },
@@ -628,14 +628,14 @@ const styles = StyleSheet.create({
   },
 
   swapIcon: {
-    fontSize: moderateScale(14),
     color: '#9CA3AF',
+    fontSize: moderateScale(14),
   },
 
   // ✅ МИНИМАЛИЗМ (Phase 12) - Категория + названия
   categoryRow: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
     gap: scale(6),
   },
 
@@ -644,15 +644,15 @@ const styles = StyleSheet.create({
   },
 
   categoryNames: {
+    color: '#1F2937',
     fontSize: moderateScale(14),
     fontWeight: '600',
-    color: '#1F2937',
   },
 
   phrasesCount: {
+    color: '#6B7280',
     fontSize: moderateScale(13),
     fontWeight: '500',
-    color: '#6B7280',
   },
 
   backToCategoryButton: {
@@ -667,8 +667,8 @@ const styles = StyleSheet.create({
   // ✅ ИСПРАВЛЕННЫЙ заголовок - только языковая пара
 
   subcategoriesSection: {
-    paddingVertical: scale(16),
     backgroundColor: '#fff',
+    paddingVertical: scale(16),
   },
 
   phrasesSection: {
@@ -677,9 +677,9 @@ const styles = StyleSheet.create({
   },
 
   sectionTitle: {
+    color: Colors.text,
     fontSize: moderateScale(18),
     fontWeight: 'bold',
-    color: Colors.text,
     marginBottom: verticalScale(16),
     paddingHorizontal: scale(16),
   },
@@ -706,8 +706,8 @@ phraseItem: {
 },
 
 phraseContent: {
-  flexDirection: 'row',
   alignItems: 'flex-start',
+  flexDirection: 'row',
 },
 
 phraseTextContainer: {
@@ -717,8 +717,8 @@ phraseTextContainer: {
 
 // ✅ Новый контейнер для китайского с флагом
 chineseContainer: {
-  flexDirection: 'row',
   alignItems: 'center',
+  flexDirection: 'row',
   marginBottom: verticalScale(6), // ✅ Компактнее
 },
 
@@ -747,8 +747,8 @@ pinyinText: {
 
 // ✅ Новый контейнер для переводов с флагами
 translationContainer: {
-  flexDirection: 'row',
   alignItems: 'center',
+  flexDirection: 'row',
   marginBottom: verticalScale(6),
 },
 
@@ -839,11 +839,11 @@ favoriteButton: {
 },
 
   emptyContainer: {
+    alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    paddingVertical: verticalScale(60),
     paddingHorizontal: scale(32),
+    paddingVertical: verticalScale(60),
   },
 
   emptyEmoji: {
@@ -852,19 +852,19 @@ favoriteButton: {
   },
 
   emptyTitle: {
+    color: Colors.textLight,
     fontSize: moderateScale(22),
     fontWeight: 'bold',
-    color: Colors.textLight,
-    marginTop: verticalScale(16),
     marginBottom: verticalScale(8),
+    marginTop: verticalScale(16),
     textAlign: 'center',
   },
 
   emptyText: {
-    fontSize: moderateScale(16),
     color: Colors.textLight,
-    textAlign: 'center',
+    fontSize: moderateScale(16),
     lineHeight: moderateScale(24),
+    textAlign: 'center',
   },
 
   bottomSpacing: {
@@ -879,15 +879,15 @@ favoriteButton: {
   },
 
   iconButton: {
+    backgroundColor: '#FFFFFF',
+    borderColor: '#D1D5DB',
+    borderRadius: scale(12),
+    borderWidth: 1.5,
+    elevation: 1,
     paddingHorizontal: scale(10),
     paddingVertical: verticalScale(8),
-    borderRadius: scale(12),
-    backgroundColor: '#FFFFFF',
-    borderWidth: 1.5,
-    borderColor: '#D1D5DB',
     shadowOffset: { width: 0, height: verticalScale(1) },
     shadowOpacity: 0.05,
     shadowRadius: scale(2),
-    elevation: 1,
   },
 });

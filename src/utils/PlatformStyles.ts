@@ -199,37 +199,37 @@ export const platformStyles = StyleSheet.create({
 
   // Input field
   input: {
-    height: Platform.select({ ios: 44, android: 48 }),
-    borderRadius: 8,
-    paddingHorizontal: 12,
     backgroundColor: '#F9FAFB',
-    borderWidth: 1,
     borderColor: '#E5E7EB',
+    borderRadius: 8,
+    borderWidth: 1,
     fontSize: 16,
+    height: Platform.select({ ios: 44, android: 48 }),
+    paddingHorizontal: 12,
   },
 
   // Header
   header: {
-    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    height: Platform.select({ ios: 44, android: 56 }),
-    paddingHorizontal: 16,
     backgroundColor: '#FFFFFF',
+    flexDirection: 'row',
+    height: Platform.select({ ios: 44, android: 56 }),
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
     ...platformShadow(2),
   },
 
   // Divider
   divider: {
-    height: StyleSheet.hairlineWidth,
     backgroundColor: '#E5E7EB',
+    height: StyleSheet.hairlineWidth,
   },
 
   // Centered container
   centered: {
+    alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
   },
 });
 

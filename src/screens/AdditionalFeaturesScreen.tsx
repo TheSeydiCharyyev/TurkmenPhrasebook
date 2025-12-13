@@ -23,39 +23,39 @@ import { scale, verticalScale, moderateScale, useResponsive } from '../utils/Res
 
 // Статичные стили для FeatureCard (вне компонента)
 const featureCardStyles = StyleSheet.create({
-  featureCard: {
-    height: verticalScale(160),
-    padding: scale(16),
-    borderRadius: moderateScale(12),
-    marginBottom: verticalScale(16),
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: Colors.cardBackground,
-  },
-  iconContainer: {
-    width: scale(60),
-    height: scale(60),
-    borderRadius: scale(30),
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: verticalScale(16),
-  },
-  cardTitle: {
-    fontSize: moderateScale(14),
-    fontWeight: '700',
-    color: Colors.text,
-    textAlign: 'center',
-    marginBottom: verticalScale(6),
-    lineHeight: moderateScale(18),
-    minHeight: moderateScale(18),
-  },
   cardSubtitle: {
+    color: Colors.textSecondary,
     fontSize: moderateScale(12),
     fontWeight: '500',
-    color: Colors.textSecondary,
-    textAlign: 'center',
     lineHeight: moderateScale(16),
     minHeight: moderateScale(16),
+    textAlign: 'center',
+  },
+  cardTitle: {
+    color: Colors.text,
+    fontSize: moderateScale(14),
+    fontWeight: '700',
+    lineHeight: moderateScale(18),
+    marginBottom: verticalScale(6),
+    minHeight: moderateScale(18),
+    textAlign: 'center',
+  },
+  featureCard: {
+    alignItems: 'center',
+    backgroundColor: Colors.cardBackground,
+    borderRadius: moderateScale(12),
+    height: verticalScale(160),
+    justifyContent: 'center',
+    marginBottom: verticalScale(16),
+    padding: scale(16),
+  },
+  iconContainer: {
+    alignItems: 'center',
+    borderRadius: scale(30),
+    height: scale(60),
+    justifyContent: 'center',
+    marginBottom: verticalScale(16),
+    width: scale(60),
   },
 });
 
@@ -176,27 +176,11 @@ export default function AdditionalFeaturesScreen() {
 
   const styles = React.useMemo(() => StyleSheet.create({
     container: {
-      flex: 1,
       backgroundColor: Colors.background,
+      flex: 1,
     },
-    scrollContent: {
-      paddingHorizontal: scale(20),
-      paddingVertical: verticalScale(20),
-    },
-    header: {
-      marginBottom: verticalScale(30),
-    },
-    title: {
-      fontSize: moderateScale(24),
-      fontWeight: '700',
-      color: Colors.text,
-      textAlign: 'center',
-      marginBottom: verticalScale(8),
-    },
-    subtitle: {
-      fontSize: moderateScale(16),
-      color: Colors.textLight,
-      textAlign: 'center',
+    featureCard: {
+      width: cardWidth,
     },
     featuresGrid: {
       flexDirection: 'row',
@@ -204,37 +188,53 @@ export default function AdditionalFeaturesScreen() {
       justifyContent: 'space-between',
       marginBottom: verticalScale(30),
     },
-    featureCard: {
-      width: cardWidth,
+    header: {
+      marginBottom: verticalScale(30),
+    },
+    scrollContent: {
+      paddingHorizontal: scale(20),
+      paddingVertical: verticalScale(20),
+    },
+    statItem: {
+      alignItems: 'center',
+    },
+    statLabel: {
+      color: Colors.textLight,
+      fontSize: moderateScale(12),
+      marginTop: verticalScale(4),
+    },
+    statNumber: {
+      color: Colors.primary,
+      fontSize: moderateScale(28),
+      fontWeight: 'bold',
     },
     statsContainer: {
       backgroundColor: Colors.backgroundLight,
-      padding: scale(20),
       borderRadius: moderateScale(16),
-    },
-    statsTitle: {
-      fontSize: moderateScale(18),
-      fontWeight: '600',
-      color: Colors.text,
-      textAlign: 'center',
-      marginBottom: verticalScale(16),
+      padding: scale(20),
     },
     statsGrid: {
       flexDirection: 'row',
       justifyContent: 'space-around',
     },
-    statItem: {
-      alignItems: 'center',
+    statsTitle: {
+      color: Colors.text,
+      fontSize: moderateScale(18),
+      fontWeight: '600',
+      marginBottom: verticalScale(16),
+      textAlign: 'center',
     },
-    statNumber: {
-      fontSize: moderateScale(28),
-      fontWeight: 'bold',
-      color: Colors.primary,
-    },
-    statLabel: {
-      fontSize: moderateScale(12),
+    subtitle: {
       color: Colors.textLight,
-      marginTop: verticalScale(4),
+      fontSize: moderateScale(16),
+      textAlign: 'center',
+    },
+    title: {
+      color: Colors.text,
+      fontSize: moderateScale(24),
+      fontWeight: '700',
+      marginBottom: verticalScale(8),
+      textAlign: 'center',
     },
   }), [scaleFunc, verticalScale, moderateScale, cardWidth]);
 
@@ -256,20 +256,21 @@ export default function AdditionalFeaturesScreen() {
           navigation.getParent()?.navigate('Home' as never);
         }
         break;
-      case 'interesting_facts':
+      case 'interesting_facts': {
         // Показываем alert с интересными фактами о китайском языке
         const factTitle = config.mode === 'tk' ? 'Gyzykly faktlar' :
                          config.mode === 'zh' ? '有趣的事实' : 'Интересные факты';
-        
-        const factContent = config.mode === 'tk' ? 
+
+        const factContent = config.mode === 'tk' ?
           'Hytaý dili düýdän iň köp ulanylýan dildir. 1.4 milliard adam bu dilde gürleýär!' :
           config.mode === 'zh' ?
           '中文是世界上使用人数最多的语言。约有14亿人说中文！' :
           'Китайский язык - самый распространенный язык в мире. На нем говорят более 1.4 миллиарда человек!';
-        
+
         Alert.alert(factTitle, factContent);
         break;
-      case 'random_phrases':
+      }
+      case 'random_phrases': {
         // Показываем случайную фразу
         const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
         const randomTitle = config.mode === 'tk' ? 'Tötänleýin sözlem' :
@@ -282,6 +283,7 @@ export default function AdditionalFeaturesScreen() {
 
         Alert.alert(randomTitle, randomContent);
         break;
+      }
       default:
         break;
     }

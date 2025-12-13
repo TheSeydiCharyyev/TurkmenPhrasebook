@@ -30,13 +30,7 @@
       "buildNumber": "1.0.0",
       "infoPlist": {
         "CFBundleDisplayName": "Şapak - Ykjam Terjime",
-        "CFBundleName": "Şapak - Ykjam Terjime",
-        "NSMicrophoneUsageDescription": "This app uses the microphone for voice phrase search.",
-        "NSMicrophoneUsageDescription[ru]": "Это приложение использует микрофон для голосового поиска фраз.",
-        "NSMicrophoneUsageDescription[tk]": "Bu programma ses gözleg üçin mikrofon ulanýar.",
-        "NSSpeechRecognitionUsageDescription": "This app uses speech recognition to search phrases by voice.",
-        "NSSpeechRecognitionUsageDescription[ru]": "Это приложение использует распознавание речи для поиска фраз голосом.",
-        "NSSpeechRecognitionUsageDescription[tk]": "Bu programma ses tanamak arkaly söz tapýar."
+        "CFBundleName": "Şapak - Ykjam Terjime"
       },
       "associatedDomains": []
     },
@@ -49,10 +43,6 @@
       "package": "com.shapak.translator",
       "versionCode": 1,
       "permissions": [
-        "CAMERA",
-        "RECORD_AUDIO",
-        "READ_EXTERNAL_STORAGE",
-        "READ_MEDIA_IMAGES",
         "INTERNET",
         "ACCESS_NETWORK_STATE"
       ],

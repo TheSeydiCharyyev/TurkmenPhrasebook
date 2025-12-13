@@ -288,12 +288,65 @@ export default function OfflineIndicator() {
 }
 
 const styles = StyleSheet.create({
+  actionButton: {
+    alignItems: 'center',
+    borderRadius: 8,
+    flexDirection: 'row',
+    gap: 4,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+  },
+  actionButtonText: {
+    ...TextStyles.caption,
+    color: Colors.textWhite,
+    fontSize: 11,
+    fontWeight: '500',
+  },
+  badge: {
+    alignItems: 'center',
+    backgroundColor: ColorUtils.withOpacity(Colors.textWhite, 0.3),
+    borderRadius: 10,
+    marginLeft: 8,
+    minWidth: 20,
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+  },
+  badgeText: {
+    ...TextStyles.caption,
+    color: Colors.textWhite,
+    fontSize: 10,
+    fontWeight: 'bold',
+  },
   container: {
-    position: 'absolute',
-    top: 0,
     left: 0,
+    position: 'absolute',
     right: 0,
+    top: 0,
     zIndex: 1000,
+  },
+  content: {
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  expandIcon: {
+    marginLeft: 8,
+  },
+  expandedActions: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  expandedBody: {
+    padding: 12,
+  },
+  expandedContent: {
+    backgroundColor: ColorUtils.withOpacity(Colors.overlay, 0.9),
+    borderBottomLeftRadius: 12,
+    borderBottomRightRadius: 12,
+    marginHorizontal: 8,
+    overflow: 'hidden',
+  },
+  icon: {
+    marginRight: 8,
   },
   indicator: {
     paddingHorizontal: 12,
@@ -307,82 +360,29 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 4,
   },
-  content: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  icon: {
-    marginRight: 8,
-  },
-  title: {
-    ...TextStyles.bodySmall,
-    color: Colors.textWhite,
-    fontWeight: '600',
-    flex: 1,
-  },
-  badge: {
-    backgroundColor: ColorUtils.withOpacity(Colors.textWhite, 0.3),
-    borderRadius: 10,
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    marginLeft: 8,
-    minWidth: 20,
-    alignItems: 'center',
-  },
-  badgeText: {
-    ...TextStyles.caption,
-    color: Colors.textWhite,
-    fontWeight: 'bold',
-    fontSize: 10,
-  },
-  expandIcon: {
-    marginLeft: 8,
-  },
-  expandedContent: {
-    backgroundColor: ColorUtils.withOpacity(Colors.overlay, 0.9),
-    marginHorizontal: 8,
-    borderBottomLeftRadius: 12,
-    borderBottomRightRadius: 12,
-    overflow: 'hidden',
-  },
-  expandedBody: {
-    padding: 12,
-  },
-  subtitle: {
-    ...TextStyles.caption,
-    color: Colors.textWhite,
-    opacity: 0.9,
-    marginBottom: 8,
+  infoButton: {
+    backgroundColor: ColorUtils.withOpacity(Colors.textWhite, 0.2),
   },
   lastSyncText: {
     ...TextStyles.caption,
     color: Colors.textWhite,
-    opacity: 0.7,
-    marginBottom: 12,
     fontSize: 11,
+    marginBottom: 12,
+    opacity: 0.7,
   },
-  expandedActions: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-  actionButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 8,
-    gap: 4,
+  subtitle: {
+    ...TextStyles.caption,
+    color: Colors.textWhite,
+    marginBottom: 8,
+    opacity: 0.9,
   },
   syncButton: {
     backgroundColor: ColorUtils.withOpacity(Colors.accent, 0.8),
   },
-  infoButton: {
-    backgroundColor: ColorUtils.withOpacity(Colors.textWhite, 0.2),
-  },
-  actionButtonText: {
-    ...TextStyles.caption,
+  title: {
+    ...TextStyles.bodySmall,
     color: Colors.textWhite,
-    fontWeight: '500',
-    fontSize: 11,
+    flex: 1,
+    fontWeight: '600',
   },
 });
