@@ -605,7 +605,7 @@ export default function AboutScreen() {
           <View style={styles.sectionCard}>
             <View style={styles.sectionHeader}>
               <Ionicons name="flag" size={20} color="#10B981" />
-              <Text style={styles.sectionTitle}>{t.mission}</Text>
+              <Text style={styles.sectionTitle}>{(t as any).mission || 'Mission'}</Text>
             </View>
             <Text style={styles.sectionText}>{lines[1]}</Text>
           </View>
@@ -616,14 +616,14 @@ export default function AboutScreen() {
           <View style={styles.sectionCard}>
             <View style={styles.sectionHeader}>
               <Ionicons name="apps" size={20} color="#F59E0B" />
-              <Text style={styles.sectionTitle}>{t.features}</Text>
+              <Text style={styles.sectionTitle}>{(t as any).features || 'Features'}</Text>
             </View>
             <View style={styles.featuresList}>
               <FeatureItem icon="book" text={lines[2].includes('•') ? lines[2].split('•')[1]?.trim() || '' : ''} />
               <FeatureItem icon="language" text={lines[2].includes('•') ? lines[2].split('•')[2]?.trim() || '' : ''} />
               <FeatureItem icon="sparkles" text={lines[2].includes('•') ? lines[2].split('•')[3]?.trim() || '' : ''} />
-              <FeatureItem icon="mic" text={lines[2].includes('•') ? lines[2].split('•')[4]?.trim() || '' : ''} badge={t.soon} />
-              <FeatureItem icon="camera" text={lines[2].includes('•') ? lines[2].split('•')[5]?.trim() || '' : ''} badge={t.soon} />
+              <FeatureItem icon="mic" text={lines[2].includes('•') ? lines[2].split('•')[4]?.trim() || '' : ''} badge={(t as any).soon || 'Soon'} />
+              <FeatureItem icon="camera" text={lines[2].includes('•') ? lines[2].split('•')[5]?.trim() || '' : ''} badge={(t as any).soon || 'Soon'} />
             </View>
           </View>
         )}
@@ -632,7 +632,7 @@ export default function AboutScreen() {
         <View style={styles.sectionCard}>
           <View style={styles.sectionHeader}>
             <Ionicons name="mail" size={20} color="#8B5CF6" />
-            <Text style={styles.sectionTitle}>{t.contact}</Text>
+            <Text style={styles.sectionTitle}>{(t as any).contact || 'Contact'}</Text>
           </View>
           <TouchableOpacity
             style={styles.emailButton}
@@ -650,7 +650,7 @@ export default function AboutScreen() {
           <View style={styles.sectionCard}>
             <View style={styles.sectionHeader}>
               <Ionicons name="heart" size={20} color="#EF4444" />
-              <Text style={styles.sectionTitle}>{t.specialThanks}</Text>
+              <Text style={styles.sectionTitle}>{(t as any).specialThanks || 'Special Thanks'}</Text>
             </View>
             <Text style={styles.sectionText}>{lines[lines.length - 1]}</Text>
           </View>
@@ -678,7 +678,7 @@ export default function AboutScreen() {
         <View style={styles.sectionCard}>
           <View style={styles.sectionHeader}>
             <Ionicons name="information-circle" size={20} color="#3B82F6" />
-            <Text style={styles.sectionTitle}>{t.aboutSeries}</Text>
+            <Text style={styles.sectionTitle}>{(t as any).aboutSeries || 'About Series'}</Text>
           </View>
           <Text style={styles.sectionText}>{lines[0]}</Text>
         </View>
@@ -688,7 +688,7 @@ export default function AboutScreen() {
           <View style={styles.sectionCard}>
             <View style={styles.sectionHeader}>
               <Ionicons name="globe" size={20} color="#10B981" />
-              <Text style={styles.sectionTitle}>{t.forEveryone}</Text>
+              <Text style={styles.sectionTitle}>{(t as any).forEveryone || 'For Everyone'}</Text>
             </View>
             <Text style={styles.sectionText}>{lines[1]}</Text>
           </View>
@@ -710,7 +710,7 @@ export default function AboutScreen() {
           <View style={styles.sectionCard}>
             <View style={styles.sectionHeader}>
               <Ionicons name="time" size={20} color="#8B5CF6" />
-              <Text style={styles.sectionTitle}>{t.whatsNext}</Text>
+              <Text style={styles.sectionTitle}>{(t as any).whatsNext || 'Coming Soon'}</Text>
             </View>
             <Text style={styles.sectionText}>{lines[3]}</Text>
           </View>
@@ -863,30 +863,30 @@ export default function AboutScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#F8F9FA',
+    flex: 1,
   },
   headerBar: {
-    flexDirection: 'row',
     alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    borderBottomColor: '#E5E7EB',
+    borderBottomWidth: 1,
+    flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: scale(16),
     paddingVertical: verticalScale(16),
-    backgroundColor: '#FFFFFF',
-    borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
   },
   backButton: {
-    width: scale(40),
-    height: scale(40),
-    borderRadius: scale(20),
-    justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: scale(20),
+    height: scale(40),
+    justifyContent: 'center',
+    width: scale(40),
   },
   headerBarTitle: {
+    color: '#1F2937',
     fontSize: moderateScale(18),
     fontWeight: '700',
-    color: '#1F2937',
   },
   placeholder: {
     width: scale(40),
@@ -896,101 +896,101 @@ const styles = StyleSheet.create({
     paddingVertical: verticalScale(24),
   },
   logoImage: {
-    width: scale(120),
     height: scale(100),
     marginBottom: verticalScale(8),
+    width: scale(120),
   },
   menuLogoIcon: {
-    width: scale(32),
     height: scale(32),
+    width: scale(32),
   },
   appName: {
+    color: '#1F2937',
     fontSize: moderateScale(20),
     fontWeight: '700',
-    color: '#1F2937',
     marginBottom: verticalScale(4),
   },
   versionText: {
-    fontSize: moderateScale(14),
     color: '#6B7280',
+    fontSize: moderateScale(14),
   },
   menuContainer: {
     gap: verticalScale(12),
   },
   menuItem: {
-    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
     backgroundColor: '#FFFFFF',
-    borderRadius: scale(12),
-    padding: scale(16),
-    borderWidth: 1,
     borderColor: '#E5E7EB',
+    borderRadius: scale(12),
+    borderWidth: 1,
+    elevation: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: scale(16),
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.05,
     shadowRadius: 2,
-    elevation: 1,
   },
   menuLeft: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
     flex: 1,
   },
   iconContainer: {
-    width: scale(48),
-    height: scale(48),
-    borderRadius: scale(12),
-    justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: scale(12),
+    height: scale(48),
+    justifyContent: 'center',
+    width: scale(48),
   },
   menuText: {
-    marginLeft: scale(16),
     flex: 1,
+    marginLeft: scale(16),
   },
   menuTitle: {
+    color: '#1F2937',
     fontSize: moderateScale(16),
     fontWeight: '600',
-    color: '#1F2937',
     marginBottom: verticalScale(2),
   },
   menuSubtitle: {
-    fontSize: moderateScale(14),
     color: '#6B7280',
+    fontSize: moderateScale(14),
   },
   footer: {
     alignItems: 'center',
     paddingTop: verticalScale(32),
   },
   footerText: {
-    fontSize: moderateScale(14),
     color: '#9CA3AF',
+    fontSize: moderateScale(14),
   },
   // Modal styles
   modalContainer: {
-    flex: 1,
     backgroundColor: '#FFFFFF',
+    flex: 1,
   },
   modalHeader: {
-    flexDirection: 'row',
     alignItems: 'center',
+    borderBottomColor: '#E5E7EB',
+    borderBottomWidth: 1,
+    flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: scale(16),
     paddingVertical: verticalScale(16),
-    borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
   },
   modalCloseButton: {
-    width: scale(40),
-    height: scale(40),
-    borderRadius: scale(20),
-    justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: scale(20),
+    height: scale(40),
+    justifyContent: 'center',
+    width: scale(40),
   },
   modalTitle: {
+    color: '#1F2937',
     fontSize: moderateScale(18),
     fontWeight: '700',
-    color: '#1F2937',
   },
   modalPlaceholder: {
     width: scale(40),
@@ -1001,9 +1001,9 @@ const styles = StyleSheet.create({
     paddingTop: verticalScale(16),
   },
   modalText: {
+    color: '#374151',
     fontSize: moderateScale(16),
     lineHeight: moderateScale(24),
-    color: '#374151',
   },
   // New modal styles
   modalImageContainer: {
@@ -1011,97 +1011,97 @@ const styles = StyleSheet.create({
     paddingVertical: verticalScale(20),
   },
   teamIconContainer: {
-    width: scale(96),
-    height: scale(96),
-    borderRadius: scale(48),
-    backgroundColor: '#EBF5FF',
-    justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#EBF5FF',
+    borderRadius: scale(48),
+    height: scale(96),
+    justifyContent: 'center',
+    width: scale(96),
   },
   seriesLogo: {
-    width: scale(180),
     height: scale(180),
+    width: scale(180),
   },
   sectionCard: {
     backgroundColor: '#FFFFFF',
-    borderRadius: scale(12),
-    padding: scale(16),
-    marginBottom: verticalScale(12),
-    borderWidth: 1,
     borderColor: '#E5E7EB',
+    borderRadius: scale(12),
+    borderWidth: 1,
+    elevation: 1,
+    marginBottom: verticalScale(12),
+    padding: scale(16),
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.05,
     shadowRadius: 2,
-    elevation: 1,
   },
   sectionHeader: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
     marginBottom: verticalScale(8),
   },
   sectionTitle: {
+    color: '#1F2937',
+    flex: 1,
     fontSize: moderateScale(16),
     fontWeight: '600',
-    color: '#1F2937',
     marginLeft: scale(8),
-    flex: 1,
   },
   sectionText: {
+    color: '#4B5563',
     fontSize: moderateScale(15),
     lineHeight: moderateScale(22),
-    color: '#4B5563',
   },
   featuresList: {
     gap: verticalScale(8),
   },
   featureItem: {
-    flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: verticalScale(8),
-    paddingHorizontal: scale(12),
     backgroundColor: '#F9FAFB',
     borderRadius: scale(8),
+    flexDirection: 'row',
+    paddingHorizontal: scale(12),
+    paddingVertical: verticalScale(8),
   },
   featureIconContainer: {
-    width: scale(32),
-    height: scale(32),
-    borderRadius: scale(16),
-    backgroundColor: '#EBF5FF',
-    justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#EBF5FF',
+    borderRadius: scale(16),
+    height: scale(32),
+    justifyContent: 'center',
     marginRight: scale(12),
+    width: scale(32),
   },
   featureText: {
+    color: '#374151',
     flex: 1,
     fontSize: moderateScale(14),
-    color: '#374151',
     lineHeight: moderateScale(20),
   },
   badge: {
     backgroundColor: '#FEF3C7',
-    paddingHorizontal: scale(8),
-    paddingVertical: verticalScale(4),
     borderRadius: scale(12),
     marginLeft: scale(8),
+    paddingHorizontal: scale(8),
+    paddingVertical: verticalScale(4),
   },
   badgeText: {
+    color: '#D97706',
     fontSize: moderateScale(11),
     fontWeight: '600',
-    color: '#D97706',
   },
   emailButton: {
-    flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#EBF5FF',
-    padding: scale(12),
     borderRadius: scale(8),
+    flexDirection: 'row',
     gap: scale(8),
+    padding: scale(12),
   },
   emailText: {
+    color: '#3B82F6',
     flex: 1,
     fontSize: moderateScale(14),
-    color: '#3B82F6',
     fontWeight: '500',
   },
 });

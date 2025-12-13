@@ -150,114 +150,114 @@ export default function LanguagePicker({
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: DesignColors.background,
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    paddingVertical: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: '#111827',
+  clearButton: {
+    padding: 4,
   },
   closeButton: {
     padding: 4,
   },
-  searchContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginHorizontal: 20,
-    marginVertical: 16,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    backgroundColor: '#F3F4F6',
-    borderRadius: 12,
-    gap: 12,
-  },
-  searchInput: {
+  container: {
+    backgroundColor: DesignColors.background,
     flex: 1,
-    fontSize: 16,
-    color: '#111827',
-  },
-  clearButton: {
-    padding: 4,
-  },
-  listContent: {
-    paddingHorizontal: 20,
-    paddingBottom: 20,
-  },
-  languageItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 16,
-    paddingHorizontal: 16,
-    gap: 16,
-  },
-  selectedItem: {
-    backgroundColor: '#ECFDF5',
-    borderRadius: 12,
-  },
-  flag: {
-    fontSize: 32,
-  },
-  languageInfo: {
-    flex: 1,
-  },
-  languageName: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#111827',
-    marginBottom: 2,
-  },
-  selectedText: {
-    color: '#10B981',
-  },
-  nativeName: {
-    fontSize: 14,
-    color: '#6B7280',
-  },
-  selectedNative: {
-    color: '#059669',
-  },
-  separator: {
-    height: 1,
-    backgroundColor: '#F3F4F6',
-    marginHorizontal: 16,
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   emptyContainer: {
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 60,
   },
-  emptyText: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: '#6B7280',
-    marginTop: 16,
-  },
   emptySubtext: {
-    fontSize: 14,
     color: '#9CA3AF',
+    fontSize: 14,
     marginTop: 4,
   },
+  emptyText: {
+    color: '#6B7280',
+    fontSize: 18,
+    fontWeight: '600',
+    marginTop: 16,
+  },
+  flag: {
+    fontSize: 32,
+  },
   footer: {
+    alignItems: 'center',
+    borderTopColor: '#E5E7EB',
+    borderTopWidth: 1,
     paddingHorizontal: 20,
     paddingVertical: 12,
-    borderTopWidth: 1,
-    borderTopColor: '#E5E7EB',
-    alignItems: 'center',
   },
   footerText: {
-    fontSize: 12,
     color: '#6B7280',
+    fontSize: 12,
+  },
+  header: {
+    alignItems: 'center',
+    borderBottomColor: '#E5E7EB',
+    borderBottomWidth: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+  },
+  languageInfo: {
+    flex: 1,
+  },
+  languageItem: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 16,
+    paddingHorizontal: 16,
+    paddingVertical: 16,
+  },
+  languageName: {
+    color: '#111827',
+    fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 2,
+  },
+  listContent: {
+    paddingBottom: 20,
+    paddingHorizontal: 20,
+  },
+  nativeName: {
+    color: '#6B7280',
+    fontSize: 14,
+  },
+  searchContainer: {
+    alignItems: 'center',
+    backgroundColor: '#F3F4F6',
+    borderRadius: 12,
+    flexDirection: 'row',
+    gap: 12,
+    marginHorizontal: 20,
+    marginVertical: 16,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+  },
+  searchInput: {
+    color: '#111827',
+    flex: 1,
+    fontSize: 16,
+  },
+  selectedItem: {
+    backgroundColor: '#ECFDF5',
+    borderRadius: 12,
+  },
+  selectedNative: {
+    color: '#059669',
+  },
+  selectedText: {
+    color: '#10B981',
+  },
+  separator: {
+    backgroundColor: '#F3F4F6',
+    height: 1,
+    marginHorizontal: 16,
+  },
+  title: {
+    color: '#111827',
+    fontSize: 20,
+    fontWeight: '700',
   },
 });

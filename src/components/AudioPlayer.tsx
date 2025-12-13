@@ -102,41 +102,40 @@ export default function AudioPlayer({
 
 const styles = StyleSheet.create({
   buttonLarge: {
-    paddingVertical: 14,
-    paddingHorizontal: 20,
+    backgroundColor: '#FFFFFF',
+    borderColor: '#D1D5DB',
     borderRadius: 12,
-    minWidth: 160,
+    borderWidth: 1.5,
     elevation: 1,
+    minWidth: 160,
+    paddingHorizontal: 20,
+    paddingVertical: 14,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.05,
     shadowRadius: 2,
-    backgroundColor: '#FFFFFF',
-    borderWidth: 1.5,
-    borderColor: '#D1D5DB',
   },
   buttonSmall: {
-    paddingVertical: 10,
-    paddingHorizontal: 16,
-    borderRadius: 10,
-    minWidth: 90,
     backgroundColor: '#FFFFFF',
-    borderWidth: 1.5,
     borderColor: '#D1D5DB',
-  },
-  primaryButton: {
-  },
-  secondaryButton: {
-  },
-  content: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 6,
+    borderRadius: 10,
+    borderWidth: 1.5,
+    minWidth: 90,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
   },
   buttonText: {
     color: '#374151',
     fontWeight: '600',
+  },
+  content: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 6,
+    justifyContent: 'center',
+  },
+  disabled: {
+    opacity: 0.5,
   },
   labelLarge: {
     fontSize: 15,
@@ -144,7 +143,8 @@ const styles = StyleSheet.create({
   labelSmall: {
     fontSize: 13,
   },
-  disabled: {
-    opacity: 0.5,
+  primaryButton: {
+  },
+  secondaryButton: {
   },
 });

@@ -142,42 +142,42 @@ const styles = StyleSheet.create({
   },
 
   textContainer: {
-    flex: 1,
     alignItems: 'center',
+    flex: 1,
     justifyContent: 'center',
-    width: '100%',
-    paddingHorizontal: 8, // Добавили внутренние отступы
+    paddingHorizontal: 8,
+    width: '100%', // Добавили внутренние отступы
   },
 
   // Стили для двух строк текста (языковая пара) - ОБНОВЛЕНО
   primaryName: {
+    color: Colors.text,
     fontSize: 15,
     fontWeight: '700',
-    color: Colors.text,
-    textAlign: 'center',
-    marginBottom: 8,
     lineHeight: 20,
+    marginBottom: 8,
+    textAlign: 'center',
   },
 
   secondaryName: {
+    color: Colors.textSecondary,
     fontSize: 13,
     fontWeight: '500',
-    color: Colors.textSecondary,
-    textAlign: 'center',
     lineHeight: 18,
+    textAlign: 'center',
   },
 
   // Индикатор количества фраз в правом верхнем углу
   phrasesContainer: {
-    position: 'absolute',
-    top: 8,
-    right: 8,
+    alignItems: 'center',
     backgroundColor: 'rgba(255, 255, 255, 0.9)',
     borderRadius: 10,
+    minWidth: 20,
     paddingHorizontal: 6,
     paddingVertical: 2,
-    minWidth: 20,
-    alignItems: 'center',
+    position: 'absolute',
+    right: 8,
+    top: 8,
   },
 
   phrasesCount: {
@@ -233,27 +233,27 @@ export function SubCategoriesGrid({
 }
 
 const gridStyles = StyleSheet.create({
+  cardWrapper: {
+    width: cardWidth,
+  },
+  
   container: {
     // Убрал paddingHorizontal - padding будет в subcategoriesSection
   },
   
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start', // Вместо space-between
-    marginBottom: 0,
-    gap: 16, // Отступ между карточками
-  },
-  
-  cardWrapper: {
-    width: cardWidth,
-  },
-
   leftCard: {
     // marginRight убран
   },
 
   rightCard: {
     // marginLeft убран
+  },
+
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start', // Вместо space-between
+    marginBottom: 0,
+    gap: 16, // Отступ между карточками
   },
 });
 
@@ -322,17 +322,29 @@ export function SubCategoryListItem({
 }
 
 const listStyles = StyleSheet.create({
-  item: {
-    flexDirection: 'row',
+  emojiIcon: {
+    fontSize: 24,
+    textAlign: 'center',
+  },
+  iconContainer: {
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingVertical: 16,
-    paddingHorizontal: 20,
+    borderRadius: 20,
+    height: 40,
+    justifyContent: 'center',
+    marginRight: 12,
+    width: 40,
+  },
+  item: {
+    alignItems: 'center',
     backgroundColor: Colors.cardBackground,
-    marginHorizontal: 20,
-    marginBottom: 8,
     borderRadius: 12,
     elevation: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 8,
+    marginHorizontal: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 16,
     shadowColor: Colors.cardShadow,
     shadowOffset: {
       width: 0,
@@ -342,34 +354,22 @@ const listStyles = StyleSheet.create({
     shadowRadius: 2,
   },
   leftContent: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
     flex: 1,
   },
-  iconContainer: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 12,
-  },
-  emojiIcon: {
-    fontSize: 24,
-    textAlign: 'center',
+  subtitle: {
+    color: Colors.textLight,
+    fontSize: 14,
+    fontWeight: '500',
   },
   textContainer: {
     flex: 1,
   },
   title: {
+    color: Colors.text,
     fontSize: 16,
     fontWeight: '600',
-    color: Colors.text,
     marginBottom: 2,
-  },
-  subtitle: {
-    fontSize: 14,
-    color: Colors.textLight,
-    fontWeight: '500',
   },
 });

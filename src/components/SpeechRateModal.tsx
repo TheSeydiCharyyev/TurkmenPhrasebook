@@ -99,10 +99,17 @@ export default function SpeechRateModal({ visible, onClose, currentRate, onSave,
 }
 
 const styles = StyleSheet.create({
-  overlay: {
+  cancelButton: {
+    alignItems: 'center',
+    backgroundColor: '#F3F4F6',
+    borderRadius: moderateScale(10),
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'flex-end',
+    paddingVertical: verticalScale(14),
+  },
+  cancelText: {
+    color: '#6B7280',
+    fontSize: moderateScale(16),
+    fontWeight: '600',
   },
   container: {
     backgroundColor: '#FFFFFF',
@@ -110,84 +117,77 @@ const styles = StyleSheet.create({
     borderTopRightRadius: moderateScale(20),
     padding: scale(20),
   },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: verticalScale(20),
-  },
-  title: {
-    fontSize: moderateScale(20),
-    fontWeight: '700',
-    color: '#1F2937',
-  },
   content: {
     alignItems: 'center',
     paddingVertical: verticalScale(20),
-  },
-  rateText: {
-    fontSize: moderateScale(48),
-    fontWeight: '700',
-    color: '#00A651',
-    marginBottom: verticalScale(20),
-  },
-  slider: {
-    width: '100%',
-    height: verticalScale(40),
-  },
-  labels: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '100%',
-    paddingHorizontal: scale(10),
-    marginTop: verticalScale(5),
-  },
-  label: {
-    fontSize: moderateScale(12),
-    color: '#6B7280',
-  },
-  testButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#00A651',
-    paddingHorizontal: scale(24),
-    paddingVertical: verticalScale(12),
-    borderRadius: moderateScale(10),
-    marginTop: verticalScale(20),
-    gap: scale(8),
-  },
-  testButtonText: {
-    color: '#FFFFFF',
-    fontSize: moderateScale(16),
-    fontWeight: '600',
   },
   footer: {
     flexDirection: 'row',
     gap: scale(12),
     marginTop: verticalScale(20),
   },
-  cancelButton: {
-    flex: 1,
-    paddingVertical: verticalScale(14),
-    borderRadius: moderateScale(10),
-    backgroundColor: '#F3F4F6',
+  header: {
     alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: verticalScale(20),
   },
-  cancelText: {
-    fontSize: moderateScale(16),
-    fontWeight: '600',
+  label: {
     color: '#6B7280',
+    fontSize: moderateScale(12),
+  },
+  labels: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: verticalScale(5),
+    paddingHorizontal: scale(10),
+    width: '100%',
+  },
+  overlay: {
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+  rateText: {
+    color: '#00A651',
+    fontSize: moderateScale(48),
+    fontWeight: '700',
+    marginBottom: verticalScale(20),
   },
   saveButton: {
+    alignItems: 'center',
+    backgroundColor: '#00A651',
+    borderRadius: moderateScale(10),
     flex: 1,
     paddingVertical: verticalScale(14),
-    borderRadius: moderateScale(10),
-    backgroundColor: '#00A651',
-    alignItems: 'center',
   },
   saveText: {
+    color: '#FFFFFF',
     fontSize: moderateScale(16),
     fontWeight: '600',
+  },
+  slider: {
+    height: verticalScale(40),
+    width: '100%',
+  },
+  testButton: {
+    alignItems: 'center',
+    backgroundColor: '#00A651',
+    borderRadius: moderateScale(10),
+    flexDirection: 'row',
+    gap: scale(8),
+    marginTop: verticalScale(20),
+    paddingHorizontal: scale(24),
+    paddingVertical: verticalScale(12),
+  },
+  testButtonText: {
     color: '#FFFFFF',
+    fontSize: moderateScale(16),
+    fontWeight: '600',
+  },
+  title: {
+    color: '#1F2937',
+    fontSize: moderateScale(20),
+    fontWeight: '700',
   },
 });

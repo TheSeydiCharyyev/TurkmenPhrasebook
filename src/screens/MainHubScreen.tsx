@@ -381,8 +381,8 @@ const ModuleCardComponent: React.FC<ModuleCardProps> = ({ module, onPress }) => 
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#f8f9fa',
+    flex: 1,
     // paddingTop не нужен, так как учитывается в header position
   },
 
@@ -419,14 +419,14 @@ const styles = StyleSheet.create({
   },
 
   languageBadge: {
-    flexDirection: 'row',
     alignItems: 'center',
+    alignSelf: 'flex-start',
     backgroundColor: '#f1f3f5',
+    borderRadius: scale(16),
+    flexDirection: 'row',
+    gap: scale(8),
     paddingHorizontal: scale(12),
     paddingVertical: verticalScale(8),
-    borderRadius: scale(16),
-    gap: scale(8),
-    alignSelf: 'flex-start',
   },
 
   languageFlag: {
@@ -434,10 +434,10 @@ const styles = StyleSheet.create({
   },
 
   languageName: {
-    fontSize: moderateScale(15),
-    fontWeight: Typography.bold,
     color: DesignColors.text,
     fontFamily: Typography.fontFamily,
+    fontSize: moderateScale(15),
+    fontWeight: Typography.bold,
   },
 
   settingsButton: {
@@ -446,13 +446,13 @@ const styles = StyleSheet.create({
 
   // Welcome Section - RESPONSIVE (внутри ScrollView)
   welcome: {
-    marginTop: scale(8),
-    marginBottom: scale(16),
+    alignItems: 'center',
     backgroundColor: '#FFFFFF',
+    borderRadius: scale(16),
+    marginBottom: scale(16),
+    marginTop: scale(8),
     paddingHorizontal: scale(20),
     paddingVertical: verticalScale(16),
-    borderRadius: scale(16),
-    alignItems: 'center',
     ...Platform.select({
       ios: {
         shadowColor: '#000',
@@ -494,11 +494,11 @@ const styles = StyleSheet.create({
 
   // Hero Card - RESPONSIVE (all modules use this style)
   heroCard: {
-    width: '100%',
+    borderRadius: scale(20),
     height: DeviceInfo.isTablet ? verticalScale(220) : verticalScale(160),
     marginBottom: scale(16),
-    borderRadius: scale(20),
     overflow: 'hidden',
+    width: '100%',
     ...Platform.select({
       ios: {
         shadowColor: '#000',
@@ -514,40 +514,40 @@ const styles = StyleSheet.create({
 
   heroGradient: {
     flex: 1,
-    padding: scale(20),
     justifyContent: 'flex-start',
+    padding: scale(20),
   },
 
   heroIconContainer: {
-    position: 'absolute',
-    top: scale(20),
-    right: scale(20),
-    width: scale(60),
-    height: scale(60),
-    borderRadius: scale(30),
     alignItems: 'center',
+    borderRadius: scale(30),
+    height: scale(60),
     justifyContent: 'center',
+    position: 'absolute',
+    right: scale(20),
+    top: scale(20),
+    width: scale(60),
   },
 
 
   heroTitle: {
+    fontFamily: Typography.fontFamily,
     fontSize: moderateScale(20),
     fontWeight: Typography.bold,
-    fontFamily: Typography.fontFamily,
     lineHeight: moderateScale(24),
     marginBottom: verticalScale(4),
     paddingRight: scale(70),
   },
 
   heroStats: {
-    position: 'absolute',
     bottom: scale(-4),
-    left: scale(0),
-    right: scale(70),
-    fontSize: moderateScale(13),
     fontFamily: Typography.fontFamily,
+    fontSize: moderateScale(13),
     fontWeight: '500',
+    left: scale(0),
     lineHeight: moderateScale(18),
+    position: 'absolute',
+    right: scale(70),
   },
 
   moduleCardLocked: {
@@ -557,16 +557,16 @@ const styles = StyleSheet.create({
     opacity: 0.75,
   },
   titleRow: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
     flexWrap: 'wrap',
     gap: scale(8),
   },
   comingSoonBadge: {
     backgroundColor: '#9CA3AF',
+    borderRadius: moderateScale(6),
     paddingHorizontal: scale(8),
     paddingVertical: verticalScale(3),
-    borderRadius: moderateScale(6),
   },
   comingSoonBadgeText: {
     color: '#FFFFFF',
@@ -580,11 +580,11 @@ const styles = StyleSheet.create({
   },
 
   lockBadge: {
-    position: 'absolute',
-    top: scale(16),
-    right: scale(16),
     backgroundColor: 'rgba(0, 0, 0, 0.3)',
-    padding: scale(6),
     borderRadius: scale(8),
+    padding: scale(6),
+    position: 'absolute',
+    right: scale(16),
+    top: scale(16),
   },
 });

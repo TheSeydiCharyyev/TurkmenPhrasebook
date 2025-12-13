@@ -216,7 +216,7 @@ export function useOfflineDataManager() {
       handleError(error, 'offline manager initialization');
     }
   };
-;
+
 
   const startNetworkMonitoring = () => {
     networkUnsubscribeRef.current = NetInfo.addEventListener((netState: NetInfoState) => {

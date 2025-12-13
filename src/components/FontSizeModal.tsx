@@ -109,10 +109,17 @@ const FontSizeModal = React.memo(({
 });
 
 const styles = StyleSheet.create({
-  overlay: {
+  cancelButton: {
+    alignItems: 'center',
+    backgroundColor: '#F3F4F6',
+    borderRadius: moderateScale(10),
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'flex-end',
+    paddingVertical: verticalScale(14),
+  },
+  cancelText: {
+    color: '#6B7280',
+    fontSize: moderateScale(16),
+    fontWeight: '600',
   },
   container: {
     backgroundColor: '#FFFFFF',
@@ -120,80 +127,73 @@ const styles = StyleSheet.create({
     borderTopRightRadius: moderateScale(20),
     padding: scale(20),
   },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: verticalScale(20),
-  },
-  title: {
-    fontSize: moderateScale(20),
-    fontWeight: '700',
-    color: '#1F2937',
-  },
   content: {
     alignItems: 'center',
     paddingVertical: verticalScale(10),
-  },
-  previewText: {
-    textAlign: 'center',
-    color: '#1F2937',
-    marginBottom: verticalScale(16),
-    lineHeight: 28,
-    minHeight: verticalScale(60),
-  },
-  sizeValue: {
-    fontSize: moderateScale(32),
-    fontWeight: '700',
-    color: '#00A651',
-    marginBottom: verticalScale(16),
-  },
-  sliderContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    width: '100%',
-    paddingHorizontal: scale(4),
-  },
-  slider: {
-    flex: 1,
-    height: verticalScale(40),
-    marginHorizontal: scale(10),
-  },
-  sliderLabel: {
-    fontSize: moderateScale(14),
-    color: '#6B7280',
-    fontWeight: '500',
-    minWidth: scale(24),
-    textAlign: 'center',
   },
   footer: {
     flexDirection: 'row',
     gap: scale(12),
     marginTop: verticalScale(20),
   },
-  cancelButton: {
-    flex: 1,
-    paddingVertical: verticalScale(14),
-    borderRadius: moderateScale(10),
-    backgroundColor: '#F3F4F6',
+  header: {
     alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: verticalScale(20),
   },
-  cancelText: {
-    fontSize: moderateScale(16),
-    fontWeight: '600',
-    color: '#6B7280',
+  overlay: {
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+  previewText: {
+    color: '#1F2937',
+    lineHeight: 28,
+    marginBottom: verticalScale(16),
+    minHeight: verticalScale(60),
+    textAlign: 'center',
   },
   saveButton: {
+    alignItems: 'center',
+    backgroundColor: '#00A651',
+    borderRadius: moderateScale(10),
     flex: 1,
     paddingVertical: verticalScale(14),
-    borderRadius: moderateScale(10),
-    backgroundColor: '#00A651',
-    alignItems: 'center',
   },
   saveText: {
+    color: '#FFFFFF',
     fontSize: moderateScale(16),
     fontWeight: '600',
-    color: '#FFFFFF',
+  },
+  sizeValue: {
+    color: '#00A651',
+    fontSize: moderateScale(32),
+    fontWeight: '700',
+    marginBottom: verticalScale(16),
+  },
+  slider: {
+    flex: 1,
+    height: verticalScale(40),
+    marginHorizontal: scale(10),
+  },
+  sliderContainer: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    paddingHorizontal: scale(4),
+    width: '100%',
+  },
+  sliderLabel: {
+    color: '#6B7280',
+    fontSize: moderateScale(14),
+    fontWeight: '500',
+    minWidth: scale(24),
+    textAlign: 'center',
+  },
+  title: {
+    color: '#1F2937',
+    fontSize: moderateScale(20),
+    fontWeight: '700',
   },
 });
 

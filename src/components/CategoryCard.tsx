@@ -45,12 +45,12 @@ export default function CategoryCard({ category, onPress, languageMode }: Catego
 }
 
 const styles = StyleSheet.create({
-  card: { borderRadius: 20, flex: 1, width: '100%', shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.08, shadowRadius: 16, elevation: 8, overflow: 'hidden' },
-  whiteContainer: { flex: 1, flexDirection: 'row', alignItems: 'center', backgroundColor: '#FFFFFF', paddingVertical: 16, paddingHorizontal: 20, borderWidth: 1, borderColor: '#E5E7EB', borderRadius: 20 },
-  emojiContainer: { width: 70, height: 70, alignItems: 'center', justifyContent: 'center', marginRight: 20 },
+  card: { borderRadius: 20, elevation: 8, flex: 1, overflow: 'hidden', shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.08, shadowRadius: 16, width: '100%' },
+  emojiContainer: { alignItems: 'center', height: 70, justifyContent: 'center', marginRight: 20, width: 70 },
   emojiIcon: { fontSize: 50 },
-  textContainer: { flex: 1, justifyContent: 'center', alignItems: 'flex-start' },
-  primaryName: { fontSize: 24, fontWeight: '900', color: '#111827', textAlign: 'left', marginBottom: 4, lineHeight: 30 },
-  secondaryName: { fontSize: 14, fontWeight: '600', color: '#9CA3AF', textAlign: 'left', lineHeight: 18 },
-  rtlText: { writingDirection: 'rtl', textAlign: 'right' }
+  primaryName: { color: '#111827', fontSize: 24, fontWeight: '900', lineHeight: 30, marginBottom: 4, textAlign: 'left' },
+  rtlText: { textAlign: 'right', writingDirection: 'rtl' },
+  secondaryName: { color: '#9CA3AF', fontSize: 14, fontWeight: '600', lineHeight: 18, textAlign: 'left' },
+  textContainer: { alignItems: 'flex-start', flex: 1, justifyContent: 'center' },
+  whiteContainer: { alignItems: 'center', backgroundColor: '#FFFFFF', borderColor: '#E5E7EB', borderRadius: 20, borderWidth: 1, flex: 1, flexDirection: 'row', paddingHorizontal: 20, paddingVertical: 16 }
 });

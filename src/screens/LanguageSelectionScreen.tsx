@@ -233,8 +233,8 @@ export default function LanguageSelectionScreen({ navigation, onLanguageSelect }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#f8f9fa',
+    flex: 1,
   },
 
   // Gradient Header
@@ -248,15 +248,15 @@ const styles = StyleSheet.create({
 
   backButton: {
     alignSelf: 'flex-start',
-    padding: scale(8),
-    marginLeft: scale(-8),
     marginBottom: verticalScale(16),
+    marginLeft: scale(-8),
+    padding: scale(8),
   },
 
   title: {
+    color: '#fff',
     fontSize: moderateScale(32),
     fontWeight: 'bold',
-    color: '#fff',
     marginBottom: verticalScale(8),
     textShadowColor: 'rgba(0, 0, 0, 0.2)',
     textShadowOffset: { width: 0, height: 2 },
@@ -264,8 +264,8 @@ const styles = StyleSheet.create({
   },
 
   subtitle: {
-    fontSize: moderateScale(16),
     color: 'rgba(255, 255, 255, 0.9)',
+    fontSize: moderateScale(16),
     marginBottom: verticalScale(20),
     textShadowColor: 'rgba(0, 0, 0, 0.15)',
     textShadowOffset: { width: 0, height: 1 },
@@ -273,10 +273,10 @@ const styles = StyleSheet.create({
   },
 
   searchContainer: {
-    flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#fff',
     borderRadius: scale(16),
+    flexDirection: 'row',
     ...Platform.select({
       ios: {
         shadowColor: '#000',
@@ -288,26 +288,26 @@ const styles = StyleSheet.create({
         elevation: 4,
       },
     }),
+    borderColor: '#E5E7EB',
+    borderWidth: 1,
+    marginTop: verticalScale(12),
     paddingHorizontal: scale(16),
     paddingVertical: verticalScale(12),
-    marginTop: verticalScale(12),
-    borderWidth: 1,
-    borderColor: '#E5E7EB',
   },
   searchIcon: {
     marginRight: scale(8),
   },
 
   searchInput: {
+    color: '#111827',
     flex: 1,
     fontSize: moderateScale(16),
-    color: '#111827',
     padding: 0,
   },
 
   clearButton: {
-    padding: scale(4),
     marginLeft: scale(8),
+    padding: scale(4),
   },
 
   list: {
@@ -321,13 +321,13 @@ const styles = StyleSheet.create({
 
   // Modern Language Card
   languageItem: {
-    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: scale(20),
     backgroundColor: '#FFFFFF',
     borderRadius: scale(20),
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     marginBottom: verticalScale(16),
+    padding: scale(20),
     ...Platform.select({
       ios: {
         shadowColor: '#000',
@@ -342,14 +342,14 @@ const styles = StyleSheet.create({
   },
 
   languageItemDisabled: {
-    opacity: 0.5,
     backgroundColor: '#F9FAFB',
+    opacity: 0.5,
   },
 
   languageItemSelected: {
     backgroundColor: '#fff',
-    borderWidth: 3,
     borderColor: '#667eea',
+    borderWidth: 3,
     ...Platform.select({
       ios: {
         shadowColor: '#667eea',
@@ -364,8 +364,8 @@ const styles = StyleSheet.create({
   },
 
   languageContent: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
     flex: 1,
   },
 
@@ -379,15 +379,15 @@ const styles = StyleSheet.create({
   },
 
   languageName: {
+    color: '#111827',
     fontSize: moderateScale(19),
     fontWeight: 'bold',
-    color: '#111827',
     marginBottom: verticalScale(4),
   },
 
   languageNameEn: {
-    fontSize: moderateScale(15),
     color: '#6B7280',
+    fontSize: moderateScale(15),
   },
 
   textDisabled: {
@@ -400,26 +400,26 @@ const styles = StyleSheet.create({
   },
 
   selectedBadge: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
     gap: scale(6),
   },
 
   selectedText: {
-    fontSize: moderateScale(13),
     color: '#667eea',
+    fontSize: moderateScale(13),
     fontWeight: 'bold',
   },
 
   comingSoon: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
     gap: scale(6),
   },
 
   comingSoonText: {
-    fontSize: moderateScale(13),
     color: '#9CA3AF',
+    fontSize: moderateScale(13),
     fontWeight: '500',
   },
 });
