@@ -22,8 +22,29 @@ function AppContent() {
 }
 
 export default function App() {
+  const [appIsReady, setAppIsReady] = useState(false);
+
+  useEffect(() => {
+    // Таймер на 2.5 секунды для показа splash screen
+    const timer = setTimeout(() => {
+      setAppIsReady(true);
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const onLayoutRootView = useCallback(async () => {
+    if (appIsReady) {
+      await SplashScreen.hideAsync();
+    }
+  }, [appIsReady]);
+
+  if (!appIsReady) {
+    return null;
+  }
+
   return (
-    <SafeAreaProvider>
+    <SafeAreaProvider onLayout={onLayoutRootView}>
       <ErrorBoundary>
         {/* ConfigProvider для новой мультиязычной системы */}
         <ConfigProvider>
