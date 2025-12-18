@@ -9,7 +9,8 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "plugins": [
-      "expo-font"
+      "expo-font",
+      "expo-splash-screen"
     ],
     "platforms": [
       "ios",
@@ -36,7 +37,8 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png",
+        "foregroundImage": "./assets/adaptive-icon-foreground.png",
+        "backgroundImage": "./assets/adaptive-icon-background.png",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": false,
