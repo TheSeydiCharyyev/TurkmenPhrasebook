@@ -1,5 +1,5 @@
 // App.tsx - ОБНОВЛЕНО для мультиязычности (Phase 4)
-import React, { useEffect, useCallback, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import * as SplashScreen from 'expo-splash-screen';
@@ -26,25 +26,20 @@ export default function App() {
 
   useEffect(() => {
     // Таймер на 2.5 секунды для показа splash screen
-    const timer = setTimeout(() => {
+    const timer = setTimeout(async () => {
+      await SplashScreen.hideAsync();
       setAppIsReady(true);
     }, 2500);
 
     return () => clearTimeout(timer);
   }, []);
 
-  const onLayoutRootView = useCallback(async () => {
-    if (appIsReady) {
-      await SplashScreen.hideAsync();
-    }
-  }, [appIsReady]);
-
   if (!appIsReady) {
     return null;
   }
 
   return (
-    <SafeAreaProvider onLayout={onLayoutRootView}>
+    <SafeAreaProvider>
       <ErrorBoundary>
         {/* ConfigProvider для новой мультиязычной системы */}
         <ConfigProvider>
