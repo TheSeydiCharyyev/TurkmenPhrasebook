@@ -18,9 +18,9 @@
       "web"
     ],
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/logo.png",
       "backgroundColor": "#5BA3D9",
-      "resizeMode": "cover"
+      "resizeMode": "contain"
     },
     "assetBundlePatterns": [
       "**/*"
