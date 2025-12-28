@@ -1,5 +1,5 @@
 // App.tsx - ОБНОВЛЕНО для мультиязычности (Phase 4)
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -26,12 +26,9 @@ function AppContent() {
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
 
-  useEffect(() => {
-    // Скрываем нативный splash сразу, показываем наш кастомный
-    const hideSplash = async () => {
-      await SplashScreen.hideAsync();
-    };
-    hideSplash();
+  const handleImageLoaded = useCallback(async () => {
+    // Скрываем нативный splash только когда картинка кастомного загрузилась
+    await SplashScreen.hideAsync();
   }, []);
 
   const handleSplashFinish = useCallback(() => {
@@ -46,7 +43,12 @@ export default function App() {
             <OfflineDataProvider>
               <View style={styles.container}>
                 <AppContent />
-                {showSplash && <CustomSplashScreen onFinish={handleSplashFinish} />}
+                {showSplash && (
+                  <CustomSplashScreen
+                    onFinish={handleSplashFinish}
+                    onImageLoaded={handleImageLoaded}
+                  />
+                )}
               </View>
             </OfflineDataProvider>
           </LanguageProvider>

@@ -5,14 +5,19 @@ const { width, height } = Dimensions.get('window');
 
 interface CustomSplashScreenProps {
   onFinish: () => void;
+  onImageLoaded?: () => void;
 }
 
-export default function CustomSplashScreen({ onFinish }: CustomSplashScreenProps) {
+export default function CustomSplashScreen({ onFinish, onImageLoaded }: CustomSplashScreenProps) {
   const fadeAnim = useRef(new Animated.Value(1)).current;
+  const timerStarted = useRef(false);
 
-  useEffect(() => {
+  const startFadeOut = () => {
+    if (timerStarted.current) return;
+    timerStarted.current = true;
+
     // Показываем splash 2 секунды, потом fade out
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       Animated.timing(fadeAnim, {
         toValue: 0,
         duration: 500,
@@ -21,9 +26,12 @@ export default function CustomSplashScreen({ onFinish }: CustomSplashScreenProps
         onFinish();
       });
     }, 2000);
+  };
 
-    return () => clearTimeout(timer);
-  }, [fadeAnim, onFinish]);
+  const handleImageLoad = () => {
+    onImageLoaded?.();
+    startFadeOut();
+  };
 
   return (
     <Animated.View style={[styles.container, { opacity: fadeAnim }]}>
@@ -31,6 +39,7 @@ export default function CustomSplashScreen({ onFinish }: CustomSplashScreenProps
         source={require('../../assets/splash.png')}
         style={styles.image}
         resizeMode="cover"
+        onLoad={handleImageLoad}
       />
     </Animated.View>
   );
