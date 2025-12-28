@@ -7,26 +7,6 @@
 
 ## 🎯 WHAT'S LEFT TO DO
 
-### **PHASE 7: Dictionary** (📌 Postponed to v2.0)
-
-**Статус:** Функция словаря будет добавлена в версии 2.0
-
-**Причина переноса:**
-- Фокус на релизе v1.0 с основными функциями
-- Словарь требует значительной работы по подготовке данных
-- Можно добавить позже как major update
-
-**Планируется в v2.0:**
-- Туркменский ↔ Английский словарь (Peace Corps Dictionary)
-- Поиск по словам
-- Избранное
-- Примеры использования
-
-**Файлы:**
-- `src/screens/DictionaryScreen.tsx` - временно показывает "Coming in v2.0"
-
----
-
 ### **PHASE 10: Production Build** (⏳ 80% - Only Build Remaining)
 
 #### 1. ✅ Update Configuration Files
@@ -161,7 +141,6 @@ eas build --platform ios --profile production
 
 | Phase | Tasks | Time | Status |
 |-------|-------|------|--------|
-| **Phase 7: Dictionary** | Postponed to v2.0 | - | 📌 Moved |
 | **Phase 10: Production** | Configuration + Icons + Builds + Store | 15-20 hours | ✅ 80% |
 | **TOTAL REMAINING** | Build & Test only | **~4-6 hours** | ⏳ |
 
@@ -191,9 +170,6 @@ eas build --platform ios --profile production
    - Run Android build (preview & production)
    - Run iOS build (preview & production)
    - Test on real devices
-
-**For v2.0 Release:**
-1. 🔵 PHASE 7: Dictionary Integration
 
 ---
 
