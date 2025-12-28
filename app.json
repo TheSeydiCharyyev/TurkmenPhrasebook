@@ -19,7 +19,7 @@
     ],
     "splash": {
       "image": "./assets/logo.png",
-      "backgroundColor": "#5BA3D9",
+      "backgroundColor": "#ffffff",
       "resizeMode": "contain"
     },
     "assetBundlePatterns": [
