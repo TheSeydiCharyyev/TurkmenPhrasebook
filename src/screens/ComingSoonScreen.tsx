@@ -180,7 +180,7 @@ export default function ComingSoonScreen() {
         >
           <Ionicons name="arrow-back" size={moderateScale(24)} color="#1F2937" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>{getTitle()}</Text>
+        <Text style={styles.headerTitle} numberOfLines={1}>{getTitle()}</Text>
         <View style={styles.placeholder} />
       </View>
 
@@ -346,8 +346,10 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     color: '#1F2937',
+    flex: 1,
     fontSize: moderateScale(18),
     fontWeight: '700',
+    textAlign: 'center',
   },
   iconCircle: {
     alignItems: 'center',
