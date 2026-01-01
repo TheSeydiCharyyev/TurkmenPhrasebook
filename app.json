@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Şapak - Ykjam Terjime",
+    "name": "Ykjam Terjime",
     "slug": "shapak-translator",
     "description": "Şapak - Turkmen translation and AI language companion. Learn Turkmen with 31 languages support, AI assistants, visual translator, and more.",
     "version": "1.0.0",
@@ -30,8 +30,8 @@
       "bundleIdentifier": "com.shapak.translator",
       "buildNumber": "1.0.0",
       "infoPlist": {
-        "CFBundleDisplayName": "Şapak - Ykjam Terjime",
-        "CFBundleName": "Şapak - Ykjam Terjime"
+        "CFBundleDisplayName": "Ykjam Terjime",
+        "CFBundleName": "Ykjam Terjime"
       },
       "associatedDomains": []
     },

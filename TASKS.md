@@ -1,4 +1,4 @@
-# TASKS - TurkmenPhrasebook
+# TASKS - Ykjam Terjime
 
 **Last Updated:** December 31, 2025
 **Status:** Phase 1 - Google Play
@@ -59,7 +59,7 @@ npx eas build --platform android --profile production
 #### 3.2 Создание приложения
 1. Нажать **"Create app"** (Создать приложение)
 2. Заполнить форму:
-   - **App name:** Turkmen Phrasebook
+   - **App name:** Ykjam Terjime
    - **Default language:** English (US)
    - **App or game:** App
    - **Free or paid:** Free
@@ -117,7 +117,7 @@ npx eas build --platform android --profile production
 
 **App name (30 символов макс):**
 ```
-Turkmen Phrasebook
+Ykjam Terjime
 ```
 - [ ] Ввести название
 
@@ -129,7 +129,7 @@ Learn Turkmen phrases with audio. Translate text and images. AI assistants.
 
 **Full description (4000 символов макс):**
 ```
-Turkmen Phrasebook - your complete guide to learning Turkmen language!
+Ykjam Terjime - your complete guide to learning Turkmen language!
 
 FEATURES:
 
@@ -226,7 +226,7 @@ Download now and start learning Turkmen today!
 3. **Release name:** 1.0.0
 4. **Release notes:**
 ```
-Initial release of Turkmen Phrasebook!
+Initial release of Ykjam Terjime!
 
 Features:
 - 300+ phrases with audio
@@ -325,7 +325,7 @@ npx eas build --platform ios --profile production
 1. Нажать **"+"** → **"New App"**
 2. Заполнить:
    - **Platforms:** iOS
-   - **Name:** Turkmen Phrasebook
+   - **Name:** Ykjam Terjime
    - **Primary language:** English
    - **Bundle ID:** com.turkmen.phrasebook
    - **SKU:** turkmen-phrasebook-001
@@ -341,7 +341,7 @@ npx eas build --platform ios --profile production
 #### 5.1 General → App Information
 
 **Localizable Information:**
-- [ ] Name: Turkmen Phrasebook
+- [ ] Name: Ykjam Terjime
 - [ ] Subtitle: Learn Turkmen with Audio (30 символов макс)
 
 **General Information:**
@@ -452,7 +452,7 @@ npx eas submit --platform ios
 4. Выбрать загруженный build
 5. Заполнить **"What's New":**
 ```
-Initial release of Turkmen Phrasebook!
+Initial release of Ykjam Terjime!
 ```
 6. **App Review Information:**
    - [ ] Contact info для ревьюеров

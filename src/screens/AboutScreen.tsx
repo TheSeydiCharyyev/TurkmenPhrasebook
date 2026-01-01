@@ -852,7 +852,7 @@ export default function AboutScreen() {
 
         {/* Footer */}
         <View style={styles.footer}>
-          <Text style={styles.footerText}>© 2025 Şapak</Text>
+          <Text style={styles.footerText}>© 2026 Ykjam Terjime</Text>
         </View>
       </ScrollView>
 
