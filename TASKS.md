@@ -1,6 +1,6 @@
 # TASKS - Ykjam Terjime
 
-**Last Updated:** December 31, 2025
+**Last Updated:** January 1, 2026
 **Status:** Phase 1 - Google Play
 
 ---
@@ -507,4 +507,20 @@ Initial release of Ykjam Terjime!
 
 ---
 
-**Current Task:** Phase 1, Step 1 - Подготовка к сборке Android
+**Current Task:** Phase 1, Step 2.2 - Пересобрать AAB после багфиксов
+
+## Completed Steps:
+- [x] Step 1.1 - Проверить eas.json ✓
+- [x] Step 1.2 - Проверить app.json ✓ (package: com.shapak.translator)
+- [x] Step 2.1 - Создать keystore ✓
+- [x] Step 2.2 - Собрать AAB (первая версия) ✓
+- [x] Багфикс: Исправлено название "Ykjam Terjime"
+- [x] Багфикс: Копирайт "© 2026 Ykjam Terjime"
+- [x] Багфикс: Заголовок "Ses terjimeçi" на одной строке
+
+## Next Steps:
+- [ ] Пересобрать AAB в Android Studio
+- [ ] Сделать скриншоты приложения
+- [ ] Создать приложение в Google Play Console
+- [ ] Заполнить Store Listing
+- [ ] Загрузить AAB и создать релиз
