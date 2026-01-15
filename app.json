@@ -4,7 +4,7 @@
     "slug": "shapak-translator",
     "description": "Şapak - Turkmen translation and AI language companion. Learn Turkmen with 31 languages support, AI assistants, visual translator, and more.",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
@@ -41,7 +41,7 @@
         "backgroundImage": "./assets/adaptive-icon-background.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": false,
+      "edgeToEdgeEnabled": true,
       "package": "com.shapak.translator",
       "versionCode": 1,
       "permissions": [
