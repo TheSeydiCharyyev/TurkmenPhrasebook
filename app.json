@@ -43,7 +43,7 @@
       },
       "edgeToEdgeEnabled": true,
       "package": "com.shapak.translator",
-      "versionCode": 3,
+      "versionCode": 4,
       "permissions": [
         "INTERNET",
         "ACCESS_NETWORK_STATE"
