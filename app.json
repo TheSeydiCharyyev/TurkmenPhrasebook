@@ -26,7 +26,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
+      "supportsTablet": false,
       "bundleIdentifier": "com.shapak.translator",
       "buildNumber": "1.0.0",
       "infoPlist": {
