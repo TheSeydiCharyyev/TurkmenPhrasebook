@@ -10,6 +10,9 @@
       "android": {
         "buildType": "apk"
       },
+      "ios": {
+        "simulator": true
+      },
       "env": {
         "NPM_CONFIG_LEGACY_PEER_DEPS": "true"
       }
@@ -19,6 +22,9 @@
       "android": {
         "buildType": "apk"
       },
+      "ios": {
+        "distribution": "internal"
+      },
       "env": {
         "NPM_CONFIG_LEGACY_PEER_DEPS": "true"
       }
@@ -27,12 +33,20 @@
       "android": {
         "buildType": "app-bundle"
       },
+      "ios": {
+        "autoIncrement": true
+      },
       "env": {
         "NPM_CONFIG_LEGACY_PEER_DEPS": "true"
       }
     }
   },
   "submit": {
-    "production": {}
+    "production": {
+      "ios": {
+        "appleId": "seydi.charyyew2021@gmail.com",
+        "ascAppId": "6758071845"
+      }
+    }
   }
 }
