@@ -31,7 +31,8 @@
       "buildNumber": "1.0.0",
       "infoPlist": {
         "CFBundleDisplayName": "Ykjam Terjime",
-        "CFBundleName": "Ykjam Terjime"
+        "CFBundleName": "Ykjam Terjime",
+        "ITSAppUsesNonExemptEncryption": false
       },
       "associatedDomains": []
     },
