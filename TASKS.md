@@ -524,3 +524,32 @@ Initial release of Ykjam Terjime!
 - [ ] Создать приложение в Google Play Console
 - [ ] Заполнить Store Listing
 - [ ] Загрузить AAB и создать релиз
+
+---
+
+## Известные проблемы
+
+### Android 15 Edge-to-Edge (уведомление от Google Play, 2026-02-13)
+
+**Суть:** Приложение использует устаревшие API для status bar и navigation bar, которые не поддерживаются в Android 15.
+
+**Затронутые API:**
+- `Window.getStatusBarColor` / `Window.setStatusBarColor`
+- `Window.setNavigationBarColor` / `Window.getNavigationBarColor`
+- `LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES`
+- `LAYOUT_IN_DISPLAY_CUTOUT_MODE_DEFAULT`
+
+**Источник проблемы — библиотеки (не наш код):**
+| Библиотека | Текущая версия | Что вызывает |
+|-----------|---------------|-------------|
+| react-native | 0.81.5 | `StatusBarModule.setColor`, `WindowUtilKt` |
+| react-native-screens | ~4.16.0 | `setColor`, `setNavigationBarColor` |
+| expo-image-picker | ~17.0.8 | `applyWindowTheming` |
+| expo-status-bar | ~3.0.8 | Управление status bar |
+
+**Что делать:**
+- [ ] Следить за обновлениями Expo SDK 55+ с поддержкой Android 15 edge-to-edge
+- [ ] Когда выйдет — обновить Expo SDK и зависимости
+- [ ] После обновления — пересобрать и проверить что предупреждение пропало
+
+**Срочность:** Низкая. Это предупреждение, не блокировка. Фикс придёт от Expo/React Native.
