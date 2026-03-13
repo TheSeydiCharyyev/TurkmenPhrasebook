@@ -38,3 +38,6 @@ yarn-error.*
 *.tsbuildinfo
 nul
 coverage/
+
+# downloads
+downloads/
