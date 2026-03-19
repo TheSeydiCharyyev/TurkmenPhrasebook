@@ -3,7 +3,7 @@
     "name": "Ykjam Terjime",
     "slug": "shapak-translator",
     "description": "Şapak - Turkmen translation and AI language companion. Learn Turkmen with 31 languages support, AI assistants, visual translator, and more.",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "orientation": "default",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -44,7 +44,7 @@
       },
       "edgeToEdgeEnabled": true,
       "package": "com.shapak.translator",
-      "versionCode": 4,
+      "versionCode": 5,
       "permissions": [
         "INTERNET",
         "ACCESS_NETWORK_STATE"
