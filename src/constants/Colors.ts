@@ -1,94 +1,98 @@
-// src/constants/Colors.ts - НОВАЯ СХЕМА вдохновленная флагами
+// src/constants/Colors.ts - Lingify-стиль палитра
 
 export const Colors = {
-  // 🇨🇳 Китайские цвета (красные от флага)
-  chineseRed: '#DE2910',        // Точный красный с флага Китая
-  chineseRedLight: '#E53935',   // Светлее для hover
-  chineseRedDark: '#B71C1C',    // Темнее для shadows
-  chineseGold: '#FFDE00',       // Золотой от звезд на флаге
-  
-  // 🇹🇲 Туркменские цвета (зеленые от флага)
-  turkmenGreen: '#00843D',      // Основной зеленый с флага Туркменистана
-  turkmenGreenLight: '#4CAF50', // Светлее
-  turkmenGreenDark: '#2E7D32',  // Темнее
-  turkmenCarpet: '#8B4513',     // Коричневый от ковровых узоров
-  
-  // Primary colors - туркменский зеленый (цвет флага Туркменистана)
-  primary: '#00843D',
-  primaryLight: '#4CAF50',
-  primaryDark: '#2E7D32',
+  // Primary/Accent — единый синий
+  primary: '#2D8CFF',
+  primaryLight: '#5AA3FF',
+  primaryDark: '#1A6FD6',
 
-  // Accent - китайский красный (для дополнительных элементов)
-  accent: '#DE2910',
-  accentLight: '#E53935',
-  accentDark: '#B71C1C',
-  
-  // Background colors - более теплые, кремовые тона
-  background: '#FFFEF7',        // Кремово-белый
-  backgroundLight: '#F9F8F0',   // Светло-кремовый
-  backgroundDark: '#F5F4E8',    // Темно-кремовый
-  
-  // Card colors
+  // Background
+  background: '#FFFFFF',
+  backgroundLight: '#F9FAFB',
+  backgroundDark: '#F3F4F6',
+
+  // Card
   cardBackground: '#FFFFFF',
-  cardBorder: '#E8E6D9',
-  cardShadow: '#8B4513',        // Коричневая тень
-  
-  // Text colors - более контрастные
-  text: '#1A1A1A',              // Почти черный
+  cardBorder: '#E5E7EB',
+  cardShadow: '#000000',
+
+  // Text
+  text: '#1A1A1A',
   textPrimary: '#1A1A1A',
-  textSecondary: '#424242',     // Темно-серый
-  textLight: '#757575',         // Средне-серый
-  textMuted: '#BDBDBD',         // Светло-серый
+  textSecondary: '#6B7280',
+  textLight: '#9CA3AF',
+  textMuted: '#D1D5DB',
   textWhite: '#FFFFFF',
-  
-  // Language-specific colors
-  chineseText: '#DE2910',       // Красный для китайского
-  turkmenText: '#00843D',       // Зеленый для туркменского
-  russianText: '#1565C0',       // Синий для русского
-  
-  // Status colors
-  success: '#00843D',           // Туркменский зеленый
-  warning: '#FF8F00',           // Золотисто-оранжевый
-  error: '#DE2910',             // Китайский красный
-  info: '#1565C0',              // Синий
-  
+
+  // Language-specific (сохраняем для распознавания)
+  chineseText: '#1A1A1A',
+  turkmenText: '#1A1A1A',
+  russianText: '#6B7280',
+
+  // Status
+  success: '#10B981',
+  warning: '#F59E0B',
+  error: '#EF4444',
+  info: '#2D8CFF',
+
   // UI elements
-  shadowColor: '#8B4513',       // Коричневые тени
-  border: '#E8E6D9',            // Кремовые границы
-  borderColor: '#E8E6D9',
-  divider: '#F5F4E8',
+  shadowColor: '#000000',
+  border: '#E5E7EB',
+  borderColor: '#E5E7EB',
+  divider: '#E5E7EB',
   overlay: '#000000',
-  
+
   // Tab navigation
-  tabActive: '#00843D',         // Туркменский зеленый
-  tabInactive: '#757575',
-  
-  // Button colors
+  tabActive: '#2D8CFF',
+  tabInactive: '#9CA3AF',
+
+  // Button
   buttonText: '#FFFFFF',
   buttonTextSecondary: '#1A1A1A',
-  
-  // Input colors
+
+  // Input
   inputText: '#1A1A1A',
-  inputPlaceholder: '#757575',
-  
-  // Audio button colors
-  chineseAudio: '#DE2910',      // Красный флага Китая
-  chineseAudioShadow: '#B71C1C',
-  turkmenAudio: '#00843D',      // Зеленый флага Туркменистана
-  turkmenAudioShadow: '#2E7D32',
-  
-  // Offline status colors
-  offline: '#FF8F00',
-  online: '#00843D',
-  syncing: '#1565C0',
-  
-  // Градиенты для красивых переходов
-  gradientChineseStart: '#DE2910',
-  gradientChineseEnd: '#B71C1C',
-  gradientTurkmenStart: '#00843D',
-  gradientTurkmenEnd: '#2E7D32',
-  gradientGoldStart: '#FFDE00',
-  gradientGoldEnd: '#FFC107',
+  inputPlaceholder: '#9CA3AF',
+
+  // Audio buttons — единый синий
+  chineseAudio: '#2D8CFF',
+  chineseAudioShadow: '#1A6FD6',
+  turkmenAudio: '#2D8CFF',
+  turkmenAudioShadow: '#1A6FD6',
+
+  // Offline status
+  offline: '#F59E0B',
+  online: '#10B981',
+  syncing: '#2D8CFF',
+
+  // Chat bubbles (Lingify-стиль)
+  userBubble: '#2D8CFF',
+  aiBubble: '#F3F4F6',
+
+  // Conversation screen
+  conversationBackground: '#2D8CFF',
+  conversationText: '#FFFFFF',
+
+  // Убраны градиенты — плоские цвета
+  gradientChineseStart: '#2D8CFF',
+  gradientChineseEnd: '#1A6FD6',
+  gradientTurkmenStart: '#2D8CFF',
+  gradientTurkmenEnd: '#1A6FD6',
+  gradientGoldStart: '#2D8CFF',
+  gradientGoldEnd: '#1A6FD6',
+
+  // Legacy — для обратной совместимости
+  chineseRed: '#2D8CFF',
+  chineseRedLight: '#5AA3FF',
+  chineseRedDark: '#1A6FD6',
+  chineseGold: '#F59E0B',
+  turkmenGreen: '#2D8CFF',
+  turkmenGreenLight: '#5AA3FF',
+  turkmenGreenDark: '#1A6FD6',
+  turkmenCarpet: '#6B7280',
+  accent: '#2D8CFF',
+  accentLight: '#5AA3FF',
+  accentDark: '#1A6FD6',
 } as const;
 
 export type ColorKey = keyof typeof Colors;

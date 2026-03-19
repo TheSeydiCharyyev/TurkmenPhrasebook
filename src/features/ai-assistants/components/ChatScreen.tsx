@@ -341,7 +341,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
           {/* Loading indicator */}
           {isLoading && (
             <View style={styles.loadingContainer}>
-              <ActivityIndicator size="small" color={assistantConfig.color} />
+              <ActivityIndicator size="small" color="#2D8CFF" />
               <Text style={styles.loadingText}>{texts.aiThinking}</Text>
             </View>
           )}
@@ -366,7 +366,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ assistantType, onBack }) => {
           <TouchableOpacity
             style={[
               styles.sendButton,
-              { backgroundColor: assistantConfig.color },
+              { backgroundColor: '#2D8CFF' },
               (!inputText.trim() || isLoading) && styles.sendButtonDisabled,
             ]}
             onPress={handleSend}
@@ -548,20 +548,15 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     marginLeft: scale(12),
   },
-  // Input Container - RESPONSIVE
+  // Input Container — no shadow
   inputContainer: {
     alignItems: 'flex-end',
     backgroundColor: '#FFFFFF',
     borderTopColor: '#E5E7EB',
     borderTopWidth: 1,
-    elevation: 12,
     flexDirection: 'row',
     paddingHorizontal: scale(16),
     paddingVertical: verticalScale(16),
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: scale(-2) },
-    shadowOpacity: 0.1,
-    shadowRadius: scale(12),
   },
   input: {
     backgroundColor: '#F3F4F6',
@@ -580,13 +575,8 @@ const styles = StyleSheet.create({
   sendButton: {
     alignItems: 'center',
     borderRadius: scale(22),
-    elevation: 4,
     height: scale(44),
     justifyContent: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: scale(2) },
-    shadowOpacity: 0.25,
-    shadowRadius: scale(4),
     width: scale(44),
   },
   sendButtonDisabled: {
@@ -606,14 +596,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderTopLeftRadius: scale(20),
     borderTopRightRadius: scale(20),
-    elevation: 12,
     paddingBottom: verticalScale(32),
     paddingHorizontal: scale(16),
     paddingTop: verticalScale(8),
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: scale(-4) },
-    shadowOpacity: 0.15,
-    shadowRadius: scale(12),
   },
   menuItem: {
     alignItems: 'center',

@@ -1,16 +1,20 @@
 # STATUS - Ykjam Terjime
-**Last Updated:** February 27, 2026
+**Last Updated:** March 19, 2026
 
 ---
 
-## Статус v1.0:
+## Статус v1.0.2:
 - App Store: ✅ Опубликовано
-- Google Play: ⏳ Заявка подана (27.02.2026, ожидание до 7 дней)
+- Google Play: ✅ Опубликовано (19.03.2026), v1.0.2 (versionCode 5) — IARC рейтинг активен
+- IARC Global Rating ID: 01ac1b83-da19-8222-8b50-3f056fad5d5a
 
 ## Keystore info:
-- File: android/app/ykjam-terjime.jks
+- File: D:\2. SEYDI\5. Documents\Google Play Keystore\ykjam-terjime.jks
+- Backup: C:\Users\seydi\ykjam-terjime-backup.jks
 - Alias: upload
-- Password: (в gradle.properties)
+- Password: (в D:\2. SEYDI\5. Documents\Google Play Keystore\Keystore password.txt)
+- EAS Credentials: Build Credentials qiYEFZe4Qu (Default)
+- SHA1: CA:46:29:FA:08:B6:3B:DC:70:D0:8E:5F:68:56:E3:72:F1:66:C7:BC
 
 ## Google Play Console:
 - Organization: Shapak-Apps

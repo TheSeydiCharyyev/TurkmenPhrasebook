@@ -1,26 +1,31 @@
-// src/components/CategoryCard.tsx - ВАРИАНТ 2: Крупный текст + Material Design
+// src/components/CategoryCard.tsx — Lingify-стиль: простая строка
 
 import React, { useCallback } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { Category } from '../types';
-import { Colors } from '../constants/Colors';
 import { useAnimations } from '../hooks/useAnimations';
+import { moderateScale, scale, verticalScale } from '../utils/ResponsiveUtils';
 
 interface CategoryCardProps {
   category: Category;
   onPress: (category: Category) => void;
   languageMode: string;
+  showDivider?: boolean;
 }
 
-export default function CategoryCard({ category, onPress, languageMode }: CategoryCardProps) {
+export default function CategoryCard({ category, onPress, languageMode, showDivider = true }: CategoryCardProps) {
   const { hapticFeedback } = useAnimations();
   const handlePress = useCallback(() => { hapticFeedback('light'); onPress(category); }, [category, onPress, hapticFeedback]);
+
   const getCategoryName = (langCode: string): string => {
     const fieldName = ('name' + langCode.charAt(0).toUpperCase() + langCode.slice(1)) as keyof Category;
     const name = category[fieldName];
     return (typeof name === 'string' ? name : category.nameEn);
   };
-  const isRTL = (langCode: string): boolean => { return ['ar', 'fa', 'ur', 'ps'].includes(langCode); };
+
+  const isRTL = (langCode: string): boolean => ['ar', 'fa', 'ur', 'ps'].includes(langCode);
+
   const getCategoryNames = () => {
     if (languageMode === 'tk') {
       return { primary: category.nameTk, secondary: category.nameEn, isRTLLanguage: false };
@@ -28,29 +33,90 @@ export default function CategoryCard({ category, onPress, languageMode }: Catego
       return { primary: getCategoryName(languageMode), secondary: category.nameTk, isRTLLanguage: isRTL(languageMode) };
     }
   };
+
   const names = getCategoryNames();
+
   return (
-    <TouchableOpacity style={styles.card} onPress={handlePress} activeOpacity={0.85}>
-      <View style={styles.whiteContainer}>
+    <>
+      <TouchableOpacity style={styles.row} onPress={handlePress} activeOpacity={0.6}>
+        {/* Emoji */}
         <View style={styles.emojiContainer}>
-          <Text style={styles.emojiIcon}>{category.icon}</Text>
+          <Text style={styles.emoji}>{category.icon}</Text>
         </View>
+
+        {/* Text */}
         <View style={styles.textContainer}>
-          <Text style={[styles.primaryName, names.isRTLLanguage && styles.rtlText]} numberOfLines={2}>{names.primary}</Text>
-          <Text style={[styles.secondaryName, names.isRTLLanguage && styles.rtlText]} numberOfLines={1}>{names.secondary}</Text>
+          <Text
+            style={[styles.primaryName, names.isRTLLanguage && styles.rtlText]}
+            numberOfLines={1}
+          >
+            {names.primary}
+          </Text>
+          <Text
+            style={[styles.secondaryName, names.isRTLLanguage && styles.rtlText]}
+            numberOfLines={1}
+          >
+            {names.secondary}
+          </Text>
         </View>
-      </View>
-    </TouchableOpacity>
+
+        {/* Arrow */}
+        <Ionicons name="chevron-forward" size={moderateScale(20)} color="#9CA3AF" />
+      </TouchableOpacity>
+
+      {showDivider && <View style={styles.divider} />}
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  card: { borderRadius: 20, elevation: 8, flex: 1, overflow: 'hidden', shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.08, shadowRadius: 16, width: '100%' },
-  emojiContainer: { alignItems: 'center', height: 70, justifyContent: 'center', marginRight: 20, width: 70 },
-  emojiIcon: { fontSize: 50 },
-  primaryName: { color: '#111827', fontSize: 24, fontWeight: '900', lineHeight: 30, marginBottom: 4, textAlign: 'left' },
-  rtlText: { textAlign: 'right', writingDirection: 'rtl' },
-  secondaryName: { color: '#9CA3AF', fontSize: 14, fontWeight: '600', lineHeight: 18, textAlign: 'left' },
-  textContainer: { alignItems: 'flex-start', flex: 1, justifyContent: 'center' },
-  whiteContainer: { alignItems: 'center', backgroundColor: '#FFFFFF', borderColor: '#E5E7EB', borderRadius: 20, borderWidth: 1, flex: 1, flexDirection: 'row', paddingHorizontal: 20, paddingVertical: 16 }
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: verticalScale(14),
+    paddingHorizontal: scale(4),
+    gap: scale(14),
+  },
+
+  emojiContainer: {
+    width: scale(48),
+    height: scale(48),
+    borderRadius: scale(12),
+    backgroundColor: '#F3F4F6',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  emoji: {
+    fontSize: moderateScale(26),
+  },
+
+  textContainer: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+
+  primaryName: {
+    color: '#1A1A1A',
+    fontSize: moderateScale(16),
+    fontWeight: '600',
+    marginBottom: verticalScale(2),
+  },
+
+  secondaryName: {
+    color: '#6B7280',
+    fontSize: moderateScale(13),
+    fontWeight: '400',
+  },
+
+  rtlText: {
+    textAlign: 'right',
+    writingDirection: 'rtl',
+  },
+
+  divider: {
+    height: 1,
+    backgroundColor: '#E5E7EB',
+    marginLeft: scale(66), // after emoji
+  },
 });

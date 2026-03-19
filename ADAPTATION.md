@@ -186,18 +186,18 @@
 
 | Этап | Описание | Статус |
 |------|----------|--------|
-| 1 | Цвета и шрифты | ⬜ |
-| 2 | MainHub | ⬜ |
-| 3 | Phrasebook — категории | ⬜ |
-| 4 | Phrasebook — фразы | ⬜ |
-| 5 | Translate | ⬜ |
-| 6 | Conversation | ⬜ |
-| 7 | AI Chat | ⬜ |
-| 8 | Settings | ⬜ |
-| 9 | Onboarding | ⬜ |
-| 10 | Language Selection | ⬜ |
-| 11 | Visual Translator | ⬜ |
-| 12 | Voice Translator | ⬜ |
-| 13 | Favorites | ⬜ |
-| 14 | Search | ⬜ |
-| 15 | Statistics | ⬜ |
+| 1 | Цвета и шрифты | ✅ |
+| 2 | MainHub | ✅ |
+| 3 | Phrasebook — категории | ✅ |
+| 4 | Phrasebook — фразы | ✅ |
+| 5 | Translate | ✅ |
+| 6 | Conversation | ⏭️ (нет экрана) |
+| 7 | AI Chat | ✅ |
+| 8 | Settings | ✅ |
+| 9 | Onboarding | ✅ |
+| 10 | Language Selection | ✅ |
+| 11 | Visual Translator | ✅ |
+| 12 | Voice Translator | ✅ |
+| 13 | Favorites | ✅ |
+| 14 | Search | ✅ |
+| 15 | Statistics | ✅ |

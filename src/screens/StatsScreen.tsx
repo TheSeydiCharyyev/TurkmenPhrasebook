@@ -1,4 +1,4 @@
-// src/screens/StatsScreen.tsx
+// src/screens/StatsScreen.tsx — Lingify style
 import React, { useMemo, useCallback, useState } from 'react';
 import {
   View,
@@ -7,11 +7,12 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
+  StatusBar,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
-import { Colors } from '../constants/Colors';
 import { usePhrases } from '../hooks/usePhrases';
 import { categories } from '../data/categories';
 import { useHistory } from '../hooks/useHistory';
@@ -21,60 +22,58 @@ import { SimpleBarChart, SimpleLineChart } from '../components/SimpleCharts';
 import ErrorBoundary from '../components/ErrorBoundary';
 import { scale, verticalScale, moderateScale, useResponsive } from '../utils/ResponsiveUtils';
 
-// Мемоизированные компоненты для производительности
-const StatCard = React.memo<{
+// Stat row — clean list item
+const StatRow = React.memo<{
   icon: string;
-  iconColor: string;
   title: string;
   value: string;
   subtitle?: string;
   onPress?: () => void;
-}>(({ icon, iconColor, title, value, subtitle, onPress }) => (
-  <TouchableOpacity
-    style={styles.statCard}
-    onPress={onPress}
-    disabled={!onPress}
-    activeOpacity={onPress ? 0.7 : 1}
-  >
-    <View style={styles.statCardLeft}>
-      <View style={[styles.statIcon, { backgroundColor: iconColor + '20' }]}>
-        <Ionicons name={icon as any} size={24} color={iconColor} />
+  showDivider?: boolean;
+}>(({ icon, title, value, subtitle, onPress, showDivider = true }) => (
+  <>
+    <TouchableOpacity
+      style={styles.statRow}
+      onPress={onPress}
+      disabled={!onPress}
+      activeOpacity={onPress ? 0.6 : 1}
+    >
+      <View style={styles.statIconCircle}>
+        <Ionicons name={icon as any} size={moderateScale(20)} color="#2D8CFF" />
       </View>
-      <View style={styles.statText}>
+      <View style={styles.statInfo}>
         <Text style={styles.statTitle}>{title}</Text>
-        <Text style={styles.statValue}>{value}</Text>
         {subtitle && <Text style={styles.statSubtitle}>{subtitle}</Text>}
       </View>
-    </View>
-    {onPress && (
-      <Ionicons name="chevron-forward" size={20} color={Colors.textLight} />
-    )}
-  </TouchableOpacity>
+      <Text style={styles.statValue}>{value}</Text>
+      {onPress && <Ionicons name="chevron-forward" size={moderateScale(18)} color="#9CA3AF" />}
+    </TouchableOpacity>
+    {showDivider && <View style={styles.divider} />}
+  </>
 ));
 
 const SectionTitle = React.memo<{ title: string; icon: string }>(({ title, icon }) => (
   <View style={styles.sectionHeader}>
-    <Ionicons name={icon as any} size={24} color={Colors.primary} />
+    <Ionicons name={icon as any} size={moderateScale(20)} color="#2D8CFF" />
     <Text style={styles.sectionTitle}>{title}</Text>
   </View>
 ));
 
 const ProgressBar = React.memo<{
-  progress: number; // 0-1
-  color: string;
-  backgroundColor?: string;
+  progress: number;
+  color?: string;
   height?: number;
-}>(({ progress, color, backgroundColor = Colors.backgroundLight, height = 8 }) => (
-  <View style={[styles.progressBarBackground, { backgroundColor, height }]}>
-    <View 
+}>(({ progress, color = '#2D8CFF', height = 6 }) => (
+  <View style={[styles.progressBg, { height }]}>
+    <View
       style={[
-        styles.progressBarFill, 
-        { 
-          backgroundColor: color, 
+        styles.progressFill,
+        {
+          backgroundColor: color,
           width: `${Math.max(0, Math.min(100, progress * 100))}%`,
-          height 
-        }
-      ]} 
+          height,
+        },
+      ]}
     />
   </View>
 ));
@@ -82,11 +81,12 @@ const ProgressBar = React.memo<{
 interface CategoryProgressProps {
   category: any;
   totalPhrasesInCategory: number;
+  isLast: boolean;
 }
 
-const CategoryProgressItem = React.memo<CategoryProgressProps>(({ category, totalPhrasesInCategory }) => {
+const CategoryProgressItem = React.memo<CategoryProgressProps>(({ category, totalPhrasesInCategory, isLast }) => {
   const { config } = useAppLanguage();
-  
+
   const categoryName = useMemo(() => {
     switch (config.mode) {
       case 'tk': return category.category.nameTk;
@@ -98,36 +98,32 @@ const CategoryProgressItem = React.memo<CategoryProgressProps>(({ category, tota
   const progress = totalPhrasesInCategory > 0 ? category.phrasesStudied / totalPhrasesInCategory : 0;
 
   return (
-    <View style={styles.categoryProgressItem}>
-      <View style={styles.categoryProgressHeader}>
-        <View style={styles.categoryProgressLeft}>
-          <Text style={styles.categoryIcon}>{category.category.icon}</Text>
-          <Text style={styles.categoryName}>{categoryName}</Text>
+    <>
+      <View style={styles.categoryItem}>
+        <View style={styles.categoryTop}>
+          <View style={styles.categoryLeft}>
+            <Text style={styles.categoryEmoji}>{category.category.icon}</Text>
+            <Text style={styles.categoryName}>{categoryName}</Text>
+          </View>
+          <Text style={styles.categoryCount}>
+            {category.phrasesStudied}/{totalPhrasesInCategory}
+          </Text>
         </View>
-        <Text style={styles.categoryProgressText}>
-          {category.phrasesStudied}/{totalPhrasesInCategory}
+        <ProgressBar progress={progress} />
+        <Text style={styles.categoryMeta}>
+          {category.totalViews} {config.mode === 'tk' ? 'görkeziş' : config.mode === 'zh' ? '次查看' : 'просмотров'}
         </Text>
       </View>
-      <ProgressBar 
-        progress={progress} 
-        color={category.category.color || Colors.primary}
-      />
-      <Text style={styles.categoryStats}>
-        {category.totalViews} {config.mode === 'tk' ? 'görkeziş' : config.mode === 'zh' ? '次查看' : 'просмотров'}
-        {category.averageTime > 0 && (
-          <Text style={styles.categoryTime}>
-            {' • '}{category.averageTime}s {config.mode === 'tk' ? 'orta' : config.mode === 'zh' ? '平均' : 'в среднем'}
-          </Text>
-        )}
-      </Text>
-    </View>
+      {!isLast && <View style={styles.divider} />}
+    </>
   );
 });
 
 export default function StatsScreen() {
+  const navigation = useNavigation<any>();
   const [selectedPeriod, setSelectedPeriod] = useState<'week' | 'month'>('week');
   const { width, scale: scaleResp } = useResponsive();
-  const chartWidth = width - scaleResp(40);
+  const chartWidth = width - scaleResp(80);
 
   const {
     stats,
@@ -136,18 +132,15 @@ export default function StatsScreen() {
     getLearningTrends,
     setDailyGoal,
     currentSession,
-    clearHistory
   } = useHistory();
-  const { config, getTexts } = useAppLanguage();
-  const texts = getTexts();
+  const { config } = useAppLanguage();
   const { phrases } = usePhrases();
 
-  // Мемоизированные вычисления
   const categoryStats = useMemo(() => {
-    const stats = getCategoryStats(categories);
-    return stats.map(stat => ({
+    const s = getCategoryStats(categories);
+    return s.map(stat => ({
       ...stat,
-      totalPhrasesInCategory: phrases.filter(p => p.categoryId === stat.category.id).length
+      totalPhrasesInCategory: phrases.filter(p => p.categoryId === stat.category.id).length,
     }));
   }, [getCategoryStats]);
 
@@ -158,10 +151,7 @@ export default function StatsScreen() {
       day: index + 1,
       phrases: day.phrasesStudied,
       time: day.timeSpent,
-      date: new Date(day.date).toLocaleDateString('ru-RU', { 
-        weekday: 'short', 
-        day: 'numeric' 
-      }),
+      date: new Date(day.date).toLocaleDateString('ru-RU', { weekday: 'short', day: 'numeric' }),
     }));
   }, [learningTrends]);
 
@@ -172,53 +162,30 @@ export default function StatsScreen() {
       .slice(0, 5);
   }, [categoryStats]);
 
-  // Обработчики событий
-// Обработчики событий
   const handleDailyGoalPress = useCallback(() => {
-    const currentGoal = stats.dailyGoal.phrasesPerDay;
     const options = [5, 10, 15, 20, 25];
-    
     Alert.alert(
       config.mode === 'tk' ? 'Gündelik maksat' : config.mode === 'zh' ? '每日目标' : 'Дневная цель',
-      config.mode === 'tk' ? 'Günde näçe sözlem öwrenmek isleýärsiňiz?' : 
-      config.mode === 'zh' ? '您每天想学习多少个短语？' : 
+      config.mode === 'tk' ? 'Günde näçe sözlem öwrenmek isleýärsiňiz?' :
+      config.mode === 'zh' ? '您每天想学习多少个短语？' :
       'Сколько фраз вы хотите изучать в день?',
       [
         ...options.map(goal => ({
           text: `${goal} ${config.mode === 'tk' ? 'sözlem' : config.mode === 'zh' ? '短语' : 'фраз'}`,
           onPress: () => setDailyGoal(goal),
-          style: goal === currentGoal ? 'default' as const : undefined,
         })),
-        { 
-          text: config.mode === 'tk' ? 'Ýatyr' : config.mode === 'zh' ? '取消' : 'Отмена',
-          style: 'cancel' as const
-        }
+        { text: config.mode === 'tk' ? 'Ýatyr' : config.mode === 'zh' ? '取消' : 'Отмена', style: 'cancel' as const },
       ]
     );
   }, [stats.dailyGoal.phrasesPerDay, config.mode, setDailyGoal]);
 
-  const handleSessionInfo = useCallback(() => {
-    if (!currentSession) return;
-    
-    const sessionTime = Math.round((Date.now() - currentSession.startTime) / 1000 / 60);
-    Alert.alert(
-      config.mode === 'tk' ? 'Häzirki sessiýa' : config.mode === 'zh' ? '当前学习' : 'Текущая сессия',
-      config.mode === 'tk' ? 
-        `Başlanan: ${sessionTime} minut öň\nÖwrenilen: ${currentSession.phrasesCount} sözlem\nKategoriýa: ${currentSession.categoriesUsed.length}` :
-      config.mode === 'zh' ?
-        `开始时间：${sessionTime} 分钟前\n学习短语：${currentSession.phrasesCount} 个\n类别数：${currentSession.categoriesUsed.length}` :
-        `Начато: ${sessionTime} минут назад\nИзучено: ${currentSession.phrasesCount} фраз\nКategorий: ${currentSession.categoriesUsed.length}`
-    );
-  }, [currentSession, config.mode]);
-
   const formatTime = useCallback((minutes: number) => {
-    if (minutes < 60) {
-      return `${minutes}${config.mode === 'tk' ? 'min' : config.mode === 'zh' ? '分' : 'мин'}`;
-    }
+    if (minutes < 60) return `${minutes}${config.mode === 'tk' ? 'min' : config.mode === 'zh' ? '分' : 'мин'}`;
     const hours = Math.floor(minutes / 60);
     const mins = minutes % 60;
     return `${hours}${config.mode === 'tk' ? 's' : config.mode === 'zh' ? '时' : 'ч'} ${mins}${config.mode === 'tk' ? 'min' : config.mode === 'zh' ? '分' : 'м'}`;
   }, [config.mode]);
+
   if (loading) {
     return (
       <SafeAreaView style={styles.container}>
@@ -242,436 +209,470 @@ export default function StatsScreen() {
             'Пока нет статистики'
           }
           message={
-            config.mode === 'tk' ? 'Sözlem öwrenip başlaň,\nbu ýerde ösüş görkezijiler peýda bolar' :
-            config.mode === 'zh' ? '开始学习短语，\n这里将显示您的进度' :
-            'Начните изучать фразы,\nздесь появится ваш прогресс'
+            config.mode === 'tk' ? 'Sözlem öwrenip başlaň' :
+            config.mode === 'zh' ? '开始学习短语' :
+            'Начните изучать фразы'
           }
         />
       </SafeAreaView>
     );
   }
 
+  const dailyProgress = Math.min(stats.todaysPhrases / stats.dailyGoal.phrasesPerDay, 1);
+
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView showsVerticalScrollIndicator={false}>
+    <View style={styles.container}>
+      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
+
+      <SafeAreaView edges={['top']} style={styles.headerArea}>
         <View style={styles.header}>
+          {navigation.canGoBack() && (
+            <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()} activeOpacity={0.7}>
+              <Ionicons name="arrow-back" size={moderateScale(24)} color="#1A1A1A" />
+            </TouchableOpacity>
+          )}
           <Text style={styles.headerTitle}>
-            {config.mode === 'tk' ? '📊 Ösüş statistikasy' :
-             config.mode === 'zh' ? '📊 学习统计' :
-             '📊 Статистика обучения'}
+            {config.mode === 'tk' ? 'Statistika' : config.mode === 'zh' ? '统计' : 'Статистика'}
           </Text>
-          <Text style={styles.headerSubtitle}>
-            {config.mode === 'tk' ? 'Öwreniş ýoluňyzy yzarlaň' :
-             config.mode === 'zh' ? '跟踪您的学习进度' :
-             'Отслеживайте ваш прогресс'}
-          </Text>
+          <View style={styles.placeholder} />
         </View>
+      </SafeAreaView>
 
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
         <ErrorBoundary>
-          <View style={styles.content}>
+          {/* Overview stats */}
+          <View style={styles.section}>
+            <SectionTitle
+              title={config.mode === 'tk' ? 'Umumy' : config.mode === 'zh' ? '总览' : 'Обзор'}
+              icon="analytics-outline"
+            />
 
-            {/* Текущая сессия */}
-            {currentSession && (
-              <View style={styles.section}>
-                <StatCard
-                  icon="play-circle"
-                  iconColor={Colors.accent}
-                  title={config.mode === 'tk' ? 'Häzirki sessiýa' : config.mode === 'zh' ? '当前学习' : 'Активная сессия'}
-                  value={`${currentSession.phrasesCount} ${config.mode === 'tk' ? 'sözlem' : config.mode === 'zh' ? '短语' : 'фраз'}`}
-                  subtitle={`${Math.round((Date.now() - currentSession.startTime) / 1000 / 60)} ${config.mode === 'tk' ? 'minut' : config.mode === 'zh' ? '分钟' : 'минут'}`}
-                  onPress={handleSessionInfo}
-                />
-              </View>
-            )}
-
-            {/* Основная статистика */}
-            <View style={styles.section}>
-              <SectionTitle 
-                title={config.mode === 'tk' ? 'Umumy maglumatlar' : config.mode === 'zh' ? '总体概况' : 'Общая статистика'} 
-                icon="analytics" 
+            <View style={styles.statsContainer}>
+              <StatRow
+                icon="book-outline"
+                title={config.mode === 'tk' ? 'Öwrenilen sözlemler' : config.mode === 'zh' ? '学过的短语' : 'Изучено фраз'}
+                value={`${stats.uniquePhrases}`}
+                subtitle={`/ ${phrases.length}`}
               />
-              
-              <View style={styles.statsGrid}>
-                <StatCard
-                  icon="book"
-                  iconColor={Colors.primary}
-                  title={config.mode === 'tk' ? 'Öwrenilen sözlemler' : config.mode === 'zh' ? '学过的短语' : 'Изученные фразы'}
-                  value={stats.uniquePhrases.toString()}
-                  subtitle={`${phrases.length} ${config.mode === 'tk' ? 'sanydan' : config.mode === 'zh' ? '个中的' : 'из'} ${phrases.length}`}
-                />
-
-                <StatCard
-                  icon="eye"
-                  iconColor={Colors.accent}
-                  title={config.mode === 'tk' ? 'Jemi görkezişler' : config.mode === 'zh' ? '总查看次数' : 'Всего просмотров'}
-                  value={stats.totalViews.toString()}
-                  subtitle={`${(stats.totalViews / Math.max(stats.uniquePhrases, 1)).toFixed(1)} ${config.mode === 'tk' ? 'orta' : config.mode === 'zh' ? '平均' : 'в среднем'}`}
-                />
-
-                <StatCard
-                  icon="time"
-                  iconColor={Colors.warning}
-                  title={config.mode === 'tk' ? 'Öwreniş wagty' : config.mode === 'zh' ? '学习时间' : 'Время изучения'}
-                  value={formatTime(stats.totalStudyTime)}
-                  subtitle={`${stats.sessionsCount} ${config.mode === 'tk' ? 'sessiýa' : config.mode === 'zh' ? '次学习' : 'сессий'}`}
-                />
-
-                <StatCard
-                  icon="flame"
-                  iconColor={Colors.error}
-                  title={config.mode === 'tk' ? 'Dowamly günler' : config.mode === 'zh' ? '连续天数' : 'Стрик дней'}
-                  value={stats.streakDays.toString()}
-                  subtitle={`${config.mode === 'tk' ? 'Iň gowy' : config.mode === 'zh' ? '最佳' : 'Лучший'}: ${stats.bestStreakDays}`}
-                />
-              </View>
-            </View>
-
-            {/* Дневная цель */}
-            <View style={styles.section}>
-              <SectionTitle 
-                title={config.mode === 'tk' ? 'Gündelik maksat' : config.mode === 'zh' ? '每日目标' : 'Дневная цель'} 
-                icon="target" 
+              <StatRow
+                icon="eye-outline"
+                title={config.mode === 'tk' ? 'Jemi görkezişler' : config.mode === 'zh' ? '总查看' : 'Просмотров'}
+                value={stats.totalViews.toString()}
               />
-              
-              <StatCard
-                icon="checkmark-circle"
-                iconColor={stats.dailyGoal.achieved ? Colors.success : Colors.textLight}
-                title={`${stats.dailyGoal.phrasesPerDay} ${config.mode === 'tk' ? 'sözlem günde' : config.mode === 'zh' ? '短语/天' : 'фраз в день'}`}
-                value={`${stats.todaysPhrases}/${stats.dailyGoal.phrasesPerDay}`}
-                subtitle={
-                  stats.dailyGoal.achieved 
-                    ? (config.mode === 'tk' ? '✅ Şu gün üstünlikli!' : config.mode === 'zh' ? '✅ 今日已完成！' : '✅ Цель на сегодня достигнута!')
-                    : (config.mode === 'tk' ? 'Henizem maksadyňyza ýetmediň' : config.mode === 'zh' ? '还需努力达成目标' : 'Еще немного до цели')
-                }
-                onPress={handleDailyGoalPress}
+              <StatRow
+                icon="time-outline"
+                title={config.mode === 'tk' ? 'Öwreniş wagty' : config.mode === 'zh' ? '学习时间' : 'Время'}
+                value={formatTime(stats.totalStudyTime)}
+                subtitle={`${stats.sessionsCount} ${config.mode === 'tk' ? 'sessiýa' : config.mode === 'zh' ? '次' : 'сессий'}`}
               />
-
-              <ProgressBar 
-                progress={Math.min(stats.todaysPhrases / stats.dailyGoal.phrasesPerDay, 1)}
-                color={stats.dailyGoal.achieved ? Colors.success : Colors.primary}
-                height={12}
+              <StatRow
+                icon="flame-outline"
+                title={config.mode === 'tk' ? 'Dowamly günler' : config.mode === 'zh' ? '连续天数' : 'Стрик'}
+                value={stats.streakDays.toString()}
+                subtitle={`${config.mode === 'tk' ? 'Iň gowy' : config.mode === 'zh' ? '最佳' : 'Лучший'}: ${stats.bestStreakDays}`}
+                showDivider={false}
               />
             </View>
+          </View>
 
-            {/* График активности за неделю */}
-            <View style={styles.section}>
-              <SectionTitle 
-                title={config.mode === 'tk' ? '7 günüň içindäki işjeňlik' : config.mode === 'zh' ? '近7天活动' : 'Активность за 7 дней'} 
-                icon="bar-chart" 
-              />
-              
-              <View style={styles.chartContainer}>
-                <SimpleBarChart
-                  data={chartData}
-                  width={chartWidth}
-                  height={200}
-                />
-              </View>
-            </View>
+          {/* Daily goal */}
+          <View style={styles.section}>
+            <SectionTitle
+              title={config.mode === 'tk' ? 'Gündelik maksat' : config.mode === 'zh' ? '每日目标' : 'Дневная цель'}
+              icon="flag-outline"
+            />
 
-            {/* Прогресс по категориям */}
-            <View style={styles.section}>
-              <SectionTitle 
-                title={config.mode === 'tk' ? 'Kategoriýalar boýunça ösüş' : config.mode === 'zh' ? '各类别进度' : 'Прогресс по категориям'} 
-                icon="grid" 
-              />
-              
-              {topCategories.length > 0 ? (
-                topCategories.map((category) => (
-                  <CategoryProgressItem
-                    key={category.category.id}
-                    category={category}
-                    totalPhrasesInCategory={phrases.filter(p => p.categoryId === category.category.id).length}
-                  />
-                ))
-              ) : (
-                <View style={styles.emptyCategories}>
-                  <Text style={styles.emptyCategoriesText}>
-                    {config.mode === 'tk' ? 'Heniz kategoriýa öwrenilmedi' :
-                     config.mode === 'zh' ? '还没有学习任何类别' :
-                     'Еще не изучено ни одной категории'}
+            <View style={styles.goalContainer}>
+              <View style={styles.goalHeader}>
+                <Text style={styles.goalText}>
+                  {stats.todaysPhrases}/{stats.dailyGoal.phrasesPerDay}{' '}
+                  {config.mode === 'tk' ? 'sözlem' : config.mode === 'zh' ? '短语' : 'фраз'}
+                </Text>
+                <TouchableOpacity onPress={handleDailyGoalPress}>
+                  <Text style={styles.goalChangeText}>
+                    {config.mode === 'tk' ? 'Üýtget' : config.mode === 'zh' ? '修改' : 'Изменить'}
                   </Text>
-                </View>
+                </TouchableOpacity>
+              </View>
+              <ProgressBar
+                progress={dailyProgress}
+                color={stats.dailyGoal.achieved ? '#10B981' : '#2D8CFF'}
+                height={8}
+              />
+              {stats.dailyGoal.achieved && (
+                <Text style={styles.goalAchieved}>
+                  {config.mode === 'tk' ? 'Maksat ýerine ýetirildi!' : config.mode === 'zh' ? '目标已达成！' : 'Цель достигнута!'}
+                </Text>
               )}
             </View>
+          </View>
 
-            {/* Недельная статистика */}
-            {stats.weeklyStats.length > 0 && (
-              <View style={styles.section}>
-                <SectionTitle 
-                  title={config.mode === 'tk' ? 'Hepdelik ösüş' : config.mode === 'zh' ? '每周进度' : 'Недельный прогресс'} 
-                  icon="calendar" 
-                />
-                
-                <View style={styles.chartContainer}>
-                  <SimpleLineChart
-                    data={stats.weeklyStats.map((week, index) => ({
-                      week: `${config.mode === 'tk' ? 'H' : config.mode === 'zh' ? '周' : 'Н'}${index + 1}`,
-                      phrases: week.phrasesStudied,
-                      time: week.timeSpent,
-                    }))}
-                    width={chartWidth}
-                    height={180}
-                  />
-                </View>
-              </View>
-            )}
+          {/* Weekly chart */}
+          <View style={styles.section}>
+            <SectionTitle
+              title={config.mode === 'tk' ? '7 günüň işjeňligi' : config.mode === 'zh' ? '近7天' : 'За 7 дней'}
+              icon="bar-chart-outline"
+            />
+            <View style={styles.chartBox}>
+              <SimpleBarChart data={chartData} width={chartWidth} height={180} />
+            </View>
+          </View>
 
-            {/* Достижения */}
+          {/* Category progress */}
+          {topCategories.length > 0 && (
             <View style={styles.section}>
-              <SectionTitle 
-                title={config.mode === 'tk' ? 'Üstünlikler' : config.mode === 'zh' ? '成就' : 'Достижения'} 
-                icon="trophy" 
+              <SectionTitle
+                title={config.mode === 'tk' ? 'Kategoriýalar' : config.mode === 'zh' ? '类别进度' : 'По категориям'}
+                icon="grid-outline"
               />
-              
-              <View style={styles.achievementsContainer}>
-                {/* Стрик достижения */}
-                <View style={[
-                  styles.achievementCard,
-                  stats.streakDays >= 7 && styles.achievementCardActive
-                ]}>
-                  <Ionicons 
-                    name="flame" 
-                    size={24} 
-                    color={stats.streakDays >= 7 ? Colors.error : Colors.textLight} 
+              <View style={styles.categoryContainer}>
+                {topCategories.map((cat, i) => (
+                  <CategoryProgressItem
+                    key={cat.category.id}
+                    category={cat}
+                    totalPhrasesInCategory={phrases.filter(p => p.categoryId === cat.category.id).length}
+                    isLast={i === topCategories.length - 1}
                   />
-                  <Text style={styles.achievementTitle}>
-                    {config.mode === 'tk' ? '7 gün yzygiderli' : config.mode === 'zh' ? '连续7天' : '7 дней подряд'}
-                  </Text>
-                  <Text style={styles.achievementStatus}>
-                    {stats.streakDays >= 7 ? '✅' : `${stats.streakDays}/7`}
-                  </Text>
-                </View>
-
-                {/* Цель по фразам */}
-                <View style={[
-                  styles.achievementCard,
-                  stats.uniquePhrases >= 50 && styles.achievementCardActive
-                ]}>
-                  <Ionicons 
-                    name="library" 
-                    size={24} 
-                    color={stats.uniquePhrases >= 50 ? Colors.primary : Colors.textLight} 
-                  />
-                  <Text style={styles.achievementTitle}>
-                    {config.mode === 'tk' ? '50 sözlem' : config.mode === 'zh' ? '50个短语' : '50 фраз'}
-                  </Text>
-                  <Text style={styles.achievementStatus}>
-                    {stats.uniquePhrases >= 50 ? '✅' : `${stats.uniquePhrases}/50`}
-                  </Text>
-                </View>
-
-                {/* Все категории */}
-                <View style={[
-                  styles.achievementCard,
-                  Object.keys(stats.categoriesProgress).length >= 10 && styles.achievementCardActive
-                ]}>
-                  <Ionicons 
-                    name="apps" 
-                    size={24} 
-                    color={Object.keys(stats.categoriesProgress).length >= 10 ? Colors.accent : Colors.textLight} 
-                  />
-                  <Text style={styles.achievementTitle}>
-                    {config.mode === 'tk' ? '10 kategoriýa' : config.mode === 'zh' ? '10个类别' : '10 категорий'}
-                  </Text>
-                  <Text style={styles.achievementStatus}>
-                    {Object.keys(stats.categoriesProgress).length >= 10 ? '✅' : `${Object.keys(stats.categoriesProgress).length}/10`}
-                  </Text>
-                </View>
+                ))}
               </View>
             </View>
+          )}
 
+          {/* Weekly stats chart */}
+          {stats.weeklyStats.length > 0 && (
+            <View style={styles.section}>
+              <SectionTitle
+                title={config.mode === 'tk' ? 'Hepdelik ösüş' : config.mode === 'zh' ? '每周' : 'По неделям'}
+                icon="calendar-outline"
+              />
+              <View style={styles.chartBox}>
+                <SimpleLineChart
+                  data={stats.weeklyStats.map((week, index) => ({
+                    week: `${config.mode === 'tk' ? 'H' : config.mode === 'zh' ? '周' : 'Н'}${index + 1}`,
+                    phrases: week.phrasesStudied,
+                    time: week.timeSpent,
+                  }))}
+                  width={chartWidth}
+                  height={160}
+                />
+              </View>
+            </View>
+          )}
+
+          {/* Achievements */}
+          <View style={styles.section}>
+            <SectionTitle
+              title={config.mode === 'tk' ? 'Üstünlikler' : config.mode === 'zh' ? '成就' : 'Достижения'}
+              icon="trophy-outline"
+            />
+            <View style={styles.achievementsContainer}>
+              {[
+                {
+                  icon: 'flame-outline' as const,
+                  title: config.mode === 'tk' ? '7 gün yzygiderli' : config.mode === 'zh' ? '连续7天' : '7 дней подряд',
+                  current: stats.streakDays,
+                  target: 7,
+                },
+                {
+                  icon: 'library-outline' as const,
+                  title: config.mode === 'tk' ? '50 sözlem' : config.mode === 'zh' ? '50个短语' : '50 фраз',
+                  current: stats.uniquePhrases,
+                  target: 50,
+                },
+                {
+                  icon: 'apps-outline' as const,
+                  title: config.mode === 'tk' ? '10 kategoriýa' : config.mode === 'zh' ? '10个类别' : '10 категорий',
+                  current: Object.keys(stats.categoriesProgress).length,
+                  target: 10,
+                },
+              ].map((ach, i, arr) => {
+                const done = ach.current >= ach.target;
+                return (
+                  <React.Fragment key={i}>
+                    <View style={styles.achievementRow}>
+                      <View style={[styles.achievementIcon, done && styles.achievementIconDone]}>
+                        <Ionicons name={ach.icon} size={moderateScale(20)} color={done ? '#10B981' : '#9CA3AF'} />
+                      </View>
+                      <Text style={styles.achievementTitle}>{ach.title}</Text>
+                      <Text style={[styles.achievementStatus, done && styles.achievementStatusDone]}>
+                        {done ? '✓' : `${ach.current}/${ach.target}`}
+                      </Text>
+                    </View>
+                    {i < arr.length - 1 && <View style={styles.divider} />}
+                  </React.Fragment>
+                );
+              })}
+            </View>
           </View>
         </ErrorBoundary>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  achievementCard: {
-    alignItems: 'center',
-    backgroundColor: Colors.cardBackground,
-    borderColor: Colors.cardBorder,
-    borderRadius: moderateScale(12),
-    borderWidth: 1,
-    flexDirection: 'row',
-    padding: scale(16),
-  },
-  achievementCardActive: {
-    backgroundColor: Colors.success + '10',
-    borderColor: Colors.success,
-  },
-  achievementStatus: {
-    color: Colors.primary,
-    fontSize: moderateScale(16),
-    fontWeight: 'bold',
-  },
-  achievementTitle: {
-    color: Colors.text,
+  container: {
+    backgroundColor: '#FFFFFF',
     flex: 1,
+  },
+
+  headerArea: {
+    backgroundColor: '#FFFFFF',
+    borderBottomColor: '#E5E7EB',
+    borderBottomWidth: 1,
+  },
+
+  header: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: scale(16),
+    paddingVertical: verticalScale(12),
+  },
+
+  backButton: {
+    alignItems: 'center',
+    height: scale(40),
+    justifyContent: 'center',
+    width: scale(40),
+  },
+
+  headerTitle: {
+    color: '#1A1A1A',
+    flex: 1,
+    fontSize: moderateScale(18),
+    fontWeight: '600',
+    textAlign: 'center',
+  },
+
+  placeholder: {
+    width: scale(40),
+  },
+
+  scrollContent: {
+    paddingBottom: verticalScale(40),
+  },
+
+  // Sections
+  section: {
+    paddingHorizontal: scale(20),
+    paddingTop: verticalScale(24),
+  },
+
+  sectionHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: scale(8),
+    marginBottom: verticalScale(14),
+  },
+
+  sectionTitle: {
+    color: '#1A1A1A',
+    fontSize: moderateScale(16),
+    fontWeight: '600',
+  },
+
+  // Stats rows
+  statsContainer: {
+    borderColor: '#E5E7EB',
+    borderRadius: scale(12),
+    borderWidth: 1,
+    overflow: 'hidden',
+  },
+
+  statRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: scale(12),
+    paddingHorizontal: scale(16),
+    paddingVertical: verticalScale(14),
+  },
+
+  statIconCircle: {
+    alignItems: 'center',
+    backgroundColor: '#F0F7FF',
+    borderRadius: scale(10),
+    height: scale(40),
+    justifyContent: 'center',
+    width: scale(40),
+  },
+
+  statInfo: {
+    flex: 1,
+  },
+
+  statTitle: {
+    color: '#1A1A1A',
     fontSize: moderateScale(14),
     fontWeight: '500',
-    marginLeft: scale(12),
   },
-  achievementsContainer: {
-    gap: verticalScale(12),
+
+  statSubtitle: {
+    color: '#9CA3AF',
+    fontSize: moderateScale(12),
+    marginTop: verticalScale(1),
   },
-  categoryIcon: {
-    fontSize: moderateScale(20),
-    marginRight: scale(12),
+
+  statValue: {
+    color: '#2D8CFF',
+    fontSize: moderateScale(18),
+    fontWeight: '700',
   },
-  categoryName: {
-    color: Colors.text,
-    flex: 1,
-    fontSize: moderateScale(16),
+
+  divider: {
+    backgroundColor: '#E5E7EB',
+    height: 1,
+    marginLeft: scale(68),
+  },
+
+  // Daily goal
+  goalContainer: {
+    borderColor: '#E5E7EB',
+    borderRadius: scale(12),
+    borderWidth: 1,
+    padding: scale(16),
+  },
+
+  goalHeader: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: verticalScale(10),
+  },
+
+  goalText: {
+    color: '#1A1A1A',
+    fontSize: moderateScale(15),
+    fontWeight: '600',
+  },
+
+  goalChangeText: {
+    color: '#2D8CFF',
+    fontSize: moderateScale(14),
     fontWeight: '500',
   },
-  categoryProgressHeader: {
+
+  goalAchieved: {
+    color: '#10B981',
+    fontSize: moderateScale(13),
+    fontWeight: '600',
+    marginTop: verticalScale(8),
+  },
+
+  // Progress bar
+  progressBg: {
+    backgroundColor: '#F3F4F6',
+    borderRadius: scale(4),
+    overflow: 'hidden',
+  },
+
+  progressFill: {
+    borderRadius: scale(4),
+  },
+
+  // Chart
+  chartBox: {
+    alignItems: 'center',
+    borderColor: '#E5E7EB',
+    borderRadius: scale(12),
+    borderWidth: 1,
+    padding: scale(16),
+  },
+
+  // Categories
+  categoryContainer: {
+    borderColor: '#E5E7EB',
+    borderRadius: scale(12),
+    borderWidth: 1,
+    overflow: 'hidden',
+    paddingHorizontal: scale(16),
+  },
+
+  categoryItem: {
+    paddingVertical: verticalScale(14),
+  },
+
+  categoryTop: {
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: verticalScale(8),
   },
-  categoryProgressItem: {
-    backgroundColor: Colors.cardBackground,
-    borderRadius: moderateScale(12),
-    elevation: 1,
-    marginBottom: verticalScale(12),
-    padding: scale(16),
-    shadowColor: Colors.cardShadow,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.05,
-    shadowRadius: 2,
-  },
-  categoryProgressLeft: {
+
+  categoryLeft: {
     alignItems: 'center',
     flexDirection: 'row',
     flex: 1,
+    gap: scale(10),
   },
-  categoryProgressText: {
-    color: Colors.primary,
+
+  categoryEmoji: {
+    fontSize: moderateScale(20),
+  },
+
+  categoryName: {
+    color: '#1A1A1A',
+    fontSize: moderateScale(15),
+    fontWeight: '500',
+  },
+
+  categoryCount: {
+    color: '#2D8CFF',
     fontSize: moderateScale(14),
     fontWeight: '600',
   },
-  categoryStats: {
-    color: Colors.textLight,
+
+  categoryMeta: {
+    color: '#9CA3AF',
     fontSize: moderateScale(12),
     marginTop: verticalScale(4),
   },
-  categoryTime: {
-    color: Colors.textLight,
-  },
-  chartContainer: {
-    alignItems: 'center',
-    backgroundColor: Colors.cardBackground,
-    borderRadius: moderateScale(16),
-    elevation: 2,
-    padding: scale(20),
-    shadowColor: Colors.cardShadow,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  container: {
-    backgroundColor: Colors.background,
-    flex: 1,
-  },
-  content: {
-    paddingBottom: verticalScale(20),
-    paddingHorizontal: scale(20),
-  },
-  emptyCategories: {
-    alignItems: 'center',
-    padding: scale(40),
-  },
-  emptyCategoriesText: {
-    color: Colors.textLight,
-    fontSize: moderateScale(16),
-    textAlign: 'center',
-  },
-  header: {
-    padding: scale(20),
-    paddingBottom: verticalScale(10),
-  },
-  headerSubtitle: {
-    color: Colors.textLight,
-    fontSize: moderateScale(16),
-  },
-  headerTitle: {
-    color: Colors.text,
-    fontSize: moderateScale(28),
-    fontWeight: 'bold',
-    marginBottom: verticalScale(5),
-  },
-  progressBarBackground: {
-    backgroundColor: Colors.backgroundLight,
-    borderRadius: moderateScale(4),
-    marginTop: verticalScale(12),
+
+  // Achievements
+  achievementsContainer: {
+    borderColor: '#E5E7EB',
+    borderRadius: scale(12),
+    borderWidth: 1,
     overflow: 'hidden',
   },
-  progressBarFill: {
-    borderRadius: moderateScale(4),
-  },
-  section: {
-    marginBottom: verticalScale(30),
-  },
-  sectionHeader: {
+
+  achievementRow: {
     alignItems: 'center',
     flexDirection: 'row',
-    marginBottom: verticalScale(16),
+    gap: scale(12),
+    paddingHorizontal: scale(16),
+    paddingVertical: verticalScale(14),
   },
-  sectionTitle: {
-    color: Colors.text,
-    fontSize: moderateScale(20),
-    fontWeight: '600',
-    marginLeft: scale(12),
-  },
-  statCard: {
+
+  achievementIcon: {
     alignItems: 'center',
-    backgroundColor: Colors.cardBackground,
-    borderRadius: moderateScale(16),
-    elevation: 2,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: scale(20),
-    shadowColor: Colors.cardShadow,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  statCardLeft: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    flex: 1,
-  },
-  statIcon: {
-    alignItems: 'center',
-    borderRadius: scale(24),
-    height: scale(48),
+    backgroundColor: '#F3F4F6',
+    borderRadius: scale(10),
+    height: scale(40),
     justifyContent: 'center',
-    marginRight: scale(16),
-    width: scale(48),
+    width: scale(40),
   },
-  statSubtitle: {
-    color: Colors.textLight,
-    fontSize: moderateScale(12),
+
+  achievementIconDone: {
+    backgroundColor: '#ECFDF5',
   },
-  statText: {
+
+  achievementTitle: {
+    color: '#1A1A1A',
     flex: 1,
-  },
-  statTitle: {
-    color: Colors.textLight,
     fontSize: moderateScale(14),
-    marginBottom: verticalScale(4),
+    fontWeight: '500',
   },
-  statValue: {
-    color: Colors.text,
-    fontSize: moderateScale(24),
-    fontWeight: 'bold',
-    marginBottom: verticalScale(2),
+
+  achievementStatus: {
+    color: '#9CA3AF',
+    fontSize: moderateScale(14),
+    fontWeight: '600',
   },
-  statsGrid: {
-    gap: verticalScale(12),
+
+  achievementStatusDone: {
+    color: '#10B981',
+    fontSize: moderateScale(18),
+    fontWeight: '700',
   },
 });

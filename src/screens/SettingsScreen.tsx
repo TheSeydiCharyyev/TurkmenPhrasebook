@@ -30,10 +30,10 @@ import { useSafeArea } from '../hooks/useSafeArea';
 
 // Semantic icon colors for different sections
 const SETTINGS_ICON_COLORS = {
-  language: '#00A651',     // Green - Turkmenistan
-  audio: '#3B82F6',        // Blue
-  data: '#EF4444',         // Red
-  info: '#6B7280',         // Gray
+  language: '#2D8CFF',
+  audio: '#2D8CFF',
+  data: '#2D8CFF',
+  info: '#2D8CFF',
 };
 
 type SettingsScreenNavigationProp = StackNavigationProp<RootStackParamList, 'LanguageSelection'>;
@@ -248,7 +248,7 @@ export default function SettingsScreen() {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#00A651" />
+          <ActivityIndicator size="large" color="#2D8CFF" />
           <Text style={styles.loadingText}>
             {texts.settingsLoading ?? 'Loading settings...'}
           </Text>
@@ -315,7 +315,7 @@ export default function SettingsScreen() {
                 <Switch
                   value={preferences.soundEnabled}
                   onValueChange={() => handleTogglePreference('soundEnabled')}
-                  trackColor={{ false: '#D1D5DB', true: '#00A651' }}
+                  trackColor={{ false: '#D1D5DB', true: '#2D8CFF' }}
                   thumbColor="#FFFFFF"
                 />
               }
@@ -482,7 +482,7 @@ const styles = StyleSheet.create({
     width: scale(40),
   },
   container: {
-    backgroundColor: '#F8F9FA',
+    backgroundColor: '#FFFFFF',
     flex: 1,
   },
   headerBar: {
@@ -529,21 +529,12 @@ const styles = StyleSheet.create({
   settingItem: {
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
-    borderColor: '#E5E7EB',
-    borderRadius: scale(12),
-    borderWidth: 1,
-    elevation: 1,
+    borderBottomColor: '#E5E7EB',
+    borderBottomWidth: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: verticalScale(8),
-    padding: scale(16),
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.05,
-    shadowRadius: 2,
+    paddingHorizontal: scale(4),
+    paddingVertical: verticalScale(16),
   },
   settingLeft: {
     alignItems: 'center',

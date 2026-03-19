@@ -29,6 +29,8 @@ export function useAudio() {
   const [isLoading, setIsLoading] = useState(false);
   const [currentLanguage, setCurrentLanguage] = useState<string | null>(null);
   const soundRef = useRef<Audio.Sound | null>(null);
+  const isPlayingRef = useRef(false);
+  const isLoadingRef = useRef(false);
 
   /**
    * Проверить поддерживается ли язык TTS
@@ -150,11 +152,21 @@ export function useAudio() {
    * @param audioPath - путь к MP3 (только для туркменского!)
    * @returns используемый код языка (для badge)
    */
+  const setPlayingState = useCallback((value: boolean) => {
+    isPlayingRef.current = value;
+    setIsPlaying(value);
+  }, []);
+
+  const setLoadingState = useCallback((value: boolean) => {
+    isLoadingRef.current = value;
+    setIsLoading(value);
+  }, []);
+
   const playAudio = useCallback(async (text: string, language: string, audioPath?: string): Promise<string> => {
-    if (isPlaying || isLoading) return language;
+    if (isPlayingRef.current || isLoadingRef.current) return language;
 
     try {
-      setIsLoading(true);
+      setLoadingState(true);
 
       // Останавливаем предыдущее воспроизведение
       if (soundRef.current) {
@@ -178,13 +190,13 @@ export function useAudio() {
           // Callback на завершение
           sound.setOnPlaybackStatusUpdate((status: any) => {
             if (status.isLoaded && status.didJustFinish) {
-              setIsPlaying(false);
-              setIsLoading(false);
+              setPlayingState(false);
+              setLoadingState(false);
             }
           });
 
-          setIsPlaying(true);
-          setIsLoading(false);
+          setPlayingState(true);
+          setLoadingState(false);
           setCurrentLanguage('turkmen');
           return 'turkmen';
         }
@@ -192,7 +204,7 @@ export function useAudio() {
 
       // ❌ ПРОВЕРКА: язык не поддерживается TTS
       if (!isLanguageSupported(language)) {
-        setIsLoading(false);
+        setLoadingState(false);
         showUnsupportedAlert(language);
         return language;
       }
@@ -200,8 +212,8 @@ export function useAudio() {
       // ✅ ПОДДЕРЖИВАЕМЫЕ ЯЗЫКИ - используем TTS
       const languageCode = getLanguageCode(language);
 
-      setIsPlaying(true);
-      setIsLoading(false);
+      setPlayingState(true);
+      setLoadingState(false);
       setCurrentLanguage(languageCode);
 
       await Speech.speak(text, {
@@ -209,13 +221,13 @@ export function useAudio() {
         rate: 0.85,
         pitch: 1.0,
         onDone: () => {
-          setIsPlaying(false);
+          setPlayingState(false);
         },
         onStopped: () => {
-          setIsPlaying(false);
+          setPlayingState(false);
         },
         onError: (error) => {
-          setIsPlaying(false);
+          setPlayingState(false);
           console.warn(`TTS error for ${language}:`, error);
         },
       });
@@ -224,11 +236,11 @@ export function useAudio() {
 
     } catch (error) {
       console.error('[useAudio] Playback error:', error);
-      setIsPlaying(false);
-      setIsLoading(false);
+      setPlayingState(false);
+      setLoadingState(false);
       return language;
     }
-  }, [isPlaying, isLoading, isLanguageSupported, showUnsupportedAlert]);
+  }, [isLanguageSupported, showUnsupportedAlert, setPlayingState, setLoadingState]);
 
   /**
    * Остановка воспроизведения
@@ -241,12 +253,12 @@ export function useAudio() {
         soundRef.current = null;
       }
       Speech.stop();
-      setIsPlaying(false);
-      setIsLoading(false);
+      setPlayingState(false);
+      setLoadingState(false);
     } catch (error) {
       console.warn('[useAudio] Stop error:', error);
     }
-  }, []);
+  }, [setPlayingState, setLoadingState]);
 
   return {
     isPlaying,

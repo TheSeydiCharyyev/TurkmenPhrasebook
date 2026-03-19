@@ -1,6 +1,6 @@
 /**
- * Chat Bubble Component
- * Displays a single message in the AI assistant chat
+ * Chat Bubble — Lingify style
+ * Blue bubbles = user (white text), grey bubbles = AI (black text)
  */
 
 import React from 'react';
@@ -10,7 +10,6 @@ import { scale, verticalScale, moderateScale } from '../../../utils/ResponsiveUt
 
 const ChatBubble: React.FC<ChatBubbleProps> = ({ message, isLastMessage }) => {
   const isUser = message.role === MessageRole.USER;
-  const isSystem = message.role === MessageRole.SYSTEM;
 
   return (
     <View
@@ -20,14 +19,6 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ message, isLastMessage }) => {
         isLastMessage && styles.lastMessage,
       ]}
     >
-      {/* Avatar/Icon */}
-      {!isUser && (
-        <View style={[styles.avatarContainer, styles.aiAvatar]}>
-          <Text style={styles.avatarText}>AI</Text>
-        </View>
-      )}
-
-      {/* Message Bubble */}
       <View
         style={[
           styles.bubble,
@@ -43,100 +34,78 @@ const ChatBubble: React.FC<ChatBubbleProps> = ({ message, isLastMessage }) => {
           {message.content}
         </Text>
 
-        {/* Timestamp */}
-        <Text style={styles.timestamp}>
+        <Text style={[styles.timestamp, isUser && styles.timestampUser]}>
           {new Date(message.timestamp).toLocaleTimeString('en-US', {
             hour: '2-digit',
             minute: '2-digit',
           })}
         </Text>
       </View>
-
-      {/* User Avatar */}
-      {isUser && (
-        <View style={[styles.avatarContainer, styles.userAvatar]}>
-          <Text style={styles.avatarText}>You</Text>
-        </View>
-      )}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  aiAvatar: {
-    backgroundColor: '#7C3AED', // Purple like the theme
-  },
-  assistantBubble: {
-    backgroundColor: '#F0F0F0',
-    borderBottomLeftRadius: scale(4),
-  },
-  assistantContainer: {
-    justifyContent: 'flex-start',
-  },
-  assistantText: {
-    color: '#000000',
-  },
-  avatarContainer: {
-    alignItems: 'center',
-    borderRadius: scale(16),
-    height: scale(32),
-    justifyContent: 'center',
-    marginHorizontal: scale(8),
-    width: scale(32),
-  },
-  avatarText: {
-    color: '#FFFFFF',
-    fontSize: moderateScale(11),
-    fontWeight: '700',
-    letterSpacing: 0.3,
-  },
-  bubble: {
-    borderRadius: scale(16),
-    maxWidth: '70%',
-    padding: scale(12),
-  },
   container: {
     alignItems: 'flex-end',
     flexDirection: 'row',
     marginVertical: verticalScale(4),
     paddingHorizontal: scale(16),
   },
-  lastMessage: {
-    marginBottom: verticalScale(16),
-  },
-  systemBubble: {
-    alignSelf: 'center',
-    backgroundColor: '#FFF9E6',
-    borderColor: '#FFD700',
-    borderWidth: 1,
-    maxWidth: '90%',
-  },
-  systemText: {
-    color: '#856404',
-    fontStyle: 'italic',
-  },
-  text: {
-    fontSize: moderateScale(16),
-    lineHeight: moderateScale(22),
-    marginBottom: verticalScale(4),
-  },
-  timestamp: {
-    alignSelf: 'flex-end',
-    color: 'rgba(0, 0, 0, 0.4)',
-    fontSize: moderateScale(11),
-  },
-  userAvatar: {
-    backgroundColor: '#007AFF', // Blue
-  },
-  userBubble: {
-    backgroundColor: '#007AFF',
-    borderBottomRightRadius: scale(4),
-  },
+
   userContainer: {
     justifyContent: 'flex-end',
   },
+
+  assistantContainer: {
+    justifyContent: 'flex-start',
+  },
+
+  lastMessage: {
+    marginBottom: verticalScale(16),
+  },
+
+  bubble: {
+    borderRadius: scale(16),
+    maxWidth: '80%',
+    paddingHorizontal: scale(16),
+    paddingVertical: scale(12),
+  },
+
+  // User — blue bubble, white text
+  userBubble: {
+    backgroundColor: '#2D8CFF',
+    borderBottomRightRadius: scale(4),
+  },
+
+  // AI — light grey bubble, dark text
+  assistantBubble: {
+    backgroundColor: '#F3F4F6',
+    borderBottomLeftRadius: scale(4),
+  },
+
+  text: {
+    fontSize: moderateScale(15),
+    lineHeight: moderateScale(22),
+    marginBottom: verticalScale(4),
+  },
+
   userText: {
     color: '#FFFFFF',
+  },
+
+  assistantText: {
+    color: '#1A1A1A',
+  },
+
+  timestamp: {
+    alignSelf: 'flex-end',
+    color: 'rgba(0, 0, 0, 0.35)',
+    fontSize: moderateScale(11),
+  },
+
+  timestampUser: {
+    color: 'rgba(255, 255, 255, 0.7)',
   },
 });
 

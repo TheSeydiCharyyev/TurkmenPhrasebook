@@ -5,7 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="feda7822-b850-47d2-a6f9-57881ca01eed" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ADAPTATION.md" beforeDir="false" afterPath="$PROJECT_DIR$/ADAPTATION.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CategoryCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CategoryCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/Colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/Colors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/Design.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/Design.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/Typography.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/Typography.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/ai-assistants/components/ChatBubble.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/ai-assistants/components/ChatBubble.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/ai-assistants/components/ChatScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/ai-assistants/components/ChatScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/favorites/screens/FavoritesHubScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/favorites/screens/FavoritesHubScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/text-translator/screens/TextTranslatorScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/text-translator/screens/TextTranslatorScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useAudio.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useAudio.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/AdvancedSearchScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/AdvancedSearchScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/CategoryScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/CategoryScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/ComingSoonScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/ComingSoonScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/HomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/HomeScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/LanguageSelectionScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/LanguageSelectionScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/MainHubScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/MainHubScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/OnboardingScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/OnboardingScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/SettingsScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/SettingsScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/StatsScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/StatsScreen.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +51,7 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
@@ -40,7 +61,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/seydi/TurkmenPhrasebook",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "settings.editor.selected.configurable": "AndroidSdkUpdater"
   }
 }]]></component>
   <component name="TaskManager">

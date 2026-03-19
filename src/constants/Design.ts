@@ -1,53 +1,53 @@
 // src/constants/Design.ts
-// НОВАЯ МИНИМАЛИСТИЧНАЯ ДИЗАЙН-СИСТЕМА
+// ДИЗАЙН-СИСТЕМА — стиль Lingify
 
 import { TextStyle, ViewStyle, Platform } from 'react-native';
 
 /**
- * 🎨 ЦВЕТОВАЯ ПАЛИТРА - Простая и минималистичная
+ * ЦВЕТОВАЯ ПАЛИТРА — Lingify
  */
 export const DesignColors = {
-  // Основные цвета
-  primary: '#00843D',          // Туркменский зеленый (главный цвет)
-  primaryLight: '#4CAF50',     // Светлый зеленый
-  primaryDark: '#006B2D',      // Темный зеленый
+  // Основной акцент — синий
+  primary: '#2D8CFF',
+  primaryLight: '#5AA3FF',
+  primaryDark: '#1A6FD6',
 
   // Фоновые цвета
-  background: '#FFFFFF',       // Белый
-  backgroundGray: '#F5F5F5',   // Светло-серый фон
-  backgroundDark: '#FAFAFA',   // Чуть темнее белого
+  background: '#FFFFFF',
+  backgroundGray: '#F9FAFB',
+  backgroundDark: '#F3F4F6',
 
   // Текстовые цвета
-  text: '#1F2937',             // Основной текст (темно-серый)
-  textSecondary: '#6B7280',    // Вторичный текст (серый)
-  textLight: '#9CA3AF',        // Светлый текст
-  textWhite: '#FFFFFF',        // Белый текст
+  text: '#1A1A1A',
+  textSecondary: '#6B7280',
+  textLight: '#9CA3AF',
+  textWhite: '#FFFFFF',
 
   // Границы и разделители
-  border: '#E5E7EB',           // Светлая граница
-  divider: '#F3F4F6',          // Разделитель
+  border: '#E5E7EB',
+  divider: '#E5E7EB',
 
   // Карточки
-  card: '#FFFFFF',             // Фон карточки
-  cardBorder: '#E5E7EB',       // Граница карточки
+  card: '#FFFFFF',
+  cardBorder: '#E5E7EB',
 
   // Статус-цвета
-  success: '#10B981',          // Зеленый
-  error: '#EF4444',            // Красный
-  warning: '#F59E0B',          // Оранжевый
-  info: '#3B82F6',             // Синий
+  success: '#10B981',
+  error: '#EF4444',
+  warning: '#F59E0B',
+  info: '#2D8CFF',
 
-  // Акцентные цвета для модулей (без градиентов)
-  modulePhrasebook: '#00843D',     // Зеленый
-  moduleVisual: '#6366F1',         // Индиго
-  moduleText: '#3B82F6',           // Синий
-  moduleDictionary: '#9CA3AF',     // Серый
-  moduleAI: '#8B5CF6',             // Фиолетовый
-  moduleFavorites: '#F59E0B',      // Оранжевый
+  // Акцентные цвета для модулей — один синий
+  modulePhrasebook: '#2D8CFF',
+  moduleVisual: '#2D8CFF',
+  moduleText: '#2D8CFF',
+  moduleDictionary: '#2D8CFF',
+  moduleAI: '#2D8CFF',
+  moduleFavorites: '#2D8CFF',
 } as const;
 
 /**
- * 📏 ОТСТУПЫ - Единая система 4px grid
+ * ОТСТУПЫ — 4px grid
  */
 export const Spacing = {
   xs: 4,
@@ -57,15 +57,15 @@ export const Spacing = {
   xl: 32,
   xxl: 48,
 
-  // Специфичные отступы
-  screenPadding: 16,
+  // Специфичные отступы — больше воздуха
+  screenPadding: 20,
   cardPadding: 16,
-  sectionGap: 24,
-  itemGap: 12,
+  sectionGap: 28,
+  itemGap: 16,
 } as const;
 
 /**
- * 🔤 ТИПОГРАФИКА - Простая и читаемая
+ * ТИПОГРАФИКА
  */
 export const Typography = {
   // Размеры
@@ -92,7 +92,7 @@ export const Typography = {
 } as const;
 
 /**
- * 🎨 ТЕНИ - Минимальные и деликатные
+ * ТЕНИ — минимальные (Lingify: без теней)
  */
 export const Shadows = {
   none: {
@@ -106,30 +106,30 @@ export const Shadows = {
   small: {
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.03,
+    shadowRadius: 1,
+    elevation: 0,
+  },
+
+  medium: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.05,
     shadowRadius: 2,
     elevation: 1,
   },
 
-  medium: {
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.08,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-
   large: {
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 4,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 4,
+    elevation: 2,
   },
 } as const;
 
 /**
- * 📐 РАДИУСЫ СКРУГЛЕНИЯ
+ * РАДИУСЫ СКРУГЛЕНИЯ — Lingify: 12-16px
  */
 export const BorderRadius = {
   sm: 4,
@@ -141,10 +141,10 @@ export const BorderRadius = {
 } as const;
 
 /**
- * 📦 ГОТОВЫЕ КОМПОНЕНТЫ-СТИЛИ
+ * ГОТОВЫЕ КОМПОНЕНТЫ-СТИЛИ
  */
 export const Components = {
-  // Header для всех экранов - ЕДИНЫЙ СТИЛЬ
+  // Header
   header: {
     height: 56,
     backgroundColor: DesignColors.background,
@@ -163,15 +163,15 @@ export const Components = {
     fontFamily: Typography.fontFamily,
   },
 
-  // Карточка модуля - простая без градиента
+  // Модуль — простой список без тяжёлых карточек
   moduleCard: {
     backgroundColor: DesignColors.card,
     borderRadius: BorderRadius.lg,
     borderWidth: 1,
     borderColor: DesignColors.cardBorder,
     padding: Spacing.md,
-    marginBottom: Spacing.md,
-    ...Shadows.small,
+    marginBottom: Spacing.sm,
+    ...Shadows.none,
   },
 
   moduleTitle: {
@@ -189,7 +189,7 @@ export const Components = {
     fontFamily: Typography.fontFamily,
   },
 
-  // Кнопка - простая и минималистичная
+  // Кнопка primary — синий filled
   button: {
     backgroundColor: DesignColors.primary,
     paddingVertical: Spacing.md,
@@ -197,7 +197,7 @@ export const Components = {
     borderRadius: BorderRadius.md,
     alignItems: 'center' as const,
     justifyContent: 'center' as const,
-    ...Shadows.small,
+    ...Shadows.none,
   },
 
   buttonText: {
@@ -207,13 +207,14 @@ export const Components = {
     fontFamily: Typography.fontFamily,
   },
 
+  // Кнопка secondary — outline
   buttonSecondary: {
     backgroundColor: DesignColors.background,
     paddingVertical: Spacing.md,
     paddingHorizontal: Spacing.lg,
     borderRadius: BorderRadius.md,
     borderWidth: 1,
-    borderColor: DesignColors.border,
+    borderColor: DesignColors.primary,
     alignItems: 'center' as const,
     justifyContent: 'center' as const,
   },
@@ -221,17 +222,16 @@ export const Components = {
   buttonSecondaryText: {
     fontSize: Typography.body,
     fontWeight: Typography.semibold,
-    color: DesignColors.text,
+    color: DesignColors.primary,
     fontFamily: Typography.fontFamily,
   },
 
-  // Контейнер экрана - без SafeAreaView проблем
+  // Контейнер экрана
   screenContainer: {
     flex: 1,
     backgroundColor: DesignColors.background,
   },
 
-  // Контент с padding
   screenContent: {
     flex: 1,
     paddingHorizontal: Spacing.screenPadding,
@@ -250,16 +250,16 @@ export const Components = {
     fontFamily: Typography.fontFamily,
   },
 
-  // Разделитель
+  // Разделитель — тонкий 1px
   divider: {
     height: 1,
     backgroundColor: DesignColors.divider,
-    marginVertical: Spacing.md,
+    marginVertical: Spacing.sm,
   },
 } as const;
 
 /**
- * 📱 КОНСТАНТЫ РАЗМЕРОВ
+ * КОНСТАНТЫ РАЗМЕРОВ
  */
 export const Sizes = {
   headerHeight: 56,

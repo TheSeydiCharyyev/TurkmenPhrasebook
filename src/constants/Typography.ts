@@ -2,16 +2,16 @@
 
 import { TextStyle, Platform } from 'react-native';
 
-// ✅ Встроенные цвета, чтобы избежать циклических импортов
+// Встроенные цвета — Lingify палитра
 const Colors = {
-  text: '#111827',
-  textSecondary: '#374151', 
-  textLight: '#6B7280',
-  textMuted: '#9CA3AF',
+  text: '#1A1A1A',
+  textSecondary: '#6B7280',
+  textLight: '#9CA3AF',
+  textMuted: '#D1D5DB',
   buttonText: '#FFFFFF',
-  buttonTextSecondary: '#374151',
-  primary: '#DC2626',
-  inputText: '#111827',
+  buttonTextSecondary: '#1A1A1A',
+  primary: '#2D8CFF',
+  inputText: '#1A1A1A',
   inputPlaceholder: '#9CA3AF',
 };
 

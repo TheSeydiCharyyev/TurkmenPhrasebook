@@ -1,6 +1,4 @@
-// src/features/favorites/screens/FavoritesHubScreen.tsx
-// Главный экран избранного с тремя вкладками: Phrases, Translations, Words
-
+// src/features/favorites/screens/FavoritesHubScreen.tsx — Lingify style
 import React, { useState, useEffect } from 'react';
 import {
   View,
@@ -8,17 +6,14 @@ import {
   StyleSheet,
   TouchableOpacity,
   FlatList,
-  ScrollView,
   StatusBar,
-  Platform,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 
-import { Colors } from '../../../constants/Colors';
-import { DesignColors } from '../../../constants/Design';
 import { useSafeArea } from '../../../hooks/useSafeArea';
-import { verticalScale } from '../../../utils/ResponsiveUtils';
+import { scale, verticalScale, moderateScale } from '../../../utils/ResponsiveUtils';
 import { FavoritesService } from '../services/FavoritesService';
 import { FavoriteTab, FavoriteTranslation } from '../types/favorites.types';
 import { usePhrases } from '../../../hooks/usePhrases';
@@ -31,28 +26,21 @@ export default function FavoritesHubScreen() {
   const navigation = useNavigation<any>();
   const { phrases } = usePhrases();
   const { config } = useAppLanguage();
-
-  // Safe Area для bottom padding (home indicator)
   const { bottom: safeAreaBottom } = useSafeArea();
 
   const [activeTab, setActiveTab] = useState<FavoriteTab>('phrases');
   const [isLoading, setIsLoading] = useState(true);
-  const [refreshTrigger, setRefreshTrigger] = useState(0);
 
-  // Данные для каждой вкладки
   const [favoritePhrases, setFavoritePhrases] = useState<PhraseWithTranslation[]>([]);
   const [favoriteTranslations, setFavoriteTranslations] = useState<FavoriteTranslation[]>([]);
   const [favoriteWords, setFavoriteWords] = useState<any[]>([]);
 
-  // Инициализация и загрузка данных
   useEffect(() => {
     initializeFavorites();
   }, []);
 
-  // Обновляем при фокусе экрана
   useFocusEffect(
     React.useCallback(() => {
-      setRefreshTrigger(prev => prev + 1);
       loadFavoritesData();
     }, [phrases])
   );
@@ -65,126 +53,47 @@ export default function FavoritesHubScreen() {
   };
 
   const loadFavoritesData = async () => {
-    // Загружаем фразы
     const phrasesData = FavoritesService.getFavoritePhrases(phrases);
     setFavoritePhrases(phrasesData);
-
-    // Загружаем переводы
     const translationsData = FavoritesService.getFavoriteTranslations();
     setFavoriteTranslations(translationsData);
-
-    // Загружаем слова
     const wordsData = FavoritesService.getFavoriteWords();
     setFavoriteWords(wordsData);
   };
 
-  // Получить текст для UI
   const getText = (tk: string, zh: string, ru: string, en: string) => {
     return config.mode === 'tk' ? tk :
            config.mode === 'zh' ? zh :
            config.mode === 'en' ? en : ru;
   };
 
-  // Конфигурация вкладок
   const tabs: Array<{
     key: FavoriteTab;
     title: string;
-    icon: string;
+    icon: keyof typeof Ionicons.glyphMap;
     count: number;
   }> = [
     {
       key: 'phrases',
       title: getText('Sözlemler', '短语', 'Фразы', 'Phrases'),
-      icon: 'book',
+      icon: 'book-outline',
       count: favoritePhrases.length,
     },
     {
       key: 'translations',
       title: getText('Terjimeler', '翻译', 'Переводы', 'Translations'),
-      icon: 'language',
+      icon: 'language-outline',
       count: favoriteTranslations.length,
     },
     {
       key: 'words',
       title: getText('Sözler', '单词', 'Слова', 'Words'),
-      icon: 'text',
+      icon: 'text-outline',
       count: favoriteWords.length,
     },
   ];
 
-  // Render header
-  const renderHeader = () => (
-    <View style={styles.header}>
-      <Text style={styles.headerTitle}>
-        {getText('⭐ Halanýanlar', '⭐ 收藏', '⭐ Избранное', '⭐ Favorites')}
-      </Text>
-      <Text style={styles.headerSubtitle}>
-        {getText(
-          `Jemi ${favoritePhrases.length + favoriteTranslations.length + favoriteWords.length} halanan element`,
-          `共 ${favoritePhrases.length + favoriteTranslations.length + favoriteWords.length} 个收藏项`,
-          `Всего ${favoritePhrases.length + favoriteTranslations.length + favoriteWords.length} избранных элементов`,
-          `Total ${favoritePhrases.length + favoriteTranslations.length + favoriteWords.length} favorite items`
-        )}
-      </Text>
-    </View>
-  );
-
-  // Render tabs
-  const renderTabs = () => (
-    <View style={styles.tabsContainer}>
-      {tabs.map(tab => (
-        <TouchableOpacity
-          key={tab.key}
-          style={[
-            styles.tab,
-            activeTab === tab.key && styles.activeTab,
-          ]}
-          onPress={() => setActiveTab(tab.key)}
-        >
-          <Ionicons
-            name={tab.icon as any}
-            size={20}
-            color={activeTab === tab.key ? Colors.primary : Colors.textLight}
-          />
-          <Text
-            style={[
-              styles.tabText,
-              activeTab === tab.key && styles.activeTabText,
-            ]}
-          >
-            {tab.title}
-          </Text>
-          {tab.count > 0 && (
-            <View style={[
-              styles.badge,
-              activeTab === tab.key && styles.activeBadge,
-            ]}>
-              <Text style={[
-                styles.badgeText,
-                activeTab === tab.key && styles.activeBadgeText,
-              ]}>
-                {tab.count}
-              </Text>
-            </View>
-          )}
-        </TouchableOpacity>
-      ))}
-    </View>
-  );
-
-  // Render empty state
-  const renderEmpty = (message: string) => (
-    <View style={styles.emptyContainer}>
-      <Ionicons name="heart-outline" size={64} color={Colors.textLight} />
-      <Text style={styles.emptyTitle}>
-        {getText('Heniz element ýok', '暂无内容', 'Пока пусто', 'Nothing here yet')}
-      </Text>
-      <Text style={styles.emptyText}>{message}</Text>
-    </View>
-  );
-
-  // Render phrase item
-  const renderPhraseItem = ({ item }: { item: PhraseWithTranslation }) => {
+  const renderPhraseItem = ({ item, index }: { item: PhraseWithTranslation; index: number }) => {
     const category = categories.find(cat => cat.id === item.categoryId);
     const categoryName = category ? (
       config.mode === 'tk' ? category.nameTk :
@@ -193,98 +102,102 @@ export default function FavoritesHubScreen() {
     ) : '';
 
     return (
-      <TouchableOpacity
-        style={styles.card}
-        onPress={() => navigation.navigate('PhraseDetail', { phrase: item })}
-      >
-        <View style={styles.cardContent}>
-          <View style={styles.cardHeader}>
-            <Text style={styles.cardTitle}>{item.translation.text}</Text>
-            {category && (
-              <View style={[styles.categoryBadge, { backgroundColor: category.color }]}>
-                <Text style={styles.categoryIcon}>{category.icon}</Text>
-              </View>
+      <>
+        <TouchableOpacity
+          style={styles.row}
+          onPress={() => navigation.navigate('PhraseDetail', { phrase: item })}
+          activeOpacity={0.6}
+        >
+          <View style={styles.rowContent}>
+            <Text style={styles.primaryText} numberOfLines={1}>{item.translation.text}</Text>
+            {item.translation.transcription && (
+              <Text style={styles.transcription} numberOfLines={1}>{item.translation.transcription}</Text>
             )}
+            <Text style={styles.secondaryText} numberOfLines={1}>{item.turkmen}</Text>
+            {categoryName ? (
+              <View style={styles.categoryRow}>
+                {category && <Text style={styles.categoryIcon}>{category.icon}</Text>}
+                <Text style={styles.categoryLabel}>{categoryName}</Text>
+              </View>
+            ) : null}
           </View>
 
-          {item.translation.transcription && (
-            <Text style={styles.transcription}>{item.translation.transcription}</Text>
-          )}
-
-          <Text style={styles.turkmenText}>{item.turkmen}</Text>
-
-          {categoryName && (
-            <Text style={styles.categoryText}>{categoryName}</Text>
-          )}
-        </View>
-
-        <TouchableOpacity
-          style={styles.removeButton}
-          onPress={async () => {
-            await FavoritesService.removePhrase(item.id);
-            loadFavoritesData();
-          }}
-        >
-          <Ionicons name="heart" size={24} color={Colors.error} />
+          <TouchableOpacity
+            style={styles.heartButton}
+            onPress={async () => {
+              await FavoritesService.removePhrase(item.id);
+              loadFavoritesData();
+            }}
+          >
+            <Ionicons name="heart" size={moderateScale(22)} color="#EF4444" />
+          </TouchableOpacity>
         </TouchableOpacity>
-      </TouchableOpacity>
+        {index < favoritePhrases.length - 1 && <View style={styles.divider} />}
+      </>
     );
   };
 
-  // Render translation item
-  const renderTranslationItem = ({ item }: { item: FavoriteTranslation }) => {
+  const renderTranslationItem = ({ item, index }: { item: FavoriteTranslation; index: number }) => {
     const data = item.data as TextTranslationResult;
     const isTextTranslation = item.translationType === 'text';
 
     return (
-      <TouchableOpacity style={styles.card}>
-        <View style={styles.cardContent}>
-          <View style={styles.cardHeader}>
-            <View style={styles.translationTypeBadge}>
+      <>
+        <TouchableOpacity style={styles.row} activeOpacity={0.6}>
+          <View style={styles.rowContent}>
+            <View style={styles.typeBadge}>
               <Ionicons
-                name={isTextTranslation ? 'text' : 'camera'}
-                size={14}
-                color={Colors.textWhite}
+                name={isTextTranslation ? 'text-outline' : 'camera-outline'}
+                size={moderateScale(12)}
+                color="#FFFFFF"
               />
-              <Text style={styles.translationTypeText}>
+              <Text style={styles.typeBadgeText}>
                 {isTextTranslation ? 'Text' : 'Visual'}
               </Text>
             </View>
+            <Text style={styles.primaryText} numberOfLines={2}>
+              {data.originalText || 'N/A'}
+            </Text>
+            <Text style={styles.secondaryText} numberOfLines={2}>
+              {data.translatedText || 'N/A'}
+            </Text>
+            <Text style={styles.dateText}>
+              {new Date(data.timestamp).toLocaleDateString()}
+            </Text>
           </View>
 
-          <Text style={styles.cardTitle} numberOfLines={2}>
-            {data.originalText || 'N/A'}
-          </Text>
-          <Text style={styles.turkmenText} numberOfLines={2}>
-            {data.translatedText || 'N/A'}
-          </Text>
-
-          <Text style={styles.dateText}>
-            {new Date(data.timestamp).toLocaleDateString()}
-          </Text>
-        </View>
-
-        <TouchableOpacity
-          style={styles.removeButton}
-          onPress={async () => {
-            await FavoritesService.removeTranslation(item.id);
-            loadFavoritesData();
-          }}
-        >
-          <Ionicons name="heart" size={24} color={Colors.error} />
+          <TouchableOpacity
+            style={styles.heartButton}
+            onPress={async () => {
+              await FavoritesService.removeTranslation(item.id);
+              loadFavoritesData();
+            }}
+          >
+            <Ionicons name="heart" size={moderateScale(22)} color="#EF4444" />
+          </TouchableOpacity>
         </TouchableOpacity>
-      </TouchableOpacity>
+        {index < favoriteTranslations.length - 1 && <View style={styles.divider} />}
+      </>
     );
   };
 
-  // Render words tab (placeholder for future Dictionary)
+  const renderEmpty = (message: string) => (
+    <View style={styles.emptyContainer}>
+      <Ionicons name="heart-outline" size={moderateScale(56)} color="#D1D5DB" />
+      <Text style={styles.emptyTitle}>
+        {getText('Heniz element ýok', '暂无内容', 'Пока пусто', 'Nothing here yet')}
+      </Text>
+      <Text style={styles.emptyText}>{message}</Text>
+    </View>
+  );
+
   const renderWordsTab = () => (
-    <View style={styles.placeholderContainer}>
-      <Ionicons name="book-outline" size={80} color={Colors.textLight} />
-      <Text style={styles.placeholderTitle}>
+    <View style={styles.emptyContainer}>
+      <Ionicons name="book-outline" size={moderateScale(56)} color="#D1D5DB" />
+      <Text style={styles.emptyTitle}>
         {getText('Sözlük häzire taýýar däl', '词典功能即将推出', 'Словарь скоро появится', 'Dictionary Coming Soon')}
       </Text>
-      <Text style={styles.placeholderText}>
+      <Text style={styles.emptyText}>
         {getText(
           'Sözlük funksiýasy v2.0-da goşular',
           '词典功能将在v2.0版本中推出',
@@ -295,12 +208,11 @@ export default function FavoritesHubScreen() {
     </View>
   );
 
-  // Render active tab content
   const renderTabContent = () => {
     if (isLoading) {
       return (
-        <View style={styles.loadingContainer}>
-          <Text style={styles.loadingText}>
+        <View style={styles.emptyContainer}>
+          <Text style={styles.emptyText}>
             {getText('Ýüklenýär...', '加载中...', 'Загрузка...', 'Loading...')}
           </Text>
         </View>
@@ -321,7 +233,10 @@ export default function FavoritesHubScreen() {
             data={favoritePhrases}
             renderItem={renderPhraseItem}
             keyExtractor={item => item.id}
-            contentContainerStyle={styles.listContent}
+            contentContainerStyle={[
+              styles.listContent,
+              { paddingBottom: Math.max(safeAreaBottom, verticalScale(24)) },
+            ]}
             showsVerticalScrollIndicator={false}
           />
         );
@@ -339,7 +254,10 @@ export default function FavoritesHubScreen() {
             data={favoriteTranslations}
             renderItem={renderTranslationItem}
             keyExtractor={item => item.id}
-            contentContainerStyle={styles.listContent}
+            contentContainerStyle={[
+              styles.listContent,
+              { paddingBottom: Math.max(safeAreaBottom, verticalScale(24)) },
+            ]}
             showsVerticalScrollIndicator={false}
           />
         );
@@ -352,234 +270,297 @@ export default function FavoritesHubScreen() {
     }
   };
 
+  const totalCount = favoritePhrases.length + favoriteTranslations.length + favoriteWords.length;
+
   return (
     <View style={styles.container}>
-      <StatusBar
-        barStyle="dark-content"
-        backgroundColor={DesignColors.background}
-        translucent={false}
-      />
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={[
-          styles.scrollContent,
-          { paddingBottom: Math.max(safeAreaBottom, verticalScale(20)) }
-        ]}
-        showsVerticalScrollIndicator={false}
-      >
-        {renderHeader()}
-        {renderTabs()}
-        <View style={styles.contentContainer}>
-          {renderTabContent()}
+      <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
+
+      <SafeAreaView edges={['top']} style={styles.headerArea}>
+        {/* Header */}
+        <View style={styles.header}>
+          {navigation.canGoBack() && (
+            <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()} activeOpacity={0.7}>
+              <Ionicons name="arrow-back" size={moderateScale(24)} color="#1A1A1A" />
+            </TouchableOpacity>
+          )}
+          <Text style={styles.headerTitle}>
+            {getText('Halanýanlar', '收藏', 'Избранное', 'Favorites')}
+          </Text>
+          <View style={styles.placeholder} />
         </View>
-      </ScrollView>
+
+        {/* Subtitle */}
+        <Text style={styles.headerSubtitle}>
+          {getText(
+            `Jemi ${totalCount} element`,
+            `共 ${totalCount} 个收藏`,
+            `Всего ${totalCount} элементов`,
+            `${totalCount} items total`
+          )}
+        </Text>
+
+        {/* Tabs */}
+        <View style={styles.tabsContainer}>
+          {tabs.map(tab => {
+            const isActive = activeTab === tab.key;
+            return (
+              <TouchableOpacity
+                key={tab.key}
+                style={[styles.tab, isActive && styles.activeTab]}
+                onPress={() => setActiveTab(tab.key)}
+                activeOpacity={0.7}
+              >
+                <Ionicons
+                  name={tab.icon}
+                  size={moderateScale(16)}
+                  color={isActive ? '#2D8CFF' : '#9CA3AF'}
+                />
+                <Text style={[styles.tabText, isActive && styles.activeTabText]}>
+                  {tab.title}
+                </Text>
+                {tab.count > 0 && (
+                  <View style={[styles.tabBadge, isActive && styles.activeTabBadge]}>
+                    <Text style={[styles.tabBadgeText, isActive && styles.activeTabBadgeText]}>
+                      {tab.count}
+                    </Text>
+                  </View>
+                )}
+              </TouchableOpacity>
+            );
+          })}
+        </View>
+      </SafeAreaView>
+
+      {/* Content */}
+      <View style={styles.contentContainer}>
+        {renderTabContent()}
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  activeBadge: {
-    backgroundColor: Colors.primary,
+  container: {
+    backgroundColor: '#FFFFFF',
+    flex: 1,
   },
-  activeBadgeText: {
-    color: Colors.textWhite,
+
+  headerArea: {
+    backgroundColor: '#FFFFFF',
+    borderBottomColor: '#E5E7EB',
+    borderBottomWidth: 1,
   },
-  activeTab: {
-    backgroundColor: Colors.primary + '20',
-  },
-  activeTabText: {
-    color: Colors.primary,
-  },
-  badge: {
+
+  header: {
     alignItems: 'center',
-    backgroundColor: Colors.textLight + '30',
-    borderRadius: 10,
-    minWidth: 20,
-    paddingHorizontal: 6,
-    paddingVertical: 2,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: scale(16),
+    paddingVertical: verticalScale(12),
   },
-  badgeText: {
-    color: Colors.textLight,
-    fontSize: 11,
+
+  backButton: {
+    alignItems: 'center',
+    height: scale(40),
+    justifyContent: 'center',
+    width: scale(40),
+  },
+
+  headerTitle: {
+    color: '#1A1A1A',
+    flex: 1,
+    fontSize: moderateScale(18),
+    fontWeight: '600',
+    textAlign: 'center',
+  },
+
+  placeholder: {
+    width: scale(40),
+  },
+
+  headerSubtitle: {
+    color: '#6B7280',
+    fontSize: moderateScale(13),
+    paddingBottom: verticalScale(12),
+    paddingHorizontal: scale(20),
+  },
+
+  // Tabs
+  tabsContainer: {
+    flexDirection: 'row',
+    gap: scale(6),
+    paddingBottom: verticalScale(12),
+    paddingHorizontal: scale(16),
+  },
+
+  tab: {
+    alignItems: 'center',
+    borderColor: '#E5E7EB',
+    borderRadius: scale(10),
+    borderWidth: 1,
+    flex: 1,
+    flexDirection: 'row',
+    gap: scale(5),
+    justifyContent: 'center',
+    paddingHorizontal: scale(8),
+    paddingVertical: verticalScale(10),
+  },
+
+  activeTab: {
+    backgroundColor: '#F0F7FF',
+    borderColor: '#2D8CFF',
+  },
+
+  tabText: {
+    color: '#9CA3AF',
+    fontSize: moderateScale(12),
+    fontWeight: '600',
+  },
+
+  activeTabText: {
+    color: '#2D8CFF',
+  },
+
+  tabBadge: {
+    alignItems: 'center',
+    backgroundColor: '#E5E7EB',
+    borderRadius: scale(8),
+    justifyContent: 'center',
+    minWidth: scale(20),
+    paddingHorizontal: scale(5),
+    paddingVertical: verticalScale(1),
+  },
+
+  activeTabBadge: {
+    backgroundColor: '#2D8CFF',
+  },
+
+  tabBadgeText: {
+    color: '#6B7280',
+    fontSize: moderateScale(10),
     fontWeight: '700',
   },
-  card: {
-    backgroundColor: Colors.cardBackground,
-    borderRadius: 12,
-    elevation: 2,
-    flexDirection: 'row',
-    marginBottom: 12,
-    padding: 16,
-    shadowColor: Colors.cardShadow,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
+
+  activeTabBadgeText: {
+    color: '#FFFFFF',
   },
-  cardContent: {
-    flex: 1,
-  },
-  cardHeader: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 8,
-    marginBottom: 8,
-  },
-  cardTitle: {
-    color: Colors.text,
-    flex: 1,
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  categoryBadge: {
-    borderRadius: 12,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-  },
-  categoryIcon: {
-    color: Colors.textWhite,
-    fontSize: 12,
-  },
-  categoryText: {
-    color: Colors.textLight,
-    fontSize: 12,
-    fontStyle: 'italic',
-  },
-  container: {
-    backgroundColor: DesignColors.background,
-    flex: 1,
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
-  },
+
+  // Content
   contentContainer: {
     flex: 1,
-    paddingTop: 10,
   },
+
+  listContent: {
+    paddingHorizontal: scale(20),
+    paddingTop: verticalScale(8),
+  },
+
+  // Row items
+  row: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: scale(12),
+    paddingVertical: verticalScale(14),
+  },
+
+  rowContent: {
+    flex: 1,
+  },
+
+  primaryText: {
+    color: '#1A1A1A',
+    fontSize: moderateScale(16),
+    fontWeight: '600',
+    marginBottom: verticalScale(2),
+  },
+
+  transcription: {
+    color: '#6B7280',
+    fontSize: moderateScale(13),
+    fontStyle: 'italic',
+    marginBottom: verticalScale(2),
+  },
+
+  secondaryText: {
+    color: '#6B7280',
+    fontSize: moderateScale(14),
+  },
+
+  categoryRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: scale(4),
+    marginTop: verticalScale(4),
+  },
+
+  categoryIcon: {
+    fontSize: moderateScale(12),
+  },
+
+  categoryLabel: {
+    color: '#9CA3AF',
+    fontSize: moderateScale(12),
+  },
+
+  heartButton: {
+    alignItems: 'center',
+    height: scale(40),
+    justifyContent: 'center',
+    width: scale(40),
+  },
+
+  divider: {
+    backgroundColor: '#E5E7EB',
+    height: 1,
+  },
+
+  // Type badge (for translations)
+  typeBadge: {
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    backgroundColor: '#2D8CFF',
+    borderRadius: scale(8),
+    flexDirection: 'row',
+    gap: scale(4),
+    marginBottom: verticalScale(6),
+    paddingHorizontal: scale(8),
+    paddingVertical: verticalScale(2),
+  },
+
+  typeBadgeText: {
+    color: '#FFFFFF',
+    fontSize: moderateScale(11),
+    fontWeight: '600',
+  },
+
   dateText: {
-    color: Colors.textLight,
-    fontSize: 11,
-    marginTop: 4,
+    color: '#9CA3AF',
+    fontSize: moderateScale(11),
+    marginTop: verticalScale(4),
   },
+
+  // Empty state
   emptyContainer: {
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
-    minHeight: 300,
-    padding: 40,
+    minHeight: verticalScale(300),
+    padding: scale(40),
   },
-  emptyText: {
-    color: Colors.textLight,
-    fontSize: 16,
-    textAlign: 'center',
-  },
+
   emptyTitle: {
-    color: Colors.text,
-    fontSize: 20,
+    color: '#1A1A1A',
+    fontSize: moderateScale(18),
     fontWeight: '600',
-    marginBottom: 8,
-    marginTop: 16,
-  },
-  header: {
-    padding: 20,
-    paddingBottom: 10,
-  },
-  headerSubtitle: {
-    color: Colors.textLight,
-    fontSize: 16,
-  },
-  headerTitle: {
-    color: Colors.text,
-    fontSize: 28,
-    fontWeight: 'bold',
-    marginBottom: 5,
-  },
-  listContent: {
-    padding: 20,
-  },
-  loadingContainer: {
-    alignItems: 'center',
-    flex: 1,
-    justifyContent: 'center',
-    minHeight: 300,
-  },
-  loadingText: {
-    color: Colors.textLight,
-    fontSize: 16,
-  },
-  placeholderContainer: {
-    alignItems: 'center',
-    flex: 1,
-    justifyContent: 'center',
-    minHeight: 300,
-    padding: 40,
-  },
-  placeholderText: {
-    color: Colors.textLight,
-    fontSize: 16,
+    marginBottom: verticalScale(6),
+    marginTop: verticalScale(16),
     textAlign: 'center',
   },
-  placeholderTitle: {
-    color: Colors.text,
-    fontSize: 20,
-    fontWeight: '600',
-    marginBottom: 8,
-    marginTop: 20,
+
+  emptyText: {
+    color: '#6B7280',
+    fontSize: moderateScale(14),
     textAlign: 'center',
-  },
-  removeButton: {
-    justifyContent: 'center',
-    padding: 8,
-  },
-  scrollContent: {
-    flexGrow: 1,
-  },
-  scrollView: {
-    flex: 1,
-  },
-  tab: {
-    alignItems: 'center',
-    backgroundColor: Colors.cardBackground,
-    borderRadius: 12,
-    flex: 1,
-    flexDirection: 'row',
-    gap: 6,
-    justifyContent: 'center',
-    paddingHorizontal: 8,
-    paddingVertical: 12,
-  },
-  tabText: {
-    color: Colors.textLight,
-    fontSize: 13,
-    fontWeight: '600',
-  },
-  tabsContainer: {
-    flexDirection: 'row',
-    gap: 10,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-  },
-  transcription: {
-    color: Colors.primary,
-    fontSize: 14,
-    fontStyle: 'italic',
-    marginBottom: 4,
-  },
-  translationTypeBadge: {
-    alignItems: 'center',
-    backgroundColor: Colors.primary,
-    borderRadius: 12,
-    flexDirection: 'row',
-    gap: 4,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-  },
-  translationTypeText: {
-    color: Colors.textWhite,
-    fontSize: 11,
-    fontWeight: '600',
-  },
-  turkmenText: {
-    color: Colors.text,
-    fontSize: 16,
-    fontWeight: '600',
-    marginBottom: 4,
   },
 });

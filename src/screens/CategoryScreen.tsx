@@ -5,10 +5,7 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  Animated,
   ActivityIndicator,
-  Dimensions,
-  ScrollView,
   BackHandler,
   Alert,
 } from 'react-native';
@@ -16,14 +13,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRoute, useNavigation, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
-import { LinearGradient } from 'expo-linear-gradient';
 import * as Clipboard from 'expo-clipboard';
 import { scale, verticalScale, moderateScale } from '../utils/ResponsiveUtils';
 import { useSafeArea } from '../hooks/useSafeArea';
 
 import { Colors } from '../constants/Colors';
 import { usePhrases } from '../hooks/usePhrases';
-import { getCategoryName, getSubcategoriesByParentId } from '../data/categories';
+import { getSubcategoriesByParentId } from '../data/categories';
 import {
   PhraseWithTranslation,
   HomeStackParamList,
@@ -32,19 +28,28 @@ import {
 } from '../types';
 import { useFavorites } from '../hooks/useFavorites';
 import { useAppLanguage } from '../contexts/LanguageContext';
-import { useConfig } from '../contexts/ConfigContext';  // ✅ ДОБАВЛЕНО: для английского
+import { useConfig } from '../contexts/ConfigContext';
 import { useAudio } from '../hooks/useAudio';
 import { SubCategoriesGrid } from '../components/SubCategoryCard';
 
 type CategoryScreenRouteProp = RouteProp<HomeStackParamList, 'CategoryScreen'>;
 type CategoryScreenNavigationProp = StackNavigationProp<HomeStackParamList, 'CategoryScreen'>;
 
-const { width, height } = Dimensions.get('window');
+const getAudioLanguage = (langCode: string): string => {
+  const languageMap: { [key: string]: string } = {
+    'tk': 'turkmen', 'zh': 'chinese', 'ru': 'russian', 'en': 'english',
+    'ja': 'japanese', 'ko': 'korean', 'th': 'thai', 'vi': 'vietnamese',
+    'id': 'indonesian', 'ms': 'malay', 'hi': 'hindi', 'ur': 'urdu',
+    'fa': 'persian', 'ps': 'pashto', 'de': 'german', 'fr': 'french',
+    'es': 'spanish', 'it': 'italian', 'tr': 'turkish', 'pl': 'polish',
+    'uk': 'ukrainian', 'pt': 'portuguese', 'nl': 'dutch', 'uz': 'uzbek',
+    'kk': 'kazakh', 'az': 'azerbaijani', 'ky': 'kyrgyz', 'tg': 'tajik',
+    'hy': 'armenian', 'ka': 'georgian', 'ar': 'arabic',
+  };
+  return languageMap[langCode] || 'english';
+};
 
-// ФИНАЛЬНЫЙ компонент фразы с треугольными кнопками
-// ✅ ИСПРАВЛЕННЫЙ компонент PhraseItem для CategoryScreen.tsx
-// Замени ТОЛЬКО этот компонент в файле src/screens/CategoryScreen.tsx
-
+// Lingify-стиль: чистая строка фразы
 const PhraseItem = React.memo<{
   phrase: PhraseWithTranslation;
   onPress: (phrase: PhraseWithTranslation) => void;
@@ -52,12 +57,16 @@ const PhraseItem = React.memo<{
   isFavorite: (id: string) => boolean;
   toggleFavorite: (id: string) => void;
   onAskAI: (phrase: PhraseWithTranslation) => void;
-}>(({ phrase, onPress, config, isFavorite, toggleFavorite, onAskAI }) => {
-  const { playAudio, isPlaying, isLoading } = useAudio();
-  const { selectedLanguage } = useConfig();
-
-  // ✅ Локальное состояние для отслеживания какая кнопка нажата
-  const [playingButton, setPlayingButton] = React.useState<'translation' | 'turkmen' | null>(null);
+  onPlayAudio: (phraseId: string, type: 'translation' | 'turkmen', text: string, language: string, audioPath?: string) => void;
+  playingPhraseId: string | null;
+  playingType: 'translation' | 'turkmen' | null;
+  audioIsPlaying: boolean;
+  audioIsLoading: boolean;
+  isLast: boolean;
+}>(({ phrase, onPress, config, isFavorite, toggleFavorite, onAskAI, onPlayAudio, playingPhraseId, playingType, audioIsPlaying, audioIsLoading, isLast }) => {
+  const isThisPlaying = playingPhraseId === phrase.id;
+  const thisIsLoading = isThisPlaying && audioIsLoading;
+  const thisIsPlaying = isThisPlaying && audioIsPlaying;
 
   const handleToggleFavorite = useCallback(() => {
     toggleFavorite(phrase.id);
@@ -67,215 +76,103 @@ const PhraseItem = React.memo<{
     onPress(phrase);
   }, [phrase, onPress]);
 
-  // Map language code to audio language type (для всех 31 языков)
-  const getAudioLanguage = (langCode: string): string => {
-    const languageMap: { [key: string]: string } = {
-      'tk': 'turkmen',
-      'zh': 'chinese',
-      'ru': 'russian',
-      'en': 'english',
-      'ja': 'japanese',
-      'ko': 'korean',
-      'th': 'thai',
-      'vi': 'vietnamese',
-      'id': 'indonesian',
-      'ms': 'malay',
-      'hi': 'hindi',
-      'ur': 'urdu',
-      'fa': 'persian',
-      'ps': 'pashto',
-      'de': 'german',
-      'fr': 'french',
-      'es': 'spanish',
-      'it': 'italian',
-      'tr': 'turkish',
-      'pl': 'polish',
-      'uk': 'ukrainian',
-      'pt': 'portuguese',
-      'nl': 'dutch',
-      'uz': 'uzbek',
-      'kk': 'kazakh',
-      'az': 'azerbaijani',
-      'ky': 'kyrgyz',
-      'tg': 'tajik',
-      'hy': 'armenian',
-      'ka': 'georgian',
-      'ar': 'arabic',
-    };
-    return languageMap[langCode] || 'english';
-  };
-
-  // Play audio for translation (для всех языков)
   const handlePlayTranslation = useCallback(() => {
-    setPlayingButton('translation'); // ✅ Отмечаем какая кнопка нажата
-    const audioLang = getAudioLanguage(selectedLanguage);
-    playAudio(phrase.translation.text, audioLang);
-  }, [phrase.translation.text, selectedLanguage, playAudio]);
+    onPlayAudio(phrase.id, 'translation', phrase.translation.text, phrase.translation.text, undefined);
+  }, [phrase.id, phrase.translation.text, onPlayAudio]);
 
-  // Play audio for Turkmen
   const handlePlayTurkmen = useCallback(() => {
-    setPlayingButton('turkmen'); // ✅ Отмечаем какая кнопка нажата
-    playAudio(phrase.turkmen, 'turkmen', phrase.audioFileTurkmen);
-  }, [phrase.turkmen, phrase.audioFileTurkmen, playAudio]);
+    onPlayAudio(phrase.id, 'turkmen', phrase.turkmen, 'turkmen', phrase.audioFileTurkmen);
+  }, [phrase.id, phrase.turkmen, phrase.audioFileTurkmen, onPlayAudio]);
 
-  // ✅ Сбрасываем состояние когда аудио закончилось
-  React.useEffect(() => {
-    if (!isPlaying && !isLoading) {
-      setPlayingButton(null);
-    }
-  }, [isPlaying, isLoading]);
   const handleCopy = useCallback(async () => {
-    const textToCopy = `Turkmen: ${phrase.turkmen}
-${selectedLanguage.toUpperCase()}: ${phrase.translation.text}`;
+    const textToCopy = `${phrase.turkmen}\n${phrase.translation.text}`;
     await Clipboard.setStringAsync(textToCopy);
     Alert.alert('✓', 'Скопировано', [{ text: 'OK' }], { cancelable: true });
-  }, [phrase, selectedLanguage]);
+  }, [phrase]);
 
   const handleAskAI = useCallback(() => {
     onAskAI(phrase);
   }, [phrase, onAskAI]);
 
-  // Get language display label for button (Вариант 4: Флаг + Код/Название)
-  const getLanguageLabel = () => {
-    const labelMap: { [key: string]: string } = {
-      'tk': '🇹🇲 TM',
-      'zh': '🇨🇳 中文',
-      'ru': '🇷🇺 РУС',
-      'en': '🇬🇧 ENG',
-      'ja': '🇯🇵 日本',
-      'ko': '🇰🇷 한국',
-      'th': '🇹🇭 TH',
-      'vi': '🇻🇳 VN',
-      'id': '🇮🇩 ID',
-      'ms': '🇲🇾 MS',
-      'hi': '🇮🇳 HI',
-      'ur': '🇵🇰 UR',
-      'fa': '🇮🇷 FA',
-      'ps': '🇦🇫 PS',
-      'de': '🇩🇪 DE',
-      'fr': '🇫🇷 FR',
-      'es': '🇪🇸 ES',
-      'it': '🇮🇹 IT',
-      'tr': '🇹🇷 TR',
-      'pl': '🇵🇱 PL',
-      'uk': '🇺🇦 UA',
-      'pt': '🇵🇹 PT',
-      'nl': '🇳🇱 NL',
-      'uz': '🇺🇿 UZ',
-      'kk': '🇰🇿 KZ',
-      'az': '🇦🇿 AZ',
-      'ky': '🇰🇬 KG',
-      'tg': '🇹🇯 TJ',
-      'hy': '🇦🇲 AM',
-      'ka': '🇬🇪 GE',
-      'ar': '🇸🇦 AR',
-    };
-    return labelMap[selectedLanguage] || '🇬🇧 EN';
-  };
-
   return (
-    <TouchableOpacity
-      style={styles.phraseItem}
-      onPress={handlePress}
-      activeOpacity={0.7}
-    >
-      <View style={styles.phraseContent}>
-        {/* Левая часть - основной текст */}
-        <View style={styles.phraseTextContainer}>
-          {/* 1. Translation (Chinese/Russian/English based on selectedLanguage) */}
-          <Text style={styles.chineseText} numberOfLines={1}>
-            {phrase.translation.text}
-          </Text>
-
-          {/* 2. Transcription (pinyin for Chinese, undefined for others) */}
-          {phrase.translation.transcription && (
-            <Text style={styles.pinyinText} numberOfLines={1}>
-              {phrase.translation.transcription}
-            </Text>
-          )}
-
-          {/* 3. Turkmen (always shown) */}
-          <Text style={styles.secondaryText} numberOfLines={1}>
+    <>
+      <TouchableOpacity style={styles.phraseRow} onPress={handlePress} activeOpacity={0.6}>
+        {/* Turkmen line: text + audio */}
+        <View style={styles.textLine}>
+          <Text style={styles.turkmenText} numberOfLines={2}>
             {phrase.turkmen}
           </Text>
+          <TouchableOpacity
+            style={styles.inlineAudioBtn}
+            onPress={handlePlayTurkmen}
+            activeOpacity={0.6}
+            disabled={audioIsLoading}
+          >
+            {thisIsLoading && playingType === 'turkmen' ? (
+              <ActivityIndicator size="small" color="#2D8CFF" />
+            ) : (
+              <Ionicons
+                name={thisIsPlaying && playingType === 'turkmen' ? 'pause-circle' : 'volume-medium-outline'}
+                size={moderateScale(18)}
+                color="#2D8CFF"
+              />
+            )}
+          </TouchableOpacity>
         </View>
 
-        {/* Правая часть - кнопки */}
-        <View style={styles.phraseActions}>
-          {/* ✅ АУДИО КНОПКИ с индикаторами */}
-          <View style={styles.audioButtons}>
-            {/* Translation language button (All languages) */}
-            <TouchableOpacity
-              style={[styles.audioButton, styles.translationAudioButton]}
-              onPress={handlePlayTranslation}
-              activeOpacity={0.7}
-              disabled={isLoading}
-            >
-              {/* ✅ ВАРИАНТ 2: ActivityIndicator при загрузке, ⏸ при воспроизведении */}
-              {isLoading && playingButton === 'translation' ? (
-                <ActivityIndicator size="small" color="#fff" style={styles.audioIndicator} />
-              ) : isPlaying && playingButton === 'translation' ? (
-                <Text style={styles.audioTriangle}>⏸</Text>
-              ) : (
-                <Text style={styles.audioTriangle}>▶</Text>
-              )}
-              <Text style={styles.translationAudioButtonText}>{getLanguageLabel()}</Text>
-            </TouchableOpacity>
-
-            {/* Туркменская кнопка */}
-            <TouchableOpacity
-              style={[styles.audioButton, styles.turkmenAudioButton]}
-              onPress={handlePlayTurkmen}
-              activeOpacity={0.7}
-              disabled={isLoading}
-            >
-              {/* ✅ ВАРИАНТ 2: ActivityIndicator при загрузке, ⏸ при воспроизведении */}
-              {isLoading && playingButton === 'turkmen' ? (
-                <ActivityIndicator size="small" color="#fff" style={styles.audioIndicator} />
-              ) : isPlaying && playingButton === 'turkmen' ? (
-                <Text style={styles.audioTriangle}>⏸</Text>
-              ) : (
-                <Text style={styles.audioTriangle}>▶</Text>
-              )}
-              <Text style={styles.turkmenAudioButtonText}>🇹🇲 TM</Text>
-            </TouchableOpacity>
-          </View>
-
-
-          {/* Новый ряд - Copy и AI кнопки */}
-          <View style={styles.secondaryButtons}>
-            <TouchableOpacity
-              style={styles.iconButton}
-              onPress={handleCopy}
-              activeOpacity={0.7}
-            >
-              <Ionicons name="copy-outline" size={moderateScale(18)} color="#374151" />
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={styles.iconButton}
-              onPress={handleAskAI}
-              activeOpacity={0.7}
-            >
-              <Ionicons name="sparkles" size={moderateScale(18)} color="#374151" />
-            </TouchableOpacity>
-          </View>
-
-          {/* Кнопка избранного */}
+        {/* Translation line: text + audio */}
+        <View style={styles.textLine}>
+          <Text style={styles.translationText} numberOfLines={2}>
+            {phrase.translation.text}
+          </Text>
           <TouchableOpacity
-            style={styles.favoriteButton}
-            onPress={handleToggleFavorite}
-            activeOpacity={0.7}
+            style={styles.inlineAudioBtn}
+            onPress={handlePlayTranslation}
+            activeOpacity={0.6}
+            disabled={audioIsLoading}
           >
+            {thisIsLoading && playingType === 'translation' ? (
+              <ActivityIndicator size="small" color="#6B7280" />
+            ) : (
+              <Ionicons
+                name={thisIsPlaying && playingType === 'translation' ? 'pause-circle' : 'volume-medium-outline'}
+                size={moderateScale(16)}
+                color="#6B7280"
+              />
+            )}
+          </TouchableOpacity>
+        </View>
+
+        {/* Transcription */}
+        {phrase.translation.transcription && (
+          <Text style={styles.transcriptionText} numberOfLines={1}>
+            {phrase.translation.transcription}
+          </Text>
+        )}
+
+        {/* Action buttons row */}
+        <View style={styles.bottomActions}>
+          <TouchableOpacity onPress={handleCopy} activeOpacity={0.6} style={styles.actionBtn}>
+            <Ionicons name="copy-outline" size={moderateScale(14)} color="#9CA3AF" />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={handleAskAI} activeOpacity={0.6} style={styles.actionBtn}>
+            <Ionicons name="sparkles-outline" size={moderateScale(14)} color="#9CA3AF" />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={handleToggleFavorite} activeOpacity={0.6} style={styles.actionBtn}>
             <Ionicons
-              name={isFavorite(phrase.id) ? "heart" : "heart-outline"}
-              size={moderateScale(20)}
-              color={isFavorite(phrase.id) ? Colors.error : Colors.textLight}
+              name={isFavorite(phrase.id) ? 'heart' : 'heart-outline'}
+              size={moderateScale(14)}
+              color={isFavorite(phrase.id) ? '#EF4444' : '#9CA3AF'}
             />
           </TouchableOpacity>
         </View>
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
+
+      {/* Divider */}
+      {!isLast && <View style={styles.divider} />}
+    </>
   );
 });
 
@@ -286,57 +183,61 @@ export default function CategoryScreen() {
   const { selectedLanguage } = useConfig();
   const [isLoading, setIsLoading] = useState(true);
   const [selectedSubcategory, setSelectedSubcategory] = useState<SubCategory | null>(null);
+  const [playingPhraseId, setPlayingPhraseId] = useState<string | null>(null);
+  const [playingType, setPlayingType] = useState<'translation' | 'turkmen' | null>(null);
 
-  // Use multilingual phrases
   const { getPhrasesByCategory, getPhrasesBySubcategory } = usePhrases();
-
-  // ✅ FIXED: Move useFavorites to parent component (was called 100+ times in child)
   const { isFavorite, toggleFavorite } = useFavorites();
-
-  // Safe Area для bottom padding (home indicator)
+  const { playAudio, isPlaying: audioIsPlaying, isLoading: audioIsLoading } = useAudio();
   const { bottom: safeAreaBottom } = useSafeArea();
-
-  // Анимация скролла для заголовка
-  const scrollY = useRef(new Animated.Value(0)).current;
   const { category } = route.params;
+
+  // Reset playing state when audio stops
+  useEffect(() => {
+    if (!audioIsPlaying && !audioIsLoading) {
+      setPlayingPhraseId(null);
+      setPlayingType(null);
+    }
+  }, [audioIsPlaying, audioIsLoading]);
+
+  const handlePlayAudio = useCallback((phraseId: string, type: 'translation' | 'turkmen', text: string, language: string, audioPath?: string) => {
+    setPlayingPhraseId(phraseId);
+    setPlayingType(type);
+    if (type === 'turkmen') {
+      playAudio(text, 'turkmen', audioPath);
+    } else {
+      playAudio(text, getAudioLanguage(selectedLanguage));
+    }
+  }, [playAudio, selectedLanguage]);
 
   const handleOpenAIModal = useCallback((phrase: PhraseWithTranslation) => {
     navigation.navigate('AskAIScreen', { phrase, categoryId: category.id });
   }, [navigation, category.id]);
 
-  // Получаем подкатегории для данной категории
   const subcategories = useMemo(() => {
     return getSubcategoriesByParentId(category.id);
   }, [category.id]);
 
-  // Фильтрация фраз
   const filteredPhrases = useMemo(() => {
-    // Если выбрана подкатегория, фильтруем по ней
     if (selectedSubcategory) {
       return getPhrasesBySubcategory(selectedSubcategory.id);
     }
-
-    // Иначе показываем все фразы категории
     return getPhrasesByCategory(category.id);
   }, [category.id, selectedSubcategory, getPhrasesByCategory, getPhrasesBySubcategory]);
 
-  // Функция для получения количества фраз в подкатегории
   const getPhrasesCountForSubcategory = useCallback((subcategoryId: string) => {
     return getPhrasesBySubcategory(subcategoryId).length;
   }, [getPhrasesBySubcategory]);
 
-  // Имитация загрузки
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 500);
     return () => clearTimeout(timer);
   }, []);
 
-  // Сброс выбранной подкатегории при смене категории
   useEffect(() => {
     setSelectedSubcategory(null);
   }, [category.id]);
 
-  // Навигация на PhraseDetail
   const handlePhrasePress = useCallback((phrase: PhraseWithTranslation) => {
     navigation.navigate('PhraseDetail', { phrase });
   }, [navigation]);
@@ -349,29 +250,23 @@ export default function CategoryScreen() {
     setSelectedSubcategory(null);
   }, []);
 
-  // ✅ Обработчик кнопки "Назад" телефона (hardware back button)
   useEffect(() => {
     const backHandler = BackHandler.addEventListener('hardwareBackPress', () => {
       if (selectedSubcategory) {
-        // Если выбрана подкатегория, вернуться к списку подкатегорий
         handleBackToCategory();
-        return true; // Предотвращаем стандартное поведение
+        return true;
       }
-      return false; // Разрешаем стандартное поведение (уход на предыдущий экран)
+      return false;
     });
-
     return () => backHandler.remove();
   }, [selectedSubcategory, handleBackToCategory]);
 
-
-  // ✅ УНИВЕРСАЛЬНАЯ функция для ВСЕХ 31 языков - Category
   const getCategoryNameByLanguage = (langCode: string): string => {
     const fieldName = `name${langCode.charAt(0).toUpperCase() + langCode.slice(1)}` as keyof typeof category;
     const name = category[fieldName];
     return (typeof name === 'string' ? name : category.nameEn);
   };
 
-  // ✅ УНИВЕРСАЛЬНАЯ функция для ВСЕХ 31 языков - SubCategory
   const getSubcategoryNameByLanguage = (subcategory: SubCategory, langCode: string): string => {
     const fieldName = `name${langCode.charAt(0).toUpperCase() + langCode.slice(1)}` as keyof SubCategory;
     const name = subcategory[fieldName];
@@ -382,36 +277,6 @@ export default function CategoryScreen() {
     ? getSubcategoryNameByLanguage(selectedSubcategory, selectedLanguage)
     : null;
 
-  if (isLoading) {
-    return (
-      <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color={Colors.primary} />
-        <Text style={styles.loadingText}>
-          {config.mode === 'tk' ? 'Ýüklenýär...' :
-           config.mode === 'zh' ? '加载中...' : 'Загрузка...'}
-        </Text>
-      </View>
-    );
-  }
-
-  // Get gradient colors based on category color
-  const getGradientColors = (): [string, string] => {
-    const colorMap: { [key: string]: [string, string] } = {
-      '#FF6B6B': ['#FF6B6B', '#EE5A52'],
-      '#4ECDC4': ['#4ECDC4', '#44B8A8'],
-      '#45B7D1': ['#45B7D1', '#3A9FC2'],
-      '#FFA07A': ['#FFA07A', '#FF8C69'],
-      '#98D8C8': ['#98D8C8', '#7DC7B5'],
-      '#F7DC6F': ['#F7DC6F', '#F4D03F'],
-      '#BB8FCE': ['#BB8FCE', '#A569BD'],
-      '#85C1E2': ['#85C1E2', '#6FB8DC'],
-    };
-    return colorMap[category.color] || [category.color, category.color];
-  };
-
-  const [gradientStart, gradientEnd] = getGradientColors();
-
-  // Функция для получения флага по коду языка
   const getLanguageFlag = (langCode: string): string => {
     const flagMap: { [key: string]: string } = {
       'tk': '🇹🇲', 'zh': '🇨🇳', 'ru': '🇷🇺', 'en': '🇬🇧',
@@ -426,64 +291,57 @@ export default function CategoryScreen() {
     return flagMap[langCode] || '🇬🇧';
   };
 
+  if (isLoading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#2D8CFF" />
+        <Text style={styles.loadingText}>
+          {config.mode === 'tk' ? 'Ýüklenýär...' :
+           config.mode === 'zh' ? '加载中...' : 'Загрузка...'}
+        </Text>
+      </View>
+    );
+  }
+
   return (
     <SafeAreaView style={styles.container}>
-      {/* ✅ МИНИМАЛИЗМ (Phase 12): Вариант 1 - Языковая пара */}
+      {/* Header — clean Lingify style */}
       <View style={styles.headerContainer}>
         <TouchableOpacity
           style={styles.backButton}
           onPress={() => {
             if (selectedSubcategory) {
-              // Если выбрана подкатегория, вернуться к списку подкатегорий
               handleBackToCategory();
             } else if (navigation.canGoBack()) {
-              // Иначе вернуться на предыдущий экран
               navigation.goBack();
             }
           }}
         >
-          <Ionicons name="arrow-back" size={moderateScale(24)} color={Colors.text} />
+          <Ionicons name="arrow-back" size={moderateScale(24)} color="#1A1A1A" />
         </TouchableOpacity>
 
         <View style={styles.headerContent}>
-          {/* Строка 1: Языковая пара с флагами */}
-          <View style={styles.languagePairRow}>
-            <Text style={styles.languageFlag}>{getLanguageFlag(selectedLanguage)}</Text>
-            <Text style={styles.swapIcon}>↔</Text>
-            <Text style={styles.languageFlag}>🇹🇲</Text>
-          </View>
-
-          {/* Строка 2: Эмодзи + названия + количество */}
-          <View style={styles.categoryRow}>
-            <Text style={styles.categoryEmoji}>{category.icon}</Text>
-            <Text style={styles.categoryNames}>
+          <View style={styles.headerTitleRow}>
+            <Text style={styles.headerEmoji}>{category.icon}</Text>
+            <Text style={styles.headerTitle} numberOfLines={1}>
               {selectedSubcategoryName || getCategoryNameByLanguage(selectedLanguage)}
-              {' · '}
-              {selectedSubcategory
-                ? getSubcategoryNameByLanguage(selectedSubcategory, 'tk')
-                : category.nameTk}
-              {' '}
-              <Text style={styles.phrasesCount}>({filteredPhrases.length})</Text>
             </Text>
           </View>
+          <Text style={styles.headerSubtitle}>
+            {getLanguageFlag(selectedLanguage)} ↔ 🇹🇲 · {filteredPhrases.length} phrases
+          </Text>
         </View>
 
         {selectedSubcategory && (
-          <TouchableOpacity
-            style={styles.backToCategoryButton}
-            onPress={handleBackToCategory}
-          >
-            <Text style={styles.gridEmoji}>📑</Text>
+          <TouchableOpacity style={styles.backToCategoryButton} onPress={handleBackToCategory}>
+            <Ionicons name="grid-outline" size={moderateScale(22)} color="#6B7280" />
           </TouchableOpacity>
         )}
-
-        {/* Цветная линия-акцент */}
-        <View style={[styles.accentLine, { backgroundColor: gradientStart }]} />
       </View>
 
       <FlatList
         data={filteredPhrases}
-        renderItem={({ item }) => (
+        renderItem={({ item, index }) => (
           <PhraseItem
             phrase={item}
             onPress={handlePhrasePress}
@@ -491,27 +349,28 @@ export default function CategoryScreen() {
             isFavorite={isFavorite}
             toggleFavorite={toggleFavorite}
             onAskAI={handleOpenAIModal}
+            onPlayAudio={handlePlayAudio}
+            playingPhraseId={playingPhraseId}
+            playingType={playingType}
+            audioIsPlaying={audioIsPlaying}
+            audioIsLoading={audioIsLoading}
+            isLast={index === filteredPhrases.length - 1}
           />
         )}
         keyExtractor={(item) => item.id}
         style={styles.content}
         showsVerticalScrollIndicator={false}
-        onScroll={Animated.event(
-          [{ nativeEvent: { contentOffset: { y: scrollY } } }],
-          { useNativeDriver: false }
-        )}
         scrollEventThrottle={16}
         windowSize={10}
         maxToRenderPerBatch={10}
         removeClippedSubviews={true}
         initialNumToRender={15}
-        contentContainerStyle={styles.flatListContent}
+        contentContainerStyle={styles.listContent}
         ListHeaderComponent={
           <>
-            {/* ПОДКАТЕГОРИИ - показываем ПЕРВЫМИ если есть и не выбрана конкретная */}
             {subcategories.length > 0 && !selectedSubcategory && (
               <View style={styles.subcategoriesSection}>
-                <Text style={[styles.sectionTitle, { paddingHorizontal: 0 }]}>
+                <Text style={styles.sectionTitle}>
                   {config.mode === 'tk' ? 'Bölümler' :
                    config.mode === 'zh' ? '分类' : 'Разделы'}
                 </Text>
@@ -522,8 +381,6 @@ export default function CategoryScreen() {
                 />
               </View>
             )}
-
-            {/* Заголовок для фраз (только если есть подкатегории и не выбрана конкретная) */}
             {filteredPhrases.length > 0 && subcategories.length > 0 && !selectedSubcategory && (
               <Text style={styles.sectionTitle}>
                 {config.mode === 'tk' ? 'Ähli sözlemler' :
@@ -534,7 +391,7 @@ export default function CategoryScreen() {
         }
         ListEmptyComponent={
           <View style={styles.emptyContainer}>
-            <Text style={styles.emptyEmoji}>💬</Text>
+            <Ionicons name="chatbubble-outline" size={moderateScale(48)} color="#D1D5DB" />
             <Text style={styles.emptyTitle}>
               {config.mode === 'tk' ? 'Sözlem tapylmady' :
                config.mode === 'zh' ? '未找到短语' : 'Фразы не найдены'}
@@ -557,337 +414,170 @@ export default function CategoryScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.background,
+    backgroundColor: '#FFFFFF',
     flex: 1,
   },
 
   loadingContainer: {
     alignItems: 'center',
-    backgroundColor: Colors.background,
+    backgroundColor: '#FFFFFF',
     flex: 1,
     justifyContent: 'center',
   },
 
   loadingText: {
-    color: Colors.textLight,
-    fontSize: moderateScale(16),
-    marginTop: verticalScale(16),
+    color: '#6B7280',
+    fontSize: moderateScale(15),
+    marginTop: verticalScale(12),
   },
 
+  // Header — clean, no shadow
   headerContainer: {
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
-    elevation: 4,
+    borderBottomColor: '#E5E7EB',
+    borderBottomWidth: 1,
     flexDirection: 'row',
-    paddingBottom: verticalScale(16),
+    paddingBottom: verticalScale(12),
     paddingHorizontal: scale(16),
-    paddingTop: verticalScale(44),
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: verticalScale(2) },
-    shadowOpacity: 0.1,
-    shadowRadius: scale(4),
-    zIndex: 1000,
+    paddingTop: verticalScale(8),
   },
 
   backButton: {
     alignItems: 'center',
-    borderRadius: scale(20),
     height: verticalScale(40),
     justifyContent: 'center',
     width: scale(40),
   },
 
-  accentLine: {
-    bottom: 0,
-    height: verticalScale(4),
-    left: 0,
-    position: 'absolute',
-    right: 0,
-  },
-
-  gridEmoji: {
-    fontSize: moderateScale(24),
-  },
-
   headerContent: {
-    alignItems: 'center',
     flex: 1,
-    justifyContent: 'center',
+    marginLeft: scale(8),
   },
 
-  // ✅ МИНИМАЛИЗМ (Phase 12) - Языковая пара
-  languagePairRow: {
+  headerTitleRow: {
     alignItems: 'center',
     flexDirection: 'row',
-    gap: scale(6),
-    marginBottom: verticalScale(4),
+    gap: scale(8),
   },
 
-  languageFlag: {
-    fontSize: moderateScale(16),
+  headerEmoji: {
+    fontSize: moderateScale(20),
   },
 
-  swapIcon: {
-    color: '#9CA3AF',
-    fontSize: moderateScale(14),
-  },
-
-  // ✅ МИНИМАЛИЗМ (Phase 12) - Категория + названия
-  categoryRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: scale(6),
-  },
-
-  categoryEmoji: {
+  headerTitle: {
+    color: '#1A1A1A',
     fontSize: moderateScale(18),
-  },
-
-  categoryNames: {
-    color: '#1F2937',
-    fontSize: moderateScale(14),
     fontWeight: '600',
+    flex: 1,
   },
 
-  phrasesCount: {
+  headerSubtitle: {
     color: '#6B7280',
     fontSize: moderateScale(13),
-    fontWeight: '500',
+    marginTop: verticalScale(2),
   },
 
   backToCategoryButton: {
-    marginLeft: scale(12),
-    padding: scale(4),
+    padding: scale(8),
   },
 
   content: {
     flex: 1,
   },
 
-  // ✅ ИСПРАВЛЕННЫЙ заголовок - только языковая пара
-
-  subcategoriesSection: {
-    backgroundColor: '#fff',
-    paddingVertical: scale(16),
+  listContent: {
+    paddingHorizontal: scale(20),
+    paddingTop: verticalScale(8),
   },
 
-  phrasesSection: {
-    backgroundColor: '#fff',
-    paddingTop: verticalScale(16),
+  // Phrase row — Lingify dictionary style
+  phraseRow: {
+    paddingVertical: verticalScale(14),
+  },
+
+  textLine: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: verticalScale(2),
+  },
+
+  turkmenText: {
+    fontSize: moderateScale(17),
+    fontWeight: '700',
+    color: '#1A1A1A',
+    flex: 1,
+    lineHeight: moderateScale(22),
+    marginRight: scale(8),
+  },
+
+  translationText: {
+    fontSize: moderateScale(15),
+    fontWeight: '400',
+    color: '#374151',
+    flex: 1,
+    lineHeight: moderateScale(20),
+    marginRight: scale(8),
+  },
+
+  transcriptionText: {
+    fontSize: moderateScale(13),
+    fontStyle: 'italic',
+    color: '#9CA3AF',
+    lineHeight: moderateScale(18),
+    marginBottom: verticalScale(2),
+  },
+
+  inlineAudioBtn: {
+    padding: scale(4),
+  },
+
+  bottomActions: {
+    flexDirection: 'row',
+    gap: scale(12),
+    marginTop: verticalScale(6),
+  },
+
+  actionBtn: {
+    padding: scale(4),
+  },
+
+  // Divider
+  divider: {
+    height: 1,
+    backgroundColor: '#E5E7EB',
+  },
+
+  // Subcategories
+  subcategoriesSection: {
+    paddingVertical: verticalScale(12),
   },
 
   sectionTitle: {
-    color: Colors.text,
-    fontSize: moderateScale(18),
-    fontWeight: 'bold',
-    marginBottom: verticalScale(16),
-    paddingHorizontal: scale(16),
+    color: '#1A1A1A',
+    fontSize: moderateScale(17),
+    fontWeight: '600',
+    marginBottom: verticalScale(12),
   },
 
-  flatListContent: {
-    paddingHorizontal: scale(16),
-    paddingTop: verticalScale(24),
-  },
-
-  // ✅ МИНИМАЛИСТИЧНЫЕ стили для фразы (Phase 12)
-
-phraseItem: {
-  backgroundColor: Colors.cardBackground,
-  marginBottom: verticalScale(12), // ✅ Компактнее
-  borderRadius: scale(16), // ✅ Меньше скругление
-  padding: scale(16),      // ✅ Меньше padding
-  shadowColor: Colors.shadowColor,
-  shadowOffset: { width: 0, height: verticalScale(2) },
-  shadowOpacity: 0.08, // ✅ Subtle тень
-  shadowRadius: scale(8),
-  elevation: 3, // ✅ Меньше elevation
-  borderWidth: 1,
-  borderColor: '#E5E7EB', // ✅ Светло-серый border
-},
-
-phraseContent: {
-  alignItems: 'flex-start',
-  flexDirection: 'row',
-},
-
-phraseTextContainer: {
-  flex: 1,
-  marginRight: scale(12), // ✅ Меньше отступ
-},
-
-// ✅ Новый контейнер для китайского с флагом
-chineseContainer: {
-  alignItems: 'center',
-  flexDirection: 'row',
-  marginBottom: verticalScale(6), // ✅ Компактнее
-},
-
-chineseText: {
-  fontSize: moderateScale(20),           // ✅ МИНИМАЛИЗМ - уменьшен шрифт
-  fontWeight: '700',
-  color: '#1F2937',       // ✅ Темно-серый вместо яркого синего
-  marginRight: scale(8),
-  marginBottom: verticalScale(6),
-  flex: 1,
-},
-
-flagEmoji: {
-  fontSize: moderateScale(18),
-  marginLeft: scale(4),
-},
-
-pinyinText: {
-  fontSize: moderateScale(14),           // ✅ МИНИМАЛИЗМ - уменьшен
-  color: '#6B7280',       // ✅ Серый вместо textLight
-  fontStyle: 'italic',
-  marginBottom: verticalScale(8),       // ✅ Компактнее
-  letterSpacing: 0.5,     // ✅ Меньше spacing
-  fontFamily: 'Courier New',
-},
-
-// ✅ Новый контейнер для переводов с флагами
-translationContainer: {
-  alignItems: 'center',
-  flexDirection: 'row',
-  marginBottom: verticalScale(6),
-},
-
-secondaryText: {
-  fontSize: moderateScale(16),           // ✅ МИНИМАЛИЗМ - уменьшен
-  color: '#4B5563',       // ✅ Темно-серый вместо зеленого
-  fontWeight: '600',
-  marginLeft: scale(8),
-  flex: 1,
-},
-
-tertiaryText: {
-  fontSize: moderateScale(17),           // ✅ Увеличил до 17
-  color: Colors.russianText,
-  fontWeight: '500',
-  marginLeft: scale(8),
-  flex: 1,
-},
-
-phraseActions: {
-  alignItems: 'flex-end',
-  justifyContent: 'space-between',
-  minHeight: verticalScale(80),         // ✅ МИНИМАЛИЗМ - меньше места
-},
-
-audioButtons: {
-  flexDirection: 'column',
-  marginBottom: verticalScale(8),       // ✅ Компактнее
-  gap: verticalScale(6),                // ✅ Меньше gap
-},
-
-audioButton: {
-  flexDirection: 'row',
-  alignItems: 'center',
-  paddingHorizontal: scale(12),  // ✅ МИНИМАЛИЗМ - меньше padding
-  paddingVertical: verticalScale(8),
-  borderRadius: scale(12),       // ✅ Меньше скругление
-  minWidth: scale(70),           // ✅ Компактнее
-  justifyContent: 'center',
-  backgroundColor: '#FFFFFF',    // ✅ OUTLINE стиль - белый фон
-  borderWidth: 1.5,              // ✅ Border для outline
-  borderColor: '#D1D5DB',        // ✅ Серый border
-  shadowOffset: { width: 0, height: verticalScale(1) },
-  shadowOpacity: 0.05,           // ✅ Очень subtle тень
-  shadowRadius: scale(2),
-  elevation: 1,                  // ✅ Минимальная тень
-},
-
-audioTriangle: {
-  fontSize: moderateScale(12),           // ✅ МИНИМАЛИЗМ - меньше треугольник
-  color: '#374151',              // ✅ Темно-серый
-  marginRight: scale(6),         // ✅ Меньше отступ
-  fontWeight: '600',
-},
-
-// ✅ ИНДИКАТОР загрузки
-audioIndicator: {
-  marginRight: scale(6),         // ✅ Тот же отступ как у треугольника
-},
-
-// ✅ МИНИМАЛИЗМ - убраны яркие цвета, все outline
-translationAudioButton: {
-  // Стиль наследуется от audioButton (белый фон + серый border)
-},
-
-// ✅ МИНИМАЛИЗМ - убраны яркие цвета, все outline
-turkmenAudioButton: {
-  // Стиль наследуется от audioButton (белый фон + серый border)
-},
-
-translationAudioButtonText: {
-  color: '#374151',              // ✅ Темно-серый вместо черного
-  fontSize: moderateScale(13),   // ✅ Меньше шрифт
-  fontWeight: '600',             // ✅ Меньше жирность
-  letterSpacing: 0,
-},
-
-turkmenAudioButtonText: {
-  color: '#374151',              // ✅ Темно-серый вместо черного
-  fontSize: moderateScale(13),   // ✅ Меньше шрифт
-  fontWeight: '600',             // ✅ Меньше жирность
-  letterSpacing: 0,
-},
-
-favoriteButton: {
-  padding: scale(6),             // ✅ МИНИМАЛИЗМ - меньше padding
-  marginTop: verticalScale(4),
-},
-
+  // Empty state
   emptyContainer: {
     alignItems: 'center',
-    flex: 1,
-    justifyContent: 'center',
-    paddingHorizontal: scale(32),
     paddingVertical: verticalScale(60),
   },
 
-  emptyEmoji: {
-    fontSize: moderateScale(64),
-    opacity: 0.5,
-  },
-
   emptyTitle: {
-    color: Colors.textLight,
-    fontSize: moderateScale(22),
-    fontWeight: 'bold',
-    marginBottom: verticalScale(8),
+    color: '#6B7280',
+    fontSize: moderateScale(18),
+    fontWeight: '600',
     marginTop: verticalScale(16),
-    textAlign: 'center',
   },
 
   emptyText: {
-    color: Colors.textLight,
-    fontSize: moderateScale(16),
-    lineHeight: moderateScale(24),
+    color: '#9CA3AF',
+    fontSize: moderateScale(14),
+    marginTop: verticalScale(8),
     textAlign: 'center',
-  },
-
-  bottomSpacing: {
-    height: verticalScale(20),
-  },
-
-
-  secondaryButtons: {
-    flexDirection: 'row',
-    gap: scale(6),
-    marginBottom: verticalScale(4),
-  },
-
-  iconButton: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#D1D5DB',
-    borderRadius: scale(12),
-    borderWidth: 1.5,
-    elevation: 1,
-    paddingHorizontal: scale(10),
-    paddingVertical: verticalScale(8),
-    shadowOffset: { width: 0, height: verticalScale(1) },
-    shadowOpacity: 0.05,
-    shadowRadius: scale(2),
   },
 });
