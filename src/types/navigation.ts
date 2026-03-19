@@ -29,7 +29,7 @@ export type RootStackParamList = {
   TextTranslator: undefined;
 
   // Coming Soon Screen (for unreleased features)
-  ComingSoon: { feature: 'voice' | 'visual' };
+  ComingSoon: { feature: 'voice' | 'visual' | 'ai' };
 
   // AI Assistants Module (Phase 4 - Ready)
   UniversalAIChat: undefined; // Universal AI assistant (replaces old separate assistants)

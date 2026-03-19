@@ -27,6 +27,10 @@ const FEATURE_CONFIG = {
     version: '1.5',
     icon: 'camera-outline' as const,
   },
+  ai: {
+    version: '2.0',
+    icon: 'sparkles-outline' as const,
+  },
 };
 
 export default function ComingSoonScreen() {
@@ -50,16 +54,19 @@ export default function ComingSoonScreen() {
 
   const getTitle = () => {
     if (feature === 'voice') return texts.voiceTranslatorTitle || 'Voice Translator';
+    if (feature === 'ai') return texts.aiAssistantsTitle || 'AI Assistant';
     return texts.visualTranslatorTitle || 'Visual Translator';
   };
 
   const getComingSoonTitle = () => {
     if (feature === 'voice') return texts.voiceComingSoonTitle || 'Voice Translator is Coming!';
+    if (feature === 'ai') return texts.aiComingSoonTitle || 'AI Assistant is Coming!';
     return texts.visualComingSoonTitle || 'Visual Translator is Coming!';
   };
 
   const getDescription = () => {
     if (feature === 'voice') return texts.voiceComingSoonDesc || 'We are working hard to bring you an amazing voice translation experience.';
+    if (feature === 'ai') return texts.aiComingSoonDesc || 'We are working on an intelligent AI assistant to help you learn languages faster.';
     return texts.visualComingSoonDesc || 'Translate text from images instantly with AI-powered recognition.';
   };
 
@@ -69,6 +76,13 @@ export default function ComingSoonScreen() {
         { icon: 'mic-outline' as const, text: texts.voiceComingSoonFeature1 || 'Real-time voice recognition' },
         { icon: 'language-outline' as const, text: texts.voiceComingSoonFeature2 || 'Instant translation' },
         { icon: 'volume-high-outline' as const, text: texts.voiceComingSoonFeature3 || 'Text-to-speech playback' },
+      ];
+    }
+    if (feature === 'ai') {
+      return [
+        { icon: 'sparkles-outline' as const, text: texts.aiComingSoonFeature1 || 'Smart phrase explanations' },
+        { icon: 'chatbubble-outline' as const, text: texts.aiComingSoonFeature2 || 'Interactive conversations' },
+        { icon: 'school-outline' as const, text: texts.aiComingSoonFeature3 || 'Personalized learning tips' },
       ];
     }
     return [
@@ -178,6 +192,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
+    width: '100%',
   },
 
   // Icon — outlined circle

@@ -176,9 +176,15 @@
 
 ## Блокировка языков
 
-- Оставить открытым: только Китайский (🇨🇳)
-- Все остальные 29 языков: замок + "Coming soon" + opacity 50%
-- Механизм уже есть в LanguageSelectionScreen (disabled state)
+- Открыты: 🇨🇳 Китайский, 🇷🇺 Русский, 🇬🇧 Английский, 🇹🇷 Турецкий (+🇹🇲 Туркменский)
+- Остальные 26 языков: замок + "Coming soon" + opacity 50%
+- Реализовано через `isAvailable` в `languages.config.ts`
+
+## Блокировка модулей
+
+- AI ассистент: закрыт (Coming Soon v2.0), убран Gemini API из продакшена
+- Visual Translator: Coming Soon v1.5
+- Voice Translator: Coming Soon v2.0
 
 ---
 
@@ -192,12 +198,19 @@
 | 4 | Phrasebook — фразы | ✅ |
 | 5 | Translate | ✅ |
 | 6 | Conversation | ⏭️ (нет экрана) |
-| 7 | AI Chat | ✅ |
+| 7 | AI Chat | ✅ (закрыт как Coming Soon) |
 | 8 | Settings | ✅ |
-| 9 | Onboarding | ✅ |
+| 9 | Onboarding | ✅ (исправлен баг белого фона 19.03) |
 | 10 | Language Selection | ✅ |
-| 11 | Visual Translator | ✅ |
-| 12 | Voice Translator | ✅ |
+| 11 | Visual Translator | ✅ (исправлен баг текста фич 19.03) |
+| 12 | Voice Translator | ✅ (исправлен баг текста фич 19.03) |
 | 13 | Favorites | ✅ |
 | 14 | Search | ✅ |
 | 15 | Statistics | ✅ |
+
+### Не адаптированы под Lingify (работают, но старый дизайн):
+- DictionaryScreen
+- LanguagePairSelectionScreen
+- AdditionalFeaturesScreen
+- PhraseDetailScreen
+- AskAIScreen

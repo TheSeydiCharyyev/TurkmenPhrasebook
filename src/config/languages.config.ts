@@ -65,7 +65,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Japanese',
     nameTk: 'Ýapon dili',
     flag: '🇯🇵',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: true,
     ttsCode: 'ja-JP',
     direction: 'ltr'
@@ -76,7 +76,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Korean',
     nameTk: 'Koreý dili',
     flag: '🇰🇷',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: true,
     ttsCode: 'ko-KR',
     direction: 'ltr'
@@ -87,7 +87,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Thai',
     nameTk: 'Taý dili',
     flag: '🇹🇭',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: true,
     ttsCode: 'th-TH',
     direction: 'ltr'
@@ -98,7 +98,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Vietnamese',
     nameTk: 'Wýetnam dili',
     flag: '🇻🇳',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: false,
     ttsCode: 'vi-VN',
     direction: 'ltr'
@@ -109,7 +109,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Indonesian',
     nameTk: 'Indoneziýa dili',
     flag: '🇮🇩',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: false,
     ttsCode: 'id-ID',
     direction: 'ltr'
@@ -120,7 +120,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Malay',
     nameTk: 'Malaý dili',
     flag: '🇲🇾',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: false,
     ttsCode: 'ms-MY',
     direction: 'ltr'
@@ -131,7 +131,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Hindi',
     nameTk: 'Hindi dili',
     flag: '🇮🇳',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: true,
     ttsCode: 'hi-IN',
     direction: 'ltr'
@@ -142,7 +142,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Urdu',
     nameTk: 'Urdu dili',
     flag: '🇵🇰',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: true,
     ttsCode: 'ur-PK',
     direction: 'rtl'
@@ -153,7 +153,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Persian',
     nameTk: 'Pars dili',
     flag: '🇮🇷',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: true,
     ttsCode: 'fa-IR',
     direction: 'rtl'
@@ -164,7 +164,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Pashto',
     nameTk: 'Peştu dili',
     flag: '🏳️',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: true,
     ttsCode: 'ps-AF',
     direction: 'rtl'
@@ -175,7 +175,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'German',
     nameTk: 'Nemes dili',
     flag: '🇩🇪',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: false,
     ttsCode: 'de-DE',
     direction: 'ltr'
@@ -186,7 +186,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'French',
     nameTk: 'Fransuz dili',
     flag: '🇫🇷',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: false,
     ttsCode: 'fr-FR',
     direction: 'ltr'
@@ -197,7 +197,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Spanish',
     nameTk: 'Ispan dili',
     flag: '🇪🇸',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: false,
     ttsCode: 'es-ES',
     direction: 'ltr'
@@ -208,7 +208,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Italian',
     nameTk: 'Italýan dili',
     flag: '🇮🇹',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: false,
     ttsCode: 'it-IT',
     direction: 'ltr'
@@ -230,7 +230,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Polish',
     nameTk: 'Polýak dili',
     flag: '🇵🇱',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: false,
     ttsCode: 'pl-PL',
     direction: 'ltr'
@@ -241,7 +241,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Ukrainian',
     nameTk: 'Ukrain dili',
     flag: '🇺🇦',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: true,
     ttsCode: 'uk-UA',
     direction: 'ltr'
@@ -252,7 +252,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Armenian',
     nameTk: 'Ermeni dili',
     flag: '🇦🇲',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: true,
     ttsCode: 'hy-AM',
     direction: 'ltr'
@@ -263,7 +263,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Georgian',
     nameTk: 'Gruzin dili',
     flag: '🇬🇪',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: true,
     ttsCode: 'ka-GE',
     direction: 'ltr'
@@ -274,7 +274,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Arabic',
     nameTk: 'Arap dili',
     flag: '🇸🇦',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: true,
     ttsCode: 'ar-SA',
     direction: 'rtl'
@@ -285,7 +285,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Uzbek',
     nameTk: 'Özbek dili',
     flag: '🇺🇿',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: false,
     ttsCode: 'uz-UZ',
     direction: 'ltr'
@@ -296,7 +296,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Kazakh',
     nameTk: 'Gazak dili',
     flag: '🇰🇿',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: true,
     ttsCode: 'kk-KZ',
     direction: 'ltr'
@@ -307,7 +307,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Azerbaijani',
     nameTk: 'Azerbaýjan dili',
     flag: '🇦🇿',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: false,
     ttsCode: 'az-AZ',
     direction: 'ltr'
@@ -318,7 +318,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Kyrgyz',
     nameTk: 'Gyrg dili',
     flag: '🇰🇬',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: true,
     ttsCode: 'ky-KG',
     direction: 'ltr'
@@ -329,7 +329,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Tajik',
     nameTk: 'Täjik dili',
     flag: '🇹🇯',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: true,
     ttsCode: 'tg-TJ',
     direction: 'ltr'
@@ -340,7 +340,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Portuguese',
     nameTk: 'Portugal dili',
     flag: '🇵🇹',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: false,
     ttsCode: 'pt-PT',
     direction: 'ltr'
@@ -351,7 +351,7 @@ export const LANGUAGES: LanguageConfig[] = [
     nameEn: 'Dutch',
     nameTk: 'Golland dili',
     flag: '🇳🇱',
-    isAvailable: true,
+    isAvailable: false,
     hasTranscription: false,
     ttsCode: 'nl-NL',
     direction: 'ltr'

@@ -61,7 +61,7 @@ const DictionaryScreen: React.FC = () => {
   const styles = React.useMemo(() => StyleSheet.create({
     backButton: {
       alignItems: 'center',
-      backgroundColor: 'rgba(255, 255, 255, 0.2)',
+      backgroundColor: '#FFFFFF',
       borderRadius: scale(20),
       elevation: 3,
       height: scale(40),
@@ -292,7 +292,7 @@ const DictionaryScreen: React.FC = () => {
             style={styles.backButton}
             onPress={() => navigation.goBack()}
           >
-            <Ionicons name="arrow-back" size={moderateScale(24)} color="#FFFFFF" />
+            <Ionicons name="arrow-back" size={moderateScale(24)} color="#1A1A1A" />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Dictionary</Text>
           <View style={styles.placeholder} />
