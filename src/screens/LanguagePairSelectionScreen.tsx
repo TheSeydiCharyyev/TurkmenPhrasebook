@@ -27,7 +27,10 @@ interface LanguagePair {
   nameEn: string; // English name
   flag: string;
   gradient: [string, string];
+  isAvailable?: boolean;
 }
+
+const AVAILABLE_CODES = ['zh', 'ru', 'en', 'tr'];
 
 type LanguagePairNavigationProp = StackNavigationProp<HomeStackParamList, 'LanguagePairSelection'>;
 
@@ -285,8 +288,20 @@ const LanguagePairSelectionScreen: React.FC = () => {
     },
   ];
 
+  // Mark pairs as available or not
+  const pairsWithAvailability = availablePairs.map(pair => ({
+    ...pair,
+    isAvailable: AVAILABLE_CODES.includes(pair.code),
+  }));
+
+  // Sort: available first, then unavailable
+  const sortedPairs = [
+    ...pairsWithAvailability.filter(p => p.isAvailable),
+    ...pairsWithAvailability.filter(p => !p.isAvailable),
+  ];
+
   const handleSelect = async (pair: LanguagePair) => {
-    if (isLoading) return;
+    if (isLoading || !pair.isAvailable) return;
 
     setSelectedPair(pair.code);
     setIsLoading(true);
@@ -414,9 +429,16 @@ const LanguagePairSelectionScreen: React.FC = () => {
       shadowOpacity: 0.1,
       shadowRadius: 8,
     },
+    pairButtonDisabled: {
+      opacity: 0.6,
+    },
     pairDescription: {
       color: '#64748b',
       fontSize: moderateScale(14),
+    },
+    pairDescriptionDisabled: {
+      color: '#9CA3AF',
+      fontStyle: 'italic',
     },
     pairFlag: {
       fontSize: moderateScale(40),
@@ -429,6 +451,9 @@ const LanguagePairSelectionScreen: React.FC = () => {
       minHeight: verticalScale(100),
       padding: scale(20),
     },
+    pairGradientDisabled: {
+      backgroundColor: '#F3F4F6',
+    },
     pairInfo: {
       flex: 1,
     },
@@ -437,6 +462,9 @@ const LanguagePairSelectionScreen: React.FC = () => {
       fontSize: moderateScale(22),
       fontWeight: '700',
       marginBottom: verticalScale(4),
+    },
+    pairNameDisabled: {
+      color: '#9CA3AF',
     },
     pairSelected: {
       borderColor: '#FF8008',
@@ -473,33 +501,35 @@ const LanguagePairSelectionScreen: React.FC = () => {
 
         {/* Language Pairs */}
         <View style={styles.pairsContainer}>
-          {availablePairs.map((pair) => (
+          {sortedPairs.map((pair) => (
             <TouchableOpacity
               key={pair.id}
               onPress={() => handleSelect(pair)}
-              activeOpacity={0.8}
-              style={styles.pairButton}
+              activeOpacity={pair.isAvailable ? 0.8 : 1}
+              disabled={!pair.isAvailable}
+              style={[styles.pairButton, !pair.isAvailable && styles.pairButtonDisabled]}
             >
               <View
                 style={[
                   styles.pairGradient,
                   selectedPair === pair.code && styles.pairSelected,
+                  !pair.isAvailable && styles.pairGradientDisabled,
                 ]}
               >
                 {/* Flag */}
-                <Text style={styles.pairFlag}>{pair.flag}</Text>
+                <Text style={[styles.pairFlag, !pair.isAvailable && { opacity: 0.4 }]}>{pair.flag}</Text>
 
                 {/* Names */}
                 <View style={styles.pairInfo}>
-                  <Text style={styles.pairName}>{pair.name}</Text>
-                  <Text style={styles.pairDescription}>
-                    {getPairDescription(pair.code)}
+                  <Text style={[styles.pairName, !pair.isAvailable && styles.pairNameDisabled]}>{pair.name}</Text>
+                  <Text style={[styles.pairDescription, !pair.isAvailable && styles.pairDescriptionDisabled]}>
+                    {pair.isAvailable ? getPairDescription(pair.code) : 'Coming Soon'}
                   </Text>
                 </View>
 
-                {/* Arrow or Checkmark */}
-                <Text style={styles.pairArrow}>
-                  {selectedPair === pair.code ? '✓' : '→'}
+                {/* Arrow, Checkmark, or Lock */}
+                <Text style={[styles.pairArrow, !pair.isAvailable && { opacity: 0.3 }]}>
+                  {!pair.isAvailable ? '🔒' : selectedPair === pair.code ? '✓' : '→'}
                 </Text>
               </View>
             </TouchableOpacity>
